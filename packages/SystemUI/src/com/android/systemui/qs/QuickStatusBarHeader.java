@@ -18,10 +18,12 @@ import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.provider.AlarmClock;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.DisplayCutout;
@@ -39,6 +41,7 @@ import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.battery.BatteryMeterView;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.qs.QSDetail.Callback;
 import com.android.systemui.statusbar.phone.StatusBarContentInsetsProvider;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
@@ -54,11 +57,13 @@ import java.util.List;
  * View that contains the top-most bits of the QS panel (primarily the status bar with date, time,
  * battery, carrier info and privacy icons) and also contains the {@link QuickQSPanel}.
  */
-public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tunable {
+public class QuickStatusBarHeader extends FrameLayout implements
+        View.OnClickListener, TunerService.Tunable {
 
     private boolean mExpanded;
     private boolean mQsDisabled;
 
+    private final ActivityStarter mActivityStarter;
     private TouchAnimator mAlphaAnimator;
     private TouchAnimator mTranslationAnimator;
     private TouchAnimator mIconsAlphaAnimator;
@@ -110,6 +115,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mActivityStarter = Dependency.get(ActivityStarter.class);
     }
 
     /**
@@ -142,6 +148,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
         mClockContainer = findViewById(R.id.clock_container);
         mClockView = findViewById(R.id.clock);
+        mClockView.setOnClickListener(this);
         mDatePrivacySeparator = findViewById(R.id.space);
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
@@ -155,6 +162,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         // QS will always show the estimate, and BatteryMeterView handles the case where
         // it's unavailable or charging
         mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
+        mBatteryRemainingIcon.setOnClickListener(this);
 
         mIconsAlphaAnimatorFixed = new TouchAnimator.Builder()
                 .addFloat(mIconContainer, "alpha", 0, 1)
@@ -215,6 +223,17 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
     public void onRtlPropertiesChanged(int layoutDirection) {
         super.onRtlPropertiesChanged(layoutDirection);
         updateResources();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mClockView) {
+            mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
+                    AlarmClock.ACTION_SHOW_ALARMS), 0);
+        } else if (v == mBatteryRemainingIcon) {
+            mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
+                    Intent.ACTION_POWER_USAGE_SUMMARY), 0);
+        }
     }
 
     private void setDatePrivacyContainersWidth(boolean landscape) {
