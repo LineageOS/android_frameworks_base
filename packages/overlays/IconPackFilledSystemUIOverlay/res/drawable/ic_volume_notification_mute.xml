@@ -1,33 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2020 The LineageOS Project
+   Copyright (C) 2019 The Android Open Source Project
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
 
-          http://www.apache.org/licenses/LICENSE-2.0
+        http://www.apache.org/licenses/LICENSE-2.0
 
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:height="24dp"
+    android:tint="?android:attr/colorControlNormal"
     android:viewportHeight="24"
     android:viewportWidth="24"
-    android:width="24dp"
-    android:tint="?android:attr/colorControlNormal" >
-
+    android:width="24dp" >
     <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M12,21C13.1046,21 14,20.1046 14,19H10C10,20.1046 10.8954,21 12,21Z"/>
+        android:fillColor="@android:color/white"
+        android:pathData="M12,22c1.1,0,2-0.9,2-2h-4C10,21.1,10.9,22,12,22z" />
     <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M3,3C3.2762,3 3.5262,3.1119 3.7071,3.2929L20.7072,20.2929C20.8881,20.4739 21,20.7239 21,21C21,21.5523 20.5523,22 20,22C19.7206,22 19.4679,21.8854 19.2864,21.7006L15.5858,18H6.2071C5.7616,18 5.5385,17.4614 5.8535,17.1464L6.9999,16V10.5C6.9999,10.1617 7.0335,9.8312 7.0976,9.5118L2.2995,4.7137C2.1147,4.5322 2,4.2795 2,4C2,3.4477 2.4477,3 3,3Z"/>
+        android:fillColor="@android:color/white"
+        android:pathData="M18,11c0-3.07-1.64-5.64-4.5-6.32V4c0-0.83-0.67-1.5-1.5-1.5S10.5,3.17,10.5,4v0.68C9.72,4.86,9.04,5.2,8.46,5.63 L18,15.17V11z" />
     <path
-        android:fillColor="#FFFFFFFF"
-        android:pathData="M17.0001,13.7574V10.5C17.0001,8.2551 15.5206,6.3557 13.4835,5.7237C13.4944,5.6507 13.5001,5.576 13.5001,5.5C13.5001,4.6716 12.8285,4 12.0001,4C11.1716,4 10.5001,4.6716 10.5001,5.5C10.5001,5.576 10.5057,5.6507 10.5166,5.7237C10.138,5.8412 9.7786,6.0025 9.4443,6.2016L17.0001,13.7574Z"/>
-
+        android:fillColor="@android:color/white"
+        android:pathData="M20.49,20.49L3.52,3.52c-0.39-0.39-1.02-0.39-1.41,0c-0.39,0.39-0.39,1.02,0,1.41l4.14,4.14C6.09,9.68,6,10.33,6,11v5 l-2.15,2.15c-0.19,0.2-0.19,0.51,0.01,0.71C3.95,18.95,4.07,19,4.2,19h11.97l2.91,2.91c0.39,0.39,1.02,0.39,1.41,0 C20.88,21.52,20.88,20.88,20.49,20.49z" />
 </vector>
