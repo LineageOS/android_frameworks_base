@@ -16,6 +16,24 @@
       "revId": "dfe1885821d38d7399b581a36e414e6af9a4aa29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81802c78_b2b3e806",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-07-03T06:50:24Z",
+      "side": 1,
+      "message": "final is correct so ought to be acceptable.  Without this, shouldListenForFingerprint() variables are being checked anyway and diff readability is IMO better with hidefod last (matters since this is aosp upstream).\n\nBut the issues are small and I would rather we get this merged and so changes made.",
+      "parentUuid": "d5607d4d_dbbefc2c",
+      "revId": "dfe1885821d38d7399b581a36e414e6af9a4aa29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
