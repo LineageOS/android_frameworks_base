@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb742c21_f0411595",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2021-07-05T19:39:41Z",
+      "side": 1,
+      "message": "any reason this need hal upgrade? imo adding this flag unconditionally should not break any existing device",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 72
+      },
+      "revId": "efa5b60db42b28e6a7035c58a86361fe86cf2d15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
