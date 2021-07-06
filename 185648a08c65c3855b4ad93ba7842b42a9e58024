@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "253c59c9_ad65d871",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2021-07-06T15:33:02Z",
+      "side": 1,
+      "message": "12 spaces",
+      "range": {
+        "startLine": 1129,
+        "startChar": 0,
+        "endLine": 1129,
+        "endChar": 11
+      },
+      "revId": "185648a08c65c3855b4ad93ba7842b42a9e58024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ac8df83_2a5045f8",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3098,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2021-07-06T15:33:02Z",
+      "side": 1,
+      "message": "4 spaces",
+      "range": {
+        "startLine": 3098,
+        "startChar": 0,
+        "endLine": 3098,
+        "endChar": 3
+      },
+      "revId": "185648a08c65c3855b4ad93ba7842b42a9e58024",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
