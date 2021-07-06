@@ -46,6 +46,30 @@
       "revId": "efa5b60db42b28e6a7035c58a86361fe86cf2d15",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ad912d5_27013167",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 28970
+      },
+      "writtenOn": "2021-07-06T15:55:17Z",
+      "side": 1,
+      "message": "That it doesn\u0027t create problems for any devices is already certain as I have already communicated to Sebastiano that mine initial patch has been included since December on the framework base of Descendant and no one has had problems, neither mi9 neither op7 etc. I think that the fact that this may interfere with the in-kernel dimming is wrong and however in my opinion the name mDimBehindPressedLayer suggest act to mPressedParams not mParams.",
+      "parentUuid": "852b72a2_7a87f8c6",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 72
+      },
+      "revId": "efa5b60db42b28e6a7035c58a86361fe86cf2d15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
