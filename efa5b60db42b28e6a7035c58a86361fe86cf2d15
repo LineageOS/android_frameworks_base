@@ -70,6 +70,30 @@
       "revId": "efa5b60db42b28e6a7035c58a86361fe86cf2d15",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985e63d1_e11799d5",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 22465
+      },
+      "writtenOn": "2021-07-06T16:09:55Z",
+      "side": 1,
+      "message": "Indeed about the variable name, I didn\u0027t read carefully and thought that the patch added the flag to the pressed params instead of the base params, my bad, so mDimBehindBaseIcon or similar would be okay in my opinion. Although I don\u0027t see a reason for making it configurable if this doesn\u0027t make issues with other implementations as Abhishek said.",
+      "parentUuid": "2ad912d5_27013167",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 72
+      },
+      "revId": "efa5b60db42b28e6a7035c58a86361fe86cf2d15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
