@@ -22,6 +22,30 @@
       "revId": "efa5b60db42b28e6a7035c58a86361fe86cf2d15",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "852b72a2_7a87f8c6",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 26367
+      },
+      "writtenOn": "2021-07-06T10:49:01Z",
+      "side": 1,
+      "message": "I agree with abhishek. I\u0027ve tested these flags with 3 devices till now. (two of them using FOD Ext hooks). FOD behaviour was fine.",
+      "parentUuid": "bb742c21_f0411595",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 72
+      },
+      "revId": "efa5b60db42b28e6a7035c58a86361fe86cf2d15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
