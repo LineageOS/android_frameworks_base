@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8b006cc_3ba8cc12",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1889,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-07-07T11:17:49Z",
+      "side": 1,
+      "message": "Remove these stray spaces.",
+      "range": {
+        "startLine": 1889,
+        "startChar": 41,
+        "endLine": 1889,
+        "endChar": 57
+      },
+      "revId": "7dcbf54699b2571b5bef27907d7d431f88e87578",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
