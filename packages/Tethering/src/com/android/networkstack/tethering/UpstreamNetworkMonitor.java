@@ -81,6 +81,8 @@ public class UpstreamNetworkMonitor {
     private static final boolean DBG = false;
     private static final boolean VDBG = false;
 
+    private static final String ALWAYS_ON_VPN_LOCKDOWN = "always_on_vpn_lockdown";
+
     public static final int EVENT_ON_CAPABILITIES   = 1;
     public static final int EVENT_ON_LINKPROPERTIES = 2;
     public static final int EVENT_ON_LOST           = 3;
@@ -310,10 +312,14 @@ public class UpstreamNetworkMonitor {
      */
     public UpstreamNetworkState getCurrentPreferredUpstream() {
         // Use VPN upstreams if hotspot settings allow.
-        if (mVpnInternetNetwork != null &&
-                LineageSettings.Secure.getInt(mContext.getContentResolver(),
+        if (LineageSettings.Secure.getInt(mContext.getContentResolver(),
                         LineageSettings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS, 0) == 1) {
-            return mNetworkMap.get(mVpnInternetNetwork);
+            if (mVpnInternetNetwork != null) {
+                return mNetworkMap.get(mVpnInternetNetwork);
+            } else if (Settings.Secure.getInt(mContext.getContentResolver(),
+                    ALWAYS_ON_VPN_LOCKDOWN, 0) == 1) {
+                return null;
+            }
         }
 
         final UpstreamNetworkState dfltState = (mDefaultInternetNetwork != null)
