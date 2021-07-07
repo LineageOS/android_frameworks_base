@@ -22,6 +22,30 @@
       "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbbb4d52_1e51fc45",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 28970
+      },
+      "writtenOn": "2021-07-07T13:59:54Z",
+      "side": 1,
+      "message": "No mate, for the current impl we need dim behind for both layers.",
+      "parentUuid": "a5693618_fd214d03",
+      "range": {
+        "startLine": 237,
+        "startChar": 32,
+        "endLine": 237,
+        "endChar": 76
+      },
+      "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
