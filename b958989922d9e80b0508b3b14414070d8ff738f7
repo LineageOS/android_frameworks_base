@@ -46,6 +46,30 @@
       "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4412d635_87263c83",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 22465
+      },
+      "writtenOn": "2021-07-07T14:04:41Z",
+      "side": 1,
+      "message": "Removing it should be fine as the params of the pressed layer are copied from the non-pressed layer (which now has the dim behind flag).",
+      "parentUuid": "dbbb4d52_1e51fc45",
+      "range": {
+        "startLine": 237,
+        "startChar": 32,
+        "endLine": 237,
+        "endChar": 76
+      },
+      "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
