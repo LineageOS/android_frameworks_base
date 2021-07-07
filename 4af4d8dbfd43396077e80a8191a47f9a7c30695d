@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "644cc179_965b8532",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-07-07T16:52:46Z",
+      "side": 1,
+      "message": "Place it before touchSensitivityUri",
+      "range": {
+        "startLine": 1155,
+        "startChar": 22,
+        "endLine": 1155,
+        "endChar": 45
+      },
+      "revId": "4af4d8dbfd43396077e80a8191a47f9a7c30695d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
