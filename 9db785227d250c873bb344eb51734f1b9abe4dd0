@@ -22,6 +22,75 @@
       "revId": "9db785227d250c873bb344eb51734f1b9abe4dd0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b3cc9c8_bd7d0b80",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-07-07T07:39:30Z",
+      "side": 1,
+      "message": "Name it highTouchPollingRateUri and place it before touchSensitivityUri",
+      "range": {
+        "startLine": 1155,
+        "startChar": 22,
+        "endLine": 1155,
+        "endChar": 46
+      },
+      "revId": "9db785227d250c873bb344eb51734f1b9abe4dd0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbf46c24_f357fe60",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1832,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-07-07T07:39:30Z",
+      "side": 1,
+      "message": "Place it one line above.",
+      "range": {
+        "startLine": 1832,
+        "startChar": 8,
+        "endLine": 1832,
+        "endChar": 30
+      },
+      "revId": "9db785227d250c873bb344eb51734f1b9abe4dd0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a782b48c_035e2d99",
+        "filename": "services/core/java/com/android/server/inputmethod/InputMethodManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1889,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-07-07T07:39:30Z",
+      "side": 1,
+      "message": "Place it one line above.",
+      "range": {
+        "startLine": 1889,
+        "startChar": 16,
+        "endLine": 1889,
+        "endChar": 38
+      },
+      "revId": "9db785227d250c873bb344eb51734f1b9abe4dd0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
