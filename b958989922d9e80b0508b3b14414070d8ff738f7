@@ -94,6 +94,30 @@
       "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc091cd8_0f285a5c",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2021-07-07T18:32:26Z",
+      "side": 1,
+      "message": "Since FLAG_WATCH_OUTSIDE_TOUCH is also on mParams flags, should I just remove these 2 lines?",
+      "parentUuid": "34ed88d8_7efcb9b8",
+      "range": {
+        "startLine": 237,
+        "startChar": 32,
+        "endLine": 237,
+        "endChar": 76
+      },
+      "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
