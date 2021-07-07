@@ -118,6 +118,30 @@
       "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b9f4ab8_d9d0493b",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 28970
+      },
+      "writtenOn": "2021-07-07T20:52:21Z",
+      "side": 1,
+      "message": "I would say yes, although to keep the patch consistency to its content wouldn\u0027t be a bad idea to dedicate a commit to clean up unnecessary code.",
+      "parentUuid": "fc091cd8_0f285a5c",
+      "range": {
+        "startLine": 237,
+        "startChar": 32,
+        "endLine": 237,
+        "endChar": 76
+      },
+      "revId": "b958989922d9e80b0508b3b14414070d8ff738f7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
