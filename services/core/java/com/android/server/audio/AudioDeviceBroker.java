@@ -612,7 +612,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
             boolean suppressNoisyIntent, int a2dpVolume) {
          final BtDeviceConnectionInfo info = new BtDeviceConnectionInfo(device, state, profile,
                  suppressNoisyIntent, a2dpVolume);
-         sendLMsgNoDelay(MSG_L_A2DP_ACTIVE_DEVICE_CHANGE_EXT, SENDMSG_QUEUE, info);
+         synchronized (mDeviceStateLock) {
+             removeScheduledA2dpEvents(info.mDevice, info.mProfile);
+             sendLMsgNoDelay(MSG_L_A2DP_ACTIVE_DEVICE_CHANGE_EXT, SENDMSG_QUEUE, info);
+         }
     }
 
     private static final class HearingAidDeviceConnectionInfo {
