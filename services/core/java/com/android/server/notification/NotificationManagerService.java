@@ -4161,8 +4161,11 @@ public class NotificationManagerService extends SystemService {
                 notification.flags &= ~Notification.FLAG_CAN_COLORIZE;
             }
 
-        } catch (NameNotFoundException e) {
-            Slog.e(TAG, "Cannot create a context for sending app", e);
+        } catch (Exception e) {
+            if (notification.isForegroundService()) {
+                throw new SecurityException("Invalid FGS notification", e);
+            }
+            Slog.e(TAG, "Cannot fix notification", e);
             return;
         }
 
