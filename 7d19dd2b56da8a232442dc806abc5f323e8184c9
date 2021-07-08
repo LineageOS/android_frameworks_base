@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f52c237c_9298c33d",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2021-07-08T06:01:26Z",
+      "side": 1,
+      "message": "thing is i am still unable to understand how does this fixes anything since dimanount is always 0 so am i missing something or what",
+      "range": {
+        "startLine": 233,
+        "startChar": 16,
+        "endLine": 233,
+        "endChar": 59
+      },
+      "revId": "7d19dd2b56da8a232442dc806abc5f323e8184c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
