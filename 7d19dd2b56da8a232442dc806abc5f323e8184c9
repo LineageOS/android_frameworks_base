@@ -22,6 +22,23 @@
       "revId": "7d19dd2b56da8a232442dc806abc5f323e8184c9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "462ea00f_d5d82303",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 28970
+      },
+      "writtenOn": "2021-07-08T09:22:54Z",
+      "side": 1,
+      "message": "I didn\u0027t even believe it, when I realized that without the relative flag the switch to pressed params causes flickering at least for our implementation, I thought of a \"PreDim\" layer to cover hbm layer, when I discovered that it was enough just to have the flag to cover the entry of the mPressedParams i didn\u0027t believe it, I know it seems something absurd but it is very useful for us.",
+      "revId": "7d19dd2b56da8a232442dc806abc5f323e8184c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
