@@ -57,6 +57,24 @@
       "revId": "7d19dd2b56da8a232442dc806abc5f323e8184c9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96f22d75_f323e5b7",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2021-07-08T15:58:47Z",
+      "side": 1,
+      "message": "\u003e its looks more like a device specific issue\n\nYes, yes it is\nBut since this fix doesn\u0027t affect other devices, why not?",
+      "parentUuid": "37fb44e1_f6cb2bc8",
+      "revId": "7d19dd2b56da8a232442dc806abc5f323e8184c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
