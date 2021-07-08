@@ -5022,16 +5022,16 @@
     <string name="time_placeholder">--</string>
 
     <!-- DO NOT TRANSLATE -->
-    <string name="radial_numbers_typeface">sans-serif</string>
+    <string name="radial_numbers_typeface">@string/config_bodyFontFamily</string>
     <!-- DO NOT TRANSLATE -->
-    <string name="sans_serif">sans-serif</string>
+    <string name="sans_serif">@string/config_bodyFontFamily</string>
 
     <!-- DO NOT TRANSLATE -->
-    <string name="date_picker_month_typeface">sans-serif-medium</string>
+    <string name="date_picker_month_typeface">@string/config_bodyFontFamilyMedium</string>
     <!-- DO NOT TRANSLATE -->
-    <string name="date_picker_day_of_week_typeface">sans-serif-medium</string>
+    <string name="date_picker_day_of_week_typeface">@string/config_bodyFontFamilyMedium</string>
     <!-- DO NOT TRANSLATE -->
-    <string name="date_picker_day_typeface">sans-serif-medium</string>
+    <string name="date_picker_day_typeface">@string/config_bodyFontFamilyMedium</string>
 
     <!-- Lock-to-app unlock pin string -->
     <string name="lock_to_app_unlock_pin">Ask for PIN before unpinning</string>
