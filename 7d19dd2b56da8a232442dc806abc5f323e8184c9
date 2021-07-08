@@ -39,6 +39,24 @@
       "revId": "7d19dd2b56da8a232442dc806abc5f323e8184c9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37fb44e1_f6cb2bc8",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FODCircleView.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2021-07-08T09:34:07Z",
+      "side": 1,
+      "message": "its looks more like a device specific issue i am using display feature fod impl with fod extension hooks on raphael and everything works fine probably you should either switch to oss fod impl done my cosmin or fix miui impl in kernel",
+      "parentUuid": "462ea00f_d5d82303",
+      "revId": "7d19dd2b56da8a232442dc806abc5f323e8184c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
