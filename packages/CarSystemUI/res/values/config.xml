@@ -138,6 +138,7 @@
         <item>com.android.systemui.shortcut.ShortcutKeyDispatcher</item>
         <item>com.android.systemui.LatencyTester</item>
         <item>com.android.systemui.globalactions.GlobalActionsComponent</item>
+        <item>com.android.systemui.biometrics.FODCircleViewImpl</item>
         <item>com.android.systemui.SliceBroadcastRelayHandler</item>
         <item>com.android.systemui.statusbar.notification.InstantAppNotifier</item>
         <item>com.android.systemui.accessibility.WindowMagnification</item>
