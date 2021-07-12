@@ -412,7 +412,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                     mVolumePanelOnLeft = volumePanelOnLeft;
                     mHandler.post(() -> {
                         // Trigger panel rebuild on next show
-                        mConfigChanged = true;
+                        mControllerCallbackH.onConfigurationChanged();
                     });
                 }
             }
