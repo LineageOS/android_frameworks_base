@@ -3496,6 +3496,9 @@ public class AudioService extends IAudioService.Stub
     public void silenceRingerModeInternal(String reason) {
         VibrationEffect effect = null;
         int ringerMode = AudioManager.RINGER_MODE_SILENT;
+
+        int ringerModeCurrent = getRingerModeInternal();
+
         int toastText = 0;
 
         int silenceRingerSetting = Settings.Secure.VOLUME_HUSH_OFF;
@@ -3508,14 +3511,23 @@ public class AudioService extends IAudioService.Stub
 
         switch(silenceRingerSetting) {
             case VOLUME_HUSH_MUTE:
-                effect = VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK);
-                ringerMode = AudioManager.RINGER_MODE_SILENT;
-                toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_silent;
-                break;
+                if (ringerModeCurrent != AudioManager.RINGER_MODE_SILENT) {
+                    effect = VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK);
+                    ringerMode = AudioManager.RINGER_MODE_SILENT;
+                    toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_silent;
+                    break;
+                }
             case VOLUME_HUSH_VIBRATE:
-                effect = VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK);
-                ringerMode = AudioManager.RINGER_MODE_VIBRATE;
-                toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_vibrate;
+                if (ringerModeCurrent != AudioManager.RINGER_MODE_VIBRATE) {
+                    effect = VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK);
+                    ringerMode = AudioManager.RINGER_MODE_VIBRATE;
+                    toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_vibrate;
+                    break;
+                }
+            default:
+                effect = VibrationEffect.get(VibrationEffect.EFFECT_CLICK);
+                ringerMode = AudioManager.RINGER_MODE_NORMAL;
+                toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_ring;
                 break;
         }
         maybeVibrate(effect, reason);

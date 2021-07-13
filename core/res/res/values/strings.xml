@@ -5303,6 +5303,7 @@
 
     <string name="volume_dialog_ringer_guidance_vibrate">Calls and notifications will vibrate</string>
     <string name="volume_dialog_ringer_guidance_silent">Calls and notifications will be muted</string>
+    <string name="volume_dialog_ringer_guidance_ring">Calls and notifications will ring</string>
 
     <!-- Title for the notification channel notifying user of settings system changes. [CHAR LIMIT=NONE] -->
     <string name="notification_channel_system_changes">System changes</string>
