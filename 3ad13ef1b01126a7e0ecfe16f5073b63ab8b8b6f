@@ -16,6 +16,24 @@
       "revId": "3ad13ef1b01126a7e0ecfe16f5073b63ab8b8b6f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5fa8741_8ffe7927",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26969
+      },
+      "writtenOn": "2021-07-14T17:02:33Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "a569f454_08e86256",
+      "revId": "3ad13ef1b01126a7e0ecfe16f5073b63ab8b8b6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
