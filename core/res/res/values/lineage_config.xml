@@ -34,4 +34,12 @@
     <!-- The list of components which should be forced to be enabled. -->
     <string-array name="config_forceEnabledComponents" translatable="false">
     </string-array>
+
+    <!-- Battery life saver -->
+    <!-- Disable this if your device does not support input_suspend or charging_enabled -->
+    <bool name="config_deviceHasBatteryLifeSaver">false</bool>
+    <!-- Use /sys/class/power_supply/battery/charging_enabled with inverted values for old devices-->
+    <string name="config_batteryLifeSaverSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
+    <string name="config_batteryLifeSaverSysfsNodeStopValue" translatable="false">1</string>
+    <string name="config_batteryLifeSaverSysfsNodeStartValue" translatable="false">0</string>
 </resources>

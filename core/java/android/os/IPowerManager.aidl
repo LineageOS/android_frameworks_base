@@ -81,6 +81,9 @@ interface IPowerManager
     // --- deprecated ---
     boolean isScreenBrightnessBoosted();
 
+    // Check if battery input is suspended
+    boolean isInputSuspended();
+
     // sets the attention light (used by phone app only)
     void setAttentionLight(boolean on, int color);
 
