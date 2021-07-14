@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7a181a10_5ab8c771",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3500,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-07-14T14:20:53Z",
+      "side": 1,
+      "message": "it can do just fine without newlines above/below it.",
+      "range": {
+        "startLine": 3500,
+        "startChar": 0,
+        "endLine": 3500,
+        "endChar": 56
+      },
+      "revId": "a90703fb615202d518ae4295ae1212594c8a817c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2c48718_542d820d",
         "filename": "services/core/java/com/android/server/audio/AudioService.java",
         "patchSetId": 1
