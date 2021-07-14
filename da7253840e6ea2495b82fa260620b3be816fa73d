@@ -22,6 +22,23 @@
       "revId": "da7253840e6ea2495b82fa260620b3be816fa73d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77e0bd93_524a0877",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-07-14T16:34:23Z",
+      "side": 1,
+      "message": "too many newlines.",
+      "revId": "da7253840e6ea2495b82fa260620b3be816fa73d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
