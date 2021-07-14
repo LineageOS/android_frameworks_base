@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "012b3041_707e89e5",
+        "filename": "core/res/res/values/cm_strings.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-07-14T16:34:07Z",
+      "side": 1,
+      "message": "\"2021 The LineageOS Project\" alone.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 48
+      },
+      "revId": "da7253840e6ea2495b82fa260620b3be816fa73d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
