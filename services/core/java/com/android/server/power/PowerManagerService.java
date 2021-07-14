@@ -30,6 +30,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UserIdInt;
 import android.app.ActivityManager;
+import android.app.AlarmManager;
 import android.app.SynchronousUserSwitchObserver;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -53,6 +54,7 @@ import android.os.BatteryManager;
 import android.os.BatteryManagerInternal;
 import android.os.BatterySaverPolicyConfig;
 import android.os.Binder;
+import android.os.FileUtils;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.IPowerManager;
@@ -117,11 +119,14 @@ import com.android.server.power.batterysaver.BatterySavingStats;
 import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.System;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
@@ -194,6 +199,21 @@ public final class PowerManagerService extends SystemService
     private static final int USER_ACTIVITY_SCREEN_BRIGHT = 1 << 0;
     private static final int USER_ACTIVITY_SCREEN_DIM = 1 << 1;
     private static final int USER_ACTIVITY_SCREEN_DREAM = 1 << 2;
+
+    // Summarizes battery life saver state.
+    private static final int BATTERY_LIFE_SAVER_DISABLED = 1 << 0;
+    private static final int BATTERY_LIFE_SAVER_OPTIMIZED = 1 << 1;
+    private static final int BATTERY_LIFE_SAVER_FULLY_OPTIMIZED = 1 << 2;
+    private static final int BATTERY_LIFE_SAVER_INPUT = 1 << 3;
+    private static final int BATTERY_LIFE_SAVER_INPUT_MANDATORY = 1 << 4;
+    private static final int BATTERY_LIFE_SAVER_INITIAL_STATE = 1 << 5;
+    private static final int BATTERY_LIFE_SAVER_WAITING_TARGET = 1 << 6;
+    private static final int BATTERY_LIFE_SAVER_FORCE_DISCHARGING = 1 << 7;
+
+    // Charge 3 hours before alarm target
+    private static final int DEFAULT_BATTERY_LIFE_SAVER_DELTA = 10800000;
+    // Charge after 6 hours of inactivity
+    private static final int DEFAULT_BATTERY_LIFE_SAVER_USER_SLEEP = 21600000;
 
     // Default timeout in milliseconds.  This is only used until the settings
     // provider populates the actual default value (R.integer.def_screen_off_timeout).
@@ -667,6 +687,16 @@ public final class PowerManagerService extends SystemService
             mLastUserActivityTime = now;
         }
     }
+
+    // Battery Life Saver
+    private boolean mDeviceHasBatteryLifeSaver;
+    private int mBatteryLifeSaverState = (BATTERY_LIFE_SAVER_DISABLED | BATTERY_LIFE_SAVER_INPUT);
+    private long mBatteryLifeSaverTargetTime = -1;
+    private long mChargeTimeRemaining = -1;
+    private long mBatteryLifeSaverInactiveTime = 0;
+    private static String mBatteryLifeSaverSysfsNode;
+    private static String mBatteryLifeSaverSysfsNodeStartValue;
+    private static String mBatteryLifeSaverSysfsNodeStopValue;
 
     /**
      * All times are in milliseconds. These constants are kept synchronized with the system
@@ -1229,6 +1259,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(LineageSettings.Global.getUriFor(
                 LineageSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                LineageSettings.System.BATTERY_LIFE_SAVER),
+                false, mSettingsObserver, UserHandle.USER_ALL);
 
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
         if (vrManager != null) {
@@ -1313,6 +1346,15 @@ public final class PowerManagerService extends SystemService
             mProximityWakeLock = mContext.getSystemService(PowerManager.class)
                     .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
         }
+        // Battery Life Saver
+        mDeviceHasBatteryLifeSaver = resources.getBoolean(
+                com.android.internal.R.bool.config_deviceHasBatteryLifeSaver);
+        mBatteryLifeSaverSysfsNode = resources.getString(
+                com.android.internal.R.string.config_batteryLifeSaverSysfsNode);
+        mBatteryLifeSaverSysfsNodeStopValue = resources.getString(
+                com.android.internal.R.string.config_batteryLifeSaverSysfsNodeStopValue);
+        mBatteryLifeSaverSysfsNodeStartValue = resources.getString(
+                com.android.internal.R.string.config_batteryLifeSaverSysfsNodeStartValue);
     }
 
     private void updateSettingsLocked() {
@@ -1347,6 +1389,22 @@ public final class PowerManagerService extends SystemService
                 LineageSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                 (mWakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1;
         mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
+        if (mDeviceHasBatteryLifeSaver) {
+            final int batteryLifeSaverSetting = LineageSettings.System.getInt(
+                    resolver,
+                    LineageSettings.System.BATTERY_LIFE_SAVER,
+                    0);
+            mChargeTimeRemaining = -1;
+            batterySuspendInput(false);
+            mBatteryLifeSaverState = (BATTERY_LIFE_SAVER_INITIAL_STATE |
+                                      BATTERY_LIFE_SAVER_INPUT);
+            if ((mBatteryLifeSaverState & 1 <<  batteryLifeSaverSetting) == 0) {
+                mBatteryLifeSaverState &= ~(BATTERY_LIFE_SAVER_DISABLED  |
+                                            BATTERY_LIFE_SAVER_OPTIMIZED |
+                                            BATTERY_LIFE_SAVER_FULLY_OPTIMIZED);
+                mBatteryLifeSaverState |= 1 << batteryLifeSaverSetting;
+            }
+        }
 
         if (mSupportsDoubleTapWakeConfig) {
             boolean doubleTapWakeEnabled = Settings.Secure.getIntForUser(resolver,
@@ -1887,6 +1945,7 @@ public final class PowerManagerService extends SystemService
             mSandmanSummoned = true;
             mDozeStartInProgress = true;
             setWakefulnessLocked(WAKEFULNESS_DOZING, reason, eventTime);
+            setBatteryLifeSaverTargetTime(SystemClock.elapsedRealtime());
 
             // Report the number of wake locks that will be cleared by going to sleep.
             int numWakeLocksCleared = 0;
@@ -2171,6 +2230,129 @@ public final class PowerManagerService extends SystemService
             }
 
             mBatterySaverStateMachine.setBatteryStatus(mIsPowered, mBatteryLevel, mBatteryLevelLow);
+            updateBatteryLifeSaverStatus();
+        }
+    }
+
+    private void batterySuspendInput(boolean suspended) {
+        try {
+            final String value = suspended
+                                    ? mBatteryLifeSaverSysfsNodeStopValue
+                                    : mBatteryLifeSaverSysfsNodeStartValue;
+            if (suspended) {
+                mBatteryLifeSaverState &= ~BATTERY_LIFE_SAVER_INPUT;
+            } else {
+                mBatteryLifeSaverState |= BATTERY_LIFE_SAVER_INPUT;
+            }
+            FileUtils.stringToFile(mBatteryLifeSaverSysfsNode, value);
+        } catch (IOException e) {
+            Slog.e(TAG, "Failed to update input", e);
+        }
+    }
+
+    /**
+     * Check when we want the phone to be fully charged
+     */
+    private void setBatteryLifeSaverTargetTime(long time) {
+        if (!mDeviceHasBatteryLifeSaver ||
+            (mBatteryLifeSaverState & BATTERY_LIFE_SAVER_DISABLED) != 0) return;
+        mBatteryLifeSaverTargetTime = time + DEFAULT_BATTERY_LIFE_SAVER_USER_SLEEP;
+        AlarmManager m = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+        if (m == null) {
+            return;
+        }
+        AlarmManager.AlarmClockInfo alarmClock = m.getNextAlarmClock();
+        if (alarmClock == null) {
+            return;
+        }
+        final long alarmDelta = alarmClock.getTriggerTime() - System.currentTimeMillis();
+        // If more than 12 hours to wait, ignore alarm
+        if (alarmDelta > 0 && alarmDelta < 43200000) {
+            mBatteryLifeSaverTargetTime = SystemClock.elapsedRealtime() + alarmDelta;
+        }
+    }
+
+    /**
+     * Update battery input state
+     */
+    private void updateBatteryLifeSaverStatus() {
+        // Battery life saver disabled for this device
+        if (!mDeviceHasBatteryLifeSaver) return;
+        // Battery life saver disabled by user
+        if ((mBatteryLifeSaverState & BATTERY_LIFE_SAVER_DISABLED) != 0) {
+            if ((mBatteryLifeSaverState & BATTERY_LIFE_SAVER_INPUT) == 0) {
+                batterySuspendInput(false);
+            }
+            return;
+        }
+        // Device is not connected to a power source
+        if (!mIsPowered && (mBatteryLifeSaverState & BATTERY_LIFE_SAVER_INPUT) != 0) {
+            mBatteryLifeSaverState &= ~(BATTERY_LIFE_SAVER_FORCE_DISCHARGING |
+                                        BATTERY_LIFE_SAVER_WAITING_TARGET |
+                                        BATTERY_LIFE_SAVER_INPUT_MANDATORY);
+            mBatteryLifeSaverState |= BATTERY_LIFE_SAVER_INITIAL_STATE;
+            return;
+        }
+        // Fully optimized: disable input as much as possible
+        if ((mBatteryLifeSaverState & BATTERY_LIFE_SAVER_FULLY_OPTIMIZED) != 0) {
+            if ((mBatteryLifeSaverState & BATTERY_LIFE_SAVER_INPUT_MANDATORY) == 0) {
+                final long elapsedRealtime = SystemClock.elapsedRealtime();
+                final boolean resume = mBatteryLevel < 25 ||
+                    // An alarm is pending
+                    (mBatteryLifeSaverTargetTime != -1 &&
+                     elapsedRealtime > mBatteryLifeSaverTargetTime -
+                                       DEFAULT_BATTERY_LIFE_SAVER_DELTA);
+                if (resume) {
+                    mBatteryLifeSaverState |= BATTERY_LIFE_SAVER_INPUT_MANDATORY;
+                    batterySuspendInput(false);
+                } else if ((mBatteryLifeSaverState & BATTERY_LIFE_SAVER_INPUT) != 0) {
+                    batterySuspendInput(true);
+                }
+                return;
+            }
+        }
+        // Suspend when fully charged
+        if (mBatteryLevel >= 100 && (mBatteryLifeSaverState & BATTERY_LIFE_SAVER_INPUT) != 0) {
+            batterySuspendInput(true);
+            mBatteryLifeSaverState &= ~(BATTERY_LIFE_SAVER_WAITING_TARGET|
+                                        BATTERY_LIFE_SAVER_INITIAL_STATE);
+            mBatteryLifeSaverState |= BATTERY_LIFE_SAVER_FORCE_DISCHARGING;
+        // Suspend charging at 80% and wait until we really need to charge
+        } else if (mBatteryLevel >= 80 &&
+                (mBatteryLifeSaverState & BATTERY_LIFE_SAVER_INITIAL_STATE) != 0) {
+            // Only suspend input at night, should be better to detect user sleeping period
+            Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR_OF_DAY);
+            if (hour > 6 && hour < 22) {
+                return;
+            } 
+            try {
+                // Ask remaining time, if not available, one hour should be enough
+                mChargeTimeRemaining = mBatteryStats.computeChargeTimeRemaining() / 1000;
+                if (mChargeTimeRemaining != -1) {
+                    mChargeTimeRemaining = 3600000;
+                }
+            } catch (RemoteException e) {
+                mChargeTimeRemaining = 3600000;
+            }
+            batterySuspendInput(true);
+            mBatteryLifeSaverState &= ~BATTERY_LIFE_SAVER_INITIAL_STATE;
+            mBatteryLifeSaverState |= BATTERY_LIFE_SAVER_WAITING_TARGET;
+        // Resume charging on time
+        } else if ((mBatteryLifeSaverState & BATTERY_LIFE_SAVER_WAITING_TARGET) != 0) {
+            final long elapsedRealtime = SystemClock.elapsedRealtime();
+            // As soon we will not have enough time to charge, resume input
+            if (mBatteryLevel < 25 || (100 - mBatteryLevel) * mChargeTimeRemaining / 20 >=
+                    mBatteryLifeSaverTargetTime - elapsedRealtime) {
+                batterySuspendInput(false);
+                mBatteryLifeSaverState &= ~BATTERY_LIFE_SAVER_WAITING_TARGET;
+            }
+        // Allow charging to run again when going below 80%
+        } else if (mBatteryLevel < 80 &&
+                (mBatteryLifeSaverState & BATTERY_LIFE_SAVER_FORCE_DISCHARGING) != 0) {
+            mBatteryLifeSaverState &= ~(BATTERY_LIFE_SAVER_FORCE_DISCHARGING |
+                                        BATTERY_LIFE_SAVER_INPUT_MANDATORY);
+            mBatteryLifeSaverState |= BATTERY_LIFE_SAVER_INITIAL_STATE;
         }
     }
 
@@ -4008,6 +4190,8 @@ public final class PowerManagerService extends SystemService
             pw.println("  mPlugType=" + mPlugType);
             pw.println("  mBatteryLevel=" + mBatteryLevel);
             pw.println("  mBatteryLevelWhenDreamStarted=" + mBatteryLevelWhenDreamStarted);
+            pw.println("  mChargeTimeRemaining=" + mChargeTimeRemaining);
+            pw.println("  mBatteryLifeSaverTargetTime=" + mBatteryLifeSaverTargetTime);
             pw.println("  mDockState=" + mDockState);
             pw.println("  mStayOn=" + mStayOn);
             pw.println("  mProximityPositive=" + mProximityPositive);
@@ -5552,6 +5736,11 @@ public final class PowerManagerService extends SystemService
             } finally {
                 Binder.restoreCallingIdentity(ident);
             }
+        }
+
+        @Override // Binder call
+        public boolean isInputSuspended() {
+            return (mBatteryLifeSaverState & BATTERY_LIFE_SAVER_INPUT) == 0;
         }
 
         @Override // Binder call

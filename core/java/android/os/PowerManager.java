@@ -2160,6 +2160,20 @@ public final class PowerManager {
     }
 
     /**
+     * Returns true if battery input is suspended
+     * @hide
+     */
+    @SystemApi
+    @RequiresPermission(android.Manifest.permission.DEVICE_POWER)
+    public boolean isInputSuspended() {
+        try {
+            return mService.isInputSuspended();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * If true, suppresses the current ambient display configuration and disables ambient display.
      *
      * <p>This method has no effect if {@link #isAmbientDisplayAvailable()} is false.
