@@ -88,12 +88,14 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
     private static final int SHOWING_WARNING = 1;
     private static final int SHOWING_INVALID_CHARGER = 3;
     private static final int SHOWING_AUTO_SAVER_SUGGESTION = 4;
+    private static final int SHOWING_BATTERY_LIFE_SAVER = 5;
     private static final String[] SHOWING_STRINGS = {
         "SHOWING_NOTHING",
         "SHOWING_WARNING",
         "SHOWING_SAVER",
         "SHOWING_INVALID_CHARGER",
         "SHOWING_AUTO_SAVER_SUGGESTION",
+        "SHOWING_BATTERY_LIFE_SAVER",
     };
 
     private static final String ACTION_SHOW_BATTERY_SETTINGS = "PNW.batterySettings";
@@ -148,6 +150,7 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
     private boolean mShowAutoSaverSuggestion;
     private boolean mPlaySound;
     private boolean mInvalidCharger;
+    private boolean mSuspendedInput;
     private SystemUIDialog mSaverConfirmation;
     private SystemUIDialog mSaverEnabledConfirmation;
     private boolean mHighTempWarning;
@@ -174,6 +177,7 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         pw.print("mWarning="); pw.println(mWarning);
         pw.print("mPlaySound="); pw.println(mPlaySound);
         pw.print("mInvalidCharger="); pw.println(mInvalidCharger);
+        pw.print("mSuspendedInput="); pw.println(mSuspendedInput);
         pw.print("mShowing="); pw.println(SHOWING_STRINGS[mShowing]);
         pw.print("mSaverConfirmation="); pw.println(mSaverConfirmation != null ? "not null" : null);
         pw.print("mSaverEnabledConfirmation=");
@@ -216,6 +220,12 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         } else if (mWarning) {
             showWarningNotification();
             mShowing = SHOWING_WARNING;
+        } else if (mSuspendedInput) {
+            // Once we showed the notification, don't show it again until it goes SHOWING_NOTHING.
+            if (mShowing != SHOWING_BATTERY_LIFE_SAVER) {
+                showBatteryLifeSaverNotification();
+            }
+            mShowing = SHOWING_BATTERY_LIFE_SAVER;
         } else if (mShowAutoSaverSuggestion) {
             // Once we showed the notification, don't show it again until it goes SHOWING_NOTHING.
             // This shouldn't be needed, because we have a delete intent on this notification
@@ -230,6 +240,8 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
             mNoMan.cancelAsUser(TAG_BATTERY, SystemMessage.NOTE_POWER_LOW, UserHandle.ALL);
             mNoMan.cancelAsUser(TAG_AUTO_SAVER,
                     SystemMessage.NOTE_AUTO_SAVER_SUGGESTION, UserHandle.ALL);
+            mNoMan.cancelAsUser(TAG_BATTERY,
+                    SystemMessage.NOTE_BATTERY_SUSPENDED_INPUT, UserHandle.ALL);
             mShowing = SHOWING_NOTHING;
         }
     }
@@ -323,6 +335,26 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         final Notification n = nb.build();
         mNoMan.notifyAsUser(
                 TAG_AUTO_SAVER, SystemMessage.NOTE_AUTO_SAVER_SUGGESTION, n, UserHandle.ALL);
+    }
+
+    private void showBatteryLifeSaverNotification() {
+        final CharSequence message = mContext.getString(R.string.power_input_suspended_text);
+        final Notification.Builder nb =
+                new Notification.Builder(mContext, NotificationChannels.BATTERY)
+                        .setSmallIcon(R.drawable.ic_qs_battery_life_saver)
+                        .setWhen(0)
+                        .setShowWhen(false)
+                        .setDefaults(0)  // please be quiet
+                        .setTimeoutAfter(60000)
+                        .setContentTitle(mContext.getString(R.string.power_input_suspended_title))
+                        .setStyle(new Notification.BigTextStyle().bigText(message))
+                        .setContentText(message);
+        nb.setContentIntent(pendingBroadcast(ACTION_SHOW_BATTERY_SETTINGS));
+        SystemUI.overrideNotificationAppName(mContext, nb, false);
+
+        final Notification n = nb.build();
+        mNoMan.notifyAsUser(
+                TAG_BATTERY, SystemMessage.NOTE_BATTERY_SUSPENDED_INPUT, n, UserHandle.ALL);
     }
 
     private String getHybridContentString(String percentage) {
@@ -482,6 +514,22 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         final Notification n = nb.build();
         mNoMan.notifyAsUser(
                 TAG_TEMPERATURE, SystemMessage.NOTE_THERMAL_SHUTDOWN, n, UserHandle.ALL);
+    }
+
+    @Override
+    public void dismissBatteryLifeSaverWarning() {
+        if (mSuspendedInput) {
+            mSuspendedInput = false;
+            updateNotification();
+        }
+    }
+
+    @Override
+    public void showBatteryLifeSaverWarning() {
+        if (!mSuspendedInput) {
+            mSuspendedInput = true;
+            updateNotification();
+        }
     }
 
     @Override
@@ -777,6 +825,7 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
                 dismissAutoSaverSuggestion();
             } else if (ACTION_ENABLE_AUTO_SAVER.equals(action)) {
                 dismissAutoSaverSuggestion();
+                dismissBatteryLifeSaverWarning();
                 startBatterySaverSchedulePage();
             } else if (ACTION_AUTO_SAVER_NO_THANKS.equals(action)) {
                 dismissAutoSaverSuggestion();

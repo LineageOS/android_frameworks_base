@@ -305,6 +305,9 @@ message SystemMessage {
     // Extreme battery saver notification.
     NOTE_BATTERY_SAVER_WARNING = 1200;
 
+    // Suspended input notification
+    NOTE_BATTERY_SUSPENDED_INPUT = 1201;
+
     // Notify the user that open wifi networks are available.
     // Package: android
     NOTE_NETWORK_AVAILABLE = 17303299;

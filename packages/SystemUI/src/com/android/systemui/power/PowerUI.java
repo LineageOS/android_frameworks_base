@@ -289,6 +289,14 @@ public class PowerUI extends SystemUI implements CommandQueue.Callbacks {
                     Slog.d(TAG, "plugged        " + oldPlugged + " --> " + plugged);
                 }
 
+                ThreadUtils.postOnBackgroundThread(() -> {
+                    if (mPowerManager.isInputSuspended()) {
+                        mWarnings.showBatteryLifeSaverWarning();
+                    } else {
+                        mWarnings.dismissBatteryLifeSaverWarning();
+                    }
+                });
+
                 mWarnings.update(mBatteryLevel, bucket, mScreenOffTime);
                 if (oldInvalidCharger == 0 && mInvalidCharger != 0) {
                     Slog.d(TAG, "showing invalid charger warning");
@@ -691,6 +699,10 @@ public class PowerUI extends SystemUI implements CommandQueue.Callbacks {
         void showUsbHighTemperatureAlarm();
 
         void showThermalShutdownWarning();
+
+        void showBatteryLifeSaverWarning();
+
+        void dismissBatteryLifeSaverWarning();
 
         void dump(PrintWriter pw);
 
