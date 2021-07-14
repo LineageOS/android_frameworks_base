@@ -35,6 +35,12 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
 
+    <!-- Battery Life Saver -->
+    <string name="quick_settings_battery_life_saver_label">Battery Life Saver</string>
+    <string name="accessibility_quick_settings_battery_life_saver_disabled">Disabled</string>
+    <string name="accessibility_quick_settings_battery_life_saver_optimized">Optimized</string>
+    <string name="accessibility_quick_settings_battery_life_saver_fully_optimized">Fully optimized</string>
+
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Heads up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
