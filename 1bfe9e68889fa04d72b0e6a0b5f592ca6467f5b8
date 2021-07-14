@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2b2bd40_f39045ef",
+        "filename": "services/core/java/com/android/server/audio/AudioService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3512,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-07-14T19:14:47Z",
+      "side": 1,
+      "message": "There are many cooks here already but, in an ideal world, it would be preferable to separate the logic on what to apply from the code that does it.\n\nie something like:\n        // Repeated invocations should toggle ringer silence on / off\n        final int wantRingerSetting;      \n        if (silenceRingerSetting \u003d\u003d VOLUME_HUSH_MUTE\n                \u0026\u0026 ringerModeCurrent !\u003d AudioManager.RINGER_MODE_SILENT) {\n            wantRingerSetting \u003d VOLUME_HUSH_MUTE;\n        } else if (silenceRingerSetting \u003d\u003d VOLUME_HUSH_VIBRATE   \n                \u0026\u0026 ringerModeCurrent !\u003d AudioManager.RINGER_MODE_VIBRATE) {\n            wantRingerSetting \u003d VOLUME_HUSH_VIBRATE;\n        } else {\n            wantRingerSetting \u003d VOLUME_HUSH_OFF;\n        }\n\n        switch (wantRingerSetting) {\n            [...]\n            case VOLUME_HUSH_OFF:\n                effect \u003d VibrationEffect.get(VibrationEffect.EFFECT_CLICK);\n                ringerMode \u003d AudioManager.RINGER_MODE_NORMAL;\n                toastText \u003d com.android.internal.R.string.volume_dialog_ringer_guidance_ring;\n                break;\n        }",
+      "revId": "1bfe9e68889fa04d72b0e6a0b5f592ca6467f5b8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
