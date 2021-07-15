@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61849b81_9a43bc3d",
+        "filename": "core/jni/com_android_internal_os_ZygoteCommandBuffer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-07-15T11:07:59Z",
+      "side": 1,
+      "message": "should be wrapped in TEMP_FAILURE_RETRY\naosp will fix it soon tm",
+      "range": {
+        "startLine": 455,
+        "startChar": 19,
+        "endLine": 455,
+        "endChar": 25
+      },
+      "revId": "8fe25823c2bc57e2841d3efeb515ea7d1d78ad22",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
