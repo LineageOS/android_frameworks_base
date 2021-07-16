@@ -609,7 +609,7 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
                 while (true) {
                     String devPath = String.format(Locale.US,
                             "/sys/devices/platform/soc/%s/extcon/extcon%d/name",
-                            NAME_DP_AUDIO, index);
+                            NAME_DP_AUDIO, devIndex);
                     if (LOG) {
                         Slog.v(TAG, "checkDevIndex " + devPath);
                     }
