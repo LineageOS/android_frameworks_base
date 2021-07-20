@@ -65,6 +65,7 @@ import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR;
 import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
 import static android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
+import static android.view.WindowManager.LayoutParams.FLAG_SLIPPERY;
 import static android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
 import static android.view.WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
 import static android.view.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
@@ -910,6 +911,20 @@ public class DisplayPolicy {
     }
 
     /**
+     * Only trusted overlays are allowed to use FLAG_SLIPPERY.
+     */
+    static int sanitizeFlagSlippery(int flags, int privateFlags, String name) {
+        if ((flags & FLAG_SLIPPERY) == 0) {
+            return flags;
+        }
+        if ((privateFlags & PRIVATE_FLAG_TRUSTED_OVERLAY) != 0) {
+            return flags;
+        }
+        Slog.w(TAG, "Removing FLAG_SLIPPERY for non-trusted overlay " + name);
+        return flags & ~FLAG_SLIPPERY;
+    }
+
+    /**
      * Sanitize the layout parameters coming from a client.  Allows the policy
      * to do things like ensure that windows of a specific type can't take
      * input focus.
@@ -992,6 +1007,7 @@ public class DisplayPolicy {
                 }
                 break;
         }
+        attrs.flags = sanitizeFlagSlippery(attrs.flags, attrs.privateFlags, win.getName());
 
         // Check if alternate bars positions were updated.
         if (mStatusBarAlt == win) {
