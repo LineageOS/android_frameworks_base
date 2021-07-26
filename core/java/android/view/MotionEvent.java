@@ -3790,7 +3790,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
         nativeWriteToParcel(mNativePtr, out);
     }
 
-    /* @hide */
+    /** @hide */
     public boolean equals(MotionEvent other) {
         if (other == null) {
             return false;
