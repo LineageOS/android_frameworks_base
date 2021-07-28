@@ -1565,8 +1565,6 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     private static native long nativeCopy(long destNativePtr, long sourceNativePtr,
             boolean keepHistory);
     @CriticalNative
-    private static native boolean nativeEquals(long nativePtrA, long nativePtrB);
-    @CriticalNative
     private static native int nativeGetId(long nativePtr);
     @CriticalNative
     private static native int nativeGetDeviceId(long nativePtr);
@@ -3788,14 +3786,6 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(PARCEL_TOKEN_MOTION_EVENT);
         nativeWriteToParcel(mNativePtr, out);
-    }
-
-    /** @hide */
-    public boolean equals(MotionEvent other) {
-        if (other == null) {
-            return false;
-        }
-        return nativeEquals(mNativePtr, other.mNativePtr);
     }
 
     /**
