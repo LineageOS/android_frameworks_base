@@ -77,7 +77,6 @@ import android.view.InputDevice;
 import android.view.InputEvent;
 import android.view.InputMonitor;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.PointerIcon;
 import android.view.Surface;
 import android.view.VerifiedInputEvent;
@@ -1998,7 +1997,6 @@ public class InputManagerService extends IInputManager.Stub
     final boolean filterInputEvent(InputEvent event, int policyFlags) {
         synchronized (mInputFilterLock) {
             if (mInputFilter != null) {
-                mInputFilterHost.setPreFilterEventLocked(event);
                 try {
                     mInputFilter.filterInputEvent(event, policyFlags);
                 } catch (RemoteException e) {
@@ -2345,7 +2343,6 @@ public class InputManagerService extends IInputManager.Stub
      */
     private final class InputFilterHost extends IInputFilterHost.Stub {
         private boolean mDisconnected;
-        private InputEvent mPreFilterEvent;
 
         public void disconnectLocked() {
             mDisconnected = true;
@@ -2359,36 +2356,12 @@ public class InputManagerService extends IInputManager.Stub
 
             synchronized (mInputFilterLock) {
                 if (!mDisconnected) {
-                    if (isEventEqual(event, mPreFilterEvent)) {
-                        policyFlags |= WindowManagerPolicy.FLAG_INJECTED_IS_UNCHANGED;
-                        setPreFilterEventLocked(null);
-                    } else {
-                        policyFlags &= ~WindowManagerPolicy.FLAG_INJECTED_IS_UNCHANGED;
-                    }
-
                     nativeInjectInputEvent(mPtr, event, 0, 0,
                             InputManager.INJECT_INPUT_EVENT_MODE_ASYNC, 0,
                             policyFlags | WindowManagerPolicy.FLAG_FILTERED);
                 }
             }
         }
-
-        private void setPreFilterEventLocked(InputEvent event) {
-            if (mPreFilterEvent != null) {
-                mPreFilterEvent.recycle();
-            }
-            mPreFilterEvent = event != null ? event.copy() : null;
-        }
-    }
-
-    private boolean isEventEqual(InputEvent a, InputEvent b) {
-        if (a instanceof KeyEvent && b instanceof KeyEvent) {
-            return ((KeyEvent) a).equals((KeyEvent) b);
-        }
-        if (a instanceof MotionEvent && b instanceof MotionEvent) {
-            return ((MotionEvent) a).equals((MotionEvent) b);
-        }
-        return false;
     }
 
     /**
