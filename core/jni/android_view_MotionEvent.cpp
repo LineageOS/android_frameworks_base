@@ -593,12 +593,6 @@ static jlong android_view_MotionEvent_nativeCopy(jlong destNativePtr, jlong sour
     return reinterpret_cast<jlong>(destEvent);
 }
 
-static jboolean android_view_MotionEvent_nativeEquals(jlong nativePtrA, jlong nativePtrB) {
-    MotionEvent* eventA = reinterpret_cast<MotionEvent*>(nativePtrA);
-    MotionEvent* eventB = reinterpret_cast<MotionEvent*>(nativePtrB);
-    return eventA->equals(eventB);
-}
-
 static jint android_view_MotionEvent_nativeGetId(jlong nativePtr) {
     MotionEvent* event = reinterpret_cast<MotionEvent*>(nativePtr);
     return event->getId();
@@ -802,7 +796,6 @@ static const JNINativeMethod gMotionEventMethods[] = {
         // --------------- @CriticalNative ------------------
 
         {"nativeCopy", "(JJZ)J", (void*)android_view_MotionEvent_nativeCopy},
-        {"nativeEquals", "(JJ)Z", (void*)android_view_MotionEvent_nativeEquals},
         {"nativeGetId", "(J)I", (void*)android_view_MotionEvent_nativeGetId},
         {"nativeGetDeviceId", "(J)I", (void*)android_view_MotionEvent_nativeGetDeviceId},
         {"nativeGetSource", "(J)I", (void*)android_view_MotionEvent_nativeGetSource},
