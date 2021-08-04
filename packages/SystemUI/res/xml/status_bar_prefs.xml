@@ -84,6 +84,10 @@
         android:key="location"
         android:title="@string/status_bar_location" />
 
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="vpn"
+        android:title="@string/status_bar_vpn" />
+
     <!-- other weird signal stuff -->
 
     <com.android.systemui.tuner.StatusBarSwitch
