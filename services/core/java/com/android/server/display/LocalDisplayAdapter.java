@@ -648,11 +648,12 @@ final class LocalDisplayAdapter extends DisplayAdapter {
         public Runnable requestDisplayStateLocked(final int state, final float brightnessState,
                 final float sdrBrightnessState) {
             // Assume that the brightness is off if the display is being turned off.
-            assert state != Display.STATE_OFF
-                    || brightnessState == PowerManager.BRIGHTNESS_OFF_FLOAT;
+            assert state != Display.STATE_OFF || BrightnessSynchronizer.floatEquals(
+                    brightnessState, PowerManager.BRIGHTNESS_OFF_FLOAT);
             final boolean stateChanged = (mState != state);
-            final boolean brightnessChanged = mBrightnessState != brightnessState
-                    || mSdrBrightnessState != sdrBrightnessState;
+            final boolean brightnessChanged =
+                    !(BrightnessSynchronizer.floatEquals(mBrightnessState, brightnessState)
+                    && BrightnessSynchronizer.floatEquals(mSdrBrightnessState, sdrBrightnessState));
             if (stateChanged || brightnessChanged) {
                 final long physicalDisplayId = mPhysicalDisplayId;
                 final IBinder token = getDisplayTokenLocked();
@@ -806,7 +807,8 @@ final class LocalDisplayAdapter extends DisplayAdapter {
                     }
 
                     private float brightnessToBacklight(float brightness) {
-                        if (brightness == PowerManager.BRIGHTNESS_OFF_FLOAT) {
+                        if (BrightnessSynchronizer.floatEquals(
+                                brightness, PowerManager.BRIGHTNESS_OFF_FLOAT)) {
                             return PowerManager.BRIGHTNESS_OFF_FLOAT;
                         } else {
                             return getDisplayDeviceConfig().getBacklightFromBrightness(brightness);
