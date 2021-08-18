@@ -770,8 +770,17 @@ public final class BluetoothDevice implements Parcelable {
             return null;
         }
         try {
-            return sService.getRemoteAlias(this);
-        } catch (RemoteException e) {Log.e(TAG, "", e);}
+            String alias = sService.getRemoteAlias(this);
+            if (alias == null) {
+                return getName();
+            }
+            return alias
+                    .replace('\t', ' ')
+                    .replace('\n', ' ')
+                    .replace('\r', ' ');
+        } catch (RemoteException e) {
+            Log.e(TAG, "", e);
+        }
         return null;
     }
 
