@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">Nom d\'usuari</string>
     <string name="vpn_credentials_password">Contrasenya</string>
     <string name="vpn_credentials_dialog_connect">Connecta</string>
+    <string name="quick_settings_anti_flicker">Antiparpelleig</string>
     <string name="accessibility_dpad_left">Cursor esquerra</string>
     <string name="accessibility_dpad_right">Cursor dreta</string>
     <string name="global_action_restart_more">Reinicia\u2026</string>
@@ -75,4 +76,11 @@
     <string name="global_action_restart_bootloader_progress">S\'està reiniciant al mode bootloader\u2026</string>
     <string name="global_action_restart_download_progress">S\'està reiniciant al mode de descàrrega\u2026</string>
     <string name="global_action_restart_fastboot_progress">S\'està reiniciant al mode fastbootd\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuaris</string>
+    <string name="status_bar_camera">Càmera</string>
+    <string name="status_bar_location">Ubicació</string>
+    <string name="status_bar_microphone">Micròfon</string>
+    <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
+    <string name="screen_pinning_toast_no_navbar">Toca i mantén premut el botó Enrere per deixar de fixar aquesta pantalla</string>
 </resources>

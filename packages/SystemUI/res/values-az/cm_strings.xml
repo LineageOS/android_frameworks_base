@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">İstifadəçi adı</string>
     <string name="vpn_credentials_password">Şifrə</string>
     <string name="vpn_credentials_dialog_connect">Bağlantı qur</string>
+    <string name="quick_settings_anti_flicker">Titrəməyə qarşı</string>
     <string name="accessibility_dpad_left">Sol kursor</string>
     <string name="accessibility_dpad_right">Sağ kursor</string>
     <string name="global_action_restart_more">Yenidən başlat\u2026</string>
@@ -75,4 +76,11 @@
     <string name="global_action_restart_bootloader_progress">Önyükləyici rejimində yenidən başladılır\u2026</string>
     <string name="global_action_restart_download_progress">Endirmə rejimində yenidən başladılır\u2026</string>
     <string name="global_action_restart_fastboot_progress">Fastbootd rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_current_user">Hazırki</string>
+    <string name="global_action_users">İstifadəçilər</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Yerləşmə</string>
+    <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">Siz sancağı götürənə qədər bu, baxış rejimində qalacaq. Sancağı götürmək üçün Geri düyməsinə basıb saxlayın.</string>
+    <string name="screen_pinning_toast_no_navbar">Bu ekranı çıxartmaq üçün Geri düyməsinə basıb saxlayın.</string>
 </resources>

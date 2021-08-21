@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,4 +60,8 @@ emerxentes</string>
     <string name="global_action_restart_recovery_progress">Reaniciando al mou recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Reaniciando al mou del xestor d\'arranque\u2026</string>
     <string name="global_action_restart_download_progress">Reaniciando al mou de descarga\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="status_bar_location">Allugamientu</string>
+    <string name="screen_pinning_description_no_navbar">Amosaráse mentanto tez fixáu. Pa dexar de fixalo, caltén calcáu\'l botón Atrás.</string>
+    <string name="screen_pinning_toast_no_navbar">Pa desfixar esta pantalla, ten primíu\'l&amp; botón d\'Atrás</string>
 </resources>

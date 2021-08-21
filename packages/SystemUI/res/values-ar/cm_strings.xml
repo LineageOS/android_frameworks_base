@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@
     <string name="accessibility_quick_settings_ambient_display_on">تشغيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل العرض المحيط.</string>
+    <string name="quick_settings_aod_label">الشاشة الدائمة</string>
+    <string name="quick_settings_aod_off_powersave_label">إيقاف\n الشاشة الدائمة عند تفعيل وضع توفير البطارية</string>
     <string name="quick_settings_caffeine_label">وضع الكافيين</string>
     <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
     <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين.</string>
@@ -31,6 +33,12 @@
     <string name="accessibility_quick_settings_heads_up_on">تشغيل الإنذار المسبق.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل الإنذار المسبق.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإنذار المسبق.</string>
+    <string name="global_screenshot_selector_capture_description">التقاط لقطة شاشة جزئية</string>
+    <string name="global_screenshot_selector_cancel_description">إلغاء لقطة الشاشة الجزئية</string>
+    <string name="quick_settings_powershare_label">مشاركة الشحن لاسلكياً</string>
+    <string name="quick_settings_powershare_off_powersave_label">إيقاف\n مشاركة الشحن لاسلكياً عند تفعيل وضع توفير البطارية</string>
+    <string name="quick_settings_powershare_off_low_battery_label">إيقاف\n مشاركة الشحن لاسلكياً عندما يكون مستوى البطارية منخفضة جداً</string>
+    <string name="quick_settings_powershare_enabled_label">مشاركة الشحن لاسلكياً مفعلة</string>
     <string name="quick_settings_reading_mode">وضع القراءة</string>
     <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
     <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
@@ -48,14 +56,31 @@
     <string name="accessibility_quick_settings_profiles_changed">تم تغيير ملف التعريف إلى <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">الربط عبر USB</string>
     <string name="quick_settings_volume_panel_label">لوحة مستوى الصوت</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ \u2026</string>
+    <string name="vpn_credentials_hint">الرجاء إدخال بيانات الاعتماد الخاصة بك ليتم الاتصال بـ<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">اسم المستخدم</string>
+    <string name="vpn_credentials_password">كلمة المرور</string>
+    <string name="vpn_credentials_dialog_connect">اتصال</string>
+    <string name="quick_settings_anti_flicker">مضاد الوميض</string>
     <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
     <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
+    <string name="global_action_restart_more">إعادة تشغيل\u2026</string>
     <string name="global_action_restart_system">النظام</string>
     <string name="global_action_restart_recovery">الإسترداد</string>
     <string name="global_action_restart_bootloader">محمل الاقلاع</string>
     <string name="global_action_restart_download">التنزيل</string>
+    <string name="global_action_restart_fastboot">إعادة التشغيل إلى وضع الإقلاع السريع</string>
     <string name="global_action_restart_progress">جارٍ إعادة التشغيل</string>
     <string name="global_action_restart_recovery_progress">إعادة التشغيل إلى وضع الإسترداد</string>
     <string name="global_action_restart_bootloader_progress">إعادة التشغيل إلى وضع البوتلودر</string>
     <string name="global_action_restart_download_progress">إعادة التشغيل الى وضع التنزيل</string>
+    <string name="global_action_restart_fastboot_progress">إعادة التشغيل إلى وضع الإقلاع السريع\u2026</string>
+    <string name="global_action_current_user">الحالي</string>
+    <string name="global_action_users">المستخدمون</string>
+    <string name="status_bar_camera">الكاميرا</string>
+    <string name="status_bar_location">الموقع</string>
+    <string name="status_bar_microphone">الميكروفون</string>
+    <string name="screen_pinning_description_no_navbar">يؤدي هذا إلى استمرار العرض إلى أن يتم إزالة التثبيت. ويمكنك لمس مع الاستمرار لإزالة التثبيت.</string>
+    <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة، استمر&amp; بالضغط على زر الرجوع</string>
 </resources>

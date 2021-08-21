@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">Kullanıcı adı</string>
     <string name="vpn_credentials_password">Şifre</string>
     <string name="vpn_credentials_dialog_connect">Bağlan</string>
+    <string name="quick_settings_anti_flicker">Titreme önleme</string>
     <string name="accessibility_dpad_left">Sol imleç</string>
     <string name="accessibility_dpad_right">Sağ imleç</string>
     <string name="global_action_restart_more">Yeniden başlat\u2026</string>
@@ -75,4 +76,11 @@
     <string name="global_action_restart_bootloader_progress">Ön yükleyici modunda başlatılıyor\u2026</string>
     <string name="global_action_restart_download_progress">İndirme modunda başlatılıyor\u2026</string>
     <string name="global_action_restart_fastboot_progress">Fastboot moduna yeniden başlatılıyor\u2026</string>
+    <string name="global_action_current_user">Mevcut</string>
+    <string name="global_action_users">Kullanıcılar</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Konum</string>
+    <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">Bu işlem, siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için Geri\'ye dokunun ve basılı tutun.</string>
+    <string name="screen_pinning_toast_no_navbar">Bu ekran görünümünü kaldırmak için, Geri tuşuna dokunun ve basılı tutun</string>
 </resources>

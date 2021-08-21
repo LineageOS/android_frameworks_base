@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@
     <string name="accessibility_quick_settings_ambient_display_on">Tha an taisbeanadh cuairteach air.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Chaidh an taisbeanadh cuairteach a chur dheth.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Chaidh an taisbeanadh cuairteach a chur air.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">Tha AOD dheth\nCaomhnaiche a’ bhataraidh</string>
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Tha Caffeine dheth.</string>
     <string name="accessibility_quick_settings_caffeine_on">Tha Caffeine air.</string>
@@ -31,6 +33,12 @@
     <string name="accessibility_quick_settings_heads_up_on">Tha am modh aire air.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Chaidh am modh aire a chur dheth.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Chaidh am modh aire a chur air.</string>
+    <string name="global_screenshot_selector_capture_description">Tog glacadh-sgrìn beàrrte</string>
+    <string name="global_screenshot_selector_cancel_description">Sguir dhen ghlacadh-sgrìn bheàrrte</string>
+    <string name="quick_settings_powershare_label">Co-roinneadh cumhachd uèirleas</string>
+    <string name="quick_settings_powershare_off_powersave_label">Tha co-roinneadh cumhachd uèirleas dheth\nCaomhnaiche a’ bhataraidh</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Tha co-roinneadh cumhachd uèirleas dheth\nBataraidh ro fhann</string>
+    <string name="quick_settings_powershare_enabled_label">Tha co-roinneadh cumhachd uèirleas an comas</string>
     <string name="quick_settings_reading_mode">Modh leughaidh</string>
     <string name="accessibility_quick_settings_reading_mode_on">Tha am modh leughaidh air.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Tha am modh leughaidh dheth.</string>
@@ -48,14 +56,31 @@
     <string name="accessibility_quick_settings_profiles_changed">Tha a’ phròifil: <xliff:g id="profile" example="Default">%s</xliff:g> an gnìomh a-nis.</string>
     <string name="quick_settings_usb_tether_label">Teadhrachadh USB</string>
     <string name="quick_settings_volume_panel_label">Panail àirde na fuaime</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ceangail ri\u2026</string>
+    <string name="vpn_credentials_hint">Cuir a-steach an teisteas agad airson ceangal ri <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Ainm-cleachdaiche</string>
+    <string name="vpn_credentials_password">Facal-faire</string>
+    <string name="vpn_credentials_dialog_connect">Ceangail</string>
+    <string name="quick_settings_anti_flicker">Lùghdaich am priobadh</string>
     <string name="accessibility_dpad_left">Cùrsair clì</string>
     <string name="accessibility_dpad_right">Cùrsair deas</string>
+    <string name="global_action_restart_more">Ath-thòisich\u2026</string>
     <string name="global_action_restart_system">An siostam</string>
     <string name="global_action_restart_recovery">Aiseag</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Luchdadh a-nuas</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">’Ga ath-thòiseachadh\u2026</string>
     <string name="global_action_restart_recovery_progress">’Ga ath-thòiseachadh gun mhodh aisig\u2026</string>
     <string name="global_action_restart_bootloader_progress">’Ga ath-thòiseachadh gun mhodh bootloader\u2026</string>
     <string name="global_action_restart_download_progress">’Ga ath-thòiseachadh gun mhodh luchdaidh a-nuas\u2026</string>
+    <string name="global_action_restart_fastboot_progress">’Ga ath-thòiseachadh gun mhodh fastbootd\u2026</string>
+    <string name="global_action_current_user">Làithreach</string>
+    <string name="global_action_users">Cleachdaichean</string>
+    <string name="status_bar_camera">Camara</string>
+    <string name="status_bar_location">Ionad</string>
+    <string name="status_bar_microphone">Micreofon</string>
+    <string name="screen_pinning_description_no_navbar">Cumaidh seo san t-sealladh e gus an dì-phrìnich thu e. Suath ri “Air ais” ⁊ cùm e gus a dhì-phrìneachadh.</string>
+    <string name="screen_pinning_toast_no_navbar">Airson an sgrìn seo a dhì-phrìneachadh, suath ris a’ phutan “Air ais” ⁊ cùm sìos e</string>
 </resources>

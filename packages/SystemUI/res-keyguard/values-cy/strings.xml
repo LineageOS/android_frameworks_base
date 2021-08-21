@@ -36,6 +36,7 @@
     <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru</string>
     <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru\'n gyflym</string>
     <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru\'n araf</string>
+    <string name="keyguard_plugged_in_charging_limited"><xliff:g id="percentage">%s</xliff:g> • Yn optimeiddio er iechyd batri</string>
     <string name="keyguard_low_battery">Cysyllta dy wefrydd.</string>
     <string name="keyguard_instructions_when_pattern_disabled">Gwasga Dewislen i ddatgloi.</string>
     <string name="keyguard_network_locked_message">Rhwydwaith wedi\'i gloi</string>

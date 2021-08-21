@@ -18,6 +18,5 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="accessibility_dpad_left">Kursoru pa kreisi</string>
-    <string name="accessibility_dpad_right">Kursoru pa labi</string>
+    <string name="screen_pinning_toast_no_navbar">Til að losa þennan skjá, ýttu á og haltu niðri \'Til baka\' hnappnum</string>
 </resources>

@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,8 @@
     <string name="accessibility_quick_settings_heads_up_on">Rhagrybudd ymlaen.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Rhagrybudd wedi\'i droi i ffwrdd.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Rhagrybudd wedi\'i droi ymlaen.</string>
+    <string name="global_screenshot_selector_capture_description">Cipio sgrinlun rhannol</string>
+    <string name="global_screenshot_selector_cancel_description">Diddymu sgrinlun rhannol</string>
     <string name="quick_settings_powershare_label">Rhannu Pŵer Di-wifr</string>
     <string name="quick_settings_powershare_off_powersave_label">Rhannu Pŵer Di-wifr i ffwrdd\nArbedwr batri</string>
     <string name="quick_settings_powershare_off_low_battery_label">Rhannu Pŵer Di-wifr i ffwrdd\nBatri rhy isel</string>
@@ -62,6 +64,7 @@
     <string name="vpn_credentials_dialog_connect">Cysylltu</string>
     <string name="accessibility_dpad_left">Pwyntydd chwith</string>
     <string name="accessibility_dpad_right">Pwyntydd de</string>
+    <string name="global_action_restart_more">Ailgychwyn\u2026</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Modd adfer</string>
     <string name="global_action_restart_bootloader">Cychwynnydd</string>
@@ -72,4 +75,10 @@
     <string name="global_action_restart_bootloader_progress">Yn ailgychwyn i\'r modd llwytho\'r system\u2026</string>
     <string name="global_action_restart_download_progress">Yn ailgychwyn i\'r modd lawrlwytho\u2026</string>
     <string name="global_action_restart_fastboot_progress">Yn ailgychwyn in fodd fastbootd\u2026</string>
+    <string name="global_action_current_user">Cyfredol</string>
+    <string name="status_bar_camera">Camera</string>
+    <string name="status_bar_location">Lleoliad</string>
+    <string name="status_bar_microphone">Meicroffon</string>
+    <string name="screen_pinning_description_no_navbar">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Nôl i\'w dadbinio.</string>
+    <string name="screen_pinning_toast_no_navbar">I ddadbinio\'r sgrin, cyffyrdda a dal y botwm Nôl</string>
 </resources>

@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,4 +67,10 @@
     <string name="global_action_restart_bootloader_progress">Reiniciando no modo de bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Reiniciando no modo de download\u2026</string>
     <string name="global_action_restart_fastboot_progress">Reiniciando no modo fastbootd\u2026</string>
+    <string name="global_action_current_user">Atual</string>
+    <string name="status_bar_camera">Câmera</string>
+    <string name="status_bar_location">Localização</string>
+    <string name="status_bar_microphone">Microfone</string>
+    <string name="screen_pinning_description_no_navbar">Ela é mantida à vista até que seja liberada. Mantenha o botão Voltar pressionado para liberar.</string>
+    <string name="screen_pinning_toast_no_navbar">Para liberar esta tela, toque no botão \"Voltar\" e mantenha-o pressionado</string>
 </resources>

@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,8 @@
     <string name="accessibility_quick_settings_heads_up_on">Notificacións emerxentes activadas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">As notificacións emerxentes foron desactivadas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">As notificacións emerxentes foron activadas.</string>
+    <string name="global_screenshot_selector_capture_description">Captura de pantalla parcial</string>
+    <string name="global_screenshot_selector_cancel_description">Cancelar captura parcial</string>
     <string name="quick_settings_powershare_label">PowerShare sen fíos</string>
     <string name="quick_settings_powershare_off_powersave_label">PowerShare sen fíos desactivado\nAforro de batería</string>
     <string name="quick_settings_powershare_off_low_battery_label">PowerShare sen fíos desactivado\nBatería baixa de máis</string>
@@ -60,8 +62,10 @@
     <string name="vpn_credentials_username">Nome de usuario</string>
     <string name="vpn_credentials_password">Contrasinal</string>
     <string name="vpn_credentials_dialog_connect">Conectar</string>
+    <string name="quick_settings_anti_flicker">Anti escintileo</string>
     <string name="accessibility_dpad_left">Cursor á esquerda</string>
     <string name="accessibility_dpad_right">Cursor á dereita</string>
+    <string name="global_action_restart_more">Reiniciar\u2026</string>
     <string name="global_action_restart_system">Sistema</string>
     <string name="global_action_restart_recovery">Recuperación</string>
     <string name="global_action_restart_bootloader">Cargador de arranque</string>
@@ -72,4 +76,10 @@
     <string name="global_action_restart_bootloader_progress">Reiniciando en modo bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Reiniciando en modo descarga\u2026</string>
     <string name="global_action_restart_fastboot_progress">Reiniciando no modo fastbootd\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="status_bar_camera">Cámara</string>
+    <string name="status_bar_location">Localización</string>
+    <string name="status_bar_microphone">Micrófono</string>
+    <string name="screen_pinning_description_no_navbar">Amosarase mentres esté fixado. Para deixar de fixalo, mantén tocado o botón Atrás.</string>
+    <string name="screen_pinning_toast_no_navbar">Para deixar de fixar esta pantalla, mantén apertado o botón Atrás</string>
 </resources>

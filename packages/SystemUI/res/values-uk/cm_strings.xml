@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,4 +48,7 @@
     <string name="global_action_restart_system">Система</string>
     <string name="global_action_restart_progress">Перезавантаження\u2026</string>
     <string name="global_action_restart_recovery_progress">Перехід в режим відновлення\u2026</string>
+    <string name="global_action_current_user">Поточний</string>
+    <string name="status_bar_location">Місцезнаходження</string>
+    <string name="screen_pinning_description_no_navbar">Ви постійно бачитимете екран, доки не відкріпите його. Щоб відкріпити екран, натисніть і утримуйте кнопку \"Назад\".</string>
 </resources>

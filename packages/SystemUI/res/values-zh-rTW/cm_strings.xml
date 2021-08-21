@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@
     <string name="accessibility_quick_settings_ambient_display_on">環境顯示開啟</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">環境顯示已關閉</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">環境顯示已開啟</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 關閉\n省電模式</string>
     <string name="quick_settings_caffeine_label">暫停休眠</string>
     <string name="accessibility_quick_settings_caffeine_off">暫停休眠關閉</string>
     <string name="accessibility_quick_settings_caffeine_on">暫停休眠開啟</string>
@@ -31,6 +33,12 @@
     <string name="accessibility_quick_settings_heads_up_on">浮動通知開啟</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">浮動通知已關閉</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">浮動通知已開啟</string>
+    <string name="global_screenshot_selector_capture_description">擷取局部螢幕截圖</string>
+    <string name="global_screenshot_selector_cancel_description">取消局部螢幕擷圖</string>
+    <string name="quick_settings_powershare_label">無線反向充電</string>
+    <string name="quick_settings_powershare_off_powersave_label">無線反向充電關閉\n省電模式</string>
+    <string name="quick_settings_powershare_off_low_battery_label">無線反向充電關閉\n電量太低</string>
+    <string name="quick_settings_powershare_enabled_label">無線反向充電已開啟</string>
     <string name="quick_settings_reading_mode">閱讀模式</string>
     <string name="accessibility_quick_settings_reading_mode_on">閱讀模式開啟。</string>
     <string name="accessibility_quick_settings_reading_mode_off">閱讀模式關閉。</string>
@@ -48,14 +56,31 @@
     <string name="accessibility_quick_settings_profiles_changed">設定檔已變更為<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
     <string name="quick_settings_usb_tether_label">USB 網路共享</string>
     <string name="quick_settings_volume_panel_label">音量面板</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">連線到\u2026</string>
+    <string name="vpn_credentials_hint">請輸入您的身份驗證資訊以連接到<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">使用者名稱</string>
+    <string name="vpn_credentials_password">密碼</string>
+    <string name="vpn_credentials_dialog_connect">連接</string>
+    <string name="quick_settings_anti_flicker">防閃爍</string>
     <string name="accessibility_dpad_left">游標左移</string>
     <string name="accessibility_dpad_right">游標右移</string>
+    <string name="global_action_restart_more">重新啟動\u2026</string>
     <string name="global_action_restart_system">系統</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">下載</string>
+    <string name="global_action_restart_fastboot">Fastboot</string>
     <string name="global_action_restart_progress">重新啟動中\u2026</string>
     <string name="global_action_restart_recovery_progress">正在重新啟動至 Recovery 模式\u2026</string>
     <string name="global_action_restart_bootloader_progress">正在重新啟動至 Bootloader 模式\u2026</string>
     <string name="global_action_restart_download_progress">正在重新啟動至下載模式\u2026</string>
+    <string name="global_action_restart_fastboot_progress">正在重新啟動至 Fastboot 模式\u2026</string>
+    <string name="global_action_current_user">目前</string>
+    <string name="global_action_users">使用者</string>
+    <string name="status_bar_camera">相機</string>
+    <string name="status_bar_location">位置</string>
+    <string name="status_bar_microphone">麥克風</string>
+    <string name="screen_pinning_description_no_navbar">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「返回」鍵即可取消固定。</string>
+    <string name="screen_pinning_toast_no_navbar">要取消固定這個畫面，請按住「返回」按鈕。</string>
 </resources>

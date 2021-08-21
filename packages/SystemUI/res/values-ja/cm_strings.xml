@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@
     <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示が OFF になりました。</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示が ON になりました。</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
     <string name="quick_settings_caffeine_label">カフェイン</string>
     <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです。</string>
     <string name="accessibility_quick_settings_caffeine_on">カフェインはONです。</string>
@@ -31,6 +33,12 @@
     <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップがOFFになりました。</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップがONになりました。</string>
+    <string name="global_screenshot_selector_capture_description">指定した範囲を撮影</string>
+    <string name="global_screenshot_selector_cancel_description">指定した範囲の撮影を中止</string>
+    <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">ワイヤレス PowerShare OFF\nバッテリー節約</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレス PowerShare OFF\nバッテリー残量低下</string>
+    <string name="quick_settings_powershare_enabled_label">ワイヤレス PowerShare は有効です</string>
     <string name="quick_settings_reading_mode">読書モード</string>
     <string name="accessibility_quick_settings_reading_mode_on">読書モードは ON です。</string>
     <string name="accessibility_quick_settings_reading_mode_off">読書モードは OFF です。</string>
@@ -48,14 +56,31 @@
     <string name="accessibility_quick_settings_profiles_changed">プロファイルが<xliff:g id="profile" example="Default">%s</xliff:g>に変更されました。</string>
     <string name="quick_settings_usb_tether_label">USBテザリング</string>
     <string name="quick_settings_volume_panel_label">音量パネル</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026 に接続</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> への接続の認証情報を入力して下さい</string>
+    <string name="vpn_credentials_username">ユーザー名</string>
+    <string name="vpn_credentials_password">パスワード</string>
+    <string name="vpn_credentials_dialog_connect">接続</string>
+    <string name="quick_settings_anti_flicker">アンチフリッカー</string>
     <string name="accessibility_dpad_left">カーソルを左へ</string>
     <string name="accessibility_dpad_right">カーソルを右へ</string>
+    <string name="global_action_restart_more">再起動\u2026</string>
     <string name="global_action_restart_system">システム</string>
     <string name="global_action_restart_recovery">リカバリー</string>
     <string name="global_action_restart_bootloader">ブートローダー</string>
     <string name="global_action_restart_download">ダウンロード</string>
+    <string name="global_action_restart_fastboot">fastbootd</string>
     <string name="global_action_restart_progress">再起動中\u2026</string>
     <string name="global_action_restart_recovery_progress">リカバリーモードで再起動中\u2026</string>
     <string name="global_action_restart_bootloader_progress">ブートローダーモードで再起動中\u2026</string>
     <string name="global_action_restart_download_progress">ダウンロードモードで再起動中\u2026</string>
+    <string name="global_action_restart_fastboot_progress">fastbootd モードで再起動中\u2026</string>
+    <string name="global_action_current_user">現在</string>
+    <string name="global_action_users">ユーザー</string>
+    <string name="status_bar_camera">カメラ</string>
+    <string name="status_bar_location">位置情報</string>
+    <string name="status_bar_microphone">マイク</string>
+    <string name="screen_pinning_description_no_navbar">固定を解除するまで画面が常に表示されるようになります。固定を解除するには戻るボタンを押し続けます。</string>
+    <string name="screen_pinning_toast_no_navbar">画面の固定を解除するには戻るボタンを長押しします</string>
 </resources>

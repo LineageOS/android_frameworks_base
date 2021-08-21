@@ -391,6 +391,8 @@
     <string name="profile_owned_footer">Podría supervisase\'l perfil</string>
     <string name="vpn_footer">Podría supervisase la rede</string>
     <string name="branded_vpn_footer">Podría supervisase la rede</string>
+    <string name="quick_settings_disclosure_management">Esti preséu pertenez a la to organización</string>
+    <string name="quick_settings_disclosure_named_management">Esti preséu pertenez a <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g></string>
     <string name="quick_settings_disclosure_managed_profile_monitoring">La to organización puede monitorizar el tráficu de rede nel to perfil de trabayu</string>
     <string name="quick_settings_disclosure_named_managed_profile_monitoring"><xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g> puede monitorizar el tráficu de rede nel to perfil de trabayu</string>
     <string name="quick_settings_disclosure_monitoring">Podría supervisase la rede</string>
@@ -436,6 +438,7 @@
     <string name="accessibility_volume_settings">Axustes de soníu</string>
     <string name="accessibility_volume_expand">Espander</string>
     <string name="accessibility_volume_collapse">Contrayer</string>
+    <string name="screen_pinning_title">L\'aplicación ta fixada</string>
     <string name="screen_pinning_description">Amosaráse mentanto tez fixáu. Pa dexar de fixalo, caltén &amp; calcáu\'l botón Atrás y Visión xeneral.</string>
     <string name="screen_pinning_description_accessible">Esto caltién la pantalla nesta vista hasta que la desfixes. Ten &amp; primíu\'l botón de Vista xeneral pa desfixar.</string>
     <string name="screen_pinning_description_recents_invisible_accessible">Amosaráse mentanto tez fixáu. Pa dexar de fixalo, caltén &amp; calcáu\'l botón Aniciu.</string>
@@ -709,4 +712,5 @@
     <string name="controls_favorite_other_zone_header">Otros</string>
     <string name="controls_media_resume">Siguir</string>
     <string name="controls_media_settings_button">Axustes</string>
+    <string name="controls_in_progress">En cursu</string>
 </resources>

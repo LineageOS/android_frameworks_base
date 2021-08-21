@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">Kasutajanimi</string>
     <string name="vpn_credentials_password">Parool</string>
     <string name="vpn_credentials_dialog_connect">Ühenda</string>
+    <string name="quick_settings_anti_flicker">Virvendusfilter</string>
     <string name="accessibility_dpad_left">Kursor vasakule</string>
     <string name="accessibility_dpad_right">Kursor paremale</string>
     <string name="global_action_restart_more">Taaskäivita\u2026</string>
@@ -74,4 +75,10 @@
     <string name="global_action_restart_bootloader_progress">Taaskäivitamine käivituslaadurisse\u2026</string>
     <string name="global_action_restart_download_progress">Taaskäivitamine allalaadimisrežiimi\u2026</string>
     <string name="global_action_restart_fastboot_progress">Taaskäivitamine fastbootd-režiimi\u2026</string>
+    <string name="global_action_current_user">Praegune</string>
+    <string name="global_action_users">Kasutajad</string>
+    <string name="status_bar_camera">Kaamera</string>
+    <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">See hoitakse kuval, kuni selle vabastate. Vabastamiseks puudutage pikalt tagasinuppu.</string>
+    <string name="screen_pinning_toast_no_navbar">Selle ekraani vabastamiseks puudutage ja hoidke all tagasinuppu</string>
 </resources>

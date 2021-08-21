@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,8 @@
     <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće su obavijesti isključene.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće su obavijesti uključene.</string>
+    <string name="global_screenshot_selector_capture_description">Snimite djelomičnu snimku zaslona</string>
+    <string name="global_screenshot_selector_cancel_description">Otkaži djelomičnu snimku zaslona</string>
     <string name="quick_settings_sync_label">Sinkronizacija</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena.</string>
     <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena.</string>
@@ -43,8 +45,10 @@
     <string name="accessibility_quick_settings_profiles_changed">Profil je promijenjen u <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Dijeljenje veze preko USB-a</string>
     <string name="quick_settings_volume_panel_label">Zvučna ploča</string>
+    <string name="quick_settings_anti_flicker">Bez treperenja</string>
     <string name="accessibility_dpad_left">Kursor lijevo</string>
     <string name="accessibility_dpad_right">Kursor desno</string>
+    <string name="global_action_restart_more">Ponovno pokretanje\u2026</string>
     <string name="global_action_restart_system">Sustav</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
@@ -53,4 +57,8 @@
     <string name="global_action_restart_recovery_progress">Ponovno pokretanje u Recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Ponovno pokretanje u bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Ponovno pokretanje u način preuzimanja\u2026</string>
+    <string name="global_action_current_user">Trenutni</string>
+    <string name="global_action_users">Korisnici</string>
+    <string name="status_bar_location">Lokacija</string>
+    <string name="screen_pinning_description_no_navbar">Ovo drži zaslon u pogledu dok ga ne otkvačite. Dodirnite &amp; držite gumb za povratak natrag da biste ga otkvačili.</string>
 </resources>

@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">Felhasználónév</string>
     <string name="vpn_credentials_password">Jelszó</string>
     <string name="vpn_credentials_dialog_connect">Kapcsolódás</string>
+    <string name="quick_settings_anti_flicker">Vibrálásmentesítés</string>
     <string name="accessibility_dpad_left">Kurzor balra</string>
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
     <string name="global_action_restart_more">Újraindítás\u2026</string>
@@ -75,4 +76,11 @@
     <string name="global_action_restart_bootloader_progress">Újraindítás bootloader-módba\u2026</string>
     <string name="global_action_restart_download_progress">Újraindítás download-módba\u2026</string>
     <string name="global_action_restart_fastboot_progress">Újraindítás Fastboot-módba\u2026</string>
+    <string name="global_action_current_user">Jelenlegi</string>
+    <string name="global_action_users">Felhasználók</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Helymeghatározás</string>
+    <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">Megjelenítve tartja addig, amíg Ön fel nem oldja a rögzítést. A feloldáshoz érintse meg és tartsa lenyomva a Vissza gombot.</string>
+    <string name="screen_pinning_toast_no_navbar">A Képernyőrögzítés feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>
 </resources>

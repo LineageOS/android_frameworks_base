@@ -17,7 +17,7 @@
     <string name="backup_confirm_title">Lethbhreac-glèidhidh slàn</string>
     <string name="restore_confirm_title">Aiseag slàn</string>
     <string name="backup_confirm_text">Chaidh iarraidh gun dèid lethbhreac-glèidhidh dhen dàta uile a chur air coimpiutair desktop ceangailte. A bheil thu airson ’s gun tachair seo?\n\nMur an do dh’iarr thu fhèin an lethbhreac-glèidhidh seo, nach leig leis a’ ghnìomh seo a dhol air adhart.</string>
-    <string name="allow_backup_button_label">Dèan lethbhreac-glèidhidh dhen dàta uile agam</string>
+    <string name="allow_backup_button_label">Dèan lethbhreac-glèidhidh dhen dàta agam</string>
     <string name="deny_backup_button_label">Na dèan lethbhreac-glèidhidh</string>
     <string name="restore_confirm_text">Chaidh iarraidh gun dèid an dàta uile agad aiseag o choimpiutair desktop ceangailte. A bheil thu airson ’s gun tachair seo?\n\nMur an do dh’iarr thu fhèin an t-aiseag seo, nach leig leis a’ ghnìomh seo a dhol air adhart. Thèid an dàta ud a chur an àite dàta sam bith a tha air an uidheam an-dràsta!</string>
     <string name="allow_restore_button_label">Aisig an dàta agam</string>

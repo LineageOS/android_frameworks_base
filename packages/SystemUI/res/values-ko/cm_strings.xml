@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">사용자 이름</string>
     <string name="vpn_credentials_password">비밀번호</string>
     <string name="vpn_credentials_dialog_connect">연결</string>
+    <string name="quick_settings_anti_flicker">플리커 방지</string>
     <string name="accessibility_dpad_left">커서 왼쪽</string>
     <string name="accessibility_dpad_right">커서 오른쪽</string>
     <string name="global_action_restart_more">다시 시작\u2026</string>
@@ -75,4 +76,11 @@
     <string name="global_action_restart_bootloader_progress">부트로더 모드로 다시 시작하는 중\u2026</string>
     <string name="global_action_restart_download_progress">다운로드 모드로 다시 시작하는 중\u2026</string>
     <string name="global_action_restart_fastboot_progress">Fastbootd 모드로 다시 시작하는 중\u2026</string>
+    <string name="global_action_current_user">현재 사용자</string>
+    <string name="global_action_users">사용자</string>
+    <string name="status_bar_camera">카메라</string>
+    <string name="status_bar_location">위치</string>
+    <string name="status_bar_microphone">마이크</string>
+    <string name="screen_pinning_description_no_navbar">고정을 해제하기 전까지 계속 볼 수 있습니다. 고정을 해제하려면 뒤로 가기 버튼을 길게 누르세요.</string>
+    <string name="screen_pinning_toast_no_navbar">이 화면을 고정 해제하려면 뒤로 가기 버튼을 길게 누르세요.</string>
 </resources>

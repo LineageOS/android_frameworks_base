@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">Užívateľské meno</string>
     <string name="vpn_credentials_password">Heslo</string>
     <string name="vpn_credentials_dialog_connect">Pripojiť</string>
+    <string name="quick_settings_anti_flicker">Eliminácia blikania</string>
     <string name="accessibility_dpad_left">Kurzor vľavo</string>
     <string name="accessibility_dpad_right">Kurzor vpravo</string>
     <string name="global_action_restart_more">Reštartovať\u2026</string>
@@ -75,4 +76,11 @@
     <string name="global_action_restart_bootloader_progress">Reštartovanie do režimu Bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Reštartovanie do režimu sťahovania\u2026</string>
     <string name="global_action_restart_fastboot_progress">Reštartovanie do režimu fastboot\u2026</string>
+    <string name="global_action_current_user">Aktuálny</string>
+    <string name="global_action_users">Používatelia</string>
+    <string name="status_bar_camera">Fotoaparát</string>
+    <string name="status_bar_location">Poloha</string>
+    <string name="status_bar_microphone">Mikrofón</string>
+    <string name="screen_pinning_description_no_navbar">Obsah bude pripnutý v zobrazení, až kým ho neuvoľníte. Uvoľníte ho stlačením a podržaním tlačidla Späť.</string>
+    <string name="screen_pinning_toast_no_navbar">Na odopnutie tejto obrazovky stlačte &amp; a podržte tlačidlo Späť</string>
 </resources>

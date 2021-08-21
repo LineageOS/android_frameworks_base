@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,6 +62,7 @@
     <string name="vpn_credentials_username">Uporabniško ime</string>
     <string name="vpn_credentials_password">Geslo</string>
     <string name="vpn_credentials_dialog_connect">Poveži</string>
+    <string name="quick_settings_anti_flicker">Preprečevanje utripanja</string>
     <string name="accessibility_dpad_left">Kazalec levo</string>
     <string name="accessibility_dpad_right">Kazalec desno</string>
     <string name="global_action_restart_more">Vnovičen zagon \u2026</string>
@@ -75,4 +76,11 @@
     <string name="global_action_restart_bootloader_progress">Vnovično zaganjanje v način zagonskega nalagalnika \u2026</string>
     <string name="global_action_restart_download_progress">Vnovično zaganjanje v način prenosa \u2026</string>
     <string name="global_action_restart_fastboot_progress">Vnovično zaganjanje v način namen. zagon. nalagalnika \u2026</string>
+    <string name="global_action_current_user">Trenutni</string>
+    <string name="global_action_users">Uporabniki</string>
+    <string name="status_bar_camera">Fotoaparat</string>
+    <string name="status_bar_location">Lokacija</string>
+    <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite gumb Nazaj, da ga odpnete.</string>
+    <string name="screen_pinning_toast_no_navbar">Da odpnete ta zaslon, se dotaknite in pridržite gumb Nazaj</string>
 </resources>

@@ -18,21 +18,132 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Dìon iuchraichean</string>
+    <string name="keyguard_password_enter_pin_code">Cuir a-steach còd PIN</string>
+    <string name="keyguard_password_enter_puk_code">Cuir a-steach PUK an t-SIM agus còd PIN ùr</string>
+    <string name="keyguard_password_enter_puk_prompt">Còd PUK an t-SIM</string>
+    <string name="keyguard_password_enter_pin_prompt">Còd PIN ùr an t-SIM</string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">Suath ris airson am facal-faire a sgrìobhadh</font></string>
+    <string name="keyguard_password_enter_password_code">Cuir a-steach am facal-faire gus a’ ghlas a thoirt dheth</string>
+    <string name="keyguard_password_enter_pin_password_code">Cuir a-steach am PIN gus a’ ghlas a thoirt dheth</string>
     <string name="keyguard_enter_your_pin">Cuir a-steach am PIN agad</string>
+    <string name="keyguard_enter_your_pattern">Cuir a-steach am pàtran agad</string>
+    <string name="keyguard_enter_your_password">Cuir a-steach am facal-faire agad</string>
+    <string name="keyguard_password_wrong_pin_code">Còd PIN ceàrr.</string>
     <string name="keyguard_sim_error_message_short">Cairt mhì-dhligheach.</string>
+    <string name="keyguard_charged">Air a làn-teàirrds</string>
+    <string name="keyguard_plugged_in_wireless"><xliff:g id="percentage" example="20%">%s</xliff:g> • ’Ga theàirrdseadh gun uèir</string>
     <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • ’Ga theàirrdseadh</string>
     <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • ’Ga theàirrdseadh gu luath</string>
     <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • ’Ga theàirrdseadh gu mall</string>
+    <string name="keyguard_plugged_in_charging_limited"><xliff:g id="percentage">%s</xliff:g> • ’Ga phiseachadh ach am mair am bataraidh nas fhaide</string>
+    <string name="keyguard_low_battery">Ceangail teàirrdsear ris.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Brùth air “Clàr-taice” airson a ghlas a thoirt uaithe.</string>
+    <string name="keyguard_network_locked_message">Lìonra glaiste</string>
+    <string name="keyguard_missing_sim_message_short">Chan eil cairt SIM ann</string>
+    <string name="keyguard_missing_sim_instructions">Cuir a-steach cairt SIM.</string>
+    <string name="keyguard_missing_sim_instructions_long">Tha a’ chairt SIM a dhìth no cha ghabh a leughadh. Cuir a-steach cairt SIM.</string>
+    <string name="keyguard_permanent_disabled_sim_message_short">Cairt SIM nach gabh cleachdadh.</string>
+    <string name="keyguard_permanent_disabled_sim_instructions">Chaidh a’ chairt SIM agad a chur à comas gu buan.\n
+    Cuir fios gun t-solaraiche seirbheis uèirleas agad airson cairt SIM eile.</string>
+    <string name="keyguard_sim_locked_message">Tha a’ chairt SIM glaiste.</string>
+    <string name="keyguard_sim_puk_locked_message">Chaidh a’ chairt SIM a ghlasadh le PUK.</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">A’ toirt a’ ghlas far na cairt SIM\u2026</string>
+    <string name="keyguard_accessibility_pin_area">Raon a’ PIN</string>
     <string name="keyguard_accessibility_password">Facal-faire an uidheim</string>
+    <string name="keyguard_accessibility_sim_pin_area">Raon PIN an t-SIM</string>
+    <string name="keyguard_accessibility_sim_puk_area">Raon PUK an t-SIM</string>
+    <string name="keyguard_accessibility_next_alarm">Bidh an ath-chaismeachd <xliff:g id="alarm" example="Fri 8:30 AM">%1$s</xliff:g></string>
+    <string name="keyboardview_keycode_delete">Sguab às</string>
+    <string name="disable_carrier_button_text">Cuir eSIM à comas</string>
     <string name="error_disable_esim_title">Chan urrainn dhuinn an eSIM a chur à comas</string>
     <string name="error_disable_esim_msg">Cha ghabh an eSIM a chur à comas ri linn mearachd.</string>
+    <string name="keyboardview_keycode_enter">Enter</string>
+    <string name="kg_forgot_pattern_button_text">Chaidh am pàtran a dhìochuimhneachadh</string>
+    <string name="kg_wrong_pattern">Pàtran ceàrr</string>
+    <string name="kg_wrong_password">Facal-faire ceàrr</string>
+    <string name="kg_wrong_pin">PIN ceàrr</string>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="one">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> diog.</item>
         <item quantity="two">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> dhiog.</item>
         <item quantity="few">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> diogan.</item>
         <item quantity="other">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> diog.</item>
     </plurals>
+    <string name="kg_pattern_instructions">Tarraing am pàtran agad</string>
+    <string name="kg_sim_pin_instructions">Cuir a-steach PIN an t-SIM.</string>
+    <string name="kg_sim_pin_instructions_multi">Cuir a-steach PIN an t-SIM airson “<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>”.</string>
     <string name="kg_sim_lock_esim_instructions"><xliff:g id="previous_msg" example="Enter SIM PIN.">%1$s</xliff:g> Cuir an eSIM à comas airson an t-uidheam a chleachdadh às aonais seirbheis mobile.</string>
+    <string name="kg_pin_instructions">Cuir a-steach am PIN</string>
+    <string name="kg_password_instructions">Cuir a-steach am facal-faire</string>
+    <string name="kg_puk_enter_puk_hint">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</string>
+    <string name="kg_puk_enter_puk_hint_multi">Tha an SIM “<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>” à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</string>
+    <string name="kg_puk_enter_pin_hint">Cuir a-steach an còd PIN a thogras tu</string>
+    <string name="kg_enter_confirm_pin_hint">Dearbh an còd PIN a thogras tu</string>
+    <string name="kg_sim_unlock_progress_dialog_message">A’ toirt a’ ghlas far na cairt SIM\u2026</string>
+    <string name="kg_invalid_sim_pin_hint">Cuir a-steach PIN a tha eadar 4 is 8 àireamhan a dh’fhaid.</string>
+    <string name="kg_invalid_sim_puk_hint">Bu chòir an còd PUK a bhith ’na 8 àireamhan no nas fhaide.</string>
+    <string name="kg_invalid_puk">Cuir a-steach an còd PUK ceart a-rithist. Cuiridh iomadh oidhirp an SIM à comas gu buan.</string>
+    <string name="kg_login_too_many_attempts">Cus oidhirpean air a’ phàtran</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">        Sgrìobh thu am PIN agad gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+        \n\nFeuch ris a-rithist an ceann <xliff:g id="number">%2$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">        Sgrìobh thu am facal-faire agad gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+        \n\nFeuch ris a-rithist an ceann <xliff:g id="number">%2$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">        Tharraing thu am pàtran neo-ghlasaidh agad gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+        \n\nFeuch ris a-rithist an ceann <xliff:g id="number">%2$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_password_wrong_pin_code_pukked">Còd PIN an t-SIM ceàrr. Feumaidh tu bruidhinn ris a’ ghiùlanair agad a-nis airson a’ ghlas a thoirt far an uidheim agad.</string>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad mus bi agad ri bruidhinn ris a’ ghiùlanair agad airson a’ ghlas a thoirt far an uidheim agad.</item>
+        <item quantity="two">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad.</item>
+        <item quantity="few">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirpean eile agad.</item>
+        <item quantity="other">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad.</item>
+    </plurals>
+    <string name="kg_password_wrong_puk_code_dead">Cha ghabh an SIM seo cleachdadh. Cuir fios gun ghiùlanair agad.</string>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="one">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+        <item quantity="two">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+        <item quantity="few">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirpean eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+        <item quantity="other">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+    </plurals>
+    <string name="kg_password_pin_failed">Dh’fhàillig le obrachadh PIN an t-SIM!</string>
+    <string name="kg_password_puk_failed">Dh’fhàillig le obrachadh PUK an t-SIM!</string>
+    <string name="kg_pin_accepted">Chaidh gabhail ris a’ chòd!</string>
+    <string name="keyguard_carrier_default">Gun seirbheis.</string>
+    <string name="accessibility_ime_switch_button" msgid="5032926134740456424">Geàrr leum gu modh ion-chuir eile</string>
+    <string name="airplane_mode">Am modh itealain</string>
+    <string name="kg_prompt_reason_restart_pattern">Tha pàtran riatanach an dèidh an t-uidheam ath-thòiseachadh</string>
+    <string name="kg_prompt_reason_restart_pin">Tha PIN riatanach an dèidh an t-uidheam ath-thòiseachadh</string>
+    <string name="kg_prompt_reason_restart_password">Tha facal-faire riatanach an dèidh an t-uidheam ath-thòiseachadh</string>
+    <string name="kg_prompt_reason_timeout_pattern">Tha pàtran riatanach a chùm barrachd tèarainteachd</string>
+    <string name="kg_prompt_reason_timeout_pin">Tha PIN riatanach a chùm barrachd tèarainteachd</string>
+    <string name="kg_prompt_reason_timeout_password">Tha facal-faire riatanach a chùm barrachd tèarainteachd</string>
+    <string name="kg_prompt_reason_switch_profiles_pattern">Tha pàtran riatanach nuair a ghearras tu leum gu pròifil eile</string>
+    <string name="kg_prompt_reason_switch_profiles_pin">Tha PIN riatanach nuair a ghearras tu leum gu pròifil eile</string>
+    <string name="kg_prompt_reason_switch_profiles_password">Tha facal-faire riatanach nuair a ghearras tu leum gu pròifil eile</string>
+    <string name="kg_prompt_reason_device_admin">Chaidh an t-uidheam a ghlasadh le rianaire</string>
+    <string name="kg_prompt_reason_user_request">Chaidh an t-uidheam a ghlasadh a làimh</string>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="one">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ phàtran.</item>
+        <item quantity="two">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ phàtran.</item>
+        <item quantity="few">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uairean a thìde. Dearbh leis a’ phàtran.</item>
+        <item quantity="other">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ phàtran.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="one">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ PhIN.</item>
+        <item quantity="two">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ PhIN.</item>
+        <item quantity="few">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uairean a thìde. Dearbh leis a’ PhIN.</item>
+        <item quantity="other">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ PhIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="one">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis an fhacal-fhaire.</item>
+        <item quantity="two">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis an fhacal-fhaire.</item>
+        <item quantity="few">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uairean a thìde. Dearbh leis an fhacal-fhaire.</item>
+        <item quantity="other">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis an fhacal-fhaire.</item>
+    </plurals>
+    <string name="kg_fingerprint_not_recognized">Gun aithneachadh</string>
+    <string name="kg_face_not_recognized">Gun aithneachadh</string>
     <plurals name="kg_password_default_pin_message">
         <item quantity="one">Cuir a-steach PIN an t-SIM. Tha <xliff:g id="number">%d</xliff:g> oidhirp air fhàgail
 agad mus bi agad ri bruidhinn ris a’ ghiùlanair agad airson a’ ghlas a thoirt far an uidheim agad.</item>
@@ -49,4 +160,7 @@ agad.</item>
         <item quantity="few">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Tha <xliff:g id=" number">%d</xliff:g> oidhirpean air fhàgail dhut gus nach gabh an SIM a chleachdadh a-rithist gu bràth tuilleadh. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</item>
         <item quantity="other">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Tha <xliff:g id=" number">%d</xliff:g> oidhirp air fhàgail dhut gus nach gabh an SIM a chleachdadh a-rithist gu bràth tuilleadh. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</item>
     </plurals>
+    <string name="clock_title_default">Bun-roghainn</string>
+    <string name="clock_title_bubble">Builgean</string>
+    <string name="clock_title_analog">Analogach</string>
 </resources>
