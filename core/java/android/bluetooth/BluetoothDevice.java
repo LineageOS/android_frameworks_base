@@ -1677,6 +1677,9 @@ public final class BluetoothDevice implements Parcelable, Attributable {
 
     /** @hide */
     @UnsupportedAppUsage
+    @RequiresLegacyBluetoothPermission
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public void setBondingInitiatedLocally(boolean localInitiated) {
         final IBluetooth service = sService;
         if (service == null) {
@@ -1684,7 +1687,7 @@ public final class BluetoothDevice implements Parcelable, Attributable {
             return;
         }
         try {
-            service.setBondingInitiatedLocally(this, localInitiated);
+            service.setBondingInitiatedLocally(this, localInitiated, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "", e);
         }
@@ -2005,13 +2008,16 @@ public final class BluetoothDevice implements Parcelable, Attributable {
      * @return True if the devcie is TWS+ device.
      * @hide
      */
+    @RequiresLegacyBluetoothPermission
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean isTwsPlusDevice() {
          if (sService == null) {
              Log.e(TAG, "BT not enabled. Cannot query remote device sdp records");
              return false;
          }
          try {
-             return sService.isTwsPlusDevice(this);
+             return sService.isTwsPlusDevice(this, mAttributionSource);
          } catch (RemoteException e) {Log.e(TAG, "", e);}
          return false;
     }
@@ -2023,13 +2029,16 @@ public final class BluetoothDevice implements Parcelable, Attributable {
      * null.
      * @hide
      */
+    @RequiresLegacyBluetoothPermission
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public String getTwsPlusPeerAddress() {
         if (sService == null) {
             Log.e(TAG, "BT not enabled. Cannot get Remote Device name");
             return null;
         }
         try {
-            return sService.getTwsPlusPeerAddress(this);
+            return sService.getTwsPlusPeerAddress(this, mAttributionSource);
         } catch (RemoteException e) {Log.e(TAG, "", e);}
         return null;
     }
@@ -2904,14 +2913,17 @@ public final class BluetoothDevice implements Parcelable, Attributable {
      * @return device type.
      * @hide
      */
-    @RequiresPermission(Manifest.permission.BLUETOOTH_PRIVILEGED)
+    @RequiresPermission(allOf = {
+            android.Manifest.permission.BLUETOOTH_CONNECT,
+            android.Manifest.permission.BLUETOOTH_PRIVILEGED,
+    })
     public int getDeviceType() {
         if (sService == null) {
             Log.e(TAG, "getDeviceType query remote device info failed");
             return -1;
         }
         try {
-            return sService.getDeviceType(this);
+            return sService.getDeviceType(this, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "getDeviceType fail ", e);
         }
