@@ -29,6 +29,11 @@
 
 package android.bluetooth;
 
+import android.annotation.RequiresPermission;
+import android.bluetooth.annotations.RequiresBluetoothConnectPermission;
+import android.bluetooth.annotations.RequiresBluetoothScanPermission;
+import android.compat.annotation.UnsupportedAppUsage;
+import android.content.AttributionSource;
 import android.annotation.SdkConstant;
 import android.annotation.SdkConstant.SdkConstantType;
 import android.bluetooth.IBluetoothGroupCallback;
@@ -154,6 +159,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
     private BluetoothGroupCallback mCallback;
 
     private BluetoothAdapter mAdapter;
+    private final AttributionSource mAttributionSource;
     private final BluetoothProfileConnector<IBluetoothDeviceGroup> mProfileConnector =
         new BluetoothProfileConnector(this, BluetoothProfile.GROUP_CLIENT,
                 "BluetoothDeviceGroup", IBluetoothDeviceGroup.class.getName()) {
@@ -171,6 +177,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
     /*package*/ BluetoothDeviceGroup(Context context, ServiceListener listener) {
         mProfileConnector.connect(context, listener);
         mAdapter = BluetoothAdapter.getDefaultAdapter();
+        mAttributionSource = mAdapter.getAttributionSource();
         IBluetoothManager mgr = mAdapter.getBluetoothManager();
         if (mgr != null) {
             try {
@@ -203,7 +210,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         final IBluetoothDeviceGroup service = getService();
         if (service != null) {
             try {
-                service.unregisterGroupClientApp(mAppId);
+                service.unregisterGroupClientApp(mAppId, mAttributionSource);
             } catch (RemoteException e) {
                 Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
             }
@@ -425,6 +432,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @param handler      handler that will receive asynchronous callbacks.
      * @return true, if operation was initiated successfully.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean registerGroupClientApp(BluetoothGroupCallback callbacks, Handler handler) {
         if (DBG) log("registerGroupClientApp() mAppRegistered = " + mAppRegistered);
 
@@ -446,7 +455,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         mAppRegistered = true;
         try {
             UUID uuid = UUID.randomUUID();
-            service.registerGroupClientApp(new ParcelUuid(uuid), mBluetoothGroupCallback);
+            service.registerGroupClientApp(new ParcelUuid(uuid), mBluetoothGroupCallback,
+                    mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -469,6 +479,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      *                 discovery has to be started.
      * @return true, if operation was initiated successfully.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean startGroupDiscovery(int groupId) {
         if (DBG) log("startGroupDiscovery() : groupId = " + groupId);
 
@@ -486,7 +498,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
 
         try {
             UUID uuid = UUID.randomUUID();
-            service.startGroupDiscovery(mAppId ,groupId);
+            service.startGroupDiscovery(mAppId ,groupId, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -503,6 +515,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      *                 discovery has to be stopped.
      * @return true, if operation was initiated successfully.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean stopGroupDiscovery(int groupId) {
         if (DBG) log("stopGroupDiscovery() : groupId = " + groupId);
 
@@ -519,7 +533,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            service.stopGroupDiscovery(mAppId ,groupId);
+            service.stopGroupDiscovery(mAppId ,groupId, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -531,6 +545,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      *
      * @return    List of DeviceGroup that are already discovered.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public List<DeviceGroup> getDiscoveredGroups() {
         return getDiscoveredGroups(false);
     }
@@ -542,6 +558,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return    List of Device Groups that are already discovered.
      * @hide
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public List<DeviceGroup> getDiscoveredGroups(boolean mPublicAddr) {
         if (DBG) log("getDiscoveredGroups()");
 
@@ -558,7 +576,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            List<DeviceGroup> groups = service.getDiscoveredGroups(mPublicAddr);
+            List<DeviceGroup> groups = service.getDiscoveredGroups(mPublicAddr, mAttributionSource);
             return groups;
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
@@ -573,6 +591,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @param groupId Identifier of the Group for which Group details are required.
      * @return        Required DeviceGroup.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public DeviceGroup getGroup(int groupId) {
         return getGroup(groupId, false);
     }
@@ -586,6 +606,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return              Required DeviceGroup.
      * @hide
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public DeviceGroup getGroup(int groupId, boolean mPublicAddr) {
         if (DBG) log("getGroup() : groupId = " + groupId);
 
@@ -602,7 +624,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            DeviceGroup group = service.getDeviceGroup(groupId, mPublicAddr);
+            DeviceGroup group = service.getDeviceGroup(groupId, mPublicAddr, mAttributionSource);
             return group;
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
@@ -619,6 +641,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      *                      Group Service is included.
      * @return              Group identifier of the required device.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public int getRemoteDeviceGroupId (BluetoothDevice device, ParcelUuid uuid) {
         return getRemoteDeviceGroupId(device, uuid, false);
     }
@@ -634,6 +658,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return              Group identifier of the required group for the device
      * @hide
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public int getRemoteDeviceGroupId (BluetoothDevice device, ParcelUuid uuid,
             boolean mPublicAddr) {
         if (DBG) log("getRemoteDeviceGroupId() : device = " + device);
@@ -652,7 +678,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            return service.getRemoteDeviceGroupId(device, uuid, mPublicAddr);
+            return service.getRemoteDeviceGroupId(device, uuid, mPublicAddr, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -667,6 +693,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return         true, if group discovery is ongoing for mentioned group.
      *                 Otherwise, false.
      */
+    @RequiresBluetoothScanPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_SCAN)
     public boolean isGroupDiscoveryInProgress (int groupId) {
         if (DBG) log("isGroupDiscoveryInProgress() : groupId = " + groupId);
 
@@ -683,7 +711,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            return service.isGroupDiscoveryInProgress(groupId);
+            return service.isGroupDiscoveryInProgress(groupId, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -704,6 +732,10 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      *                 0x02 - Access granted ({@link #ACCESS_GRANTED}).
      * @return true, if operation was initiated successfully.
      */
+    @RequiresPermission(allOf = {
+            android.Manifest.permission.BLUETOOTH_CONNECT,
+            android.Manifest.permission.BLUETOOTH_PRIVILEGED,
+    })
     public boolean setExclusiveAccess(int groupId, List<BluetoothDevice> devices, int value) {
         if (DBG) log("setExclusiveAccess() : groupId = " + groupId +
                         ", access value: " + value);
@@ -721,7 +753,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            service.setExclusiveAccess(mAppId, groupId, devices, value);
+            service.setExclusiveAccess(mAppId, groupId, devices, value, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -738,6 +770,10 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      * @return true, if operation was initiated successfully.
      * @hide
      */
+    @RequiresPermission(allOf = {
+            android.Manifest.permission.BLUETOOTH_CONNECT,
+            android.Manifest.permission.BLUETOOTH_PRIVILEGED,
+    })
     public boolean getExclusiveAccessStatus (int groupId, List<BluetoothDevice> devices) {
         if (DBG) log("getExclusiveAccessStatus() : groupId = " + groupId);
 
@@ -755,7 +791,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            service.getExclusiveAccessStatus(mAppId, groupId, devices);
+            service.getExclusiveAccessStatus(mAppId, groupId, devices, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -776,6 +812,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      *                Connection is required to be established.
      * @return true, if operation was initiated successfully.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean connect (BluetoothDevice device) {
         if (DBG) log("connect : device = " + device);
 
@@ -792,7 +830,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            service.connect(mAppId, device);
+            service.connect(mAppId, device, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
@@ -807,6 +845,8 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
      *                interested in any Group operations.
      * @return true, if operation was initiated successfully.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean disconnect (BluetoothDevice device) {
         if (DBG) log("disconnect : device = " + device);
 
@@ -823,7 +863,7 @@ public final class BluetoothDeviceGroup implements BluetoothProfile {
         }
 
         try {
-            service.disconnect(mAppId, device);
+            service.disconnect(mAppId, device, mAttributionSource);
         } catch (RemoteException e) {
             Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
         }
