@@ -19,6 +19,7 @@ package com.android.systemui.settings;
 import static com.android.settingslib.display.BrightnessUtils.GAMMA_SPACE_MAX;
 import static com.android.settingslib.display.BrightnessUtils.convertGammaToLinearFloat;
 import static com.android.settingslib.display.BrightnessUtils.convertLinearToGammaFloat;
+import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
 import android.animation.ValueAnimator;
 import android.content.ContentResolver;
@@ -62,6 +63,7 @@ public class BrightnessController implements ToggleSlider.Listener {
     private static final int MSG_ATTACH_LISTENER = 3;
     private static final int MSG_DETACH_LISTENER = 4;
     private static final int MSG_VR_MODE_CHANGED = 5;
+    private static final int MSG_BRIGHTNESS_RESTRICTION = 6;
 
     private static final Uri BRIGHTNESS_MODE_URI =
             Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE);
@@ -292,6 +294,9 @@ public class BrightnessController implements ToggleSlider.Listener {
                     case MSG_VR_MODE_CHANGED:
                         updateVrMode(msg.arg1 != 0);
                         break;
+                    case MSG_BRIGHTNESS_RESTRICTION:
+                        ((ToggleSliderView)mControl).setEnforcedAdmin((EnforcedAdmin) msg.obj);
+                        break;
                     default:
                         super.handleMessage(msg);
                 }
@@ -429,10 +434,10 @@ public class BrightnessController implements ToggleSlider.Listener {
         mBackgroundHandler.post(new Runnable() {
             @Override
             public void run() {
-                ((ToggleSliderView)mControl).setEnforcedAdmin(
+                mHandler.obtainMessage(MSG_BRIGHTNESS_RESTRICTION,
                         RestrictedLockUtilsInternal.checkIfRestrictionEnforced(mContext,
                                 UserManager.DISALLOW_CONFIG_BRIGHTNESS,
-                                mUserTracker.getCurrentUserId()));
+                                mUserTracker.getCurrentUserId())).sendToTarget();
             }
         });
     }
