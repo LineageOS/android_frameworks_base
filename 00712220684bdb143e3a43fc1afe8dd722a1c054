@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a976d8a0_8c15e8bd",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-08-28T20:03:05Z",
+      "side": 1,
+      "message": "extra newline",
+      "revId": "00712220684bdb143e3a43fc1afe8dd722a1c054",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9419cc05_a352d59f",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-08-28T20:03:05Z",
+      "side": 1,
+      "message": "minor nit but android java more commonly does something like this:\n\nif (mAutoBrightnessOneShot \u003d\u003d autoBrightnessOneShot) {\n    return;\n}\nmAutoBrightnessOneShot \u003d autoBrightnessOneshot;\nif (mAutoBrightnessOneShot) {\n    ...\n} else {\n    ...\n}\n\n(it\u0027s easier to read)",
+      "revId": "00712220684bdb143e3a43fc1afe8dd722a1c054",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a49bde69_9d759802",
+        "filename": "services/core/java/com/android/server/display/AutomaticBrightnessController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-08-28T20:03:05Z",
+      "side": 1,
+      "message": "indent is wrong",
+      "revId": "00712220684bdb143e3a43fc1afe8dd722a1c054",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "559a8e80_0cb02547",
+        "filename": "services/core/java/com/android/server/display/DisplayPowerController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-08-28T20:03:05Z",
+      "side": 1,
+      "message": "Whether",
+      "revId": "00712220684bdb143e3a43fc1afe8dd722a1c054",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ede8f8f_e41584db",
+        "filename": "services/core/java/com/android/server/display/DisplayPowerController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-08-28T20:03:05Z",
+      "side": 1,
+      "message": "unnecessary newline",
+      "revId": "00712220684bdb143e3a43fc1afe8dd722a1c054",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
