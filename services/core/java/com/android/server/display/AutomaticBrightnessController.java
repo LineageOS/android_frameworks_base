@@ -325,7 +325,6 @@ class AutomaticBrightnessController {
         boolean dozing = (displayPolicy == DisplayPowerRequest.POLICY_DOZE);
         boolean changed = setBrightnessConfiguration(configuration);
         changed |= setDisplayPolicy(displayPolicy);
-
         if (userChangedAutoBrightnessAdjustment) {
             changed |= setAutoBrightnessAdjustment(adjustment);
         }
@@ -362,7 +361,7 @@ class AutomaticBrightnessController {
     private void handleSettingsChange(boolean autoBrightnessOneShot) {
         if (mAutoBrightnessOneShot && !autoBrightnessOneShot) {
             mSensorManager.registerListener(mLightSensorListener, mLightSensor,
-                        mCurrentLightSensorRate * 1000, mHandler);
+                    mCurrentLightSensorRate * 1000, mHandler);
         } else if (!mAutoBrightnessOneShot && autoBrightnessOneShot) {
             mSensorManager.unregisterListener(mLightSensorListener);
         }
