@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8602784c_a5099cca",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4144,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-09-05T21:36:27Z",
+      "side": 1,
+      "message": "nop",
+      "range": {
+        "startLine": 4144,
+        "startChar": 0,
+        "endLine": 4144,
+        "endChar": 98
+      },
+      "revId": "bef9bbbacc3d56123f6449953d59061473f91c83",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2648fad6_7a8dd126",
+        "filename": "services/core/java/com/android/server/wm/DisplayPolicy.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4148,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-09-05T21:36:27Z",
+      "side": 1,
+      "message": "null /* completionConsumer */",
+      "range": {
+        "startLine": 4148,
+        "startChar": 47,
+        "endLine": 4148,
+        "endChar": 51
+      },
+      "revId": "bef9bbbacc3d56123f6449953d59061473f91c83",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
