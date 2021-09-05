@@ -208,6 +208,7 @@ import com.android.internal.policy.KeyInterceptionInfo;
 import com.android.internal.policy.PhoneWindow;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ArrayUtils;
+import com.android.internal.util.ScreenshotHelper;
 import com.android.server.ExtconStateObserver;
 import com.android.server.ExtconUEventObserver;
 import com.android.server.GestureLauncherService;
@@ -539,6 +540,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     // Click volume down + power for partial screenshot
     boolean mClickPartialScreenshot;
+    boolean mClickPartialScreenshotAllowed = true;
 
     private boolean mPendingKeyguardOccluded;
     private boolean mKeyguardOccludedChanged;
@@ -632,6 +634,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private boolean mScreenshotChordPowerKeyTriggered;
     private long mScreenshotChordPowerKeyTime;
+
+    private ScreenshotHelper mScreenshotHelper;
 
     // Ringer toggle should reuse timing and triggering from screenshot power and a11y vol up
     private int mRingerToggleChord = VOLUME_HUSH_OFF;
@@ -1639,7 +1643,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         @Override
         public void run() {
-            mDefaultDisplayPolicy.takeScreenshot(mScreenshotType, mScreenshotSource);
+            mDefaultDisplayPolicy.takeScreenshot(mScreenshotType, mScreenshotSource,
+                    uri -> { mClickPartialScreenshotAllowed = false; });
         }
     }
 
@@ -2199,6 +2204,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mScreenshotChordEnabled = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_enableScreenshotChord);
+        mScreenshotHelper = new ScreenshotHelper(context);
 
         mGlobalKeyManager = new GlobalKeyManager(mContext);
 
@@ -4322,10 +4328,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         cancelPendingScreenshotChordAction();
                         cancelPendingAccessibilityShortcutAction();
 
-                        if (mClickPartialScreenshot && mScreenshotChordVolumeDownKeyConsumed) {
+                        if (mClickPartialScreenshot && mClickPartialScreenshotAllowed &&
+                                mScreenshotChordVolumeDownKeyConsumed) {
                             mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_SELECTED_REGION);
                             mHandler.post(mScreenshotRunnable);
                         }
+
+                        mClickPartialScreenshotAllowed = true;
                     }
                 } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
                     if (down) {
