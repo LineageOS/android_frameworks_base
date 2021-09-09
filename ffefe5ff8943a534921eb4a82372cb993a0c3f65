@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7fc09fa_0e16a80a",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-09-09T18:02:53Z",
+      "side": 1,
+      "message": "What happens if you simply try to call the method without the background handler?",
+      "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
