@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "69784a16_a348799f",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 22648
+      },
+      "writtenOn": "2021-09-10T13:59:41Z",
+      "side": 1,
+      "message": "Could you elaborate? I have the EnforcedAdmin cast below.",
+      "parentUuid": "2f2de9cb_a7158787",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 72
+      },
+      "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7fc09fa_0e16a80a",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
         "patchSetId": 1
@@ -72,6 +96,24 @@
       "side": 1,
       "message": "The change is probably fine, I just don\u0027t like the object handling",
       "parentUuid": "ce0647f2_a9fdf910",
+      "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b12d15a2_e1217b55",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 22648
+      },
+      "writtenOn": "2021-09-10T13:59:41Z",
+      "side": 1,
+      "message": "I think this is the least invasive approach since it preserves the author\u0027s original intention behind the background handler and only changes what is minimally necessary to fix the crash.",
+      "parentUuid": "57bd7acd_74e1e281",
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
