@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "33e46173_7dd45a4d",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-09-10T14:01:03Z",
+      "side": 1,
+      "message": "Don\u0027t static import the object.\nLooking at other classes they import the upper class and access the lower item via .",
+      "parentUuid": "69784a16_a348799f",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 72
+      },
+      "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7fc09fa_0e16a80a",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
         "patchSetId": 1
