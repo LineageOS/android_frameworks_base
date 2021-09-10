@@ -16,6 +16,24 @@
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce0647f2_a9fdf910",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 22648
+      },
+      "writtenOn": "2021-09-10T02:57:23Z",
+      "side": 1,
+      "message": "I don\u0027t know. The intention of the background handler is unclear to me so I kept that portion as-is. There are many other instances in this file of using the background handler like this to construct an argument to pass along to the main handler.",
+      "parentUuid": "e7fc09fa_0e16a80a",
+      "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
