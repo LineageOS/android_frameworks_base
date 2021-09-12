@@ -404,7 +404,9 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
 
     void hideScreenshotSelector() {
         setLockedScreenOrientation(false);
-        mWindowManager.removeView(mScreenshotLayout);
+        if (mScreenshotLayout.getWindowToken() != null) {
+            mWindowManager.removeView(mScreenshotLayout);
+        }
         mScreenshotSelectorView.stopSelection();
         mScreenshotSelectorView.setVisibility(View.GONE);
         mCaptureButton.setVisibility(View.GONE);
@@ -1174,6 +1176,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         mActionsContainer.setTranslationY(0);
         mActionsContainerBackground.setTranslationY(0);
         mScreenshotPreview.setTranslationY(0);
+        hideScreenshotSelector();
     }
 
     private void setAnimatedViewSize(int width, int height) {
