@@ -1174,6 +1174,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         mActionsContainer.setTranslationY(0);
         mActionsContainerBackground.setTranslationY(0);
         mScreenshotPreview.setTranslationY(0);
+        setBlockedGesturalNavigation(false);
     }
 
     private void setAnimatedViewSize(int width, int height) {
