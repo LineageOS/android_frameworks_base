@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f40a48e7_153fe86d",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2021-09-14T07:37:45Z",
+      "side": 1,
+      "message": "When aosp bump the version themselves, I don\u0027t see any straightforward upgrade path that doesn\u0027t cause our restrict network for new apps to conflict with whatever they add.  I think we\u0027d better off using a lineage setting to track whether or not new apps should get restrict networking by default.\n\neg see what we had to do for appops ids in the distant past to allow for upgrade between android versions when cm extended the id range with caf additions:\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/67733",
+      "revId": "1655d499cdee9f77bca5af357f7fe718fd7c9e9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
