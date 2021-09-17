@@ -146,6 +146,14 @@ public final class BluetoothVcp implements BluetoothProfile {
     /** VCP connection setup with unicast and broadcast mode */
     public static final int MODE_UNICAST_BROADCAST = 0x03;
 
+    public static final int A2DP = 0x0001;
+    public static final int HFP = 0x0002;
+    public static final int LE_MEDIA = 0x0010;
+    public static final int LE_VOICE = 0x2000;
+
+    public static final int CALL_STREAM = 0;
+    public static final int MEDIA_STREAM = 1;
+
     private BluetoothAdapter mAdapter;
     private final AttributionSource mAttributionSource;
     private final BluetoothProfileConnector<IBluetoothVcp> mProfileConnector =
@@ -345,6 +353,56 @@ public final class BluetoothVcp implements BluetoothProfile {
         }
         if (service == null) Log.w(TAG, "Proxy not attached to service");
         return false;
+    }
+
+    /**
+     * set active stream for a DuMo device
+     *
+     * @param device: remote device instance
+     * @param audioType: call/media audio
+     * @param profile: profile that is needed to be active
+     * @return success/failure
+     */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
+    public boolean setActiveProfile(BluetoothDevice device, int audioType, int profile) {
+        if (VDBG) log("setActiveProfile(" + device + ")");
+        final IBluetoothVcp service =
+                getService();
+        if (service != null && isEnabled() && isValidDevice(device)) {
+            try {
+                return service.setActiveProfile(device, audioType, profile, mAttributionSource);
+            } catch (RemoteException e) {
+                Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
+                return false;
+            }
+        }
+        if (service == null) Log.w(TAG, "Proxy not attached to service");
+        return false;
+    }
+
+    /**
+     * set active stream for a DuMo device
+     *
+     * @param audioType: call/media audio
+     * @return ID of current active profile
+     */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
+    public int getActiveProfile(int audioType) {
+        if (VDBG) log("getActiveProfile(" + audioType + ")");
+        final IBluetoothVcp service =
+                getService();
+        if (service != null && isEnabled()) {
+            try {
+                return service.getActiveProfile(audioType, mAttributionSource);
+            } catch (RemoteException e) {
+                Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
+                return -1;
+            }
+        }
+        if (service == null) Log.w(TAG, "Proxy not attached to service");
+        return -1;
     }
 
     private boolean isEnabled() {

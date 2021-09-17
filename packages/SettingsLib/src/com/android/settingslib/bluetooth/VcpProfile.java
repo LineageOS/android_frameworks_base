@@ -163,6 +163,20 @@ public class VcpProfile implements LocalBluetoothProfile {
         return mService.isMute(device);
     }
 
+    public boolean setActiveProfile(BluetoothDevice device, int audioType, int profile) {
+        if(mService != null) {
+            return mService.setActiveProfile(device, audioType, profile);
+        }
+        return false;
+    }
+
+    public int getActiveProfile(int audioType) {
+        if(mService != null) {
+            return mService.getActiveProfile(audioType);
+        }
+        return -1;
+    }
+
     public String toString() {
         return NAME;
     }
@@ -176,7 +190,7 @@ public class VcpProfile implements LocalBluetoothProfile {
     }
 
     public int getSummaryResourceForDevice(BluetoothDevice device) {
-        return 0;	  // VCP profile not displayed in UI
+        return 0;     // VCP profile not displayed in UI
     }
 
     public int getDrawableResource(BluetoothClass btClass) {
