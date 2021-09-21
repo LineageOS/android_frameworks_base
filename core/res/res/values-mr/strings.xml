@@ -2050,4 +2050,5 @@
     </plurals>
     <string name="chooser_no_direct_share_targets" msgid="492542066060841139">"थेट शेअर करणे उपलब्ध नाही"</string>
     <string name="chooser_all_apps_button_label" msgid="3230427756238666328">"अ‍ॅप्स सूची"</string>
+    <string name="permission_request_notification_for_app_with_subtitle" msgid="1298704005732851350">"<xliff:g id="APP">%1$s</xliff:g> ने तुमचे \n<xliff:g id="ACCOUNT">%2$s</xliff:g> खाते ॲक्सेस करण्यासाठी परवानगीची विनंती केली आहे."</string>
 </resources>

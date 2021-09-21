@@ -2050,4 +2050,5 @@
     </plurals>
     <string name="chooser_no_direct_share_targets" msgid="492542066060841139">"ସିଧାସଳଖ ସେୟାର୍ ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ"</string>
     <string name="chooser_all_apps_button_label" msgid="3230427756238666328">"ଆପ୍ସ ତାଲିକା"</string>
+    <string name="permission_request_notification_for_app_with_subtitle" msgid="1298704005732851350">"<xliff:g id="ACCOUNT">%2$s</xliff:g> ଆକାଉଣ୍ଟକୁ ଆକ୍ସେସ୍ ପାଇଁ\n<xliff:g id="APP">%1$s</xliff:g> ଦ୍ୱାରା ଅନୁମତି ନିମନ୍ତେ ଅନୁରୋଧ କରାଯାଇଛି।"</string>
 </resources>

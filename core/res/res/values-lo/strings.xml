@@ -2050,4 +2050,5 @@
     </plurals>
     <string name="chooser_no_direct_share_targets" msgid="492542066060841139">"ບໍ່ສາມາດແບ່ງປັນໂດຍກົງໄດ້"</string>
     <string name="chooser_all_apps_button_label" msgid="3230427756238666328">"ລາຍຊື່ແອັບ"</string>
+    <string name="permission_request_notification_for_app_with_subtitle" msgid="1298704005732851350">"ຮ້ອງຂໍການອະນຸຍາດໂດຍ <xliff:g id="APP">%1$s</xliff:g>\nສຳລັບບັນຊີ <xliff:g id="ACCOUNT">%2$s</xliff:g>."</string>
 </resources>
