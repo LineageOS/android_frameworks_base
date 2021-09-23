@@ -21,6 +21,9 @@
 
 package android.bluetooth;
 
+import android.annotation.RequiresPermission;
+import android.bluetooth.annotations.RequiresBluetoothConnectPermission;
+import android.content.AttributionSource;
 import android.content.Context;
 import android.os.Binder;
 import android.os.IBinder;
@@ -62,6 +65,8 @@ public final class BluetoothVcp implements BluetoothProfile {
      * <p>Requires {@link android.Manifest.permission#BLUETOOTH} permission to
      * receive.
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public static final String ACTION_CONNECTION_STATE_CHANGED =
             "android.bluetooth.vcp.profile.action.CONNECTION_STATE_CHANGED";
 
@@ -75,6 +80,8 @@ public final class BluetoothVcp implements BluetoothProfile {
      *
      * @hide
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public static final String ACTION_VOLUME_CHANGED =
             "android.bluetooth.vcp.profile.action.VOLUME_CHANGED";
 
@@ -95,6 +102,8 @@ public final class BluetoothVcp implements BluetoothProfile {
      *
      * @hide
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public static final String ACTION_MUTE_CHANGED =
             "android.bluetooth.vcp.profile.action.MUTE_CHANGED";
 
@@ -116,6 +125,8 @@ public final class BluetoothVcp implements BluetoothProfile {
      *
      * @hide
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public static final String ACTION_CONNECTION_MODE_CHANGED =
             "android.bluetooth.vcp.profile.action.CONNECTION_MODE_CHANGED";
 
@@ -136,6 +147,7 @@ public final class BluetoothVcp implements BluetoothProfile {
     public static final int MODE_UNICAST_BROADCAST = 0x03;
 
     private BluetoothAdapter mAdapter;
+    private final AttributionSource mAttributionSource;
     private final BluetoothProfileConnector<IBluetoothVcp> mProfileConnector =
             new BluetoothProfileConnector(this, BluetoothProfile.VCP,
                     "BluetoothVcp", IBluetoothVcp.class.getName()) {
@@ -153,6 +165,7 @@ public final class BluetoothVcp implements BluetoothProfile {
     /*package*/ BluetoothVcp(Context context, ServiceListener listener) {
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         mProfileConnector.connect(context, listener);
+        mAttributionSource = mAdapter.getAttributionSource();
     }
 
     /*package*/ void close() {
@@ -190,13 +203,15 @@ public final class BluetoothVcp implements BluetoothProfile {
      * {@inheritDoc}
      */
     @Override
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public int getConnectionState(BluetoothDevice device) {
         if (VDBG) log("getConnectionState(" + device + ")");
         final IBluetoothVcp service =
                 getService();
         if (service != null && isEnabled() && isValidDevice(device)) {
             try {
-                return service.getConnectionState(device);
+                return service.getConnectionState(device, mAttributionSource);
             } catch (RemoteException e) {
                 Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
                 return BluetoothProfile.STATE_DISCONNECTED;
@@ -217,13 +232,15 @@ public final class BluetoothVcp implements BluetoothProfile {
      * {@link #BluetoothVcp.MODE_UNICAST_BROADCAST} if VCP
      * is connected for unicast and broadcast
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public int getConnectionMode(BluetoothDevice device) {
         if (VDBG) log("getConnectionMode(" + device + ")");
         final IBluetoothVcp service =
                 getService();
         if (service != null && isEnabled() && isValidDevice(device)) {
             try {
-                return service.getConnectionMode(device);
+                return service.getConnectionMode(device, mAttributionSource);
             } catch (RemoteException e) {
                 Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
                 return MODE_NONE;
@@ -239,13 +256,15 @@ public final class BluetoothVcp implements BluetoothProfile {
      * @param device: remote device instance
      * @prarm volume: requested volume settings for remote device
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public void setAbsoluteVolume(BluetoothDevice device, int volume) {
         if (VDBG) log("setAbsoluteVolume(" + device + ")");
         final IBluetoothVcp service =
                 getService();
         if (service != null && isEnabled() && isValidDevice(device)) {
             try {
-                service.setAbsoluteVolume(device, volume);
+                service.setAbsoluteVolume(device, volume, mAttributionSource);
                 return;
             } catch (RemoteException e) {
                 Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
@@ -261,13 +280,15 @@ public final class BluetoothVcp implements BluetoothProfile {
      * @param device: remote device instance
      * @return current absolute volume of the remote device
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public int getAbsoluteVolume(BluetoothDevice device) {
         if (VDBG) log("getAbsoluteVolume(" + device + ")");
         final IBluetoothVcp service =
                 getService();
         if (service != null && isEnabled() && isValidDevice(device)) {
             try {
-                return service.getAbsoluteVolume(device);
+                return service.getAbsoluteVolume(device, mAttributionSource);
             } catch (RemoteException e) {
                 Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
                 return -1;
@@ -283,13 +304,15 @@ public final class BluetoothVcp implements BluetoothProfile {
      * @param device: remote device instance
      * @prarm enableMute: true if mute, false if unmute
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public void setMute(BluetoothDevice device, boolean enableMute) {
         if (VDBG) log("setMute(" + device + ")" +" enableMute: " + enableMute);
         final IBluetoothVcp service =
                 getService();
         if (service != null && isEnabled() && isValidDevice(device)) {
             try {
-                service.setMute(device, enableMute);
+                service.setMute(device, enableMute, mAttributionSource);
                 return;
             } catch (RemoteException e) {
                 Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
@@ -306,13 +329,15 @@ public final class BluetoothVcp implements BluetoothProfile {
      * @return current mute status of the remote device
      * true if mute status, false if unmute status
      */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean isMute(BluetoothDevice device) {
         if (VDBG) log("isMute(" + device + ")");
         final IBluetoothVcp service =
                 getService();
         if (service != null && isEnabled() && isValidDevice(device)) {
             try {
-                return service.isMute(device);
+                return service.isMute(device, mAttributionSource);
             } catch (RemoteException e) {
                 Log.e(TAG, "Stack:" + Log.getStackTraceString(new Throwable()));
                 return false;
