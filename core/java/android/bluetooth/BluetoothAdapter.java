@@ -2006,12 +2006,12 @@ public final class BluetoothAdapter {
         return false;
     }
     /** @hide */
-    @RequiresPermission(Manifest.permission.BLUETOOTH)
+    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
     public boolean isBroadcastActive() {
         try {
             mServiceLock.readLock().lock();
             if (mService != null) {
-                return mService.isBroadcastActive();
+                return mService.isBroadcastActive(mAttributionSource);
             }
         } catch (RemoteException e) {
             Log.e(TAG, "", e);
