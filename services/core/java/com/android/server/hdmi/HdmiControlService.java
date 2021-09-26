@@ -509,7 +509,7 @@ public class HdmiControlService extends SystemService {
         mProhibitMode = false;
         mHdmiControlEnabled = readBooleanSetting(Global.HDMI_CONTROL_ENABLED, true);
         mHdmiCecVolumeControlEnabled = readBooleanSetting(
-                Global.HDMI_CONTROL_VOLUME_CONTROL_ENABLED, true);
+                Global.HDMI_CONTROL_VOLUME_CONTROL_ENABLED, false);
         mMhlInputChangeEnabled = readBooleanSetting(Global.MHL_INPUT_SWITCHING_ENABLED, true);
 
         if (mCecController == null) {
