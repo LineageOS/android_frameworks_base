@@ -2256,6 +2256,18 @@ public class CameraMetadataNative implements Parcelable {
     private static native int nativeGetTypeFromTag(int tag, long vendorId)
             throws IllegalArgumentException;
 
+    private synchronized byte[] nativeReadValues(int tag) {
+        return nativeReadValues(tag, mMetadataPtr);
+    }
+
+    private synchronized int nativeGetTypeFromTagLocal(int tag) {
+        return nativeGetTypeFromTagLocal(mMetadataPtr, tag);
+    }
+
+    private synchronized int nativeGetTagFromKeyLocal(String keyname) {
+        return nativeGetTagFromKeyLocal(mMetadataPtr, keyname);
+    }
+
     /**
      * <p>Perform a 0-copy swap of the internal metadata with another object.</p>
      *
