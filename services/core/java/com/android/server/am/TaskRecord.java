@@ -38,6 +38,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Debug;
 import android.os.ParcelFileDescriptor;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -137,6 +138,11 @@ final class TaskRecord {
 
     static final int INVALID_TASK_ID = -1;
     static final int INVALID_MIN_SIZE = -1;
+
+    /**
+     * Used to identify if the activity that is installed from device's system image.
+     */
+    boolean mIsEffectivelySystemApp;
 
     final int taskId;       // Unique identifier for this task.
     String affinity;        // The affinity name for this task, or null; may change identity.
@@ -389,9 +395,18 @@ final class TaskRecord {
 
     /** Sets the original intent, and the calling uid and package. */
     void setIntent(ActivityRecord r) {
-        mCallingUid = r.launchedFromUid;
-        mCallingPackage = r.launchedFromPackage;
-        setIntent(r.intent, r.info);
+        boolean updateIdentity = false;
+        if (this.intent == null) {
+            updateIdentity = true;
+        } else if (!mNeverRelinquishIdentity) {
+            updateIdentity = (effectiveUid == Process.SYSTEM_UID || mIsEffectivelySystemApp
+                    || effectiveUid == r.info.applicationInfo.uid);
+        }
+        if (updateIdentity) {
+            mCallingUid = r.launchedFromUid;
+            mCallingPackage = r.launchedFromPackage;
+            setIntent(r.intent, r.info);
+        }
     }
 
     /** Sets the original intent, _without_ updating the calling uid or package. */
@@ -411,6 +426,7 @@ final class TaskRecord {
             rootAffinity = affinity;
         }
         effectiveUid = info.applicationInfo.uid;
+        mIsEffectivelySystemApp = info.applicationInfo.isSystemApp();
         stringName = null;
 
         if (info.targetActivity == null) {
@@ -1055,12 +1071,12 @@ final class TaskRecord {
         // utility activities.
         int activityNdx;
         final int numActivities = mActivities.size();
-        final boolean relinquish = numActivities == 0 ? false :
-                (mActivities.get(0).info.flags & ActivityInfo.FLAG_RELINQUISH_TASK_IDENTITY) != 0;
-        for (activityNdx = Math.min(numActivities, 1); activityNdx < numActivities;
-                ++activityNdx) {
+        for (activityNdx = 0; activityNdx < numActivities; ++activityNdx) {
             final ActivityRecord r = mActivities.get(activityNdx);
-            if (relinquish && (r.info.flags & ActivityInfo.FLAG_RELINQUISH_TASK_IDENTITY) == 0) {
+            if ((r.info.flags & ActivityInfo.FLAG_RELINQUISH_TASK_IDENTITY) == 0
+                    || (r.info.applicationInfo.uid != Process.SYSTEM_UID
+                    && !r.info.applicationInfo.isSystemApp()
+                    && r.info.applicationInfo.uid != effectiveUid)) {
                 // This will be the top activity for determining taskDescription. Pre-inc to
                 // overcome initial decrement below.
                 ++activityNdx;
@@ -1109,15 +1125,27 @@ final class TaskRecord {
     int findEffectiveRootIndex() {
         int effectiveNdx = 0;
         final int topActivityNdx = mActivities.size() - 1;
+        ActivityRecord root = null;
         for (int activityNdx = 0; activityNdx <= topActivityNdx; ++activityNdx) {
             final ActivityRecord r = mActivities.get(activityNdx);
             if (r.finishing) {
                 continue;
             }
-            effectiveNdx = activityNdx;
-            if ((r.info.flags & ActivityInfo.FLAG_RELINQUISH_TASK_IDENTITY) == 0) {
+
+            if (root == null) {
+                // Set this as the candidate root since it isn't finishing.
+                root = r;
+                effectiveNdx = activityNdx;
+            }
+            final int uid = root == r ? effectiveUid : r.info.applicationInfo.uid;
+            if ((root.info.flags & ActivityInfo.FLAG_RELINQUISH_TASK_IDENTITY) == 0
+                || (root.info.applicationInfo.uid != Process.SYSTEM_UID
+                    && !root.info.applicationInfo.isSystemApp()
+                    && root.info.applicationInfo.uid != uid)) {
                 break;
             }
+            effectiveNdx = activityNdx;
+            root = r;
         }
         return effectiveNdx;
     }
