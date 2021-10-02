@@ -663,7 +663,10 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private boolean shouldUseHorizontalLayout() {
         return mUsingMediaPlayer && mMediaHost.getVisible()
                 && getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_LANDSCAPE;
+                == Configuration.ORIENTATION_LANDSCAPE
+                && (getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                < Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
 
     protected void reAttachMediaHost() {
