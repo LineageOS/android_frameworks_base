@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8281f3b_34c246a8",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 17401
+      },
+      "writtenOn": "2021-10-05T00:00:30Z",
+      "side": 1,
+      "message": "use GetIntProperty instead?",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 66
+      },
+      "revId": "f96124004c31a0d8142d612e57178230f9b5d04c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
