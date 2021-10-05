@@ -5861,6 +5861,15 @@ public class DevicePolicyManager {
      * Permissions can be granted or revoked only for applications built with a
      * {@code targetSdkVersion} of {@link android.os.Build.VERSION_CODES#M} or later.
      *
+     * Control over the following permissions are restricted for managed profile owners:
+     * <ul>
+     *  <li>Manifest.permission.READ_SMS</li>
+     * </ul>
+     * <p>
+     * A managed profile owner may not grant these permissions (i.e. call this method with any of
+     * the permissions listed above and {@code grantState} of
+     * {@code #PERMISSION_GRANT_STATE_GRANTED}), but may deny them.
+     *
      * @param admin Which profile or device owner this request is associated with.
      * @param packageName The application to grant or revoke a permission to.
      * @param permission The permission to grant or revoke.
