@@ -46,6 +46,30 @@
       "revId": "f96124004c31a0d8142d612e57178230f9b5d04c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15d8b6d5_e1754149",
+        "filename": "cmds/bootanimation/BootAnimation.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2021-10-05T00:03:07Z",
+      "side": 1,
+      "message": "It\u0027s a prop used by aosp sf, fwiw. This is just parsing what\u0027s already there.",
+      "parentUuid": "bc1a53ed_bd40ab08",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 66
+      },
+      "revId": "f96124004c31a0d8142d612e57178230f9b5d04c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
