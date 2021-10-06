@@ -22,6 +22,30 @@
       "revId": "29e9d98ad1dca2ed15873789a0c5673fa2e25017",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dd1e736_81777d8b",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-06T18:07:47Z",
+      "side": 1,
+      "message": "No, the setting works fine.\nIt\u0027s that they wrote the code with other defaults takes into account and currently it\u0027s simply broken.",
+      "parentUuid": "17ca9ac4_ed976c99",
+      "range": {
+        "startLine": 963,
+        "startChar": 16,
+        "endLine": 963,
+        "endChar": 67
+      },
+      "revId": "29e9d98ad1dca2ed15873789a0c5673fa2e25017",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
