@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17ca9ac4_ed976c99",
+        "filename": "core/res/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 963,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-10-06T18:05:33Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be false then as well?",
+      "range": {
+        "startLine": 963,
+        "startChar": 16,
+        "endLine": 963,
+        "endChar": 67
+      },
+      "revId": "29e9d98ad1dca2ed15873789a0c5673fa2e25017",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
