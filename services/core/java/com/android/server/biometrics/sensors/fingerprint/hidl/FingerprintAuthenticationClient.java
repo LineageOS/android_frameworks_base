@@ -98,6 +98,15 @@ class FingerprintAuthenticationClient extends AuthenticationClient<IBiometricsFi
     }
 
     @Override
+    public void onAcquired(int acquiredInfo, int vendorCode) {
+        super.onAcquired(acquiredInfo, vendorCode);
+        try {
+            mUdfpsOverlayController.onAcquired(getSensorId(), acquiredInfo, vendorCode);
+        } catch (Exception e) {
+        }
+    }
+
+    @Override
     public void onAuthenticated(BiometricAuthenticator.Identifier identifier,
             boolean authenticated, ArrayList<Byte> token) {
         super.onAuthenticated(identifier, authenticated, token);
