@@ -47,4 +47,7 @@ oneway interface IUdfpsOverlayController {
 
     // Shows debug messages on the UDFPS overlay.
     void setDebugMessage(int sensorId, String message);
+
+    // Useful for Legacy devices not having dedicated aod sensor
+    void onAcquired(int sensorId, int acquiredInfo, int vendorCode);
 }
