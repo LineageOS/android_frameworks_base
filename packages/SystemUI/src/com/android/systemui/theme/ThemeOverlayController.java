@@ -46,6 +46,7 @@ import android.os.UserManager;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+import android.util.TypedValue;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -64,6 +65,9 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.settings.SecureSettings;
 
+import dev.kdrag0n.monet.colors.*;
+import dev.kdrag0n.monet.theme.*;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -71,6 +75,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
@@ -421,7 +426,67 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
      * Given a color candidate, return an overlay definition.
      */
     protected @Nullable FabricatedOverlay getOverlay(int color, int type) {
-        return null;
+        Zcam.ViewingConditions cond  = Zcam.Companion.createZcamViewingConditions(199.526);
+        ColorScheme colorScheme = new ZcamDynamicColorScheme(
+                new ZcamMaterialYouTargets(1.0, false, cond),
+                new Srgb(color),
+                1.0,
+                cond,
+                true
+        );
+
+        String groupKey = "accent";
+        List<Map<Integer, dev.kdrag0n.monet.colors.Color>> colorsList =
+                colorScheme.getAccentColors();
+
+        if (type == NEUTRAL) {
+            groupKey = "neutral";
+            colorsList = colorScheme.getNeutralColors();
+        }
+
+        FabricatedOverlay.Builder builder = new FabricatedOverlay.Builder(
+                "com.android.systemui", groupKey, "android");
+
+        for (int i=0; i < colorsList.size(); i++) {
+            String group = groupKey + (i + 1);
+            colorsList.get(i).forEach((shade, _color) -> {
+                String name = "system_" + group + "_" + shade;
+                builder.setResourceValue(
+                        "android:color/" + name,
+                        TypedValue.TYPE_INT_COLOR_ARGB8,
+                        getArgb(_color)
+                );
+            });
+        }
+
+        // Override special modulated surface colors
+        if (type == NEUTRAL) {
+            // surface light = neutral1 20 (L* 98)
+            if (colorsList.get(0).get(20) != null) {
+                builder.setResourceValue(
+                        "android:color/" + "surface_light",
+                        TypedValue.TYPE_INT_COLOR_ARGB8 ,
+                        getArgb(colorsList.get(0).get(20))
+                );
+            }
+
+            // surface highlight dark = neutral1 650 (L* 35)
+            if (colorsList.get(0).get(650) != null) {
+                builder.setResourceValue(
+                        "android:color/" + "surface_highlight_dark",
+                        TypedValue.TYPE_INT_COLOR_ARGB8 ,
+                        getArgb(colorsList.get(0).get(650))
+                );
+            }
+        }
+
+        return builder.build();
+    }
+
+    private int getArgb(dev.kdrag0n.monet.colors.Color color) {
+        Srgb colorSrgb = color.toLinearSrgb().toSrgb();
+        int argb = colorSrgb.quantize8() | (0xff << 24);
+        return argb;
     }
 
     private void updateThemeOverlays() {
