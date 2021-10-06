@@ -39,7 +39,7 @@ import com.android.internal.graphics.ColorUtils;
  */
 public class ScrimDrawable extends Drawable {
     private static final String TAG = "ScrimDrawable";
-    private static final long COLOR_ANIMATION_DURATION = 2000;
+    private static final long COLOR_ANIMATION_DURATION = 375;
 
     private final Paint mPaint;
     private int mAlpha = 255;
