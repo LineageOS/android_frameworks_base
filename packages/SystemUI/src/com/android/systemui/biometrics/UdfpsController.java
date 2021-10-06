@@ -572,7 +572,7 @@ public class UdfpsController implements DozeReceiver {
         checkArgument(mSensorProps != null);
 
         mCoreLayoutParams = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG,
+                WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY,
                 getCoreLayoutParamFlags(),
                 PixelFormat.TRANSLUCENT);
         mCoreLayoutParams.setTitle(TAG);
