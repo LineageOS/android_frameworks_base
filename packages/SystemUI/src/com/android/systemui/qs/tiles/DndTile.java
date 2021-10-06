@@ -59,11 +59,12 @@ import com.android.systemui.qs.tiles.dialog.QSZenModeDialogMetricsLogger;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.util.settings.SecureSettings;
+import com.android.systemui.statusbar.policy.KeyguardStateController;
 
 import javax.inject.Inject;
 
 /** Quick settings tile: Do not disturb **/
-public class DndTile extends QSTileImpl<BooleanState> {
+public class DndTile extends SecureQSTile<BooleanState> {
 
     private static final Intent ZEN_SETTINGS =
             new Intent(Settings.ACTION_ZEN_MODE_SETTINGS);
@@ -92,10 +93,11 @@ public class DndTile extends QSTileImpl<BooleanState> {
             ZenModeController zenModeController,
             @Main SharedPreferences sharedPreferences,
             SecureSettings secureSettings,
-            DialogLaunchAnimator dialogLaunchAnimator
+            DialogLaunchAnimator dialogLaunchAnimator,
+            KeyguardStateController keyguardStateController
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-                statusBarStateController, activityStarter, qsLogger);
+                statusBarStateController, activityStarter, qsLogger, keyguardStateController);
         mController = zenModeController;
         mSharedPreferences = sharedPreferences;
         mController.observe(getLifecycle(), mZenCallback);
@@ -138,7 +140,10 @@ public class DndTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    protected void handleClick(@Nullable View view) {
+    protected void handleClick(@Nullable View view, boolean keyguardShowing) {
+        if (checkKeyguard(view, keyguardShowing)) {
+          return;
+        }
         // Zen is currently on
         if (mState.value) {
             mController.setZen(ZEN_MODE_OFF, null, TAG);
