@@ -24,7 +24,7 @@
     android:minHeight="@dimen/qs_header_row_min_height"
     android:clickable="false"
     android:focusable="true"
-    android:theme="@style/Theme.SystemUI.QuickSettings.Header">
+    android:theme="@style/QSHeaderTheme">
 
     <LinearLayout
         android:id="@+id/clock_container"
