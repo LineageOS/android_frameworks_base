@@ -25,7 +25,7 @@
     android:paddingLeft="@dimen/qs_panel_padding"
     android:paddingRight="@dimen/qs_panel_padding"
     android:visibility="gone"
-    android:theme="@style/Theme.SystemUI.QuickSettings.Header">
+    android:theme="@style/QSHeaderTheme">
 
     <com.android.systemui.statusbar.policy.Clock
         android:id="@+id/clock"
