@@ -412,7 +412,7 @@
         <item name="containerStyle">@style/AuthCredentialPinPasswordContainerStyle</item>
     </style>
 
-    <style name="Theme.SystemUI.QuickSettings" parent="@*android:style/Theme.DeviceDefault">
+    <style name="Theme.SystemUI.QuickSettings" parent="@*android:style/Theme.DeviceDefault.SystemUI">
         <item name="isQsTheme">true</item>
         <item name="lightIconTheme">@style/QSIconTheme</item>
         <item name="darkIconTheme">@style/QSIconTheme</item>
