@@ -26,7 +26,7 @@
     android:paddingLeft="@dimen/qs_panel_padding"
     android:paddingRight="@dimen/qs_panel_padding"
     android:visibility="gone"
-    android:theme="@style/Theme.SystemUI.QuickSettings.Header"
+    android:theme="@style/QSHeaderTheme"
     app:layoutDescription="@xml/combined_qs_header_scene">
 
     <androidx.constraintlayout.widget.Guideline
