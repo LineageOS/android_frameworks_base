@@ -37,6 +37,7 @@ import android.content.IntentFilter;
 import android.content.om.FabricatedOverlay;
 import android.content.om.OverlayIdentifier;
 import android.content.pm.UserInfo;
+import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.graphics.Color;
 import android.net.Uri;
@@ -47,9 +48,11 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
 
+import com.android.internal.graphics.ColorUtils;
 import com.android.systemui.Dumpable;
 import com.android.systemui.SystemUI;
 import com.android.systemui.broadcast.BroadcastDispatcher;
@@ -59,6 +62,7 @@ import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
 import com.android.systemui.settings.UserTracker;
+import com.android.systemui.monet.ColorScheme;
 import com.android.systemui.statusbar.FeatureFlags;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
@@ -71,6 +75,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
@@ -403,25 +408,55 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
      * Return the main theme color from a given {@link WallpaperColors} instance.
      */
     protected int getNeutralColor(@NonNull WallpaperColors wallpaperColors) {
-        return wallpaperColors.getPrimaryColor().toArgb();
+        return ColorScheme.getSeedColor(wallpaperColors);
     }
 
     protected int getAccentColor(@NonNull WallpaperColors wallpaperColors) {
-        Color accentCandidate = wallpaperColors.getSecondaryColor();
-        if (accentCandidate == null) {
-            accentCandidate = wallpaperColors.getTertiaryColor();
-        }
-        if (accentCandidate == null) {
-            accentCandidate = wallpaperColors.getPrimaryColor();
-        }
-        return accentCandidate.toArgb();
+        return ColorScheme.getSeedColor(wallpaperColors);
+    }
+
+    private final boolean inDarkMode() {
+        return (mContext.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
     }
 
     /**
      * Given a color candidate, return an overlay definition.
      */
     protected @Nullable FabricatedOverlay getOverlay(int color, int type) {
-        return null;
+        ColorScheme colorScheme = new ColorScheme(color, inDarkMode());
+        List<Integer> colors;
+        String name;
+
+        if (type == ACCENT) {
+            colors = colorScheme.getAllAccentColors();
+            name = "accent";
+        } else {
+            colors = colorScheme.getAllNeutralColors();
+            name = "neutral";
+        }
+
+        int size = colorScheme.getAccent1().size();
+        FabricatedOverlay.Builder builder = new FabricatedOverlay.Builder(mContext.getPackageName(), name, "android");
+
+        for (int i = 0; i < colors.size(); i++) {
+            int lightness = i % size;
+            int shade = i / size + 1;
+
+            String targetResource;
+            if (lightness == 0) {
+                targetResource = "android:color/system_" + name + shade + "_10";
+            } else if (lightness == 1) {
+                targetResource = "android:color/system_" + name + shade + "_50";
+            } else {
+                targetResource = "android:color/system_" + name + shade + "_" + (lightness - 1) + "00";
+            }
+
+            builder.setResourceValue(targetResource, TypedValue.TYPE_INT_COLOR_ARGB8,
+                    ColorUtils.setAlphaComponent(colors.get(i).intValue(), 0xFF));
+        }
+
+        return builder.build();
     }
 
     private void updateThemeOverlays() {
