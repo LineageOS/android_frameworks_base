@@ -97,6 +97,7 @@ android_library {
         "lottie",
         "org.lineageos.platform.internal",
         "vendor.lineage.powershare-V1.0-java",
+        "monet",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["LineageManifest.xml"],
@@ -187,6 +188,7 @@ android_library {
         "WindowManager-Shell",
         "org.lineageos.platform.internal",
         "vendor.lineage.powershare-V1.0-java",
+        "monet",
     ],
     libs: [
         "android.test.runner",
