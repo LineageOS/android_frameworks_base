@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ea5cfc5_c67b621f",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-09T16:48:00Z",
+      "side": 1,
+      "message": "Should you check !mHasVisibleNotifications here as well?",
+      "range": {
+        "startLine": 96,
+        "startChar": 28,
+        "endLine": 96,
+        "endChar": 37
+      },
+      "revId": "060f4ed3e5e0bbc6ad355e5cc72aad118ffcb37c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
