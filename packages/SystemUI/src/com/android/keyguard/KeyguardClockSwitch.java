@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.util.AttributeSet;
@@ -84,6 +85,15 @@ public class KeyguardClockSwitch extends RelativeLayout {
 
     public KeyguardClockSwitch(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        boolean landscape = getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
+        animateClockChange(!landscape);
     }
 
     /**
@@ -272,7 +282,9 @@ public class KeyguardClockSwitch extends RelativeLayout {
                 && hasVisibleNotifications == mHasVisibleNotifications) {
             return false;
         }
-        boolean useLargeClock = !hasVisibleNotifications;
+        boolean landscape = getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
+        boolean useLargeClock = !hasVisibleNotifications && !landscape;
         animateClockChange(useLargeClock);
 
         mHasVisibleNotifications = hasVisibleNotifications;
