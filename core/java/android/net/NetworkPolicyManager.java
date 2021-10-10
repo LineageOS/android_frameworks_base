@@ -85,6 +85,10 @@ public class NetworkPolicyManager {
      * @hide
      */
     public static final int POLICY_ALLOW_METERED_BACKGROUND = 0x4;
+    /** Reject network usage on all networks
+     * @hide
+     */
+    public static final int POLICY_REJECT_ALL = 0x40000;
 
     /*
      * Rules defining whether an uid has access to a network given its type (metered / non-metered).
