@@ -4589,6 +4589,12 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         // ...then update iptables asynchronously.
         mHandler.obtainMessage(MSG_RESET_FIREWALL_RULES_BY_UID, uid, 0).sendToTarget();
+
+        Set<Integer> uids =
+                ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext);
+        uids.remove(uid);
+        ConnectivitySettingsManager.setUidsAllowedOnRestrictedNetworks(mContext,
+                uids);
     }
 
     /**
