@@ -16,6 +16,24 @@
       "revId": "7b46657d5d0d6feac1248c4c21fff5014c8c0ddb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1258d03_3a1b3698",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T14:04:36Z",
+      "side": 1,
+      "message": "Or rather, make a LineageUdfpsController for our additions",
+      "parentUuid": "8a1e3395_45ccf78c",
+      "revId": "7b46657d5d0d6feac1248c4c21fff5014c8c0ddb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
