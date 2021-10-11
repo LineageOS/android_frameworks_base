@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a1e3395_45ccf78c",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T14:01:47Z",
+      "side": 1,
+      "message": "This will remove any provider set via DI, allow classes that extend the controller to implement their own?\nSimply adding a null check for mHbmProvider will do",
+      "revId": "7b46657d5d0d6feac1248c4c21fff5014c8c0ddb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
