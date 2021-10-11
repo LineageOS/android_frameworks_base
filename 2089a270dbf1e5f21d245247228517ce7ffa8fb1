@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e82e42d0_3a6afb74",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T13:56:58Z",
+      "side": 1,
+      "message": "colors?",
+      "range": {
+        "startLine": 428,
+        "startChar": 22,
+        "endLine": 428,
+        "endChar": 26
+      },
+      "revId": "2089a270dbf1e5f21d245247228517ce7ffa8fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af2a782d_6b371cdb",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T13:56:58Z",
+      "side": 1,
+      "message": "type",
+      "range": {
+        "startLine": 429,
+        "startChar": 15,
+        "endLine": 429,
+        "endChar": 18
+      },
+      "revId": "2089a270dbf1e5f21d245247228517ce7ffa8fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc84f3c4_50367363",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T13:56:58Z",
+      "side": 1,
+      "message": "mContext.getPackageName()",
+      "range": {
+        "startLine": 440,
+        "startChar": 74,
+        "endLine": 440,
+        "endChar": 96
+      },
+      "revId": "2089a270dbf1e5f21d245247228517ce7ffa8fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42a91c8b_8b49211b",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T13:56:58Z",
+      "side": 1,
+      "message": "this is probably fine, not sure if we have a way to get resource package",
+      "range": {
+        "startLine": 440,
+        "startChar": 103,
+        "endLine": 440,
+        "endChar": 112
+      },
+      "revId": "2089a270dbf1e5f21d245247228517ce7ffa8fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b845bd0d_d7903bcf",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T13:56:58Z",
+      "side": 1,
+      "message": "lightness\nThis is the lightness \"index\"",
+      "range": {
+        "startLine": 443,
+        "startChar": 16,
+        "endLine": 443,
+        "endChar": 18
+      },
+      "revId": "2089a270dbf1e5f21d245247228517ce7ffa8fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7e5f9f9_d1c09c61",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T13:56:58Z",
+      "side": 1,
+      "message": "shade\nThis is the \"shade\"\n1 is shade\n2 is light shade\n3 is dark shade",
+      "range": {
+        "startLine": 444,
+        "startChar": 16,
+        "endLine": 444,
+        "endChar": 18
+      },
+      "revId": "2089a270dbf1e5f21d245247228517ce7ffa8fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0152347_81178964",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T13:56:58Z",
+      "side": 1,
+      "message": "target_resource",
+      "range": {
+        "startLine": 446,
+        "startChar": 19,
+        "endLine": 446,
+        "endChar": 23
+      },
+      "revId": "2089a270dbf1e5f21d245247228517ce7ffa8fb1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
