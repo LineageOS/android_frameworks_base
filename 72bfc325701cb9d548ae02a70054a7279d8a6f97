@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86c4bace_7b15db43",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2021-10-11T14:13:02Z",
+      "side": 1,
+      "message": "this is only for xiaomi devices",
+      "range": {
+        "startLine": 312,
+        "startChar": 38,
+        "endLine": 312,
+        "endChar": 40
+      },
+      "revId": "72bfc325701cb9d548ae02a70054a7279d8a6f97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
