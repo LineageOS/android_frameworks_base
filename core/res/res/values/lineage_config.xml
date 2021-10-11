@@ -34,4 +34,6 @@
     <!-- The list of components which should be forced to be enabled. -->
     <string-array name="config_forceEnabledComponents" translatable="false">
     </string-array>
+
+    <integer name="config_defaultMinRefreshRate">0</integer>
 </resources>
