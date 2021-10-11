@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d95717a_07fec65d",
+        "filename": "packages/SystemUI/src/com/android/systemui/monet/ColorScheme.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T11:54:08Z",
+      "side": 1,
+      "message": "kotlinc really did a bad job converting this to java... they check if i2 \u003c\u003d i3, funny",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 17
+      },
+      "revId": "333831c2c089a7ee4b2c792a1a01f1f7dd91e5aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68f80c1a_9175c2ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/monet/ColorScheme.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T11:54:08Z",
+      "side": 1,
+      "message": "val key4 \u003d it.key",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 35
+      },
+      "revId": "333831c2c089a7ee4b2c792a1a01f1f7dd91e5aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c339671c_93d89015",
+        "filename": "packages/SystemUI/src/com/android/systemui/monet/ColorScheme.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T11:54:08Z",
+      "side": 1,
+      "message": "key4",
+      "range": {
+        "startLine": 103,
+        "startChar": 48,
+        "endLine": 103,
+        "endChar": 54
+      },
+      "revId": "333831c2c089a7ee4b2c792a1a01f1f7dd91e5aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "060f6169_89e6b081",
+        "filename": "packages/SystemUI/src/com/android/systemui/monet/ColorScheme.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T11:54:08Z",
+      "side": 1,
+      "message": "CamUtils.lstarFromInt() instead of importing lstarFromInt",
+      "range": {
+        "startLine": 103,
+        "startChar": 35,
+        "endLine": 103,
+        "endChar": 47
+      },
+      "revId": "333831c2c089a7ee4b2c792a1a01f1f7dd91e5aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b4917ba_30cd66ed",
+        "filename": "packages/SystemUI/src/com/android/systemui/monet/ColorScheme.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T11:54:08Z",
+      "side": 1,
+      "message": "key4",
+      "range": {
+        "startLine": 104,
+        "startChar": 40,
+        "endLine": 104,
+        "endChar": 46
+      },
+      "revId": "333831c2c089a7ee4b2c792a1a01f1f7dd91e5aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e25fe0e_7d40bbc4",
+        "filename": "packages/SystemUI/src/com/android/systemui/monet/ColorScheme.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T11:54:08Z",
+      "side": 1,
+      "message": "it.value",
+      "range": {
+        "startLine": 105,
+        "startChar": 16,
+        "endLine": 105,
+        "endChar": 20
+      },
+      "revId": "333831c2c089a7ee4b2c792a1a01f1f7dd91e5aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b79c133f_d1e97732",
+        "filename": "packages/SystemUI/src/com/android/systemui/monet/ColorScheme.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-10-11T11:54:08Z",
+      "side": 1,
+      "message": "This looks wrong to me compared to google\u0027s code ( not saying gooogle\u0027s makes sense, this seems correct more? )\nGoogle add num2 regardless of any data in arrayList3.\n\n`                        if (ColorScheme.Companion.hueDiff(hue, cam3.getHue()) \u003c 15.0f) {\n                            z \u003d true;\n                            continue;\n                        } else {\n                            z \u003d false;\n                            continue;\n                        }\n                        if (z) {\n                            break;\n                        }`\nis the check inside the arrayList3 iterator, the last check is never reachable, hence z is useless and just changes value without any real usage.\nthe only actually useful code is\n`                    if (!(obj !\u003d null)) {\n                        Intrinsics.checkNotNullExpressionValue(num2, \"int\");\n                        arrayList3.add(num2);\n                    }`\nthe null check is against the last iterated object, meaning if we\u0027re done iterating, add num2.\n\nI have no idea why Google did this weird stuff, and I have no idea what\u0027s the correct approach, but the solution above makes a bit more sense, add the items with hue difference higher than 15.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 17
+      },
+      "revId": "333831c2c089a7ee4b2c792a1a01f1f7dd91e5aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
