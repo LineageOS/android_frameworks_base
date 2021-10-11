@@ -943,8 +943,10 @@ public class DisplayModeDirector {
         }
 
         private void updateRefreshRateSettingLocked() {
+            final float defaultMinRefreshRate = (float) mContext.getResources().getInteger(
+                    org.lineageos.platform.internal.R.integer.config_defaultMinRefreshRate);
             float minRefreshRate = Settings.System.getFloat(mContext.getContentResolver(),
-                    Settings.System.MIN_REFRESH_RATE, 0f);
+                    Settings.System.MIN_REFRESH_RATE, defaultMinRefreshRate);
             float peakRefreshRate = Settings.System.getFloat(mContext.getContentResolver(),
                     Settings.System.PEAK_REFRESH_RATE, mDefaultPeakRefreshRate);
             updateRefreshRateSettingLocked(minRefreshRate, peakRefreshRate, mDefaultRefreshRate);
