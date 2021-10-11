@@ -864,12 +864,15 @@ public class DisplayModeDirector {
                 Settings.Global.getUriFor(Settings.Global.LOW_POWER_MODE);
 
         private final Context mContext;
+        private float mDefaultMinRefreshRate;
         private float mDefaultPeakRefreshRate;
         private float mDefaultRefreshRate;
 
         SettingsObserver(@NonNull Context context, @NonNull Handler handler) {
             super(handler);
             mContext = context;
+            mDefaultMinRefreshRate = (float) mContext.getResources().getInteger(
+                    org.lineageos.platform.internal.R.integer.config_defaultMinRefreshRate);
             mDefaultPeakRefreshRate = (float) context.getResources().getInteger(
                     R.integer.config_defaultPeakRefreshRate);
             mDefaultRefreshRate =
@@ -944,7 +947,7 @@ public class DisplayModeDirector {
 
         private void updateRefreshRateSettingLocked() {
             float minRefreshRate = Settings.System.getFloat(mContext.getContentResolver(),
-                    Settings.System.MIN_REFRESH_RATE, 0f);
+                    Settings.System.MIN_REFRESH_RATE, mDefaultMinRefreshRate);
             float peakRefreshRate = Settings.System.getFloat(mContext.getContentResolver(),
                     Settings.System.PEAK_REFRESH_RATE, mDefaultPeakRefreshRate);
             updateRefreshRateSettingLocked(minRefreshRate, peakRefreshRate, mDefaultRefreshRate);
