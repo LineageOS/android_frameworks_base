@@ -154,7 +154,7 @@ public interface QSTile {
     @ProvidesInterface(version = State.VERSION)
     public static class State {
         public static final int VERSION = 1;
-        public static final int DEFAULT_STATE = Tile.STATE_ACTIVE;
+        public static final int DEFAULT_STATE = Tile.STATE_INACTIVE;
 
         public Icon icon;
         public Supplier<Icon> iconSupplier;
