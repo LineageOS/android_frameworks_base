@@ -30,6 +30,8 @@ import android.security.keystore.SecureKeyImportUnavailableException;
 import android.security.keystore.WrappedKeyEntry;
 import android.util.Log;
 
+import com.android.internal.gmscompat.AttestationHooks;
+
 import libcore.util.EmptyArray;
 
 import java.io.ByteArrayInputStream;
@@ -113,6 +115,8 @@ public class AndroidKeyStoreSpi extends KeyStoreSpi {
 
     @Override
     public Certificate[] engineGetCertificateChain(String alias) {
+        AttestationHooks.onEngineGetCertificateChain();
+
         if (alias == null) {
             throw new NullPointerException("alias == null");
         }
