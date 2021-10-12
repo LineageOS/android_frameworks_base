@@ -105,12 +105,6 @@ public class QSCustomizer extends LinearLayout {
         if (enabled != mSceneContainerEnabled) {
             mSceneContainerEnabled = enabled;
             updateTransparentViewHeight();
-            if (mSceneContainerEnabled) {
-                findViewById(R.id.nav_bar_background).setVisibility(View.GONE);
-            } else {
-                findViewById(R.id.nav_bar_background)
-                        .setVisibility(mIsShowingNavBackdrop ? View.VISIBLE : View.GONE);
-            }
         }
     }
 
@@ -120,13 +114,8 @@ public class QSCustomizer extends LinearLayout {
     }
 
     void updateNavBackDrop(Configuration newConfig, LightBarController lightBarController) {
-        View navBackdrop = findViewById(R.id.nav_bar_background);
         mIsShowingNavBackdrop = newConfig.smallestScreenWidthDp >= 600
                 || newConfig.orientation != Configuration.ORIENTATION_LANDSCAPE;
-        if (navBackdrop != null) {
-            navBackdrop.setVisibility(
-                    mIsShowingNavBackdrop && !mSceneContainerEnabled ? View.VISIBLE : View.GONE);
-        }
         updateNavColors(lightBarController);
     }
 
