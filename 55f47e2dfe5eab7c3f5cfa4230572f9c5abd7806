@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13a31d2d_a31b1acd",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 20162
+      },
+      "writtenOn": "2021-10-15T06:47:52Z",
+      "side": 1,
+      "message": "Seems to conflict with the argument. \"typeStr\"?",
+      "revId": "55f47e2dfe5eab7c3f5cfa4230572f9c5abd7806",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
