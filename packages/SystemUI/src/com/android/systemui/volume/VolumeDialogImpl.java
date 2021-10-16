@@ -570,7 +570,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void setVisOrGone(int stream, boolean vis) {
-        if (!vis && stream == mAllyStream) {
+        if ((!vis && stream == mAllyStream) || mShowActiveStreamOnly) {
             return;
         }
         Util.setVisOrGone(findRow(stream).view, vis);
