@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b52658b_d8d58f6b",
+        "filename": "services/core/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 22856
+      },
+      "writtenOn": "2021-10-17T19:57:03Z",
+      "side": 1,
+      "message": "Forgot to fix here?",
+      "revId": "d480d38a17882d47547cab1a3ac7997f821347f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
