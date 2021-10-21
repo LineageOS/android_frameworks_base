@@ -26,6 +26,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListAdapter;
 
+import androidx.constraintlayout.helper.widget.Flow;
+
 /**
  * Creates a customized Dialog for displaying the Shut Down and Restart actions.
  */
@@ -36,11 +38,15 @@ public class GlobalActionsPowerDialog {
      */
     public static Dialog create(@NonNull Context context, ListAdapter adapter) {
         ViewGroup listView = (ViewGroup) LayoutInflater.from(context).inflate(
-                com.android.systemui.R.layout.global_actions_power_dialog, null);
+                com.android.systemui.R.layout.global_actions_power_dialog_flow, null);
+
+        Flow flow = listView.findViewById(com.android.systemui.R.id.power_flow);
 
         for (int i = 0; i < adapter.getCount(); i++) {
             View action = adapter.getView(i, null, listView);
+            action.setId(View.generateViewId());
             listView.addView(action);
+            flow.addView(action);
         }
 
         Resources res = context.getResources();
@@ -53,7 +59,7 @@ public class GlobalActionsPowerDialog {
         window.setType(WindowManager.LayoutParams.TYPE_VOLUME_OVERLAY);
         window.setTitle(""); // prevent Talkback from speaking first item name twice
         window.setBackgroundDrawable(res.getDrawable(
-                com.android.systemui.R.drawable.control_background, context.getTheme()));
+                com.android.systemui.R.drawable.global_actions_lite_background, context.getTheme()));
         window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
 
         return dialog;
