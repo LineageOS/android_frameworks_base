@@ -109,6 +109,9 @@
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
 
+    <!-- Status bar - icons -->
+    <string name="status_bar_icons_title">Status bar icons</string>
+
     <!-- Name of the firewall status bar icon. -->
     <string name="status_bar_firewall">Firewall</string>
     <string name="status_bar_firewall_slot" translatable="false">firewall</string>
