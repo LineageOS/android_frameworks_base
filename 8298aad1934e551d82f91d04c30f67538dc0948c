@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91a528a6_88654302",
+        "filename": "packages/SystemUI/res/color-night/qs_detail_progress_track.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2021-10-23T22:13:39Z",
+      "side": 1,
+      "message": "Just curious, Using color attr instead of drawable without changing the value didn\u0027t work?",
+      "revId": "8298aad1934e551d82f91d04c30f67538dc0948c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
