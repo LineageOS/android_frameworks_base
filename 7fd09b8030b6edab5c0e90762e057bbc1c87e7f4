@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e25a53f_736bab19",
+        "filename": "core/java/com/android/server/backup/NetworkPolicyBackupHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-10-23T13:24:05Z",
+      "side": 1,
+      "message": "newline missing at end of file",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f8f81c4_6ca5152c",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2374,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-10-23T13:24:05Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6850333a_95a49e70",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-10-23T13:24:05Z",
+      "side": 1,
+      "message": "the whole block is repeated 3 times. Wouldn\u0027t a small helper method be a better approach?\nfinal int getUidAttr(XmlPullParser in, boolean forRestore)",
+      "range": {
+        "startLine": 2370,
+        "startChar": 20,
+        "endLine": 2375,
+        "endChar": 21
+      },
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b060c41d_7878d0ed",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2402,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-10-23T13:24:05Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e28541b0_7f94dd2e",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2410,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-10-23T13:24:05Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "934e6785_66d45eee",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5579,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-10-23T13:24:05Z",
+      "side": 1,
+      "message": "are you sure that there will always be a valid package for the given uid? getPackagesForUid can return null.\nString[] packages \u003d Context.getPackageManager().getPackagesForUid(uid);\nreturn packages !\u003d null ? packages[0] : \"\";",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
