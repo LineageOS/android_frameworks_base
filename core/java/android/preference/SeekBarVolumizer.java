@@ -104,6 +104,7 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
     @UnsupportedAppUsage
     private final int mStreamType;
     private final int mMaxStreamVolume;
+    private final int mMinStreamVolume;
     private boolean mAffectedByRingerMode;
     private boolean mNotificationOrRing;
     private final Receiver mReceiver = new Receiver();
@@ -178,7 +179,8 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
                     mStreamType);
         }
 
-        mMaxStreamVolume = mAudioManager.getStreamMaxVolume(mStreamType);
+        mMinStreamVolume = mAudioManager.getStreamMinVolume(mStreamType);
+        mMaxStreamVolume = mAudioManager.getStreamMaxVolume(mStreamType) - mMinStreamVolume;
         mCallback = callback;
         mOriginalStreamVolume = mAudioManager.getStreamVolume(mStreamType);
         mLastAudibleStreamVolume = mAudioManager.getLastAudibleStreamVolume(mStreamType);
@@ -269,13 +271,14 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
         final boolean zenMuted = isZenMuted();
         mSeekBar.setEnabled(!zenMuted);
         if (zenMuted) {
-            mSeekBar.setProgress(mLastAudibleStreamVolume, true);
+            mSeekBar.setProgress(mLastAudibleStreamVolume - mMinStreamVolume, true);
         } else if (mNotificationOrRing && mRingerMode == AudioManager.RINGER_MODE_VIBRATE) {
             mSeekBar.setProgress(0, true);
         } else if (mMuted) {
             mSeekBar.setProgress(0, true);
         } else {
-            mSeekBar.setProgress(mLastProgress > -1 ? mLastProgress : mOriginalStreamVolume, true);
+            mSeekBar.setProgress(mLastProgress > -1 ? mLastProgress
+                    : mOriginalStreamVolume - mMinStreamVolume, true);
         }
     }
 
@@ -288,7 +291,7 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
                 } else if (!mMuted && mLastProgress == 0) {
                     mAudioManager.adjustStreamVolume(mStreamType, AudioManager.ADJUST_MUTE, 0);
                 }
-                mAudioManager.setStreamVolume(mStreamType, mLastProgress,
+                mAudioManager.setStreamVolume(mStreamType, mLastProgress + mMinStreamVolume,
                         AudioManager.FLAG_SHOW_UI_WARNINGS);
                 break;
             case MSG_START_SAMPLE:
@@ -480,7 +483,7 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
 
     public void muteVolume() {
         if (mVolumeBeforeMute != -1) {
-            mSeekBar.setProgress(mVolumeBeforeMute, true);
+            mSeekBar.setProgress(mVolumeBeforeMute - mMinStreamVolume, true);
             postSetVolume(mVolumeBeforeMute);
             postStartSample();
             mVolumeBeforeMute = -1;
@@ -514,8 +517,8 @@ public class SeekBarVolumizer implements OnSeekBarChangeListener, Handler.Callba
         public void handleMessage(Message msg) {
             if (msg.what == UPDATE_SLIDER) {
                 if (mSeekBar != null) {
-                    mLastProgress = msg.arg1;
-                    mLastAudibleStreamVolume = msg.arg2;
+                    mLastProgress = msg.arg1 - mMinStreamVolume;
+                    mLastAudibleStreamVolume = msg.arg2 - mMinStreamVolume;
                     final boolean muted = ((Boolean)msg.obj).booleanValue();
                     if (muted != mMuted) {
                         mMuted = muted;
