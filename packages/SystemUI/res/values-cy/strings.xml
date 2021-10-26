@@ -202,6 +202,7 @@
     <string name="accessibility_casting">@string/quick_settings_casting</string>
     <string name="accessibility_work_mode">@string/quick_settings_work_mode_label</string>
     <string name="accessibility_notification_dismissed">Diddymwyd yr hysbysiad.</string>
+    <string name="accessibility_bubble_dismissed">Caewyd y swigen.</string>
     <string name="accessibility_desc_notification_shade">Cysgodi hysbysiadau.</string>
     <string name="accessibility_desc_quick_settings">Gosodiadau cyflym.</string>
     <string name="accessibility_desc_lock_screen">Sgrin cloi</string>
@@ -454,6 +455,10 @@
     <string name="battery_saver_notification_title">Mae\'r Arbedwr Batri ymlaen</string>
     <string name="battery_saver_notification_text">Mae\'n lleihau perfformiad a data cefndir.</string>
     <string name="battery_saver_notification_action_text">Troi\'r Arbedwr Batri i ffwrdd</string>
+    <string name="media_projection_dialog_text">Bydd gan <xliff:g id="app_seeking_permission" example="Hangouts">%s</xliff:g> fynediad at y holl wybodaeth sy\'n weladwy ar dy sgrin neu a chwaraeir o dy ddyfais wrth recordio neu daflu. Mae hyn yn cynnwys gwybodaeth fel cyfrineiriau, manylion talu, lluniau, negeseuon, a sain rwyt ti\'n eu chwarae.</string>
+    <string name="media_projection_dialog_service_text">Bydd gan y gwasanaeth sy\'n darparu\'r swyddogaeth hon fynediad at y holl wybodaeth sy\'n weladwy ar dy sgrin neu a chwaraeir o dy ddyfais wrth recordio neu daflu. Mae hyn yn cynnwys gwybodaeth fel cyfrineiriau, manylion talu, lluniau, negeseuon, a sain rwyt ti\'n eu chwarae.</string>
+    <string name="media_projection_dialog_service_title">Dechrau recordio neu daflu?</string>
+    <string name="media_projection_dialog_title">Dechrau recordio neu daflu gyda <xliff:g id="app_seeking_permission" example="Hangouts">%s</xliff:g>?</string>
     <string name="media_projection_remember_text">Peidio â dangos eto</string>
     <string name="clear_all_notifications_text">Clirio\'r cwbl</string>
     <string name="manage_notifications_text">Rheoli</string>
@@ -525,6 +530,7 @@
     <string name="screen_pinning_description_gestural">Mae hyn yn ei gadw mewn golwg nes dy fod yn ei dadbinio. Llusga i fyny a dal i ddadbinio.</string>
     <string name="screen_pinning_description_accessible">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Trosolwg i\'w dadbinio.</string>
     <string name="screen_pinning_description_recents_invisible_accessible">Mae hyn yn ei chadw mewn golwg nes dy fod yn ei dadbinio. Cyffyrdda a dal Cartref i\'w dadbinio.</string>
+    <string name="screen_pinning_can_open_other_apps">Gall ap wedi\'i binio agor apiau eraill.</string>
     <string name="screen_pinning_positive">Deall yn iawn</string>
     <string name="screen_pinning_negative">Dim diolch</string>
     <string name="quick_settings_reset_confirmation_title">Cuddio <xliff:g id="tile_label" example="Hotspot">%1$s</xliff:g>?</string>
@@ -651,7 +657,12 @@
     <string name="inline_turn_off_notifications">Troi hysbysiadau i ffwrdd</string>
     <string name="inline_keep_showing_app">Parhau i ddangos hysbysiadau gan yr ap hwn?</string>
     <string name="notification_silence_title">Distaw</string>
+    <string name="notification_bubble_title">Swigen</string>
+    <string name="notification_channel_summary_default_with_bubbles">Gall ganu neu ddirgrynu yn dibynnu ar osodiadau\'r ffôn. Mae sgyrsiau gan <xliff:g id="app_name" example="YouTube">%1$s</xliff:g> fel swigod yn rhagosodedig.</string>
+    <string name="notification_channel_summary_priority">Yn dangos ar frig yr adran sgwrsio, yn ymddangos fel swigen yn arnofio, yn dangos llun proffil ar sgrin clo</string>
     <string name="notification_conversation_channel_settings">Gosodiadau</string>
+    <string name="bubble_overflow_empty_title">Dim swigod diweddar</string>
+    <string name="bubble_overflow_empty_subtitle">Bydd swigod diweddar a swigod wedi\'u cau yn ymddangos yma</string>
     <string name="notification_unblockable_desc">Ni ellir addasu\'r hysbysiadau hyn.</string>
     <string name="notification_multichannel_desc">Ni ellir ffurfweddu\'r grŵp hwn o hysbysiadau yma</string>
     <string name="notification_delegate_header">Hysbysiad procsi</string>
@@ -674,6 +685,8 @@
     <string name="notification_done">Cwblhau</string>
     <string name="inline_undo">Dad-wneud</string>
     <string name="notification_conversation_unmute">Rhybuddion</string>
+    <string name="notification_conversation_bubble">Dangos swigen</string>
+    <string name="notification_conversation_unbubble">Tynnu swigod</string>
     <string name="notification_menu_accessibility"><xliff:g id="app_name" example="YouTube">%1$s</xliff:g> <xliff:g id="menu_description" example="notification controls">%2$s</xliff:g></string>
     <string name="notification_menu_gear_description">rheolaeth hysbysiadau</string>
     <string name="notification_menu_snooze_description">dewisiadau oedi hysbysiad</string>
@@ -893,7 +906,7 @@
     <string name="running_foreground_services_title">Apiau sy\'n rhedeg yn y cefndir</string>
     <string name="running_foreground_services_msg">Tapia am fanylion defnydd batri a data</string>
     <string name="mobile_data_disable_title">Troi data symudol i ffwrdd?</string>
-    <string name="mobile_data_disable_message">Ni fydd gennyt fynediad i ddata na\'r rhyngrwyd trwy <xliff:g id="carrier" example="T-Mobile">%s</xliff:g>. Bydd y rhyngrwyd ond ar gael dros Wi-Fi.</string>
+    <string name="mobile_data_disable_message">Ni fydd gennyt fynediad at ddata na\'r rhyngrwyd trwy <xliff:g id="carrier" example="T-Mobile">%s</xliff:g>. Bydd y rhyngrwyd ond ar gael dros Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">dy ddarparwr gwasanaeth</string>
     <string name="touch_filtered_warning">Ni all Gosodiadau gwirio dy ymateb gan fod ap yn rhwystro cais am ganiatâd.</string>
     <string name="slice_permission_title">Caniatáu i <xliff:g id="app" example="Example App">%1$s</xliff:g> ddangos sleisiau <xliff:g id="app_2" example="Other Example App">%2$s</xliff:g>?</string>
@@ -930,13 +943,23 @@
     <string name="bubble_accessibility_action_move_top_right">Symud top dde</string>
     <string name="bubble_accessibility_action_move_bottom_left">Symud gwaelod chwith</string>
     <string name="bubble_accessibility_action_move_bottom_right">Symud gwaelod dde</string>
+    <string name="bubble_dismiss_text">Cau\'r swigen</string>
+    <string name="bubbles_dont_bubble_conversation">Peidio â dangos y sgwrs fel swigen</string>
+    <string name="bubbles_user_education_title">Sgwrsio gan ddefnyddio swigod</string>
+    <string name="bubbles_user_education_description">Mae sgyrsiau newydd yn ymddangos fel eiconau arnofio neu swigod. Tapia i agor swigen. Llusga i\'w symud.</string>
+    <string name="bubbles_user_education_manage_title">Rheoli swigod unrhyw bryd</string>
+    <string name="bubbles_user_education_manage">Tapia Rheoli i ddiffodd swigod o\'r ap hwn</string>
     <string name="bubbles_user_education_got_it">Deall yn iawn</string>
     <string name="notification_content_system_nav_changed">Diweddarwyd llywio\'r system. Gwneir newidiadau yn Gosodiadau.</string>
     <string name="notification_content_gesture_nav_available">Gellir diweddaru llywio\'r system yn Gosodiadau</string>
+    <string name="priority_onboarding_appear_as_bubble_text">Ymddangos fel swigen yn arnofio dros apiau</string>
+    <string name="priority_onboarding_ignores_dnd_text">Torri ar draws Dim Tarfu</string>
     <string name="priority_onboarding_done_button_title">Deall yn iawn</string>
     <string name="priority_onboarding_settings_button_title">Gosodiadau</string>
+    <string name="magnification_overlay_title">Ffenestr Chwyddo Troshaen</string>
     <string name="controls_favorite_other_zone_header">Arall</string>
     <string name="controls_media_dismiss_button">Diystyru</string>
     <string name="controls_media_resume">Parhau</string>
     <string name="controls_media_settings_button">Gosodiadau</string>
+    <string name="media_output_dialog_disconnected"><xliff:g id="device_name" example="My device">%1$s</xliff:g> (wedi datgysylltu)</string>
 </resources>

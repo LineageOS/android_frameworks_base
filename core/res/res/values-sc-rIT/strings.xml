@@ -18,8 +18,141 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="byteShort">B</string>
+    <string name="megabyteShort">MB</string>
+    <string name="gigabyteShort">GB</string>
+    <string name="terabyteShort">TB</string>
+    <string name="untitled">&lt;Chene tìtulu&gt;</string>
+    <string name="emptyPhoneNumber">(Perunu nùmeru de telèfonu)</string>
+    <string name="unknownName">Disconnotu</string>
+    <string name="defaultVoiceMailAlphaTag">Segreteria telefònica</string>
+    <string name="defaultMsisdnAlphaTag">MSISDN1</string>
+    <string name="mmiError">Problema de connessione o còdighe MMI non bàlidu.</string>
+    <string name="mmiFdnError">S\'operatzione est limitada isceti a is nùmeros de seletzione fissa.</string>
+    <string name="serviceEnabled">Servìtziu ativadu.</string>
+    <string name="serviceEnabledFor">Servìtziu ativadu pro:</string>
+    <string name="serviceDisabled">Servìtziu disativadu.</string>
+    <string name="serviceRegistered">Sa registratzione est andada bene.</string>
+    <string name="serviceErased">Sa cantzelladura est andada bene.</string>
+    <string name="passwordIncorrect">Crae non bàlida.</string>
+    <string name="mmiComplete">MMI cumpletadu.</string>
+    <string name="badPin">Su PIN betzu chi as postu no est curretu.</string>
+    <string name="badPuk">Su PUK chi as postu no est curretu.</string>
+    <string name="mismatchPin">Is PIN chi as postu non currispondent.</string>
+    <string name="invalidPin">Iscrie unu PIN chi tèngiat dae 4 a 8 tzìfras.</string>
+    <string name="invalidPuk">Iscrie unu PIN de 8 o prus tzifras.</string>
+    <string name="needPuk2">Iscrie su PUK2 pro isblocare s\'ischeda SIM.</string>
+    <string name="enablePin">No andat bene, ativa su blocu SIM/RUIM.</string>
+    <plurals name="pinpuk_attempts">
+        <item quantity="one">Tenes <xliff:g id="number">%d</xliff:g> tentativu in antis de su blocu de sa SIM.</item>
+        <item quantity="other">Tenes <xliff:g id="number">%d</xliff:g> tentativos in antis de su blocu de sa SIM.</item>
+    </plurals>
+    <string name="imei">IMEI</string>
+    <string name="meid">MEID</string>
+    <string name="ClipMmi">ID de chie est tzerriende</string>
+    <string name="ClirMmi">ID de chie ses tzerriende</string>
+    <string name="ColpMmi">ID de sa lìnia connètida</string>
+    <string name="ColrMmi">Restritzione ID de sa lìnia connètida</string>
+    <string name="CfMmi">Inoltru de mutida</string>
+    <string name="CwMmi">Mutida in isetu</string>
+    <string name="BaMmi">Blocu de mutida</string>
+    <string name="PwdMmi">Càmbiu de crae</string>
+    <string name="CnipMmi">Nùmeru de telèfonu presente</string>
+    <string name="CnirMmi">Nùmeru de telèfonu limitadu</string>
+    <string name="ThreeWCMmi">Mutida a tres</string>
+    <string name="RuacMmi">Refudu de mutidas de istorbu non bòlidas</string>
+    <string name="CndMmi">Cunsigna de su nùmeru de telèfonu</string>
+    <string name="DndMmi">No istorbes</string>
+    <string name="CLIRDefaultOnNextCallOn">ID de chie mutit limitadu a manera predefinida. Mutida imbeniente: Limitadu</string>
+    <string name="serviceNotProvisioned">Servìtziu non generadu.</string>
+    <string name="notification_channel_call_forward">Inoltru de mutida</string>
+    <string name="serviceClassVoice">Boghe</string>
+    <string name="serviceClassData">Datos</string>
+    <string name="fcError">Problema de connessione o còdighe de funtzionalidade non bàlidu.</string>
+    <string name="httpErrorOk">AB</string>
+    <string name="httpError">Errore de rete.</string>
+    <string name="httpErrorLookup">No at fatu a agatare s\'URL.</string>
+    <string name="httpErrorUnsupportedAuthScheme">S\'ischema de autenticatzione de su situ no est suportadu.</string>
+    <string name="httpErrorAuth">No at fatu a autenticare.</string>
+    <string name="httpErrorProxyAuth">Autenticatzione tràmite serbidore intermèdiu faddida.</string>
+    <string name="httpErrorConnect">No at fatu a si connetere a su serbidore.</string>
+    <string name="httpErrorIO">No at fatu a comunicare cun su serbidore. Torra·bi a proare.</string>
+    <string name="httpErrorUnsupportedScheme">Su protocollu no est suportadu.</string>
+    <string name="httpErrorFailedSslHandshake">No at fatu a istabilire una connessione sigura.</string>
+    <string name="httpErrorBadUrl">No at fatu a abèrrere sa pàgina ca s\'URL no est bàlidu.</string>
+    <string name="httpErrorFile">No at fatu a intrare in s\'archìviu.</string>
+    <string name="httpErrorFileNotFound">Non s\'at agatadu s\'archìviu rechertu.</string>
+    <string name="httpErrorTooManyRequests">Tropu rechestas elaboradas. Torra·bi a proare.</string>
+    <string name="notification_title">Errore de iscritzione pro <xliff:g id="account" example="foo@gmail.com">%1$s</xliff:g></string>
+    <string name="contentServiceSync">Sincronizatzione</string>
+    <string name="ssl_ca_cert_noti_by_unknown">Dae parte disconnota</string>
+    <string name="ssl_ca_cert_noti_managed">Dae <xliff:g id="managing_domain">%s</xliff:g></string>
+    <string name="work_profile_deleted">Profilu de traballu cantzelladu</string>
+    <string name="factory_reset_warning">Su dispositivu tuo at a èssere cantzelladu</string>
+    <string name="power_dialog" product="tablet">Sèberos de sa tauledda</string>
+    <string name="power_dialog" product="default">Sèberos de su telèfonu</string>
+    <string name="silent_mode">Modalidade a sa muda</string>
+    <string name="turn_on_radio">Allue sa modalidade chene filos</string>
+    <string name="turn_off_radio">Istuda sa modalidade chene filos</string>
+    <string name="screen_lock">Blocu de ischermu</string>
+    <string name="power_off">Istuda</string>
+    <string name="silent_mode_silent">Tonu de mutida disativadu</string>
+    <string name="silent_mode_vibrate">Vibratzione</string>
+    <string name="silent_mode_ring">Tonu de mutida ativadu</string>
+    <string name="reboot_to_update_title">Agiornamentu de su sistema Android</string>
+    <string name="permgrouplab_calendar">Calendàriu</string>
+    <string name="permgroupdesc_calendar">atzede a su calendàriu tuo</string>
+    <string name="permgrouplab_sms">SMS</string>
+    <string name="permgroupdesc_sms">imbia e visualiza messàgios SMS</string>
+    <string name="permgrouplab_microphone">Micròfonu</string>
+    <string name="permgrouplab_camera">Fotocàmera</string>
+    <string name="permgroupdesc_camera">faghe fotografias e registra vìdeos</string>
+    <string name="permgrouplab_phone">Telèfonu</string>
+    <string name="permgroupdesc_phone">faghe e gesti mutidas</string>
+    <string name="permgroupdesc_sensors">atzede a is datos sensores de is signos vitales</string>
+    <string name="capability_title_canRetrieveWindowContent">Recùpera su cuntenutu de sa ventana</string>
+    <string name="capability_desc_canRetrieveWindowContent">Ispetziona su cuntenutu de una ventana cun sa chi ses interagende.</string>
+    <string name="capability_title_canRequestFilterKeyEvents">Càstia su testu chi iscries</string>
+    <string name="capability_desc_canRequestFilterKeyEvents">Includet datos personales comente nùmeros de carta de crèditu e craes.</string>
+    <string name="permlab_receiveSms">retzi messàgios de testu (SMS)</string>
+    <string name="permdesc_receiveSms">Permitit a s\'aplicatzione de retzire e elaborare messàgios SMS. Custu bolet nàrrere chi s\'aplicatzione diat pòdere controllare o cantzellare messàgios imbiados a su dispositivu tuo chene de ti ddos mustrare.</string>
+    <string name="permlab_receiveMms">retzire messàgios de testu (MMS)</string>
+    <string name="permlab_subscribedFeedsRead">lèghere sa fonte de sutaiscritzione</string>
+    <string name="permdesc_subscribedFeedsRead">Permitit a s\'aplicatzione de otènnere detàllios subra de is fontes sincronizadas a immoe.</string>
+    <string name="permlab_sendSms">imbia e visualiza messàgios SMS</string>
+    <string name="permdesc_sendSms">Permitit a s\'aplicatzione de imbiare messàgios SMS. Custu diat pòdere implicare costos ispantosos. Is aplicatziones malas ti diant pòdere costare dinare in s\'imbiu de messàgios chene sa cunfirma tua.</string>
+    <string name="permlab_readSms">lèghere is messàgios tuos de testu (SMS o MMS)</string>
+    <string name="permlab_receiveWapPush">retzire messàgios de testu (WAP)</string>
+    <string name="permdesc_receiveWapPush">Permitit a s\'aplicatzione de retzire e elaborare messàgios WAP. Custu permissu includet s\'abilidade de controllare o cantzellare messàgios imbiados a te chene de ti ddos mustare.</string>
+    <string name="permlab_readContacts">lèghere is cuntatos tuos</string>
+    <string name="permlab_writeContacts">modificare is cuntatos tuos</string>
+    <string name="permlab_readCallLog">lèghere su registru de mutidas</string>
+    <string name="permlab_writeCallLog">iscrìere su registru de mutidas</string>
+    <string name="permlab_recordAudio">registrare àudiu</string>
+    <string name="permdesc_transmitIr" product="default">Permitit a s\'aplicatzione de impreare su tramudadore de infrarùjos de su telèfonu.</string>
+    <string name="permlab_setWallpaper">impostare s\'isfundu</string>
+    <string name="permdesc_setWallpaper">Permitit a s\'aplicatzione de impostare s\'isfundu de sistema.</string>
+    <string name="permlab_setWallpaperHints">acontzare sa mannària de s\'isfundu</string>
+    <string name="permdesc_setWallpaperHints">Permitit a s\'aplicatzione de impostare sa mannària de s\'isfundu de sistema.</string>
+    <string name="permlab_setTimeZone">impostare su fusu oràriu</string>
+    <string name="permdesc_setTimeZone" product="tablet">Permitit a s\'aplocatzione de cambiare su fusu oràriu de sa tauledda.</string>
+    <string name="permdesc_setTimeZone" product="default">Permitit a s\'aplocatzione de cambiare su fusu oràriu de su telèfonu.</string>
+    <string name="permlab_getAccounts">agatare contos in su dispositivu</string>
+    <string name="permlab_accessNetworkState">visualizare connessiones de rete</string>
     <string-array name="fingerprint_acquired_vendor"/>
     <string-array name="fingerprint_error_vendor"/>
     <string-array name="face_acquired_vendor"/>
     <string-array name="face_error_vendor"/>
+    <string name="permlab_readSyncSettings">lèghere impostatziones de sincronizatzione</string>
+    <string name="permdesc_readSyncSettings">Permitit a s\'aplicatzione de lèghere is impostatziones de sincronizatzione pro unu contu. Pro esèmpiu, custu podet determinare si s\'aplicatzione Persones est sincronizada cun un\'àteru contu.</string>
+    <string name="permlab_writeSyncSettings">ativare/disativare sa sincronizatzione</string>
+    <string name="permdesc_writeSyncSettings">Permitit a un\'aplicatzione de modificare is impostatziones de sincronizatzione pro unu contu. Pro esèmpiu, si podet impreare pro ativare sa sincronizatzione de s\'aplicatzione Persones cun unu contu.</string>
+    <string name="permlab_readSyncStats">lèghere istatìsticas de sincronizatzione</string>
+    <string name="permdesc_readSyncStats">Permitit a un\'aplicatzione de lèghere is istatìsticas de sincronizatzione pro unu contu, incluida sa cronologia de is eventos de sincronizatzione e cantos datos sunt sincronizados.</string>
+    <string name="permlab_manageNetworkPolicy">gestire sa polìtica de rete</string>
+    <string name="permdesc_manageNetworkPolicy">Permitit a s\'aplicatzione de gestire is polìticas de rete e definire règulas ispetzìficas de s\'aplicatzione.</string>
+    <string name="ringtone_unknown">Disconnotu</string>
+    <string name="confirm_battery_saver">AB</string>
+    <string name="notification_appops_camera_active">Fotocàmera</string>
+    <string name="notification_appops_microphone_active">Micròfonu</string>
 </resources>

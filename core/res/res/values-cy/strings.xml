@@ -72,7 +72,7 @@
     <string name="ThreeWCMmi">Galwad tair ffordd</string>
     <string name="RuacMmi">Gwrthod galwadau annymunol</string>
     <string name="CndMmi">Trosglwyddiad rhif galw</string>
-    <string name="DndMmi">Peidiwch â tharfu</string>
+    <string name="DndMmi">Dim Tarfu</string>
     <string name="CLIRDefaultOnNextCallOn">ID galwr yn troi nôl i gyfyngedig. Galwad nesaf: Cyfyngedig</string>
     <string name="CLIRDefaultOnNextCallOff">ID galwr yn troi nôl i gyfyngedig. Galwad nesaf: Dim yn gyfyngedig</string>
     <string name="CLIRDefaultOffNextCallOn">ID galwr yn troi nôl i ddim yn gyfyngedig. Galwad nesaf: Cyfyngedig</string>
@@ -342,6 +342,8 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permdesc_receiveSms">Mae\'n caniatáu i\'r ap dderbyn a phrosesu negeseuon SMS. Mae hyn yn golygu ei fod yn bosib i\'r ap medru clustfeinio ar neu ddileu negeseuon a chaiff eu hanfon at dy ddyfais heb i ti eu gweld nhw.</string>
     <string name="permlab_receiveMms">derbyn negeseuon testun (MMS)</string>
     <string name="permdesc_receiveMms">Mae\'n caniatáu i\'r ap dderbyn a phrosesu negeseuon MMS. Mae hyn yn golygu ei fod yn bosib i\'r ap medru clustfeinio ar neu ddileu negeseuon a chaiff eu hanfon at dy ddyfais heb i ti eu gweld nhw.</string>
+    <string name="permlab_bindCellBroadcastService">Anfon negeseuon darlledu symudol ymlaen</string>
+    <string name="permdesc_bindCellBroadcastService">Mae\'n caniatáu i\'r ap ymlynu i\'r modiwl darlledu symudol er mwyn anfon negeseuon darlledu symudol ymlaen wrth iddyn nhw gael eu derbyn. Mewn rhai mannau mae rhybuddion am sefyllfaoedd argyfyngus yn cael eu darlledu trwy negeseuon destun. Gall apiau maleisus ymyrryd â pherfformiad neu weithrediad dy ddyfais pan fydd darllediad argyfwng yn cael ei dderbyn.</string>
     <string name="permlab_readCellBroadcasts">darllen negeseuon darlledu gell</string>
     <string name="permdesc_readCellBroadcasts">Mae\'n caniatáu i\'r ap ddarllen darllediadau trwy negeseuon symudol mae dy ddyfais yn eu derbyn. Mewn rhai gwledydd mae rhybuddion am sefyllfaoedd argyfyngus yn cael eu darlledu trwy negeseuon destun. Gall apiau maleisus ymyrryd â pherfformiad neu weithrediad dy ddyfais pan fydd darllediad argyfwng yn cael ei dderbyn.</string>
     <string name="permlab_subscribedFeedsRead">darllen ffrydiau tanysgrifiedig</string>
@@ -383,6 +385,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permdesc_receiveBootCompleted" product="default">Mae\'n caniatáu i\'r ap fedru dechrau ei hun cyn gynted â bod y system wedi cychwyn. Gall hyn olygu ei fod yn cymryd hirach i\'r ffôn dechrau ac wrth redeg o hyd gallai\'r ap arafu\'r ffôn yn gyffredinol.</string>
     <string name="permlab_broadcastSticky">anfon darllediad gludiog</string>
     <string name="permdesc_broadcastSticky" product="tablet">Mae\'n caniatáu i\'r ap anfon darllediadau gludiog, sy\'n parhau ar ôl i\'r darllediad gorffen. Gall defnydd gormodol defnyddio llawer o gof ac achosi\'r llechen fod yn araf neu\'n ansefydlog.</string>
+    <string name="permdesc_broadcastSticky" product="tv">Mae\'n caniatáu i\'r ap anfon darllediadau gludiog, sy\'n parhau ar ôl i\'r darllediad gorffen. Gall defnydd gormodol defnyddio llawer o gof ac achosi\'r ddyfais Android TV fod yn araf neu\'n ansefydlog.</string>
     <string name="permdesc_broadcastSticky" product="default">Mae\'n caniatáu i\'r ap anfon darllediadau gludiog, sy\'n parhau ar ôl i\'r darllediad gorffen. Gall defnydd gormodol defnyddio llawer o gof ac achosi\'r ffôn fod yn araf neu\'n ansefydlog.</string>
     <string name="permlab_readContacts">darllen dy gysylltiadau</string>
     <string name="permlab_writeContacts">newid dy gysylltiadau</string>
@@ -466,6 +469,7 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permdesc_changeWifiState">Mae\'n caniatáu i’r ap gysylltu ag i ddatgysylltu o bwyntiau mynediad Wi-Fi ac i wneud newidiadau i ffurfweddiad rhwydweithiau Wi-Fi\'r ddyfais.</string>
     <string name="permlab_changeWifiMulticastState">caniatáu derbyniad Wi-Fi Multicast</string>
     <string name="permdesc_changeWifiMulticastState" product="tablet">Mae\'n caniatáu i\'r ap dderbyn pecynnau wedi eu hanfon at holl ddyfeisiau ar rwydwaith Wi-Fi gan ddefnyddio cyfeiriadau aml-lediad, nid dy lechen yn unig. Mae\'n defnyddio mwy o bŵer na\'r modd na sy\'n aml-lediad.</string>
+    <string name="permdesc_changeWifiMulticastState" product="tv">Mae\'n caniatáu i\'r ap dderbyn pecynnau wedi eu hanfon at holl ddyfeisiau ar rwydwaith Wi-Fi gan ddefnyddio cyfeiriadau aml-lediad, nid y ddyfais Android TV yn unig. Mae\'n defnyddio mwy o bŵer na\'r modd na sy\'n aml-lediad.</string>
     <string name="permdesc_changeWifiMulticastState" product="default">Mae\'n caniatáu i\'r ap dderbyn pecynnau wedi eu hanfon at holl ddyfeisiau ar rwydwaith Wi-Fi gan ddefnyddio cyfeiriadau aml-lediad, nid dy ffôn yn unig. Mae\'n defnyddio mwy o bŵer na\'r modd na sy\'n aml-lediad.</string>
     <string name="permlab_bluetoothAdmin">cyrchu gosodiadau Bluetooth</string>
     <string name="permdesc_bluetoothAdmin" product="tablet">Mae\'n caniatáu i\'r ap ffurfweddu\'r llechen Bluetooth lleol ac i ddarganfod a pharu gyda dyfeisiau o bell.</string>
@@ -1284,12 +1288,12 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="wifi_available_sign_in">Mewngofnodi i rwydwaith Wi-Fi</string>
     <string name="network_available_sign_in">Mewngofnodi i rwydwaith</string>
     <string name="network_available_sign_in_detailed"><xliff:g id="network_ssid">%1$s</xliff:g></string>
-    <string name="wifi_no_internet">Nid oes gan <xliff:g id="network_ssid" example="GoogleGuest">%1$s</xliff:g> mynediad i\'r rhyngrwyd.</string>
+    <string name="wifi_no_internet">Nid oes gan <xliff:g id="network_ssid" example="GoogleGuest">%1$s</xliff:g> mynediad at y rhyngrwyd.</string>
     <string name="wifi_no_internet_detailed">Tapia am ddewisiadau</string>
     <string name="network_partial_connectivity">Mae gan <xliff:g id="network_ssid" example="GoogleGuest">%1$s</xliff:g> cysylltedd cyfyngedig.</string>
     <string name="network_partial_connectivity_detailed">Tapia i\'w ddewis beth bynnag</string>
     <string name="network_switch_metered">Wedi newid i <xliff:g id="network_type">%1$s</xliff:g></string>
-    <string name="network_switch_metered_detail">Mae\'r ddyfais yn defnyddio <xliff:g id="new_network">%1$s</xliff:g> pan nad oes gan <xliff:g id="previous_network">%2$s</xliff:g> mynediad i\'r rhyngrwyd. Gall fod costau defnydd data symudol.</string>
+    <string name="network_switch_metered_detail">Mae\'r ddyfais yn defnyddio <xliff:g id="new_network">%1$s</xliff:g> pan nad oes gan <xliff:g id="previous_network">%2$s</xliff:g> mynediad at y rhyngrwyd. Gall fod costau defnydd data symudol.</string>
     <string name="network_switch_metered_toast">Newidiwyd o <xliff:g id="previous_network">%1$s</xliff:g> i <xliff:g id="new_network">%2$s</xliff:g></string>
     <string-array name="network_switch_type_name">
         <item>data symudol</item>
@@ -1319,7 +1323,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="sim_removed_message">Ni fydd y rhwydwaith symudol ar gael nes dy fod yn ail-ddechrau gyda cherdyn SIM dilys wedi ei osod.</string>
     <string name="sim_done_button">Iawn</string>
     <string name="sim_added_title">Ychwanegwyd cerdyn SIM</string>
-    <string name="sim_added_message">Ailgychwyna dy ddyfais i gael mynediad i\'r rhwydwaith symudol.</string>
+    <string name="sim_added_message">Ailgychwyna dy ddyfais i gael mynediad at y rhwydwaith symudol.</string>
     <string name="sim_restart_button">Ailgychwyn</string>
     <string name="install_carrier_app_notification_title">Actifadu gwasanaeth symudol</string>
     <string name="install_carrier_app_notification_text">Lawrlwytha ap y darparwr gwasanaeth i actifadu dy SIM newydd</string>

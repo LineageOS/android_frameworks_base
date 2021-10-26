@@ -147,10 +147,12 @@
     <string name="work_profile_deleted">Perfil de trabayu desaniciáu</string>
     <string name="network_logging_notification_title">El preséu ta remanáu</string>
     <string name="network_logging_notification_text">La to organización remana esti preséu y puede monitorizar el tráficu de rede. Calca pa ver detalles.</string>
+    <string name="country_detector">Detector de países</string>
     <string name="factory_reset_warning">Va desaniciase\'l preséu</string>
     <string name="personal_apps_suspended_turn_profile_on">Activar</string>
     <string name="me">Yo</string>
     <string name="power_dialog" product="tablet">Opciones de la tableta</string>
+    <string name="power_dialog" product="tv">Opciones d\'Android TV</string>
     <string name="power_dialog" product="default">Opciones del teléfonu</string>
     <string name="silent_mode">Mou silenciu</string>
     <string name="turn_on_radio">Habilitar conexón inalámbrica</string>

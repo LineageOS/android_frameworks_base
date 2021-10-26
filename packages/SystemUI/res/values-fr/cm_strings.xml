@@ -62,13 +62,14 @@
     <string name="vpn_credentials_username">Nom d’utilisateur</string>
     <string name="vpn_credentials_password">Mot de passe</string>
     <string name="vpn_credentials_dialog_connect">Se connecter</string>
+    <string name="quick_settings_anti_flicker">Anti-scintillement</string>
     <string name="accessibility_dpad_left">Curseur gauche</string>
     <string name="accessibility_dpad_right">Curseur droit</string>
     <string name="global_action_restart_more">Redémarrer\u2026 </string>
     <string name="global_action_restart_system">Système</string>
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Récupération</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_download">Télécharger</string>
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Redémarrage\u2026</string>
     <string name="global_action_restart_recovery_progress">Redémarrage en mode recovery\u2026</string>
@@ -76,6 +77,7 @@
     <string name="global_action_restart_download_progress">Redémarrage en mode download\u2026</string>
     <string name="global_action_restart_fastboot_progress">Redémarrage en mode fastboot\u2026</string>
     <string name="global_action_current_user">Utilisateur actuel</string>
+    <string name="global_action_users">Utilisateurs</string>
     <string name="status_bar_camera">Appareil photo</string>
     <string name="status_bar_location">Position</string>
     <string name="status_bar_microphone">Microphone</string>

@@ -32,7 +32,7 @@
     <string name="wifi_check_password_try_again">Gwiria\'r cyfrinair a rhoi cynnig arall arni</string>
     <string name="wifi_not_in_range">Dim o fewn cyrraedd</string>
     <string name="wifi_no_internet_no_reconnect">Nid yw\'n cysylltu\'n awtomatig</string>
-    <string name="wifi_no_internet">Dim mynediad i\'r rhyngrwyd</string>
+    <string name="wifi_no_internet">Dim mynediad at y rhyngrwyd</string>
     <string name="saved_network">Cadwyd gan <xliff:g id="name">%1$s</xliff:g></string>
     <string name="connected_via_network_scorer">Cysylltwyd yn awtomatig â %1$s</string>
     <string name="connected_via_network_scorer_default">Wedi cysylltu\'n awtomatig trwy\'r sgoriwr rhwydweithiau</string>
@@ -41,6 +41,7 @@
     <string name="available_via_passpoint">Ar gael drwy %1$s</string>
     <string name="tap_to_sign_up">Tapi i fewngofnodi</string>
     <string name="wifi_connected_no_internet">Dim rhyngrwyd</string>
+    <string name="private_dns_broken">Ni ellir cyrchu\'r gweinydd DNS preifat</string>
     <string name="wifi_limited_connection">Cysylltiad cyfyngedig</string>
     <string name="wifi_status_no_internet">Dim rhyngrwyd</string>
     <string name="wifi_status_sign_in_required">Rhaid mewngofnodi</string>
@@ -81,7 +82,7 @@
     <string name="bluetooth_profile_headset">Galwadau ffôn</string>
     <string name="bluetooth_profile_opp">Trosglwyddo ffeiliau</string>
     <string name="bluetooth_profile_hid">Dyfeisiau mewnbwn</string>
-    <string name="bluetooth_profile_pan">Mynediad i\'r rhyngrwyd</string>
+    <string name="bluetooth_profile_pan">Mynediad at y rhyngrwyd</string>
     <string name="bluetooth_profile_pbap">Rhannu cysylltiadau</string>
     <string name="bluetooth_profile_pbap_summary">Defnyddio ar gyfer rhannu cysylltiadau</string>
     <string name="bluetooth_profile_pan_nap">Rhannu cysylltiad i\'r rhyngrwyd</string>
@@ -98,9 +99,9 @@
     <string name="bluetooth_sap_profile_summary_connected">Wedi cysylltu â SAP</string>
     <string name="bluetooth_opp_profile_summary_not_connected">Heb gysylltu â gweinydd trosglwyddo ffeiliau</string>
     <string name="bluetooth_hid_profile_summary_connected">Wedi cysylltu â dyfais mewnbwn</string>
-    <string name="bluetooth_pan_user_profile_summary_connected">Wedi cysylltu â dyfais ar gyfer mynediad i\'r rhyngrwyd</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Wedi cysylltu â dyfais ar gyfer mynediad at y rhyngrwyd</string>
     <string name="bluetooth_pan_nap_profile_summary_connected">Rhannu cysylltiad rhyngrwyd lleol gyda dyfais</string>
-    <string name="bluetooth_pan_profile_summary_use_for">Defnyddio ar gyfer mynediad i\'r rhyngrwyd</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Defnyddio ar gyfer mynediad at y rhyngrwyd</string>
     <string name="bluetooth_map_profile_summary_use_for">Defnyddio ar gyfer map</string>
     <string name="bluetooth_sap_profile_summary_use_for">Defnyddio ar gyfer mynediad SIM</string>
     <string name="bluetooth_a2dp_profile_summary_use_for">Defnyddio ar gyfer sain cyfryngau</string>
@@ -201,6 +202,7 @@
     <string name="enable_adb">Dadfygio USB</string>
     <string name="enable_adb_summary">Modd dadfygio tra bod USB wedi\'i gysylltu</string>
     <string name="clear_adb_keys">Dirymu caniatâd dadfygio USB</string>
+    <string name="adb_pairing_device_dialog_failed_msg">Gwiria fod y ddyfais wedi\'i chysylltu â\'r un rhwydwaith.</string>
     <string name="bugreport_in_power">Botwm adrodd am wallau</string>
     <string name="bugreport_in_power_summary">Dangos botwm yn y ddewislen pŵer er mwyn adrodd am wallau</string>
     <string name="keep_screen_on">Aros yn effro</string>
@@ -262,7 +264,7 @@
     <string name="tethering_hardware_offload_summary">Defnyddio cyflyniad caledwedd tenynnu os ar gael</string>
     <string name="adb_warning_title">Caniatáu dadfygio USB?</string>
     <string name="adb_warning_message">Mae dadfygio USB ar gyfer pwrpasau datblygu yn unig. Mae\'n bosib ei ddefnyddio i gopïo data rhwng dy gyfrifiadur a dy ddyfais, gosod apiau ar dy ddyfais heb rybudd, a darllen data logiau.</string>
-    <string name="adb_keys_warning_message">Dirymu mynediad i ddadfygio USB o bob cyfrifiadur wyt wedi ei ganiatáu yn y gorffennol?</string>
+    <string name="adb_keys_warning_message">Dirymu mynediad at ddadfygio USB o bob cyfrifiadur wyt wedi ei ganiatáu yn y gorffennol?</string>
     <string name="dev_settings_warning_title">Caniatáu gosodiadau datblygu?</string>
     <string name="dev_settings_warning_message">Mae\'r gosodiadau hyn ar gyfer pwrpas datblygiad yn unig. Mae\'n bosib iddyn nhw achosi apiau i gamweithio neu i dorri dy ddyfais.</string>
     <string name="verify_apps_over_usb_title">Gwirio apiau dros USB</string>

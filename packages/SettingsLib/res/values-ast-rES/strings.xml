@@ -18,35 +18,35 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="wifi_fail_to_scan">Nun puen guetase redes</string>
-    <string name="wifi_security_none">Denguna</string>
+    <string name="wifi_fail_to_scan">Nun puen buscase redes</string>
+    <string name="wifi_security_none">Nada</string>
     <string name="wifi_remembered">Guardóse</string>
-    <string name="wifi_disconnected">Desconeutáu</string>
+    <string name="wifi_disconnected">Desconectóse</string>
     <string name="wifi_disabled_generic">Desactivóse</string>
-    <string name="wifi_disabled_network_failure">Fallu na configuración d\'IP</string>
-    <string name="wifi_disabled_wifi_failure">Fallu na conexón Wi-Fi</string>
-    <string name="wifi_disabled_password_failure">Problema d\'autenticación</string>
+    <string name="wifi_disabled_network_failure">Hebo un fallu na configuración d\'IP</string>
+    <string name="wifi_disabled_wifi_failure">Hebo un fallu na conexón Wi-Fi</string>
+    <string name="wifi_disabled_password_failure">Hebo un problema d\'autenticación</string>
     <string name="wifi_cant_connect">Nun pudo afitase la conexón</string>
     <string name="wifi_cant_connect_to_ap">Nun se puede coneutar \'<xliff:g id="ap_name">%1$s</xliff:g></string>
     <string name="wifi_check_password_try_again">Revisa la clave y téntalo otra vuelta</string>
-    <string name="wifi_not_in_range">Fuera d\'algame</string>
+    <string name="wifi_not_in_range">Nun ta al algame</string>
     <string name="wifi_no_internet_no_reconnect">Non coneutar automáticamente</string>
     <string name="wifi_no_internet">Ensin accesu a internet</string>
-    <string name="saved_network">Guardada por <xliff:g id="name">%1$s</xliff:g></string>
+    <string name="saved_network">Redes guardaes por <xliff:g id="name">%1$s</xliff:g></string>
     <string name="connected_via_network_scorer">Autoconeutar per %1$s</string>
-    <string name="connected_via_passpoint">Conexón per %1$s</string>
+    <string name="connected_via_passpoint">Conectóse per %1$s</string>
     <string name="available_via_passpoint">Disponible per %1$s</string>
     <string name="wifi_connected_no_internet">Nun hai internet</string>
     <string name="wifi_status_no_internet">Nun hai internet</string>
     <string name="wifi_status_sign_in_required">Necesítase robla</string>
-    <string name="connected_via_carrier">Conexón per %1$s</string>
+    <string name="connected_via_carrier">Conectóse per %1$s</string>
     <string name="available_via_carrier">Disponible per %1$s</string>
     <string name="speed_label_very_slow">Perlenta</string>
     <string name="speed_label_medium">Media</string>
     <string name="speed_label_very_fast">Perrápida</string>
-    <string name="bluetooth_disconnected">Desconeutáu</string>
-    <string name="bluetooth_disconnecting">Desconeutando\u2026</string>
-    <string name="bluetooth_connecting">Coneutando\u2026</string>
+    <string name="bluetooth_disconnected">Desconectóse</string>
+    <string name="bluetooth_disconnecting">Desconectando\u2026</string>
+    <string name="bluetooth_connecting">Conectando\u2026</string>
     <string name="bluetooth_connected">Coneutáu<xliff:g id="active_device">%1$s</xliff:g></string>
     <string name="bluetooth_pairing">Empareyando\u2026</string>
     <string name="bluetooth_connected_no_headset">Coneutáu (ensin teléfonu)<xliff:g id="active_device">%1$s</xliff:g></string>
@@ -66,31 +66,18 @@
     <string name="bluetooth_profile_pan">Accesu a internet</string>
     <string name="bluetooth_profile_pbap">Compartición de contautos</string>
     <string name="bluetooth_profile_pbap_summary">Úsase pa compartir contautos</string>
-    <string name="bluetooth_profile_pan_nap">Compartición de conexón d\'internet</string>
-    <string name="bluetooth_profile_sap">Accesu a SIM</string>
-    <string name="bluetooth_a2dp_profile_summary_connected">Coneutáu al audiu multimedia</string>
-    <string name="bluetooth_headset_profile_summary_connected">Conectáu al audiu del preséu</string>
-    <string name="bluetooth_opp_profile_summary_connected">Coneutáu al sirvidor de tresferencia de ficheros</string>
-    <string name="bluetooth_map_profile_summary_connected">Coneutáu al mapa</string>
-    <string name="bluetooth_sap_profile_summary_connected">Coneutáu a SAP</string>
-    <string name="bluetooth_opp_profile_summary_not_connected">Nun se coneutó col sirvidor de tresferencia de ficheros</string>
-    <string name="bluetooth_hid_profile_summary_connected">Coneutáu al preséu d\'entrada</string>
+    <string name="bluetooth_profile_pan_nap">Compartición de la conexón a internet</string>
+    <string name="bluetooth_profile_sap">Accesu a la SIM</string>
     <string name="bluetooth_pan_user_profile_summary_connected">Coneutáu al preséu pal accesu a internet</string>
     <string name="bluetooth_pan_nap_profile_summary_connected">Compartiendo conexón a internet col preséu</string>
     <string name="bluetooth_pan_profile_summary_use_for">Usar p\'acceder a internet</string>
-    <string name="bluetooth_map_profile_summary_use_for">Usar pal mapa</string>
-    <string name="bluetooth_sap_profile_summary_use_for">Usar pal accesu a SIM</string>
-    <string name="bluetooth_a2dp_profile_summary_use_for">Usar pal audiu multimedia</string>
-    <string name="bluetooth_headset_profile_summary_use_for">Usar pal audiu del teléfonu</string>
-    <string name="bluetooth_opp_profile_summary_use_for">Usar pa la tresferencia de ficheros</string>
-    <string name="bluetooth_hid_profile_summary_use_for">Usar pa la entrada</string>
     <string name="bluetooth_pairing_accept">Empareyar</string>
     <string name="bluetooth_pairing_accept_all_caps">EMPAREYAR</string>
     <string name="bluetooth_pairing_decline">Encaboxar</string>
-    <string name="bluetooth_pairing_will_share_phonebook">L\'empareyamientu concede l\'accesu a los tos contautos ya historial de llamaes al coneutar.</string>
+    <string name="bluetooth_pairing_will_share_phonebook">Al conectase, l\'empareyamientu concede l\'accesu a los contautos y a l\'historial de llamaes.</string>
     <string name="bluetooth_pairing_error_message">Nun pudo empareyase con <xliff:g id="device_name">%1$s</xliff:g>.</string>
-    <string name="bluetooth_pairing_pin_error_message">Nun pudo empareyase con <xliff:g id="device_name">%1$s</xliff:g> porque la clave d\'accesu o el PIN son incorreutos.</string>
-    <string name="bluetooth_pairing_device_down_error_message">Nun pue afitase la comunicación con <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_pin_error_message">Nun pudo empareyase con <xliff:g id="device_name">%1$s</xliff:g> porque s\'introduxo un PIN o una clave d\'accesu incorreutos.</string>
+    <string name="bluetooth_pairing_device_down_error_message">Nun pue comunicase con <xliff:g id="device_name">%1$s</xliff:g>.</string>
     <string name="bluetooth_pairing_rejected_error_message"><xliff:g id="device_name">%1$s</xliff:g> refugó l\'empareyamientu.</string>
     <string name="bluetooth_talkback_computer">Ordenador</string>
     <string name="bluetooth_talkback_headset">Auriculares</string>
@@ -103,20 +90,20 @@
     <string name="bluetooth_hearingaid_right_pairing_message">Empareyamientu d\'audífonu drechu\u2026</string>
     <string name="bluetooth_hearingaid_left_battery_level">Izquierda - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batería</string>
     <string name="bluetooth_hearingaid_right_battery_level">Drecha - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batería</string>
-    <string name="accessibility_wifi_off">Wi-Fi apagáu.</string>
-    <string name="accessibility_no_wifi">Wi-Fi desconeutáu.</string>
-    <string name="accessibility_wifi_one_bar">Una barra de Wi-Fi</string>
-    <string name="accessibility_wifi_two_bars">Dos barres de Wi-Fi</string>
-    <string name="accessibility_wifi_three_bars">Trés barres de Wi-Fi</string>
-    <string name="accessibility_wifi_signal_full">Señal de Wi-Fi al máximu</string>
+    <string name="accessibility_wifi_off">Wi-Fi inhabilitáu.</string>
+    <string name="accessibility_no_wifi">Wi-Fi desconectada.</string>
+    <string name="accessibility_wifi_one_bar">Señal Wi-Fi: Una barra.</string>
+    <string name="accessibility_wifi_two_bars">Señal Wi-Fi: Dos barres.</string>
+    <string name="accessibility_wifi_three_bars">Señal Wi-Fi: Trés barres.</string>
+    <string name="accessibility_wifi_signal_full">Señal Wi-Fi al máximu</string>
     <string name="process_kernel_label">SO Android</string>
-    <string name="data_usage_uninstalled_apps">Aplicaciones desaniciaes</string>
-    <string name="data_usage_uninstalled_apps_users">Usuarios y aplicaciones desaniciaos</string>
-    <string name="tether_settings_title_usb">Anclaxe d\'USB</string>
-    <string name="tether_settings_title_wifi">Puntu Wi-Fi portátil</string>
-    <string name="tether_settings_title_bluetooth">Anclaxe de Bluetooth</string>
-    <string name="tether_settings_title_usb_bluetooth">Anclaxe a rede</string>
-    <string name="tether_settings_title_all">Anclaxe a rede y puntu Wi-Fi</string>
+    <string name="data_usage_uninstalled_apps">Aplicaciones quitaes</string>
+    <string name="data_usage_uninstalled_apps_users">Usuarios y aplicaciones quitaos</string>
+    <string name="tether_settings_title_usb">Tethering per USB</string>
+    <string name="tether_settings_title_wifi">Puntu Wi-Fi</string>
+    <string name="tether_settings_title_bluetooth">Tethering per Bluetooth</string>
+    <string name="tether_settings_title_usb_bluetooth">Tethering</string>
+    <string name="tether_settings_title_all">Tethering y puntu Wi-Fi</string>
     <string name="managed_user_title">Toles aplicaciones de trabayu</string>
     <string name="user_guest">Convidáu</string>
     <string name="unknown">Desconozse</string>
@@ -184,6 +171,7 @@
     <string name="enable_adb">Depuración USB</string>
     <string name="enable_adb_summary">Mou depuración cuando l\'USB tea coneutáu</string>
     <string name="clear_adb_keys">Revocar autorizaciones depur. USB</string>
+    <string name="adb_wireless_error">Fallu</string>
     <string name="bugreport_in_power">Accesu direutu a informe de fallos</string>
     <string name="bugreport_in_power_summary">Amosar un botón nel menú d\'encendíu pa recopilar un informe de fallu</string>
     <string name="keep_screen_on">Pantalla activa</string>
@@ -377,6 +365,7 @@
     <string name="zen_mode_duration_always_prompt_title">Entrugar cada vegada</string>
     <string name="time_unit_just_now">Puramente agora</string>
     <string name="help_label">Ayuda y feedback</string>
+    <string name="user_setup_button_setup_later">Agora non</string>
     <string name="user_new_profile_name">Perfil nuevu</string>
     <string name="guest_nickname">Convidáu</string>
     <string name="cached_apps_freezer_disabled">Desactivóse</string>
