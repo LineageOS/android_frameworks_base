@@ -255,7 +255,7 @@ public class InternetTile extends QSTileImpl<SignalState> {
                 Log.d(TAG, "setWifiIndicators: " + indicators);
             }
             mWifiInfo.mEnabled = indicators.enabled;
-            if (indicators.qsIcon == null) {
+            if (indicators.qsIcon == null || !indicators.isDefault) {
                 return;
             }
             mWifiInfo.mConnected = indicators.qsIcon.visible;
@@ -275,7 +275,7 @@ public class InternetTile extends QSTileImpl<SignalState> {
             if (DEBUG) {
                 Log.d(TAG, "setMobileDataIndicators: " + indicators);
             }
-            if (indicators.qsIcon == null) {
+            if (indicators.qsIcon == null || !indicators.isDefault) {
                 // Not data sim, don't display.
                 return;
             }
