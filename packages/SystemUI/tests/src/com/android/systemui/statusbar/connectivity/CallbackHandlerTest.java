@@ -85,7 +85,7 @@ public class CallbackHandlerTest extends SysuiTestCase {
         String description = "Test";
         String secondaryLabel = "Secondary label";
         WifiIndicators indicators = new WifiIndicators(
-                enabled, status, qs, in, out, description, true, secondaryLabel);
+                enabled, status, qs, in, out, description, true, secondaryLabel, true);
         mHandler.setWifiIndicators(indicators);
         waitForCallbacks();
 
@@ -120,7 +120,7 @@ public class CallbackHandlerTest extends SysuiTestCase {
         boolean roaming = true;
         MobileDataIndicators indicators = new MobileDataIndicators(
                 status, qs, type, qsType, in, out, typeDescription,
-                typeDescriptionHtml, description, subId, roaming, true);
+                typeDescriptionHtml, description, subId, roaming, true, true);
         mHandler.setMobileDataIndicators(indicators);
         waitForCallbacks();
 
