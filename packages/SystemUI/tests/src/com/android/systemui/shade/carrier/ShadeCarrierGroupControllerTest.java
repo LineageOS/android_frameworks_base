@@ -250,7 +250,7 @@ public class ShadeCarrierGroupControllerTest extends LeakCheckedTest {
         MobileDataIndicators indicators = new MobileDataIndicators(
                 mock(IconState.class),
                 mock(IconState.class),
-                0, 0, true, true, "", "", "", 0, true, true);
+                0, 0, true, true, "", "", "", 0, true, true, true);
         mSignalCallback.setMobileDataIndicators(indicators);
     }
 
