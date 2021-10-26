@@ -105,37 +105,20 @@ public class WifiSignalController extends SignalController<WifiState, IconGroup>
         if (mCurrentState.inetCondition == 0) {
             contentDescription += ("," + mContext.getString(R.string.data_connection_no_internet));
         }
-        if (mProviderModelSetting) {
-            IconState statusIcon = new IconState(
-                    wifiVisible, getCurrentIconId(), contentDescription);
-            IconState qsIcon = null;
-            if (mCurrentState.isDefault || (!mNetworkController.isRadioOn()
-                    && !mNetworkController.isEthernetDefault())) {
-                qsIcon = new IconState(mCurrentState.connected,
-                        mWifiTracker.isCaptivePortal ? R.drawable.ic_qs_wifi_disconnected
-                                : getQsCurrentIconId(), contentDescription);
-            }
-            WifiIndicators wifiIndicators = new WifiIndicators(
-                    mCurrentState.enabled, statusIcon, qsIcon,
-                    ssidPresent && mCurrentState.activityIn,
-                    ssidPresent && mCurrentState.activityOut,
-                    wifiDesc, mCurrentState.isTransient, mCurrentState.statusLabel
-            );
-            callback.setWifiIndicators(wifiIndicators);
-        } else {
-            IconState statusIcon = new IconState(
-                    wifiVisible, getCurrentIconId(), contentDescription);
-            IconState qsIcon = new IconState(mCurrentState.connected,
-                    mWifiTracker.isCaptivePortal ? R.drawable.ic_qs_wifi_disconnected
-                            : getQsCurrentIconId(), contentDescription);
-            WifiIndicators wifiIndicators = new WifiIndicators(
-                    mCurrentState.enabled, statusIcon, qsIcon,
-                    ssidPresent && mCurrentState.activityIn,
-                    ssidPresent && mCurrentState.activityOut,
-                    wifiDesc, mCurrentState.isTransient, mCurrentState.statusLabel
-            );
-            callback.setWifiIndicators(wifiIndicators);
-        }
+        IconState statusIcon = new IconState(
+                wifiVisible, getCurrentIconId(), contentDescription);
+        IconState qsIcon = new IconState(mCurrentState.connected,
+                mWifiTracker.isCaptivePortal ? R.drawable.ic_qs_wifi_disconnected
+                        : getQsCurrentIconId(), contentDescription);
+        boolean isDefault = mCurrentState.isDefault || (!mNetworkController.isRadioOn()
+                && !mNetworkController.isEthernetDefault());
+        WifiIndicators wifiIndicators = new WifiIndicators(
+                mCurrentState.enabled, statusIcon, qsIcon,
+                ssidPresent && mCurrentState.activityIn,
+                ssidPresent && mCurrentState.activityOut,
+                wifiDesc, mCurrentState.isTransient, mCurrentState.statusLabel, isDefault
+        );
+        callback.setWifiIndicators(wifiIndicators);
     }
 
     private void notifyListenersForCarrierWifi(SignalCallback callback) {
@@ -166,7 +149,8 @@ public class WifiSignalController extends SignalController<WifiState, IconGroup>
                 statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 mCurrentState.activityIn, mCurrentState.activityOut, dataContentDescription,
                 dataContentDescriptionHtml, description,
-                mCurrentState.subId, /* roaming= */ false, /* showTriangle= */ true
+                mCurrentState.subId, /* roaming= */ false, /* showTriangle= */ true,
+                /* isDefault= */ qsIcon != null
         );
         callback.setMobileDataIndicators(mobileDataIndicators);
     }
