@@ -60,6 +60,7 @@ using PolicyBitmask = android::ResTable_overlayable_policy_header::PolicyBitmask
 namespace {
 
 constexpr const char* kFrameworkPath = "/system/framework/framework-res.apk";
+constexpr const char* kLineagePath = "/system/framework/org.lineageos.platform-res.apk";
 
 Status ok() {
   return Status::ok();
@@ -217,6 +218,17 @@ idmap2::Result<Idmap2Service::TargetResourceContainerPtr> Idmap2Service::GetTarg
       framework_apk_cache_ = std::move(*target);
     }
     return {framework_apk_cache_.get()};
+  }
+  if (target_path == kLineagePath) {
+    if (lineage_apk_cache_ == nullptr) {
+      // Initialize the lineage APK cache.
+      auto target = TargetResourceContainer::FromPath(target_path);
+      if (!target) {
+        return target.GetError();
+      }
+      lineage_apk_cache_ = std::move(*target);
+    }
+    return {lineage_apk_cache_.get()};
   }
 
   auto target = TargetResourceContainer::FromPath(target_path);
