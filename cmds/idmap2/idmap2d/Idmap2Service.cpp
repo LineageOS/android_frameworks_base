@@ -60,6 +60,7 @@ using PolicyBitmask = android::ResTable_overlayable_policy_header::PolicyBitmask
 namespace {
 
 constexpr std::string_view kFrameworkPath = "/system/framework/framework-res.apk";
+constexpr std::string_view kLineagePath = "/system/framework/org.lineageos.platform-res.apk";
 
 Status ok() {
   return Status::ok();
@@ -208,9 +209,10 @@ Status Idmap2Service::createIdmap(const std::string& target_path, const std::str
 idmap2::Result<Idmap2Service::TargetResourceContainerPtr> Idmap2Service::GetTargetContainer(
     const std::string& target_path) {
   const bool is_framework = target_path == kFrameworkPath;
+  const bool is_lineage_framework = target_path == kLineagePath;
   bool use_cache;
   struct stat st = {};
-  if (is_framework || !::stat(target_path.c_str(), &st)) {
+  if (is_framework || is_lineage_framework || !::stat(target_path.c_str(), &st)) {
     use_cache = true;
   } else {
     LOG(WARNING) << "failed to stat target path '" << target_path << "' for the cache";
