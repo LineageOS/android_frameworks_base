@@ -65,8 +65,7 @@ public final class AssetManager implements AutoCloseable {
     private static final boolean DEBUG_REFS = false;
 
     private static final String FRAMEWORK_APK_PATH = "/system/framework/framework-res.apk";
-    private static final String LINEAGE_APK_PATH =
-            "/system_ext/framework/org.lineageos.platform-res.apk";
+    private static final String LINEAGE_APK_PATH = "/system/framework/org.lineageos.platform-res.apk";
 
     private static final Object sSync = new Object();
 
