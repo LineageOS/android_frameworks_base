@@ -107,6 +107,24 @@
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18c65de1_ef69fdd0",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5579,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2021-11-01T18:39:26Z",
+      "side": 1,
+      "message": "https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/com/android/internal/util/XmlUtils.java;l\u003d1889;drc\u003d78e84716e63b0e5da8f0fd4e1ff762884cdc4104\nnull values are ignored",
+      "parentUuid": "934e6785_66d45eee",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
