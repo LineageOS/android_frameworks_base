@@ -202,50 +202,6 @@ public class QSTileHostTest extends SysuiTestCase {
     }
 
     @Test
-    public void testRemoveWifiAndCellularWithoutInternet() {
-        mQSTileHost.onTuningChanged(QSTileHost.TILES_SETTING, "wifi, spec1, cell, spec2");
-
-        assertEquals("internet", mQSTileHost.mTileSpecs.get(0));
-        assertEquals("spec1", mQSTileHost.mTileSpecs.get(1));
-        assertEquals("spec2", mQSTileHost.mTileSpecs.get(2));
-    }
-
-    @Test
-    public void testRemoveWifiAndCellularWithInternet() {
-        mQSTileHost.onTuningChanged(QSTileHost.TILES_SETTING, "wifi, spec1, cell, spec2, internet");
-
-        assertEquals("spec1", mQSTileHost.mTileSpecs.get(0));
-        assertEquals("spec2", mQSTileHost.mTileSpecs.get(1));
-        assertEquals("internet", mQSTileHost.mTileSpecs.get(2));
-    }
-
-    @Test
-    public void testRemoveWifiWithoutInternet() {
-        mQSTileHost.onTuningChanged(QSTileHost.TILES_SETTING, "spec1, wifi, spec2");
-
-        assertEquals("spec1", mQSTileHost.mTileSpecs.get(0));
-        assertEquals("internet", mQSTileHost.mTileSpecs.get(1));
-        assertEquals("spec2", mQSTileHost.mTileSpecs.get(2));
-    }
-
-    @Test
-    public void testRemoveCellWithInternet() {
-        mQSTileHost.onTuningChanged(QSTileHost.TILES_SETTING, "spec1, spec2, cell, internet");
-
-        assertEquals("spec1", mQSTileHost.mTileSpecs.get(0));
-        assertEquals("spec2", mQSTileHost.mTileSpecs.get(1));
-        assertEquals("internet", mQSTileHost.mTileSpecs.get(2));
-    }
-
-    @Test
-    public void testNoWifiNoCellularNoInternet() {
-        mQSTileHost.onTuningChanged(QSTileHost.TILES_SETTING, "spec1,spec2");
-
-        assertEquals("spec1", mQSTileHost.mTileSpecs.get(0));
-        assertEquals("spec2", mQSTileHost.mTileSpecs.get(1));
-    }
-
-    @Test
     public void testSpecWithInvalidDoesNotUseDefault() {
         mContext.getOrCreateTestableResources()
                 .addOverride(R.string.quick_settings_tiles, "spec1,spec2");
