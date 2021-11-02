@@ -101,8 +101,6 @@ public class TileServicesTest extends SysuiTestCase {
     private UserTracker mUserTracker;
     @Mock
     private SecureSettings  mSecureSettings;
-    @Mock
-    private FeatureFlags mFeatureFlags;
 
     @Before
     public void setUp() throws Exception {
@@ -124,8 +122,7 @@ public class TileServicesTest extends SysuiTestCase {
                 mUiEventLogger,
                 mUserTracker,
                 mSecureSettings,
-                mock(CustomTileStatePersister.class),
-                mFeatureFlags);
+                mock(CustomTileStatePersister.class));
         mTileService = new TestTileServices(host, Looper.getMainLooper(), mBroadcastDispatcher,
                 mUserTracker);
     }

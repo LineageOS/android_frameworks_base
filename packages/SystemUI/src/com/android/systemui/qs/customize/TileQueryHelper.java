@@ -63,7 +63,6 @@ public class TileQueryHelper {
     private final Executor mBgExecutor;
     private final Context mContext;
     private final UserTracker mUserTracker;
-    private final FeatureFlags mFeatureFlags;
     private TileStateListener mListener;
 
     private boolean mFinished;
@@ -73,14 +72,12 @@ public class TileQueryHelper {
             Context context,
             UserTracker userTracker,
             @Main Executor mainExecutor,
-            @Background Executor bgExecutor,
-            FeatureFlags featureFlags
+            @Background Executor bgExecutor
     ) {
         mContext = context;
         mMainExecutor = mainExecutor;
         mBgExecutor = bgExecutor;
         mUserTracker = userTracker;
-        mFeatureFlags = featureFlags;
     }
 
     public void setListener(TileStateListener listener) {
@@ -121,10 +118,6 @@ public class TileQueryHelper {
         }
 
         final ArrayList<QSTile> tilesToAdd = new ArrayList<>();
-        if (mFeatureFlags.isProviderModelSettingEnabled()) {
-            possibleTiles.remove("cell");
-            possibleTiles.remove("wifi");
-        }
 
         for (String spec : possibleTiles) {
             // Only add current and stock tiles that can be created from QSFactoryImpl.
