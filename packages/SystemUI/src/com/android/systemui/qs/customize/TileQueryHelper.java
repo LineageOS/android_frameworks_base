@@ -114,8 +114,6 @@ public class TileQueryHelper {
         }
 
         final ArrayList<QSTile> tilesToAdd = new ArrayList<>();
-        possibleTiles.remove("cell");
-        possibleTiles.remove("wifi");
 
         for (String spec : possibleTiles) {
             // Only add current and stock tiles that can be created from QSFactoryImpl.
