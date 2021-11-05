@@ -22,7 +22,6 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -45,7 +44,7 @@ public class LockIconView extends FrameLayout implements Dumpable {
     private int mRadius;
 
     private ImageView mLockIcon;
-    private ImageView mUnlockBgView;
+    private ImageView mBgView;
 
     private int mLockIconColor;
 
@@ -58,19 +57,19 @@ public class LockIconView extends FrameLayout implements Dumpable {
     public void onFinishInflate() {
         super.onFinishInflate();
         mLockIcon = findViewById(R.id.lock_icon);
-        mUnlockBgView = findViewById(R.id.lock_icon_bg);
+        mBgView = findViewById(R.id.lock_icon_bg);
     }
 
     void updateColorAndBackgroundVisibility(boolean useBackground) {
-        if (useBackground) {
+        if (useBackground && mLockIcon.getDrawable() != null) {
             mLockIconColor = Utils.getColorAttrDefaultColor(getContext(),
                     android.R.attr.textColorPrimary);
-            mUnlockBgView.setBackground(getContext().getDrawable(R.drawable.fingerprint_bg));
-            mUnlockBgView.setVisibility(View.VISIBLE);
+            mBgView.setBackground(getContext().getDrawable(R.drawable.fingerprint_bg));
+            mBgView.setVisibility(View.VISIBLE);
         } else {
             mLockIconColor = Utils.getColorAttrDefaultColor(getContext(),
                     R.attr.wallpaperTextColorAccent);
-            mUnlockBgView.setVisibility(View.GONE);
+            mBgView.setVisibility(View.GONE);
         }
 
         mLockIcon.setImageTintList(ColorStateList.valueOf(mLockIconColor));
@@ -78,9 +77,14 @@ public class LockIconView extends FrameLayout implements Dumpable {
 
     void setImageDrawable(Drawable drawable) {
         mLockIcon.setImageDrawable(drawable);
+        if (drawable == null) {
+            mBgView.setVisibility(View.INVISIBLE);
+        } else {
+            mBgView.setVisibility(View.VISIBLE);
+        }
     }
 
-    void setCenterLocation(@NonNull PointF center, int radius) {
+    public void setCenterLocation(@NonNull PointF center, int radius) {
         mLockIconCenter = center;
         mRadius = radius;
 
@@ -91,13 +95,11 @@ public class LockIconView extends FrameLayout implements Dumpable {
                 mLockIconCenter.x + mRadius,
                 mLockIconCenter.y + mRadius);
 
-        setX(mSensorRect.left);
-        setY(mSensorRect.top);
-
-        final FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(
-                (int) (mSensorRect.right - mSensorRect.left),
-                (int) (mSensorRect.bottom - mSensorRect.top));
-        lp.gravity = Gravity.CENTER;
+        final FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getLayoutParams();
+        lp.width = (int) (mSensorRect.right - mSensorRect.left);
+        lp.height = (int) (mSensorRect.bottom - mSensorRect.top);
+        lp.topMargin = (int) mSensorRect.top;
+        lp.setMarginStart((int) mSensorRect.left);
         setLayoutParams(lp);
     }
 
@@ -114,5 +116,6 @@ public class LockIconView extends FrameLayout implements Dumpable {
     public void dump(@NonNull FileDescriptor fd, @NonNull PrintWriter pw, @NonNull String[] args) {
         pw.println("Center in px (x, y)= (" + mLockIconCenter.x + ", " + mLockIconCenter.y + ")");
         pw.println("Radius in pixels: " + mRadius);
+        pw.println("topLeft= (" + getX() + ", " + getY() + ")");
     }
 }
