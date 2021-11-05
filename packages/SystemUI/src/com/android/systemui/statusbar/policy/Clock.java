@@ -17,7 +17,9 @@
 package com.android.systemui.statusbar.policy;
 
 import android.annotation.NonNull;
+import android.app.ActivityManager;
 import android.app.StatusBarManager;
+import android.app.WindowConfiguration;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -51,6 +53,9 @@ import com.android.systemui.demomode.DemoModeCommandReceiver;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.settings.UserTracker;
+import com.android.systemui.shared.system.ActivityManagerWrapper;
+import com.android.systemui.shared.system.TaskStackChangeListener;
+import com.android.systemui.shared.system.TaskStackChangeListeners;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.tuner.TunerService;
@@ -73,6 +78,8 @@ public class Clock extends TextView implements
         CommandQueue.Callbacks,
         DarkReceiver, ConfigurationListener {
 
+    private static final String CLOCK_AUTO_HIDE =
+            "lineagesystem:" + LineageSettings.System.STATUS_BAR_CLOCK_AUTO_HIDE;
     public static final String CLOCK_SECONDS = "clock_seconds";
     private static final String CLOCK_STYLE =
             "lineagesystem:" + LineageSettings.System.STATUS_BAR_AM_PM;
@@ -87,11 +94,13 @@ public class Clock extends TextView implements
     private final CommandQueue mCommandQueue;
     private int mCurrentUserId;
 
+    private boolean mClockAutoHide = false;
     private boolean mClockVisibleByPolicy = true;
     private boolean mClockVisibleByUser = getVisibility() == View.VISIBLE;
 
     private boolean mAttached;
     private boolean mScreenReceiverRegistered;
+    private boolean mTaskStackListenerRegistered;
     private Calendar mCalendar;
     private String mContentDescriptionFormatString;
     private SimpleDateFormat mClockFormat;
@@ -200,7 +209,8 @@ public class Clock extends TextView implements
             // The receiver will return immediately if the view does not have a Handler yet.
             mBroadcastDispatcher.registerReceiverWithHandler(mIntentReceiver, filter,
                     Dependency.get(Dependency.TIME_TICK_HANDLER), UserHandle.ALL);
-            Dependency.get(TunerService.class).addTunable(this, CLOCK_SECONDS, CLOCK_STYLE);
+            Dependency.get(TunerService.class).addTunable(this,
+                    CLOCK_AUTO_HIDE, CLOCK_SECONDS, CLOCK_STYLE);
             mCommandQueue.addCallback(this);
             mUserTracker.addCallback(mUserChangedCallback, mContext.getMainExecutor());
             mCurrentUserId = mUserTracker.getUserId();
@@ -234,6 +244,17 @@ public class Clock extends TextView implements
             Dependency.get(TunerService.class).removeTunable(this);
             mCommandQueue.removeCallback(this);
             mUserTracker.removeCallback(mUserChangedCallback);
+            handleTaskStackListener(false);
+        }
+    }
+
+    private void handleTaskStackListener(boolean register) {
+        if (register && !mTaskStackListenerRegistered) {
+            TaskStackChangeListeners.getInstance().registerTaskStackListener(mTaskStackListener);
+            mTaskStackListenerRegistered = true;
+        } else if (!register && mTaskStackListenerRegistered) {
+            TaskStackChangeListeners.getInstance().unregisterTaskStackListener(mTaskStackListener);
+            mTaskStackListenerRegistered = false;
         }
     }
 
@@ -290,7 +311,7 @@ public class Clock extends TextView implements
     }
 
     public boolean shouldBeVisible() {
-        return mClockVisibleByPolicy && mClockVisibleByUser;
+        return !mClockAutoHide && mClockVisibleByPolicy && mClockVisibleByUser;
     }
 
     private void updateClockVisibility() {
@@ -353,6 +374,8 @@ public class Clock extends TextView implements
             mContentDescriptionFormatString = "";
             mDateTimePatternGenerator = null;
             updateClock(true);
+        } else if (CLOCK_AUTO_HIDE.equals(key)) {
+            handleTaskStackListener(TunerService.parseIntegerSwitch(newValue, false));
         }
     }
 
@@ -414,6 +437,19 @@ public class Clock extends TextView implements
                 mSecondsHandler = null;
                 updateClock();
             }
+        }
+    }
+
+    private void updateShowClock() {
+        ActivityManager.RunningTaskInfo runningTask =
+                ActivityManagerWrapper.getInstance().getRunningTask();
+        final int activityType = runningTask != null
+                ? runningTask.configuration.windowConfiguration.getActivityType()
+                : WindowConfiguration.ACTIVITY_TYPE_UNDEFINED;
+        final boolean clockAutoHide = activityType == WindowConfiguration.ACTIVITY_TYPE_HOME;
+        if (mClockAutoHide != clockAutoHide) {
+            mClockAutoHide = clockAutoHide;
+            updateClockVisibility();
         }
     }
 
@@ -554,6 +590,23 @@ public class Clock extends TextView implements
                 updateClock();
             }
             mSecondsHandler.postAtTime(this, SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
+        }
+    };
+
+    private final TaskStackChangeListener mTaskStackListener = new TaskStackChangeListener() {
+        @Override
+        public void onTaskStackChanged() {
+            updateShowClock();
+        }
+
+        @Override
+        public void onTaskRemoved(int taskId) {
+            updateShowClock();
+        }
+
+        @Override
+        public void onTaskMovedToFront(int taskId) {
+            updateShowClock();
         }
     };
 }
