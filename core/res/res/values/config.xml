@@ -5044,4 +5044,18 @@
 
     <!-- the number of the max cached processes in the system. -->
     <integer name="config_customizedMaxCachedProcesses">32</integer>
+
+    <!-- Icons that don't show in a collapsed statusbar -->
+    <string-array name="config_collapsed_statusbar_icon_blocklist" translatable="false">
+        <item>@*android:string/status_bar_volume</item>
+        <item>@*android:string/status_bar_alarm_clock</item>
+        <item>@*android:string/status_bar_call_strength</item>
+    </string-array>
+
+    <!-- Icons that don't show in a keyguard statusbar -->
+    <string-array name="config_keyguard_statusbar_icon_blocklist" translatable="false">
+        <item>@*android:string/status_bar_volume</item>
+        <item>@*android:string/status_bar_alarm_clock</item>
+        <item>@*android:string/status_bar_call_strength</item>
+    </string-array>
 </resources>

@@ -65,6 +65,7 @@ import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -207,9 +208,8 @@ public class KeyguardStatusBarView extends RelativeLayout implements
     // Set hidden status bar items
     private void loadBlockList() {
         Resources r = getResources();
-        mBlockedIcons.add(r.getString(com.android.internal.R.string.status_bar_volume));
-        mBlockedIcons.add(r.getString(com.android.internal.R.string.status_bar_alarm_clock));
-        mBlockedIcons.add(r.getString(com.android.internal.R.string.status_bar_call_strength));
+        mBlockedIcons = Arrays.asList(r.getStringArray(
+                com.android.internal.R.array.config_keyguard_statusbar_icon_blocklist));
     }
 
     private void updateVisibilities() {
