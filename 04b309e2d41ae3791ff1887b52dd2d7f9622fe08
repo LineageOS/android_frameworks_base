@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "99a84860_768ef480",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl.java",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "mKeyguardScreenRotation gets initialized earlier, so SystemUI ends up with a NullPointerException because keyguardStateController is still empty. May I suggest to move mKeyguardScreenRotation past this line?",
       "revId": "04b309e2d41ae3791ff1887b52dd2d7f9622fe08",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "708a3336_f2767271",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-11-07T12:02:57Z",
+      "side": 1,
+      "message": "Thanks, I didn\u0027t see that. Seems to fix the issue",
+      "parentUuid": "99a84860_768ef480",
+      "revId": "04b309e2d41ae3791ff1887b52dd2d7f9622fe08",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
