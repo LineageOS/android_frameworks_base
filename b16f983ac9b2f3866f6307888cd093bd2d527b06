@@ -51,6 +51,24 @@
       "parentUuid": "588602b4_b255d4cf",
       "revId": "b16f983ac9b2f3866f6307888cd093bd2d527b06",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d91b27_496ee3ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17117
+      },
+      "writtenOn": "2021-11-09T09:35:34Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/266282/10#message-82efdae7e7d12f8b747aebc16895ea8aec8582c8 explanation in other words",
+      "parentUuid": "a3631813_bb17201c",
+      "revId": "b16f983ac9b2f3866f6307888cd093bd2d527b06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
