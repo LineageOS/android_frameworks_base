@@ -22,6 +22,7 @@ import android.view.View;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.tuner.TunerService;
@@ -54,6 +55,7 @@ public class ClockController implements TunerService.Tunable {
 
         mActiveClock = mLeftClock;
 
+        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mActiveClock);
         Dependency.get(TunerService.class).addTunable(this,
                 StatusBarIconController.ICON_HIDE_LIST, CLOCK_POSITION);
     }
@@ -72,7 +74,9 @@ public class ClockController implements TunerService.Tunable {
 
     private void updateActiveClock() {
         mActiveClock.setClockVisibleByUser(false);
+        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mActiveClock);
         mActiveClock = getClock();
+        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mActiveClock);
         mActiveClock.setClockVisibleByUser(true);
 
         // Override any previous setting
