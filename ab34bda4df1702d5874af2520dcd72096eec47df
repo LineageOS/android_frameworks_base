@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767e3cfb_3e7a4b24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-11-09T09:30:46Z",
+      "side": 1,
+      "message": "Google silently fixed it in https://android.googlesource.com/platform/frameworks/base/+/a476b7f89e90e84c5324622d2774d8a3044d4fe2",
+      "revId": "ab34bda4df1702d5874af2520dcd72096eec47df",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
