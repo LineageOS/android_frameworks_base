@@ -122,6 +122,23 @@
       "message": "also don\u0027t forget to squash https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/307725",
       "revId": "b16f983ac9b2f3866f6307888cd093bd2d527b06",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7141da46_a23073d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17117
+      },
+      "writtenOn": "2021-11-09T11:05:30Z",
+      "side": 1,
+      "message": "found what\u0027s wrong with my qs percentage\ngoogle killed estimate mode for center notch devices, pretty sure we can remove this check if there are no objections\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-19.0/packages/SystemUI/src/com/android/systemui/qs/QuickStatusBarHeader.java#L210",
+      "revId": "b16f983ac9b2f3866f6307888cd093bd2d527b06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
