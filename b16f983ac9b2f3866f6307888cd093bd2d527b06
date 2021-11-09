@@ -69,6 +69,24 @@
       "parentUuid": "a3631813_bb17201c",
       "revId": "b16f983ac9b2f3866f6307888cd093bd2d527b06",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c50ac062_5193040d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2021-11-09T10:04:55Z",
+      "side": 1,
+      "message": "I still don\u0027t see issue. I have set %-mode to hidden, open QS, and percentage is visible.",
+      "parentUuid": "e6d91b27_496ee3ff",
+      "revId": "b16f983ac9b2f3866f6307888cd093bd2d527b06",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
