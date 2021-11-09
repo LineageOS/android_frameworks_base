@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb4d7ce_b3eecc86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17117
+      },
+      "writtenOn": "2021-11-09T14:13:34Z",
+      "side": 1,
+      "message": "depends on https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/287721 and breaks build:\nframeworks/base/packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java:104: error: cannot find symbol\n                statusBarView.findViewById(R.id.centered_area),",
+      "revId": "ab0c2c47d99630d5867dad73f9377ad78db6ebc6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
