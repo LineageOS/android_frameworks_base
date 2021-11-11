@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ba5932_1e612553",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29906
+      },
+      "writtenOn": "2021-11-11T01:59:40Z",
+      "side": 1,
+      "message": "Hi, I\u0027m Felix.\nI have installed most of the latest versions of Lineage OS on the Moto Z2 Force and have run into a headache trying to fix the bug in the Camera 2 app as it cannot be used with the Hasselblad camera Moto mod. As a consequence of this problem, it is impossible for me to use another photography application since for some reason the same problem does not allow me to use them. I am waiting for an answer about what could be done, because I have read that many of us have this problem and so on with the other moto mods. Thanks ;).",
+      "revId": "87b6fcde5f83895e0fb8771cea66e08ee7cc96a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
