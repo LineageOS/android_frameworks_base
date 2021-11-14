@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "2f2de9cb_a7158787",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
@@ -20,10 +21,10 @@
         "endChar": 72
       },
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "69784a16_a348799f",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
@@ -44,10 +45,10 @@
         "endChar": 72
       },
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "33e46173_7dd45a4d",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
@@ -68,10 +69,34 @@
         "endChar": 72
       },
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d08f12b_f7098b01",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 23886
+      },
+      "writtenOn": "2021-11-14T03:48:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33e46173_7dd45a4d",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 72
+      },
+      "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e7fc09fa_0e16a80a",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
@@ -85,10 +110,10 @@
       "side": 1,
       "message": "What happens if you simply try to call the method without the background handler?",
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "ce0647f2_a9fdf910",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
@@ -103,10 +128,10 @@
       "message": "I don\u0027t know. The intention of the background handler is unclear to me so I kept that portion as-is. There are many other instances in this file of using the background handler like this to construct an argument to pass along to the main handler.",
       "parentUuid": "e7fc09fa_0e16a80a",
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "57bd7acd_74e1e281",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
@@ -121,10 +146,10 @@
       "message": "The change is probably fine, I just don\u0027t like the object handling",
       "parentUuid": "ce0647f2_a9fdf910",
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": false
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "b12d15a2_e1217b55",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
@@ -139,8 +164,7 @@
       "message": "I think this is the least invasive approach since it preserves the author\u0027s original intention behind the background handler and only changes what is minimally necessary to fix the crash.",
       "parentUuid": "57bd7acd_74e1e281",
       "revId": "ffefe5ff8943a534921eb4a82372cb993a0c3f65",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": false
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
