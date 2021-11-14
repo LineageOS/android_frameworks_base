@@ -72,6 +72,9 @@ import com.android.internal.util.DumpUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.server.SystemService;
 
+import lineageos.app.Profile;
+import lineageos.app.ProfileManager;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -134,6 +137,7 @@ public class TrustManagerService extends SystemService {
     private final LockPatternUtils mLockPatternUtils;
     private final UserManager mUserManager;
     private final ActivityManager mActivityManager;
+    private final ProfileManager mProfileManager;
 
     @GuardedBy("mUserIsTrusted")
     private final SparseBooleanArray mUserIsTrusted = new SparseBooleanArray();
@@ -190,6 +194,7 @@ public class TrustManagerService extends SystemService {
         mContext = context;
         mUserManager = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
         mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+        mProfileManager = ProfileManager.getInstance(mContext);
         mLockPatternUtils = new LockPatternUtils(context);
         mStrongAuthTracker = new StrongAuthTracker(context);
         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
@@ -676,9 +681,20 @@ public class TrustManagerService extends SystemService {
                 synchronized(mUsersUnlockedByBiometric) {
                     biometricAuthenticated = mUsersUnlockedByBiometric.get(id, false);
                 }
-                try {
-                    showingKeyguard = wm.isKeyguardLocked();
-                } catch (RemoteException e) {
+                if (mProfileManager != null) {
+                    Profile profile = mProfileManager.getActiveProfile();
+                    if (profile != null) {
+                        if (profile.getScreenLockMode().getValue() == Profile.LockMode.DISABLE) {
+                            showingKeyguard = false;
+                        }
+                    }
+                }
+                // Not disabled by current profile
+                if (showingKeyguard) {
+                    try {
+                        showingKeyguard = wm.isKeyguardLocked();
+                    } catch (RemoteException e) {
+                    }
                 }
             }
             boolean deviceLocked = secure && showingKeyguard && !trusted &&
