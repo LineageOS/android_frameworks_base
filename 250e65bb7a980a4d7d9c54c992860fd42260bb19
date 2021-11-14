@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55eed94d_0c61abd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25983
+      },
+      "writtenOn": "2021-11-14T11:11:20Z",
+      "side": 1,
+      "message": "Finally found what was wrong when disabling keyguard via Profiles (no copy/paste, no preview in recents)",
+      "revId": "250e65bb7a980a4d7d9c54c992860fd42260bb19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
