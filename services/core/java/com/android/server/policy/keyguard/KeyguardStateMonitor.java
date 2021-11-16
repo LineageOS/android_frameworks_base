@@ -26,6 +26,7 @@ import com.android.internal.policy.IKeyguardService;
 import com.android.internal.policy.IKeyguardStateCallback;
 import com.android.internal.widget.LockPatternUtils;
 
+import android.hardware.usb.V1_3.IUsb;
 import lineageos.providers.LineageSettings;
 import vendor.lineage.trust.V1_0.IUsbRestrict;
 
@@ -55,6 +56,7 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
     private final LockPatternUtils mLockPatternUtils;
     private final StateCallback mCallback;
 
+    private IUsb mUsb;
     private IUsbRestrict mUsbRestrictor;
     private ContentResolver mContentResolver;
 
@@ -93,7 +95,19 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
 
         mCallback.onShowingChanged();
 
-        if (mUsbRestrictor == null) {
+        if (mUsb == null) {
+            try {
+                mUsb = IUsb.getService();
+                if (mUsb == null) {
+                    // Ignore, the hal is not available
+                    // Try Usb Restrict
+                }
+            } catch (NoSuchElementException | RemoteException ignored) {
+                // Try Usb Restrict
+            }
+        }
+
+        if (mUsb == null && mUsbRestrictor == null) {
             try {
                 mUsbRestrictor = IUsbRestrict.getService();
                 if (mUsbRestrictor == null) {
@@ -109,7 +123,11 @@ public class KeyguardStateMonitor extends IKeyguardStateCallback.Stub {
                 LineageSettings.Secure.TRUST_RESTRICT_USB_KEYGUARD, 0) == 1;
         if (shouldRestrictUsb) {
             try {
-                mUsbRestrictor.setEnabled(showing);
+                if (mUsb != null) {
+                    mUsb.enableUsbDataSignal(!showing);
+                } else {
+                    mUsbRestrictor.setEnabled(showing);
+                }
             } catch (RemoteException ignored) {
                 // This feature is not supported
             }
