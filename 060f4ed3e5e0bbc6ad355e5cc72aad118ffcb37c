@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "1ea5cfc5_c67b621f",
         "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
@@ -20,8 +21,31 @@
         "endChar": 37
       },
       "revId": "060f4ed3e5e0bbc6ad355e5cc72aad118ffcb37c",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efbe3fd6_05081dbf",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2021-11-17T12:01:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ea5cfc5_c67b621f",
+      "range": {
+        "startLine": 96,
+        "startChar": 28,
+        "endLine": 96,
+        "endChar": 37
+      },
+      "revId": "060f4ed3e5e0bbc6ad355e5cc72aad118ffcb37c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
