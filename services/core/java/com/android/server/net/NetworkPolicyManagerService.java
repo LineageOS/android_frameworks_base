@@ -4779,10 +4779,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         newBlockedReasons |= (isRestrictedByAdmin ? BLOCKED_METERED_REASON_ADMIN_DISABLED : 0);
         newBlockedReasons |= (mRestrictBackground ? BLOCKED_METERED_REASON_DATA_SAVER : 0);
         newBlockedReasons |= (isDenied ? BLOCKED_METERED_REASON_USER_RESTRICTED : 0);
+        newBlockedReasons |= (mRestrictedNetworkingMode ? BLOCKED_REASON_RESTRICTED_MODE : 0);
 
         newAllowedReasons |= (isSystem(uid) ? ALLOWED_METERED_REASON_SYSTEM : 0);
         newAllowedReasons |= (isForeground ? ALLOWED_METERED_REASON_FOREGROUND : 0);
         newAllowedReasons |= (isAllowed ? ALLOWED_METERED_REASON_USER_EXEMPTED : 0);
+        newAllowedReasons |= (hasRestrictedModeAccess(uid)
+                ? ALLOWED_REASON_RESTRICTED_MODE_PERMISSIONS : 0);
 
         if (LOGV) {
             Log.v(TAG, "updateRuleForRestrictBackgroundUL(" + uid + ")"
@@ -4971,7 +4974,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         newBlockedReasons |= (mRestrictPower ? BLOCKED_REASON_BATTERY_SAVER : 0);
         newBlockedReasons |= (mDeviceIdleMode ? BLOCKED_REASON_DOZE : 0);
         newBlockedReasons |= (isUidIdle ? BLOCKED_REASON_APP_STANDBY : 0);
-        newBlockedReasons |= (uidBlockedState.blockedReasons & BLOCKED_REASON_RESTRICTED_MODE);
+        newBlockedReasons |= (mRestrictedNetworkingMode ? BLOCKED_REASON_RESTRICTED_MODE : 0);
 
         newAllowedReasons |= (isSystem(uid) ? ALLOWED_REASON_SYSTEM : 0);
         newAllowedReasons |= (isForeground ? ALLOWED_REASON_FOREGROUND : 0);
@@ -4979,6 +4982,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 ? ALLOWED_REASON_POWER_SAVE_ALLOWLIST : 0);
         newAllowedReasons |= (isWhitelistedFromPowerSaveExceptIdleUL(uid)
                 ? ALLOWED_REASON_POWER_SAVE_EXCEPT_IDLE_ALLOWLIST : 0);
+        newAllowedReasons |= (hasRestrictedModeAccess(uid)
+                ? ALLOWED_REASON_RESTRICTED_MODE_PERMISSIONS : 0);
 
         if (LOGV) {
             Log.v(TAG, "updateRulesForPowerRestrictionsUL(" + uid + ")"
