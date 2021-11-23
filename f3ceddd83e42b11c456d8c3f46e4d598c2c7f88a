@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc278917_93ba4f3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24830
+      },
+      "writtenOn": "2021-11-23T07:23:19Z",
+      "side": 1,
+      "message": "Fixed sdcard access on my device",
+      "revId": "f3ceddd83e42b11c456d8c3f46e4d598c2c7f88a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
