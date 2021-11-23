@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a74cee_df0e8477",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2021-11-23T15:16:13Z",
+      "side": 1,
+      "message": "Confirmed that all aux camera\u0027s are available without setting the property and not-whitelisted apps can\u0027t access aux camera\u0027s if the property is set.",
+      "revId": "de7dd7af02b398719584e148bee1f4ba6967da32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
