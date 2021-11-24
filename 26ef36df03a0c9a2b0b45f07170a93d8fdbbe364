@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11695cf7_531cfb08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29872
+      },
+      "writtenOn": "2021-11-24T07:59:41Z",
+      "side": 1,
+      "message": "Grabbed from omnirom gerrit https://gerrit.omnirom.org/c/android_frameworks_base/+/39046",
+      "revId": "26ef36df03a0c9a2b0b45f07170a93d8fdbbe364",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
