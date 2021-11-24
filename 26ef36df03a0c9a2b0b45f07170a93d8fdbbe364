@@ -16,6 +16,23 @@
       "message": "Grabbed from omnirom gerrit https://gerrit.omnirom.org/c/android_frameworks_base/+/39046",
       "revId": "26ef36df03a0c9a2b0b45f07170a93d8fdbbe364",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6400bc9e_57369bbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-11-24T10:14:31Z",
+      "side": 1,
+      "message": "what\u0027s the point of that?",
+      "revId": "26ef36df03a0c9a2b0b45f07170a93d8fdbbe364",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
