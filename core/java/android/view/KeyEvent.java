@@ -1217,6 +1217,12 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final int FLAG_FALLBACK = 0x400;
 
     /**
+     * Private flag that indicates that event was sent from EdgeBackGestureHandler.
+     * @hide
+     */
+    public static final int FLAG_LONG_SWIPE = 0x800;
+
+    /**
      * Signifies that the key is being predispatched.
      * @hide
      */

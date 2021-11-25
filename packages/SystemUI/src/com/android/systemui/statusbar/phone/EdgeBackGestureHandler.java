@@ -235,9 +235,9 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
                 @Override
                 public void triggerBack(boolean isLongPress) {
                     sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK,
-                            isLongPress ? KeyEvent.FLAG_LONG_PRESS : 0);
+                            isLongPress ? KeyEvent.FLAG_LONG_SWIPE : 0);
                     sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK,
-                            isLongPress ? KeyEvent.FLAG_LONG_PRESS : 0);
+                            isLongPress ? KeyEvent.FLAG_LONG_SWIPE : 0);
 
                     mOverviewProxyService.notifyBackAction(true, (int) mDownPoint.x,
                             (int) mDownPoint.y, false /* isButton */, !mIsOnLeftEdge);
