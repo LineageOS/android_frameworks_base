@@ -689,8 +689,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private PendingIntent mTorchOffPendingIntent;
 
     private boolean mLongSwipeDown;
-    private static final int LONG_SWIPE_FLAGS = KeyEvent.FLAG_LONG_PRESS
-            | KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -4019,7 +4017,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // Handle special keys.
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK: {
-                boolean isLongSwipe = (event.getFlags() & LONG_SWIPE_FLAGS) == LONG_SWIPE_FLAGS;
+                boolean isLongSwipe = (event.getFlags() & KeyEvent.FLAG_LONG_SWIPE) != 0;
                 if (mLongSwipeDown && isLongSwipe && !down) {
                     // Trigger long swipe action
                     performKeyAction(mEdgeLongSwipeAction, event);
