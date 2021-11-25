@@ -276,9 +276,9 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                     // TODO(b/186519446): use a different method than isFalseTouch
                     mFalsingManager.isFalseTouch(BACK_GESTURE);
                     boolean sendDown = sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK,
-                            isLongPress ? KeyEvent.FLAG_LONG_PRESS : 0);
+                            isLongPress ? KeyEvent.FLAG_LONG_SWIPE : 0);
                     boolean sendUp = sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK,
-                            isLongPress ? KeyEvent.FLAG_LONG_PRESS : 0);
+                            isLongPress ? KeyEvent.FLAG_LONG_SWIPE : 0);
                     if (DEBUG_MISSING_GESTURE) {
                         Log.d(DEBUG_MISSING_GESTURE_TAG, "Triggered back: down=" + sendDown
                                 + ", up=" + sendUp);
