@@ -267,7 +267,7 @@ public class NetworkPolicyManager {
     public static final int ALLOWED_METERED_REASON_FOREGROUND = 1 << 18;
 
     /** @hide */
-    public static final int ALLOWED_METERED_REASON_MASK = 0xffff0000;
+    public static final int ALLOWED_METERED_REASON_MASK = 0xffff0010;
 
     private final Context mContext;
     @UnsupportedAppUsage
