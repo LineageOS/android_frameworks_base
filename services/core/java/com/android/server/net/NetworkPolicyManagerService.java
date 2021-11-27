@@ -42,7 +42,6 @@ import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.net.ConnectivityManager.BLOCKED_METERED_REASON_ADMIN_DISABLED;
 import static android.net.ConnectivityManager.BLOCKED_METERED_REASON_DATA_SAVER;
-import static android.net.ConnectivityManager.BLOCKED_METERED_REASON_MASK;
 import static android.net.ConnectivityManager.BLOCKED_METERED_REASON_USER_RESTRICTED;
 import static android.net.ConnectivityManager.BLOCKED_REASON_APP_STANDBY;
 import static android.net.ConnectivityManager.BLOCKED_REASON_BATTERY_SAVER;
@@ -450,6 +449,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     private static final int UID_MSG_STATE_CHANGED = 100;
     private static final int UID_MSG_GONE = 101;
+
+    private static final int BLOCKED_METERED_REASON_MASK2 = 0xffff0008;
 
     private static final String PROP_SUB_PLAN_OWNER = "persist.sys.sub_plan_owner";
 
@@ -4715,12 +4716,12 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     + ", newUidRules=" + uidRulesToString(newUidRules)
                     + ", oldUidRules=" + uidRulesToString(oldUidRules)
                     + ", oldBlockedMeteredReasons=" + NetworkPolicyManager.blockedReasonsToString(
-                    uidBlockedState.blockedReasons & BLOCKED_METERED_REASON_MASK)
+                    uidBlockedState.blockedReasons & BLOCKED_METERED_REASON_MASK2)
                     + ", oldBlockedMeteredEffectiveReasons="
                     + NetworkPolicyManager.blockedReasonsToString(
-                    uidBlockedState.effectiveBlockedReasons & BLOCKED_METERED_REASON_MASK)
+                    uidBlockedState.effectiveBlockedReasons & BLOCKED_METERED_REASON_MASK2)
                     + ", oldAllowedMeteredReasons=" + NetworkPolicyManager.blockedReasonsToString(
-                    uidBlockedState.allowedReasons & BLOCKED_METERED_REASON_MASK));
+                    uidBlockedState.allowedReasons & BLOCKED_METERED_REASON_MASK2));
         }
 
         if (newUidRules == RULE_NONE) {
@@ -4786,7 +4787,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         final int oldEffectiveBlockedReasons = uidBlockedState.effectiveBlockedReasons;
         uidBlockedState.blockedReasons = (uidBlockedState.blockedReasons
-                & ~BLOCKED_METERED_REASON_MASK) | newBlockedReasons;
+                & ~BLOCKED_METERED_REASON_MASK2) | newBlockedReasons;
         uidBlockedState.allowedReasons = (uidBlockedState.allowedReasons
                 & ~ALLOWED_METERED_REASON_MASK) | newAllowedReasons;
         uidBlockedState.updateEffectiveBlockedReasons();
@@ -4933,7 +4934,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         final int oldEffectiveBlockedReasons = uidBlockedState.effectiveBlockedReasons;
         uidBlockedState.blockedReasons = (uidBlockedState.blockedReasons
-                & BLOCKED_METERED_REASON_MASK) | newBlockedReasons;
+                & BLOCKED_METERED_REASON_MASK2) | newBlockedReasons;
         uidBlockedState.allowedReasons = (uidBlockedState.allowedReasons
                 & ALLOWED_METERED_REASON_MASK) | newAllowedReasons;
         uidBlockedState.updateEffectiveBlockedReasons();
