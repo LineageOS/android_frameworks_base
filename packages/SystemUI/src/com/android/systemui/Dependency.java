@@ -41,6 +41,7 @@ import com.android.systemui.accessibility.floatingmenu.AccessibilityFloatingMenu
 import com.android.systemui.animation.DialogLaunchAnimator;
 import com.android.systemui.appops.AppOpsController;
 import com.android.systemui.assist.AssistManager;
+import com.android.systemui.biometrics.AuthController;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.dagger.SysUISingleton;
@@ -374,6 +375,7 @@ public class Dependency {
     @Inject Lazy<GroupExpansionManager> mGroupExpansionManagerLazy;
     @Inject Lazy<SystemUIDialogManager> mSystemUIDialogManagerLazy;
     @Inject Lazy<DialogLaunchAnimator> mDialogLaunchAnimatorLazy;
+    @Inject Lazy<AuthController> mAuthController;
 
     @Inject
     public Dependency() {
@@ -594,6 +596,8 @@ public class Dependency {
         mProviders.put(GroupExpansionManager.class, mGroupExpansionManagerLazy::get);
         mProviders.put(SystemUIDialogManager.class, mSystemUIDialogManagerLazy::get);
         mProviders.put(DialogLaunchAnimator.class, mDialogLaunchAnimatorLazy::get);
+
+        mProviders.put(AuthController.class, mAuthController::get);
 
         Dependency.setInstance(this);
     }
