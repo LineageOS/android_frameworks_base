@@ -97,6 +97,7 @@ android_library {
         "lottie",
         "org.lineageos.platform.internal",
         "vendor.lineage.powershare-V1.0-java",
+        "//hardware/google/interfaces:com.google.hardware.pixel.display-V3-java",
     ],
     manifest: "AndroidManifest.xml",
     additional_manifests: ["LineageManifest.xml"],
