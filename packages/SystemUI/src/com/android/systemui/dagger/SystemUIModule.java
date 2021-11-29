@@ -29,6 +29,7 @@ import com.android.systemui.BootCompleteCacheImpl;
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.appops.dagger.AppOpsModule;
 import com.android.systemui.assist.AssistModule;
+import com.android.systemui.biometrics.PixelUdfpsHbmProvider;
 import com.android.systemui.biometrics.UdfpsHbmProvider;
 import com.android.systemui.classifier.FalsingModule;
 import com.android.systemui.controls.dagger.ControlsModule;
@@ -162,6 +163,10 @@ public abstract class SystemUIModule {
 
     @BindsOptionalOf
     abstract UdfpsHbmProvider optionalUdfpsHbmProvider();
+
+    @SysUISingleton
+    @Binds
+    abstract UdfpsHbmProvider bindUdfpsHbmProvider(PixelUdfpsHbmProvider provider);
 
     @SysUISingleton
     @Binds
