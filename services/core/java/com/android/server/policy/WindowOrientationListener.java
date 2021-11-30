@@ -295,6 +295,10 @@ public abstract class WindowOrientationListener {
         // Number of milliseconds per nano second.
         protected static final float MILLIS_PER_NANO = 0.000001f;
 
+        // The minimum amount of time that must have elapsed since the device screen is on
+        // before the proposed rotation can change.
+        protected static final long PROPOSAL_MIN_TIME_SINCE_SCREEN_ON_NANOS = 800 * NANOS_PER_MS;
+
         // The minimum amount of time that must have elapsed since the screen was last touched
         // before the proposed rotation can change.
         protected static final long PROPOSAL_MIN_TIME_SINCE_TOUCH_END_NANOS =
@@ -1024,6 +1028,7 @@ public abstract class WindowOrientationListener {
     final class OrientationSensorJudge extends OrientationJudge {
         private boolean mTouching;
         private long mTouchEndedTimestampNanos = Long.MIN_VALUE;
+        private long mScreenOnTimestampNanos = Long.MIN_VALUE;
         private int mProposedRotation = -1;
         private int mDesiredRotation = -1;
         private boolean mRotationEvaluationScheduled;
@@ -1079,6 +1084,7 @@ public abstract class WindowOrientationListener {
                     + Surface.rotationToString(mProposedRotation));
             pw.println(prefix + "mTouching=" + mTouching);
             pw.println(prefix + "mTouchEndedTimestampNanos=" + mTouchEndedTimestampNanos);
+            pw.println(prefix + "mScreenOnTimestampNanos=" + mScreenOnTimestampNanos);
         }
 
         @Override
@@ -1089,6 +1095,7 @@ public abstract class WindowOrientationListener {
             }
             mTouching = false;
             mTouchEndedTimestampNanos = Long.MIN_VALUE;
+            mScreenOnTimestampNanos = SystemClock.elapsedRealtimeNanos();
             unscheduleRotationEvaluationLocked();
         }
 
@@ -1112,6 +1119,9 @@ public abstract class WindowOrientationListener {
                 return false;
             }
             if (now < mTouchEndedTimestampNanos + PROPOSAL_MIN_TIME_SINCE_TOUCH_END_NANOS) {
+                return false;
+            }
+            if (now < mScreenOnTimestampNanos + PROPOSAL_MIN_TIME_SINCE_SCREEN_ON_NANOS) {
                 return false;
             }
             return true;
