@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "6656796f_e165c278",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "I think instead of making this a special case, check the result of findRow() by encapsulating the call to Util.setVisOrGone()\n\n\nVolumeRow streamRow \u003d findRow(stream);\nif (streamRow !\u003d null) {\n    Util.setVisOrGone(streamRow.view, vis);\n}",
       "revId": "358e8216482d4e3e0f6237b55e349cc6ccdc401f",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75922399_34c8b243",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2021-12-01T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6656796f_e165c278",
+      "revId": "358e8216482d4e3e0f6237b55e349cc6ccdc401f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
