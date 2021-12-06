@@ -41,6 +41,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1c61a41_cda49862",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2021-12-06T15:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c10060b_6ad0173c",
+      "range": {
+        "startLine": 417,
+        "startChar": 8,
+        "endLine": 417,
+        "endChar": 20
+      },
+      "revId": "38e87f59fdc322bd4788c94042f84813829dce19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85203baf_ac3180d4",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-12-06T15:11:19Z",
       "side": 1,
       "message": "Same here and line bellow.",
+      "range": {
+        "startLine": 419,
+        "startChar": 8,
+        "endLine": 419,
+        "endChar": 20
+      },
+      "revId": "38e87f59fdc322bd4788c94042f84813829dce19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dba1a0b_eced90bf",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 2681
+      },
+      "writtenOn": "2021-12-06T15:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85203baf_ac3180d4",
       "range": {
         "startLine": 419,
         "startChar": 8,
