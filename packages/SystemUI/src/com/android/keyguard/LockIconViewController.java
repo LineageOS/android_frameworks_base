@@ -49,6 +49,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.android.systemui.Dumpable;
 import com.android.systemui.R;
 import com.android.systemui.biometrics.AuthController;
+import com.android.systemui.biometrics.AuthRippleController;
 import com.android.systemui.biometrics.UdfpsController;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
@@ -72,7 +73,8 @@ import javax.inject.Inject;
 /**
  * Controls when to show the LockIcon affordance (lock/unlocked icon or circle) on lock screen.
  *
- * This view will only be shown if the user has UDFPS or FaceAuth enrolled
+ * For devices with UDFPS, the lock icon will show at the sensor location. Else, the lock
+ * icon will show a set distance from the bottom of the device.
  */
 @StatusBarComponent.StatusBarScope
 public class LockIconViewController extends ViewController<LockIconView> implements Dumpable {
@@ -106,6 +108,7 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
     @NonNull private CharSequence mUnlockedLabel;
     @NonNull private CharSequence mLockedLabel;
     @Nullable private final Vibrator mVibrator;
+    @Nullable private final AuthRippleController mAuthRippleController;
 
     private boolean mIsDozing;
     private boolean mIsBouncerShowing;
@@ -149,7 +152,8 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
             @NonNull AccessibilityManager accessibilityManager,
             @NonNull ConfigurationController configurationController,
             @NonNull @Main DelayableExecutor executor,
-            @Nullable Vibrator vibrator
+            @Nullable Vibrator vibrator,
+            @Nullable AuthRippleController authRippleController
     ) {
         super(view);
         mStatusBarStateController = statusBarStateController;
@@ -162,6 +166,7 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
         mConfigurationController = configurationController;
         mExecutor = executor;
         mVibrator = vibrator;
+        mAuthRippleController = authRippleController;
 
         final Context context = view.getContext();
         mAodFp = mView.findViewById(R.id.lock_udfps_aod_fp);
@@ -340,7 +345,7 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
     }
 
     private void updateColors() {
-        mView.updateColorAndBackgroundVisibility(mUdfpsSupported);
+        mView.updateColorAndBackgroundVisibility();
     }
 
     private void updateConfiguration() {
@@ -420,6 +425,8 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
         boolean wasUdfpsEnrolled = mUdfpsEnrolled;
 
         mUdfpsSupported = mAuthController.getUdfpsSensorLocation() != null;
+        mView.setUseBackground(mUdfpsSupported);
+
         mUdfpsEnrolled = mKeyguardUpdateMonitor.isUdfpsEnrolled();
         if (wasUdfpsSupported != mUdfpsSupported || wasUdfpsEnrolled != mUdfpsEnrolled) {
             updateVisibility();
@@ -621,6 +628,9 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
 
                     // pre-emptively set to true to hide view
                     mIsBouncerShowing = true;
+                    if (mUdfpsSupported && mShowUnlockIcon && mAuthRippleController != null) {
+                        mAuthRippleController.showRipple(FINGERPRINT);
+                    }
                     updateVisibility();
                     if (mOnGestureDetectedRunnable != null) {
                         mOnGestureDetectedRunnable.run();

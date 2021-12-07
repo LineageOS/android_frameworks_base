@@ -78,7 +78,8 @@ class NotificationShadeDepthController @Inject constructor(
     private var keyguardAnimator: Animator? = null
     private var notificationAnimator: Animator? = null
     private var updateScheduled: Boolean = false
-    private var shadeExpansion = 0f
+    @VisibleForTesting
+    var shadeExpansion = 0f
     private var isClosed: Boolean = true
     private var isOpen: Boolean = false
     private var isBlurred: Boolean = false
@@ -91,6 +92,9 @@ class NotificationShadeDepthController @Inject constructor(
 
     // Only for dumpsys
     private var lastAppliedBlur = 0
+
+    // Shade expansion offset that happens when pulling down on a HUN.
+    var panelPullDownMinFraction = 0f
 
     var shadeAnimation = DepthAnimation()
 
@@ -181,7 +185,8 @@ class NotificationShadeDepthController @Inject constructor(
                         if (shouldApplyShadeBlur()) shadeExpansion else 0f, false))
         var combinedBlur = (expansionRadius * INTERACTION_BLUR_FRACTION +
                 animationRadius * ANIMATION_BLUR_FRACTION)
-        val qsExpandedRatio = qsPanelExpansion * shadeExpansion
+        val qsExpandedRatio = Interpolators.getNotificationScrimAlpha(qsPanelExpansion,
+                false /* notification */) * shadeExpansion
         combinedBlur = max(combinedBlur, blurUtils.blurRadiusOfRatio(qsExpandedRatio))
         combinedBlur = max(combinedBlur, blurUtils.blurRadiusOfRatio(transitionToFullShadeProgress))
         var shadeRadius = max(combinedBlur, wakeAndUnlockBlurRadius)
@@ -311,8 +316,10 @@ class NotificationShadeDepthController @Inject constructor(
     /**
      * Update blurs when pulling down the shade
      */
-    override fun onPanelExpansionChanged(expansion: Float, tracking: Boolean) {
+    override fun onPanelExpansionChanged(rawExpansion: Float, tracking: Boolean) {
         val timestamp = SystemClock.elapsedRealtimeNanos()
+        val expansion = MathUtils.saturate(
+                (rawExpansion - panelPullDownMinFraction) / (1f - panelPullDownMinFraction))
 
         if (shadeExpansion == expansion && prevTracking == tracking) {
             prevTimestamp = timestamp

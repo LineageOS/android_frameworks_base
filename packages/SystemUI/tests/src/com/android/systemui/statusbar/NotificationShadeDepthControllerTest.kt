@@ -25,6 +25,7 @@ import android.view.View
 import android.view.ViewRootImpl
 import androidx.test.filters.SmallTest
 import com.android.systemui.SysuiTestCase
+import com.android.systemui.animation.Interpolators
 import com.android.systemui.dump.DumpManager
 import com.android.systemui.plugins.statusbar.StatusBarStateController
 import com.android.systemui.statusbar.phone.BiometricUnlockController
@@ -32,6 +33,7 @@ import com.android.systemui.statusbar.phone.DozeParameters
 import com.android.systemui.statusbar.phone.ScrimController
 import com.android.systemui.statusbar.policy.KeyguardStateController
 import com.android.systemui.util.mockito.eq
+import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -167,6 +169,22 @@ class NotificationShadeDepthControllerTest : SysuiTestCase() {
     }
 
     @Test
+    fun onPanelExpansionChanged_respectsMinPanelPullDownFraction() {
+        notificationShadeDepthController.panelPullDownMinFraction = 0.5f
+        notificationShadeDepthController.onPanelExpansionChanged(0.5f /* expansion */,
+                true /* tracking */)
+        assertThat(notificationShadeDepthController.shadeExpansion).isEqualTo(0f)
+
+        notificationShadeDepthController.onPanelExpansionChanged(0.75f /* expansion */,
+                true /* tracking */)
+        assertThat(notificationShadeDepthController.shadeExpansion).isEqualTo(0.5f)
+
+        notificationShadeDepthController.onPanelExpansionChanged(1f /* expansion */,
+                true /* tracking */)
+        assertThat(notificationShadeDepthController.shadeExpansion).isEqualTo(1f)
+    }
+
+    @Test
     fun onStateChanged_reevalutesBlurs_ifSameRadiusAndNewState() {
         onPanelExpansionChanged_apliesBlur_ifShade()
         clearInvocations(choreographer)
@@ -178,10 +196,21 @@ class NotificationShadeDepthControllerTest : SysuiTestCase() {
 
     @Test
     fun setQsPanelExpansion_appliesBlur() {
+        statusBarState = StatusBarState.KEYGUARD
         notificationShadeDepthController.qsPanelExpansion = 1f
-        notificationShadeDepthController.onPanelExpansionChanged(0.5f, tracking = false)
+        notificationShadeDepthController.onPanelExpansionChanged(1f, tracking = false)
         notificationShadeDepthController.updateBlurCallback.doFrame(0)
-        verify(blurUtils).applyBlur(any(), anyInt(), eq(false))
+        verify(blurUtils).applyBlur(any(), eq(maxBlur), eq(false))
+    }
+
+    @Test
+    fun setQsPanelExpansion_easing() {
+        statusBarState = StatusBarState.KEYGUARD
+        notificationShadeDepthController.qsPanelExpansion = 0.25f
+        notificationShadeDepthController.onPanelExpansionChanged(1f, tracking = false)
+        notificationShadeDepthController.updateBlurCallback.doFrame(0)
+        verify(wallpaperManager).setWallpaperZoomOut(any(),
+                eq(Interpolators.getNotificationScrimAlpha(0.25f, false /* notifications */)))
     }
 
     @Test

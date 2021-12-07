@@ -36,78 +36,113 @@ public class UdfpsEnrollProgressBarDrawable extends Drawable {
 
     private static final float SEGMENT_GAP_ANGLE = 12f;
 
-    @NonNull private final List<UdfpsEnrollProgressBarSegment> mSegments;
+    @NonNull private final Context mContext;
+
+    @Nullable private UdfpsEnrollHelper mEnrollHelper;
+    @NonNull private List<UdfpsEnrollProgressBarSegment> mSegments = new ArrayList<>();
+    private int mTotalSteps = 1;
+    private int mProgressSteps = 0;
+    private boolean mIsShowingHelp = false;
 
     public UdfpsEnrollProgressBarDrawable(@NonNull Context context) {
-        mSegments = new ArrayList<>(UdfpsEnrollHelper.ENROLL_STAGE_COUNT);
-        float startAngle = SEGMENT_GAP_ANGLE / 2f;
-        final float sweepAngle = (360f / UdfpsEnrollHelper.ENROLL_STAGE_COUNT) - SEGMENT_GAP_ANGLE;
-        final Runnable invalidateRunnable = this::invalidateSelf;
-        for (int index = 0; index < UdfpsEnrollHelper.ENROLL_STAGE_COUNT; index++) {
-            mSegments.add(new UdfpsEnrollProgressBarSegment(context, getBounds(), startAngle,
-                    sweepAngle, SEGMENT_GAP_ANGLE, invalidateRunnable));
-            startAngle += sweepAngle + SEGMENT_GAP_ANGLE;
+        mContext = context;
+    }
+
+    void setEnrollHelper(@Nullable UdfpsEnrollHelper enrollHelper) {
+        mEnrollHelper = enrollHelper;
+        if (enrollHelper != null) {
+            final int stageCount = enrollHelper.getStageCount();
+            mSegments = new ArrayList<>(stageCount);
+            float startAngle = SEGMENT_GAP_ANGLE / 2f;
+            final float sweepAngle = (360f / stageCount) - SEGMENT_GAP_ANGLE;
+            final Runnable invalidateRunnable = this::invalidateSelf;
+            for (int index = 0; index < stageCount; index++) {
+                mSegments.add(new UdfpsEnrollProgressBarSegment(mContext, getBounds(), startAngle,
+                        sweepAngle, SEGMENT_GAP_ANGLE, invalidateRunnable));
+                startAngle += sweepAngle + SEGMENT_GAP_ANGLE;
+            }
+            invalidateSelf();
         }
     }
 
-    void setEnrollmentProgress(int remaining, int totalSteps) {
-        if (remaining == totalSteps) {
-            // Show some progress for the initial touch.
-            setEnrollmentProgress(1);
-        } else {
-            setEnrollmentProgress(totalSteps - remaining);
-        }
+    void onEnrollmentProgress(int remaining, int totalSteps) {
+        mTotalSteps = totalSteps;
+        updateState(getProgressSteps(remaining, totalSteps), false /* isShowingHelp */);
     }
 
-    private void setEnrollmentProgress(int progressSteps) {
-        Log.d(TAG, "setEnrollmentProgress: progressSteps = " + progressSteps);
+    void onEnrollmentHelp(int remaining, int totalSteps) {
+        updateState(getProgressSteps(remaining, totalSteps), true /* isShowingHelp */);
+    }
 
-        int segmentIndex = 0;
+    void onLastStepAcquired() {
+        updateState(mTotalSteps, false /* isShowingHelp */);
+    }
+
+    private static int getProgressSteps(int remaining, int totalSteps) {
+        // Show some progress for the initial touch.
+        return Math.max(1, totalSteps - remaining);
+    }
+
+    private void updateState(int progressSteps, boolean isShowingHelp) {
+        updateProgress(progressSteps);
+        updateFillColor(isShowingHelp);
+    }
+
+    private void updateProgress(int progressSteps) {
+        if (mProgressSteps == progressSteps) {
+            return;
+        }
+        mProgressSteps = progressSteps;
+
+        if (mEnrollHelper == null) {
+            Log.e(TAG, "updateState: UDFPS enroll helper was null");
+            return;
+        }
+
+        int index = 0;
         int prevThreshold = 0;
-        while (segmentIndex < mSegments.size()) {
-            final UdfpsEnrollProgressBarSegment segment = mSegments.get(segmentIndex);
-            final int threshold = UdfpsEnrollHelper.getStageThreshold(segmentIndex);
-
-            if (progressSteps >= threshold && !segment.isFilledOrFilling()) {
-                Log.d(TAG, "setEnrollmentProgress: segment[" + segmentIndex + "] complete");
+        while (index < mSegments.size()) {
+            final UdfpsEnrollProgressBarSegment segment = mSegments.get(index);
+            final int thresholdSteps = mEnrollHelper.getStageThresholdSteps(mTotalSteps, index);
+            if (progressSteps >= thresholdSteps && segment.getProgress() < 1f) {
                 segment.updateProgress(1f);
                 break;
-            } else if (progressSteps >= prevThreshold && progressSteps < threshold) {
+            } else if (progressSteps >= prevThreshold && progressSteps < thresholdSteps) {
                 final int relativeSteps = progressSteps - prevThreshold;
-                final int relativeThreshold = threshold - prevThreshold;
+                final int relativeThreshold = thresholdSteps - prevThreshold;
                 final float segmentProgress = (float) relativeSteps / (float) relativeThreshold;
-                Log.d(TAG, "setEnrollmentProgress: segment[" + segmentIndex + "] progress = "
-                        + segmentProgress);
                 segment.updateProgress(segmentProgress);
                 break;
             }
 
-            segmentIndex++;
-            prevThreshold = threshold;
+            index++;
+            prevThreshold = thresholdSteps;
         }
 
-        if (progressSteps >= UdfpsEnrollHelper.getLastStageThreshold()) {
-            Log.d(TAG, "setEnrollmentProgress: startCompletionAnimation");
+        if (progressSteps >= mTotalSteps) {
             for (final UdfpsEnrollProgressBarSegment segment : mSegments) {
                 segment.startCompletionAnimation();
             }
         } else {
-            Log.d(TAG, "setEnrollmentProgress: cancelCompletionAnimation");
             for (final UdfpsEnrollProgressBarSegment segment : mSegments) {
                 segment.cancelCompletionAnimation();
             }
         }
     }
 
-    void onLastStepAcquired() {
-        Log.d(TAG, "setEnrollmentProgress: onLastStepAcquired");
-        setEnrollmentProgress(UdfpsEnrollHelper.getLastStageThreshold());
+    private void updateFillColor(boolean isShowingHelp) {
+        if (mIsShowingHelp == isShowingHelp) {
+            return;
+        }
+        mIsShowingHelp = isShowingHelp;
+
+        for (final UdfpsEnrollProgressBarSegment segment : mSegments) {
+            segment.updateFillColor(isShowingHelp);
+        }
     }
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        Log.d(TAG, "setEnrollmentProgress: draw");
-
         canvas.save();
 
         // Progress starts from the top, instead of the right
@@ -123,12 +158,10 @@ public class UdfpsEnrollProgressBarDrawable extends Drawable {
 
     @Override
     public void setAlpha(int alpha) {
-
     }
 
     @Override
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-
     }
 
     @Override

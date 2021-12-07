@@ -39,6 +39,7 @@ import com.android.systemui.R;
 public class UdfpsEnrollProgressBarSegment {
     private static final String TAG = "UdfpsProgressBarSegment";
 
+    private static final long FILL_COLOR_ANIMATION_DURATION_MS = 200L;
     private static final long PROGRESS_ANIMATION_DURATION_MS = 400L;
     private static final long OVER_SWEEP_ANIMATION_DELAY_MS = 200L;
     private static final long OVER_SWEEP_ANIMATION_DURATION_MS = 200L;
@@ -53,15 +54,20 @@ public class UdfpsEnrollProgressBarSegment {
     private final float mSweepAngle;
     private final float mMaxOverSweepAngle;
     private final float mStrokeWidthPx;
+    @ColorInt private final int mProgressColor;
+    @ColorInt private final int mHelpColor;
 
     @NonNull private final Paint mBackgroundPaint;
     @NonNull private final Paint mProgressPaint;
 
-    private boolean mIsFilledOrFilling = false;
-
     private float mProgress = 0f;
+    private float mAnimatedProgress = 0f;
     @Nullable private ValueAnimator mProgressAnimator;
     @NonNull private final ValueAnimator.AnimatorUpdateListener mProgressUpdateListener;
+
+    private boolean mIsShowingHelp = false;
+    @Nullable private ValueAnimator mFillColorAnimator;
+    @NonNull private final ValueAnimator.AnimatorUpdateListener mFillColorUpdateListener;
 
     private float mOverSweepAngle = 0f;
     @Nullable private ValueAnimator mOverSweepAnimator;
@@ -79,6 +85,8 @@ public class UdfpsEnrollProgressBarSegment {
         mSweepAngle = sweepAngle;
         mMaxOverSweepAngle = maxOverSweepAngle;
         mStrokeWidthPx = Utils.dpToPixels(context, STROKE_WIDTH_DP);
+        mProgressColor = context.getColor(R.color.udfps_enroll_progress);
+        mHelpColor = context.getColor(R.color.udfps_enroll_progress_help);
 
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setStrokeWidth(mStrokeWidthPx);
@@ -100,13 +108,18 @@ public class UdfpsEnrollProgressBarSegment {
         // Progress should not be color extracted
         mProgressPaint = new Paint();
         mProgressPaint.setStrokeWidth(mStrokeWidthPx);
-        mProgressPaint.setColor(context.getColor(R.color.udfps_enroll_progress));
+        mProgressPaint.setColor(mProgressColor);
         mProgressPaint.setAntiAlias(true);
         mProgressPaint.setStyle(Paint.Style.STROKE);
         mProgressPaint.setStrokeCap(Paint.Cap.ROUND);
 
         mProgressUpdateListener = animation -> {
-            mProgress = (float) animation.getAnimatedValue();
+            mAnimatedProgress = (float) animation.getAnimatedValue();
+            mInvalidateRunnable.run();
+        };
+
+        mFillColorUpdateListener = animation -> {
+            mProgressPaint.setColor((int) animation.getAnimatedValue());
             mInvalidateRunnable.run();
         };
 
@@ -129,11 +142,9 @@ public class UdfpsEnrollProgressBarSegment {
      * Draws this segment to the given canvas.
      */
     public void draw(@NonNull Canvas canvas) {
-        Log.d(TAG, "draw: mProgress = " + mProgress);
-
         final float halfPaddingPx = mStrokeWidthPx / 2f;
 
-        if (mProgress < 1f) {
+        if (mAnimatedProgress < 1f) {
             // Draw the unfilled background color of the segment.
             canvas.drawArc(
                     halfPaddingPx,
@@ -146,7 +157,7 @@ public class UdfpsEnrollProgressBarSegment {
                     mBackgroundPaint);
         }
 
-        if (mProgress > 0f) {
+        if (mAnimatedProgress > 0f) {
             // Draw the filled progress portion of the segment.
             canvas.drawArc(
                     halfPaddingPx,
@@ -154,17 +165,18 @@ public class UdfpsEnrollProgressBarSegment {
                     mBounds.right - halfPaddingPx,
                     mBounds.bottom - halfPaddingPx,
                     mStartAngle,
-                    mSweepAngle * mProgress + mOverSweepAngle,
+                    mSweepAngle * mAnimatedProgress + mOverSweepAngle,
                     false /* useCenter */,
                     mProgressPaint);
         }
     }
 
     /**
-     * @return Whether this segment is filled or in the process of being filled.
+     * @return The fill progress of this segment, in the range [0, 1]. If fill progress is being
+     * animated, returns the value it is animating to.
      */
-    public boolean isFilledOrFilling() {
-        return mIsFilledOrFilling;
+    public float getProgress() {
+        return mProgress;
     }
 
     /**
@@ -177,24 +189,41 @@ public class UdfpsEnrollProgressBarSegment {
     }
 
     private void updateProgress(float progress, long animationDurationMs) {
-        Log.d(TAG, "updateProgress: progress = " + progress
-                + ", duration = " + animationDurationMs);
-
         if (mProgress == progress) {
-            Log.d(TAG, "updateProgress skipped: progress == mProgress");
             return;
         }
-
-        mIsFilledOrFilling = progress >= 1f;
+        mProgress = progress;
 
         if (mProgressAnimator != null && mProgressAnimator.isRunning()) {
             mProgressAnimator.cancel();
         }
 
-        mProgressAnimator = ValueAnimator.ofFloat(mProgress, progress);
+        mProgressAnimator = ValueAnimator.ofFloat(mAnimatedProgress, progress);
         mProgressAnimator.setDuration(animationDurationMs);
         mProgressAnimator.addUpdateListener(mProgressUpdateListener);
         mProgressAnimator.start();
+    }
+
+    /**
+     * Updates the fill color of this segment, animating if necessary.
+     *
+     * @param isShowingHelp Whether fill color should indicate that a help message is being shown.
+     */
+    public void updateFillColor(boolean isShowingHelp) {
+        if (mIsShowingHelp == isShowingHelp) {
+            return;
+        }
+        mIsShowingHelp = isShowingHelp;
+
+        if (mFillColorAnimator != null && mFillColorAnimator.isRunning()) {
+            mFillColorAnimator.cancel();
+        }
+
+        @ColorInt final int targetColor = isShowingHelp ? mHelpColor : mProgressColor;
+        mFillColorAnimator = ValueAnimator.ofArgb(mProgressPaint.getColor(), targetColor);
+        mFillColorAnimator.setDuration(FILL_COLOR_ANIMATION_DURATION_MS);
+        mFillColorAnimator.addUpdateListener(mFillColorUpdateListener);
+        mFillColorAnimator.start();
     }
 
     /**
@@ -208,18 +237,16 @@ public class UdfpsEnrollProgressBarSegment {
             return;
         }
 
-        Log.d(TAG, "startCompletionAnimation: mProgress = " + mProgress
-                + ", mOverSweepAngle = " + mOverSweepAngle);
-
         // Reset sweep angle back to zero if the animation is being rolled back.
         if (mOverSweepReverseAnimator != null && mOverSweepReverseAnimator.isRunning()) {
             mOverSweepReverseAnimator.cancel();
             mOverSweepAngle = 0f;
         }
 
-        // Start filling the segment if it isn't already.
-        if (mProgress < 1f) {
+        // Clear help color and start filling the segment if it isn't already.
+        if (mAnimatedProgress < 1f) {
             updateProgress(1f, OVER_SWEEP_ANIMATION_DELAY_MS);
+            updateFillColor(false /* isShowingHelp */);
         }
 
         // Queue the animation to run after fill completes.
@@ -230,9 +257,6 @@ public class UdfpsEnrollProgressBarSegment {
      * Cancels (and reverses, if necessary) a queued or running completion animation.
      */
     public void cancelCompletionAnimation() {
-        Log.d(TAG, "cancelCompletionAnimation: mProgress = " + mProgress
-                + ", mOverSweepAngle = " + mOverSweepAngle);
-
         // Cancel the animation if it's queued or running.
         mHandler.removeCallbacks(mOverSweepAnimationRunnable);
         if (mOverSweepAnimator != null && mOverSweepAnimator.isRunning()) {

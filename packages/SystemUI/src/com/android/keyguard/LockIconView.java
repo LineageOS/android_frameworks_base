@@ -27,6 +27,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 
 import com.android.settingslib.Utils;
 import com.android.systemui.Dumpable;
@@ -47,6 +48,7 @@ public class LockIconView extends FrameLayout implements Dumpable {
     private ImageView mBgView;
 
     private int mLockIconColor;
+    private boolean mUseBackground = false;
 
     public LockIconView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -60,8 +62,8 @@ public class LockIconView extends FrameLayout implements Dumpable {
         mBgView = findViewById(R.id.lock_icon_bg);
     }
 
-    void updateColorAndBackgroundVisibility(boolean useBackground) {
-        if (useBackground && mLockIcon.getDrawable() != null) {
+    void updateColorAndBackgroundVisibility() {
+        if (mUseBackground && mLockIcon.getDrawable() != null) {
             mLockIconColor = Utils.getColorAttrDefaultColor(getContext(),
                     android.R.attr.textColorPrimary);
             mBgView.setBackground(getContext().getDrawable(R.drawable.fingerprint_bg));
@@ -77,6 +79,9 @@ public class LockIconView extends FrameLayout implements Dumpable {
 
     void setImageDrawable(Drawable drawable) {
         mLockIcon.setImageDrawable(drawable);
+
+        if (!mUseBackground) return;
+
         if (drawable == null) {
             mBgView.setVisibility(View.INVISIBLE);
         } else {
@@ -84,6 +89,18 @@ public class LockIconView extends FrameLayout implements Dumpable {
         }
     }
 
+    /**
+     * Whether or not to render the lock icon background. Mainly used for UDPFS.
+     */
+    public void setUseBackground(boolean useBackground) {
+        mUseBackground = useBackground;
+        updateColorAndBackgroundVisibility();
+    }
+
+    /**
+     * Set the location of the lock icon.
+     */
+    @VisibleForTesting
     public void setCenterLocation(@NonNull PointF center, int radius) {
         mLockIconCenter = center;
         mRadius = radius;
