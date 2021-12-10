@@ -2086,4 +2086,5 @@
     </plurals>
     <string name="chooser_no_direct_share_targets" msgid="492542066060841139">"Direktno deljenje nije dostupno"</string>
     <string name="chooser_all_apps_button_label" msgid="3230427756238666328">"Lista aplikacija"</string>
+    <string name="permission_request_notification_for_app_with_subtitle" msgid="1298704005732851350">"<xliff:g id="APP">%1$s</xliff:g> traži dozvolu \nza nalog <xliff:g id="ACCOUNT">%2$s</xliff:g>."</string>
 </resources>
