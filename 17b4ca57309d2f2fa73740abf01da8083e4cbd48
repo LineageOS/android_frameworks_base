@@ -16,6 +16,24 @@
       "message": "Proper way is to add back to Clock.java like in A11.\nCollapsedStatusBarFragment is always attached, so switching clock position will not add dark receiver to new position.",
       "revId": "17b4ca57309d2f2fa73740abf01da8083e4cbd48",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efe6572c_9fe06fc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17117
+      },
+      "writtenOn": "2021-12-11T10:48:21Z",
+      "side": 1,
+      "message": "for that reason it\u0027s reattached on position change",
+      "parentUuid": "7d126586_ff5dc3bb",
+      "revId": "17b4ca57309d2f2fa73740abf01da8083e4cbd48",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
