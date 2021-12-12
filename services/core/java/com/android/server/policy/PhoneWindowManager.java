@@ -1024,7 +1024,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // Reset back key state for long press
         mBackKeyHandled = false;
 
-        if (hasLongPressOnBackBehavior()) {
+        if (hasLongPressOnBackBehavior() && !mHandler.hasMessages(MSG_BACK_LONG_PRESS)) {
             Message msg = mHandler.obtainMessage(MSG_BACK_LONG_PRESS, event);
             msg.setAsynchronous(true);
             mHandler.sendMessageDelayed(msg,
