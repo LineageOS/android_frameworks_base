@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926f8729_b2755262",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/AuthController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-12-13T23:55:48Z",
+      "side": 1,
+      "message": "This causes a crash on coral which has face auth instead of fingerprint, needs to be wrapped with a null check.",
+      "range": {
+        "startLine": 460,
+        "startChar": 51,
+        "endLine": 460,
+        "endChar": 89
+      },
+      "revId": "1072273bc8bdb4b42191b298d1b6fe83459f65cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
