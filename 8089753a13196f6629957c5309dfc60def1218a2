@@ -50,6 +50,24 @@
       "message": "With this CR and after a factory reset, pro1 will only boot successfully once.",
       "revId": "8089753a13196f6629957c5309dfc60def1218a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac3cf5a_b62351b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2021-12-14T02:46:39Z",
+      "side": 1,
+      "message": "Yeah, pick the rest of the topic - https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/320364",
+      "parentUuid": "13a8ef9b_474e6a8a",
+      "revId": "8089753a13196f6629957c5309dfc60def1218a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
