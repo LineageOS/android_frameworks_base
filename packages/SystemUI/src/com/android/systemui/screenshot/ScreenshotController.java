@@ -33,6 +33,7 @@ import static java.util.Objects.requireNonNull;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.MainThread;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
@@ -270,6 +271,7 @@ public class ScreenshotController {
     private Bitmap mScreenBitmap;
     private SaveImageInBackgroundTask mSaveInBgTask;
     private boolean mScreenshotTakenInPortrait;
+    private boolean mBlockAttach;
 
     private Animator mScreenshotAnimation;
     private RequestCallback mCurrentRequestCallback;
@@ -608,8 +610,8 @@ public class ScreenshotController {
             mScreenshotView.reset();
         }
 
-        mScreenshotView.updateOrientation(mWindowManager.getCurrentWindowMetrics()
-                .getWindowInsets().getDisplayCutout());
+        mScreenshotView.updateOrientation(
+                mWindowManager.getCurrentWindowMetrics().getWindowInsets());
 
         mScreenBitmap = screenshot;
 
@@ -643,9 +645,8 @@ public class ScreenshotController {
                             // Delay scroll capture eval a bit to allow the underlying activity
                             // to set up in the new orientation.
                             mScreenshotHandler.postDelayed(this::requestScrollCapture, 150);
-                            mScreenshotView.updateDisplayCutoutMargins(
-                                    mWindowManager.getCurrentWindowMetrics().getWindowInsets()
-                                            .getDisplayCutout());
+                            mScreenshotView.updateInsets(
+                                    mWindowManager.getCurrentWindowMetrics().getWindowInsets());
                             // screenshot animation calculations won't be valid anymore, so just end
                             if (mScreenshotAnimation != null && mScreenshotAnimation.isRunning()) {
                                 mScreenshotAnimation.end();
@@ -709,7 +710,7 @@ public class ScreenshotController {
                     + mLastScrollCaptureResponse.getWindowTitle() + "]");
 
             final ScrollCaptureResponse response = mLastScrollCaptureResponse;
-            mScreenshotView.showScrollChip(/* onClick */ () -> {
+            mScreenshotView.showScrollChip(response.getPackageName(), /* onClick */ () -> {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 getDefaultDisplay().getRealMetrics(displayMetrics);
                 Bitmap newScreenshot = captureScreenshot(
@@ -782,6 +783,7 @@ public class ScreenshotController {
                     new ViewTreeObserver.OnWindowAttachListener() {
                         @Override
                         public void onWindowAttached() {
+                            mBlockAttach = false;
                             decorView.getViewTreeObserver().removeOnWindowAttachListener(this);
                             action.run();
                         }
@@ -798,14 +800,16 @@ public class ScreenshotController {
         mWindow.setContentView(contentView);
     }
 
+    @MainThread
     private void attachWindow() {
         View decorView = mWindow.getDecorView();
-        if (decorView.isAttachedToWindow()) {
+        if (decorView.isAttachedToWindow() || mBlockAttach) {
             return;
         }
         if (DEBUG_WINDOW) {
             Log.d(TAG, "attachWindow");
         }
+        mBlockAttach = true;
         mWindowManager.addView(decorView, mWindowLayoutParams);
         decorView.requestApplyInsets();
     }

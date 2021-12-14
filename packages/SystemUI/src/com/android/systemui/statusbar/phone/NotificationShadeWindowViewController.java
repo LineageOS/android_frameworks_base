@@ -325,6 +325,12 @@ public class NotificationShadeWindowViewController {
                     // Capture all touch events in always-on.
                     return true;
                 }
+
+                if (mStatusBarKeyguardViewManager.isShowingAlternateAuthOrAnimating()) {
+                    // capture all touches if the alt auth bouncer is showing
+                    return true;
+                }
+
                 boolean intercept = false;
                 if (mNotificationPanelViewController.isFullyExpanded()
                         && mDragDownHelper.isDragDownEnabled()
@@ -352,6 +358,12 @@ public class NotificationShadeWindowViewController {
                 if (mStatusBarStateController.isDozing()) {
                     handled = !mService.isPulsing();
                 }
+
+                if (mStatusBarKeyguardViewManager.isShowingAlternateAuthOrAnimating()) {
+                    // eat the touch
+                    handled = true;
+                }
+
                 if ((mDragDownHelper.isDragDownEnabled() && !handled)
                         || mDragDownHelper.isDraggingDown()) {
                     // we still want to finish our drag down gesture when locking the screen

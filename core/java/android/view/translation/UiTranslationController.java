@@ -431,15 +431,19 @@ public class UiTranslationController {
                     continue;
                 }
                 mActivity.runOnUiThread(() -> {
+                    ViewTranslationCallback callback = view.getViewTranslationCallback();
                     if (view.getViewTranslationResponse() != null
                             && view.getViewTranslationResponse().equals(response)) {
-                        if (DEBUG) {
-                            Log.d(TAG, "Duplicate ViewTranslationResponse for " + autofillId
-                                    + ". Ignoring.");
+                        if (callback instanceof TextViewTranslationCallback) {
+                            if (((TextViewTranslationCallback) callback).isShowingTranslation()) {
+                                if (DEBUG) {
+                                    Log.d(TAG, "Duplicate ViewTranslationResponse for " + autofillId
+                                            + ". Ignoring.");
+                                }
+                                return;
+                            }
                         }
-                        return;
                     }
-                    ViewTranslationCallback callback = view.getViewTranslationCallback();
                     if (callback == null) {
                         if (view instanceof TextView) {
                             // developer doesn't provide their override, we set the default TextView
@@ -598,9 +602,8 @@ public class UiTranslationController {
             final View rootView = roots.get(rootNum).getView();
             if (rootView instanceof ViewGroup) {
                 findViewsTraversalByAutofillIds((ViewGroup) rootView, sourceViewIds);
-            } else {
-                addViewIfNeeded(sourceViewIds, rootView);
             }
+            addViewIfNeeded(sourceViewIds, rootView);
         }
     }
 
@@ -611,9 +614,8 @@ public class UiTranslationController {
             final View child = viewGroup.getChildAt(i);
             if (child instanceof ViewGroup) {
                 findViewsTraversalByAutofillIds((ViewGroup) child, sourceViewIds);
-            } else {
-                addViewIfNeeded(sourceViewIds, child);
             }
+            addViewIfNeeded(sourceViewIds, child);
         }
     }
 

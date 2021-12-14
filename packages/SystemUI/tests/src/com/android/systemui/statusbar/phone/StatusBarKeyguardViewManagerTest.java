@@ -102,6 +102,8 @@ public class StatusBarKeyguardViewManagerTest extends SysuiTestCase {
     @Mock
     private UnlockedScreenOffAnimationController mUnlockedScreenOffAnimationController;
     @Mock
+    private StatusBarKeyguardViewManager.AlternateAuthInterceptor mAlternateAuthInterceptor;
+    @Mock
     private KeyguardMessageArea mKeyguardMessageArea;
 
     private WakefulnessLifecycle mWakefulnessLifecycle;
@@ -287,6 +289,24 @@ public class StatusBarKeyguardViewManagerTest extends SysuiTestCase {
     }
 
     @Test
+    public void testShowing_whenAlternateAuthShowing() {
+        mStatusBarKeyguardViewManager.setAlternateAuthInterceptor(mAlternateAuthInterceptor);
+        when(mBouncer.isShowing()).thenReturn(false);
+        when(mAlternateAuthInterceptor.isShowingAlternateAuthBouncer()).thenReturn(true);
+        assertTrue("Is showing not accurate when alternative auth showing",
+                mStatusBarKeyguardViewManager.isShowing());
+    }
+
+    @Test
+    public void testWillBeShowing_whenAlternateAuthShowing() {
+        mStatusBarKeyguardViewManager.setAlternateAuthInterceptor(mAlternateAuthInterceptor);
+        when(mBouncer.isShowing()).thenReturn(false);
+        when(mAlternateAuthInterceptor.isShowingAlternateAuthBouncer()).thenReturn(true);
+        assertTrue("Is or will be showing not accurate when alternative auth showing",
+                mStatusBarKeyguardViewManager.bouncerIsOrWillBeShowing());
+    }
+
+    @Test
     public void testUpdateResources_delegatesToBouncer() {
         mStatusBarKeyguardViewManager.updateResources();
 
@@ -298,19 +318,5 @@ public class StatusBarKeyguardViewManagerTest extends SysuiTestCase {
         mStatusBarKeyguardViewManager.updateKeyguardPosition(1.0f);
 
         verify(mBouncer).updateKeyguardPosition(1.0f);
-    }
-
-    @Test
-    public void testNavBarHiddenWhenSleepAnimationStarts() {
-        mStatusBarKeyguardViewManager.hide(0 /* startTime */, 0 /* fadeoutDuration */);
-        assertTrue(mStatusBarKeyguardViewManager.isNavBarVisible());
-
-        // Verify that the nav bar is hidden when the screen off animation starts
-        doReturn(true).when(mUnlockedScreenOffAnimationController).isScreenOffAnimationPlaying();
-        mWakefulnessLifecycle.dispatchFinishedGoingToSleep();
-        assertFalse(mStatusBarKeyguardViewManager.isNavBarVisible());
-
-        mWakefulnessLifecycle.dispatchFinishedWakingUp();
-        assertTrue(mStatusBarKeyguardViewManager.isNavBarVisible());
     }
 }

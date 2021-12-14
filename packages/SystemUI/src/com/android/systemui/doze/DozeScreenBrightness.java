@@ -29,8 +29,8 @@ import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.view.Display;
 
+import com.android.systemui.dock.DockManager;
 import com.android.systemui.doze.dagger.BrightnessSensor;
 import com.android.systemui.doze.dagger.DozeScope;
 import com.android.systemui.doze.dagger.WrappedService;
@@ -74,6 +74,7 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
     private final Optional<Sensor> mLightSensorOptional;
     private final WakefulnessLifecycle mWakefulnessLifecycle;
     private final DozeParameters mDozeParameters;
+    private final DockManager mDockManager;
     private final int[] mSensorToBrightness;
     private final int[] mSensorToScrimOpacity;
     private final int mScreenBrightnessDim;
@@ -101,6 +102,7 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
             AlwaysOnDisplayPolicy alwaysOnDisplayPolicy,
             WakefulnessLifecycle wakefulnessLifecycle,
             DozeParameters dozeParameters,
+            DockManager dockManager,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController) {
         mContext = context;
         mDozeService = service;
@@ -110,6 +112,7 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
         mDozeParameters = dozeParameters;
         mDozeHost = host;
         mHandler = handler;
+        mDockManager = dockManager;
         mUnlockedScreenOffAnimationController = unlockedScreenOffAnimationController;
 
         mDefaultDozeBrightness = alwaysOnDisplayPolicy.defaultDozeBrightness;
@@ -122,7 +125,15 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
     public void transitionTo(DozeMachine.State oldState, DozeMachine.State newState) {
         switch (newState) {
             case INITIALIZED:
+                resetBrightnessToDefault();
+                break;
+            case DOZE_AOD:
+            case DOZE_REQUEST_PULSE:
+            case DOZE_AOD_DOCKED:
+                setLightSensorEnabled(true);
+                break;
             case DOZE:
+                setLightSensorEnabled(false);
                 resetBrightnessToDefault();
                 break;
             case FINISH:
@@ -132,15 +143,6 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
         if (newState != DozeMachine.State.FINISH) {
             setScreenOff(newState == DozeMachine.State.DOZE);
             setPaused(newState == DozeMachine.State.DOZE_AOD_PAUSED);
-        }
-    }
-
-    @Override
-    public void onScreenState(int state) {
-        if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
-            setLightSensorEnabled(true);
-        } else {
-            setLightSensorEnabled(false);
         }
     }
 
