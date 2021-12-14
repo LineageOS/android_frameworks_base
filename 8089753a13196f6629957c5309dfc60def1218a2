@@ -33,6 +33,23 @@
       "message": "Yeah, I see it too. It\u0027s not technically called out as part of the ASB, so I\u0027ll go ahead and revert it on top of the merge, but *this* change will technically go in.\n\nThey\u0027ll maybe fix it up in the security branch later...",
       "revId": "8089753a13196f6629957c5309dfc60def1218a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13a8ef9b_474e6a8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16914
+      },
+      "writtenOn": "2021-12-14T02:45:23Z",
+      "side": 1,
+      "message": "With this CR and after a factory reset, pro1 will only boot successfully once.",
+      "revId": "8089753a13196f6629957c5309dfc60def1218a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
