@@ -16,6 +16,23 @@
       "message": "  5880  --------- beginning of crash\n  5881  12-12 18:58:18.825   863   863 E AndroidRuntime: FATAL EXCEPTION: main\n  5882  12-12 18:58:18.825   863   863 E AndroidRuntime: Process: com.android.systemui, PID: 863\n  5883  12-12 18:58:18.825   863   863 E AndroidRuntime: java.lang.RuntimeException: Unable to create service com.android.systemui.keyguard.KeyguardService: android.view.InflateException: Binary XML file line #70 in com.android.systemui:layout/super_status_bar: Could not inflate com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout ",
       "revId": "8089753a13196f6629957c5309dfc60def1218a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da2cb4a8_159d20cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2021-12-14T02:33:31Z",
+      "side": 1,
+      "message": "Yeah, I see it too. It\u0027s not technically called out as part of the ASB, so I\u0027ll go ahead and revert it on top of the merge, but *this* change will technically go in.\n\nThey\u0027ll maybe fix it up in the security branch later...",
+      "revId": "8089753a13196f6629957c5309dfc60def1218a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
