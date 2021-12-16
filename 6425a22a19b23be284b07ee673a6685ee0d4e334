@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0cdbc9a_333090ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18669
+      },
+      "writtenOn": "2021-12-16T03:49:22Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be needed anymore as AOSP has already fixed it.\nRef: https://github.com/LineageOS/android_frameworks_base/commit/b2ae678dda2d1e202ca335a17932805d864e18dc",
+      "revId": "6425a22a19b23be284b07ee673a6685ee0d4e334",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
