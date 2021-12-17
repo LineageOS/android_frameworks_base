@@ -4252,9 +4252,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     }
 
     private boolean hasRestrictedModeAccess(int uid) {
+        final long token = Binder.clearCallingIdentity();
         try {
             NetworkCapabilities nc = mConnManager.getNetworkCapabilities(
                     mConnManager.getActiveNetwork());
+            Binder.restoreCallingIdentity(token);
             int policy = getUidPolicy(uid);
             if (nc != null
                     && ((nc.hasTransport(TRANSPORT_VPN) && ((policy & POLICY_REJECT_VPN) != 0))
@@ -4274,6 +4276,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     == PERMISSION_GRANTED;
         } catch (RemoteException e) {
             return false;
+        } finally {
+            Binder.restoreCallingIdentity(token);
         }
     }
 
