@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1040aaab_fe8b9f4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2021-12-19T22:33:24Z",
+      "side": 1,
+      "message": "Should add to commit message that this also handles the backup restore use-case.\n\nUser with old Android 11 network policy, either from an upgrade, or an old backup that they restored (though eleven-firewall-backup still hasn\u0027t shipped) would both hit this code, which would then migrate them over to restricted networking.\n\nUpgrade:\nBoot, read policy, migrate\n\nRestore:\nRestore writes policy, it\u0027s ready again, and migrate?",
+      "revId": "462e768174538432b0f1c7818f1e5aec245fea54",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
