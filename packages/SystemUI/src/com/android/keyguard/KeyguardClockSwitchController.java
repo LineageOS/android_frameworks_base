@@ -199,36 +199,41 @@ public class KeyguardClockSwitchController extends ViewController<KeyguardClockS
         }
         updateAodIcons();
 
+        View ksa = mView.findViewById(R.id.keyguard_status_area);
+
+        // Place smartspace view below normal clock...
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                MATCH_PARENT, WRAP_CONTENT);
+        lp.addRule(RelativeLayout.BELOW, R.id.lockscreen_clock_view);
+
         if (mSmartspaceController.isEnabled()) {
             mSmartspaceView = mSmartspaceController.buildAndConnectView(mView);
 
-            View ksa = mView.findViewById(R.id.keyguard_status_area);
             int ksaIndex = mView.indexOfChild(ksa);
             ksa.setVisibility(View.GONE);
-
-            // Place smartspace view below normal clock...
-            RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-                    MATCH_PARENT, WRAP_CONTENT);
-            lp.addRule(RelativeLayout.BELOW, R.id.lockscreen_clock_view);
-
             mView.addView(mSmartspaceView, ksaIndex, lp);
-            int startPadding = getContext().getResources()
-                    .getDimensionPixelSize(R.dimen.below_clock_padding_start);
-            int endPadding = getContext().getResources()
-                    .getDimensionPixelSize(R.dimen.below_clock_padding_end);
-            mSmartspaceView.setPaddingRelative(startPadding, 0, endPadding, 0);
-
-            updateClockLayout();
-
-            View nic = mView.findViewById(
-                    R.id.left_aligned_notification_icon_container);
-            lp = (RelativeLayout.LayoutParams) nic.getLayoutParams();
-            lp.addRule(RelativeLayout.BELOW, mSmartspaceView.getId());
-            nic.setLayoutParams(lp);
-
-            mView.setSmartspaceView(mSmartspaceView);
-            mSmartspaceTransitionController.setLockscreenSmartspace(mSmartspaceView);
+        } else {
+            // Use KSA as the smartspace view and apply the same layout rules to it
+            mSmartspaceView = ksa;
+            ksa.setLayoutParams(lp);
         }
+
+        int startPadding = getContext().getResources()
+                .getDimensionPixelSize(R.dimen.below_clock_padding_start);
+        int endPadding = getContext().getResources()
+                .getDimensionPixelSize(R.dimen.below_clock_padding_end);
+        mSmartspaceView.setPaddingRelative(startPadding, 0, endPadding, 0);
+
+        updateClockLayout();
+
+        View nic = mView.findViewById(
+                R.id.left_aligned_notification_icon_container);
+        lp = (RelativeLayout.LayoutParams) nic.getLayoutParams();
+        lp.addRule(RelativeLayout.BELOW, mSmartspaceView.getId());
+        nic.setLayoutParams(lp);
+
+        mView.setSmartspaceView(mSmartspaceView);
+        mSmartspaceTransitionController.setLockscreenSmartspace(mSmartspaceView);
     }
 
     int getNotificationIconAreaHeight() {
@@ -268,7 +273,7 @@ public class KeyguardClockSwitchController extends ViewController<KeyguardClockS
     }
 
     private void updateClockLayout() {
-        if (mSmartspaceController.isEnabled()) {
+        if (mSmartspaceView != null) {
             RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(MATCH_PARENT,
                     MATCH_PARENT);
             mLargeClockTopMargin = getContext().getResources().getDimensionPixelSize(
