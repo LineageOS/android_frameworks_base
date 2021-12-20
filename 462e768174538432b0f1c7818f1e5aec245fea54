@@ -16,6 +16,23 @@
       "message": "Should add to commit message that this also handles the backup restore use-case.\n\nUser with old Android 11 network policy, either from an upgrade, or an old backup that they restored (though eleven-firewall-backup still hasn\u0027t shipped) would both hit this code, which would then migrate them over to restricted networking.\n\nUpgrade:\nBoot, read policy, migrate\n\nRestore:\nRestore writes policy, it\u0027s ready again, and migrate?",
       "revId": "462e768174538432b0f1c7818f1e5aec245fea54",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "072c4dd5_7762f153",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2021-12-20T10:09:30Z",
+      "side": 1,
+      "message": "frameworks/base/services/core/java/com/android/server/net/NetworkPolicyManagerService.java:2622: error: cannot find symbol\n        uidsAllowedOnRestrictedNetworks.removeAll(Collections.singleton(uidsWithPolicy));\n                                                  ^\n  symbol:   variable Collections\n  location: class NetworkPolicyManagerService\n",
+      "revId": "462e768174538432b0f1c7818f1e5aec245fea54",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
