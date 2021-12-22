@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdc26b15_746fd140",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19907
+      },
+      "writtenOn": "2021-12-22T11:19:34Z",
+      "side": 1,
+      "message": "\u003e Patch Set 2:\n\u003e \n\u003e It is not the original commit by Luk\n\nhttps://github.com/phhusson/platform_frameworks_base/commit/b40b4c49a2caa8b13fdbc5d73280077a3af72909",
+      "revId": "40c909a8397adb3867a7c4b2dc807cc8f38c19b1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
