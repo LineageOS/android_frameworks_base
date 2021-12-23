@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98edf453_2002765e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2021-12-23T17:39:37Z",
+      "side": 1,
+      "message": "mHasCenterCutout could have been removed entirely.",
+      "revId": "cfa04152945496f6ecdf066df022045b80a12206",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
