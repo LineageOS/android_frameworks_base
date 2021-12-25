@@ -1475,4 +1475,60 @@ public final class BluetoothHeadset implements BluetoothProfile {
             }
         }
     };
+
+    /**
+     * Notify Headset of phone state change.
+     * This is a backdoor for phone app to call BluetoothHeadset since
+     * there is currently not a good way to get precise call state change outside
+     * of phone app.
+     *
+     * @hide
+     */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(allOf = {
+            android.Manifest.permission.BLUETOOTH_CONNECT,
+            android.Manifest.permission.MODIFY_PHONE_STATE,
+    })
+    public void phoneStateChangedDsDa(int numActive, int numHeld, int callState, String number,
+            int type, String name) {
+        final IBluetoothHeadset service = mService;
+        if (service != null && isEnabled()) {
+            try {
+                service.phoneStateChangedDsDa(numActive, numHeld, callState, number, type, name,
+                        mAttributionSource);
+            } catch (RemoteException e) {
+                Log.e(TAG, e.toString());
+            }
+        } else {
+            Log.w(TAG, "Proxy not attached to service");
+            if (DBG) Log.d(TAG, Log.getStackTraceString(new Throwable()));
+        }
+    }
+
+    /**
+     * Send Headset of CLCC response
+     *
+     * @hide
+     */
+    @RequiresBluetoothConnectPermission
+    @RequiresPermission(allOf = {
+            android.Manifest.permission.BLUETOOTH_CONNECT,
+            android.Manifest.permission.MODIFY_PHONE_STATE,
+    })
+    public void clccResponseDsDa(int index, int direction, int status, int mode, boolean mpty,
+            String number, int type) {
+        final IBluetoothHeadset service = mService;
+        if (service != null && isEnabled()) {
+            try {
+                service.clccResponseDsDa(index, direction, status, mode, mpty, number, type,
+                        mAttributionSource);
+            } catch (RemoteException e) {
+                Log.e(TAG, e.toString());
+            }
+        } else {
+            Log.w(TAG, "Proxy not attached to service");
+            if (DBG) Log.d(TAG, Log.getStackTraceString(new Throwable()));
+        }
+    }
+
 }
