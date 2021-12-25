@@ -58,6 +58,7 @@ import android.view.WindowMetrics;
 
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.broadcast.BroadcastDispatcher;
@@ -98,11 +99,15 @@ import javax.inject.Inject;
  * Utility class to handle edge swipes for back gesture
  */
 public class EdgeBackGestureHandler extends CurrentUserTracker
-        implements PluginListener<NavigationEdgeBackPlugin>, ProtoTraceable<SystemUiTraceProto> {
+        implements PluginListener<NavigationEdgeBackPlugin>, ProtoTraceable<SystemUiTraceProto>,
+        TunerService.Tunable {
 
     private static final String TAG = "EdgeBackGestureHandler";
     private static final int MAX_LONG_PRESS_TIMEOUT = SystemProperties.getInt(
             "gestures.back_timeout", 250);
+
+    private static final String KEY_EDGE_LONG_SWIPE_ACTION =
+            "lineagesystem:" + LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION;
 
     private static final int MAX_NUM_LOGGED_PREDICTIONS = 10;
     private static final int MAX_NUM_LOGGED_GESTURES = 10;
