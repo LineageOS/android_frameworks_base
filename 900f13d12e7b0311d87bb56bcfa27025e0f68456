@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223de989_8483a858",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1586,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-12-25T19:55:57Z",
+      "side": 1,
+      "message": "hopefully launchVoiceAssistWithWakeLock() isn\u0027t the same as SEARCH above.",
+      "range": {
+        "startLine": 1586,
+        "startChar": 16,
+        "endLine": 1586,
+        "endChar": 45
+      },
+      "revId": "900f13d12e7b0311d87bb56bcfa27025e0f68456",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
