@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f430509_988cbc02",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1586,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-12-25T12:48:56Z",
+      "side": 1,
+      "message": "assist long press was removed:\n - replace with something else\n - remove + write lineagesettings migration",
+      "range": {
+        "startLine": 1586,
+        "startChar": 0,
+        "endLine": 1586,
+        "endChar": 49
+      },
+      "revId": "f002b5f3948160726a7d50c0178239deaf216145",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
