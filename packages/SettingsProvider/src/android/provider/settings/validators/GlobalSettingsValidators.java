@@ -23,6 +23,7 @@ import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VA
 import static android.provider.settings.validators.SettingsValidators.NONE_NEGATIVE_LONG_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.PACKAGE_NAME_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.PERCENTAGE_INTEGER_VALIDATOR;
+import static android.provider.settings.validators.SettingsValidators.UID_LIST_VALIDATOR;
 import static android.view.Display.HdrCapabilities.HDR_TYPES;
 
 import android.os.BatteryManager;
@@ -142,6 +143,7 @@ public class GlobalSettingsValidators {
         VALIDATORS.put(Global.DISABLE_WINDOW_BLURS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Global.DEVICE_CONFIG_SYNC_DISABLED, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Global.POWER_BUTTON_LONG_PRESS_DURATION_MS, NONE_NEGATIVE_LONG_VALIDATOR);
+        VALIDATORS.put(Global.UIDS_ALLOWED_ON_RESTRICTED_NETWORKS, UID_LIST_VALIDATOR);
     }
 }
 
