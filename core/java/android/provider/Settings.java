@@ -19553,6 +19553,14 @@ public final class Settings {
         public static final String ONE_HANDED_KEYGUARD_SIDE = "one_handed_keyguard_side";
 
         /**
+         * A list of uids that are allowed to use restricted networks.
+         *
+         * @hide
+         */
+        public static final String UIDS_ALLOWED_ON_RESTRICTED_NETWORKS =
+                "uids_allowed_on_restricted_networks";
+
+        /**
          * A semi-colon separated list of Bluetooth hearing devices' local ambient volume data.
          * Each entry is encoded as a key=value list, separated by commas. Ex:
          *
