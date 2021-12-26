@@ -76,6 +76,7 @@ public class GlobalSettings {
         Settings.Global.ARE_USER_DISABLED_HDR_FORMATS_ALLOWED,
         Settings.Global.DEVICE_CONFIG_SYNC_DISABLED,
         Settings.Global.POWER_BUTTON_LONG_PRESS,
-        Settings.Global.POWER_BUTTON_LONG_PRESS_DURATION_MS
+        Settings.Global.POWER_BUTTON_LONG_PRESS_DURATION_MS,
+        Settings.Global.UIDS_ALLOWED_ON_RESTRICTED_NETWORKS
     };
 }
