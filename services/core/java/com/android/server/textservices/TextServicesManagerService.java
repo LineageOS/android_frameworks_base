@@ -43,6 +43,8 @@ import android.service.textservice.SpellCheckerService;
 import android.text.TextUtils;
 import android.util.Slog;
 import android.util.SparseArray;
+import android.view.inputmethod.InputMethodManager;
+import android.view.inputmethod.InputMethodSubtype;
 import android.view.textservice.SpellCheckerInfo;
 import android.view.textservice.SpellCheckerSubtype;
 import android.view.textservice.SuggestionsInfo;
@@ -544,19 +546,37 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
 
         // subtypeHashCode == 0 means spell checker language settings is "auto"
 
-        if (systemLocale == null) {
+        Locale candidateLocale = null;
+        final InputMethodManager imm = mContext.getSystemService(InputMethodManager.class);
+        if (imm != null) {
+            final InputMethodSubtype currentInputMethodSubtype =
+                    imm.getCurrentInputMethodSubtype();
+            if (currentInputMethodSubtype != null) {
+                final String localeString = currentInputMethodSubtype.getLocale();
+                if (!TextUtils.isEmpty(localeString)) {
+                    // 1. Use keyboard locale if available in the spell checker
+                    candidateLocale = SubtypeLocaleUtils.constructLocaleFromString(localeString);
+                }
+            }
+        }
+        if (candidateLocale == null) {
+            // 2. Use System locale if available in the spell checker
+            candidateLocale = systemLocale;
+        }
+
+        if (candidateLocale == null) {
             return null;
         }
         SpellCheckerSubtype firstLanguageMatchingSubtype = null;
         for (int i = 0; i < sci.getSubtypeCount(); ++i) {
             final SpellCheckerSubtype scs = sci.getSubtypeAt(i);
             final Locale scsLocale = scs.getLocaleObject();
-            if (Objects.equals(scsLocale, systemLocale)) {
+            if (Objects.equals(scsLocale, candidateLocale)) {
                 // Exact match wins.
                 return scs;
             }
             if (firstLanguageMatchingSubtype == null && scsLocale != null
-                    && TextUtils.equals(systemLocale.getLanguage(), scsLocale.getLanguage())) {
+                    && TextUtils.equals(candidateLocale.getLanguage(), scsLocale.getLanguage())) {
                 // Remember as a fall back candidate
                 firstLanguageMatchingSubtype = scs;
             }
