@@ -37,6 +37,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -44,6 +45,7 @@ import android.service.textservice.SpellCheckerService;
 import android.text.TextUtils;
 import android.util.Slog;
 import android.util.SparseArray;
+import android.view.inputmethod.InputMethodSubtype;
 import android.view.textservice.SpellCheckerInfo;
 import android.view.textservice.SpellCheckerSubtype;
 import android.view.textservice.SuggestionsInfo;
@@ -58,6 +60,7 @@ import com.android.internal.textservice.ISpellCheckerSessionListener;
 import com.android.internal.textservice.ITextServicesManager;
 import com.android.internal.textservice.ITextServicesSessionListener;
 import com.android.internal.util.DumpUtils;
+import com.android.internal.view.IInputMethodManager;
 import com.android.server.LocalServices;
 import com.android.server.SystemService;
 
@@ -545,19 +548,44 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
 
         // subtypeHashCode == 0 means spell checker language settings is "auto"
 
-        if (systemLocale == null) {
+        Locale candidateLocale = null;
+        final IInputMethodManager imm = IInputMethodManager.Stub.asInterface(
+                ServiceManager.getService(Context.INPUT_METHOD_SERVICE));
+        if (imm != null) {
+            try {
+                final InputMethodSubtype currentInputMethodSubtype =
+                        imm.getCurrentInputMethodSubtype(userId);
+                if (currentInputMethodSubtype != null) {
+                    final String localeString = currentInputMethodSubtype.getLocale();
+                    if (!TextUtils.isEmpty(localeString)) {
+                        // 1. Use keyboard locale if available in the spell checker
+                        candidateLocale =
+                                SubtypeLocaleUtils.constructLocaleFromString(localeString);
+                    }
+                }
+            } catch (RemoteException e) {
+                Slog.e(TAG, "Exception getting input method subtype for " + userId, e);
+            }
+        }
+
+        if (candidateLocale == null) {
+            // 2. Use System locale if available in the spell checker
+            candidateLocale = systemLocale;
+        }
+
+        if (candidateLocale == null) {
             return null;
         }
         SpellCheckerSubtype firstLanguageMatchingSubtype = null;
         for (int i = 0; i < sci.getSubtypeCount(); ++i) {
             final SpellCheckerSubtype scs = sci.getSubtypeAt(i);
             final Locale scsLocale = scs.getLocaleObject();
-            if (Objects.equals(scsLocale, systemLocale)) {
+            if (Objects.equals(scsLocale, candidateLocale)) {
                 // Exact match wins.
                 return scs;
             }
             if (firstLanguageMatchingSubtype == null && scsLocale != null
-                    && TextUtils.equals(systemLocale.getLanguage(), scsLocale.getLanguage())) {
+                    && TextUtils.equals(candidateLocale.getLanguage(), scsLocale.getLanguage())) {
                 // Remember as a fall back candidate
                 firstLanguageMatchingSubtype = scs;
             }
