@@ -22,6 +22,30 @@
       },
       "revId": "acb93eaec6403c56038c620d3b08a6fcb749b597",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77402196_78288225",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/BrightnessController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 22648
+      },
+      "writtenOn": "2021-12-27T19:00:02Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "fad55691_3b2ae17e",
+      "range": {
+        "startLine": 298,
+        "startChar": 24,
+        "endLine": 298,
+        "endChar": 115
+      },
+      "revId": "acb93eaec6403c56038c620d3b08a6fcb749b597",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
