@@ -16,6 +16,24 @@
       "message": "Long press back should be restored to A11 state. Else on releasing back key, a back event msg is sent.\n\nRef: https://github.com/crdroidandroid/android_frameworks_base/commit/19c80ad53a258176162d1eb47085cc388fb5dd6a",
       "revId": "9b83a8484efa63296ab2f206ab786fba6f4d7aca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d69a1ac_712bacd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2021-12-28T10:23:39Z",
+      "side": 1,
+      "message": "I don\u0027t understand, long press back behaves fine here.",
+      "parentUuid": "9fc9269b_27939fa3",
+      "revId": "9b83a8484efa63296ab2f206ab786fba6f4d7aca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
