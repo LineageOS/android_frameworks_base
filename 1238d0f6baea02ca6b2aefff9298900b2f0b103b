@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6237f3e1_34e4d546",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardPINView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 18205
+      },
+      "writtenOn": "2021-12-29T15:14:55Z",
+      "side": 0,
+      "message": "unintended?",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 0
+      },
+      "revId": "1238d0f6baea02ca6b2aefff9298900b2f0b103b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
