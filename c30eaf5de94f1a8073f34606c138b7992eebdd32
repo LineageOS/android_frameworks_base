@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1cc781f_9ad1f672",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2021-12-30T22:05:25Z",
+      "side": 1,
+      "message": "ah nvm, their Locale is eng, but ime is !\u003d eng.\nMakes sense to use ime locale there",
+      "revId": "c30eaf5de94f1a8073f34606c138b7992eebdd32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb0f5f30_0753945e",
