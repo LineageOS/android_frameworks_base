@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8b4f662_06876433",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2021-12-30T17:15:03Z",
+      "side": 1,
+      "message": "This works around the issue with \"onCamOpened\" not being called when the cam is already open when we take our first screenshot. Though this leaves us with an issue the other way around: Now we always assume \"1 cam in use\" until we actually open cam and take a screenshot or open and close cam after we have taken one\nAlso, while I verified that `mCameraSound.play(MediaActionSound.SHUTTER_CLICK);` is really called, I still couldn\u0027t hear a thing when I muted the stream. Not sure if this is emulator related, but I suspect it\u0027s not",
+      "revId": "c9637786f78041923e5c1154d9542cdf18cc70c9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
