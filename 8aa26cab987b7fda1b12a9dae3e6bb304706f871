@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "748bfb0c_aaa60f6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2021-12-30T15:55:19Z",
+      "side": 1,
+      "message": "Turns out this runs _after_ SDK migration is done, which is good for us, that means when this runs the allowlist is populated and we can remove any uids with POLICY_REJECT_ALL",
+      "revId": "8aa26cab987b7fda1b12a9dae3e6bb304706f871",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
