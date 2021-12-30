@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "3e25a53f_736bab19",
         "filename": "core/java/com/android/server/backup/NetworkPolicyBackupHelper.java",
@@ -14,10 +15,28 @@
       "side": 1,
       "message": "newline missing at end of file",
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c235829_2edf01c3",
+        "filename": "core/java/com/android/server/backup/NetworkPolicyBackupHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-12-30T09:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e25a53f_736bab19",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "9f8f81c4_6ca5152c",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
@@ -31,10 +50,28 @@
       "side": 1,
       "message": "line length",
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5908e0d_1047ecaf",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2374,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-12-30T09:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f8f81c4_6ca5152c",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "6850333a_95a49e70",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
@@ -54,10 +91,34 @@
         "endChar": 21
       },
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da7f307_c88d43ef",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-12-30T09:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6850333a_95a49e70",
+      "range": {
+        "startLine": 2370,
+        "startChar": 20,
+        "endLine": 2375,
+        "endChar": 21
+      },
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "b060c41d_7878d0ed",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
@@ -71,10 +132,28 @@
       "side": 1,
       "message": "line length",
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba93646c_6b1013c0",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2402,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-12-30T09:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b060c41d_7878d0ed",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "e28541b0_7f94dd2e",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
@@ -88,10 +167,28 @@
       "side": 1,
       "message": "line length",
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "897a8d43_03033b7d",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2410,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-12-30T09:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e28541b0_7f94dd2e",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "934e6785_66d45eee",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
@@ -105,10 +202,10 @@
       "side": 1,
       "message": "are you sure that there will always be a valid package for the given uid? getPackagesForUid can return null.\nString[] packages \u003d Context.getPackageManager().getPackagesForUid(uid);\nreturn packages !\u003d null ? packages[0] : \"\";",
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "18c65de1_ef69fdd0",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
@@ -123,8 +220,25 @@
       "message": "https://cs.android.com/android/platform/superproject/+/master:frameworks/base/core/java/com/android/internal/util/XmlUtils.java;l\u003d1889;drc\u003d78e84716e63b0e5da8f0fd4e1ff762884cdc4104\nnull values are ignored",
       "parentUuid": "934e6785_66d45eee",
       "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1c47cae_97128c86",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 5579,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2021-12-30T09:39:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18c65de1_ef69fdd0",
+      "revId": "7fd09b8030b6edab5c0e90762e057bbc1c87e7f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
