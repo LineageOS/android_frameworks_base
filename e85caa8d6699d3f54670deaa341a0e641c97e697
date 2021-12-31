@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d593fcbb_2af8c46b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2021-12-31T14:28:32Z",
+      "side": 1,
+      "message": "The whole topic worked just fine since June. Let\u0027s ship it, since the UI concerns raised by Mike over LineageParts change are now addressed.",
+      "revId": "e85caa8d6699d3f54670deaa341a0e641c97e697",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
