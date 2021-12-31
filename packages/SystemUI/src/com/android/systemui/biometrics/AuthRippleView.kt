@@ -29,6 +29,7 @@ import android.view.View
 import android.view.animation.PathInterpolator
 import com.android.app.animation.Interpolators
 import com.android.internal.graphics.ColorUtils
+import com.android.settingslib.Utils
 import com.android.systemui.surfaceeffects.core.dwellrippleeffect.DwellRippleShader
 import com.android.systemui.surfaceeffects.core.ripple.RippleShader
 
@@ -91,7 +92,8 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
         rippleShader.sparkleStrength = RIPPLE_SPARKLE_STRENGTH
         updateRippleFadeParams()
         ripplePaint.shader = rippleShader
-        setLockScreenColor(0xffffffff.toInt()) // default color
+        setLockScreenColor(Utils.getColorAttr(context,
+                android.R.attr.colorAccent).defaultColor) // default color
 
         dwellShader.color = 0xffffffff.toInt() // default color
         dwellShader.progress = 0f
