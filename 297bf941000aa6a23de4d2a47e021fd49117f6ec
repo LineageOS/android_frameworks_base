@@ -16,6 +16,23 @@
       "message": "panel position in vertical was fine, but landscape was in wrong position, now fixed.",
       "revId": "297bf941000aa6a23de4d2a47e021fd49117f6ec",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58e9ecc7_1c5c8154",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-01-02T09:42:15Z",
+      "side": 1,
+      "message": "Working fine in my testing. landscape and vertical",
+      "revId": "297bf941000aa6a23de4d2a47e021fd49117f6ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
