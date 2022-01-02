@@ -33,6 +33,23 @@
       "message": "Working fine in my testing. landscape and vertical",
       "revId": "297bf941000aa6a23de4d2a47e021fd49117f6ec",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e7d0ca0_630c264d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-01-02T10:32:11Z",
+      "side": 1,
+      "message": "don\u0027t change the way landscape behaves (ringer button layout should stay horizontal).",
+      "revId": "297bf941000aa6a23de4d2a47e021fd49117f6ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
