@@ -16,6 +16,24 @@
       "message": "Just wonder why there is no setting part of this commit available? I think user should have a choice to toggle this even if device maintainer set this to true.",
       "revId": "369ea848b7fa60e1b2d1ffa29dcd13146684c806",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf86fabf_31782f3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-01-05T22:19:42Z",
+      "side": 1,
+      "message": "Some devices are capable of handling it gracefully. We\u0027re not going to expose a toggle on devices where it\u0027s going to cause issues.",
+      "parentUuid": "2cde9908_7747af92",
+      "revId": "369ea848b7fa60e1b2d1ffa29dcd13146684c806",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
