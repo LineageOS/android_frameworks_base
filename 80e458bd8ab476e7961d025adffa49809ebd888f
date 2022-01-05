@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b4eaeb4_f5d8151a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2022-01-05T13:49:48Z",
+      "side": 1,
+      "message": "Do you know why it is not a lineage key?",
+      "revId": "80e458bd8ab476e7961d025adffa49809ebd888f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
