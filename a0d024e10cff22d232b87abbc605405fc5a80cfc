@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c044be82_0e66dc38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2022-01-06T11:26:39Z",
+      "side": 1,
+      "message": "This maybe was dropped from the partner zips for 2022-01, but they went ahead and shipped it on the security branch anyway? I haven\u0027t reverted it from the merge yet...",
+      "revId": "a0d024e10cff22d232b87abbc605405fc5a80cfc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
