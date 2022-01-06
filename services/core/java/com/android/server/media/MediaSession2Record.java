@@ -146,12 +146,6 @@ public class MediaSession2Record implements MediaSessionRecordImpl {
     }
 
     @Override
-    public boolean canHandleVolumeKey() {
-        // TODO: Implement when MediaSession2 starts to get key events.
-        return false;
-    }
-
-    @Override
     public int getSessionPolicies() {
         synchronized (mLock) {
             return mPolicies;

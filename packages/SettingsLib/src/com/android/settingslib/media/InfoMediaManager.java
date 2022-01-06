@@ -70,7 +70,6 @@ public class InfoMediaManager extends MediaManager {
     MediaRouter2Manager mRouterManager;
     @VisibleForTesting
     String mPackageName;
-    private final boolean mVolumeAdjustmentForRemoteGroupSessions;
 
     private MediaDevice mCurrentConnectedDevice;
     private LocalBluetoothManager mBluetoothManager;
@@ -84,9 +83,6 @@ public class InfoMediaManager extends MediaManager {
         if (!TextUtils.isEmpty(packageName)) {
             mPackageName = packageName;
         }
-
-        mVolumeAdjustmentForRemoteGroupSessions = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_volumeAdjustmentForRemoteGroupSessions);
     }
 
     @Override
@@ -391,9 +387,7 @@ public class InfoMediaManager extends MediaManager {
 
     @TargetApi(Build.VERSION_CODES.R)
     boolean shouldEnableVolumeSeekBar(RoutingSessionInfo sessionInfo) {
-        return sessionInfo.isSystemSession() // System sessions are not remote
-                || mVolumeAdjustmentForRemoteGroupSessions
-                || sessionInfo.getSelectedRoutes().size() <= 1;
+        return false;
     }
 
     private void refreshDevices() {

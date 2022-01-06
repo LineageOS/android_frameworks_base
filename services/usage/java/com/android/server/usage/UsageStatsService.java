@@ -380,7 +380,6 @@ public class UsageStatsService extends SystemService implements
         if (userId == UserHandle.USER_SYSTEM) {
             UsageStatsIdleService.scheduleUpdateMappingsJob(getContext());
         }
-        final boolean deleteObsoleteData = shouldDeleteObsoleteData(UserHandle.of(userId));
         synchronized (mLock) {
             // This should be safe to add this early. Other than reportEventOrAddToQueue, every
             // other user grabs the lock before accessing
@@ -403,7 +402,7 @@ public class UsageStatsService extends SystemService implements
             boolean needToFlush = !pendingEvents.isEmpty();
 
             initializeUserUsageStatsServiceLocked(userId, System.currentTimeMillis(),
-                    installedPackages, deleteObsoleteData);
+                    installedPackages);
             final UserUsageStatsService userService = getUserUsageStatsServiceLocked(userId);
             if (userService == null) {
                 Slog.i(TAG, "Attempted to unlock stopped or removed user " + userId);
@@ -597,13 +596,13 @@ public class UsageStatsService extends SystemService implements
      * when the user is initially unlocked.
      */
     private void initializeUserUsageStatsServiceLocked(int userId, long currentTimeMillis,
-            HashMap<String, Long> installedPackages, boolean deleteObsoleteData) {
+            HashMap<String, Long> installedPackages) {
         final File usageStatsDir = new File(Environment.getDataSystemCeDirectory(userId),
                 "usagestats");
         final UserUsageStatsService service = new UserUsageStatsService(getContext(), userId,
                 usageStatsDir, this);
         try {
-            service.init(currentTimeMillis, installedPackages, deleteObsoleteData);
+            service.init(currentTimeMillis, installedPackages);
             mUserState.put(userId, service);
         } catch (Exception e) {
             if (mUserManager.isUserUnlocked(userId)) {
@@ -1166,10 +1165,6 @@ public class UsageStatsService extends SystemService implements
      * Called by the Binder stub.
      */
     private boolean updatePackageMappingsData() {
-        // don't update the mappings if a profile user is defined
-        if (!shouldDeleteObsoleteData(UserHandle.SYSTEM)) {
-            return true; // return true so job scheduler doesn't reschedule the job
-        }
         // fetch the installed packages outside the lock so it doesn't block package manager.
         final HashMap<String, Long> installedPkgs = getInstalledPackages(UserHandle.USER_SYSTEM);
         synchronized (mLock) {
@@ -1312,13 +1307,6 @@ public class UsageStatsService extends SystemService implements
         synchronized (mLock) {
             mUsageEventListeners.remove(listener);
         }
-    }
-
-    private boolean shouldDeleteObsoleteData(UserHandle userHandle) {
-        final DevicePolicyManagerInternal dpmInternal = getDpmInternal();
-        // If a profile owner is not defined for the given user, obsolete data should be deleted
-        return dpmInternal == null
-                || dpmInternal.getProfileOwnerOrDeviceOwnerSupervisionComponent(userHandle) == null;
     }
 
     private String buildFullToken(String packageName, String token) {
@@ -2544,12 +2532,8 @@ public class UsageStatsService extends SystemService implements
     private class MyPackageMonitor extends PackageMonitor {
         @Override
         public void onPackageRemoved(String packageName, int uid) {
-            final int changingUserId = getChangingUserId();
-            // Only remove the package's data if a profile owner is not defined for the user
-            if (shouldDeleteObsoleteData(UserHandle.of(changingUserId))) {
-                mHandler.obtainMessage(MSG_PACKAGE_REMOVED, changingUserId, 0, packageName)
-                        .sendToTarget();
-            }
+            mHandler.obtainMessage(MSG_PACKAGE_REMOVED, getChangingUserId(), 0, packageName)
+                    .sendToTarget();
             super.onPackageRemoved(packageName, uid);
         }
     }

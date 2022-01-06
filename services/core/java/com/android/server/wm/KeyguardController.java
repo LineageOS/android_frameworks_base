@@ -190,7 +190,8 @@ class KeyguardController {
 
         if (keyguardChanged) {
             // Irrelevant to AOD.
-            dismissMultiWindowModeForTaskIfNeeded(null /* currentTaskControllsingOcclusion */);
+            dismissMultiWindowModeForTaskIfNeeded(null /* currentTaskControllsingOcclusion */,
+                    false /* turningScreenOn */);
             mKeyguardGoingAway = false;
             if (keyguardShowing) {
                 mDismissalRequested = false;
@@ -384,8 +385,6 @@ class KeyguardController {
                 mService.continueWindowLayout();
             }
         }
-        dismissMultiWindowModeForTaskIfNeeded(topActivity != null
-                ? topActivity.getRootTask() : null);
     }
 
     /**
@@ -411,6 +410,21 @@ class KeyguardController {
         }
     }
 
+    /**
+     * Called when somebody wants to turn screen on.
+     */
+    private void handleTurnScreenOn(int displayId) {
+        if (displayId != DEFAULT_DISPLAY) {
+            return;
+        }
+
+        mTaskSupervisor.wakeUp("handleTurnScreenOn");
+        if (mKeyguardShowing && canDismissKeyguard()) {
+            mWindowManager.dismissKeyguard(null /* callback */, null /* message */);
+            mDismissalRequested = true;
+        }
+    }
+
     boolean isDisplayOccluded(int displayId) {
         return getDisplayState(displayId).mOccluded;
     }
@@ -424,9 +438,11 @@ class KeyguardController {
     }
 
     private void dismissMultiWindowModeForTaskIfNeeded(
-            @Nullable Task currentTaskControllingOcclusion) {
+            @Nullable Task currentTaskControllingOcclusion, boolean turningScreenOn) {
+        // If turningScreenOn is true, it means that the visibility state has changed from
+        // currentTaskControllingOcclusion and we should update windowing mode.
         // TODO(b/113840485): Handle docked stack for individual display.
-        if (!mKeyguardShowing || !isDisplayOccluded(DEFAULT_DISPLAY)) {
+        if (!turningScreenOn && (!mKeyguardShowing || !isDisplayOccluded(DEFAULT_DISPLAY))) {
             return;
         }
 
@@ -565,16 +581,25 @@ class KeyguardController {
                     && controller.mWindowManager.isKeyguardSecure(
                     controller.mService.getCurrentUserId());
 
+            boolean occludingChange = false;
+            boolean turningScreenOn = false;
             if (mTopTurnScreenOnActivity != lastTurnScreenOnActivity
                     && mTopTurnScreenOnActivity != null
                     && !mService.mWindowManager.mPowerManager.isInteractive()
-                    && (mRequestDismissKeyguard || occludedByActivity)) {
-                controller.mTaskSupervisor.wakeUp("handleTurnScreenOn");
+                    && (mRequestDismissKeyguard || occludedByActivity
+                        || controller.canDismissKeyguard())) {
+                turningScreenOn = true;
+                controller.handleTurnScreenOn(mDisplayId);
                 mTopTurnScreenOnActivity.setCurrentLaunchCanTurnScreenOn(false);
             }
 
             if (lastOccluded != mOccluded) {
+                occludingChange = true;
                 controller.handleOccludedChanged(mDisplayId, mTopOccludesActivity);
+            }
+
+            if (occludingChange || turningScreenOn) {
+                controller.dismissMultiWindowModeForTaskIfNeeded(task, turningScreenOn);
             }
         }
 
