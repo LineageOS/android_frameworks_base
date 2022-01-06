@@ -274,7 +274,7 @@ public class InternetDialogTest extends SysuiTestCase {
     public void updateDialog_wifiOn_hideWifiScanNotify() {
         // The preconditions WiFi ON and Internet WiFi are already in setUp()
 
-        mInternetDialog.updateDialog();
+        mInternetDialog.updateDialog(false);
 
         assertThat(mWifiScanNotify.getVisibility()).isEqualTo(View.GONE);
     }
@@ -284,7 +284,7 @@ public class InternetDialogTest extends SysuiTestCase {
         when(mWifiManager.isWifiEnabled()).thenReturn(false);
         when(mInternetDialogController.isWifiScanEnabled()).thenReturn(false);
 
-        mInternetDialog.updateDialog();
+        mInternetDialog.updateDialog(false);
 
         assertThat(mWifiScanNotify.getVisibility()).isEqualTo(View.GONE);
     }
@@ -295,7 +295,7 @@ public class InternetDialogTest extends SysuiTestCase {
         when(mInternetDialogController.isWifiScanEnabled()).thenReturn(true);
         when(mInternetDialogController.isDeviceLocked()).thenReturn(true);
 
-        mInternetDialog.updateDialog();
+        mInternetDialog.updateDialog(false);
 
         assertThat(mWifiScanNotify.getVisibility()).isEqualTo(View.GONE);
     }
@@ -306,7 +306,7 @@ public class InternetDialogTest extends SysuiTestCase {
         when(mInternetDialogController.isWifiScanEnabled()).thenReturn(true);
         when(mInternetDialogController.isDeviceLocked()).thenReturn(false);
 
-        mInternetDialog.updateDialog();
+        mInternetDialog.updateDialog(false);
 
         assertThat(mWifiScanNotify.getVisibility()).isEqualTo(View.VISIBLE);
         TextView wifiScanNotifyText = mDialogView.requireViewById(R.id.wifi_scan_notify_text);
