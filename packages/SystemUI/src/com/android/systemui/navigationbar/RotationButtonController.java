@@ -369,7 +369,7 @@ public class RotationButtonController {
         return mContext;
     }
 
-    RotationButton getRotationButton() {
+    public RotationButton getRotationButton() {
         return mRotationButton;
     }
 
