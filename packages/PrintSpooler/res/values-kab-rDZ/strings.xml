@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="more_options_button">Ugar n tefranin</string>
+    <string name="label_destination">Taniɣert</string>
+    <string name="label_copies">Tunɣilin</string>
+    <string name="label_paper_size">Teɣzi d tehri n tifert</string>
+    <string name="label_color">Ini</string>
+    <string name="label_orientation">Awelleh</string>
+    <string name="label_pages">Isebtar</string>
+    <string name="print_preview">Siggez taskant</string>
+    <string name="save_as_pdf">Sekles am PDF</string>
+    <string name="print_button">Siggez</string>
+    <string name="savetopdf_button">Sekles am PDF</string>
+    <string name="search">Nadi</string>
+    <string name="cancel">Sefsex</string>
+    <string name="restart">Ales tanekra</string>
+    <string name="reason_unknown">arussin</string>
+    <string-array name="color_mode_labels">
+        <item>Black &amp; White</item>
+        <item>Ini</item>
+    </string-array>
+    <string-array name="duplex_mode_labels">
+        <item>Ulac</item>
+        <item>Long edge</item>
+        <item>Short edge</item>
+    </string-array>
+    <string-array name="orientation_labels">
+        <item>S teɣzi</item>
+        <item>S tehri</item>
+    </string-array>
+    <string name="print_error_retry">Ɛref̣ tikelt-nniḍen</string>
+</resources>

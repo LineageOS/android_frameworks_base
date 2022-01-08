@@ -74,6 +74,7 @@
     <string name="global_action_restart_download_progress">กำลังเริ่มต้นใหม่ในโหมด bootloader\u2026</string>
     <string name="global_action_restart_fastboot_progress">กำลังเริ่มต้นใหม่ในโหมด fastbootd\u2026</string>
     <string name="global_action_current_user">ปัจจุบัน</string>
+    <string name="global_action_users">ผู้ใช้งาน</string>
     <string name="status_bar_camera">กล้อง</string>
     <string name="status_bar_location">ตำแหน่ง</string>
     <string name="status_bar_microphone">ไมโครโฟน</string>

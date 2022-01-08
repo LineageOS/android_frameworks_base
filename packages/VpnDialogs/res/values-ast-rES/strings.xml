@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="prompt">Solicitú de conexón</string>
-    <string name="warning"><xliff:g id="app">%s</xliff:g> quier configurar una conexón VPN
+    <string name="warning">«<xliff:g id="app">%s</xliff:g>» quier configurar una conexón VPN
         que-y permite supervisar el tránsitu de la rede. Acepta namás si t\'enfotes nel orixe.
                 &lt;br /&gt;
         &lt;br /&gt;
@@ -29,7 +29,7 @@
     <string name="data_received">Recibióse:</string>
     <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> bytes /
         <xliff:g id="number">%2$s</xliff:g> paquetes
-    </string>
+    </string>
     <string name="always_on_disconnected_title">Nun se puede coneutar con una VPN siempre encesa</string>
     <string name="always_on_disconnected_message">        <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> ta configuráu pa tar coneutáu tol
         tiempu, pero nun se puede coneutar agora. El to teléfonu va usar una rede pública hasta que pueda

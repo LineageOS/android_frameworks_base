@@ -22,6 +22,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
     <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
+    <string name="global_screenshot_selector_capture_description">Faghe una catura partziale de s\'ischermu</string>
+    <string name="global_screenshot_selector_cancel_description">Annulla sa catura partziale de s\'ischermu</string>
+    <string name="quick_settings_reading_mode">Modalidade letura</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Modalidade letura alluta.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modalidade letura istudada.</string>
     <string name="quick_settings_profiles_label">Profilos de sistema</string>
     <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>

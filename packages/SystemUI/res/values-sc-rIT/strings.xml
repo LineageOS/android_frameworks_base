@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="wifi_debugging_always">Permite semper in custa rete</string>
+    <string name="screenrecord_name">Registratzione de s\'ischermu</string>
+    <string name="screenrecord_background_processing_label">Esecutende sa registratzione de s\'ischermu</string>
+    <string name="screenrecord_mic_label">Micròfonu</string>
+    <string name="screenrecord_device_audio_and_mic_label">Àudio e micròfonu de su dispositivu</string>
+    <string name="screenrecord_ongoing_screen_only">Registratzione de s\'ischermu</string>
+    <string name="biometric_dialog_last_password_attempt_before_wipe_profile">Si pones una crae isballiada a su tentativu imbeniente, su profilu de traballu e is datos s\'ant a cantzellare dae su dispositivu.</string>
+    <string name="accessibility_battery_unknown">Càrriga de sa bateria disconnota.</string>
+    <string name="quick_settings_flashlight_camera_in_use">Càmera impreada</string>
+    <string name="quick_settings_screen_record_label">Registratzione de s\'ischermu</string>
+    <string name="media_seamless_remote_device">Dispositivu</string>
+    <string name="do_disclosure_generic">Custu dispositivu est de propiedade de s\'organizatzione tua</string>
+    <string name="do_disclosure_with_name">Su dispositivu est de <xliff:g id="organization_name" example="Foo, Inc.">%s</xliff:g></string>
+    <string name="manage_notifications_history_text">Cronologia</string>
+    <string name="notification_section_header_incoming">Nou</string>
+    <string name="notification_section_header_conversations">Arresonos</string>
+    <string name="quick_settings_disclosure_management_monitoring">S\'organizatzione tua est mere de custu dispositivu e podet monitorare su tràficu de rete</string>
+    <string name="quick_settings_disclosure_named_management_monitoring"><xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g> est mere de custu dispositivu e podet monitorare su tràficu de rete</string>
+    <string name="quick_settings_disclosure_management_named_vpn">Su dispositivu est de s\'organizatzione tua e est connètidu a <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g></string>
+    <string name="quick_settings_disclosure_named_management_named_vpn">Su dispositivu est de <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g> e est connètidu a <xliff:g id="vpn_app" example="Foo VPN App">%2$s</xliff:g></string>
+    <string name="quick_settings_disclosure_management">Custu dispositivu est de propiedade de s\'organizatzione tua</string>
+    <string name="quick_settings_disclosure_named_management">Su dispositivu est de <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g></string>
+    <string name="quick_settings_disclosure_management_vpns">Custu dispositivu est de s\'organizatzione tua e est connètidu a is VPN</string>
+    <string name="quick_settings_disclosure_named_management_vpns">Custu dispositivu est de <xliff:g id="organization_name" example="Foo, Inc.">%1$s</xliff:g> e est connètidu a is VPN</string>
+    <string name="quick_settings_disclosure_vpns">Custu dispositivu est connètidu a is VPN</string>
+    <string name="quick_settings_disclosure_managed_profile_named_vpn">Profilu de traballu connètidu a <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g></string>
+    <string name="quick_settings_disclosure_personal_profile_named_vpn">Profilu de traballu connètidu a <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g></string>
+    <string name="quick_settings_disclosure_named_vpn">Dispositivu connètidu a <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g></string>
+    <string name="screen_pinning_exposes_personal_data">Is datos personales diant pòdere èssere atzessìbiles (comente cuntatos e messàgios de posta eletrònica).</string>
+    <string name="screen_pinning_exit">Aplicatzione isblocada</string>
+    <string name="notification_bubble_title">Abbajolu</string>
+    <string name="notification_channel_summary_low">Perunu sonu o vibratzione</string>
+    <string name="notification_priority_title">Prioridade</string>
+    <string name="bubble_overflow_empty_title">Perunu abbajolu reghente</string>
+</resources>

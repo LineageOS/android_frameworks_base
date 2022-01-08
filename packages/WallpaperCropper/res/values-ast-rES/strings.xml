@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="crop_wallpaper">Recortar el fondu</string>
-    <string name="wallpaper_instructions">Afitar el fondu</string>
-    <string name="wallpaper_load_fail">Nun pudo cargase la imaxe como fondu de pantalla</string>
+    <string name="crop_wallpaper">Recortar el fondu de pantalla</string>
+    <string name="wallpaper_instructions">Afitar el fondu de pantalla</string>
+    <string name="wallpaper_load_fail">Nun se pudo cargar la imaxe como fondu de pantalla</string>
 </resources>

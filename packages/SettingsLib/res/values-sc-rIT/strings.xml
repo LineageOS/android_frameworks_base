@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2015 The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="wifi_passpoint_expired">Iscadidu</string>
+    <string name="tts_status_title">Istadu de limba predefinidu</string>
+    <string name="enable_adb_wireless">Curretzione de sa lìnia sena filos</string>
+    <string name="adb_wireless_error">Errore</string>
+    <string name="adb_wireless_settings">Curretzione de sa lìnia sena filos</string>
+    <string name="adb_wireless_list_empty_off">Pro bìdere e impreare is dispositivos disponìbiles, ativa sa curretzione de lìnia sena filos</string>
+    <string name="adb_pair_method_qrcode_title">Alloba su dispositivu cun su còdighe QR</string>
+    <string name="adb_pair_method_qrcode_summary">Alloba dispositivos noos cun s\'iscansione de su còdighe QR</string>
+    <string name="adb_pair_method_code_title">Alloba su dispositivu cun su còdighe de allobada</string>
+    <string name="adb_pair_method_code_summary">Alloba dispositivos noos cun su còdighe de ses tzifras</string>
+    <string name="adb_paired_devices_title">Dispositivos assotziados</string>
+    <string name="adb_wireless_device_connected_summary">Connètidu in custu momentu</string>
+    <string name="adb_wireless_device_details_title">Detàllios de su dispositivu</string>
+    <string name="adb_device_forget">Iscaresse·ti</string>
+    <string name="adb_device_fingerprint_title_format">Imprenta de pòddighe de su dispositivu: <xliff:g id="fingerprint_param" example="a1:b2:c3:d4:e5:f6">%1$s</xliff:g></string>
+    <string name="adb_wireless_connection_failed_title">Errore de connessione</string>
+    <string name="adb_pairing_device_dialog_title">Assòtzia a su dispositivu</string>
+    <string name="adb_pairing_device_dialog_pairing_code_label">Còdighe de assòtziu Wi\u2011Fi</string>
+    <string name="adb_pairing_device_dialog_failed_title">Errore in s\'assòtziu</string>
+    <string name="adb_wireless_qrcode_summary">Assòtzia su dispositivu a su Wi\u2011Fi cun s\'iscansione de unu còdighe QR</string>
+    <string name="adb_wireless_qrcode_pairing_title">Iscansiona su còdighe QR</string>
+    <string name="adb_wireless_qrcode_pairing_description">Assòtzia su dispositivu a su Wi\u2011Fi cun s\'iscansione de unu còdighe QR</string>
+    <string name="keywords_adb_wireless">adb, debug, dev</string>
+    <string name="bluetooth_enable_gabeldorsche">Abilita Gabeldorsche</string>
+    <string name="bluetooth_select_map_version_string">Versione Bluetooth MAP</string>
+    <string name="bluetooth_select_map_version_dialog_title">Sèbera sa versione Bluetooth MAP</string>
+    <string name="bluetooth_enable_gabeldorsche_summary">Ativat su grupu de funtziones de Bluetooth Gabeldorsche.</string>
+    <string name="enable_verbose_vendor_logging">Ativat sa registratzione detalliada de chie bendit</string>
+    <string name="user_add_profile_item_summary">Podes limitare s\'atzessu a is aplicatziones e a su cuntenutu dae su contu tuo</string>
+    <string name="user_add_user_item_title">Utente</string>
+    <string name="user_add_profile_item_title">Profilu limitadu</string>
+    <string name="user_setup_dialog_message">Assegura·ti chi sa persone siat disponìbile a pigare su dispositivu e a cunfigurare s\'ispàtziu suo</string>
+    <string name="user_setup_button_setup_now">Cunfigura immoe</string>
+    <string name="user_add_user_type_title">Agiunghe</string>
+    <string name="user_new_profile_name">Profilu nou</string>
+    <string name="user_info_settings_title">Informatziones de s\'utente</string>
+    <string name="profile_info_settings_title">Informatziones de su profilu</string>
+    <string name="user_need_lock_message">Antis de creare unu profilu limitadu, tenes bisòngiu de cunfigurare unu blocu de ischermu pro amparare is aplicatziones e is datos personales tuos.</string>
+    <string name="user_switch_to_user">Càmbia a <xliff:g id="user_name" example="John Doe">%s</xliff:g></string>
+    <string name="guest_new_guest">Agiunghe persone invitada</string>
+    <string name="cached_apps_freezer_device_default">Predefinidos de su dispositivu</string>
+    <string name="cached_apps_freezer_enabled">Abilitadu</string>
+    <string name="cached_apps_freezer_reboot_dialog_text">Su dispositivu depet èssere torradu a aviare pro aplicare custu càmbiu. Torra a aviare immoe o annulla</string>
+    <string name="media_transfer_wired_usb_device_name">Cùfias cun filu</string>
+</resources>

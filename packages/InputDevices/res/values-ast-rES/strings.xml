@@ -2,20 +2,20 @@
 <resources>
     <string name="app_label">Preseos d\'entrada</string>
     <string name="keyboard_layouts_label">Tecláu d\'Android</string>
-    <string name="keyboard_layout_english_uk_label">Inglés (Reinu Xuníu)</string>
-    <string name="keyboard_layout_english_us_label">Inglés (EE.XX)</string>
-    <string name="keyboard_layout_english_us_intl">Inglés (EE.XX), estilu Internacional</string>
-    <string name="keyboard_layout_english_us_colemak_label">Inglés (EE.XX), estilu Colemak</string>
-    <string name="keyboard_layout_english_us_dvorak_label">Inglés (EE.XX), estilu Dvorak</string>
-    <string name="keyboard_layout_english_us_workman_label">Inglés (EE.XX), estilu Workman</string>
+    <string name="keyboard_layout_english_uk_label">Inglés de Reinu Xuníu</string>
+    <string name="keyboard_layout_english_us_label">Inglés d\'EE.XX.</string>
+    <string name="keyboard_layout_english_us_intl">Inglés d\'EE.XX., estilu internacional</string>
+    <string name="keyboard_layout_english_us_colemak_label">Inglés d\'EE.XX., estilu Colemak</string>
+    <string name="keyboard_layout_english_us_dvorak_label">Inglés d\'EE.XX., estilu Dvorak</string>
+    <string name="keyboard_layout_english_us_workman_label">Inglés d\'EE.XX., estilu Workman</string>
     <string name="keyboard_layout_german_label">Alemán</string>
     <string name="keyboard_layout_french_label">Francés</string>
-    <string name="keyboard_layout_french_ca_label">Francés (Canadá)</string>
+    <string name="keyboard_layout_french_ca_label">Francés de Canadá</string>
     <string name="keyboard_layout_russian_label">Rusu</string>
     <string name="keyboard_layout_russian_mac_label">Rusu, estilu Mac</string>
     <string name="keyboard_layout_spanish_label">Español</string>
-    <string name="keyboard_layout_swiss_french_label">Francés (Suiza)</string>
-    <string name="keyboard_layout_swiss_german_label">Alemán (Suiza)</string>
+    <string name="keyboard_layout_swiss_french_label">Francés de Suiza</string>
+    <string name="keyboard_layout_swiss_german_label">Alemán de Suiza</string>
     <string name="keyboard_layout_belgian">Belga</string>
     <string name="keyboard_layout_bulgarian">Búlgaru</string>
     <string name="keyboard_layout_italian">Italianu</string>
@@ -38,8 +38,9 @@
     <string name="keyboard_layout_greek">Griegu</string>
     <string name="keyboard_layout_hebrew">Hebréu</string>
     <string name="keyboard_layout_lithuanian">Lituanu</string>
-    <string name="keyboard_layout_spanish_latin">Castellán (América)</string>
+    <string name="keyboard_layout_spanish_latin">Español d\'América</string>
     <string name="keyboard_layout_latvian">Letón</string>
+    <string name="keyboard_layout_persian">Persa</string>
     <string name="keyboard_layout_azerbaijani">Azerbaixanu</string>
     <string name="keyboard_layout_polish">Polacu</string>
 </resources>

@@ -31,6 +31,7 @@
     <string name="accessibility_quick_settings_heads_up_on">Heads up ligado.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up foi desligado.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up foi ligado.</string>
+    <string name="global_screenshot_selector_capture_description">Captura parcial de tela</string>
     <string name="quick_settings_reading_mode">Modo de leitura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modo de leitura ligado</string>
     <string name="accessibility_quick_settings_reading_mode_off">Modo de leitura desligado</string>

@@ -16,27 +16,30 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label">Shell</string>
     <string name="bugreport_notification_channel">Informes de fallos</string>
-    <string name="bugreport_in_progress_title">Ta xenerándose l\'informe de fallu <xliff:g id="id">%d</xliff:g></string>
-    <string name="bugreport_finished_title">Capturóse l\'informe de fallu <xliff:g id="id">%d</xliff:g></string>
-    <string name="bugreport_updating_title">Amestando detalles al informe de fallu</string>
-    <string name="bugreport_updating_wait">Espera, por favor\u2026</string>
-    <string name="bugreport_finished_text" product="watch">Aína apaecerá l\'infome de fallu na pantalla</string>
-    <string name="bugreport_finished_text" product="default">Calca pa compartir el to informe de fallu</string>
-    <string name="bugreport_finished_pending_screenshot_text" product="watch">Calca pa compartir el to informe de fallu ensin una captura o esperar que termine de facese pa finar</string>
-    <string name="bugreport_finished_pending_screenshot_text" product="default">Calca pa compartir el to informe de fallu ensin una captura o esperar que termine de facese pa finar</string>
-    <string name="bugreport_confirm">Los informes de fallu contienen datos de dellos ficheros de rexistru del sistema, que quiciabes incluyan datos que consideres sensibles (como datos d\'allugamientu y usu de datos). Namái comparti informes cola xente y aplicaciones que t\'enfotes.</string>
-    <string name="bugreport_confirm_dont_repeat">Nun amosar de nueves</string>
+    <string name="bugreport_in_progress_title">Ta xenerándose l\'informe de fallos «<xliff:g id="id">#%d</xliff:g>»</string>
+    <string name="bugreport_finished_title">Rexistróse l\'informe de fallos «<xliff:g id="id">#%d</xliff:g>»</string>
+    <string name="bugreport_updating_title">Amestando los detalles al informe de fallos</string>
+    <string name="bugreport_updating_wait">Espera\u2026</string>
+    <string name="bugreport_finished_text" product="watch">L\'informe de fallos va apaecer nel teléfonu nun momentu</string>
+    <string name="bugreport_finished_text" product="tv">Esbilla pa compartir l\'informe de fallos</string>
+    <string name="bugreport_finished_text" product="default">Toca pa compartilu</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="tv">Esbilla pa compartir l\'informe de fallos ensin captura de pantalla o espera a que se faiga una</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="watch">Toca pa compartir l\'informe de fallos ensin captura de pantalla o espera a que se faiga una</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="default">Toca pa compartir l\'informe de fallos ensin captura de pantalla o espera a que se faiga una</string>
+    <string name="bugreport_confirm">Los informes de fallos contienen datos de los ficheros de rexistru del sistema, que puen incluyir datos que consideres confidenciales (como l\'usu d\'aplicaciones y los datos d\'allugamientu). Comparti estos informes namás coles aplicaciones y persones nes que t\'enfotes.</string>
+    <string name="bugreport_confirm_dont_repeat">Nun volver amosar</string>
     <string name="bugreport_storage_title">Informes de fallos</string>
-    <string name="bugreport_unreadable_text">Nun pudo lleese\'l ficheru del informe de fallu</string>
-    <string name="bugreport_add_details_to_zip_failed">Nun pudieron amestase los detalles del informe de fallu al ficheru ZIP</string>
-    <string name="bugreport_unnamed">ensin_nome</string>
+    <string name="bugreport_unreadable_text">Nun se pudo lleer el ficheru del informe de fallos</string>
+    <string name="bugreport_add_details_to_zip_failed">Nun se pudieron amestar los detalles del informe de fallos al ficheru ZIP</string>
+    <string name="bugreport_unnamed">ensin nome</string>
     <string name="bugreport_info_action">Detalles</string>
     <string name="bugreport_screenshot_action">Captura de pantalla</string>
-    <string name="bugreport_screenshot_taken">La captura fíxose con ésitu.</string>
-    <string name="bugreport_screenshot_failed">Nun pudo facese la captura de pantalla.</string>
-    <string name="bugreport_info_dialog_title">Detalles del informe de fallu <xliff:g id="id">#%d</xliff:g></string>
-    <string name="bugreport_info_name">Nome de ficheru</string>
+    <string name="bugreport_screenshot_taken">La captura fízose correutamente.</string>
+    <string name="bugreport_screenshot_failed">Nun se pudo facer la captura de pantalla.</string>
+    <string name="bugreport_info_dialog_title">Detalles del informe de fallos «<xliff:g id="id">#%d</xliff:g>»</string>
+    <string name="bugreport_info_name">Nome del ficheru</string>
     <string name="bugreport_info_title">Títulu del fallu</string>
-    <string name="bugreport_info_description">Sumariu del fallu</string>
+    <string name="bugreport_info_description">Resume del fallu</string>
     <string name="save">Guardar</string>
+    <string name="bugreport_intent_chooser_title">Compartir l\'informe de fallos</string>
 </resources>

@@ -22,6 +22,7 @@
     <string name="megabyteShort">MB</string>
     <string name="gigabyteShort">GB</string>
     <string name="terabyteShort">TB</string>
+    <string name="petabyteShort">PB</string>
     <string name="untitled">&lt;Chene tìtulu&gt;</string>
     <string name="emptyPhoneNumber">(Perunu nùmeru de telèfonu)</string>
     <string name="unknownName">Disconnotu</string>
@@ -88,8 +89,24 @@
     <string name="ssl_ca_cert_noti_by_unknown">Dae parte disconnota</string>
     <string name="ssl_ca_cert_noti_managed">Dae <xliff:g id="managing_domain">%s</xliff:g></string>
     <string name="work_profile_deleted">Profilu de traballu cantzelladu</string>
+    <string name="device_ownership_relinquished">Dispositivu tzèdidu a s\'amministratzione pro impreu personale</string>
+    <string name="location_changed_notification_title">Is aplicatziones podent atzèdere a sa positzione tua</string>
+    <string name="location_changed_notification_text">Cuntata a s\'amministratzione IT pro nd\'ischire de prus</string>
+    <string name="country_detector">Rilevadore de paisos</string>
+    <string name="location_service">Servìtziu de positzione</string>
+    <string name="sensor_notification_service">Servìtziu de notìficas de sensores</string>
+    <string name="twilight_service">Servìtziu de iscurigadòrgiu</string>
     <string name="factory_reset_warning">Su dispositivu tuo at a èssere cantzelladu</string>
+    <string name="personal_apps_suspension_title">Ativa su profilu de traballu </string>
+    <string name="personal_apps_suspension_text">Is aplicatziones personales sunt blocadas finas a cando no ativas su profilu de traballu</string>
+    <string name="personal_apps_suspension_soon_text">        Is aplicatziones personales ant a èssere blocadas su <xliff:g id="date" example="May 29">%1$s</xliff:g> a is
+        <xliff:g id="time" example="5:20 PM">%2$s</xliff:g>. S\'amministratzione IT tua 
+        no at a permìtere a
+        su profilu de traballu de abarrare disativadu pro prus de 
+ <xliff:g id="number" example="3">%3$d</xliff:g> dies.
+    </string>
     <string name="power_dialog" product="tablet">Sèberos de sa tauledda</string>
+    <string name="power_dialog" product="tv">Optziones de Android TV</string>
     <string name="power_dialog" product="default">Sèberos de su telèfonu</string>
     <string name="silent_mode">Modalidade a sa muda</string>
     <string name="turn_on_radio">Allue sa modalidade chene filos</string>
@@ -100,10 +117,15 @@
     <string name="silent_mode_vibrate">Vibratzione</string>
     <string name="silent_mode_ring">Tonu de mutida ativadu</string>
     <string name="reboot_to_update_title">Agiornamentu de su sistema Android</string>
+    <string name="global_action_power_options">Alimentatzione</string>
+    <string name="bugreport_screenshot_success_toast">Catura de ischermu fata cun s\'informe de errores</string>
+    <string name="bugreport_screenshot_failure_toast">Impossìbile caturare s\'ischermu cun s\'informe de errores</string>
+    <string name="notification_channel_developer_important">Messàgios importantes dae s\'isvilupu</string>
     <string name="permgrouplab_calendar">Calendàriu</string>
     <string name="permgroupdesc_calendar">atzede a su calendàriu tuo</string>
     <string name="permgrouplab_sms">SMS</string>
     <string name="permgroupdesc_sms">imbia e visualiza messàgios SMS</string>
+    <string name="permgrouplab_storage">Archìvios e media</string>
     <string name="permgrouplab_microphone">Micròfonu</string>
     <string name="permgrouplab_camera">Fotocàmera</string>
     <string name="permgroupdesc_camera">faghe fotografias e registra vìdeos</string>
@@ -114,6 +136,8 @@
     <string name="capability_desc_canRetrieveWindowContent">Ispetziona su cuntenutu de una ventana cun sa chi ses interagende.</string>
     <string name="capability_title_canRequestFilterKeyEvents">Càstia su testu chi iscries</string>
     <string name="capability_desc_canRequestFilterKeyEvents">Includet datos personales comente nùmeros de carta de crèditu e craes.</string>
+    <string name="capability_title_canTakeScreenshot">Faghe una catura de ischermu</string>
+    <string name="capability_desc_canTakeScreenshot">Podet fàghere una catura de s\'ischermu.</string>
     <string name="permlab_receiveSms">retzi messàgios de testu (SMS)</string>
     <string name="permdesc_receiveSms">Permitit a s\'aplicatzione de retzire e elaborare messàgios SMS. Custu bolet nàrrere chi s\'aplicatzione diat pòdere controllare o cantzellare messàgios imbiados a su dispositivu tuo chene de ti ddos mustrare.</string>
     <string name="permlab_receiveMms">retzire messàgios de testu (MMS)</string>
@@ -152,6 +176,12 @@
     <string name="permlab_manageNetworkPolicy">gestire sa polìtica de rete</string>
     <string name="permdesc_manageNetworkPolicy">Permitit a s\'aplicatzione de gestire is polìticas de rete e definire règulas ispetzìficas de s\'aplicatzione.</string>
     <string name="ringtone_unknown">Disconnotu</string>
+    <string name="console_running_notification_title">Console seriale abilitada</string>
+    <string name="console_running_notification_message">Sa prestatzione est influentziada. Pro disabilitare, controlla su bootloader.</string>
+    <string name="permission_request_notification_for_app_with_subtitle">Permissu netzessàriu pro <xliff:g id="app" example="Gmail">%1$s</xliff:g> pro su contu <xliff:g id="account" example="foo@gmail.com">%2$s</xliff:g>.</string>
+    <string name="gnss_nfw_notification_title">Atzessu a sa positzione de emergèntzia</string>
+    <string name="gnss_nfw_notification_message_oem">Su fabricante de su dispositivu at atzèdidu a sa positzione tua durante una sessione reghente de emergèntzia</string>
+    <string name="gnss_nfw_notification_message_carrier">S\'operadore tuo at atzèdidu a sa positzione tua durante una sessione reghente de emergèntzia</string>
     <string name="confirm_battery_saver">AB</string>
     <string name="notification_appops_camera_active">Fotocàmera</string>
     <string name="notification_appops_microphone_active">Micròfonu</string>
