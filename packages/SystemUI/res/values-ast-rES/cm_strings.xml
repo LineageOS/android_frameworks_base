@@ -22,14 +22,17 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Cargador d\'arranque</string>
     <string name="global_action_restart_download">Descarga</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Reaniciando\u2026</string>
     <string name="global_action_restart_recovery_progress">Reaniciando al mou recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Reaniciando al mou del xestor d\'arranque\u2026</string>
     <string name="global_action_restart_download_progress">Reaniciando al mou de descarga\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Reaniciando al mou fastbootd\u2026</string>
     <string name="global_action_current_user">Actual</string>
     <string name="accessibility_dpad_left">Cursor esquierda</string>
     <string name="accessibility_dpad_right">Cursor derecha</string>
     <string name="quick_settings_network_adb_label">ADB sobre rede</string>
+    <string name="quick_settings_network_adb_no_network">nun hai rede</string>
     <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente activada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente desactivada.</string>
@@ -61,7 +64,20 @@ emerxentes</string>
     <string name="accessibility_quick_settings_profiles_changed">Perfil camudáu a <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <string name="quick_settings_volume_panel_label">Panel de volume</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectar a\u2026</string>
+    <string name="vpn_credentials_hint">Introduz los datos d\'accesu pa conectate a «<xliff:g id="name">%s</xliff:g>»</string>
+    <string name="vpn_credentials_username">Nome d\'usuariu</string>
+    <string name="vpn_credentials_password">Contraseña</string>
+    <string name="vpn_credentials_dialog_connect">Conectar</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desactiváu\nAforrador d\'enerxía</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare desactiváu\nQueda perpoca batería</string>
+    <string name="quick_settings_powershare_enabled_label">El Wireless PowerShare ta activáu</string>
+    <string name="status_bar_battery">Batería</string>
+    <string name="status_bar_camera">Cámara</string>
     <string name="status_bar_location">Allugamientu</string>
+    <string name="status_bar_microphone">Micrófonu</string>
     <string name="screen_pinning_description_no_navbar">Amosaráse mentanto tez fixáu. Pa dexar de fixalo, caltén calcáu\'l botón Atrás.</string>
-    <string name="screen_pinning_toast_no_navbar">Pa desfixar esta pantalla, ten primíu\'l&amp; botón d\'Atrás</string>
+    <string name="screen_pinning_toast_no_navbar">Pa lliberar esta pantalla, ten primíu\'l botón «Atrás»</string>
 </resources>

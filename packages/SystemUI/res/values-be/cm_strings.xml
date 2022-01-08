@@ -26,6 +26,9 @@
     <string name="accessibility_quick_settings_ambient_display_on">Індыкацыя падзей экранам уключана.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Індыкацыя падзей экранам адключаная.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Індыкацыя падзей экранам уключана.</string>
+    <string name="quick_settings_caffeine_label">Забарона сну</string>
+    <string name="accessibility_quick_settings_caffeine_off">Пераход у спячы рэжым дазволены.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Пераход у спячы рэжым забаронены.</string>
     <string name="quick_settings_heads_up_label">Усплывальныя паведамленні</string>
     <string name="accessibility_quick_settings_heads_up_off">Усплывальныя паведамленні адключаны.</string>
     <string name="accessibility_quick_settings_heads_up_on">Усплывальныя паведамленні ўключаны.</string>

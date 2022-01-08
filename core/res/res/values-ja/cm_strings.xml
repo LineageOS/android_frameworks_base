@@ -20,4 +20,5 @@
     <string name="adb_net_active_notification_title">ネットワーク経由のADBが有効です</string>
     <string name="adb_both_active_notification_title">USBとネットワーク経由のADBが有効です</string>
     <string name="adb_active_generic_notification_message">タップしてデバッグを無効にします。</string>
+    <string name="bluetooth_airplane_mode_toast">機内モード中も Bluetooth は引き続き有効です</string>
 </resources>

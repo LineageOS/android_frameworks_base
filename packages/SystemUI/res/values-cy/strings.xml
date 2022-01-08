@@ -932,7 +932,7 @@
     <string name="running_foreground_services_title">Apiau sy\'n rhedeg yn y cefndir</string>
     <string name="running_foreground_services_msg">Tapia am fanylion defnydd batri a data</string>
     <string name="mobile_data_disable_title">Troi data symudol i ffwrdd?</string>
-    <string name="mobile_data_disable_message">Ni fydd gennyt fynediad i ddata na\'r rhyngrwyd trwy <xliff:g id="carrier" example="T-Mobile">%s</xliff:g>. Bydd y rhyngrwyd ond ar gael dros Wi-Fi.</string>
+    <string name="mobile_data_disable_message">Ni fydd gennyt fynediad at ddata na\'r rhyngrwyd trwy <xliff:g id="carrier" example="T-Mobile">%s</xliff:g>. Bydd y rhyngrwyd ond ar gael dros Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">dy ddarparwr gwasanaeth</string>
     <string name="touch_filtered_warning">Ni all Gosodiadau gwirio dy ymateb gan fod ap yn rhwystro cais am ganiatâd.</string>
     <string name="slice_permission_title">Caniatáu i <xliff:g id="app" example="Example App">%1$s</xliff:g> ddangos sleisiau <xliff:g id="app_2" example="Other Example App">%2$s</xliff:g>?</string>

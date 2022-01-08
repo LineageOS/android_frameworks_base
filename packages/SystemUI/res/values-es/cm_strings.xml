@@ -43,6 +43,11 @@
     <string name="accessibility_quick_settings_heads_up_on">Activar notificaciones emergentes.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emergentes desactivadas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes activadas.</string>
+    <string name="quick_settings_reading_mode">Modo lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo de lectura activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo de lectura desactivado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Modo de lectura activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modo de lectura desactivado.</string>
     <string name="quick_settings_sync_label">Sincronizar</string>
     <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
     <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
@@ -56,5 +61,5 @@
     <string name="quick_settings_usb_tether_label">Anclaje de red por USB</string>
     <string name="quick_settings_volume_panel_label">Panel de volumen</string>
     <string name="status_bar_location">Ubicación</string>
-    <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo libere. Mantenga pulsado «Atrás» para liberar.</string>
+    <string name="screen_pinning_description_no_navbar">Esto lo mantendrá fijado y a la vista. Mantén pulsado «Atrás» para soltar.</string>
 </resources>

@@ -20,4 +20,5 @@
     <string name="adb_net_active_notification_title">تمكين ADB عبر الشبكة</string>
     <string name="adb_both_active_notification_title">ADB عبر USB &amp; تمكين الشبكة</string>
     <string name="adb_active_generic_notification_message">انقر لتعطيل تصحيح الأخطاء.</string>
+    <string name="bluetooth_airplane_mode_toast">البلوتوث سيبقى مفعل أثناء وضع الطيران</string>
 </resources>

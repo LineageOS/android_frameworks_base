@@ -54,5 +54,7 @@
     <string name="vpn_credentials_username">Användarnamn</string>
     <string name="vpn_credentials_password">Lösenord</string>
     <string name="vpn_credentials_dialog_connect">Anslut</string>
+    <string name="quick_settings_powershare_label">Trådlös strömdelning</string>
+    <string name="quick_settings_powershare_off_powersave_label">Trådlös strömdelning av\nStrömsparläge</string>
     <string name="status_bar_location">Position</string>
 </resources>

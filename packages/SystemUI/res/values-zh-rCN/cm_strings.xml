@@ -69,7 +69,7 @@
     <string name="vpn_credentials_username">用户名</string>
     <string name="vpn_credentials_password">密码</string>
     <string name="vpn_credentials_dialog_connect">连接</string>
-    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_label">息屏常亮</string>
     <string name="quick_settings_aod_off_powersave_label">AOD 关闭\n省电模式</string>
     <string name="quick_settings_powershare_label">无线反充</string>
     <string name="quick_settings_powershare_off_powersave_label">无线反充 关闭\n省电模式</string>
