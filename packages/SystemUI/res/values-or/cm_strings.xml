@@ -18,31 +18,62 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">ଏମ୍ବିଏଣ୍ଟ ପ୍ରଦର୍ଶନ</string>
     <string name="accessibility_quick_settings_ambient_display_off">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅଫ୍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_ambient_display_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅଫ୍‍ କରାଯାଇଛି।</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍ କରାଯାଇଛି।</string>
+    <!-- AOD QS tile -->
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">ହେଡ୍ସ୍‍ ଅପ୍‍</string>
     <string name="accessibility_quick_settings_heads_up_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_heads_up_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ କରାଯାଇଛି।</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍‍ କରାଯାଇଛି।</string>
+    <!-- Partial screenshot -->
+    <!-- PowerShare QS tile -->
+    <!-- Reader mode QS tile -->
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">ସିଙ୍କ୍</string>
     <string name="accessibility_quick_settings_sync_off">ସିଙ୍କ୍‍ ଅଫ୍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_sync_on">ସିଙ୍କ୍‍ ଅନ୍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_sync_changed_off">ସିଙ୍କ୍‍ ଅଫ୍‍ କରାଯାଇଛି।</string>
     <string name="accessibility_quick_settings_sync_changed_on">ସିଙ୍କ୍‍ ଅନ୍‍‍ କରାଯାଇଛି।</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">ସିଷ୍ଟମ୍‍ ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ</string>
     <string name="accessibility_quick_settings_profiles_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ ଅଛି।</string>
     <string name="accessibility_quick_settings_profiles">ପ୍ରୋଫାଇଲ୍‍: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
     <string name="accessibility_quick_settings_profiles_changed_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ କରାଯାଇଛି।</string>
     <string name="accessibility_quick_settings_profiles_changed">ପ୍ରୋଫାଇଲ୍ <xliff:g id="profile" example="Default">%s</xliff:g>କୁ ପରିବର୍ତ୍ତିତ ହେଲା।</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB ଟିଥରିଂ</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">ଭୋଲ୍ୟୁମ୍‍ ପ୍ୟାନେଲ୍‍</string>
+    <!-- VPN QS tile -->
+    <!-- Anti flicker QS tile -->
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">କର୍ସର୍‍ ବାମ</string>
     <string name="accessibility_dpad_right">କର୍ସର୍ ଡାହାଣ</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Label for current user in power menu options dialog -->
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
 </resources>

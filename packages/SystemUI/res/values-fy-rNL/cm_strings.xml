@@ -18,64 +18,95 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Omjouwingsdisplay</string>
     <string name="accessibility_quick_settings_ambient_display_off">Omjouwingsdisplay út.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Omjouwingsdisplay oan.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Omjouwingsdisplay útskeakele.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Omjouwingsdisplay ynskeakele.</string>
+    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD út\nEnerzjybesparmodus</string>
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kafeïne</string>
     <string name="accessibility_quick_settings_caffeine_off">Kafeïne út.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafeïne oan.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Heads-up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads-up út.</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads-up oan.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads-up útskeakele.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads-up ynskeakele.</string>
+    <!-- Partial screenshot -->
+    <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Triedleas PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Triedleaze PowerShare út\nBatterijbesparring</string>
     <string name="quick_settings_powershare_off_low_battery_label">Triedleaze PowerShare út\nBatterij te leech</string>
     <string name="quick_settings_powershare_enabled_label">Triedleaze PowerShare is ynskeakele</string>
+    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Lêsmodus</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lêsmodus oan.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lêsmodus út.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lêsmodus ynskeakele.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lêsmodus útskeakele.</string>
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Syngronisearje</string>
     <string name="accessibility_quick_settings_sync_off">Syngr. út.</string>
     <string name="accessibility_quick_settings_sync_on">Syngr. oan.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Syngr. útskeakele.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Syngr. ynskeakele.</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">Systeemprofilen</string>
     <string name="accessibility_quick_settings_profiles_off">Profilen út.</string>
     <string name="accessibility_quick_settings_profiles">Profyl: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profilen útskeakele.</string>
     <string name="accessibility_quick_settings_profiles_changed">Profyl wizige nei <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB-tethering</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Folumepaniel</string>
+    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Ferbine mei\u2026</string>
     <string name="vpn_credentials_hint">Folje jo gegevens yn om mei <xliff:g id="name">%s</xliff:g> te ferbinen</string>
     <string name="vpn_credentials_username">Brûkersnamme</string>
     <string name="vpn_credentials_password">Wachtwurd</string>
     <string name="vpn_credentials_dialog_connect">Ferbine</string>
+    <!-- Anti flicker QS tile -->
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor links</string>
     <string name="accessibility_dpad_right">Cursor rjochts</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Systeem</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Werstel</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Downloade</string>
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
     <string name="global_action_restart_fastboot">Fastbootd</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Opnij opstarte\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">Opnij opstarte nei werstelmodus\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_bootloader_progress">Opnij opstarte nei bootloadermodus\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">Opnij opstarte nei downloadmodus\u2026</string>
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_fastboot_progress">Opnij opstarte nei fastbootddmodus\u2026</string>
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Aktuele</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Lokaasje</string>
     <string name="status_bar_microphone">Mikrofoan</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">It skerm bliuwt sichtber oant jo it losmeitsje. Hâld ‘Tebek’ yndrukt om it los te meitsjen.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Hâld ‘Tebek’ yndrukt om dit skerm te ûntskoatteljen</string>
 </resources>

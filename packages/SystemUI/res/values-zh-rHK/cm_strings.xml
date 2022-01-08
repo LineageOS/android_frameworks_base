@@ -18,24 +18,55 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">環境顯示</string>
+    <!-- AOD QS tile -->
+    <!-- Caffeine QS tile -->
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">浮動通知</string>
     <string name="accessibility_quick_settings_heads_up_off">已關閉浮動通知。</string>
     <string name="accessibility_quick_settings_heads_up_on">已開啟浮動通知。</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">已關閉浮動通知。</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">已開啟浮動通知。</string>
+    <!-- Partial screenshot -->
+    <!-- PowerShare QS tile -->
+    <!-- Reader mode QS tile -->
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">同步</string>
     <string name="accessibility_quick_settings_sync_off">已關閉同步。</string>
     <string name="accessibility_quick_settings_sync_on">已開啟同步。</string>
     <string name="accessibility_quick_settings_sync_changed_off">同步已關閉。</string>
     <string name="accessibility_quick_settings_sync_changed_on">同步已開啟。</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">系統設定檔</string>
     <string name="accessibility_quick_settings_profiles_off">設定檔已關閉。</string>
     <string name="accessibility_quick_settings_profiles">設定檔：<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
     <string name="accessibility_quick_settings_profiles_changed_off">設定檔已關閉。</string>
     <string name="accessibility_quick_settings_profiles_changed">設定檔已改為<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB 網絡共享</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">音量區</string>
+    <!-- VPN QS tile -->
+    <!-- Anti flicker QS tile -->
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">游標向左</string>
     <string name="accessibility_dpad_right">游標向右</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Label for current user in power menu options dialog -->
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
 </resources>

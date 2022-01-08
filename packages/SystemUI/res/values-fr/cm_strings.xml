@@ -18,69 +18,100 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Affichage en mode veille</string>
     <string name="accessibility_quick_settings_ambient_display_off">Affichage en mode veille désactivé.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Affichage en mode veille activé.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Affichage en mode veille désactivé.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Affichage en mode veille activé.</string>
+    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Affichage permanent</string>
     <string name="quick_settings_aod_off_powersave_label">Affichage permanent éteint\nÉconomiseur de batterie</string>
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caféine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caféine éteinte.</string>
     <string name="accessibility_quick_settings_caffeine_on">Caféine allumée.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Notifications flottantes</string>
     <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
     <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes désactivées.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes activées.</string>
+    <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Faire une capture d\'écran partielle</string>
     <string name="global_screenshot_selector_cancel_description">Annuler la capture d\'écran partielle</string>
+    <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Recharge sans-fil inversée</string>
     <string name="quick_settings_powershare_off_powersave_label">Recharge sans-fil inversée désactivée\nÉconomiseur de batterie</string>
     <string name="quick_settings_powershare_off_low_battery_label">Recharge sans-fil inversée désactivée\nBatterie trop faible</string>
     <string name="quick_settings_powershare_enabled_label">La recharge sans-fil inversée est activée</string>
+    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Mode Lecture</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mode Lecture activé.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Mode Lecture désactivé.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Mode Lecture activé.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Mode Lecture désactivé.</string>
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synchro</string>
     <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée.</string>
     <string name="accessibility_quick_settings_sync_on">Synchronisation activée.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synchronisation désactivée.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synchronisation activée.</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">Profils système</string>
     <string name="accessibility_quick_settings_profiles_off">Profils désactivés.</string>
     <string name="accessibility_quick_settings_profiles">Profil : <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profils désactivés.</string>
     <string name="accessibility_quick_settings_profiles_changed">Profil changé  en <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Modem USB</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panneau de volume</string>
+    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Se connecter à\u2026</string>
     <string name="vpn_credentials_hint">Veuillez entrer vos identifiants pour vous connecter à <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Nom d’utilisateur</string>
     <string name="vpn_credentials_password">Mot de passe</string>
     <string name="vpn_credentials_dialog_connect">Se connecter</string>
+    <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Anti-scintillement</string>
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Curseur gauche</string>
     <string name="accessibility_dpad_right">Curseur droit</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
     <string name="global_action_restart_more">Redémarrer\u2026 </string>
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Système</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Récupération</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Télécharger</string>
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
     <string name="global_action_restart_fastboot">Fastbootd</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Redémarrage\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">Redémarrage en mode recovery\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_bootloader_progress">Redémarrage en mode bootloader\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">Redémarrage en mode download\u2026</string>
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_fastboot_progress">Redémarrage en mode fastboot\u2026</string>
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Utilisateur actuel</string>
     <string name="global_action_users">Utilisateurs</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_camera">Appareil photo</string>
     <string name="status_bar_location">Position</string>
     <string name="status_bar_microphone">Microphone</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, appuyez de manière prolongée sur \"Retour\".</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Pour annuler l\'épinglage de l\'écran, appuyez de manière prolongée sur le bouton \"Retour\"</string>
 </resources>

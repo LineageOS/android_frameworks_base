@@ -18,40 +18,78 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient display</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient display av.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient display påslagen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display avslagen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display påslagen.</string>
+    <!-- AOD QS tile -->
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Koffein</string>
     <string name="accessibility_quick_settings_caffeine_off">Koffein av.</string>
     <string name="accessibility_quick_settings_caffeine_on">Koffein på.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Heads up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up av.</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads up på.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up avslaget.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up påslaget.</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Fånga delvis skärmbild</string>
+    <string name="global_screenshot_selector_cancel_description">Avbryt fångandet av delvis skärmbild</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Trådlös strömdelning</string>
+    <string name="quick_settings_powershare_off_powersave_label">Trådlös strömdelning av\nStrömsparläge</string>
+    <!-- Reader mode QS tile -->
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Synk</string>
     <string name="accessibility_quick_settings_sync_off">Synk av.</string>
     <string name="accessibility_quick_settings_sync_on">Synk på.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synk inaktiverad.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synk aktiverad.</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">Systemprofiler</string>
     <string name="accessibility_quick_settings_profiles_off">Profiler av.</string>
     <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profiler har stängts av.</string>
     <string name="accessibility_quick_settings_profiles_changed">Profil ändrades till <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB-tethering</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Volympanel</string>
+    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Anslut till\u2026</string>
     <string name="vpn_credentials_username">Användarnamn</string>
     <string name="vpn_credentials_password">Lösenord</string>
     <string name="vpn_credentials_dialog_connect">Anslut</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti-flimmer</string>
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Markör till vänster</string>
     <string name="accessibility_dpad_right">Markör till höger</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
+    <string name="global_action_restart_more">Starta om\u2026</string>
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">System</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Startar om\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Nuvarande</string>
+    <string name="global_action_users">Användare</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_location">Position</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
 </resources>

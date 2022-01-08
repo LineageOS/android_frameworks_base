@@ -18,69 +18,100 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Okoliški zaslon</string>
     <string name="accessibility_quick_settings_ambient_display_off">Okoliški zaslon izklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Okoliški zaslon izklopljen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Okoliški zaslon vklopljen.</string>
+    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Stalni prikaz</string>
     <string name="quick_settings_aod_off_powersave_label">Stalni prikaz izklopljen\nVarčevanje z energijo baterije</string>
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kofein</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Obvestila na zaslonu</string>
     <string name="accessibility_quick_settings_heads_up_off">Obvestila na zas. izk.</string>
     <string name="accessibility_quick_settings_heads_up_on">Obvestila na zas. vkl.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Obvestila na zaslonu izklopljena.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Obvestila na zaslonu vklopljena.</string>
+    <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Zajemi delno zaslonsko sliko</string>
     <string name="global_screenshot_selector_cancel_description">Prekliči delno zaslonsko sliko</string>
+    <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare izklopljen\nVarčevanje z energijo baterije</string>
     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare izklopljen\nRaven napolnjenosti baterije prenizka</string>
     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare je omogočen</string>
+    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Način za branje</string>
     <string name="accessibility_quick_settings_reading_mode_on">Način za branje vklopljen.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Način za branje izklopljen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Način za branje vklopljen.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Način za branje izklopljen.</string>
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sinhronizacija</string>
     <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>
     <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinhronizacija izklopljena.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinhronizacija vklopljena.</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">Sistemski profili</string>
     <string name="accessibility_quick_settings_profiles_off">Profili izklopljeni.</string>
     <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profili izklopljeni.</string>
     <string name="accessibility_quick_settings_profiles_changed">Profil spremenjen v <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Delj. mob. int. USB</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Plošča za glasnost</string>
+    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Poveži z \u2026</string>
     <string name="vpn_credentials_hint">Vnesite vaše podatke za povezovanje s/z <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Uporabniško ime</string>
     <string name="vpn_credentials_password">Geslo</string>
     <string name="vpn_credentials_dialog_connect">Poveži</string>
+    <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Preprečevanje utripanja</string>
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kazalec levo</string>
     <string name="accessibility_dpad_right">Kazalec desno</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
     <string name="global_action_restart_more">Vnovičen zagon \u2026</string>
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistem</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Obnovitev</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Zagonski nalagalnik</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Prenos</string>
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
     <string name="global_action_restart_fastboot">Namen. zagon. nalagalnik</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Vnovično zaganjanje \u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">Vnovično zaganjanje v obnovitveni način \u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_bootloader_progress">Vnovično zaganjanje v način zagonskega nalagalnika \u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">Vnovično zaganjanje v način prenosa \u2026</string>
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_fastboot_progress">Vnovično zaganjanje v način namen. zagon. nalagalnika \u2026</string>
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Trenutni</string>
     <string name="global_action_users">Uporabniki</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_camera">Fotoaparat</string>
     <string name="status_bar_location">Lokacija</string>
     <string name="status_bar_microphone">Mikrofon</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite gumb Nazaj, da ga odpnete.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Da odpnete ta zaslon, se dotaknite in pridržite gumb Nazaj</string>
 </resources>

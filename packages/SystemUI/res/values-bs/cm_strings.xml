@@ -18,10 +18,41 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <!-- AOD QS tile -->
+    <!-- Caffeine QS tile -->
+    <!-- Heads up QS tile -->
+    <!-- Partial screenshot -->
+    <!-- PowerShare QS tile -->
+    <!-- Reader mode QS tile -->
+    <!-- Sync QS tile -->
+    <!-- System Profiles QS tile -->
     <string name="accessibility_quick_settings_profiles_off">Profili isključeni.</string>
     <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profili su isključeni.</string>
     <string name="accessibility_quick_settings_profiles_changed">Profil promjenjen u <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
+    <!-- Volume panel QS tile -->
+    <!-- VPN QS tile -->
+    <!-- Anti flicker QS tile -->
+    <!-- Navigation bar dpad -->
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistem</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Label for current user in power menu options dialog -->
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_location">Lokacija</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
 </resources>

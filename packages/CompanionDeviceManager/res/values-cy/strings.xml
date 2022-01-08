@@ -14,7 +14,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title of the CompanionDeviceManager application. [CHAR LIMIT=50] -->
     <string name="app_label">Rheolwr Cymar Ddyfais</string>
+    <!-- Title of the device selection dialog. -->
     <string name="chooser_title">Cysylltu â &lt;strong&gt;<xliff:g id="app_name" example="Android Wear">%1$s</xliff:g>&lt;/strong&gt;</string>
+    <!-- Title of the device pairing confirmation dialog. -->
     <string name="confirmation_title">Cysylltu &lt;strong&gt;<xliff:g id="app_name" example="Android Wear">%1$s</xliff:g>&lt;/strong&gt; â &lt;strong&gt;<xliff:g id="device_name" example="ASUS ZenWatch 2">%2$s</xliff:g>&lt;/strong&gt;</string>
 </resources>

@@ -18,67 +18,98 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Säästlik ekraan</string>
     <string name="accessibility_quick_settings_ambient_display_off">Säästlik ekraan väljas.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Säästlik ekraan sees.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Säästlik ekraan väljalülitatud.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Säästlik ekraan sisselülitatud.</string>
+    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Alati-sees ekraan</string>
     <string name="quick_settings_aod_off_powersave_label">Alati-sees ekraan väljas\nAkusäästja</string>
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kofeiin</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofeiin välja.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeiin sisse.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Piiluvad teated</string>
     <string name="accessibility_quick_settings_heads_up_off">Piiluvad teated väljas.</string>
     <string name="accessibility_quick_settings_heads_up_on">Piiluvad teated sees.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Piiluvad teated on väljalülitatud.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Piiluvad teated on sisselülitatud.</string>
+    <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Pildista osaline ekraanipilt</string>
     <string name="global_screenshot_selector_cancel_description">Tühista osaline ekraanipilt</string>
+    <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare väljas\nAkusäästja</string>
     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare väljas\nAku on liiga tühi</string>
     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare sees</string>
+    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Lugemisrežiim</string>
     <string name="accessibility_quick_settings_reading_mode_on">Lugemisrežiim sees.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Lugemisrežiim väljas.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Lugemisrežiim sisselülitatud.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lugemisrežiim väljalülitatud.</string>
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Sünk</string>
     <string name="accessibility_quick_settings_sync_off">Sünk väljas.</string>
     <string name="accessibility_quick_settings_sync_on">Sünk sees.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sünk välja lülitatud.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sünk sisse lülitatud.</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">Süsteemi profiilid</string>
     <string name="accessibility_quick_settings_profiles_off">Profiilid väljas.</string>
     <string name="accessibility_quick_settings_profiles">Profiil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profiilid välja lülitatud.</string>
     <string name="accessibility_quick_settings_profiles_changed">Profiil muudetud: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB lõastamine</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Helipaneel</string>
+    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Ühendu\u2026</string>
     <string name="vpn_credentials_hint">Sisestage oma mandaadid <xliff:g id="name">%s</xliff:g> ühenduse loomiseks</string>
     <string name="vpn_credentials_username">Kasutajanimi</string>
     <string name="vpn_credentials_password">Parool</string>
     <string name="vpn_credentials_dialog_connect">Ühenda</string>
+    <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Virvendusfilter</string>
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kursor vasakule</string>
     <string name="accessibility_dpad_right">Kursor paremale</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
     <string name="global_action_restart_more">Taaskäivita\u2026</string>
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Taastus</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Käivituslaadur</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Allalaadimine</string>
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
     <string name="global_action_restart_fastboot">Fastbootd</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Taaskäivitamine\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">Taaskäivitamine taastusrežiimi\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_bootloader_progress">Taaskäivitamine käivituslaadurisse\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">Taaskäivitamine allalaadimisrežiimi\u2026</string>
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_fastboot_progress">Taaskäivitamine fastbootd-režiimi\u2026</string>
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Praegune</string>
     <string name="global_action_users">Kasutajad</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_camera">Kaamera</string>
     <string name="status_bar_microphone">Mikrofon</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">See hoitakse kuval, kuni selle vabastate. Vabastamiseks puudutage pikalt tagasinuppu.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Selle ekraani vabastamiseks puudutage ja hoidke all tagasinuppu</string>
 </resources>

@@ -18,17 +18,53 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <!-- AOD QS tile -->
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Faghe una catura partziale de s\'ischermu</string>
+    <string name="global_screenshot_selector_cancel_description">Annulla sa catura partziale de s\'ischermu</string>
+    <!-- PowerShare QS tile -->
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modalidade letura</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Modalidade letura alluta.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modalidade letura istudada.</string>
+    <!-- Sync QS tile -->
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">Profilos de sistema</string>
     <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
     <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
+    <!-- Volume panel QS tile -->
+    <!-- VPN QS tile -->
+    <!-- Anti flicker QS tile -->
+    <!-- Navigation bar dpad -->
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">Sistema</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">Iscàrriga</string>
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">Torrende a allùghere\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Atuale</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_location">Positzione</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
 </resources>

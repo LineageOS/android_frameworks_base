@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title of the activity when a full backup has been requested and must be confirmed -->
+    <string name="backup_confirm_title">Aḥraz ummid</string>
+    <!-- Title of the activity when a full restore has been requested and must be confirmed -->
+    <string name="restore_confirm_title">Tiririt tummiḍt</string>
+    <!-- Text for message to user that a full backup has been requested, and must be confirmed. -->
+    <string name="backup_confirm_text">Aḥraz ummid n isefka ar uselkim yeqqnen ittusuter. Tebɣiḍ ad teǧǧeḍ ayagi ad yeḍru\?\n\nMa yella ur tsutreḍ ara ayagi, ur ttaǧǧa ara tamhelt ad tkemmel.</string>
+    <!-- Button to allow a requested full backup to occur -->
+    <string name="allow_backup_button_label">Ḥrez isefka-inu</string>
+    <!-- Button to refuse to allow the requested full backup -->
+    <string name="deny_backup_button_label">Ur ḥerrez ara</string>
+    <!-- Text for message to user that a full restore has been requested, and must be confirmed. -->
+    <string name="restore_confirm_text">Tiririt tummidt n isefka seg uselkim yeqqnen ittusuter. Tebɣiḍ ad teǧǧeḍ ayagi ad yeḍru\?\n\nMa yella ur tsutreḍ ara tiririt s yiman-ik, ur ttaǧǧa ara tamhelt ad tkemmel. Ayagi ad isemselsi isefka yellan tura deg ibenk!</string>
+    <!-- Button to allow a requested full restore to occur -->
+    <string name="allow_restore_button_label">Err-d isefka-iw</string>
+    <!-- Button to refuse to allow the requested full restore -->
+    <string name="deny_restore_button_label">Ur d-ttara ara</string>
+    <!-- Text for message to user that they must enter their predefined backup password in order to perform this operation. -->
+    <string name="current_password_text">Sekcem awal uffir amiran n uḥraz ddaw-a:</string>
+    <!-- Text for message to user that they must enter their device encryption password in order to perform this restore operation. -->
+    <string name="device_encryption_restore_text">Sekcem awal uffir n uwgelhen n yibenk ddaw-a.</string>
+    <!-- Text for message to user that they must enter their device encryption password in order to perform this backup operation. -->
+    <string name="device_encryption_backup_text">Ttxil sekcem awal uffir n usegeleh n ibenk illan ddaw. aya ad isttwaseqdec daɣen i uwgeleh n tarcivt n uḥraz.</string>
+    <!-- Text for message to user that they must enter an encryption password to use for the full backup operation. -->
+    <string name="backup_enc_password_text">Ttxil sekcem awal uffir ara tesqedceḍ i uwgeleh n isefka n uḥraz. ma teǧǧiḍ aya, awal uffir amiaran n tuɣalin ara ttwasqedcen:</string>
+    <!-- Text for message to user that they may optionally supply an encryption password to use for a full backup operation. -->
+    <string name="backup_enc_password_optional">Ma tebɣiḍ awgeleh isefka n uḥraz taččarant, sekcem awal uffir n ddaw:</string>
+    <!-- Text for message to user that they must supply an encryption password to use for a full backup operation because their phone is locked. -->
+    <string name="backup_enc_password_required">Skud ibenk ittwawgeleh, ilaq daɣen awgeleh n uḥraz. Ttxil sekcem awal uffir n ddaw:</string>
+    <!-- Text for message to user when performing a full restore operation, explaining that they must enter the password originally used to encrypt the full backup data. -->
+    <string name="restore_enc_password_text">Ma yella ttwawgelehen isefka n tuɣalin, ttxil sekcem awal uffir n ddaw:</string>
+    <!-- Text of a toast telling the user that a full backup operation has begun -->
+    <string name="toast_backup_started">Aḥraz yekker...</string>
+    <!-- Text of a toast telling the user that a full backup operation has ended -->
+    <string name="toast_backup_ended">Aḥraz yemmed</string>
+    <!-- Text of a toast telling the user that a full restore operation has begun -->
+    <string name="toast_restore_started">Tiririt tekker...</string>
+    <!-- Text of a toast telling the user that a full restore operation has ended -->
+    <string name="toast_restore_ended">Tiririt tfuk</string>
+    <!-- Text of a toast telling the user that the operation has timed out -->
+    <string name="toast_timeout">Akud n temhelt yezri</string>
+</resources>

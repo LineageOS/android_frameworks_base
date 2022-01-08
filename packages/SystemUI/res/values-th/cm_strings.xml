@@ -18,65 +18,97 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">หน้าจอแวดล้อม</string>
     <string name="accessibility_quick_settings_ambient_display_off">ปิดหน้าจอแวดล้อม</string>
     <string name="accessibility_quick_settings_ambient_display_on">เปิดหน้าจอแวดล้อม</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">หน้าจอแวดล้อมปิดอยู่</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">หน้าจอแวดล้อมเปิดอยู่</string>
+    <!-- AOD QS tile -->
     <string name="quick_settings_aod_off_powersave_label">AOD ถูกปิด\nประหยัดพลังงาน</string>
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">คาเฟอีน</string>
     <string name="accessibility_quick_settings_caffeine_off">คาเฟอีนปิดอยู่</string>
     <string name="accessibility_quick_settings_caffeine_on">คาเฟอีนเปิดอยู่</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Heads up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up ปิดอยู่</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads up เปิดอยู่</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up ปิดอยู่</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up เปิดอยู่</string>
+    <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">แคปหน้าจอบางส่วน</string>
     <string name="global_screenshot_selector_cancel_description">ยกเลิกการแคปหน้าจอบางส่วน</string>
+    <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">แบ่งปันพลังงานไร้สาย</string>
     <string name="quick_settings_powershare_off_powersave_label">แบ่งปันพลังงานไร้สายถูกปิด\nประหยัดพลังงาน</string>
     <string name="quick_settings_powershare_off_low_battery_label">แบ่งปันพลังงานไร้สายถูกปิด\nแบตเตอรี่ต่ำเกินไป</string>
     <string name="quick_settings_powershare_enabled_label">แบ่งปันพลังงานไร้สายถูกเปิดใช้งาน</string>
+    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">โหมดการอ่าน</string>
     <string name="accessibility_quick_settings_reading_mode_on">เปิดโหมดการอ่าน</string>
     <string name="accessibility_quick_settings_reading_mode_off">ปิดโหมดการอ่าน</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">โหมดการอ่านเปิดอยู่</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">โหมดการอ่านถูกปิด</string>
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">ซิงค์</string>
     <string name="accessibility_quick_settings_sync_off">ปิดการซิงค์</string>
     <string name="accessibility_quick_settings_sync_on">การซิงค์เปิดอยู่</string>
     <string name="accessibility_quick_settings_sync_changed_off">การซิงค์ปิดอยู่</string>
     <string name="accessibility_quick_settings_sync_changed_on">การซิงค์เปิดอยู่</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">โปรไฟล์ระบบ</string>
     <string name="accessibility_quick_settings_profiles_off">โปรไฟล์ปิดอยู่</string>
     <string name="accessibility_quick_settings_profiles">โปรไฟล์: <xliff:g id="profile" example="Default">%s</xliff:g></string>
     <string name="accessibility_quick_settings_profiles_changed_off">ปิดโปรไฟล์</string>
     <string name="accessibility_quick_settings_profiles_changed">โปรไฟล์เปลี่ยนเป็น <xliff:g id="profile" example="Default">%s</xliff:g></string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">ปล่อยสัญญาณผ่าน USB</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">แผงควบคุมระดับเสียง</string>
+    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_connect_dialog_title">เชื่อมต่อกับ\u2026</string>
     <string name="vpn_credentials_hint">โปรดป้อนข้อมูลรับรองของคุณเพื่อเชื่อมต่อกับ <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">ชื่อผู้ใช้</string>
     <string name="vpn_credentials_password">รหัสผ่าน</string>
     <string name="vpn_credentials_dialog_connect">เชื่อมต่อ</string>
+    <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">ป้องกันการกระพริบ</string>
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">เคอร์เซอร์ซ้าย</string>
     <string name="accessibility_dpad_right">เคอร์เซอร์ขวา</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
     <string name="global_action_restart_more">รีสตาร์ท\u2026</string>
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">ระบบ</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">กู้คืนระบบ</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">Bootloader</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">ดาวน์โหลด</string>
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">กำลังเริ่มระบบใหม่\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">กำลังเริ่มต้นใหม่ในโหมดการกู้คืน\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_bootloader_progress">กำลังเริ่มต้นใหม่ในโหมด bootloader\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">กำลังเริ่มต้นใหม่ในโหมด bootloader\u2026</string>
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_fastboot_progress">กำลังเริ่มต้นใหม่ในโหมด fastbootd\u2026</string>
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">ปัจจุบัน</string>
+    <string name="global_action_users">ผู้ใช้งาน</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_camera">กล้อง</string>
     <string name="status_bar_location">ตำแหน่ง</string>
     <string name="status_bar_microphone">ไมโครโฟน</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">การดำเนินการนี้จะเก็บไว้จนกว่าคุณจะเลิกปักหมุด แตะ &amp; ค้างปุ่มกลับเพื่อเลิกปักหมุด</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">เพื่อยกเลิกการปักหมุดหน้าจอนี้ ให้แตะ &amp; กดปุ่มกลับค้าง</string>
 </resources>

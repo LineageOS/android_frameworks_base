@@ -18,69 +18,100 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">العرض المحيط</string>
     <string name="accessibility_quick_settings_ambient_display_off">تعطيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_on">تشغيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل العرض المحيط.</string>
+    <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">الشاشة الدائمة</string>
     <string name="quick_settings_aod_off_powersave_label">إيقاف\n الشاشة الدائمة عند تفعيل وضع توفير البطارية</string>
+    <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">وضع الكافيين</string>
     <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
     <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين.</string>
+    <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">إنذار مسبق</string>
     <string name="accessibility_quick_settings_heads_up_off">تعطيل الإنذار المسبق.</string>
     <string name="accessibility_quick_settings_heads_up_on">تشغيل الإنذار المسبق.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل الإنذار المسبق.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الإنذار المسبق.</string>
+    <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">التقاط لقطة شاشة جزئية</string>
     <string name="global_screenshot_selector_cancel_description">إلغاء لقطة الشاشة الجزئية</string>
+    <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">مشاركة الشحن لاسلكياً</string>
     <string name="quick_settings_powershare_off_powersave_label">إيقاف\n مشاركة الشحن لاسلكياً عند تفعيل وضع توفير البطارية</string>
     <string name="quick_settings_powershare_off_low_battery_label">إيقاف\n مشاركة الشحن لاسلكياً عندما يكون مستوى البطارية منخفضة جداً</string>
     <string name="quick_settings_powershare_enabled_label">مشاركة الشحن لاسلكياً مفعلة</string>
+    <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">وضع القراءة</string>
     <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
     <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">وضع القراءة قيد التشغيل.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">وضع القراءة قيد الإيقاف.</string>
+    <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">المزامنة</string>
     <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>
     <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_off">تم تعطيل المزامنة.</string>
     <string name="accessibility_quick_settings_sync_changed_on">تم تشغيل المزامنة.</string>
+    <!-- System Profiles QS tile -->
     <string name="quick_settings_profiles_label">ملفات تعريف النظام</string>
     <string name="accessibility_quick_settings_profiles_off">إيقاف ملفات التعريف.</string>
     <string name="accessibility_quick_settings_profiles">ملف التعريف: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="accessibility_quick_settings_profiles_changed_off">تعطيل ملفات التعريف. </string>
     <string name="accessibility_quick_settings_profiles_changed">تم تغيير ملف التعريف إلى <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">الربط عبر USB</string>
+    <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">لوحة مستوى الصوت</string>
+    <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ \u2026</string>
     <string name="vpn_credentials_hint">الرجاء إدخال بيانات الاعتماد الخاصة بك ليتم الاتصال بـ<xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">اسم المستخدم</string>
     <string name="vpn_credentials_password">كلمة المرور</string>
     <string name="vpn_credentials_dialog_connect">اتصال</string>
+    <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">مضاد الوميض</string>
+    <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
     <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
+    <!-- Advanced restart menu -->
+    <!-- Button to indicate more options -->
     <string name="global_action_restart_more">إعادة تشغيل\u2026</string>
+    <!-- Button to restart the device, within the Restart Options dialog -->
     <string name="global_action_restart_system">النظام</string>
+    <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">الإسترداد</string>
+    <!-- Button to restart the device into bootloader mode, within the Restart Options dialog -->
     <string name="global_action_restart_bootloader">محمل الاقلاع</string>
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
     <string name="global_action_restart_download">التنزيل</string>
+    <!-- Button to restart the device into fastboot mode, within the Restart Options dialog -->
     <string name="global_action_restart_fastboot">إعادة التشغيل إلى وضع الإقلاع السريع</string>
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_progress">جارٍ إعادة التشغيل</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_recovery_progress">إعادة التشغيل إلى وضع الإسترداد</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_bootloader_progress">إعادة التشغيل إلى وضع البوتلودر</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_download_progress">إعادة التشغيل الى وضع التنزيل</string>
+    <!-- Restart to fastboot mode progress dialog. This is shown if the user chooses to restart the device. -->
     <string name="global_action_restart_fastboot_progress">إعادة التشغيل إلى وضع الإقلاع السريع\u2026</string>
+    <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">الحالي</string>
     <string name="global_action_users">المستخدمون</string>
+    <!-- Name of the additional status bar icons also exposed with SystemUI Tuner -->
     <string name="status_bar_camera">الكاميرا</string>
     <string name="status_bar_location">الموقع</string>
     <string name="status_bar_microphone">الميكروفون</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">يؤدي هذا إلى استمرار العرض إلى أن يتم إزالة التثبيت. ويمكنك لمس مع الاستمرار لإزالة التثبيت.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">لإلغاء تثبيت هذه الشاشة، استمر&amp; بالضغط على زر الرجوع</string>
 </resources>
