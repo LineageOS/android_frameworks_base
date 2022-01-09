@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a16c98_dee1a49a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25925
+      },
+      "writtenOn": "2022-01-09T11:14:58Z",
+      "side": 1,
+      "message": "Merged upstream, verified on exynos9820 devices which use ultrasonic fp and don\u0027t need HBM",
+      "revId": "7b5709ed2ef7949cadfdf1508e81c1511c10de44",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
