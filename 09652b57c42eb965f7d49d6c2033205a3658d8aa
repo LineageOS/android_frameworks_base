@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98e77098_00eb5e83",
+        "filename": "packages/SystemUI/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2022-01-09T13:12:59Z",
+      "side": 1,
+      "message": "Will this work for non pixels?",
+      "revId": "09652b57c42eb965f7d49d6c2033205a3658d8aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
