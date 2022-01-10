@@ -4198,8 +4198,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (mRestrictedNetworkingMode) {
             // Note: setUidFirewallRule also updates mUidFirewallRestrictedModeRules.
             // In this case, default firewall rules can also be added.
-            setUidFirewallRule(FIREWALL_CHAIN_RESTRICTED, uid,
-                    getRestrictedModeFirewallRule(newUidRule));
+            long token = Binder.clearCallingIdentity();
+            try {
+                setUidFirewallRule(FIREWALL_CHAIN_RESTRICTED, uid,
+                        getRestrictedModeFirewallRule(newUidRule));
+            } finally {
+                Binder.restoreCallingIdentity(token);
+            }
         }
     }
 
