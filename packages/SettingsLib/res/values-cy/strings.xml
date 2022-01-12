@@ -112,8 +112,8 @@
     <string name="bluetooth_pairing_accept_all_caps">PARU</string>
     <string name="bluetooth_pairing_decline">Diddymu</string>
     <string name="bluetooth_pairing_will_share_phonebook">Mae paru yn rhoi mynediad at dy gysylltiadau a hanes galwadau tra wedi cysylltu.</string>
-    <string name="bluetooth_pairing_error_message">Methwyd â pharu gyda <xliff:g id="device_name">%1$s</xliff:g>.</string>
-    <string name="bluetooth_pairing_pin_error_message">Methwyd â pharu gyda <xliff:g id="device_name">%1$s</xliff:g> oherwydd PIN neu cyfrinallwedd anghywir.</string>
+    <string name="bluetooth_pairing_error_message">Methwyd â pharu â <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_pin_error_message">Methwyd â pharu â <xliff:g id="device_name">%1$s</xliff:g> oherwydd PIN neu cyfrinallwedd anghywir.</string>
     <string name="bluetooth_pairing_device_down_error_message">Methu â chyfathrebu gyda <xliff:g id="device_name">%1$s</xliff:g>.</string>
     <string name="bluetooth_pairing_rejected_error_message">Gwrthodwyd paru gan <xliff:g id="device_name">%1$s</xliff:g>.</string>
     <string name="bluetooth_talkback_computer">Cyfrifiadur</string>
@@ -123,8 +123,8 @@
     <string name="bluetooth_talkback_headphone">Clustffonau</string>
     <string name="bluetooth_talkback_input_peripheral">Perifferol Mewnbwn</string>
     <string name="bluetooth_talkback_bluetooth">Bluetooth</string>
-    <string name="bluetooth_hearingaid_left_pairing_message">Yn paru teclyn clyw\'r chwith\u2026</string>
-    <string name="bluetooth_hearingaid_right_pairing_message">Yn paru teclyn clyw\'r dde\u2026</string>
+    <string name="bluetooth_hearingaid_left_pairing_message">Yn paru â theclyn clyw\'r chwith\u2026</string>
+    <string name="bluetooth_hearingaid_right_pairing_message">Yn paru â theclyn clyw\'r dde\u2026</string>
     <string name="bluetooth_hearingaid_left_battery_level">Chwith - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batri</string>
     <string name="bluetooth_hearingaid_right_battery_level">De - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batri</string>
     <string name="accessibility_wifi_off">Wi-fi i ffwrdd.</string>

@@ -1745,6 +1745,7 @@
     <string name="deny">Diùlt</string>
     <string name="permission_request_notification_title">Chaidh cead iarraidh</string>
     <string name="permission_request_notification_with_subtitle">Chaidh cead iarraidh\nairson cunntas <xliff:g id="account" example="foo@gmail.com">%s</xliff:g>.</string>
+    <string name="permission_request_notification_for_app_with_subtitle">Dh’iarr <xliff:g id="app" example="Gmail">%1$s</xliff:g> cead\ndo chunntas <xliff:g id="account" example="foo@gmail.com">%2$s</xliff:g>.</string>
     <string name="forward_intent_to_owner">Tha thu a’ cleachdadh na h-aplacaid seo taobh a-muigh pròifil na h-obrach agad</string>
     <string name="forward_intent_to_work">Tha thu a’ cleachdadh na h-aplacaid ann am pròifil na h-obrach agad</string>
     <string name="input_method_binding_label">Modh ion-chuir</string>

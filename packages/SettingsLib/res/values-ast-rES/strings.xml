@@ -32,18 +32,26 @@
     <string name="wifi_check_password_try_again">Comprueba la contraseña y volvi tentalo</string>
     <string name="wifi_not_in_range">Nun ta al algame</string>
     <string name="wifi_no_internet_no_reconnect">Nun va conectase automáticamente</string>
-    <string name="wifi_no_internet">Ensin accesu a internet</string>
+    <string name="wifi_no_internet">Nun hai accesu a internet.</string>
     <string name="saved_network">Redes guardaes por «<xliff:g id="name">%1$s</xliff:g>»</string>
     <string name="connected_via_network_scorer">Conectóse automáticamente per «%1$s»</string>
     <string name="connected_via_network_scorer_default">Conectóse automáticamente per un fornidor de valoración de redes</string>
     <string name="connected_via_passpoint">Conectóse per «%1$s»</string>
+    <string name="connected_via_app">Conectóse per «<xliff:g id="name" example="Wifi App">%1$s</xliff:g>»</string>
     <string name="available_via_passpoint">Disponible per «%1$s»</string>
-    <string name="wifi_connected_no_internet">Coneutáu, ensin internet</string>
+    <string name="tap_to_sign_up">Toca equí pa rexistrate</string>
+    <string name="wifi_connected_no_internet">Conectóse, nun hai internet</string>
+    <string name="wifi_limited_connection">Conexón llendada</string>
     <string name="wifi_status_no_internet">Nun hai internet</string>
-    <string name="wifi_status_sign_in_required">Necesítase robla</string>
+    <string name="wifi_status_sign_in_required">Tienes d\'aniciar sesión</string>
     <string name="wifi_ap_unable_to_handle_new_sta">El puntu d\'accesu ta temporalmente enllén</string>
     <string name="connected_via_carrier">Conectóse per «%1$s»</string>
     <string name="available_via_carrier">Disponible per «%1$s»</string>
+    <string name="osu_opening_provider">Abriendo «<xliff:g id="passpointProvider" example="Passpoint Provider">%1$s</xliff:g>»</string>
+    <string name="osu_connect_failed">Nun se pudo conectar</string>
+    <string name="osu_completing_sign_up">Completando\'l rexistru\u2026</string>
+    <string name="osu_sign_up_failed">Nun se pudo completar el rexistru. Toca equí pa retentalo.</string>
+    <string name="osu_sign_up_complete">Completóse\'l rexistru. Conectando\u2026</string>
     <string name="speed_label_very_slow">Velocidá perlenta</string>
     <string name="speed_label_okay">Velocidá aceptable</string>
     <string name="speed_label_medium">Velocidá mediana</string>
@@ -52,19 +60,21 @@
     <string name="bluetooth_disconnected">Desconectóse</string>
     <string name="bluetooth_disconnecting">Desconectando\u2026</string>
     <string name="bluetooth_connecting">Conectando\u2026</string>
-    <string name="bluetooth_connected">Coneutáu<xliff:g id="active_device">%1$s</xliff:g></string>
+    <string name="bluetooth_connected">Conectóse <xliff:g id="active_device">%1$s</xliff:g></string>
     <string name="bluetooth_pairing">Empareyando\u2026</string>
-    <string name="bluetooth_connected_no_headset">Coneutáu (ensin teléfonu)<xliff:g id="active_device">%1$s</xliff:g></string>
-    <string name="bluetooth_connected_no_a2dp">Coneutáu (ensin multimedia)<xliff:g id="active_device">%1$s</xliff:g></string>
-    <string name="bluetooth_connected_no_map">Coneutáu (ensin accesu a mensaxes)<xliff:g id="active_device">%1$s</xliff:g></string>
-    <string name="bluetooth_connected_no_headset_no_a2dp">Coneutáu (ensin teléfonu o multimedia)<xliff:g id="active_device">%1$s</xliff:g></string>
-    <string name="bluetooth_connected_battery_level">Coneutáu, batería <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
-    <string name="bluetooth_connected_no_headset_battery_level">Coneutáu (ensin teléfonu), batería <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
-    <string name="bluetooth_connected_no_a2dp_battery_level">Coneutáu (ensin multimedia), batería <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
-    <string name="bluetooth_connected_no_headset_no_a2dp_battery_level">Coneutáu (ensin teléfonu o multimedia), batería <xliff:g id="battery_level_as_percentage">%1$s</xliff:g><xliff:g id="active_device">%2$s</xliff:g></string>
-    <string name="bluetooth_active_battery_level">Activar, <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batería</string>
-    <string name="bluetooth_battery_level"><xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batería</string>
-    <string name="bluetooth_active_no_battery_level">Activa</string>
+    <string name="bluetooth_connected_no_headset">Conectóse (ensin teléfonu) <xliff:g id="active_device">%1$s</xliff:g></string>
+    <string name="bluetooth_connected_no_a2dp">Conectóse (ensin multimedia) <xliff:g id="active_device">%1$s</xliff:g></string>
+    <string name="bluetooth_connected_no_map">Conectóse (ensin accesu a los mensaxes) <xliff:g id="active_device">%1$s</xliff:g></string>
+    <string name="bluetooth_connected_no_headset_no_a2dp">Conectóse (ensin teléfonu o multimedia) <xliff:g id="active_device">%1$s</xliff:g></string>
+    <string name="bluetooth_connected_battery_level">Conectóse, batería al <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
+    <string name="bluetooth_connected_no_headset_battery_level">Conectóse (ensin teléfonu) <xliff:g id="active_device">%2$s</xliff:g>, batería al <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
+    <string name="bluetooth_connected_no_a2dp_battery_level">Conectóse (ensin multimedia) <xliff:g id="active_device">%2$s</xliff:g>, batería al <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
+    <string name="bluetooth_connected_no_headset_no_a2dp_battery_level">Conectóse (ensin teléfonu nin multimedia) <xliff:g id="active_device">%2$s</xliff:g>, batería al <xliff:g id="battery_level_as_percentage">%1$s</xliff:g></string>
+    <string name="bluetooth_active_battery_level">N\'activo, <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> de batería</string>
+    <string name="bluetooth_active_battery_level_untethered">N\'activo. E: <xliff:g id="battery_level_as_percentage" example="25%">%1$s</xliff:g> de batería, D: <xliff:g id="battery_level_as_percentage" example="25%">%2$s</xliff:g> de batería</string>
+    <string name="bluetooth_battery_level"><xliff:g id="battery_level_as_percentage">%1$s</xliff:g> de batería</string>
+    <string name="bluetooth_battery_level_untethered">E: <xliff:g id="battery_level_as_percentage" example="25%">%1$s</xliff:g> de batería, D: <xliff:g id="battery_level_as_percentage" example="25%">%2$s</xliff:g> de batería</string>
+    <string name="bluetooth_active_no_battery_level">N\'activo</string>
     <string name="bluetooth_profile_a2dp">Audiu multimedia</string>
     <string name="bluetooth_profile_headset">Llamaes telefóniques</string>
     <string name="bluetooth_profile_opp">Tresferencia de ficheros</string>
@@ -77,6 +87,8 @@
     <string name="bluetooth_profile_sap">Accesu a la SIM</string>
     <string name="bluetooth_profile_a2dp_high_quality">Audiu HD: <xliff:g id="codec_name">%1$s</xliff:g></string>
     <string name="bluetooth_profile_a2dp_high_quality_unknown_codec">Audiu HD</string>
+    <string name="bluetooth_profile_hearing_aid">Audífonos</string>
+    <string name="bluetooth_hearing_aid_profile_summary_connected">Conectóse a los audífonos</string>
     <string name="bluetooth_a2dp_profile_summary_connected">Conectóse al audiu multimedia</string>
     <string name="bluetooth_headset_profile_summary_connected">Conectóse al audiu del teléfonu</string>
     <string name="bluetooth_opp_profile_summary_connected">Conectóse al sirvidor de tresferencia de ficheros</string>
@@ -84,15 +96,16 @@
     <string name="bluetooth_sap_profile_summary_connected">Conectóse al SAP</string>
     <string name="bluetooth_opp_profile_summary_not_connected">Nun se conectó al sirvidor de tresferencia de ficheros</string>
     <string name="bluetooth_hid_profile_summary_connected">Conectóse al preséu d\'entrada</string>
-    <string name="bluetooth_pan_user_profile_summary_connected">Coneutáu al preséu pal accesu a internet</string>
-    <string name="bluetooth_pan_nap_profile_summary_connected">Compartiendo conexón a internet col preséu</string>
-    <string name="bluetooth_pan_profile_summary_use_for">Usar p\'acceder a internet</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Conectóse al preséu p\'acceder a internet</string>
+    <string name="bluetooth_pan_nap_profile_summary_connected">Compartiendo l\'accesu a internet col preséu</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Úsase pal accesu a internet</string>
     <string name="bluetooth_map_profile_summary_use_for">Úsase pal mapa</string>
     <string name="bluetooth_sap_profile_summary_use_for">Úsase pal accesu a la SIM</string>
     <string name="bluetooth_a2dp_profile_summary_use_for">Úsase pal audiu multimedia</string>
     <string name="bluetooth_headset_profile_summary_use_for">Úsase pal audiu del teléfonu</string>
     <string name="bluetooth_opp_profile_summary_use_for">Úsase pa la tresferencia de ficheros</string>
     <string name="bluetooth_hid_profile_summary_use_for">Úsase pa la entrada</string>
+    <string name="bluetooth_hearing_aid_profile_summary_use_for">Úsase pa los audífonos</string>
     <string name="bluetooth_pairing_accept">Empareyar</string>
     <string name="bluetooth_pairing_accept_all_caps">EMPAREYAR</string>
     <string name="bluetooth_pairing_decline">Encaboxar</string>
@@ -102,16 +115,16 @@
     <string name="bluetooth_pairing_device_down_error_message">Nun se pue comunicar con «<xliff:g id="device_name">%1$s</xliff:g>».</string>
     <string name="bluetooth_pairing_rejected_error_message">«<xliff:g id="device_name">%1$s</xliff:g>» refugó l\'empareyamientu.</string>
     <string name="bluetooth_talkback_computer">Ordenador</string>
-    <string name="bluetooth_talkback_headset">Auriculares</string>
+    <string name="bluetooth_talkback_headset">Cascos</string>
     <string name="bluetooth_talkback_phone">Teléfonu</string>
     <string name="bluetooth_talkback_imaging">Imáxenes</string>
     <string name="bluetooth_talkback_headphone">Auriculares</string>
     <string name="bluetooth_talkback_input_peripheral">Periféricu d\'entrada</string>
     <string name="bluetooth_talkback_bluetooth">Bluetooth</string>
-    <string name="bluetooth_hearingaid_left_pairing_message">Empareyamientu d\'audífonu izquierdu\u2026</string>
-    <string name="bluetooth_hearingaid_right_pairing_message">Empareyamientu d\'audífonu drechu\u2026</string>
-    <string name="bluetooth_hearingaid_left_battery_level">Izquierda - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batería</string>
-    <string name="bluetooth_hearingaid_right_battery_level">Drecha - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batería</string>
+    <string name="bluetooth_hearingaid_left_pairing_message">Empareyando al audífonu esquierdu\u2026</string>
+    <string name="bluetooth_hearingaid_right_pairing_message">Empareyando al audífonu derechu\u2026</string>
+    <string name="bluetooth_hearingaid_left_battery_level">Esquierdu - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> de batería</string>
+    <string name="bluetooth_hearingaid_right_battery_level">Derechu - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> de batería</string>
     <string name="accessibility_wifi_off">Señal Wi-Fi: desactivóse.</string>
     <string name="accessibility_no_wifi">Señal Wi-Fi: desconectóse.</string>
     <string name="accessibility_wifi_one_bar">Señal Wi-Fi: una barra.</string>
@@ -123,6 +136,7 @@
     <string name="process_kernel_label">SO Android</string>
     <string name="data_usage_uninstalled_apps">Aplicaciones quitaes</string>
     <string name="data_usage_uninstalled_apps_users">Usuarios y aplicaciones quitaos</string>
+    <string name="data_usage_ota">Anovamientos del sistema</string>
     <string name="tether_settings_title_usb">Tethering per USB</string>
     <string name="tether_settings_title_wifi">Puntu Wi-Fi</string>
     <string name="tether_settings_title_bluetooth">Tethering per Bluetooth</string>
@@ -132,6 +146,8 @@
     <string name="user_guest">Convidáu</string>
     <string name="unknown">Desconozse</string>
     <string name="running_process_item_user_label">Usuariu: <xliff:g id="user_name">%1$s</xliff:g></string>
+    <string name="launch_defaults_some">Afitáronse dalgunos valores predeterminaos</string>
+    <string name="launch_defaults_none">Nun s\'afitó nengún valor predetermináu</string>
     <string name="tts_settings">Axustes de la síntesis de voz</string>
     <string name="tts_settings_title">Síntesis de voz</string>
     <string name="tts_default_rate_title">Velocidá de la voz</string>
@@ -140,6 +156,7 @@
     <string name="tts_default_pitch_summary">Afeuta al tonu de la voz sintetizada</string>
     <string name="tts_default_lang_title">Llingua</string>
     <string name="tts_lang_use_system">Usar la llingua del sistema</string>
+    <string name="tts_lang_not_selected">Nun s\'esbilló nenguna llingua</string>
     <string name="tts_default_lang_summary">Afita la llingua usada pa la síntesis de voz</string>
     <string name="tts_play_example_title">Escuchar un exemplu</string>
     <string name="tts_play_example_summary">Reproduz una demostración curtia de la síntesis de voz</string>
@@ -186,6 +203,7 @@
     <string name="bugreport_in_power">Atayu «Informe de fallos»</string>
     <string name="bugreport_in_power_summary">Amuesa un botón nel menú d\'apagáu pa crear un informe de fallos</string>
     <string name="bt_hci_snoop_log">Activar el rexistru de busca HCI Bluetooth</string>
+    <string name="bt_hci_snoop_log_summary">Captura los paquetes de Bluetooth (alterna\'l Bluetooth dempués de camudar esti axuste).</string>
     <string name="oem_unlock_enable">Desbloquéu d\'OEM</string>
     <string name="oem_unlock_enable_summary">Permite desbloquiar el cargador d\'arrinque</string>
     <string name="confirm_enable_oem_unlock_title">¿Quies permitir el desbloquéu d\'OEM?</string>
@@ -195,6 +213,7 @@
     <string name="mock_location_app_set">Aplicación d\'allugamientu ficticiu: <xliff:g id="app_name">%1$s</xliff:g></string>
     <string name="wifi_display_certification">Certificación de visualización ensin filos</string>
     <string name="wifi_verbose_logging">Activar el rexistru detalláu de la Wi\u2011Fi</string>
+    <string name="wifi_scan_throttling">Llende de la busca de redes Wi\u2011Fi</string>
     <string name="mobile_data_always_on">Datos móviles activaos siempres</string>
     <string name="tethering_hardware_offload">Aceleración per hardware pal tethering</string>
     <string name="bluetooth_show_devices_without_names">Amosar los preseos Bluetooth ensin el nome</string>
@@ -202,25 +221,29 @@
     <string name="bluetooth_select_avrcp_version_string">Versión del AVRCP de Bluetooth</string>
     <string name="bluetooth_select_avrcp_version_dialog_title">Esbilla la versión del AVRCP de Bluetooth</string>
     <string name="bluetooth_select_a2dp_codec_type">Códec del audiu per Bluetooth</string>
-    <string name="bluetooth_select_a2dp_codec_type_dialog_title">Activar Bluetooth Audio Codec \ u000AEscoyeta</string>
+    <string name="bluetooth_select_a2dp_codec_type_dialog_title">Aicionar el códec del audiu per Bluetooth\u000AEsbilla</string>
     <string name="bluetooth_select_a2dp_codec_sample_rate">Tasa d\'amuesa del audiu per Bluetooth</string>
-    <string name="bluetooth_select_a2dp_codec_sample_rate_dialog_title">Activar Bluetooth Audio Codec \ u000AEscoyeta: Frecuencia de muestréu</string>
+    <string name="bluetooth_select_a2dp_codec_sample_rate_dialog_title">Aicionar el códec del audiu per Bluetooth\u000AEsbilla: tasa d\'amuesa</string>
     <string name="bluetooth_select_a2dp_codec_bits_per_sample">Bits per amuesa del audiu per Bluetooth</string>
-    <string name="bluetooth_select_a2dp_codec_bits_per_sample_dialog_title">Activar Bluetooth Audio Codec \ u000AEscoyeta: Bits Por Muestra</string>
+    <string name="bluetooth_select_a2dp_codec_bits_per_sample_dialog_title">Aicionar el códec del audiu per Bluetooth\u000AEsbilla: bits per amuesa</string>
     <string name="bluetooth_select_a2dp_codec_channel_mode">Mou de canal del audiu per Bluetooth</string>
-    <string name="bluetooth_select_a2dp_codec_channel_mode_dialog_title">Activar Bluetooth Audio Codec \ u000AEscoyeta: Mou Canal</string>
+    <string name="bluetooth_select_a2dp_codec_channel_mode_dialog_title">Aicionar el códec del audiu per Bluetooth\u000AEsbilla: mou de canal</string>
     <string name="bluetooth_select_a2dp_codec_ldac_playback_quality">Códec LDAC del audiu per Bluetooth: calidá de reproducción</string>
-    <string name="bluetooth_select_a2dp_codec_ldac_playback_quality_dialog_title">Activar Bluetooth Audio LDAC\ u000AEscoyeta de Codec: Cualidá Playback</string>
+    <string name="bluetooth_select_a2dp_codec_ldac_playback_quality_dialog_title">Aicionar el códec LDAC del audiu per Bluetooth\u000AEsbilla del códec: calidá de reproducción</string>
     <string name="bluetooth_select_a2dp_codec_streaming_label">N\'emisión: <xliff:g id="streaming_parameter">%1$s</xliff:g></string>
     <string name="select_private_dns_configuration_title">DNS priváu</string>
-    <string name="select_private_dns_configuration_dialog_title">Escoyer mou DNS priváu</string>
-    <string name="private_dns_mode_off">Apagáu</string>
-    <string name="private_dns_mode_opportunistic">Automáticu</string>
-    <string name="private_dns_mode_provider">Nome del host del fornidor de DNS priváu</string>
-    <string name="private_dns_mode_provider_failure">Nun pudo coneutase</string>
+    <string name="select_private_dns_configuration_dialog_title">Esbilla\'l mou de DNS priváu</string>
+    <string name="private_dns_mode_off">Non</string>
+    <string name="private_dns_mode_opportunistic">N\'automático</string>
+    <string name="private_dns_mode_provider">Agospiador del fornidor de DNS priváu</string>
+    <string name="private_dns_mode_provider_hostname_hint">Introduz l\'agospiador del fornidor de DNS</string>
+    <string name="private_dns_mode_provider_failure">Nun se pudo conectar</string>
     <string name="wifi_display_certification_summary">Amuesa les opciones de la certificación de visualización ensin filos</string>
-    <string name="wifi_metered_label">Midíu</string>
-    <string name="wifi_unmetered_label">Ensin midir</string>
+    <string name="wifi_scan_throttling_summary">Amenorga\'l consumu d\'enerxía y ameyora\'l rindimientu de la rede</string>
+    <string name="wifi_metered_label">Con llende de datos</string>
+    <string name="wifi_unmetered_label">Ensin llende de datos</string>
+    <string name="select_logd_size_title">Tamaños del búfer de Logger</string>
+    <string name="select_logd_size_dialog_title">Esbilla los tamaños de Logger per búfer de rexistru</string>
     <string name="dev_logpersist_clear_warning_title">¿Quies desaniciar l\'almacenamientu permanente del rexistrador?</string>
     <string name="dev_logpersist_clear_warning_message">Cuando yá nun supervisemos col rexistrador permanente, tenemos de desaniciar los datos del rexistrador qu\'heba nel preséu.</string>
     <string name="select_logpersist_title">Atroxar los datos del rexistrador permanentemente nel preséu</string>
@@ -231,6 +254,10 @@
     <string name="adb_warning_title">¿Quies permitir la depuración per USB?</string>
     <string name="adb_warning_message">La depuración per USB ta diseñada namás p\'actividaes de desendolcu. Úsala pa copiar datos ente un ordenador y esti preséu, pa instalar aplicaciones nel preséu ensin avisar y pa lleer los datos del rexistru.</string>
     <string name="adb_keys_warning_message">¿Quies revocar l\'accesu a la depuración per USB de tolos ordeandores qu\'autoricesti anteriormente?</string>
+    <string name="dev_settings_warning_title">¿Quies permitir los axustes de desendolcu?</string>
+    <string name="dev_settings_warning_message">Estos axustes tán diseñaos namás pa programar.  Puen causar que\'l preséu y les aplicaciones que contenga s\'estropien o funcionen mal.</string>
+    <string name="verify_apps_over_usb_title">Verificar aplicaciones per USB</string>
+    <string name="verify_apps_over_usb_summary">Comprueba les aplicaciones instalaes per ADB/ADT pa detectar comportamientos peligrosos.</string>
     <string name="bluetooth_show_devices_without_names_summary">Los preseos Bluetooth van apaecer ensin el nome (namás la direición MAC)</string>
     <string name="bluetooth_disable_absolute_volume_summary">Desactiva la función del volume absolutu del Bluetooth nel casu d\'haber problemes colos preseos remotos, como un volume peraltu o una falta de control.</string>
     <string name="enable_terminal_title">Terminal llocal</string>
@@ -253,9 +280,16 @@
     <string name="strict_mode_summary">Fai que la pantalla rellume cuando les
         aplicaciones faigan operaciones que
         duren muncho nel filu principal</string>
+    <string name="pointer_location">Posición del punteru</string>
+    <string name="pointer_location_summary">Una superposición de pantalla qu\'amuesa los datos táctiles</string>
     <string name="show_touches">Amosar los toques</string>
     <string name="show_touches_summary">Amuesa un indicador onde se faen los toques</string>
     <string name="show_screen_updates">Anovamientos de superficie</string>
+    <string name="show_hw_screen_updates">Anov. de visualización</string>
+    <string name="show_hw_screen_updates_summary">Relluma les vistes de les ventanes al dibuxales</string>
+    <string name="show_hw_layers_updates_summary">Relluma en verde les capes de hardware cuando s\'anueven</string>
+    <string name="debug_hw_overdraw">Depurar superposiciones de GPU</string>
+    <string name="disable_overlays_summary">Usa siempres la GPU pa la composición de pantalla</string>
     <string name="simulate_color_space">Simular l\'espaciu de color</string>
     <string name="usb_audio_disable_routing">Desact. l\'encam. del audiu USB</string>
     <string name="usb_audio_disable_routing_summary">Desactiva l\'encaminamientu automáticu a los periféricos d\'audiu USB</string>
@@ -266,6 +300,9 @@
     <string name="force_msaa">Forciar el MSAA x4</string>
     <string name="force_msaa_summary">Activa\'l MSAA x4 nes aplicaciones d\'OpenGL ES 2.0</string>
     <string name="show_non_rect_clip">Depurar les operaciones de recorte que nun son rectangulares</string>
+    <string name="track_frame_time">Renderizáu de perfil HWUI</string>
+    <string name="enable_gpu_debug_layers">Act. capes de dep. de la GPU</string>
+    <string name="enable_gpu_debug_layers_summary">Permite la carga de les capes de depuración de la GPU pa les aplicaciones de depuración</string>
     <string name="window_animation_scale_title">Escala d\'animación de ventanes</string>
     <string name="transition_animation_scale_title">Escala d\'animación de transiciones</string>
     <string name="animator_duration_scale_title">Escala de duración del animador</string>
@@ -275,6 +312,8 @@
     <string name="immediately_destroy_activities_summary">Destrúi actividaes namás que
         l\'usuariu dexe d\'usales</string>
     <string name="app_process_limit_title">Llendar procesos en segundu planu</string>
+    <string name="show_all_anrs">Amosar los ANR del segundu planu</string>
+    <string name="show_all_anrs_summary">Informa cuando una aplicación en segundu planu nun respuende</string>
     <string name="show_notification_channel_warnings">Amosar alvertencies de la canal d\'avisos</string>
     <string name="show_notification_channel_warnings_summary">Amuesa una alvertencia na pantalla cuando una aplicación espublice un avisu ensin una canal válida</string>
     <string name="force_allow_on_external">Forciar permisu de les aplic. nel almac. esternu</string>
@@ -289,6 +328,7 @@
     <string name="local_backup_password_toast_success">Afitóse la contraseña nueva de seguranza</string>
     <string name="local_backup_password_toast_confirmation_mismatch">La contraseña nueva y la de confirmación nun concasen</string>
     <string name="local_backup_password_toast_validation_failure">Hebo un fallu al afitar la contraseña de seguranza</string>
+    <string name="loading_injected_setting_summary">Cargando\u2026</string>
     <string-array name="color_mode_names">
         <item>Colores vivos (por defeutu)</item>
         <item>Natural</item>
@@ -299,9 +339,11 @@
         <item>Colores naturales tal y como los ve\'l güeyu</item>
         <item>Colores optimizaos pal conteníu dixital</item>
     </string-array>
-    <string name="inactive_apps_title">Apps n\'espera</string>
+    <string name="inactive_apps_title">Aplicaciones n\'espera</string>
     <string name="inactive_app_inactive_summary">Aplicación inactiva. Toca p\'alternar.</string>
     <string name="inactive_app_active_summary">Aplicación activa. Toca p\'alternar.</string>
+    <string name="standby_bucket_summary">Estáu de l\'aplicación
+        n\'espera: <xliff:g id="bucket">%s</xliff:g></string>
     <string name="runningservices_settings_title">Servicios n\'execución</string>
     <string name="runningservices_settings_summary">Visualiza y controla los servicios n\'execución</string>
     <string name="select_webview_provider_title">Implementación de WebView</string>
@@ -326,22 +368,31 @@
     <string name="accessibility_display_daltonizer_preference_title">Correición del color</string>
     <string name="accessibility_display_daltonizer_preference_subtitle">Esta carauterística ye esperimental y pue afeutar al rindimientu.</string>
     <string name="daltonizer_type_overridden">«<xliff:g id="title" example="Simulate color space">%1$s</xliff:g>» anula la opción</string>
-    <string name="power_remaining_duration_only">Sobre <xliff:g id="time_remaining">%1$s</xliff:g> falta</string>
-    <string name="power_discharging_duration">Sobre <xliff:g id="time_remaining">%1$s</xliff:g> falta (<xliff:g id="level">%2$s</xliff:g>)</string>
-    <string name="power_remaining_duration_only_enhanced">Sobre <xliff:g id="time_remaining">%1$s</xliff:g> falta basándose nel to usu</string>
-    <string name="power_remaining_less_than_duration_only">Menos de <xliff:g id="threshold">%1$s</xliff:g> queden</string>
-    <string name="power_remaining_less_than_duration">Menos de <xliff:g id="threshold">%1$s</xliff:g> queden (<xliff:g id="level">%2$s</xliff:g>)</string>
-    <string name="power_remaining_more_than_subtext">Más de <xliff:g id="time_remaining">%1$s</xliff:g> falta (<xliff:g id="level">%2$s</xliff:g>)</string>
-    <string name="power_remaining_only_more_than_subtext">Más de <xliff:g id="time_remaining">%1$s</xliff:g> falta</string>
-    <string name="power_remaining_duration_only_shutdown_imminent" product="default">El teléfonu puede apagase aína</string>
-    <string name="power_remaining_duration_only_shutdown_imminent" product="tablet">La tablet puede apagase aína</string>
-    <string name="power_remaining_duration_only_shutdown_imminent" product="device">El preséu puede apagase aína</string>
-    <string name="power_remaining_duration_shutdown_imminent" product="default">El teléfonu puede apagase aína (<xliff:g id="level">%1$s</xliff:g>)</string>
-    <string name="power_remaining_duration_shutdown_imminent" product="tablet">La tablet puede apagase aína (<xliff:g id="level">%1$s</xliff:g>)</string>
-    <string name="power_remaining_duration_shutdown_imminent" product="device">El preséu puede apagase aína (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_settings_home_page"><xliff:g id="percentage" example="10%">%1$s</xliff:g> - <xliff:g id="time_string" example="1 hour left based on your usage">%2$s</xliff:g></string>
+    <string name="power_remaining_duration_only">Tiempu que queda aproximadamente: <xliff:g id="time_remaining">%1$s</xliff:g></string>
+    <string name="power_discharging_duration">Tiempu que queda aproximadamente: <xliff:g id="time_remaining">%1$s</xliff:g> (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_duration_only_enhanced">Tiempu que queda aproximidamente según el to usu: <xliff:g id="time_remaining">%1$s</xliff:g></string>
+    <string name="power_discharging_duration_enhanced">Tiempu que queda aproximidamente según el to usu: <xliff:g id="time_remaining">%1$s</xliff:g> (<xliff:g id="time">%2$s</xliff:g>)</string>
+    <string name="power_remaining_duration_only_short"><xliff:g id="time_remaining">%1$s</xliff:g></string>
+    <string name="power_discharge_by_enhanced">Hora hasta la qu\'habría durar aproximadamente según el to usu: <xliff:g id="time">%1$s</xliff:g> (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_discharge_by_only_enhanced">Hora hasta la qu\'habría durar aproximadamente según el to usu: <xliff:g id="time">%1$s</xliff:g></string>
+    <string name="power_discharge_by">Hora hasta la qu\'habría durar aproximadamente: <xliff:g id="time">%1$s</xliff:g> (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_discharge_by_only">Hora hasta la qu\'habría durar aproximadamente: <xliff:g id="time">%1$s</xliff:g></string>
+    <string name="power_discharge_by_only_short">Hasta la hora: <xliff:g id="time" example="12 PM">%1$s</xliff:g></string>
+    <string name="power_suggestion_extend_battery">Prollonga la duración de la batería dempués de la hora: <xliff:g id="time" example="12 PM">%1$s</xliff:g></string>
+    <string name="power_remaining_less_than_duration_only">Tiempu que queda: menos de <xliff:g id="time_remaining">%1$s</xliff:g></string>
+    <string name="power_remaining_less_than_duration">Tiempu que queda: menos de <xliff:g id="time_remaining">%1$s</xliff:g> (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_more_than_subtext">Tiempu que queda: más de <xliff:g id="time_remaining">%1$s</xliff:g> (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_only_more_than_subtext">Tiempu que queda: más de <xliff:g id="time_remaining">%1$s</xliff:g></string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="default">El teléfonu pue apagase pronto</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="tablet">La tableta pue apagase pronto</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="device">El preséu pue apagase pronto</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="default">El teléfonu pue apagase pronto (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="tablet">La tableta pue apagase pronto (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="device">El preséu pue apagase pronto (<xliff:g id="level">%1$s</xliff:g>)</string>
     <string name="power_charging"><xliff:g id="level">%1$s</xliff:g> - <xliff:g id="state">%2$s</xliff:g></string>
-    <string name="power_remaining_charging_duration_only"><xliff:g id="time">%1$s</xliff:g> falta hasta carga ensembre</string>
-    <string name="power_charging_duration"><xliff:g id="level">%1$s</xliff:g> - <xliff:g id="time">%2$s</xliff:g> hasta carga ensembre</string>
+    <string name="power_remaining_charging_duration_only"><xliff:g id="time">%1$s</xliff:g> pa completar la carga</string>
+    <string name="power_charging_duration"><xliff:g id="level">%1$s</xliff:g> - <xliff:g id="time">%2$s</xliff:g> pa completar la carga</string>
     <string name="battery_info_status_unknown">Desconozse</string>
     <string name="battery_info_status_charging">En carga</string>
     <string name="battery_info_status_charging_lower">en carga</string>
@@ -378,29 +429,34 @@
     <string name="ime_security_warning">Esti métodu d\'entrada pue ser a recoyer
         tol testu que teclexes, incluyíos los datos personales como les contraseñes
         y los númberos de tarxetes de creitu.  Provién de l\'aplicación
-        <xliff:g id="ime_application_name">%1$s</xliff:g>.
+        «<xliff:g id="ime_application_name">%1$s</xliff:g>».
         ¿Quies usar esti métodu d\'entrada?</string>
     <string name="direct_boot_unaware_dialog_message">Nota: darréu de reaniciar, esta aplicación nun se pue aniciar hasta que desbloquies el teléfonu</string>
-    <string name="ims_reg_title">"Estáu del rexistru IMS"</string>
-    <string name="ims_reg_status_registered">"Rexistráu"</string>
-    <string name="ims_reg_status_not_registered">"Ensin rexistrar"</string>
-    <string name="status_unavailable">Non disponible</string>
+    <string name="ims_reg_title">"Estáu del rexistru d'IMS"</string>
+    <string name="ims_reg_status_registered">"Rexistróse"</string>
+    <string name="ims_reg_status_not_registered">"Nun se rexistró"</string>
+    <string name="status_unavailable">Nun ta disponible</string>
+    <string name="wifi_status_mac_randomized">La direición MAC esbillase al debalu</string>
     <plurals name="wifi_tether_connected_summary">
-        <item quantity="one">%1$d preséu coneutáu</item>
-        <item quantity="other">%1$d preseos coneutaos</item>
+        <item quantity="one">%1$d preséu conectáu</item>
+        <item quantity="other">%1$d preseos conectaos</item>
     </plurals>
     <string name="accessibility_manual_zen_more_time">Más tiempu.</string>
     <string name="accessibility_manual_zen_less_time">Menos tiempu.</string>
     <string name="cancel">Encaboxar</string>
     <string name="okay">Velocidá aceptable</string>
     <string name="zen_mode_enable_dialog_turn_on">Activar</string>
-    <string name="zen_mode_settings_turn_on_dialog_title">Activar pa Nun molestar</string>
-    <string name="zen_interruption_level_priority">Namái prioridá</string>
+    <string name="zen_mode_settings_turn_on_dialog_title">Activar el mou «Nun molestar»</string>
+    <string name="zen_mode_settings_summary_off">Enxamás</string>
+    <string name="zen_interruption_level_priority">Namás con prioridá</string>
     <string name="zen_mode_and_condition"><xliff:g id="zen_mode" example="Priority interruptions only">%1$s</xliff:g>. <xliff:g id="exit_condition" example="For one hour">%2$s</xliff:g></string>
-    <string name="zen_alarm_warning_indef">Nun vas oyer l\'alarma próxima a les <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g> a nun ser que desactives esta enantes</string>
-    <string name="zen_alarm_warning">Nun vas oyer l\'alarma próxima a les <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g></string>
-    <string name="alarm_template">a les <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g></string>
-    <string name="alarm_template_far">el <xliff:g id="when" example="Fri 7:00 AM">%1$s</xliff:g></string>
-    <string name="zen_mode_duration_always_prompt_title">Entrugar cada vegada</string>
+    <string name="zen_alarm_warning_indef">Nun vas oyer la próxima alarma (<xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g>) sacante que desactives esta opción enantes</string>
+    <string name="zen_alarm_warning">Nun vas oyer la próxima alarma (<xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g>)</string>
+    <string name="alarm_template">Hora: <xliff:g id="when" example="7:00 AM">%1$s</xliff:g></string>
+    <string name="alarm_template_far">Día: <xliff:g id="when" example="Fri 7:00 AM">%1$s</xliff:g></string>
+    <string name="zen_mode_duration_settings_title">Duración</string>
+    <string name="zen_mode_duration_always_prompt_title">Entrugar siempres</string>
+    <string name="zen_mode_forever">Hasta desactivar esta opción</string>
     <string name="time_unit_just_now">Puramente agora</string>
+    <string name="media_transfer_this_device_name">Esti preséu</string>
 </resources>

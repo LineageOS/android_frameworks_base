@@ -16,10 +16,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="prompt">Connectiounsufro</string>
     <string name="warning"><xliff:g id="app">%s</xliff:g> wëll eng VPN-Connectioun opstellen, wouduerch den Netzwierktrafic kann iwwerwaacht ginn. Acceptéier dat just, wann s du der Quell vertraus.
-                &lt;br /&gt;
-        &lt;br /&gt;
-        &lt;img src="vpn_icon" /&gt;
-         erschéngt uewen um Schierm, wa VPN aktiv ass.
+        <![CDATA[        <br />
+        <br />
+        <img src="vpn_icon" />
+        ]]> erschéngt uewen um Schierm, wa VPN aktiv ass.
     </string>
     <string name="legacy_title">VPN connectéiert</string>
     <string name="session">Sëtzung:</string>

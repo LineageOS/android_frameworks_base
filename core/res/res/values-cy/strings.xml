@@ -509,16 +509,16 @@ Mae\'n bosib y bydd yn anwybyddu rhai adrannau llai pwysig er mwyn bod yn gynt.<
     <string name="permdesc_changeWifiMulticastState" product="tv">Mae\'n caniatáu yr ap i dderbyn pecynnau wedi eu hanfon at holl ddyfeisiau ar rwydwaith Wi-Fi gan ddefnyddio cyfeiriadau aml-lediad, nid dy deledu yn unig. Mae\'n defnyddio mwy o bŵer na\'r modd na sy\'n aml-lediad.</string>
     <string name="permdesc_changeWifiMulticastState" product="default">Mae\'n caniatáu yr ap i dderbyn pecynnau wedi eu hanfon at holl ddyfeisiau ar rwydwaith Wi-Fi gan ddefnyddio cyfeiriadau aml-lediad, nid dy ffôn yn unig. Mae\'n defnyddio mwy o bŵer na\'r modd na sy\'n aml-lediad.</string>
     <string name="permlab_bluetoothAdmin">cyrchu gosodiadau Bluetooth</string>
-    <string name="permdesc_bluetoothAdmin" product="tablet">Mae\'n caniatáu yr ap i ffurfweddu\'r llechen Bluetooth lleol ac i ddarganfod a pharu gyda dyfeisiau o bell.</string>
-    <string name="permdesc_bluetoothAdmin" product="tv">Mae\'n caniatáu yr ap i ffurfweddu\'r teledu Bluetooth lleol ac i ddarganfod a pharu gyda dyfeisiau o bell.</string>
-    <string name="permdesc_bluetoothAdmin" product="default">Mae\'n caniatáu yr ap i ffurfweddu\'r ffôn Bluetooth lleol ac i ddarganfod a pharu gyda dyfeisiau o bell.</string>
+    <string name="permdesc_bluetoothAdmin" product="tablet">Mae\'n caniatáu yr ap i ffurfweddu\'r llechen Bluetooth lleol ac i ddarganfod a pharu â dyfeisiau o bell.</string>
+    <string name="permdesc_bluetoothAdmin" product="tv">Mae\'n caniatáu yr ap i ffurfweddu\'r teledu Bluetooth lleol ac i ddarganfod a pharu â dyfeisiau o bell.</string>
+    <string name="permdesc_bluetoothAdmin" product="default">Mae\'n caniatáu yr ap i ffurfweddu\'r ffôn Bluetooth lleol ac i ddarganfod a pharu â dyfeisiau o bell.</string>
     <string name="permlab_accessWimaxState">cysylltu a datgysylltu o WiMAX</string>
     <string name="permdesc_accessWimaxState">Mae\'n caniatáu yr ap i gael gwybod a yw WiMAX wedi ei alluogi a gwybodaeth am unrhyw rwydweithiau WiMAX sydd wedi cysylltu.</string>
     <string name="permlab_changeWimaxState">newid statws WiMAX</string>
     <string name="permdesc_changeWimaxState" product="tablet">Mae\'n caniatáu yr ap i gysylltu a datgysylltu\'r llechen o rwydweithiau WiMAX.</string>
     <string name="permdesc_changeWimaxState" product="tv">Mae\'n caniatáu yr ap i gysylltu a datgysylltu\'r teledu o rwydweithiau WiMAX.</string>
     <string name="permdesc_changeWimaxState" product="default">Mae\'n caniatáu yr ap i gysylltu a datgysylltu\'r ffôn o rwydweithiau WiMAX.</string>
-    <string name="permlab_bluetooth">paru gyda dyfeisiau Bluetooth</string>
+    <string name="permlab_bluetooth">paru â dyfeisiau Bluetooth</string>
     <string name="permdesc_bluetooth" product="tablet">Mae\'n caniatáu yr ap i weld ffurfweddiad Bluetooth y llechen ac i gysylltu a derbyn cysylltiadau gyda dyfeisiau sy\'n paru.</string>
     <string name="permdesc_bluetooth" product="tv">Mae\'n caniatáu yr ap i weld ffurfweddiad Bluetooth y teledu ac i gysylltu a derbyn cysylltiadau gyda dyfeisiau sy\'n paru.</string>
     <string name="permdesc_bluetooth" product="default">Mae\'n caniatáu yr ap i weld ffurfweddiad Bluetooth y ffôn ac i gysylltu a derbyn cysylltiadau gyda dyfeisiau sy\'n paru.</string>
@@ -1589,6 +1589,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="deny">Gwrthod</string>
     <string name="permission_request_notification_title">Gwnaed gais am ganiatâd</string>
     <string name="permission_request_notification_with_subtitle">Cais caniatâd ar gyfer\ny cyfrif <xliff:g id="account" example="foo@gmail.com">%s</xliff:g>.</string>
+    <string name="permission_request_notification_for_app_with_subtitle">Cais am ganiatâd gan <xliff:g id="app" example="Gmail">%1$s</xliff:g>\n ar gyfer y cyfrif <xliff:g id="account" example="foo@gmail.com">%2$s</xliff:g></string>
     <string name="forward_intent_to_owner">Rwyt yn defnyddio\'r ap hwn tu allan i dy broffil gwaith</string>
     <string name="forward_intent_to_work">Rwyt yn defnyddio\'r ap hwn o fewn dy broffil gwaith</string>
     <string name="input_method_binding_label">Dull mewnbwn</string>

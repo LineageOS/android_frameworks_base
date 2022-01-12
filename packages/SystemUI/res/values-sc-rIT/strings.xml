@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">IU de su sistema</string>
+    <string name="status_bar_clear_all_button">Lìmpia</string>
+    <string name="status_bar_no_notifications_title">Peruna notìfica</string>
+    <string name="status_bar_ongoing_events_title">In cursu</string>
+    <string name="status_bar_latest_events_title">Notìficas</string>
+    <string name="battery_low_percent_format">abarrat <xliff:g id="percentage">%s</xliff:g></string>
+    <string name="battery_low_why">Impostatziones</string>
+    <string name="battery_saver_confirmation_ok">Ativa</string>
+    <string name="status_bar_settings_settings_button">Impostatziones</string>
+    <string name="status_bar_settings_wifi_button">Wi-Fi</string>
+    <string name="status_bar_settings_auto_rotation">Rotatzione automàtica de s\'ischermu</string>
+    <string name="status_bar_settings_mute_label">A SA MUDA</string>
+    <string name="status_bar_settings_auto_brightness_label">AUTOMÀTICU</string>
+    <string name="status_bar_settings_notifications">Notìficas</string>
+    <string name="bluetooth_tethered">Bluetooth collegadu</string>
+    <string name="status_bar_input_method_settings_configure_input_methods">Imposta is mètodos in intrada</string>
+    <string name="status_bar_use_physical_keyboard">Tecladu fìsicu</string>
+    <string name="usb_accessory_uri_prompt">Peruna aplicatzione de is installadas funtzionat cun custu atzessòriu USB. Iscoberi àteru de custu atzessòriu in <xliff:g id="url">%1$s</xliff:g></string>
+    <string name="title_usb_accessory">Atzessòriu USB</string>
+    <string name="label_view">Visualiza</string>
+    <string name="usb_debugging_title">Permìtere sa curretzione USB?</string>
+    <string name="usb_debugging_message">S\'imprenta de pòddighe de sa crae RSA de s\'elaboradore est:\n<xliff:g id="fingerprint">%1$s</xliff:g></string>
+    <string name="usb_debugging_always">Permite semper dae custu elaboradore</string>
+    <string name="usb_debugging_allow">Permite</string>
+    <string name="usb_debugging_secondary_user_title">Curretzione USB non permìtida</string>
+    <string name="compat_mode_on">Ammània pro prènere s\'ischermu</string>
+    <string name="compat_mode_off">Istèsia pro prènere s\'ischermu</string>
+    <string name="screenshot_saving_ticker">Sarvende s\'istantànea\u2026</string>
+    <string name="screenshot_saving_title">Sarvende s\'istantànea\u2026</string>
+    <string name="screenrecord_resume_label">Torra a cumintzare</string>
+    <string name="screenrecord_cancel_label">Annulla</string>
+    <string name="usb_preference_title">Sèberos de tràmudas de archìvios cun USB</string>
+    <string name="use_mtp_button_title">Monta comente unu riprodutore de mèdios (MTP)</string>
+    <string name="use_ptp_button_title">Monta comente una fotocàmera (PTP)</string>
+    <string name="installer_cd_button_title">Installa s\'aplicatzione de tràmuda de archìvios pro Mac</string>
+    <string name="accessibility_back">In segus</string>
+    <string name="accessibility_home">Pàgina printzipale</string>
+    <string name="accessibility_menu">Menù</string>
+    <string name="accessibility_recent">Panoràmica</string>
+    <string name="accessibility_search_light">Chirca</string>
+    <string name="accessibility_camera_button">Fotocàmera</string>
+    <string name="accessibility_phone_button">Telèfonu</string>
+    <string name="accessibility_voice_assist_button">Assistèntzia de boghe</string>
+    <string name="accessibility_unlock_button">Isbloca</string>
+    <string name="accessibility_unlock_without_fingerprint">Isbloca chene impreare s\'imprenta de pòddighe</string>
+    <string name="phone_label">abèrrere su telèfonu</string>
+    <string name="voice_assist_label">abèrrere s\'assistèntzia de boghe</string>
+    <string name="camera_label">abèrrere sa fotocàmera</string>
+    <string name="cancel">Annulla</string>
+    <string name="accessibility_compatibility_zoom_button">Butone de pro ismanniamentu de cumpatibilidade.</string>
+    <string name="accessibility_compatibility_zoom_example">Ismanniare prus pagu cun ischermos prus mannos.</string>
+    <string name="accessibility_bluetooth_connected">Bluetooth collegadu.</string>
+    <string name="accessibility_bluetooth_disconnected">Bluetooth iscollegadu.</string>
+    <string name="accessibility_no_battery">Non b\'at bateria.</string>
+    <string name="accessibility_battery_one_bar">Bateria a un\'istanca.</string>
+    <string name="accessibility_battery_two_bars">Bateria a dos istancas.</string>
+    <string name="accessibility_battery_three_bars">Bateria a tres istancas.</string>
+    <string name="accessibility_battery_full">Bateria a su màssimu.</string>
+    <string name="accessibility_no_phone">Non b\'at telèfonu.</string>
+    <string name="accessibility_phone_one_bar">Signale de su telèfonu a un\'istanca.</string>
+    <string name="accessibility_phone_two_bars">Signale de su telèfonu a duas istancas.</string>
+    <string name="accessibility_signal_full">Signale a su màssimu.</string>
+    <string name="accessibility_desc_on">Ativu.</string>
+    <string name="accessibility_desc_off">Disativadu.</string>
+    <string name="accessibility_desc_connected">Collegadu.</string>
+    <string name="accessibility_desc_connecting">Colleghende·si.</string>
+    <string name="data_connection_gprs">GPRS</string>
+    <string name="data_connection_hspa">HSPA</string>
+    <string name="data_connection_3g">3G</string>
+    <string name="data_connection_4g">4G</string>
+    <string name="data_connection_lte">LTE</string>
+    <string name="data_connection_roaming">Àteros gestores</string>
+    <string name="accessibility_data_connection_wifi">Wi-Fi</string>
+    <string name="accessibility_no_sim">Peruna SIM.</string>
+    <string name="accessibility_bluetooth_tether">Collegamentu Bluetooth.</string>
+    <string name="accessibility_airplane_mode">Modalidade aèreu.</string>
+    <string name="accessibility_no_sims">Peruna ischeda SIM.</string>
+    <string name="accessibility_battery_level">Bateria <xliff:g id="number">%d</xliff:g> pro chentu.</string>
+    <string name="accessibility_settings_button">Impostatziones de sistema.</string>
+    <string name="accessibility_notifications_button">Notìficas.</string>
+    <string name="accessibility_remove_notification">Lìmpia notìficas.</string>
+    <string name="accessibility_gps_enabled">GPS ativadu.</string>
+    <string name="accessibility_gps_acquiring">Achisitzione GPS.</string>
+    <string name="accessibility_tty_enabled">TeleTypewriter ativadu.</string>
+    <string name="accessibility_ringer_vibrate">Tonu de mutida a vibratzione.</string>
+    <string name="accessibility_ringer_silent">Tonu de mutida a sa muda.</string>
+    <string name="accessibility_casting">@string/quick_settings_casting</string>
+    <string name="accessibility_notification_dismissed">Notìfica iscartada.</string>
+    <string name="accessibility_desc_notification_shade">Àrea de notìficas.</string>
+    <string name="accessibility_desc_quick_settings">Impostatziones lestras.</string>
+    <string name="accessibility_desc_lock_screen">Bloca s\'ischermu.</string>
+    <string name="accessibility_desc_settings">Impostatziones</string>
+    <string name="accessibility_desc_recent_apps">Panoràmica.</string>
+    <string name="accessibility_desc_close">Serra</string>
+    <string name="accessibility_quick_settings_wifi"><xliff:g id="signal" example="Three bars">%1$s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_wifi_changed_off">Su Wifi s\'est istudadu.</string>
+    <string name="accessibility_quick_settings_wifi_changed_on">Su Wifi s\'est allutu.</string>
+    <string name="accessibility_quick_settings_mobile">Mòbile <xliff:g id="signal" example="Three bars">%1$s</xliff:g>. <xliff:g id="type" example="4G">%2$s</xliff:g>. <xliff:g id="network" example="T-Mobile">%3$s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_battery">Bateria <xliff:g id="state" example="50% charging">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_flashlight_changed_off">Su flash s\'est disativadu.</string>
+    <string name="accessibility_quick_settings_flashlight_changed_on">Su flash s\'est ativadu.</string>
+    <string name="accessibility_quick_settings_color_inversion_changed_off">Inversione de colores disativada.</string>
+    <string name="accessibility_quick_settings_color_inversion_changed_on">Inversione de colores ativada.</string>
+    <string name="accessibility_quick_settings_hotspot_changed_off">Puntu de atzessu mòbile disativadu.</string>
+    <string name="accessibility_quick_settings_hotspot_changed_on">Puntu de atzessu mòbile ativadu.</string>
+    <string name="accessibility_casting_turned_off">Sa trasmissione de s\'ischermu s\'est firmada.</string>
+    <string name="accessibility_brightness">Lugore de s\'ischermu</string>
+    <string name="accessibility_ambient_display_charging">Carrighende</string>
+    <string name="data_usage_disabled_dialog_3g_title">2G-3G de datos sunt in pasu</string>
+    <string name="data_usage_disabled_dialog_4g_title">4G de datos sunt in pasu</string>
+    <string name="data_usage_disabled_dialog_title">Is datos sunt in pasu</string>
+    <string name="data_usage_disabled_dialog_enable">Torra a cumintzare</string>
+    <string name="gps_notification_searching_text">Chirchende su GPS</string>
+    <string name="gps_notification_found_text">Positzione impostada dae su GPS</string>
+    <string name="accessibility_location_active">Rechesta de positzione ativa</string>
+    <string name="accessibility_clear_all">Lìmpia totu is notìficas.</string>
+    <string name="status_bar_notification_inspect_item_title">Impostatziones de notìfica</string>
+    <string name="status_bar_notification_app_settings_title"><xliff:g id="app_name" example="Calendar">%s</xliff:g> impostatziones</string>
+    <string name="accessibility_rotation_lock_off">S\'ischermu s\'at a girare in automàticu.</string>
+    <string name="accessibility_rotation_lock_on_landscape">S\'ischermu est blocadu in orizontale.</string>
+    <string name="accessibility_rotation_lock_on_portrait">S\'ischermu est blocadu in verticale.</string>
+    <string name="accessibility_rotation_lock_off_changed">S\'ischermu immoe s\'at a girare in automàticu.</string>
+    <string name="accessibility_rotation_lock_on_landscape_changed">S\'ischermu immoe est blocadu in orizontale.</string>
+    <string name="accessibility_rotation_lock_on_portrait_changed">S\'ischermu immoe est blocadu in verticale.</string>
+    <string name="dessert_case">Càscia de cosa durche</string>
+    <string name="ethernet_label">Ethernet</string>
+    <string name="quick_settings_dnd_priority_label">Prioridade isceti</string>
+    <string name="quick_settings_dnd_alarms_label">Isvèllias isceti</string>
+    <string name="quick_settings_dnd_none_label">Totu a sa muda</string>
+    <string name="quick_settings_bluetooth_label">Bluetooth</string>
+    <string name="quick_settings_bluetooth_multiple_devices_label">Bluetooth (<xliff:g id="number">%d</xliff:g> Dispositivos)</string>
+    <string name="quick_settings_bluetooth_off_label">Bluetooth disativadu</string>
+    <string name="quick_settings_bluetooth_detail_empty_text">Non b\'at dispositivos de assotziare a disponimentu</string>
+    <string name="quick_settings_brightness_label">Lugore</string>
+    <string name="quick_settings_rotation_unlocked_label">Rotatzione automàtica</string>
+    <string name="accessibility_quick_settings_rotation">Rotatzione automàtica de s\'ischermu</string>
+    <string name="quick_settings_rotation_locked_label">Rotatzione blocada</string>
+    <string name="quick_settings_rotation_locked_portrait_label">Ritratu</string>
+    <string name="quick_settings_rotation_locked_landscape_label">Paesàgiu</string>
+    <string name="quick_settings_ime_label">Mètodu de intrada</string>
+    <string name="quick_settings_location_label">Positzione</string>
+    <string name="quick_settings_location_off_label">Positzione disativada</string>
+    <string name="quick_settings_media_device_label">Dispositivu multimediale</string>
+    <string name="quick_settings_rssi_label">RSSI</string>
+    <string name="quick_settings_rssi_emergency_only">Isceti mutidas de emergèntzia</string>
+    <string name="quick_settings_settings_label">Impostatziones</string>
+    <string name="quick_settings_time_label">Ora</string>
+    <string name="quick_settings_user_label">Deo</string>
+    <string name="quick_settings_user_title">Utente</string>
+    <string name="quick_settings_user_new_user">Utente nou</string>
+    <string name="quick_settings_wifi_label">Wi-Fi</string>
+    <string name="quick_settings_wifi_not_connected">Non collegadu</string>
+    <string name="quick_settings_wifi_no_network">Peruna rete</string>
+    <string name="quick_settings_wifi_off_label">Wi-Fi disativadu</string>
+    <string name="quick_settings_wifi_detail_empty_text">Peruna rete Wi-Fi a disponimentu</string>
+    <string name="quick_settings_casting">Trasmitende</string>
+    <string name="quick_settings_cast_device_default_name">Dispositivu chene nùmene</string>
+    <string name="quick_settings_cast_device_default_description">Prontu pro sa trasmissione</string>
+    <string name="quick_settings_cast_detail_empty_text">Perunu dispositivu a disponimentu</string>
+    <string name="quick_settings_brightness_dialog_title">Lugore</string>
+    <string name="quick_settings_brightness_dialog_auto_brightness_label">AUTOMÀTICU</string>
+    <string name="quick_settings_inversion_label">Fùrria is colores</string>
+    <string name="quick_settings_color_space_label">Modalidade de curretzione de colore</string>
+    <string name="quick_settings_more_settings">Àteras cunfiguratziones</string>
+    <string name="quick_settings_done">Fatu</string>
+    <string name="quick_settings_connected">Connètidu</string>
+    <string name="quick_settings_connecting">Colleghende·si...</string>
+    <string name="quick_settings_tethering_label">Tethering</string>
+    <string name="quick_settings_hotspot_label">Puntu de atzessu Wi-Fi</string>
+    <string name="quick_settings_notifications_label">Notìficas</string>
+    <string name="quick_settings_flashlight_label">Flash</string>
+    <string name="quick_settings_cellular_detail_data_usage">Impreu de datos</string>
+    <string name="quick_settings_cellular_detail_remaining_data">Datos abarrados</string>
+    <string name="quick_settings_cellular_detail_over_limit">Lìmite barigadu</string>
+    <string name="quick_settings_cellular_detail_data_used"><xliff:g id="data_used" example="2.0 GB">%s</xliff:g> impreados</string>
+    <string name="quick_settings_cellular_detail_data_limit"><xliff:g id="data_limit" example="2.0 GB">%s</xliff:g> lìmite</string>
+    <string name="quick_settings_cellular_detail_data_warning"><xliff:g id="data_limit" example="2.0 GB">%s</xliff:g> avisu</string>
+    <string name="quick_settings_work_mode_label">Profilu de traballu</string>
+    <string name="expanded_header_battery_charged">Carrigadu</string>
+    <string name="expanded_header_battery_charging">Carrighende</string>
+    <string name="expanded_header_battery_charging_with_time"><xliff:g id="charging_time" example="2 hrs 25 min">%s</xliff:g> finas a su màssimu</string>
+    <string name="expanded_header_battery_not_charging">No est carrighende</string>
+    <string name="ssl_ca_cert_warning">Sa rete diat pòdere\nèssere controllada</string>
+    <string name="description_target_search">Chirca</string>
+    <string name="accessibility_multi_user_switch_switcher">Càmbia utente</string>
+    <string name="accessibility_multi_user_switch_switcher_with_current">Càmbia utente, utente atuale <xliff:g id="current_user_name" example="John Doe">%s</xliff:g></string>
+    <string name="accessibility_multi_user_switch_inactive">Utente atuale <xliff:g id="current_user_name" example="John Doe">%s</xliff:g></string>
+    <string name="accessibility_multi_user_switch_quick_contact">Mustra profilu</string>
+    <string name="user_add_user">Agiunghe utente</string>
+    <string name="user_new_user_name">Utente nou</string>
+    <string name="guest_nickname">Persone invitada</string>
+    <string name="guest_new_guest">Agiunghe persone invitada</string>
+    <string name="guest_exit_guest_dialog_message">Totu is aplicatziones e datos in custa sessione ant a èssere cantzellados.</string>
+    <string name="guest_exit_guest_dialog_remove">Boga</string>
+    <string name="guest_wipe_session_message">Boles sighire sa sessione tua?</string>
+    <string name="guest_wipe_session_wipe">Torra a cumintzare</string>
+    <string name="guest_wipe_session_dontwipe">Eja, sighi</string>
+    <string name="guest_notification_title">Utente invitadu</string>
+    <string name="user_add_user_title" msgid="2108112641783146007">Agiùnghere un\'utente nou?</string>
+    <string name="user_add_user_message_short" msgid="1511354412249044381">Cando agiunghes un\'utente nou, cussa persone at a tènnere de impostare su logu.\n\nCale si siat utente podet agiornare aplicatziones pro totu is àteros utentes.</string>
+    <string name="user_remove_user_remove">Boga</string>
+    <string name="battery_saver_notification_text">Mìnimat sa prestatzione e is datos in segundu pianu</string>
+    <string name="media_projection_remember_text">Non ddu torres a ammustrare</string>
+    <string name="clear_all_notifications_text">Cantzella·nche totu</string>
+    <string name="media_projection_action_text">Cumintza immoe</string>
+    <string name="empty_shade_text">Peruna notìfica</string>
+    <string name="vpn_footer">Sa rete diat pòdere èssere controllada</string>
+    <string name="branded_vpn_footer">Sa rete diat pòdere èssere controllada</string>
+    <string name="quick_settings_disclosure_monitoring">Sa rete diat pòdere èssere controllada</string>
+    <string name="monitoring_title_profile_owned">Controllu de su profilu</string>
+    <string name="monitoring_title">Controllu de sa rete</string>
+    <string name="monitoring_subtitle_vpn">VPN</string>
+    <string name="disable_vpn">Disativa sa VPN</string>
+    <string name="disconnect_vpn">Iscollega sa VPN</string>
+    <string name="monitoring_description_vpn">As dadu su permissu a un\'aplicatzione de impostare una connessione VPN.\n\nCusta aplicatzione podet controllare su dispositivu e s\'atividade de rete, comente sa posta eletrònica, is aplicatziones e is sitos internet.</string>
+    <string name="legacy_vpn_name">VPN</string>
+    <string name="monitoring_description_app_personal">Ses in collegamentu cun <xliff:g id="application">%1$s</xliff:g>, chi podet controllare s\'atividade tua personale de rete, comente sa posta eletrònica, is aplicatziones e is sitos internet.</string>
+    <string name="branded_monitoring_description_app_personal">Ses in collegamentu cun <xliff:g id="application">%1$s</xliff:g>, chi podet controllare s\'atividade tua personale de rete, comente sa posta eletrònica, is aplicatziones e is sitos internet.</string>
+    <string name="keyguard_indication_trust_disabled">Su dispositivu at a abarrare blocadu finas a cando dd\'as a isblocare a manu</string>
+    <string name="hidden_notifications_title">Otene is notìficas prus a lestru</string>
+    <string name="stream_alarm">Isvèllia</string>
+    <string name="stream_bluetooth_sco">Bluetooth</string>
+    <string name="output_service_bt">Bluetooth</string>
+    <string name="output_service_wifi">Wi-Fi</string>
+    <string name="system_ui_tuner">Afinadore de s\'IU de sistema</string>
+    <string name="show_battery_percentage_summary">Mustra su livellu de pertzentuale de bateria intro de s\'icona de s\'istanca de istadu cando no est carrighende</string>
+    <string name="quick_settings">Impostatziones lestras</string>
+    <string name="status_bar">Istanca de istadu</string>
+    <string name="overview">Panoràmica</string>
+    <string name="enable_demo_mode">Ativa sa modalidade demo</string>
+    <string name="show_demo_mode">Mustra sa modalidade demo</string>
+    <string name="status_bar_ethernet">Ethernet</string>
+    <string name="status_bar_alarm">Isvèllia</string>
+    <string name="status_bar_work">Profilu de traballu</string>
+    <string name="status_bar_airplane">Modalidade aèreu</string>
+    <string name="add_tile">Agiunghe casella</string>
+    <string name="broadcast_tile">Casella de trasmissione</string>
+    <string name="regrettable_lack_of_easter_egg">        ¯\\_(ツ)_/¯
+    </string>
+    <string name="zen_alarm_warning_indef">No as a intèndere s\'isvèllia imbeniente <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g> a no èssere chi disatives custu in antis de s\'ora</string>
+    <string name="zen_alarm_warning">No as a intèndere s\'isvèllia imbeniente <xliff:g id="when" example="at 7:00 AM">%1$s</xliff:g></string>
+    <string name="alarm_template">a is <xliff:g id="when" example="7:00 AM">%1$s</xliff:g></string>
+    <string name="alarm_template_far">su <xliff:g id="when" example="Fri 7:00 AM">%1$s</xliff:g></string>
+    <string name="accessibility_quick_settings_detail">Impostatziones lestras, <xliff:g id="title" example="Wi-Fi">%s</xliff:g>.</string>
+    <string name="accessibility_status_bar_hotspot">Puntu de atzessu Wi-Fi</string>
+    <string name="accessibility_managed_profile">Profilu de traballu</string>
+    <string name="tuner_warning_title">Ispàssiu isceti pro calicuna persone</string>
+    <string name="tuner_warning">S\'afinadore de s\'IU de sistema ti dat maneras in prus pro cambiare e personalizare s\'interfache utente Android. Custas funtzionalidades isperimentales si podent cambiare, segare o isparèssere in versiones benidoras. Sighi cun coidadu.</string>
+    <string name="tuner_persistent_warning">Custas funtzionalidades isperimentales si podent cambiare, segare o isparèssere in versiones benidoras. Sighi cun coidadu.</string>
+    <string name="got_it">AB</string>
+    <string name="tuner_toast">Augùrios! S\'afinadore de s\'IU de sistema est istadu agiuntu a Impostatziones</string>
+    <string name="remove_from_settings">Boga·nche·ddu dae Impostatziones</string>
+    <string name="remove_from_settings_prompt">Bogare s\'afinadore de s\'IU de sistema dae Impostatziones e no impreare prus totu custas funtzionalidades?\"</string>
+    <string name="enable_bluetooth_title">Ativare su Bluetooth?</string>
+    <string name="enable_bluetooth_message">Pro collegare su tecladu cun sa tauledda, in antis de totu depes ativare su Bluetooth.</string>
+    <string name="enable_bluetooth_confirmation_ok">Ativa</string>
+    <string name="notification_header_default_channel">Notìficas</string>
+    <string name="inline_done_button">Fatu</string>
+    <string name="notification_appops_settings">Impostatziones</string>
+    <string name="notification_more_settings">Àteras cunfiguratziones</string>
+    <string name="notification_done">Fatu</string>
+    <string name="battery_detail_switch_summary">Mìnimat sa prestatzione e is datos in segundu pianu</string>
+    <string name="keyboard_key_home">Pàgina printzipale</string>
+    <string name="keyboard_key_back">In segus</string>
+    <string name="keyboard_key_move_home">Pàgina printzipale</string>
+    <string name="keyboard_shortcut_group_system_home">Pàgina printzipale</string>
+    <string name="keyboard_shortcut_group_system_back">In segus</string>
+    <string name="keyboard_shortcut_group_system_notifications">Notìficas</string>
+    <string name="tuner_time">Ora</string>
+    <string name="pip_phone_close">Serra</string>
+    <string name="pip_phone_settings">Impostatziones</string>
+    <string name="pip_menu_title">Menù</string>
+    <string name="tuner_menu">Menù</string>
+    <string name="app_info">Informatziones de s\'aplicatzione</string>
+    <string name="slice_permission_allow">Permite</string>
+    <string name="slice_permission_deny">Nega</string>
+    <string name="open_saver_setting_action">Impostatziones</string>
+    <string name="no_bubbles">Nega</string>
+    <string name="yes_bubbles">Permite</string>
+</resources>

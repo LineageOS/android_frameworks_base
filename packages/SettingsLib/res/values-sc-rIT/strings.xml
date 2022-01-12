@@ -18,5 +18,44 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="wifi_fail_to_scan">Non faghet a chircare retes</string>
+    <string name="wifi_security_none">Perunu</string>
+    <string name="wifi_remembered">Sarvadu</string>
+    <string name="wifi_disconnected">Disconnètidu</string>
+    <string name="wifi_disabled_generic">Disativadu</string>
+    <string name="wifi_disabled_network_failure">Errore in sa cunfiguratzione de s\'IP</string>
+    <string name="wifi_disabled_wifi_failure">Errore in sa connessione a su WiFi</string>
+    <string name="wifi_disabled_password_failure">Problema de autenticatzione</string>
+    <string name="wifi_not_in_range">No esecutàbile</string>
+    <string name="saved_network">Sarvadu dae <xliff:g id="name">%1$s</xliff:g></string>
+    <string name="connected_via_passpoint">Collegadu cun %1$s</string>
+    <string name="available_via_passpoint">A disponimentu cun %1$s</string>
+    <string name="connected_via_carrier">Collegadu cun %1$s</string>
+    <string name="available_via_carrier">A disponimentu cun %1$s</string>
+    <string name="bluetooth_disconnected">Disconnètidu</string>
+    <string name="bluetooth_disconnecting">Iscolleghende·si\u2026</string>
+    <string name="bluetooth_connecting">Connetende·si\u2026</string>
+    <string name="bluetooth_pairing">Assotziende·si\u2026</string>
+    <string name="bluetooth_profile_opp">Tràmuda de archìvios</string>
+    <string name="bluetooth_profile_hid">Dispositivu de intrada</string>
+    <string name="bluetooth_profile_pan">Atzessu a internet</string>
+    <string name="bluetooth_profile_pbap">Cumpartzidura de cuntatos</string>
+    <string name="bluetooth_profile_pbap_summary">Imprea pro sa cumpartzidura de messàgios</string>
+    <string name="bluetooth_profile_pan_nap">Cumpartzidura de connessione a internet</string>
+    <string name="bluetooth_profile_sap">Atzessu a sa SIM</string>
+    <string name="bluetooth_opp_profile_summary_connected">Collegadu a su serbidore de tràmuda de archìvios</string>
+    <string name="bluetooth_map_profile_summary_connected">Collegadu a una mapa</string>
+    <string name="bluetooth_sap_profile_summary_connected">Collegadu a SAP</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">Non s\'est collegadu a su serbidore de tràmuda de archìvios</string>
+    <string name="bluetooth_hid_profile_summary_connected">Collegadu a su dispositivu de intrada</string>
+    <string name="bluetooth_map_profile_summary_use_for">Imprea pro sa mapa</string>
+    <string name="bluetooth_sap_profile_summary_use_for">Imprea pro s\'atzessu a sa SIM</string>
+    <string name="tether_settings_title_usb_bluetooth">Tethering</string>
+    <string name="tether_settings_title_all">Tethering e puntu de atzessu portàtile</string>
+    <string name="unknown">Disconnotu</string>
+    <string name="running_process_item_user_label">Utente: <xliff:g id="user_name">%1$s</xliff:g></string>
     <string name="tts_status_title">Istadu de limba predefinidu</string>
+    <string name="daltonizer_mode_disabled">Disativadu</string>
+    <string name="battery_info_status_unknown">Disconnotu</string>
+    <string name="disabled">Disativadu</string>
 </resources>

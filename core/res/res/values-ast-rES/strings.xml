@@ -1756,6 +1756,7 @@
     <string name="deny">Negar</string>
     <string name="permission_request_notification_title">Permisu solicitáu</string>
     <string name="permission_request_notification_with_subtitle">Pidióse permisu\n pa la cuenta <xliff:g id="account" example="foo@gmail.com">%s</xliff:g>.</string>
+    <string name="permission_request_notification_for_app_with_subtitle">«<xliff:g id="app" example="Gmail">%1$s</xliff:g>» solicita permisu\npa la cuenta «<xliff:g id="account" example="foo@gmail.com">%2$s</xliff:g>».</string>
     <string name="forward_intent_to_owner">Tas usando esta aplicación fuera del perfil llaboral</string>
     <string name="forward_intent_to_work">Tas usando esta aplicación nel perfil llaboral</string>
     <string name="input_method_binding_label">Métodu d\'entrada</string>
@@ -1890,7 +1891,7 @@
     <string name="activity_chooser_view_dialog_title_default">Escoyeta de l\'actividá</string>
     <string name="share_action_provider_share_with">Compartir con</string>
     <string name="sending">Unviando\u2026</string>
-    <string name="launchBrowserDefault">¿Quies llanzar l\'aplicación Restolador?</string>
+    <string name="launchBrowserDefault">¿Quies llanzar «Restolador»?</string>
     <string name="SetupCallDefault">¿Quies aceptar la llamada?</string>
     <string name="activity_resolver_use_always">Siempres</string>
     <string name="activity_resolver_set_always">Afitar «Abrir siempres»</string>

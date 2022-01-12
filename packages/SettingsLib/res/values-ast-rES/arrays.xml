@@ -56,6 +56,11 @@
         <item>Usar namás la comprobación HDCP pal conteníu con DRM</item>
         <item>Usar siempres la comprobación HDCP</item>
     </string-array>
+    <string-array name="bt_hci_snoop_log_entries">
+        <item>Desactivóse</item>
+        <item>Activóse con peñeres</item>
+        <item>Activóse</item>
+    </string-array>
     <string-array name="bluetooth_avrcp_versions">
         <item>AVRCP 1.4 (por defeutu)</item>
         <item>AVRCP 1.3</item>
@@ -138,9 +143,9 @@
     </string-array>
     <string-array name="bluetooth_audio_active_device_summaries">
         <item/>
-        <item>, activu</item>
-        <item>, activu (multimedia)</item>
-        <item>, activu (teléfonu)</item>
+        <item>, n\'activo</item>
+        <item>, n\'activo (multimedia)</item>
+        <item>, n\'activo (teléfonu)</item>
     </string-array>
     <string-array name="select_logd_size_titles">
         <item>Non</item>
@@ -251,7 +256,7 @@
         <item>MTP (Protocolu de tresferencia multimedia)</item>
         <item>PTP (Protocolu de tresferencia de semeyes)</item>
         <item>RNDIS (ethernet per USB)</item>
-        <item>Audio Source</item>
+        <item>Orixe del audiu</item>
         <item>MIDI</item>
     </string-array>
 </resources>
