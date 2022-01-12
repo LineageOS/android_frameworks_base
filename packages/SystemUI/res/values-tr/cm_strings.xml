@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2019, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Sol imleç</string>
+    <string name="accessibility_dpad_right">Sağ imleç</string>
+    <string name="quick_settings_ambient_display_label">Bildirim ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Bildirim ekranı kapalı.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bildirim ekranı açık.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildirim ekranı kapatıldı.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildirim ekranı açıldı.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık.</string>
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
+    <string name="quick_settings_powershare_label">Kablosuz Güç Paylaşımı</string>
+    <string name="quick_settings_powershare_off_powersave_label">Kablosuz Güç Paylaşımı kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Kablosuz Güç Paylaşımı\nPil seviyesi çok düşük</string>
+    <string name="quick_settings_powershare_enabled_label">Kablosuz Güç Paylaşımı etkin</string>
+    <string name="quick_settings_sync_label">Eşitleme</string>
+    <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı.</string>
+    <string name="accessibility_quick_settings_sync_on">Eşitleme açık.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı.</string>
+    <string name="quick_settings_usb_tether_label">USB İnternet Paylaşımı</string>
+</resources>
