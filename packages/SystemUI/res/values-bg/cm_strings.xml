@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2019, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">Курсора наляво</string>
+    <string name="accessibility_dpad_right">Курсора надясно</string>
+    <string name="quick_settings_ambient_display_label">Активен дисплей</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Активен дисплей е изключен.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Активен дисплей е включен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Активен дисплей е изключен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Активен дисплей е включен.</string>
+    <string name="quick_settings_aod_label">Винаги на дисплея</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD изкл.\nИкономия на батерията</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин изключен.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин включен.</string>
+    <string name="quick_settings_heads_up_label">Изскачащи известия</string>
+    <string name="accessibility_quick_settings_heads_up_off">Изключи изскачащи известия.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Включи изскачащи известия.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Изскачащите известия са изключени.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Изскачащите известия са включени.</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nИкономия на батерия</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nБатерията е изтощена</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare е включен</string>
+    <string name="quick_settings_sync_label">Синхронизация</string>
+    <string name="accessibility_quick_settings_sync_off">Изключена синхронизация.</string>
+    <string name="accessibility_quick_settings_sync_on">Включена синхронизация.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронизацията е изключена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронизацията е включена.</string>
+    <string name="quick_settings_usb_tether_label">Тетъринг през USB</string>
+</resources>
