@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "8a1e3395_45ccf78c",
         "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "This will remove any provider set via DI, allow classes that extend the controller to implement their own?\nSimply adding a null check for mHbmProvider will do",
       "revId": "7b46657d5d0d6feac1248c4c21fff5014c8c0ddb",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "b1258d03_3a1b3698",
         "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
@@ -32,8 +33,25 @@
       "message": "Or rather, make a LineageUdfpsController for our additions",
       "parentUuid": "8a1e3395_45ccf78c",
       "revId": "7b46657d5d0d6feac1248c4c21fff5014c8c0ddb",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc99842_031d622f",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2022-01-12T21:44:45Z",
+      "side": 1,
+      "message": "This would also avoid conflicts with 321572: SystemUI: Add HBM provider for UDFPS on Pixel devices | https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/321572",
+      "parentUuid": "b1258d03_3a1b3698",
+      "revId": "7b46657d5d0d6feac1248c4c21fff5014c8c0ddb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
