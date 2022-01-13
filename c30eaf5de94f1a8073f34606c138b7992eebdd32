@@ -39,6 +39,30 @@
       },
       "revId": "c30eaf5de94f1a8073f34606c138b7992eebdd32",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e28bf66e_bed03720",
+        "filename": "services/core/java/com/android/server/textservices/TextServicesManagerService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2022-01-13T00:53:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fb0f5f30_0753945e",
+      "range": {
+        "startLine": 521,
+        "startChar": 12,
+        "endLine": 521,
+        "endChar": 77
+      },
+      "revId": "c30eaf5de94f1a8073f34606c138b7992eebdd32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
