@@ -1158,10 +1158,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             if (ACTION_PACKAGE_ADDED.equals(action)) {
                 // update rules for UID, since it might be subject to
                 // global background data policy
-                if (LOGV) Slog.v(TAG, "ACTION_PACKAGE_ADDED for uid=" + uid);
                 // Clear the cache for the app
                 synchronized (mUidRulesFirstLock) {
                     if (hasInternetPermissionUL(uid)) {
+                        Slog.i(TAG, "ACTION_PACKAGE_ADDED for uid=" + uid);
                         Set<Integer> uids =
                                 ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(
                                         context);
