@@ -103,6 +103,10 @@ public class NetworkPolicyManager {
      * @hide
      */
     public static final int POLICY_REJECT_ALL = 0x40000;
+    /** Reject network usage on all networks, migration helper
+     * @hide
+     */
+    public static final int POLICY_REJECT_ALL_MIGRATED = 0x80000;
 
     /*
      * Rules defining whether an uid has access to a network given its type (metered / non-metered).
