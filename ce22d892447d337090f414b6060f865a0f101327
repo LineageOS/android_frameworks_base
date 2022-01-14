@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "738b9d9b_3ace052e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2022-01-14T08:32:40Z",
+      "side": 1,
+      "message": "Import power menu constants from lineage-sdk instead redefining in GlobalActionsDialogLite.java ?",
+      "revId": "ce22d892447d337090f414b6060f865a0f101327",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
