@@ -930,7 +930,6 @@ public final class PowerManagerService extends SystemService
     private static native void nativeSetAutoSuspend(boolean enable);
     private static native void nativeSetPowerBoost(int boost, int durationMs);
     private static native boolean nativeSetPowerMode(int mode, boolean enabled);
-    private static native int nativeGetFeature(int featureId);
     private static native boolean nativeForceSuspend();
 
     public PowerManagerService(Context context) {
@@ -6139,16 +6138,6 @@ public final class PowerManagerService extends SystemService
         @Override
         public boolean interceptPowerKeyDown(KeyEvent event) {
             return interceptPowerKeyDownInternal(event);
-        }
-
-        @Override
-        public boolean setPowerSaveMode(boolean mode) {
-            return setLowPowerModeInternal(mode);
-        }
-
-        @Override
-        public int getFeature(int featureId) {
-            return nativeGetFeature(featureId);
         }
     }
 }
