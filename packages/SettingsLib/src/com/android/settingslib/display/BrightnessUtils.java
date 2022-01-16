@@ -16,12 +16,18 @@
 
 package com.android.settingslib.display;
 
+import android.os.SystemProperties;
 import android.util.MathUtils;
+
+import com.android.internal.display.BrightnessSynchronizer;
 
 public class BrightnessUtils {
 
+    private static final boolean sysUseLowGamma = SystemProperties.getBoolean(
+            "persist.sys.brightness.low.gamma", false);
+
     public static final int GAMMA_SPACE_MIN = 0;
-    public static final int GAMMA_SPACE_MAX = 65535;
+    public static final int GAMMA_SPACE_MAX = sysUseLowGamma ? 255 : 65535;
 
     // Hybrid Log Gamma constant values
     private static final float R = 0.5f;
@@ -75,6 +81,10 @@ public class BrightnessUtils {
      * @return The corresponding setting value.
      */
     public static final float convertGammaToLinearFloat(int val, float min, float max) {
+        if (sysUseLowGamma) {
+            return MathUtils.constrain(BrightnessSynchronizer.brightnessIntToFloat(val), min, max);
+        }
+
         final float normalizedVal = MathUtils.norm(GAMMA_SPACE_MIN, GAMMA_SPACE_MAX, val);
         final float ret;
         if (normalizedVal <= R) {
@@ -127,6 +137,10 @@ public class BrightnessUtils {
      * @return The corresponding slider value
      */
     public static final int convertLinearToGammaFloat(float val, float min, float max) {
+        if (sysUseLowGamma) {
+            return BrightnessSynchronizer.brightnessFloatToInt(MathUtils.constrain(val, min, max));
+        }
+
         // For some reason, HLG normalizes to the range [0, 12] rather than [0, 1]
         final float normalizedVal = MathUtils.norm(min, max, val) * 12;
         final float ret;
