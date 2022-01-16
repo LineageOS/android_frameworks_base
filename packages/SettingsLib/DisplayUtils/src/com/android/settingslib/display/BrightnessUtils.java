@@ -16,10 +16,14 @@
 
 package com.android.settingslib.display;
 
+import android.os.SystemProperties;
 import android.util.MathUtils;
 
 /** Utility methods for calculating the display brightness. */
 public class BrightnessUtils {
+
+    public static final boolean sDisableGammaConversion =
+            SystemProperties.getBoolean("sys.brightness.disable_gamma_conversion", false);
 
     public static final int GAMMA_SPACE_MIN = 0;
     public static final int GAMMA_SPACE_MAX = 65535;
@@ -54,6 +58,11 @@ public class BrightnessUtils {
      */
     public static final int convertGammaToLinear(int val, int min, int max) {
         final float normalizedVal = MathUtils.norm(GAMMA_SPACE_MIN, GAMMA_SPACE_MAX, val);
+
+        if (sDisableGammaConversion) {
+            return Math.round(MathUtils.lerp(min, max, normalizedVal));
+        }
+
         final float ret;
         if (normalizedVal <= R) {
             ret = MathUtils.sq(normalizedVal / R);
@@ -77,6 +86,11 @@ public class BrightnessUtils {
      */
     public static final float convertGammaToLinearFloat(int val, float min, float max) {
         final float normalizedVal = MathUtils.norm(GAMMA_SPACE_MIN, GAMMA_SPACE_MAX, val);
+
+        if (sDisableGammaConversion) {
+            return MathUtils.lerp(min, max, normalizedVal);
+        }
+
         final float ret;
         if (normalizedVal <= R) {
             ret = MathUtils.sq(normalizedVal / R);
@@ -128,6 +142,11 @@ public class BrightnessUtils {
      * @return The corresponding slider value
      */
     public static final int convertLinearToGammaFloat(float val, float min, float max) {
+        if (sDisableGammaConversion) {
+            final float normalizedVal = MathUtils.norm(min, max, val);
+            return Math.round(MathUtils.lerp(GAMMA_SPACE_MIN, GAMMA_SPACE_MAX, normalizedVal));
+        }
+
         // For some reason, HLG normalizes to the range [0, 12] rather than [0, 1]
         final float normalizedVal = MathUtils.norm(min, max, val) * 12;
         final float ret;
