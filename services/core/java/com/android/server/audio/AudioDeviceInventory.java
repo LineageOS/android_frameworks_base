@@ -934,8 +934,9 @@ public class AudioDeviceInventory {
             @AudioService.BtProfileConnectionState int state, int profile,
             boolean suppressNoisyIntent, int a2dpVolume) {
           if (state == BluetoothProfile.STATE_DISCONNECTED) {
-              mDeviceBroker.postBluetoothA2dpDeviceConnectionStateSuppressNoisyIntent(
-                             device, state, profile, suppressNoisyIntent, a2dpVolume);
+              mDeviceBroker.queueBluetoothA2dpDeviceConnectionStateSuppressNoisyIntent(
+                      new AudioDeviceBroker.BtDeviceConnectionInfo(device, state, profile,
+                              suppressNoisyIntent, a2dpVolume));
               BtHelper.SetA2dpActiveDevice(null);
               return;
           }
@@ -974,8 +975,9 @@ public class AudioDeviceInventory {
                  }
           }
           // New A2DP device connection
-          mDeviceBroker.postBluetoothA2dpDeviceConnectionStateSuppressNoisyIntent(
-                             device, state, profile, suppressNoisyIntent, a2dpVolume);
+          mDeviceBroker.queueBluetoothA2dpDeviceConnectionStateSuppressNoisyIntent(
+                  new AudioDeviceBroker.BtDeviceConnectionInfo(device, state, profile,
+                          suppressNoisyIntent, a2dpVolume));
     }
 
     /*package*/ int setWiredDeviceConnectionState(int type, @AudioService.ConnectionState int state,
