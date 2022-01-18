@@ -23,6 +23,7 @@ import static android.app.NotificationManager.IMPORTANCE_NONE;
 import static android.app.NotificationManager.IMPORTANCE_UNSPECIFIED;
 
 import static com.android.server.notification.PreferencesHelper.NOTIFICATION_CHANNEL_COUNT_LIMIT;
+import static com.android.server.notification.PreferencesHelper.NOTIFICATION_CHANNEL_GROUP_COUNT_LIMIT;
 
 import static junit.framework.Assert.assertNull;
 import static junit.framework.Assert.fail;
@@ -2728,5 +2729,51 @@ public class PreferencesHelperTest extends UiServiceTestCase {
 
         assertNull(mHelper.getNotificationChannel(PKG_O, UID_O, extraChannel, true));
         assertNull(mHelper.getNotificationChannel(PKG_O, UID_O, extraChannel1, true));
+    }
+
+    @Test
+    public void testTooManyGroups() {
+        for (int i = 0; i < NOTIFICATION_CHANNEL_GROUP_COUNT_LIMIT; i++) {
+            NotificationChannelGroup group = new NotificationChannelGroup(String.valueOf(i),
+                    String.valueOf(i));
+            mHelper.createNotificationChannelGroup(PKG_O, UID_O, group, true);
+        }
+        try {
+            NotificationChannelGroup group = new NotificationChannelGroup(
+                    String.valueOf(NOTIFICATION_CHANNEL_GROUP_COUNT_LIMIT),
+                    String.valueOf(NOTIFICATION_CHANNEL_GROUP_COUNT_LIMIT));
+            mHelper.createNotificationChannelGroup(PKG_O, UID_O, group, true);
+            fail("Allowed to create too many notification channel groups");
+        } catch (IllegalStateException e) {
+            // great
+        }
+    }
+
+    @Test
+    public void testTooManyGroups_xml() throws Exception {
+        String extraGroup = "EXTRA";
+        String extraGroup1 = "EXTRA1";
+
+        // create first... many... directly so we don't need a big xml blob in this test
+        for (int i = 0; i < NOTIFICATION_CHANNEL_GROUP_COUNT_LIMIT; i++) {
+            NotificationChannelGroup group = new NotificationChannelGroup(String.valueOf(i),
+                    String.valueOf(i));
+            mHelper.createNotificationChannelGroup(PKG_O, UID_O, group, true);
+        }
+
+        final String xml = "<ranking version=\"1\">\n"
+                + "<package name=\"" + PKG_O + "\" uid=\"" + UID_O + "\" >\n"
+                + "<channelGroup id=\"" + extraGroup + "\" name=\"hi\"/>"
+                + "<channelGroup id=\"" + extraGroup1 + "\" name=\"hi2\"/>"
+                + "</package>"
+                + "</ranking>";
+        XmlPullParser parser = Xml.newPullParser();
+        parser.setInput(new BufferedInputStream(new ByteArrayInputStream(xml.getBytes())),
+                null);
+        parser.nextTag();
+        mHelper.readXml(parser, false, UserHandle.USER_ALL);
+
+        assertNull(mHelper.getNotificationChannelGroup(extraGroup, PKG_O, UID_O));
+        assertNull(mHelper.getNotificationChannelGroup(extraGroup1, PKG_O, UID_O));
     }
 }
