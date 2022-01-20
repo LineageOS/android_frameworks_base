@@ -85,6 +85,7 @@ import android.util.SparseIntArray;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.app.IBatteryStats;
+import com.android.internal.net.IOemNetd;
 import com.android.internal.util.DumpUtils;
 import com.android.internal.util.HexDump;
 import com.android.internal.util.Preconditions;
@@ -158,6 +159,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     private final Dependencies mDeps;
 
     private INetd mNetdService;
+
+    private IOemNetd mOemNetdService;
 
     private final NetdUnsolicitedEventListener mNetdUnsolicitedEventListener;
 
@@ -432,6 +435,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
         mNetdService = mDeps.getNetd();
         try {
             mNetdService.registerUnsolicitedEventListener(mNetdUnsolicitedEventListener);
+            mOemNetdService = IOemNetd.Stub.asInterface(mNetdService.getOemNetd());
             if (DBG) Slog.d(TAG, "Register unsolicited event listener");
         } catch (RemoteException | ServiceSpecificException e) {
             Slog.e(TAG, "Failed to set Netd unsolicited event listener " + e);
@@ -1803,6 +1807,16 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     public boolean isNetworkRestricted(int uid) {
         mContext.enforceCallingOrSelfPermission(OBSERVE_NETWORK_POLICY, TAG);
         return isNetworkRestrictedInternal(uid);
+    }
+
+    @Override
+    public void setNetworkRestrictedForUid(int uid, String iface, boolean enable) {
+        NetworkStack.checkNetworkStackPermission(mContext);
+        try {
+            mOemNetdService.trafficSetRestrictedInterfaceForUid(uid, iface, enable);
+        } catch (RemoteException | ServiceSpecificException e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     private boolean isNetworkRestrictedInternal(int uid) {
