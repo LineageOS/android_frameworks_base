@@ -62,6 +62,7 @@ import static android.net.INetd.FIREWALL_RULE_ALLOW;
 import static android.net.INetd.FIREWALL_RULE_DENY;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_METERED;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
 import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
@@ -192,6 +193,7 @@ import android.net.INetworkManagementEventObserver;
 import android.net.INetworkPolicyListener;
 import android.net.INetworkPolicyManager;
 import android.net.INetworkStatsService;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkIdentity;
@@ -1206,7 +1208,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                         Set<Integer> uids =
                                 ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(
                                         mContext);
-                        if (action == ACTION_USER_ADDED) {
+                        if (action.equals(ACTION_USER_ADDED)) {
                             // Add apps that are allowed by default.
                             addDefaultRestrictBackgroundAllowlistUidsUL(userId);
                             try {
@@ -1332,7 +1334,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     mLogger.meterednessChanged(network.getNetId(), newMetered);
                     updateNetworkRulesNL();
                 }
-                updateRestrictedModeAllowlistUL();
             }
         }
     };
@@ -2981,10 +2982,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (!isUidValidForAllowlistRulesUL(uid)) {
             notifyApp = false;
         } else {
-            final boolean wasDenied = oldPolicy == POLICY_REJECT_METERED_BACKGROUND;
-            final boolean isDenied = policy == POLICY_REJECT_METERED_BACKGROUND;
-            final boolean wasAllowed = oldPolicy == POLICY_ALLOW_METERED_BACKGROUND;
-            final boolean isAllowed = policy == POLICY_ALLOW_METERED_BACKGROUND;
+            final boolean wasDenied = (oldPolicy & POLICY_REJECT_METERED_BACKGROUND) != 0;
+            final boolean isDenied = (policy & POLICY_REJECT_METERED_BACKGROUND) != 0;
+            final boolean wasAllowed = (oldPolicy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
+            final boolean isAllowed = (policy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
             final boolean wasBlocked = wasDenied || (mRestrictBackground && !wasAllowed);
             final boolean isBlocked = isDenied || (mRestrictBackground && !isAllowed);
             if ((wasAllowed && (!isAllowed || isDenied))
@@ -2995,12 +2996,44 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 mRestrictBackgroundAllowlistRevokedUids.append(uid, true);
             }
             notifyApp = wasBlocked != isBlocked;
+
+            setNetworkRestrictedForUid(uid, oldPolicy, policy, POLICY_REJECT_CELLULAR,
+                    TRANSPORT_CELLULAR, NET_CAPABILITY_NOT_VPN);
+            setNetworkRestrictedForUid(uid, oldPolicy, policy, POLICY_REJECT_VPN,
+                    TRANSPORT_VPN, -1);
+            setNetworkRestrictedForUid(uid, oldPolicy, policy, POLICY_REJECT_WIFI,
+                    TRANSPORT_WIFI, NET_CAPABILITY_NOT_VPN);
         }
         mHandler.obtainMessage(MSG_POLICIES_CHANGED, uid, policy, Boolean.valueOf(notifyApp))
                 .sendToTarget();
         if (persist) {
             synchronized (mNetworkPoliciesSecondLock) {
                 writePolicyAL();
+            }
+        }
+    }
+
+    private void setNetworkRestrictedForUid(int uid, int oldPolicy, int newPolicy, int policy,
+            int transport, int capability) {
+        final boolean wasDenied = (oldPolicy & policy) != 0;
+        final boolean isDenied = (newPolicy & policy) != 0;
+
+        if (wasDenied != isDenied) {
+            for (NetworkStateSnapshot network : mConnManager.getAllNetworkStateSnapshots()) {
+                NetworkCapabilities networkCapabilities = network.getNetworkCapabilities();
+                LinkProperties linkProperties = network.getLinkProperties();
+                if (networkCapabilities != null && linkProperties != null
+                        && networkCapabilities.hasTransport(transport)
+                        && (capability == -1 || networkCapabilities.hasCapability(capability)) ){
+                    try {
+                        mNetworkManager.setNetworkRestrictedForUid(
+                                uid, linkProperties.getInterfaceName(), isDenied);
+                    } catch (IllegalStateException e) {
+                        Log.wtf(TAG, "problem setting network restrictions for uid " + uid, e);
+                    } catch (RemoteException e) {
+                        // ignored; service lives in system_server
+                    }
+                }
             }
         }
     }
@@ -3012,7 +3045,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         } else {
             mUidPolicy.put(uid, policy);
         }
-        updateRestrictedModeForUidUL(uid);
+
         // uid policy changed, recompute rules and persist policy.
         updateRulesForDataUsageRestrictionsUL(uid);
         if (persist) {
@@ -4248,16 +4281,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     private boolean hasRestrictedModeAccess(int uid) {
         try {
-            NetworkCapabilities nc = mConnManager.getNetworkCapabilities(
-                    mConnManager.getActiveNetwork());
-            int policy = getUidPolicy(uid);
-            if (nc != null
-                    && ((nc.hasTransport(TRANSPORT_VPN) && ((policy & POLICY_REJECT_VPN) != 0))
-                    || (nc.hasTransport(TRANSPORT_CELLULAR) && ((policy & POLICY_REJECT_CELLULAR)
-                    != 0))
-                    || (nc.hasTransport(TRANSPORT_WIFI) && ((policy & POLICY_REJECT_WIFI) != 0)))) {
-                return false;
-            }
             // TODO: this needs to be kept in sync with
             // PermissionMonitor#hasRestrictedNetworkPermission
             return ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext)
