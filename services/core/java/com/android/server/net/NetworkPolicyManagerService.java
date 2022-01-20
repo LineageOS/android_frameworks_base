@@ -62,6 +62,7 @@ import static android.net.INetd.FIREWALL_RULE_ALLOW;
 import static android.net.INetd.FIREWALL_RULE_DENY;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_METERED;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
 import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
@@ -192,6 +193,7 @@ import android.net.INetworkManagementEventObserver;
 import android.net.INetworkPolicyListener;
 import android.net.INetworkPolicyManager;
 import android.net.INetworkStatsService;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkIdentity;
@@ -312,8 +314,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -464,6 +464,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
      * obj = oldBlockedReasons
      */
     private static final int MSG_BLOCKED_REASON_CHANGED = 21;
+
+    private static final int MSG_NETWORK_RESTRICTED = 22;
 
     private static final int UID_MSG_STATE_CHANGED = 100;
     private static final int UID_MSG_GONE = 101;
@@ -626,6 +628,12 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     /** Map from network ID to last observed roaming state */
     @GuardedBy("mNetworkPoliciesSecondLock")
     private final SparseBooleanArray mNetworkRoaming = new SparseBooleanArray();
+    /** Map from network ID to last observed transports */
+    @GuardedBy("mNetworkPoliciesSecondLock")
+    private final SparseArray<int[]> mNetworkTransports = new SparseArray<>();
+    /** Map from network ID to last observed interfaces */
+    @GuardedBy("mNetworkPoliciesSecondLock")
+    private final SparseArray<String> mNetworkInterfaces = new SparseArray<>();
 
     /** Map from netId to subId as of last update */
     @GuardedBy("mNetworkPoliciesSecondLock")
@@ -1029,7 +1037,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
             // listen for meteredness changes
             mConnManager.registerNetworkCallback(
-                    new NetworkRequest.Builder().build(), mNetworkCallback);
+                    new NetworkRequest.Builder().removeCapability(NET_CAPABILITY_NOT_VPN).build(),
+                    mNetworkCallback);
 
             mAppStandby.addListener(new NetPolicyAppIdleStateChangeListener());
             synchronized (mUidRulesFirstLock) {
@@ -1311,11 +1320,70 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         return changed;
     }
 
+    private static boolean updateTransportChange(
+            SparseArray<int[]> lastValues, int[] newValue, Network network) {
+        final int[] lastValue = lastValues.get(network.getNetId(), new int[] {});
+        final boolean changed =
+                (!Arrays.equals(lastValue, newValue))
+                        || lastValues.indexOfKey(network.getNetId()) < 0;
+        if (changed) {
+            lastValues.put(network.getNetId(), newValue);
+        }
+        return changed;
+    }
+
+    private static boolean updateInterfaceChange(
+            SparseArray<String> lastValues, String newValue, Network network) {
+        final String lastValue = lastValues.get(network.getNetId(), "");
+        final boolean changed =
+                (!lastValue.equals(newValue)) || lastValues.indexOfKey(network.getNetId()) < 0;
+        if (changed) {
+            lastValues.put(network.getNetId(), newValue);
+        }
+        return changed;
+    }
+
     private final NetworkCallback mNetworkCallback = new NetworkCallback() {
+        class NetworkInfo {
+            private LinkProperties linkProperties;
+            private NetworkCapabilities networkCapabilties;
+
+            NetworkInfo(LinkProperties linkProperties, NetworkCapabilities networkCapabilities) {
+                this.linkProperties = linkProperties;
+                this.networkCapabilties = networkCapabilities;
+            }
+
+            public LinkProperties getLinkProperties() {
+                return linkProperties;
+            }
+
+            public void setLinkProperties(LinkProperties linkProperties) {
+                this.linkProperties = linkProperties;
+            }
+
+            public NetworkCapabilities getNetworkCapabilties() {
+                return networkCapabilties;
+            }
+
+            public void setNetworkCapabilties(NetworkCapabilities networkCapabilties) {
+                this.networkCapabilties = networkCapabilties;
+            }
+        }
+
+        private final SparseArray<NetworkInfo> networks = new SparseArray<>();
+
         @Override
         public void onCapabilitiesChanged(Network network,
                 NetworkCapabilities networkCapabilities) {
             if (network == null || networkCapabilities == null) return;
+
+            NetworkInfo networkInfo = networks.get(network.getNetId());
+            if (networkInfo != null) {
+                networkInfo.setNetworkCapabilties(networkCapabilities);
+            } else {
+                networkInfo = new NetworkInfo(null, networkCapabilities);
+            }
+            networks.put(network.getNetId(), networkInfo);
 
             synchronized (mNetworkPoliciesSecondLock) {
                 final boolean newMetered = !networkCapabilities
@@ -1332,7 +1400,47 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     mLogger.meterednessChanged(network.getNetId(), newMetered);
                     updateNetworkRulesNL();
                 }
-                updateRestrictedModeAllowlistUL();
+
+                final int[] newTransports = networkCapabilities.getTransportTypes();
+                final boolean transportsChanged =
+                        updateTransportChange(mNetworkTransports, newTransports, network);
+                if (transportsChanged) {
+                    updateRestrictedNetworkUL(networkInfo.getLinkProperties(),
+                            networkInfo.getNetworkCapabilties());
+                }
+            }
+        }
+
+        @Override
+        public void onLinkPropertiesChanged(@NonNull Network network,
+                @NonNull LinkProperties linkProperties) {
+            NetworkInfo networkInfo = networks.get(network.getNetId());
+            if (networkInfo != null) {
+                networkInfo.setLinkProperties(linkProperties);
+            } else {
+                networkInfo = new NetworkInfo(linkProperties, null);
+            }
+            networks.put(network.getNetId(), networkInfo);
+
+            final String newInterface = linkProperties.getInterfaceName();
+            final boolean interfacesChanged =
+                    updateInterfaceChange(mNetworkInterfaces, newInterface, network);
+            if (interfacesChanged) {
+                updateRestrictedNetworkUL(networkInfo.getLinkProperties(),
+                        networkInfo.getNetworkCapabilties());
+            }
+        }
+
+        @Override
+        public void onLost(@NonNull Network network) {
+            NetworkInfo networkInfo = networks.get(network.getNetId());
+            LinkProperties linkProperties = networkInfo.getLinkProperties();
+            if (linkProperties != null) {
+                String ifaceName = linkProperties.getInterfaceName();
+                forEachUid("onLost", uid -> {
+                    mHandler.obtainMessage(MSG_NETWORK_RESTRICTED, uid, 0, ifaceName)
+                        .sendToTarget();
+                });
             }
         }
     };
@@ -2981,10 +3089,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (!isUidValidForAllowlistRulesUL(uid)) {
             notifyApp = false;
         } else {
-            final boolean wasDenied = oldPolicy == POLICY_REJECT_METERED_BACKGROUND;
-            final boolean isDenied = policy == POLICY_REJECT_METERED_BACKGROUND;
-            final boolean wasAllowed = oldPolicy == POLICY_ALLOW_METERED_BACKGROUND;
-            final boolean isAllowed = policy == POLICY_ALLOW_METERED_BACKGROUND;
+            final boolean wasDenied = (oldPolicy & POLICY_REJECT_METERED_BACKGROUND) != 0;
+            final boolean isDenied = (policy & POLICY_REJECT_METERED_BACKGROUND) != 0;
+            final boolean wasAllowed = (oldPolicy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
+            final boolean isAllowed = (policy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
             final boolean wasBlocked = wasDenied || (mRestrictBackground && !wasAllowed);
             final boolean isBlocked = isDenied || (mRestrictBackground && !isAllowed);
             if ((wasAllowed && (!isAllowed || isDenied))
@@ -2995,6 +3103,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 mRestrictBackgroundAllowlistRevokedUids.append(uid, true);
             }
             notifyApp = wasBlocked != isBlocked;
+
+            updateRestrictedNetworksUL(uid, oldPolicy, policy);
         }
         mHandler.obtainMessage(MSG_POLICIES_CHANGED, uid, policy, Boolean.valueOf(notifyApp))
                 .sendToTarget();
@@ -3012,7 +3122,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         } else {
             mUidPolicy.put(uid, policy);
         }
-        updateRestrictedModeForUidUL(uid);
+
         // uid policy changed, recompute rules and persist policy.
         updateRulesForDataUsageRestrictionsUL(uid);
         if (persist) {
@@ -4139,6 +4249,65 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
+    private void updateRestrictedNetworksUL() {
+        for (NetworkStateSnapshot network : mConnManager.getAllNetworkStateSnapshots()) {
+            updateRestrictedNetworkUL(
+                    network.getLinkProperties(), network.getNetworkCapabilities());
+        }
+    }
+
+    private void updateRestrictedNetworksUL(int uid, int oldPolicy, int policy) {
+        for (NetworkStateSnapshot network : mConnManager.getAllNetworkStateSnapshots()) {
+            updateNetworkRestrictionsForUidUL(uid, oldPolicy, policy,
+                    network.getLinkProperties(), network.getNetworkCapabilities());
+        }
+    }
+
+    private void updateRestrictedNetworkUL(
+            LinkProperties linkProperties, NetworkCapabilities networkCapabilities) {
+        forEachUid("updateNetworkRestrictions", uid -> {
+            updateNetworkRestrictionsForUidUL(
+                uid, 0, mUidPolicy.get(uid), linkProperties, networkCapabilities);
+        });
+    }
+
+    private void updateNetworkRestrictionsForUidUL(int uid, int oldPolicy, int policy,
+            LinkProperties linkProperties, NetworkCapabilities networkCapabilities) {
+        setNetworkRestrictedForUid(uid, oldPolicy, policy,
+                POLICY_REJECT_CELLULAR, TRANSPORT_CELLULAR, NET_CAPABILITY_NOT_VPN,
+                linkProperties, networkCapabilities);
+        setNetworkRestrictedForUid(uid, oldPolicy, policy,
+                POLICY_REJECT_VPN, TRANSPORT_VPN, -1,
+                linkProperties, networkCapabilities);
+        setNetworkRestrictedForUid(uid, oldPolicy, policy,
+                POLICY_REJECT_WIFI, TRANSPORT_WIFI, NET_CAPABILITY_NOT_VPN,
+                linkProperties, networkCapabilities);
+    }
+
+    private void setNetworkRestrictedForUid(int uid, int oldPolicy, int policy,
+            int flag, int transport, int vpnCapability,
+            LinkProperties linkProperties, NetworkCapabilities networkCapabilities) {
+        final boolean wasDenied = (oldPolicy & flag) != 0;
+        final boolean isDenied = (policy & flag) != 0;
+
+        if (wasDenied != isDenied) {
+            setNetworkRestrictedForUid(
+                    uid, transport, vpnCapability, networkCapabilities, linkProperties, isDenied);
+        }
+    }
+
+    private void setNetworkRestrictedForUid(int uid, int transport, int vpnCapability,
+            NetworkCapabilities networkCapabilities, LinkProperties linkProperties,
+            boolean restricted) {
+        if (networkCapabilities != null && linkProperties != null
+                && networkCapabilities.hasTransport(transport)
+                && (vpnCapability == -1 || networkCapabilities.hasCapability(vpnCapability))) {
+            final String ifaceName = linkProperties.getInterfaceName();
+            mHandler.obtainMessage(MSG_NETWORK_RESTRICTED, uid, restricted ? 1 : 0, ifaceName)
+                .sendToTarget();
+        }
+    }
+
     @VisibleForTesting
     boolean isRestrictedModeEnabled() {
         synchronized (mUidRulesFirstLock) {
@@ -4253,16 +4422,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     private boolean hasRestrictedModeAccess(int uid) {
         try {
-            NetworkCapabilities nc = mConnManager.getNetworkCapabilities(
-                    mConnManager.getActiveNetwork());
-            int policy = getUidPolicy(uid);
-            if (nc != null
-                    && ((nc.hasTransport(TRANSPORT_VPN) && ((policy & POLICY_REJECT_VPN) != 0))
-                    || (nc.hasTransport(TRANSPORT_CELLULAR) && ((policy & POLICY_REJECT_CELLULAR)
-                    != 0))
-                    || (nc.hasTransport(TRANSPORT_WIFI) && ((policy & POLICY_REJECT_WIFI) != 0)))) {
-                return false;
-            }
             // TODO: this needs to be kept in sync with
             // PermissionMonitor#hasRestrictedNetworkPermission
             return ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext)
@@ -4509,6 +4668,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             updateRulesForRestrictPowerUL();
             updateRulesForRestrictBackgroundUL();
             updateRestrictedModeAllowlistUL();
+            updateRestrictedNetworksUL();
 
             // If the set of restricted networks may have changed, re-evaluate those.
             if (restrictedNetworksChanged) {
@@ -5363,6 +5523,18 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     mListeners.finishBroadcast();
                     return true;
                 }
+                case MSG_NETWORK_RESTRICTED: {
+                    final int uid = msg.arg1;
+                    final boolean restricted = msg.arg2 != 0;
+                    final String ifaceName = (String) msg.obj;
+                    try {
+                        mNetworkManager.setNetworkRestrictedForUid(uid, ifaceName, restricted);
+                    } catch (IllegalStateException e) {
+                        Log.wtf(TAG, "problem removing network restrictions for uid " + uid, e);
+                    } catch (RemoteException e) {
+                    }
+                    return true;
+                }
                 default: {
                     return false;
                 }
@@ -5649,6 +5821,15 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     .setFirewallUidRule(FIREWALL_CHAIN_RESTRICTED, uid, FIREWALL_RULE_DEFAULT);
             mNetworkManager.setUidOnMeteredNetworkAllowlist(uid, false);
             mNetworkManager.setUidOnMeteredNetworkDenylist(uid, false);
+            for (NetworkStateSnapshot network : mConnManager.getAllNetworkStateSnapshots()) {
+                LinkProperties linkProperties = network.getLinkProperties();
+                if (linkProperties != null) {
+                    String ifaceName = linkProperties.getInterfaceName();
+                    if (ifaceName != null) {
+                        mNetworkManager.setNetworkRestrictedForUid(uid, ifaceName, false);
+                    }
+                }
+            }
         } catch (IllegalStateException e) {
             Log.wtf(TAG, "problem resetting firewall uid rules for " + uid, e);
         } catch (RemoteException e) {
