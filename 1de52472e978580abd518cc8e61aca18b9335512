@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c875fb1b_c0295607",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/NfcTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-01-21T12:13:36Z",
+      "side": 1,
+      "message": "This change is improperly squashed, should have \"if (mListening \u003d\u003d listening) return;\" after the super call",
+      "revId": "1de52472e978580abd518cc8e61aca18b9335512",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
