@@ -34,6 +34,24 @@
       "parentUuid": "c875fb1b_c0295607",
       "revId": "1de52472e978580abd518cc8e61aca18b9335512",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73f8f224_c2d5b86a",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/NfcTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-01-21T12:44:45Z",
+      "side": 1,
+      "message": "Sorry, was automatically dragged into PS1, therefore didn\u0027t see that :/",
+      "parentUuid": "875619ce_ffe013b6",
+      "revId": "1de52472e978580abd518cc8e61aca18b9335512",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
