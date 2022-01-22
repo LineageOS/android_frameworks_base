@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f994f2a9_78ca962a",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 28935
+      },
+      "writtenOn": "2022-01-22T11:59:08Z",
+      "side": 1,
+      "message": "oh yeah same for the dismissPowerOptions directly above",
+      "parentUuid": "fcfc89b2_fbde772a",
+      "revId": "facaab52ec593a286858c606de8e5cc4140ec0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e791c00f_1adc1344",
         "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsImpl.java",
         "patchSetId": 13
