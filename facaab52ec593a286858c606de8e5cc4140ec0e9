@@ -36,6 +36,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee652ac_2f7435e1",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 23715
+      },
+      "writtenOn": "2022-01-22T21:48:22Z",
+      "side": 1,
+      "message": "It\u0027s AOSP code and there is no need to change it unnecessarily here. Restart options has something similar to maintain consistency. This should be \"fixed\" upstream if anyone wishes to do so.",
+      "parentUuid": "f994f2a9_78ca962a",
+      "revId": "facaab52ec593a286858c606de8e5cc4140ec0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e791c00f_1adc1344",
