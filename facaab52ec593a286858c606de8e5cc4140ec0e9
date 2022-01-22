@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcfc89b2_fbde772a",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 28935
+      },
+      "writtenOn": "2022-01-22T11:06:54Z",
+      "side": 1,
+      "message": "What is the if here for if the same action is executed in both blocks?",
+      "revId": "facaab52ec593a286858c606de8e5cc4140ec0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
