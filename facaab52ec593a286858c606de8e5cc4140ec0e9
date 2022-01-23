@@ -54,6 +54,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6e038a7_fc1d427b",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 28935
+      },
+      "writtenOn": "2022-01-23T12:56:58Z",
+      "side": 1,
+      "message": "ah i see, well future rebases will be easier if we don\u0027t touch aosp code\nstill don\u0027t think its necessary to do the same stuff just for consistency",
+      "parentUuid": "5ee652ac_2f7435e1",
+      "revId": "facaab52ec593a286858c606de8e5cc4140ec0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e791c00f_1adc1344",
