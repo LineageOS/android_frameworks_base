@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14075232_70443d8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2022-01-24T20:52:29Z",
+      "side": 1,
+      "message": "Another proposed solution: do what Google expects from us: https://github.com/xiaomi-sm8250-devs/android_device_xiaomi_sm8250-common/commit/8e50ee6c8a8153b5d0bd076e51b1afbd3180326f + 322575 + 322576\nCurrent status is: our custom sensor HAL is loaded and receives callbacks from fingerprint HIDL, but for somehow reason framework isn\u0027t polling the HAL",
+      "revId": "72e57bc015dc52f9b1a0fb85686b2858953c3c1d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
