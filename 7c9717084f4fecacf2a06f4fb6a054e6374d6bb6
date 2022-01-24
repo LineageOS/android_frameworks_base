@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7344735_8f422fca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-01-24T20:43:28Z",
+      "side": 1,
+      "message": "I removed this QTI BT chain out of the rest of fwb chains. Don\u0027t put it back there, please.",
+      "revId": "7c9717084f4fecacf2a06f4fb6a054e6374d6bb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
