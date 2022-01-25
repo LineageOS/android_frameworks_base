@@ -22,6 +22,30 @@
       },
       "revId": "a38462ffe05864d5717bab438e05f413e71f7fb8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c50617a6_1e80aee1",
+        "filename": "core/java/android/bluetooth/BluetoothHeadset.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-01-25T13:45:00Z",
+      "side": 1,
+      "message": "(along with https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/322084/)",
+      "parentUuid": "eb804f43_447a2629",
+      "range": {
+        "startLine": 491,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 5
+      },
+      "revId": "a38462ffe05864d5717bab438e05f413e71f7fb8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
