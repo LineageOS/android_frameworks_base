@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82950d6c_ef91f6c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2022-01-26T19:28:57Z",
+      "side": 1,
+      "message": "https://github.com/crdroidandroid/android_frameworks_base/commit/3f51ec4e45c754482ab827ff3cb760f6a9088ca0",
+      "revId": "b94048807aee28c396882c48883c2d57d0a79af4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
