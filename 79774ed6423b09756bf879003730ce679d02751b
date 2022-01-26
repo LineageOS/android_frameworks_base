@@ -16,6 +16,23 @@
       "message": "Why derped?",
       "revId": "79774ed6423b09756bf879003730ce679d02751b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67173ff6_b7f9f29d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-01-26T20:54:31Z",
+      "side": 1,
+      "message": "Can you clarify why was this abandoned? This is still in 12 QSSI tag.",
+      "revId": "79774ed6423b09756bf879003730ce679d02751b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
