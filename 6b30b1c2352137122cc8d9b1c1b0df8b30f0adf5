@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30f09ed8_ebb4cf86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-01-26T14:40:09Z",
+      "side": 1,
+      "message": "I usually prefer to squash this kind of stuff in the OG commit.",
+      "revId": "6b30b1c2352137122cc8d9b1c1b0df8b30f0adf5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
