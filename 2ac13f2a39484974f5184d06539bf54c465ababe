@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcfc7d33_85861141",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-01-26T15:56:34Z",
+      "side": 1,
+      "message": "picked from master. This seems to fix that the battery usage graph is being reset every few hours.",
+      "revId": "2ac13f2a39484974f5184d06539bf54c465ababe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
