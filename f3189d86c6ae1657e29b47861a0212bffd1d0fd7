@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3391d24b_79bb2631",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 23715
+      },
+      "writtenOn": "2022-01-26T22:11:25Z",
+      "side": 1,
+      "message": "Added back partial screenshot on long press. Not yet tested.",
+      "revId": "f3189d86c6ae1657e29b47861a0212bffd1d0fd7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
