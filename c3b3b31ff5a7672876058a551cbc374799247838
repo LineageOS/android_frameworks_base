@@ -16,6 +16,23 @@
       "message": "side note: Cedric, please join Discord linked on our website, then send me your discord username and user number (username@1111) and I can add you to our private channels to help get these reviewed sooner.",
       "revId": "c3b3b31ff5a7672876058a551cbc374799247838",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed8e75c_aaa91642",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-01-29T06:15:52Z",
+      "side": 1,
+      "message": "add me back if you\u0027d like the invite, or email me.",
+      "revId": "c3b3b31ff5a7672876058a551cbc374799247838",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
