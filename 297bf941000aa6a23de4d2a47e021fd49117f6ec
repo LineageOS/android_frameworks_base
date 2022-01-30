@@ -50,6 +50,24 @@
       "message": "don\u0027t change the way landscape behaves (ringer button layout should stay horizontal).",
       "revId": "297bf941000aa6a23de4d2a47e021fd49117f6ec",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9060ee7d_f5e1d8eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-01-30T18:53:47Z",
+      "side": 1,
+      "message": "Is this really working fine in landscape? It has a huge margin in the left when audio panel is moved there.",
+      "parentUuid": "58e9ecc7_1c5c8154",
+      "revId": "297bf941000aa6a23de4d2a47e021fd49117f6ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
