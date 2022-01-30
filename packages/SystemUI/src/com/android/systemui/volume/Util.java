@@ -46,4 +46,10 @@ class Util extends com.android.settingslib.volume.Util {
         if (v == null || (v.getVisibility() == View.VISIBLE) == vis) return;
         v.setVisibility(vis ? View.VISIBLE : View.GONE);
     }
+
+    public static final void setVisOrInvisible(View v, boolean vis) {
+        if (v == null || (v.getVisibility() == View.VISIBLE) == vis) return;
+        v.setVisibility(vis ? View.VISIBLE : View.INVISIBLE);
+    }
+
 }
