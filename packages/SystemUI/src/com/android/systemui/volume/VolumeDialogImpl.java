@@ -37,6 +37,7 @@ import static com.android.systemui.volume.Events.DISMISS_REASON_SETTINGS_CLICKED
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -92,7 +93,9 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -452,6 +455,8 @@ public class VolumeDialogImpl implements VolumeDialog,
                             }
                         }
                         mDefaultRow = getActiveRow();
+                        // Update the rows to ensure the expandable rows are configured correctly
+                        updateRowsH(mDefaultRow);
                     })
                     .start();
         });
@@ -1050,7 +1055,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mExpandRows != null) {
             mExpandRows.setOnClickListener(v -> {
                 mExpanded = !mExpanded;
-                updateRowsH(mDefaultRow);
+                updateRowsH(mDefaultRow, true);
                 mExpandRows.setExpanded(mExpanded);
             });
         }
@@ -1357,6 +1362,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                     tryToRemoveCaptionsTooltip();
                     mExpanded = false;
                     mExpandRows.setExpanded(mExpanded);
+                    updateRowsH(mDefaultRow);
                     mIsAnimatingDismiss = false;
 
                     hideRingerDrawer();
@@ -1425,6 +1431,10 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void updateRowsH(final VolumeRow activeRow) {
+        updateRowsH(activeRow, false);
+    }
+
+    private void updateRowsH(final VolumeRow activeRow, boolean animate) {
         if (D.BUG) Log.d(TAG, "updateRowsH");
         if (!mShowing) {
             trimObsoleteH();
@@ -1438,10 +1448,10 @@ public class VolumeDialogImpl implements VolumeDialog,
             final boolean isActive = row == activeRow;
             final boolean shouldBeVisible = shouldBeVisibleH(row, activeRow);
 
-            if (isExpandableRow(row)) {
-                row.view.setVisibility((mExpanded || row.defaultStream || mDefaultRow == row) ? View.VISIBLE : View.INVISIBLE);
-            } else {
+            if (!isExpandableRow(row) || (row.defaultStream || mDefaultRow == row)) {
                 Util.setVisOrGone(row.view, shouldBeVisible);
+            } else if (!animate) {
+                Util.setVisOrInvisible(row.view, mExpanded);
             }
 
             if (shouldBeVisible && mRingerAndDrawerContainerBackground != null) {
@@ -1489,6 +1499,50 @@ public class VolumeDialogImpl implements VolumeDialog,
                 linearLayoutParams.setMarginStart(0);
                 linearLayoutParams.setMarginEnd(0);
                 lastVisibleChild.setBackgroundColor(Color.TRANSPARENT);
+            }
+
+            // Increase the elevation of the rightmost row so that other rows animate behind it.
+            //row.view.setElevation(0.1f);
+
+            int [] lastVisibleChildLocation = new int[2];
+            lastVisibleChild.getLocationInWindow(lastVisibleChildLocation);
+
+            // Animate the expandable rows
+            for (final VolumeRow row : mRows) {
+                if (!isExpandableRow(row) || row.defaultStream || mDefaultRow == row) continue;
+
+                int[] locInWindow = new int[2];
+                row.view.getLocationInWindow(locInWindow);
+                float distance = lastVisibleChildLocation[0] - (locInWindow[0] - row.view.getTranslationX());
+
+                if (animate) {
+                    Log.d(TAG, "animating with mExpanded: " + mExpanded + " and distance: " + distance + " locX: " + locInWindow[0] + " transX: " + row.view.getTranslationX());
+
+                    // Ensure the row is visible
+                    Util.setVisOrGone(row.view, true);
+
+                    /*
+                    ObjectAnimator animationAlpha = ObjectAnimator.ofFloat(row.view, View.ALPHA,
+                            mExpanded ? 1 : 0);
+
+                    ObjectAnimator animationTranslation = ObjectAnimator.ofFloat(row.view, "translationX",
+                            mExpanded ? 0 : distance);
+                    animationTranslation.setInterpolator(mExpanded ? new DecelerateInterpolator() : new AccelerateInterpolator());
+
+                    AnimatorSet animation = new AnimatorSet();
+                    animation.playTogether(animationAlpha, animationTranslation);
+                    animation.setDuration(1000);
+                    animation.start();
+                    */
+                    row.view.animate()
+                            .translationX(mExpanded ? 0 : distance)
+                            //.alpha(mExpanded ? 0 : distance)
+                            .setDuration(1000);
+                } else {
+                    Log.d(TAG, "no animation with mExpanded: " + mExpanded + " and distance: " + distance + " locX: " + locInWindow[0] + " transX: " + row.view.getTranslationX());
+                    row.view.setTranslationX(mExpanded ? 0 : distance);
+                }
+
             }
         }
 
