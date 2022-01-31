@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162e40c7_2c3f5d01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-01-31T14:27:32Z",
+      "side": 1,
+      "message": "Do not merge before https://review.calyxos.org/c/CalyxOS/platform_frameworks_base/+/8294",
+      "revId": "7ae6a8e387025b48951093cb330447ae9af9e055",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
