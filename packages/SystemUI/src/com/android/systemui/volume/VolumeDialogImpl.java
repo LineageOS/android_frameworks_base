@@ -348,6 +348,11 @@ public class VolumeDialogImpl implements VolumeDialog,
         internalInsetsInfo.touchableRegion.set(mTouchableRegion);
     }
 
+    private int getExpandedOpenExtraSize() {
+        int expandableRows = 3;
+        return (expandableRows - 1) * (mDialogWidth + mRingerRowsPadding);
+    }
+
     private void unionViewBoundstoTouchableRegion(final View view) {
         final int[] locInWindow = new int[2];
         view.getLocationInWindow(locInWindow);
@@ -356,12 +361,28 @@ public class VolumeDialogImpl implements VolumeDialog,
         float y = locInWindow[1];
 
         // The ringer and rows container has extra height at the top to fit the expanded ringer
-        // drawer. This area should not be touchable unless the ringer drawer is open.
-        if (view == mTopContainer && !mIsRingerDrawerOpen) {
+        // drawer and extra width at the left to fit the expandable rows. This area should not
+        // be touchable unless the ringer drawer is open.
+        if (view == mTopContainer) {
             if (!isLandscape()) {
-                y += getRingerDrawerOpenExtraSize();
+                if (!mIsRingerDrawerOpen) {
+                    y += getRingerDrawerOpenExtraSize();
+                }
+                if (!mExpanded) {
+                    x += getExpandedOpenExtraSize();
+                }
             } else {
-                x += getRingerDrawerOpenExtraSize();
+                if (!mIsRingerDrawerOpen && !mExpanded) {
+                    x += Math.max(getRingerDrawerOpenExtraSize(), getExpandedOpenExtraSize());
+                } else if (!mExpanded) {
+                    if (getRingerDrawerOpenExtraSize() < getExpandedOpenExtraSize()) {
+                        x += (getExpandedOpenExtraSize() - getRingerDrawerOpenExtraSize());
+                    }
+                } else if (!mIsRingerDrawerOpen) {
+                    if (getExpandedOpenExtraSize() < getRingerDrawerOpenExtraSize()) {
+                        x += (getRingerDrawerOpenExtraSize() - getExpandedOpenExtraSize());
+                    }
+                }
             }
         }
 
@@ -1352,6 +1373,12 @@ public class VolumeDialogImpl implements VolumeDialog,
                 || mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEVISION);
     }
 
+    private boolean isExpandableRow(VolumeRow row) {
+        return row != null && (row.stream == STREAM_RING
+                || row.stream == STREAM_ALARM
+                || row.stream == STREAM_MUSIC);
+    }
+
     private boolean shouldBeVisibleH(VolumeRow row, VolumeRow activeRow) {
         boolean isActive = row.stream == activeRow.stream;
 
@@ -1372,9 +1399,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             }
 
             // All streams that should be shown in the expanded dialog
-            if (mExpanded && (row.stream == STREAM_RING
-                    || row.stream == STREAM_ALARM
-                    || row.stream == STREAM_MUSIC)) {
+            if (isExpandableRow(row)) {
                 return true;
             }
 
@@ -1407,7 +1432,12 @@ public class VolumeDialogImpl implements VolumeDialog,
         for (final VolumeRow row : mRows) {
             final boolean isActive = row == activeRow;
             final boolean shouldBeVisible = shouldBeVisibleH(row, activeRow);
-            Util.setVisOrGone(row.view, shouldBeVisible);
+
+            if (isExpandableRow(row)) {
+                row.view.setVisibility((mExpanded || row.defaultStream || mDefaultRow == row) ? View.VISIBLE : View.INVISIBLE);
+            } else {
+                Util.setVisOrGone(row.view, shouldBeVisible);
+            }
 
             if (shouldBeVisible && mRingerAndDrawerContainerBackground != null) {
                 // For RTL, the rightmost row has the lowest index since child views are laid out
