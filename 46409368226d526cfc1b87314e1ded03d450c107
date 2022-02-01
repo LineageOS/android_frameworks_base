@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e433d4c8_97ac43fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-02-01T12:32:15Z",
+      "side": 1,
+      "message": "Also it would be cool to know why this is a fixup :P",
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57baddee_ec6bd29a",
