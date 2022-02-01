@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57baddee_ec6bd29a",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-02-01T11:55:40Z",
+      "side": 1,
+      "message": "why? the way you changed the code would trigger a NPE if action is null.\nAt most swap action and ACTION_USER_ADDED\nOtherwise, keep the old check",
+      "range": {
+        "startLine": 1211,
+        "startChar": 0,
+        "endLine": 1211,
+        "endChar": 63
+      },
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec5a777e_2f827192",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2985,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-02-01T11:55:40Z",
+      "side": 1,
+      "message": "This should be a change as is\n\"Start using bitmask based operations for policy\n\nPolicy was always meant to be a bitmask field, but as of\nnow it was only used to store a single bit.\nMove to bitwise checks as they will be required in a follow up CL\"",
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d0ed52c_3ec77525",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3005,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-02-01T11:55:40Z",
+      "side": 1,
+      "message": "need a rationale for the order there, logically I\u0027d put VPN last?",
+      "range": {
+        "startLine": 3000,
+        "startChar": 0,
+        "endLine": 3005,
+        "endChar": 60
+      },
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
