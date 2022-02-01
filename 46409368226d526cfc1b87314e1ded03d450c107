@@ -102,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12629bcb_6fae12a2",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2985,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-02-01T22:08:33Z",
+      "side": 1,
+      "message": "Thought about that but also thought it is fine in this patch since the 2 are tied together",
+      "parentUuid": "ec5a777e_2f827192",
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d0ed52c_3ec77525",
         "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
         "patchSetId": 3
@@ -113,6 +131,30 @@
       "writtenOn": "2022-02-01T11:55:40Z",
       "side": 1,
       "message": "need a rationale for the order there, logically I\u0027d put VPN last?",
+      "range": {
+        "startLine": 3000,
+        "startChar": 0,
+        "endLine": 3005,
+        "endChar": 60
+      },
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2634c25e_e8c51c34",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3005,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-02-01T22:08:33Z",
+      "side": 1,
+      "message": "not certain the order should make a difference for these calls, but let\u0027s keep that in mind",
+      "parentUuid": "1d0ed52c_3ec77525",
       "range": {
         "startLine": 3000,
         "startChar": 0,

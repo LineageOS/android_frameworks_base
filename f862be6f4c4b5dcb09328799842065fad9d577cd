@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86545b10_5f621660",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-02-01T22:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ec2664d_53959d5e",
+      "range": {
+        "startLine": 1370,
+        "startChar": 33,
+        "endLine": 1370,
+        "endChar": 41
+      },
+      "revId": "f862be6f4c4b5dcb09328799842065fad9d577cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8040f77a_634f610e",
@@ -47,6 +71,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d24a1f_7c7e34a7",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-02-01T22:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8040f77a_634f610e",
+      "range": {
+        "startLine": 1377,
+        "startChar": 0,
+        "endLine": 1383,
+        "endChar": 13
+      },
+      "revId": "f862be6f4c4b5dcb09328799842065fad9d577cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc2eb452_0d5c2396",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-02-01T21:51:34Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1415,
+        "startChar": 0,
+        "endLine": 1420,
+        "endChar": 13
+      },
+      "revId": "f862be6f4c4b5dcb09328799842065fad9d577cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "753cb432_de6dc662",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-02-01T22:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc2eb452_0d5c2396",
       "range": {
         "startLine": 1415,
         "startChar": 0,
