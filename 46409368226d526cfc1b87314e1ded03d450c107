@@ -118,6 +118,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4744367d_34137ac9",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 2985,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-02-02T16:58:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12629bcb_6fae12a2",
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d0ed52c_3ec77525",
@@ -155,6 +173,30 @@
       "side": 1,
       "message": "not certain the order should make a difference for these calls, but let\u0027s keep that in mind",
       "parentUuid": "1d0ed52c_3ec77525",
+      "range": {
+        "startLine": 3000,
+        "startChar": 0,
+        "endLine": 3005,
+        "endChar": 60
+      },
+      "revId": "46409368226d526cfc1b87314e1ded03d450c107",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4f32dd1_99c3ee1f",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3005,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-02-02T16:58:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2634c25e_e8c51c34",
       "range": {
         "startLine": 3000,
         "startChar": 0,
