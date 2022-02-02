@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea6c4f77_5e92778e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-02-02T23:48:32Z",
+      "side": 1,
+      "message": "This needs to be cleaned up a lot. It works mostly fine as is and looks like this: https://imgur.com/a/Pp4QGIb",
+      "revId": "340fbcf7f7192f54695223760be674c1b3a1d0af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
