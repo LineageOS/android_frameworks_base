@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "148fe588_38eb7388",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-02-03T23:32:31Z",
+      "side": 1,
+      "message": "This fixes bluetooth a2dp offload on TP1803 after the qti bt merge",
+      "revId": "f199104527e800245f29e8b633507b9c24e4f970",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
