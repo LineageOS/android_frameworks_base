@@ -63,6 +63,30 @@
       },
       "revId": "f199104527e800245f29e8b633507b9c24e4f970",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba8aed6a_f0e5b76c",
+        "filename": "media/java/android/media/AudioSystem.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-02-03T23:51:43Z",
+      "side": 1,
+      "message": "Yes but we are touching all the lines so why not fix it? As you can see below the default fallback has correct spacing.",
+      "parentUuid": "b14f2c66_01e0bcd3",
+      "range": {
+        "startLine": 277,
+        "startChar": 12,
+        "endLine": 277,
+        "endChar": 21
+      },
+      "revId": "f199104527e800245f29e8b633507b9c24e4f970",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
