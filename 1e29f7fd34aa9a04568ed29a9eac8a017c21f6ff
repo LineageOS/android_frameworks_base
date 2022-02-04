@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62a43d02_faf52a8a",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 5528,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2022-02-04T19:49:51Z",
+      "side": 1,
+      "message": "msg.arg2;\n\nIt\u0027s boolean already.",
+      "revId": "1e29f7fd34aa9a04568ed29a9eac8a017c21f6ff",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
