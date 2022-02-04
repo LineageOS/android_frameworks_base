@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498e6437_7d85f6ac",
+        "filename": "media/java/android/media/AudioSystem.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-02-04T00:08:26Z",
+      "side": 1,
+      "message": "These are 5 spaces now, is that intended?",
+      "range": {
+        "startLine": 277,
+        "startChar": 12,
+        "endLine": 277,
+        "endChar": 17
+      },
+      "revId": "5c087d57f9229f356883fe632cdbf1818630b3c5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
