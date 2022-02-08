@@ -145,6 +145,9 @@ public final class PermissionManager {
 
     private List<SplitPermissionInfo> mSplitPermissionInfos;
 
+    private static String[] mLocationProviderPkgNames;
+    private static String[] mLocationExtraPkgNames;
+
     /**
      * Creates a new instance.
      *
@@ -927,6 +930,16 @@ public final class PermissionManager {
                 pkgNames.add(exemptedPackage);
             }
         }
+        for (String pkgName: mLocationProviderPkgNames) {
+            if (pkgName != null) {
+                pkgNames.add(pkgName);
+            }
+        }
+        for (String pkgName: mLocationExtraPkgNames) {
+            if (pkgName != null) {
+                pkgNames.add(pkgName);
+            }
+        }
         return pkgNames;
     }
 
@@ -942,6 +955,10 @@ public final class PermissionManager {
             for (int i = 0; i < EXEMPTED_ROLES.length; i++) {
                 INDICATOR_EXEMPTED_PACKAGES[i] = context.getString(EXEMPTED_ROLES[i]);
             }
+            mLocationProviderPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationProviderPackageNames);
+            mLocationExtraPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationExtraPackageNames);
         }
     }
     /**
