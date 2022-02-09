@@ -78,6 +78,8 @@ class ScreenRecordPermissionDialogDelegate(
     private lateinit var lowQualitySwitchContainer: ViewGroup
     private lateinit var longerDurationSwitch: Switch
     private lateinit var longerDurationSwitchContainer: ViewGroup
+    private lateinit var skipTimeSwitch: Switch
+    private lateinit var skipTimeSwitchContainer: ViewGroup
     private lateinit var options: Spinner
 
     override fun createDialog(): SystemUIDialog {
@@ -127,6 +129,7 @@ class ScreenRecordPermissionDialogDelegate(
         stopDotSwitch = dialog.requireViewById(R.id.screenrecord_stopdot_switch)
         lowQualitySwitch = dialog.requireViewById(R.id.screenrecord_lowquality_switch)
         longerDurationSwitch = dialog.requireViewById(R.id.screenrecord_longer_timeout_switch)
+        skipTimeSwitch = dialog.requireViewById(R.id.screenrecord_skip_time_switch)
         audioSwitchContainer = dialog.requireViewById(R.id.screenrecord_audio_switch_container)
         tapsSwitchContainer = dialog.requireViewById(R.id.screenrecord_taps_switch_container)
         stopDotSwitchContainer = dialog.requireViewById(R.id.screenrecord_stopdot_switch_container)
@@ -134,6 +137,8 @@ class ScreenRecordPermissionDialogDelegate(
             dialog.requireViewById(R.id.screenrecord_lowquality_switch_container)
         longerDurationSwitchContainer =
             dialog.requireViewById(R.id.screenrecord_longer_timeout_switch_container)
+        skipTimeSwitchContainer =
+            dialog.requireViewById(R.id.screenrecord_skip_time_switch_container)
 
         // Add these listeners so that the switch only responds to movement
         // within its target region, to meet accessibility requirements
@@ -142,12 +147,14 @@ class ScreenRecordPermissionDialogDelegate(
         stopDotSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         lowQualitySwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
         longerDurationSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
+        skipTimeSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
 
         audioSwitchContainer.setOnClickListener { audioSwitch.toggle() }
         tapsSwitchContainer.setOnClickListener { tapsSwitch.toggle() }
         stopDotSwitchContainer.setOnClickListener { stopDotSwitch.toggle() }
         lowQualitySwitchContainer.setOnClickListener { lowQualitySwitch.toggle() }
         longerDurationSwitchContainer.setOnClickListener { longerDurationSwitch.toggle() }
+        skipTimeSwitchContainer.setOnClickListener { skipTimeSwitch.toggle() }
 
         tapsView = dialog.requireViewById(R.id.show_taps)
         updateTapsViewVisibility()
@@ -226,7 +233,8 @@ class ScreenRecordPermissionDialogDelegate(
                 RecordingService.getStopIntent(userContext),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
             )
-        controller.startCountdown(DELAY_MS, INTERVAL_MS, startIntent, stopIntent)
+        controller.startCountdown(if (skipTimeSwitch.isChecked) NO_DELAY else DELAY_MS,
+                INTERVAL_MS, startIntent, stopIntent)
     }
 
     private inner class CaptureTargetResultReceiver() :
@@ -253,6 +261,7 @@ class ScreenRecordPermissionDialogDelegate(
                 ScreenRecordingAudioSource.MIC_AND_INTERNAL
             )
         private const val DELAY_MS: Long = 3000
+        private const val NO_DELAY: Long = 100
         private const val INTERVAL_MS: Long = 1000
 
         private fun createOptionList(): List<ScreenShareOption> {
