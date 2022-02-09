@@ -64,6 +64,7 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
     private static final List<ScreenRecordingAudioSource> MODES = Arrays.asList(INTERNAL, MIC,
             MIC_AND_INTERNAL);
     private static final long DELAY_MS = 3000;
+    private static final long NO_DELAY = 100;
     private static final long INTERVAL_MS = 1000;
     private static final String TAG = "ScreenRecordDialog";
     private static final String PREFS = "screenrecord_";
@@ -73,6 +74,7 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
     private static final String PREF_LONGER = "use_longer_timeout";
     private static final String PREF_AUDIO = "use_audio";
     private static final String PREF_AUDIO_SOURCE = "audio_source";
+    private static final String PREF_SKIP = "skip_timer";
 
     private final SystemUIDialog.Factory mSystemUIDialogFactory;
     private final UserContextProvider mUserContextProvider;
@@ -83,6 +85,7 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
     private Switch mLowQualitySwitch;
     private Switch mLongerSwitch;
     private Switch mAudioSwitch;
+    private Switch mSkipSwitch;
     private Spinner mOptions;
 
     @AssistedFactory
@@ -138,6 +141,7 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
 
         mAudioSwitch = dialog.findViewById(R.id.screenrecord_audio_switch);
         mTapsSwitch = dialog.findViewById(R.id.screenrecord_taps_switch);
+        mSkipSwitch = dialog.findViewById(R.id.screenrecord_skip_switch);
         mStopDotSwitch = dialog.findViewById(R.id.screenrecord_stopdot_switch);
         mLowQualitySwitch = dialog.findViewById(R.id.screenrecord_lowquality_switch);
         mLongerSwitch = dialog.findViewById(R.id.screenrecord_longer_timeout_switch);
@@ -177,6 +181,7 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
         boolean showStopDot = mStopDotSwitch.isChecked();
         boolean lowQuality = mLowQualitySwitch.isChecked();
         boolean longerDuration = mLongerSwitch.isChecked();
+        boolean skipTime = mSkipSwitch.isChecked();
         ScreenRecordingAudioSource audioMode = mAudioSwitch.isChecked()
                 ? (ScreenRecordingAudioSource) mOptions.getSelectedItem()
                 : NONE;
@@ -191,7 +196,8 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
                 RecordingService.REQUEST_CODE,
                 RecordingService.getStopIntent(userContext),
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        mController.startCountdown(DELAY_MS, INTERVAL_MS, startIntent, stopIntent);
+        mController.startCountdown(skipTime ? NO_DELAY : DELAY_MS, INTERVAL_MS, startIntent,
+                stopIntent);
     }
 
     private class CaptureTargetResultReceiver extends ResultReceiver {
@@ -220,6 +226,7 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
         Prefs.putInt(userContext, PREFS + PREF_LONGER, mLongerSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_AUDIO, mAudioSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
+        Prefs.putInt(userContext, PREFS + PREF_SKIP, mSkipSwitch.isChecked() ? 1 : 0);
     }
 
     private void loadPrefs() {
@@ -230,5 +237,6 @@ public class ScreenRecordDialogDelegate implements SystemUIDialog.Delegate {
         mLongerSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_LONGER, 0) == 1);
         mAudioSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_AUDIO, 0) == 1);
         mOptions.setSelection(Prefs.getInt(userContext, PREFS + PREF_AUDIO_SOURCE, 0));
+        mSkipSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_SKIP, 0) == 1);
     }
 }
