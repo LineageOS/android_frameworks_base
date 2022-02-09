@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5a7c446_4d90e426",
+        "filename": "core/res/res/values/strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 5130,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-02-09T07:51:32Z",
+      "side": 1,
+      "message": "I think this could be in packages/SystemUI/res/values/strings.xml as it\u0027s only used in SystemUI.",
+      "range": {
+        "startLine": 5130,
+        "startChar": 0,
+        "endLine": 5130,
+        "endChar": 75
+      },
+      "revId": "398f8de8d18610a1d5a95b93e0ca43e586bf7aae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
