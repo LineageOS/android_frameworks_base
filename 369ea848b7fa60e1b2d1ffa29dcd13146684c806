@@ -34,6 +34,24 @@
       "parentUuid": "2cde9908_7747af92",
       "revId": "369ea848b7fa60e1b2d1ffa29dcd13146684c806",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9713f6df_760ff116",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24387
+      },
+      "writtenOn": "2022-02-11T09:08:15Z",
+      "side": 1,
+      "message": "there was never a setting for this in the original patch set. this is only used by ether and Samsung exynos devices with fp in the home button. on Samsung devices, keeping always on the fp sensor is a no go because causes high battery drain.",
+      "parentUuid": "2cde9908_7747af92",
+      "revId": "369ea848b7fa60e1b2d1ffa29dcd13146684c806",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
