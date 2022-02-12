@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7575130a_8d5f32cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-02-12T09:55:06Z",
+      "side": 1,
+      "message": "I have been told that this fixes the issues I have been experiencing with sdm845: https://review.lineageos.org/c/LineageOS/android_device_xiaomi_sdm845-common/+/323445.",
+      "revId": "34aaba5e9c99bd53adfdc2bb1811673a7a677cc6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
