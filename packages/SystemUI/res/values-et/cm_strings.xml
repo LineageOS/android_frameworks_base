@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_data_connection_4g_plus">4G+</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="left_shortcut_hint">Libista paremale et käivitada %1$s</string>
+    <string name="right_shortcut_hint">Libista vasakule et käivitada %1$s</string>
+    <string name="lockscreen_message">Koputage vasaku või parema ikooni peale, et muuta lukustusekraani lühiteid.</string>
+    <string name="lockscreen_default_target">Vaikimisi</string>
+    <string name="select_application">Valige rakendus</string>
+    <string name="lockscreen_choose_action_title">Valige toiming</string>
+    <string name="lockscreen_none_target">Puudub</string>
+    <string name="navbar_dialog_title">Vali toiming mida lisada</string>
+    <string name="navbar_home_button">Kodu nupp</string>
+    <string name="navbar_recent_button">Hiljutiste nupp</string>
+    <string name="navbar_search_button">Otsimise nupp</string>
+    <string name="navbar_back_button">Tagasi nupp</string>
+    <string name="navbar_empty_button">Tühi nupp</string>
+    <string name="navbar_menu_conditional_button">Menüü (isePeida) nupp</string>
+    <string name="navbar_menu_always_button">Menüü (alatiNäita) nupp</string>
+    <string name="navbar_menu_big_button">Menüü nupp</string>
+    <string name="accessibility_dpad_left">Kursor vasakule</string>
+    <string name="accessibility_dpad_right">Kursor paremale</string>
+    <string name="advanced_dev_option_wipe_app">Kustuta rakenduse andmed</string>
+    <string name="advanced_dev_option_force_stop">Jõuga peatamine</string>
+    <string name="advanced_dev_option_uninstall">Eemalda</string>
+    <string name="accessibility_notification_brightness">Teavitustule heledus</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiilid väljas.</string>
+    <string name="accessibility_quick_settings_profiles">Profiil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiilid välja lülitatud.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profiil muudetud: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_compass_init">Määratlen\u2026</string>
+    <string name="led_notification_title">Teavitustule sätted</string>
+    <string name="led_notification_text">LED tule lubamine</string>
+    <string name="qs_tile_edit_header_instruction">Hoia plaatide ümber paigutamiseks</string>
+    <string name="quick_settings_edit_label">Redigeeri plaate</string>
+    <string name="quick_settings_cannot_delete_edit_tile">Ei saa kustutada Redigeerimise plaati</string>
+    <string name="qs_tiles_reset_confirmation">Taasta kiirseadistuse plaatide vaikekonfoguratsioon?</string>
+    <string name="quick_settings_tile_reset_to_default">Taasta plaatide vaikeseadistus</string>
+    <string name="quick_settings_title_header">Päis</string>
+    <string name="quick_settings_title_tiles">Plaadid</string>
+    <string name="quick_settings_title_show_weather">Näita Ilmateadet</string>
+    <string name="quick_settings_title_show_brightness_slider">Kuva heleduse liugur</string>
+    <string name="quick_settings_title_enlarge_first_row">Suurenda esimene rida</string>
+    <string name="screen_pinning_description_no_navbar">See hoiab vaate kuni vabastamiseni. Vajuta ja hoia tagasi nuppu vabastamiseks.</string>
+    <string name="quick_settings_custom_tile_detail_title">Kohandatud plaat</string>
+    <string name="quick_settings_remove">Eemalda plaat</string>
+    <string name="quick_settings_network_adb_label">ADB üle võrgu</string>
+    <string name="quick_settings_compass_label">Kompass</string>
+    <string name="quick_settings_nfc_label">NFC</string>
+    <string name="quick_settings_profiles">Süsteemi profiilid</string>
+    <string name="quick_settings_profiles_off">Profiilid välja lülitatud</string>
+    <string name="quick_settings_heads_up_label">Piiluvad teated</string>
+    <string name="quick_settings_battery_saver_label">Akusäästja</string>
+    <string name="quick_settings_battery_saver_label_charging">Akusäästja (laadimine)</string>
+    <string name="quick_settings_caffeine_label">Kofeiin</string>
+    <string name="accessibility_quick_settings_sync_off">Sünk väljas.</string>
+    <string name="accessibility_quick_settings_sync_on">Sünk sees.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sünk välja lülitatud.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sünk sisse lülitatud.</string>
+    <string name="quick_settings_sync_label">Sünk</string>
+    <string name="quick_settings_volume_panel_label">Helipaneel</string>
+    <string name="quick_settings_usb_tether_label">USB lõastamine</string>
+    <string name="quick_settings_screen_timeout_detail_title">Ekraani viide</string>
+    <string name="quick_settings_lockscreen_label">Lukustusekraan</string>
+    <string name="quick_settings_ambient_display_label">Säästlik ekraan</string>
+    <string name="quick_settings_lockscreen_label_enforced">Lukustusekraan sunnitud</string>
+    <string name="quick_settings_lockscreen_label_locked_by_profile">Profiili poolt keelatud</string>
+    <string name="accessibility_quick_settings_screen_timeout">Ekraani ajalõpp: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_screen_timeout_changed">Ekraani ajalõpp muudetud <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="qs_tile_performance">Aku režiim</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">Aku režiim: energiasäästmise režiim.</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">Aku režiim: tasakaalustatud režiim.</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">Aku režiim: jõudlus režiim.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">Aku režiim: energiatõhususe režiimis.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">Aku režiim: kiirrežiim.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Aku režiim muudeti energiasäästu režiimiks.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">Aku režiim muudeti tasakaalustatud režiimiks.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">Aku režiim muudeti jõudluse režiimiks.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Aku režiimi muudeti tõhususe režiimiks.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Aku režiimi muudeti kiirrežiimiks.</string>
+    <string name="quick_settings_performance_profile_detail_title">Aku režiim</string>
+    <string name="accessibility_quick_settings_lock_screen_off">Lukustusekraan väljas.</string>
+    <string name="accessibility_quick_settings_lock_screen_on">Lukustusekraan sees.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_off">Lukustusekraan välja lülitatud.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_on">Lukustusekraan sisse lülitatud.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Säästlik ekraan väljas.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Säästlik ekraan sees.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Säästlik ekraan väljalülitatud.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Säästlik ekraan sisselülitatud.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Piiluvad teated väljas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Piiluvad teated sees.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Piiluvad teated on väljalülitatud.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Piiluvad teated on sisselülitatud.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeiin välja.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeiin sisse.</string>
+    <string name="accessibility_quick_settings_battery_saver_off">Akusäästja väljas.</string>
+    <string name="accessibility_quick_settings_battery_saver_on">Akusäästja sees.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_off">Akusäästja on välja lülitatud.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_on">Akusäästja on sisse lülitatud.</string>
+    <string name="quick_settings_dynamic_tile_detail_title">Dünaamiline plaat</string>
+    <string name="dynamic_qs_tile_next_alarm_label">Järgmine alarm</string>
+    <string name="dynamic_qs_tile_ime_selector_label">IME valija</string>
+    <string name="dynamic_qs_tile_su_label">Root ligipääs</string>
+    <string name="dynamic_qs_tile_themes_label">Teemad</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Asukoha teatamine: aku säästmise režiim.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Asukoha teatamine: ainult andurite režiim.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Asukoha teatamine: kõrge täpsusega režiim.</string>
+    <string name="quick_settings_location_detail_title">Asukoha režiim</string>
+    <string name="quick_settings_location_battery_saving_label">Akut säästev</string>
+    <string name="quick_settings_location_gps_only_label">Ainult seade</string>
+    <string name="quick_settings_location_high_accuracy_label">Kõrge täpsusega</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Asukoha teavitus muudetud aku säästmise režiimi.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Asukoha teavitus muudetud vaid sensorite režiimi.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Asukoha teavitus muudetud kõrge täpsusega režiimi.</string>
+    <string name="quick_settings_tiles_category_system">Süsteemi paanid</string>
+    <string name="quick_settings_tiles_add_tiles">Lisa plaat</string>
+    <string name="hotspot_apm_message">Ei saa ühenduda mobiilsidevõrguga kuni lennukirežiim on lubatud. Lülita lennukirežiim välja ja proovi uuesti.</string>
+    <string name="quick_settings_tile_flashlight_not_title">Taskulamp põleb</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Väljalülitamiseks koputage</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d seade</item>
+        <item quantity="other">%1$d seadmed</item>
+    </plurals>
+    <string name="data_sim_not_configured">Andmeside puudub</string>
+    <string name="accessibility_dock_battery_level">Doki aku <xliff:g id="number">%d</xliff:g> protsenti.</string>
+    <string name="play_queue_extention">Näita esitamise järjekorda</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="expand_hint">Laiendamiseks tõmmake alla</string>
+    <string name="swipe_left_hint">Tõmmake vasakule. et avada rakendus <xliff:g id="app_name">%1$s </xliff:g></string>
+    <string name="swipe_right_hint">Teadete nägemiseks tõmmake paremale</string>
+</resources>

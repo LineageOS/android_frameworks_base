@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CaptivePortalLogin</string>
+    <string name="action_use_network">Imprea custa rete comente</string>
+    <string name="action_do_not_use_network">No imprees custa rete</string>
+    <string name="action_bar_label">Iscrie·ti a sa rete</string>
+    <string name="ssl_error_warning">Sa rete in sa chi boles intrare tenet problemas de seguresa.</string>
+    <string name="ssl_error_example">Pro esèmpiu, sa pàgina de intrada diat pòdere non fàghere parte de s\'organizatzione mustrada.</string>
+    <string name="ssl_error_continue">Sighi in ogni casu tràmite su navigadore</string>
+</resources>

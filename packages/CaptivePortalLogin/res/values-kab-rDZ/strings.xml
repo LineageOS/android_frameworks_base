@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CaptivePortalLogin</string>
+    <string name="action_use_network">Seqdec aẓeṭṭa-a akken yella</string>
+    <string name="action_do_not_use_network">Ur seqdac ara aẓeṭṭa-a</string>
+    <string name="action_bar_label">Qqen ar uẓeṭṭa</string>
+    <string name="ssl_error_warning">Aẓeṭṭa i tettaɛraḍeḍ ad tawḍeḍ ɣur-s uguren n tɣellist.</string>
+    <string name="ssl_error_example">Amedya, asebter n tuqqna ahat mačči n tuddsa i tettwaliḍ.</string>
+    <string name="ssl_error_continue">Kemmel s iminig akken yebɣu yelli</string>
+</resources>

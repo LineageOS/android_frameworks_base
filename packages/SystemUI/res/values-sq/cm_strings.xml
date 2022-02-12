@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_data_connection_4g_plus">4G+</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="left_shortcut_hint">Rrëshqit gishtin djathtas për %1$s</string>
+    <string name="right_shortcut_hint">Rrëshqit gishtin majtas për %1$s</string>
+    <string name="lockscreen_message">Shtyp një ikonë në të majtë apo të djathtë për të ricaktuar një shkurtore në ekranin bllokues.</string>
+    <string name="lockscreen_default_target">E paracaktuar</string>
+    <string name="select_application">Zgjidh aplikacionin</string>
+    <string name="lockscreen_choose_action_title">Zgjidh veprimin</string>
+    <string name="lockscreen_none_target">Asnjë</string>
+    <string name="navbar_dialog_title">Zgjidh veprimin për ta caktuar</string>
+    <string name="navbar_home_button">Butoni Home</string>
+    <string name="navbar_recent_button">Butoni Të Fundit</string>
+    <string name="navbar_search_button">Butoni i kërkimit</string>
+    <string name="navbar_back_button">Butoni Prapa</string>
+    <string name="navbar_empty_button">Buton bosh</string>
+    <string name="navbar_menu_conditional_button">Butoni i Menusë (fshih automatikisht)</string>
+    <string name="navbar_menu_always_button">Butoni i Menusë (trego gjithmonë)</string>
+    <string name="navbar_menu_big_button">Butoni i Menusë</string>
+    <string name="accessibility_dpad_left">Kursori majtas</string>
+    <string name="accessibility_dpad_right">Kursori djathtas</string>
+    <string name="advanced_dev_option_wipe_app">Fshi të dhënat e aplikacionit</string>
+    <string name="advanced_dev_option_force_stop">Impono mbylljen</string>
+    <string name="advanced_dev_option_uninstall">Çinstalo</string>
+    <string name="accessibility_notification_brightness">Ndriçimi i dritës</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilet inaktive.</string>
+    <string name="accessibility_quick_settings_profiles">Profili: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilet u çaktivizuan.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profili u ndërrua në <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_compass_init">Duke u nisur\u2026</string>
+    <string name="led_notification_title">Parametrat e dritës</string>
+    <string name="led_notification_text">Drita LED e aktivizuar nga parametrat</string>
+    <string name="qs_tile_edit_header_instruction">Shtyp dhe mbaj shtypur një tjegull për ta riorganizuar</string>
+    <string name="quick_settings_edit_label">Redakto tjegullat</string>
+    <string name="quick_settings_cannot_delete_edit_tile">Tjegulla \"Redakto\" nuk mund të fshihet</string>
+    <string name="qs_tiles_reset_confirmation">Dëshiron të rikthesh tjegullat në konfigurimin e tyre të paracaktuar?</string>
+    <string name="quick_settings_tile_reset_to_default">Rikthe në pozicionet e paracaktuara</string>
+    <string name="quick_settings_title_header">Titulli</string>
+    <string name="quick_settings_title_tiles">Tjegullat</string>
+    <string name="quick_settings_title_show_weather">Trego motin</string>
+    <string name="quick_settings_title_show_brightness_slider">Trego shiritin e kontrollit të ndriçimit</string>
+    <string name="quick_settings_title_enlarge_first_row">Zmadho rreshtin e parë</string>
+    <string name="screen_pinning_description_no_navbar">Kjo e mban në ekran derisa ta shqitësh. Shtyp dhe mbaj shtypur butonin Prapa për ta shqitur.</string>
+    <string name="quick_settings_custom_tile_detail_title">Tjegull e personalizuar</string>
+    <string name="quick_settings_remove">Hiq tjegullën</string>
+    <string name="quick_settings_network_adb_label">ADB mbi rrjet</string>
+    <string name="quick_settings_compass_label">Busulla</string>
+    <string name="quick_settings_nfc_label">NFC</string>
+    <string name="quick_settings_profiles">Profilet e sistemit</string>
+    <string name="quick_settings_profiles_off">Profilet janë të çaktivizuar</string>
+    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="quick_settings_battery_saver_label">Kursimi i baterisë</string>
+    <string name="quick_settings_battery_saver_label_charging">Kursimi i baterisë (duke u karikuar)</string>
+    <string name="quick_settings_caffeine_label">Kafeina</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronizimi inaktiv.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronizimi aktiv.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronizimi u çaktivizua.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronizimi u aktivizua.</string>
+    <string name="quick_settings_sync_label">Sinkronizimi</string>
+    <string name="quick_settings_volume_panel_label">Paneli i volumit</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="quick_settings_screen_timeout_detail_title">Kohëzgjatja e ekranit ndezur</string>
+    <string name="quick_settings_lockscreen_label">Ekrani bllokues</string>
+    <string name="quick_settings_ambient_display_label">Drita e ekranit sipas ambientit</string>
+    <string name="quick_settings_lockscreen_label_enforced">Ekrani bllokues i imponuar</string>
+    <string name="quick_settings_lockscreen_label_locked_by_profile">I çaktivizuar nga profili</string>
+    <string name="accessibility_quick_settings_screen_timeout">Afati kohor i qëndrimit ndezur të ekranit: <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_screen_timeout_changed">Afati kohor i qëndrimit ndezur të ekranit u ndryshua në <xliff:g id="timeout" example="30 seconds">%s</xliff:g>.</string>
+    <string name="qs_tile_performance">Profili i baterisë</string>
+    <string name="accessibility_quick_settings_perf_profile_pwrsv">Profili i baterisë: kursim i energjisë.</string>
+    <string name="accessibility_quick_settings_perf_profile_bal">Profili i baterisë: i balancuar.</string>
+    <string name="accessibility_quick_settings_perf_profile_perf">Profili i baterisë: përformancë.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_power">Profili i baterisë: efikasitet.</string>
+    <string name="accessibility_quick_settings_perf_profile_bias_perf">Profili i baterisë: i shpejtë.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_pwrsv">Profili i baterisë u kthye në profilin e kursimit të energjisë.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bal">Profili i baterisë u kthye në profilin e balancuar.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_perf">Profili i baterisë u kthye në proflin e përformancës.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_power">Profili i baterisë u kthye në profilin e efikasitetit.</string>
+    <string name="accessibility_quick_settings_perf_profile_changed_bias_perf">Profili i baterisë u kthye në profilin e shpejtë.</string>
+    <string name="quick_settings_performance_profile_detail_title">Profili i baterisë</string>
+    <string name="accessibility_quick_settings_lock_screen_off">Ekrani bllokues inaktiv.</string>
+    <string name="accessibility_quick_settings_lock_screen_on">Ekrani bllokues aktiv.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_off">Ekrani bllokues u çaktivizua.</string>
+    <string name="accessibility_quick_settings_lock_screen_changed_on">Ekrani bllokues u aktivizua.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Drita e ekranit sipas ambientit inaktive.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Drita e ekranit sipas ambientit aktive.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Drita e ekranit sipas ambientit u çaktivizua.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Drita e ekranit sipas ambientit u aktivizua.</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up inaktiv.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up Aktiv.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Njoftimet Heads-up u çaktivizuan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Njoftimet Heads-up u aktivizuan.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafeina inaktive.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeina aktive.</string>
+    <string name="accessibility_quick_settings_battery_saver_off">Kursimi i baterisë inaktiv.</string>
+    <string name="accessibility_quick_settings_battery_saver_on">Kursimi i baterisë aktiv.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_off">Kursimi i baterisë u çaktivizua.</string>
+    <string name="accessibility_quick_settings_battery_saver_changed_on">Kursimi i baterisë u aktivizua.</string>
+    <string name="quick_settings_dynamic_tile_detail_title">Tjegull dinamike</string>
+    <string name="dynamic_qs_tile_next_alarm_label">Alarmi i radhës</string>
+    <string name="dynamic_qs_tile_ime_selector_label">Zgjedhësi IME</string>
+    <string name="dynamic_qs_tile_su_label">Aksesi Root</string>
+    <string name="dynamic_qs_tile_themes_label">Temat</string>
+    <string name="quick_settings_title_advanced_location">Vendndodhja në 3 shtete</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Raportimi i vendndodhjes: kursim i baterisë.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Raportimi i vendndodhjes: vetëm nga sensorët.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Raportimi i vendndodhjes: me saktësi të lartë.</string>
+    <string name="quick_settings_location_detail_title">Profili i vendndodhjes</string>
+    <string name="quick_settings_location_battery_saving_label">Kursim i baterisë</string>
+    <string name="quick_settings_location_gps_only_label">Vetëm pajisja</string>
+    <string name="quick_settings_location_high_accuracy_label">Saktësi e lartë</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Raportimi i vendndodhjes u kthye në profilin e kursimit të baterisë.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Raportimi i vendndodhjes u kthye në profilin \'vetëm sensorët\'.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Raportimi i vendndodhjes u kthye në profilin me saktësi të lartë.</string>
+    <string name="quick_settings_tiles_category_system">Tjegullat e sistemit</string>
+    <string name="quick_settings_tiles_add_tiles">Shto një tjegull</string>
+    <string name="hotspot_apm_message">Lidhja me rrjetet celulare është e pamundur kur profili Avion është i aktivizuar. Çaktivizo profilin Avion dhe provo përsëri.</string>
+    <string name="quick_settings_tile_flashlight_not_title">Elektriku i dorës është i ndezur</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Shtyp për ta fikur</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d klient</item>
+        <item quantity="other">%1$d klientë</item>
+    </plurals>
+    <string name="data_sim_not_configured">SIM pa internet</string>
+    <string name="accessibility_dock_battery_level">Bateria e Dokut <xliff:g id="number">%d</xliff:g> përqind.</string>
+    <string name="play_queue_extention">Trego këngët në radhë</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="expand_hint">Rrëshqit gishtin poshtë për të shfaqur</string>
+    <string name="swipe_left_hint">Rrëshqit majtas për <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="swipe_right_hint">Rrëshqit gishtin djathtas për të parë njoftimet</string>
+</resources>

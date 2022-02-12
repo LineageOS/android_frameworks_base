@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2015 The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="wifi_fail_to_scan">Cha ghabh sganadh airson lìonraidhean</string>
+    <string name="wifi_security_none">Gun tèarainteachd</string>
+    <string name="wifi_remembered">Air a shàbhaladh</string>
+    <string name="wifi_disabled_generic">À comas</string>
+    <string name="wifi_disabled_network_failure">Dh’fhàillig rèiteachadh an IP</string>
+    <string name="wifi_disabled_wifi_failure">Dh’fhàillig an ceangal WiFi</string>
+    <string name="wifi_disabled_password_failure">Duilgheadas leis an dearbhadh</string>
+    <string name="wifi_not_in_range">Tha thu ro fhad air falbh</string>
+    <string name="wifi_no_internet">Cha do mhothaich sinn do cheangal ris an eadar-lìon, cha dèid d’ ath-cheangal gu fèin-obrachail.</string>
+    <string name="saved_network">Chaidh a shàbhaladh le <xliff:g id="name">%1$s</xliff:g></string>
+    <string name="connected_via_wfa">Ceangailte slighe cuidiche WiFi</string>
+    <string name="connected_via_passpoint">Ceangailte slighe %1$s</string>
+    <string name="available_via_passpoint">Ri fhaighinn slighe %1$s</string>
+    <string name="wifi_connected_no_internet">Ceangailte, gun eadar-lìon</string>
+    <string name="bluetooth_disconnected">Gun cheangal</string>
+    <string name="bluetooth_disconnecting">A’ briseadh a’ cheangail\u2026</string>
+    <string name="bluetooth_connecting">’Ga cheangal\u2026</string>
+    <string name="bluetooth_connected">Ceangailte</string>
+    <string name="bluetooth_pairing">’Ga phaidhreachadh\u2026</string>
+    <string name="bluetooth_connected_no_headset">Ceangailte (gun fhòn)</string>
+    <string name="bluetooth_connected_no_a2dp">Ceangailte (gun mheadhan)</string>
+    <string name="bluetooth_connected_no_map">Ceangailte (gun inntrigeadh do theachdaireachdan)</string>
+    <string name="bluetooth_connected_no_headset_no_a2dp">Ceangailte (gun fhòn no meadhan)</string>
+    <string name="bluetooth_profile_a2dp">Fuaim nam meadhanan</string>
+    <string name="bluetooth_profile_headset">Fuaim fòn</string>
+    <string name="bluetooth_profile_opp">Tar-chur fhaidhlichean</string>
+    <string name="bluetooth_profile_hid">Uidheam ion-chuir</string>
+    <string name="bluetooth_profile_pan">Inntrigeadh an eadar-lìn</string>
+    <string name="bluetooth_profile_pbap">Co-roinneadh luchd-aithne</string>
+    <string name="bluetooth_profile_pbap_summary">Cleachd a chùm co-roinneadh luchd-aithne</string>
+    <string name="bluetooth_profile_pan_nap">Co-roinneadh a’ cheangail ris an eadar-lìon</string>
+    <string name="bluetooth_profile_map">Inntrigeadh do theachdaireachdan</string>
+    <string name="bluetooth_profile_sap">Inntrigeadh dhan t-SIM</string>
+    <string name="bluetooth_profile_dun">Inntrigeadh dhan lìonra dial-up</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">Ceangailte ri fuaim nam meadhanan</string>
+    <string name="bluetooth_headset_profile_summary_connected">Ceangailte ri fuaim an fhòn</string>
+    <string name="bluetooth_opp_profile_summary_connected">Ceangailte ri frithealaiche tar-chur nam faidhle</string>
+    <string name="bluetooth_map_profile_summary_connected">Ceangailte ri mapa</string>
+    <string name="bluetooth_sap_profile_summary_connected">Ceangailte ri SAP</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">Gun cheangal ri frithealaiche tar-chur nam faidhle</string>
+    <string name="bluetooth_hid_profile_summary_connected">Ceangailte ri uidheam ion-chuir</string>
+    <string name="bluetooth_pan_user_profile_summary_connected">Ceangailte ri uidheam airson inntrigeadh ris an eadar-lìon</string>
+    <string name="bluetooth_pan_nap_profile_summary_connected">A’ co-roinneadh an ceangal ionadail ris an eadar-lìon leis an uidheam</string>
+    <string name="bluetooth_dun_profile_summary_connected">Ceangailte ri frithealaiche Dun</string>
+    <string name="bluetooth_pan_profile_summary_use_for">Cleachd airson ceangal ris an eadar-lìon</string>
+    <string name="bluetooth_map_profile_summary_use_for">Cleachd airson mapa</string>
+    <string name="bluetooth_sap_profile_summary_use_for">Cleachd airson inntrigeadh dhan t-SIM</string>
+    <string name="bluetooth_a2dp_profile_summary_use_for">Cleachd airson fuaim nam meadhanan</string>
+    <string name="bluetooth_headset_profile_summary_use_for">Cleachd airson fuaim fòn</string>
+    <string name="bluetooth_opp_profile_summary_use_for">Cleachd airson tar-chur faidhle</string>
+    <string name="bluetooth_hid_profile_summary_use_for">Cleachd airson ion-chur</string>
+    <string name="bluetooth_dun_profile_summary_use_for">Cleachd airson inntrigeadh dhan lìonra dial-up</string>
+    <string name="bluetooth_pairing_accept">Paidhrich</string>
+    <string name="bluetooth_pairing_accept_all_caps">PAIDHRICH</string>
+    <string name="bluetooth_pairing_decline">Sguir dheth</string>
+    <string name="bluetooth_pairing_will_share_phonebook">Bheir am paidhreachadh inntrigeadh dhan luchd-aithne agus eachdraidh nan gairmean agad dhan uidheam eile.</string>
+    <string name="bluetooth_pairing_error_message">Cha b’ urrainn dhuinn do phaidhreachadh le <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_pin_error_message">Cha b’ urrainn dhuinn do phaidhreachadh le <xliff:g id="device_name">%1$s</xliff:g> ri linn PIN no iuchair-fhaire ceàrr.</string>
+    <string name="bluetooth_pairing_device_down_error_message">Chan urrainn dhuinn conaltradh le <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Chaidh am paidhreachadh a dhiùltadh le <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="accessibility_wifi_off">Tha WiFi dheth.</string>
+    <string name="accessibility_no_wifi">Chaidh WiFi a dhì-cheangal.</string>
+    <string name="accessibility_wifi_one_bar">Tha bàr a-mhàin air WiFi.</string>
+    <string name="accessibility_wifi_two_bars">Tha dà bhàr air WiFi.</string>
+    <string name="accessibility_wifi_three_bars">Tha trì bàraichean air WiFi.</string>
+    <string name="accessibility_wifi_signal_full">Tha siognail slàn aig WiFi.</string>
+    <string name="process_kernel_label">Android OS</string>
+    <string name="data_usage_uninstalled_apps">Aplacaidean a chaidh a thoirt air falbh</string>
+    <string name="data_usage_uninstalled_apps_users">Aplacaidean ’s cleachdaichean a chaidh a thoirt air falbh</string>
+    <string name="tether_settings_title_usb">Teadhrachadh USB</string>
+    <string name="tether_settings_title_wifi">Hotspot so-ghiùlan</string>
+    <string name="tether_settings_title_bluetooth">Teadhrachadh Bluetooth</string>
+    <string name="tether_settings_title_usb_bluetooth">Teadhrachadh</string>
+    <string name="tether_settings_title_all">Teadhrachadh ⁊ hotspot so-ghiùlan</string>
+    <string name="managed_user_title">Pròifil na h-obrach</string>
+    <string name="user_guest">Aoigh</string>
+    <string name="unknown">Neo-aithnichte</string>
+    <string name="running_process_item_user_label">Cleachdaiche: <xliff:g id="user_name">%1$s</xliff:g></string>
+</resources>

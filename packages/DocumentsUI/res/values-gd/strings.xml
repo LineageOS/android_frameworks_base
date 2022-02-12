@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">Sgrìobhainnean</string>
+    <string name="title_open">Fosgail o</string>
+    <string name="title_save">Sàbhail gu</string>
+    <string name="menu_create_dir">Cruthaich pasgan</string>
+    <string name="menu_grid">Sealladh griod</string>
+    <string name="menu_list">Sealladh liosta</string>
+    <string name="menu_sort">Seòrsaich a-rèir</string>
+    <string name="menu_search">Lorg</string>
+    <string name="menu_settings">Roghainnean</string>
+    <string name="menu_open">Fosgail</string>
+    <string name="menu_save">Sàbhail</string>
+    <string name="menu_share">Co-roinn</string>
+    <string name="menu_delete">Sguab às</string>
+    <string name="menu_select_all">Tagh na h-uile</string>
+    <string name="menu_copy">Cuir lethbhreac dheth gu\u2026</string>
+    <string name="menu_advanced_show" product="nosdcard">Seall an stòras inntearnail</string>
+    <string name="menu_advanced_show" product="default">Seall a’ chairt SD</string>
+    <string name="menu_advanced_hide" product="nosdcard">Falaich an stòras inntearnail</string>
+    <string name="menu_advanced_hide" product="default">Falaich a’ chairt SD</string>
+    <string name="menu_file_size_show">Seall meud na faidhlichean</string>
+    <string name="menu_file_size_hide">Falaich meud nam faidhlichean</string>
+    <string name="button_select">Tagh</string>
+    <string name="button_copy">Dèan lethbhreac</string>
+    <string name="sort_name">A-rèir ainm</string>
+    <string name="sort_date">A-rèir ceann-là an atharrachaidh</string>
+    <string name="sort_size">A-rèir meud</string>
+    <string name="drawer_open">Seall na freumhan</string>
+    <string name="drawer_close">Falaich na freumhan</string>
+    <string name="save_error">Dh’fhàillig sàbhaladh na sgrìobhainn</string>
+    <string name="create_error">Dh’fhàillig cruthachadh a’ phasgain</string>
+    <string name="query_error">Dh’fhàillig le ceasnachadh sgrìobhainne</string>
+    <string name="root_recent">O chionn goirid</string>
+    <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> saor</string>
+    <string name="root_type_service">Seirbheisean stòrais</string>
+    <string name="root_type_shortcut">Ath-ghoiridean</string>
+    <string name="root_type_device">Uidheaman</string>
+    <string name="root_type_apps">Barrachd aplacaidean</string>
+    <string name="empty">Chan eil nì ann</string>
+    <string name="toast_no_application">Chan urrainn dhuinn am faidhle fhosgladh</string>
+    <string name="toast_failed_delete">Cha b’ urrainn dhuinn gach sgrìobhainn a sguabadh às</string>
+    <string name="share_via">Co-roinn slighe</string>
+    <string name="copy_notification_title">A’ dèanamh lethbhreac de dh’fhaidhlichean</string>
+    <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> air fhàgail</string>
+    <plurals name="copy_begin">
+        <item quantity="one">A’ dèanamh lethbhreac de <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="two">A’ dèanamh lethbhreac de <xliff:g id="count" example="3">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="few">A’ dèanamh lethbhreac de <xliff:g id="count" example="3">%1$d</xliff:g> faidhlichean.</item>
+        <item quantity="other">A’ dèanamh lethbhreac de <xliff:g id="count" example="3">%1$d</xliff:g> faidhle.</item>
+    </plurals>
+    <string name="copy_preparing">Ag ullachadh an lethbhric\u2026</string>
+    <plurals name="copy_error_notification_title">
+        <item quantity="one">Tha <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+        <item quantity="two">Tha <xliff:g id="count" example="2">%1$d</xliff:g> fhaidhle dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+        <item quantity="few">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhlichean dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+        <item quantity="other">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhle dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+    </plurals>
+    <string name="notification_touch_for_details">Suath ris a shealltainn mion-fhiosrachadh</string>
+    <string name="retry">Feuch ris a-rithist</string>
+    <string name="copy_failure_alert_content">Seo na faidhlichean nach deach lethbhreac a dhèanamh dhiubh: <xliff:g id="list">%1$s</xliff:g></string>
+</resources>

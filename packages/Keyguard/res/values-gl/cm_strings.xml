@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2015 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="keyguard_perso_locked_message">A SIM/RUIM personalizada está bloqueada</string>
+    <string name="lockscreen_sim_error_message_short">Esta tarxeta non é válida.</string>
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">Introduce o código PIN. Tienes <xliff:g id="number">%d</xliff:g> intento restante antes de ter que comunicarte con a tua operadora para desbloquear o dispositivo.</item>
+        <item quantity="other">Introduce o código PIN. Tienes <xliff:g id="number">%d</xliff:g> intentos restantes.</item>
+    </plurals>
+    <string name="kg_invalid_sim_length">Erro: O dato introducido é máis curto có mínimo esixido</string>
+</resources>
