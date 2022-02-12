@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_notification_brightness">Brillo da luz</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfís desactivados.</string>
+    <string name="accessibility_quick_settings_profiles">Perfil: <xliff:g id="profile" example="Predeterminado">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Perfís desactivados.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Perfil cambiado a <xliff:g id="profile" example="Predeterminado">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Perfís desactivados.</string>
+    <string name="quick_settings_profiles">Perfís do sistema</string>
+    <string name="led_notification_title">Configuración de luz</string>
+    <string name="led_notification_text">Luz LED activada por configuración</string>
+    <string name="quick_settings_tile_flashlight_not_title">A lanterna está acesa</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Toca para apagala</string>
+    <string name="cm_power_notification_controls_description">Cos controis das notificacións de enerxía, podes definir un nivel de importancia entre 0 e 6 para as notificacións dunha aplicación.
+        \n\n<b>Nivel 6</b>
+        \n- Amosar na parte superior da lista de notificacións
+        \n- Permitir interrupcións a pantalla completa
+        \n- Sempre intrusivas
+        \n\n<b>Nivel 5</b>
+        \n- Previr interrupcións a pantalla completa
+        \n- Sempre intrusivas
+        \n\n<b>Nivel 4</b>
+        \n- Previr interrupcións a pantalla completa
+        \n- Nunca intrusivas
+        \n\n<b>Nivel 3</b>
+        \n- Previr interrupcións a pantalla completa
+        \n- Nunca intrusivas
+        \n- Nunca reproducir sons ou vibrar
+        \n\n<b>Nivel 2</b>
+        \n- Previr interrupcións a pantalla completa
+        \n- Nunca intrusivas
+        \n- Nunca reproducir sons ou vibrar
+        \n- Ocultar na pantalla de bloqueo
+        \n- Amosar ao final da lista de notificacións
+        \n\n<b>Nivel 1</b>
+        \n- Previr interrupcións a pantalla completa
+        \n- Nunca intrusivas
+        \n- Nunca reproducir sons ou vibrar
+        \n- Ocultar na pantalla de bloqueo e na barra de estado
+        \n- Amosar ao final da lista de notificacións
+        \n\n<b>Nivel 0</b>
+        \n- Bloquear todas as notificacións
+    </string>
+    <string name="importance_level_title">Importancia: nivel %1$d</string>
+    <string name="notification_importance_very_low">Sen interrupción a pantalla completa, intrusión, son ou vibración. Ocultar da pantalla de bloqueo.</string>
+    <string name="screen_pinning_description_no_navbar">Amosarase mentres esté fixado. Para deixar de fixalo, mantén tocado o botón Atrás.</string>
+    <string name="shortcut_hint">Arrastrar dende a icona para %1$s</string>
+    <string name="lockscreen_message">Toque nunha icona na dereita ou na esquerda para volver a asignar un atallo da pantalla de bloqueo.</string>
+    <string name="lockscreen_default_target">Predeterminado</string>
+    <string name="select_application">Seleccionar aplicación</string>
+    <string name="lockscreen_choose_action_title">Escoller acción</string>
+    <string name="lockscreen_none_target">Ningunha</string>
+    <string name="play_queue_extension">Amosar a cola de reproducción</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Cursor á esquerda</string>
+    <string name="accessibility_dpad_right">Cursor á dereita</string>
+    <string name="menu_ime_always_show">Menu /Alternador de Teclado (mostrar sempre)</string>
+    <string name="search">Buscar</string>
+    <string name="status_bar_clock">Reloxo</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d cliente</item>
+        <item quantity="other">%1$d clientes</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Chamada</item>
+        <item>Sistema</item>
+        <item>Soar</item>
+        <item>Arquivos multimedia</item>
+        <item>Alarma</item>
+        <item>Notificación</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informe de localización: en modo aforro de batería.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informe de localización: en modo de sensores.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informe de localización: en modo de alta precisión.</string>
+    <string name="quick_settings_location_battery_saving_label">Aforro de batería</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Aforro\nde batería</string>
+    <string name="quick_settings_location_gps_only_label">Só dispositivo</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Só\ndispositivo</string>
+    <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisión</string>
+    <string name="quick_settings_location_detail_title">Localización</string>
+    <string name="quick_settings_location_detail_menu_title">Seleccionar modo:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisión</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Aforro de batería</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Só dispositivo</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Empregar GPS, Wi\u2011Fi, Bluetooth ou redes móbeis para determinar a localización</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Empregar Wi\u2011Fi, Bluetooth ou redes móbeis para determinar a localización</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Empregar GPS para determinar a localización</string>
+    <string name="quick_settings_network_adb_label">ADB na rede</string>
+    <string name="quick_settings_ambient_display_label">Visualización de ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Visualización de ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Visualización de ambiente activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">A visualización de ambiente foi desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">A visualización de ambiente foi activada.</string>
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivada</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína activada</string>
+    <string name="quick_settings_heads_up_label">Notificacións emerxentes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificacións emerxentes desactivadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificacións emerxentes activadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">As notificacións emerxentes foron desactivadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">As notificacións emerxentes foron activadas.</string>
+    <string name="quick_settings_sync_label">Sincronización</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronización apagada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronización acesa.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">A sincronización foi apagada.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">A sincronización foi acendida.</string>
+    <string name="quick_settings_usb_tether_label">Compartir conexión USB</string>
+    <string name="quick_settings_sync_label">Sincronización</string>
+    <string name="quick_settings_volume_panel_label">Panel de volume</string>
+    <string name="accessibility_lock_task">Prevenir <xliff:g id="task">%1$s</xliff:g> de ser pechado</string>
+    <string name="accessibility_unlock_task">Permitir <xliff:g id="task">%1$s</xliff:g> sea pechado</string>
+    <string name="live_display_auto">Automático</string>
+    <string name="live_display_auto_summary">Axustar automaticamente as cores de pantalla ao mencer e ao solpor</string>
+    <string name="live_display_off">Apagado</string>
+    <string name="live_display_off_summary">Desactivar todos os axustes</string>
+    <string name="live_display_day">Día</string>
+    <string name="live_display_day_summary">Utilizar tan só os axustes de día</string>
+    <string name="live_display_night">Noite</string>
+    <string name="live_display_night_summary">Utilizar tan só os axustes de noite</string>
+    <string name="live_display_outdoor">Exteriores (iluminado)</string>
+    <string name="live_display_outdoor_summary">Utilizar tan só os axustes de exteriores</string>
+    <string name="live_display_hint">O modo LiveDisplay pode axudar coa dor de ollos e a conciliar o sono. Preme aquí para probalo!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactivado.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo día.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exteriores.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desactivado.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay mudado ao modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay mudado ao modo día.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay mudado ao modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay mudado ao modo exteriores.</string>
+</resources>

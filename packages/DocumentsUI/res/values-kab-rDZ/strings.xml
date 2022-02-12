@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="title_open">Ldi si</string>
+    <string name="title_save">Sekles ar</string>
+    <string name="menu_grid">Timeẓri tafelwit</string>
+    <string name="menu_list">Timeẓri tabdart</string>
+    <string name="menu_sort">Smizzwer s</string>
+    <string name="menu_search">Nadi</string>
+    <string name="menu_open">Ldi</string>
+    <string name="menu_save">Sekles</string>
+    <string name="menu_share">Bḍu</string>
+    <string name="menu_delete">Kkes</string>
+    <string name="menu_select_all">Fren meṛṛa</string>
+    <string name="menu_copy">Nɣel ar\u2026</string>
+    <string name="menu_copy_to_clipboard">Nɣel</string>
+    <string name="menu_advanced_show">Sken asekles agensan</string>
+    <string name="menu_advanced_hide">Ffer asekles agensan</string>
+    <string name="menu_file_size_show">Sken teɣzi n ufaylu</string>
+    <string name="menu_file_size_hide">Ffer teɣzi n ufaylu</string>
+    <string name="button_select">Fren</string>
+    <string name="button_copy">Nɣel</string>
+    <string name="sort_name">S yisem</string>
+    <string name="sort_date">S wazemz n usnifel</string>
+    <string name="sort_size">S teɣzi</string>
+    <string name="drawer_open">Sken iẓuran</string>
+    <string name="drawer_close">Ffer iẓuran</string>
+    <string name="save_error">Ur izmir ara ad isekles isemli</string>
+    <string name="create_error">Ur izmir ara ad yernu akaram</string>
+    <string name="root_recent">Melmi kan</string>
+    <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> baṭel</string>
+    <string name="root_type_service">Imeẓla n usekles</string>
+    <string name="root_type_shortcut">Inegzumen</string>
+    <string name="root_type_device">Ibenkan</string>
+    <string name="root_type_apps">Ugar n isnasen</string>
+    <string name="empty">Ulac iferdisen</string>
+    <string name="toast_failed_delete">Ur izmir ara ad yekkes kra n isemliyen</string>
+    <string name="share_via">Bḍu s</string>
+    <string name="copy_notification_title">Anɣal n ifuyla</string>
+    <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> i d-yeqqimen</string>
+    <plurals name="copy_begin">
+        <item quantity="one">Anɣal n <xliff:g id="count" example="1">%1$d</xliff:g> n ufaylu.</item>
+        <item quantity="other">Anɣal n <xliff:g id="count" example="1">%1$d</xliff:g> n ifuyla.</item>
+    </plurals>
+    <string name="copy_preparing">Aheggi n unɣal\u2026</string>
+</resources>

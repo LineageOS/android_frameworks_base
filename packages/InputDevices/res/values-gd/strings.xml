@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_label">Uidheaman ion-chuir</string>
+    <string name="keyboard_layouts_label">Meur-chlàr Android</string>
+    <string name="keyboard_layout_english_uk_label">Beurla (RA)</string>
+    <string name="keyboard_layout_english_us_label">Beurla (SA)</string>
+    <string name="keyboard_layout_english_us_intl">Beurla (SA), stoidhle eadar-nàiseanta</string>
+    <string name="keyboard_layout_english_us_colemak_label">Beurla (SA), stoidhle Colemak</string>
+    <string name="keyboard_layout_english_us_dvorak_label">Beurla (SA), stoidhle Dvorak</string>
+    <string name="keyboard_layout_english_us_workman_label">Beurla (SA), stoidhle Workman</string>
+    <string name="keyboard_layout_german_label">Gearmailtis</string>
+    <string name="keyboard_layout_french_label">Fraingis</string>
+    <string name="keyboard_layout_french_ca_label">Fraingis (Canada)</string>
+    <string name="keyboard_layout_russian_label">Ruisis</string>
+    <string name="keyboard_layout_russian_mac_label">Ruisis, stoidhle Mac</string>
+    <string name="keyboard_layout_spanish_label">Spàinntis</string>
+    <string name="keyboard_layout_swiss_french_label">Fraingis Eilbheiseach</string>
+    <string name="keyboard_layout_swiss_german_label">Gearmailtis Eilbheiseach</string>
+    <string name="keyboard_layout_belgian">Beilgeach</string>
+    <string name="keyboard_layout_bulgarian">Bulgarais</string>
+    <string name="keyboard_layout_italian">Eadailtis</string>
+    <string name="keyboard_layout_danish">Danmhairgis</string>
+    <string name="keyboard_layout_norwegian">Nirribhis</string>
+    <string name="keyboard_layout_swedish">Suainis</string>
+    <string name="keyboard_layout_finnish">Fionnlannais</string>
+    <string name="keyboard_layout_croatian">Cròthaisis</string>
+    <string name="keyboard_layout_czech">Seacais</string>
+    <string name="keyboard_layout_estonian">Eastonais</string>
+    <string name="keyboard_layout_hungarian">Ungairis</string>
+    <string name="keyboard_layout_icelandic">Innis Tìlis</string>
+    <string name="keyboard_layout_brazilian">Braisileach</string>
+    <string name="keyboard_layout_portuguese">Portagailis</string>
+    <string name="keyboard_layout_slovak">Slòbhacais</string>
+    <string name="keyboard_layout_slovenian">Slòbhainis</string>
+    <string name="keyboard_layout_turkish">Turcais</string>
+    <string name="keyboard_layout_ukrainian">Ucràinis</string>
+    <string name="keyboard_layout_arabic">Arabais</string>
+    <string name="keyboard_layout_greek">Greugais</string>
+    <string name="keyboard_layout_hebrew">Eabhra</string>
+    <string name="keyboard_layout_lithuanian">Liotuainis</string>
+    <string name="keyboard_layout_spanish_latin">Spàinntis (Laideann)</string>
+    <string name="keyboard_layout_latvian">Laitbheis</string>
+</resources>

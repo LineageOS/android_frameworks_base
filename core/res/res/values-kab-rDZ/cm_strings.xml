@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project
+     Copyright (c) 2013, The Linux Foundation. All rights reserved.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_killed_message">Asnas yemmut</string>
+    <string name="global_action_screenshot">Tuṭṭfa n ugdil</string>
+    <string name="global_action_current_user">Amiran</string>
+    <string name="reboot_recovery">Tiririt</string>
+    <string name="reboot_bootloader">Bootloader</string>
+    <string name="reboot_download">Sader</string>
+    <string name="adb_net_active_notification_title">ADB ɣef uẓeṭṭa yermed</string>
+    <string name="adb_both_active_notification_title">ADB s USB &amp; aẓeṭṭa yermed</string>
+    <string name="adb_active_generic_notification_message">Senned akken ad tsenseḍ tamseɣtayt.</string>
+    <string name="permlab_changePrivacyGuardState">rmed neɣ ssens asegdel n tbaḍnit</string>
+    <string name="permdesc_changePrivacyGuardState">Sireg asnas ad ibeddel ma yella asnas-nniḍen isselkem s usegdel n tbaḍnit. Asnas isselkemen s usegdel n tbaḍnit, ur izmir ara ad ikcem ar isfka udmawanen am inermisen, iɣmisen n isawalen, neɣ iznan.</string>
+    <string name="privacy_guard_notification">Asegdel n tbaḍnit irmed</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g>ur ikcem ara ar isefka udmawanen</string>
+    <string name="privacy_guard_dialog_title">Asegdel n tbaḍnit</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> yebɣa ad <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="permission_remember_choice">Cfu ɣef ufran-inu</string>
+    <string name="app_ops_access_camera">kcem ar tkamiṛat</string>
+    <string name="app_ops_access_location">kcem ar tizgi-ik</string>
+    <string name="app_ops_access_notifications">ɣer Ilɣa</string>
+    <string name="app_ops_activate_vpn">rmed a VPN</string>
+    <string name="app_ops_auto_start">sekker ak d weskar unagraw</string>
+    <string name="app_ops_delete_call_log">sfeḍ aɣmis n isawalen</string>
+    <string name="app_ops_delete_contacts">kkes inermisen</string>
+    <string name="app_ops_delete_mms">sfeḍ iznan MMS</string>
+    <string name="app_ops_delete_sms">sfeḍ iznan SMS</string>
+    <string name="app_ops_draw_on_top">suneɣ asfaylu ɣef uɣawas amezwaru</string>
+    <string name="app_ops_get_usage_stats">awi tidaddanin u seqdec n usnas</string>
+    <string name="app_ops_keep_device_awake">eǧǧ allal irmed</string>
+    <string name="app_ops_make_phone_call">siwel s tiliɣri</string>
+    <string name="app_ops_modify_calendar">leqqem tasmektit</string>
+    <string name="app_ops_modify_call_log">leqqem aɣmis n isawalen</string>
+    <string name="app_ops_modify_clipboard">snifel \"ɣef ufus\"</string>
+    <string name="app_ops_modify_contacts">leqqem inermisen</string>
+    <string name="app_ops_modify_settings">leqqem iɣewwaṛen n unagraw</string>
+    <string name="app_ops_mute_unmute_microphone">sgugem/ur sgugum ara asawaḍ</string>
+    <string name="app_ops_play_audio">urar ameslaw</string>
+    <string name="app_ops_post_notification">sken-d ilγa</string>
+    <string name="app_ops_project_media">ḥrez allalen n teγwalt</string>
+    <string name="app_ops_read_calendar">ɣer awitay-ik</string>
+    <string name="app_ops_read_call_log">ɣer aɣmis n yisawalen</string>
+    <string name="app_ops_read_clipboard">ɣer \"ɣef ufus\"</string>
+    <string name="app_ops_read_contacts">ɣer inermis-ik</string>
+    <string name="app_ops_read_mms">ɣer iznan-ik MMS</string>
+    <string name="app_ops_read_sms">ɣer iznan-ik SMS</string>
+    <string name="app_ops_receive_sms">rmes izen SMS</string>
+    <string name="app_ops_record_audio">sekles imesli</string>
+    <string name="app_ops_send_mms">azen izen MMS</string>
+    <string name="app_ops_send_sms">azen izen SMS</string>
+    <string name="app_ops_start_at_bootup">sekker ak d weskar unagraw</string>
+    <string name="app_ops_toast_window">sken iznan toast</string>
+    <string name="app_ops_toggle_bluetooth">sken/Fer Bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">rmed/sens isefka izirazen</string>
+    <string name="app_ops_toggle_nfc">sken/Fer NFC</string>
+    <string name="app_ops_toggle_wifi">sken/Fer Wi-Fi</string>
+    <string name="app_ops_use_alarm_volume">senqed imesli n tsusliyin</string>
+    <string name="app_ops_use_audio_focus">senqed adik n umesli</string>
+    <string name="app_ops_use_bluetooth_volume">senqed imesli n Bluetooth</string>
+    <string name="app_ops_use_master_volume">senqed imesli agejdan</string>
+    <string name="app_ops_use_media_buttons">seqdec tiqeffalin umidya</string>
+    <string name="app_ops_use_media_volume">senqed imesli n umidya</string>
+    <string name="app_ops_use_notification_volume">senqed imesli n ilɣa</string>
+    <string name="app_ops_use_ring_volume">senqed imesli n uṭenṭen</string>
+    <string name="app_ops_use_vibrate">seqdec tiktiwin n unali</string>
+    <string name="app_ops_use_voice_volume">tḥekkem deg uswir n imesli n isawalen</string>
+    <string name="app_ops_write_mms">aru izen MMS</string>
+    <string name="app_ops_write_sms">aru izen SMS</string>
+    <string name="app_ops_use_fingerprint">seqdec adsil umdin</string>
+    <string name="app_ops_add_voicemail">rnu izen aɣectan</string>
+    <string name="app_ops_read_phone_state">kcem ɣer addad n tiliɣri</string>
+    <string name="app_ops_scan_wifi">nadi aẓeṭṭa n WiFI</string>
+    <string name="app_ops_change_wallpaper">snifel agalis</string>
+    <string name="app_ops_assist_structure">seqdec amarag n tamṣukt</string>
+    <string name="app_ops_assist_screenshot">ṭṭef agdil</string>
+    <string name="app_ops_use_body_sensors">seqdec imaḍḍafen ifekkanen</string>
+    <string name="app_ops_read_cell_broadcasts">ɣer azuzzer abniqan</string>
+    <string name="app_ops_mock_location">ssimeɣ tizgi-ik</string>
+    <string name="app_ops_read_external_storage">γeṛ asekles yeffɣen</string>
+    <string name="app_ops_write_external_storage">aru deg usekles yeffɣen</string>
+    <string name="app_ops_turn_on_screen">rmed agdil</string>
+    <string name="app_ops_get_accounts">awi imiḍanen n ibenk</string>
+    <string name="app_ops_wifi_change">snifel addad n Wi-Fi</string>
+    <string name="app_ops_su">awi anekcum uẓar</string>
+    <string name="lock_to_app_toast_no_navbar">Akken ad tserrḥeḍ agdil, sit tseṭṭfeḍ taqeffalt Uɣal.</string>
+    <string name="tethered_notification_no_device_message">Ulac ibenk yeqqnen</string>
+    <string name="tethered_notification_one_device_message"><xliff:g id="count"> %1$s </xliff:g> n yibenk yeqqen</string>
+    <string name="silent_mode_priority">Tazwart</string>
+    <string name="silent_mode_none">Ula yiwen</string>
+</resources>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Blocu de tecladu</string>
+    <string name="keyguard_password_enter_pin_code">Iscrie còdighe PIN</string>
+    <string name="keyguard_password_enter_puk_code">Iscrie su PUK de sa SIM e su còdighe PIN nou</string>
+    <string name="keyguard_password_enter_puk_prompt">Còdighe PUK de sa SIM</string>
+    <string name="keyguard_password_enter_pin_prompt">Còdighe PIN de sa SIM nou</string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">Toca pro iscriere sa crae</font></string>
+    <string name="keyguard_password_enter_password_code">Iscrie sa crae pro isblocare</string>
+    <string name="keyguard_password_enter_pin_password_code">Iscrie su PIN pro isblocare</string>
+    <string name="keyguard_password_wrong_pin_code">Còdighe PIN isballiadu.</string>
+    <string name="keyguard_charged">Carrigadu</string>
+    <string name="keyguard_plugged_in">Carrighende</string>
+    <string name="keyguard_plugged_in_charging_fast">Carrighende a lestru</string>
+    <string name="keyguard_plugged_in_charging_slowly">Carrighende a bellu</string>
+    <string name="keyguard_low_battery">Collega su carrigadore.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Incarca Menù pro isblocare.</string>
+    <string name="keyguard_network_locked_message">Rete blocada</string>
+    <string name="keyguard_missing_sim_message_short">Peruna ischeda SIM</string>
+    <string name="keyguard_missing_sim_message" product="tablet">Peruna ischeda SIM in sa tauledda.</string>
+    <string name="keyguard_missing_sim_message" product="default">Peruna ischeda SIM in su telèfonu.</string>
+    <string name="keyguard_missing_sim_instructions">Inserta un\'ischeda SIM.</string>
+    <string name="keyguard_missing_sim_instructions_long">S\'ischeda SIM mancat o non faghet a dda lèghere. Inserta un\'ischeda SIM.</string>
+    <string name="keyguard_permanent_disabled_sim_message_short">Ischeda SIM no impreàbile.</string>
+    <string name="keyguard_permanent_disabled_sim_instructions">S\'ischeda SIM tua est istada disativada in manera definitiva.\n Cuntata su frunidore tuo de servìtziu pro un\'àtera ischeda SIM.</string>
+    <string name="keyguard_sim_locked_message">S\'ischeda SIM est blocada.</string>
+    <string name="keyguard_sim_puk_locked_message">S\'ischeda SIM est blocada cun unu PUK.</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">Isblochende s\'ischeda SIM\u2026</string>
+    <string name="keyguard_accessibility_pin_area">Àrea PIN</string>
+    <string name="keyguard_accessibility_sim_pin_area">Àrea PIN de sa SIM</string>
+    <string name="keyguard_accessibility_sim_puk_area">Àrea PUK de sa SIM</string>
+    <string name="keyguard_accessibility_next_alarm">Isvèllia imbeniente impostada pro <xliff:g id="alarm" example="Fri 8:30 AM">%1$s</xliff:g></string>
+    <string name="keyboardview_keycode_delete">Cantzella</string>
+    <string name="keyboardview_keycode_enter">Imbiu</string>
+    <string name="kg_forgot_pattern_button_text">Cumbinada iscarèssida</string>
+    <string name="kg_wrong_pattern">Cumbinada isballiada</string>
+    <string name="kg_wrong_password">Crae isballiada</string>
+    <string name="kg_wrong_pin">PIN isballiadu</string>
+    <string name="kg_too_many_failed_attempts_countdown">Torra a proare tra <xliff:g id="number">%d</xliff:g> segundos.</string>
+    <string name="kg_pattern_instructions">Disinna sa cumbinada tua</string>
+    <string name="kg_sim_pin_instructions">Inserta su PIN de s\'ischeda SIM</string>
+    <string name="kg_sim_pin_instructions_multi">Inserta PIN de sa SIM pro \"<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>\"</string>
+    <string name="kg_pin_instructions">Inserta PIN</string>
+    <string name="kg_password_instructions">Inserta crae</string>
+    <string name="kg_puk_enter_puk_hint">Sa SIM immoe est disativada. Inserta su còdighe PUK pro sighire. Cuntata s\'operadore pro detàllios.</string>
+    <string name="kg_puk_enter_puk_hint_multi">Sa SIM \"<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>\" immoe est disativada. Inserta su còdighe PUK pro sighire. Cuntata s\'operadore pro detàllios.</string>
+    <string name="kg_puk_enter_pin_hint">Inserta su còdighe PIN rechertu</string>
+    <string name="kg_enter_confirm_pin_hint">Cunfirma su còdighe PIN rechertu</string>
+    <string name="kg_sim_unlock_progress_dialog_message">Isblochende s\'ischeda SIM\u2026</string>
+    <string name="kg_invalid_sim_pin_hint">Iscrie unu PIN chi andet dae 4 a 8 nùmeros.</string>
+    <string name="kg_invalid_sim_puk_hint">Su còdighe PUK diat dèpere tènnere 8 tzifras o prus.</string>
+    <string name="kg_invalid_puk">Torra a insertare su còdighe PUK giustu. Medas tentativos isballiados ant a disativare sa SIM in manera definitiva.</string>
+    <string name="kg_invalid_confirm_pin_hint" product="default">Is còdighes PIN non currispondent</string>
+    <string name="kg_login_too_many_attempts">Tropu tentativos de cumbinada</string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">       As isballiadu s\'isblocu de sa tauledda <xliff:g id="number">%d</xliff:g> bortas.
+       Custa tauledda s\'at a resetare, e at a cantzellare totu is datos suos.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="default">       As isballiadu s\'isblocu de su telèfonu <xliff:g id="number">%d</xliff:g> bortas.
+       Custu telèfonu s\'at a resetare, e at a cantzellare totu is datos suos.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="tablet">       As isballiadu s\'isblocu de sa tauledda <xliff:g id="number">%d</xliff:g> bortas.
+       Custu utente s\'at a bogare, e s\'ant a cantzellare totu is datos de utente.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="default">       As isballiadu s\'isblocu de su telèfonu <xliff:g id="number">%d</xliff:g> bortas.
+       Custu utente s\'at a bogare, e s\'ant a cantzellare totu is datos de utente.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="tablet">       As isballiadu s\'isblocu de sa tauledda <xliff:g id="number">%d</xliff:g> bortas.
+       Su profilu de traballu s\'at a bogare, e s\'ant a cantzellare totu is datos de profilu.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="default">       As isballiadu s\'isblocu de su telèfonu <xliff:g id="number">%d</xliff:g> bortas.
+       Su profilu de traballu s\'at a bogare, e s\'ant a cantzellare totu is datos de profilu.
+    </string>
+    <string name="kg_password_wrong_pin_code_pukked">Còdighe PIN de sa SIM isballiadu, depes cuntatare s\'operadore pro isblocare su dispositivu.</string>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">Còdighe PIN de sa SIM isballiadu, tenes <xliff:g id="number">%d</xliff:g> tentativu in antis de dèpere cuntatare s\'operadore pro isblocare su dispositivu.</item>
+        <item quantity="other">Còdighe PIN de sa SIM isballiadu, tenes ancora <xliff:g id="number">%d</xliff:g> tentativos.</item>
+    </plurals>
+    <string name="kg_password_wrong_puk_code_dead">Sa SIM non si podet impreare. Cuntata s\'operadore.</string>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="one">Còdighe PUK de sa SIM isballiadu, tenes ancora <xliff:g id="number">%d</xliff:g> tentativu in antis chi sa SIM non si podat impreare in manera definitiva.</item>
+        <item quantity="other">Còdighe PUK de sa SIM isballiadu, tenes ancora <xliff:g id="number">%d</xliff:g> tentativos in antis chi sa SIM non si podat impreare in manera definitiva.</item>
+    </plurals>
+    <string name="kg_password_pin_failed">Operatzione de su PIN de sa SIM faddida!</string>
+    <string name="kg_password_puk_failed">Operatzione de su PUK de sa SIM faddida!</string>
+    <string name="kg_pin_accepted">Còdighe atzetadu!</string>
+    <string name="keyguard_carrier_default">Perunu servìtziu.</string>
+    <string name="airplane_mode">Modalidade aèreu</string>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="one">Su dispositivu non s\'est isblocadu pro <xliff:g id="number">%d</xliff:g> ora. Cunfirma sa cumbinada.</item>
+        <item quantity="other">Su dispositivu non s\'est isblocadu pro <xliff:g id="number">%d</xliff:g> oras. Cunfirma sa cumbinada.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="one">Su dispositivu non s\'est isblocadu pro <xliff:g id="number">%d</xliff:g> ora. Cunfirma su PIN.</item>
+        <item quantity="other">Su dispositivu non s\'est isblocadu pro <xliff:g id="number">%d</xliff:g> oras. Cunfirma su PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="one">Su dispositivu non s\'est isblocadu pro <xliff:g id="number">%d</xliff:g> ora. Cunfirma sa crae.</item>
+        <item quantity="other">Su dispositivu non s\'est isblocadu pro <xliff:g id="number">%d</xliff:g> oras. Cunfirma sa crae.</item>
+    </plurals>
+    <string name="fingerprint_not_recognized">Non connotu</string>
+</resources>

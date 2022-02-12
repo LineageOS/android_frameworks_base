@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_notification_brightness">İşıq parlaqlığı</string>
+    <string name="accessibility_quick_settings_profiles_off">Profillər bağlıdır.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profillər söndürüldü.</string>
+    <string name="accessibility_quick_settings_profiles_changed"><xliff:g id="profile" example="Default">%s</xliff:g> profilinə keçildi.</string>
+    <string name="quick_settings_profiles_off">Profillər bağlıdır.</string>
+    <string name="quick_settings_profiles">Sistem profilləri</string>
+    <string name="led_notification_title">İşıq tənzimləmələri</string>
+    <string name="led_notification_text">LED işıq, tənzimləmələr tərəfindən fəallaşdırıldı</string>
+    <string name="quick_settings_tile_flashlight_not_title">Fənər yanılıdır</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Söndürmək üçün toxun</string>
+    <string name="cm_power_notification_controls_description">Güclü bildiriş nəzarəti ilə, bir tətbiq üçün 0 ilə 6 arası vaciblik dərəcəsi təyin edə bilərsiniz.
+        \n\n<b>Səviyyə 6</b>
+        \n‒ Bildirişlər siyahısının üstündə göstərilsin
+        \n‒ Tam ekran fasilələrinə icazə verilsin
+        \n‒ Həmişə ötəri baxılsın
+        \n\n<b>Səviyyə 5</b>
+        \n‒ Tam ekran fasilələrinin qarşısı alınsın
+        \n‒ Həmişə ötəri baxılsın
+        \n\n<b>Səviyyə 4</b>
+        \n‒ Tam ekran fasilələrinin qarşısı alınsın
+        \n‒ Heç vaxt ötəri baxılmasın
+        \n\n<b>Səviyyə 3</b>
+        \n‒ Tam ekran fasilələrinin qarşısı alınsın
+        \n‒ Heç vaxt ötəri baxılmasın
+        \n‒ Səs və titrəmə etməsin
+        \n\n<b>Səviyyə 2</b>
+        \n‒ Tam ekran fasilələrinin qarşısı alınsın
+        \n‒ Heç vaxt ötəri baxılmasın
+        \n‒ Səs və titrəmə etməsin
+        \n‒ Kilid ekranından gizlədilsin
+        \n‒ Bildirişlər siyahısının aşağısında göstərilsin
+        \n\n<b>Səviyyə 1</b>
+        \n‒ Tam ekran fasilələrinin qarşısı alınsın
+        \n‒ Heç vaxt ötəri baxılmasın
+        \n‒ Səs və titrəmə etməsin
+        \n‒ Kilid ekranından və vəziyyət sətrindən gizlədilsin
+        \n‒ Bildirişlər siyahısının aşağısında göstərilsin
+        \n\n<b>Səviyyə 0</b>
+        \n‒ Tətbiqetmənin bütün bildirişləri əngəllənsin
+    </string>
+    <string name="importance_level_title">Vaciblik: Səviyyə %1$d</string>
+    <string name="notification_importance_very_low">Tam ekran kəsintisi, ekranda ötəri baxılma, səs və ya titrəmə olmasın. Kilid ekranından gizlət.</string>
+    <string name="screen_pinning_description_no_navbar">Siz sancağı götürənə qədər bu, baxış rejimində qalacaq. Sancağı götürmək üçün Geri düyməsinə basıb saxlayın.</string>
+    <string name="shortcut_hint">%1$s üçün nişanı sürüşdürün</string>
+    <string name="lockscreen_message">Kilid ekranı qısayolu təyin etmək üçün sol və ya sağdakı nişana toxunun.</string>
+    <string name="lockscreen_default_target">İlkin</string>
+    <string name="select_application">Tətbiqetmə seç</string>
+    <string name="lockscreen_choose_action_title">Hərəkət seç</string>
+    <string name="lockscreen_none_target">Yoxdur</string>
+    <string name="play_queue_extension">Oynatma sırasını göstər</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Sol kursor</string>
+    <string name="accessibility_dpad_right">Sağ kursor</string>
+    <string name="menu_ime_always_show">Menyu / Klaviatura dəyişdirici (hər zaman göstər)</string>
+    <string name="search">Axtar</string>
+    <string name="status_bar_clock">Saat</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d cihaz</item>
+        <item quantity="other">%1$d cihaz</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Zəng</item>
+        <item>Sistem</item>
+        <item>Zəng səsi</item>
+        <item>Media</item>
+        <item>Zəngli saat</item>
+        <item>Bildiriş</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Yerləşmə hesabatı: batareya qənaəti rejimi.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Yerləşmə hesabatı: yalnız sensorlar rejimi.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Yerləşmə hesabatı: yüksək həssaslıq rejimi.</string>
+    <string name="quick_settings_location_battery_saving_label">Batareya qənaəti</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Batareya\nqənaəti</string>
+    <string name="quick_settings_location_gps_only_label">Yalnız cihaz</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Yalnız\ncihaz</string>
+    <string name="quick_settings_location_high_accuracy_label">Yüksək həssaslıq</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Yüksək\ndəqiqlik</string>
+    <string name="quick_settings_location_detail_title">Yerləşmə</string>
+    <string name="quick_settings_location_detail_menu_title">Rejimi seç:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Yüksək həssaslıq</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Batareya qənaəti</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Yalnız cihaz</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Yeri müəyyənləşdirmək üçün GPS, Wi\u2011Fi, Bluetooth və ya hüceyrəvi şəbəkələri istifadə edin</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Yeri müəyyənləşdirmək üçün Wi\u2011Fi, Bluetooth və ya hüceyrəvi şəbəkələri istifadə edin</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Yeri müəyyənləşdirmək üçün GPS istifadə edin</string>
+    <string name="quick_settings_network_adb_label">Şəbəkə üzərindən ADB</string>
+    <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı söndürüldü.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı işə salındı.</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır</string>
+    <string name="quick_settings_heads_up_label">Açılan başlıqlar</string>
+    <string name="accessibility_quick_settings_heads_up_off">Açılan başlıqlar bağlıdır.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Açılan başlıqlar açıqdır.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıqlar söndürüldü.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Açılan başlıqlar işə salındı.</string>
+    <string name="quick_settings_sync_label">Eyniləşdirmə</string>
+    <string name="accessibility_quick_settings_sync_off">Eyniləşdirmə bağlıdır.</string>
+    <string name="accessibility_quick_settings_sync_on">Eyniləşdirmə açıqdır.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eyniləşdirmə söndürüldü.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eyniləşdirmə işə salındı.</string>
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+    <string name="quick_settings_sync_label">Eyniləşdirmə</string>
+    <string name="quick_settings_volume_panel_label">Səs paneli</string>
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> bağlanılmasının qarşısını al</string>
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> bağlanılmasına icazə ver</string>
+    <string name="live_display_auto">Avtomatik</string>
+    <string name="live_display_auto_summary">Gün çıxandan və batandan sonra ekranın rəng hərarətini avtomatik tənzimləyər</string>
+    <string name="live_display_off">Bağlı</string>
+    <string name="live_display_off_summary">Bütün nizamlamaları sıradan çıxart</string>
+    <string name="live_display_day">Gündüz</string>
+    <string name="live_display_day_summary">Yalnız gündüz tənzm. istifadə et</string>
+    <string name="live_display_night">Gecə</string>
+    <string name="live_display_night_summary">Yalnız gecə tənzm. istifadə et</string>
+    <string name="live_display_outdoor">Açıq hava (parlaq günəş)</string>
+    <string name="live_display_outdoor_summary">Yalnız açıq hava tənzm. istifadə et</string>
+    <string name="live_display_hint">LiveDisplay göz yorğunluğunuzu azaldıb, gecələr yuxulamağınıza kömək edə bilər. Sınamaq üçün bura klikləyin!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay bağlıdır.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: avtomatik rejim.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: gündüz rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gecə rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: açıq hava rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay söndürüldü.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay avtomatik rejimə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gecə rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açıq hava rejiminə keçdi.</string>
+</resources>

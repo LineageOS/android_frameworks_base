@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="title_open">Aberi dae</string>
+    <string name="title_save">Sarva in</string>
+    <string name="menu_grid">Bista a grìllia</string>
+    <string name="menu_list">Bista a elencu</string>
+    <string name="menu_sort">Assenta segundu</string>
+    <string name="menu_search">Chirca</string>
+    <string name="menu_open">Aberi</string>
+    <string name="menu_save">Sarva</string>
+    <string name="menu_share">Cumpartzi</string>
+    <string name="menu_delete">Cantzella</string>
+    <string name="menu_select_all">Seletziona totu</string>
+    <string name="menu_copy">Còpia in\u2026</string>
+    <string name="menu_copy_to_clipboard">Còpia</string>
+    <string name="menu_advanced_show">Mustra archiviatzione interna</string>
+    <string name="menu_advanced_hide">Cua archiviatzione interna</string>
+    <string name="menu_file_size_show">Mustra mannària de s\'archìviu</string>
+    <string name="menu_file_size_hide">Cua mannària de s\'archìviu</string>
+    <string name="button_select">Seletziona</string>
+    <string name="button_copy">Còpia</string>
+    <string name="sort_name">Pro nùmene</string>
+    <string name="sort_date">Pro data de modìfica</string>
+    <string name="sort_size">Pro mannària</string>
+    <string name="drawer_open">Mustra orìgines</string>
+    <string name="drawer_close">Cua orìgines</string>
+    <string name="save_error">No at fatu a sarvare su documentu</string>
+    <string name="create_error">No at fatu a creare sa cartella</string>
+    <string name="root_recent">Reghente</string>
+    <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> lìberu</string>
+    <string name="root_type_service">Servìtzios de archiviatzione</string>
+    <string name="root_type_shortcut">Curtziadòrgios</string>
+    <string name="root_type_device">Dispositivos</string>
+    <string name="root_type_apps">Àteras aplicatziones</string>
+    <string name="empty">Perunu cuntenutu</string>
+    <string name="toast_failed_delete">Non faghet a cantzellare carchi documentu</string>
+    <string name="share_via">Cumpartzi tràmite</string>
+    <string name="copy_notification_title">Copiende is archìvios</string>
+    <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> abarrados</string>
+    <plurals name="copy_begin">
+        <item quantity="one">Copiende <xliff:g id="count" example="1">%1$d</xliff:g> archìviu.</item>
+        <item quantity="other">Copiende <xliff:g id="count" example="3">%1$d</xliff:g> archìvios.</item>
+    </plurals>
+    <string name="copy_preparing">Preparende pro sa còpia\u2026</string>
+</resources>

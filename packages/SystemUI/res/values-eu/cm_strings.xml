@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_notification_brightness">Argiaren distira</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilak ezgaituta.</string>
+    <string name="accessibility_quick_settings_profiles">Profila: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilak ezgaituta.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil honetara aldatu da: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Profilak ezgaituta.</string>
+    <string name="quick_settings_profiles">Sistema profilak</string>
+    <string name="led_notification_title">Argi ezarpenak</string>
+    <string name="led_notification_text">LED argia ezarpenetan gaituta</string>
+    <string name="quick_settings_tile_flashlight_not_title">Linterna piztuta dago</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Sakatu itzaltzeko</string>
+    <string name="cm_power_notification_controls_description">Jakinarazpen ahaltsuen kontrolekin aplikazio baten jakinarazpenei 0 eta 6 bitarteko garrantzi maila ezarri diezaiekezu.
+        \n\n<b>6. maila</b>
+        \n- Erakutsi jakinarazpenen zerrendan lehena
+        \n- Baimendu pantaila etetea beti
+        \n- Ikuspegi azkarra beti
+        \n\n<b>5. maila</b>
+        \n- Eragotzi pantaila osoko etetea
+        \n- Ikuspegi azkarra beti
+        \n\n<b>4. </b>
+        \n- Eragotzi pantaila osoko etetea
+        \n- Ikuspegi azkarra inoiz ez
+        \n\n<b>3. maila</b>
+        \n- Eragotzi pantaila osoko etetea
+        \n- Ikuspegi azkarra inoiz ez
+        \n- Soinua edo dardara inoiz ez
+        \n\n<b>2. maila</b>
+        \n- Eragotzi pantaila osoko etetea
+        \n- Ikuspegi azkarra inoiz ez
+        \n- Soinua edo dardara inoiz ez
+        \n- Ezkutatu blokeo-pantailatik
+        \n- Erakutsi jakinarazpen zerrendan azkena
+        \n\n<b>1. maila</b>
+        \n- Eragotzi pantaila osoko etetea
+        \n- Ikuspegi azkarra inoiz ez
+        \n- Soinua edo dardara inoiz ez
+        \n- Ezkutatu blokeo-pantailatik eta egoera barratik
+        \n- Erakutsi jakinarazpen zerrendan azkena
+        \n\n<b>0. maila</b>
+        \n- Blokeatu aplikazioaren jakinarazpen guztiak
+    </string>
+    <string name="importance_level_title">Garrantzia: %1$d. maila</string>
+    <string name="notification_importance_very_low">Pantaila osoko eten, ikuspegi azkar, soinu edo bibraziorik ez. Ezkutatu blokeo-pantailatik.</string>
+    <string name="screen_pinning_description_no_navbar">Honek bistan mantenduko du desiltzatzen duzun arte. Sakatu eta mantendu atzera botoia desiltzatzeko.</string>
+    <string name="shortcut_hint">Pasatu hatza ikonotik %1$s nahi baduzu</string>
+    <string name="lockscreen_message">Sakatu ezker edo eskuineko ikono bat blokeo-pantailako lasterbide bat aldatzeko.</string>
+    <string name="lockscreen_default_target">Lehenetsia</string>
+    <string name="select_application">Hautatu aplikazioa</string>
+    <string name="lockscreen_choose_action_title">Aukeratu ekintza</string>
+    <string name="lockscreen_none_target">Bat ere ez</string>
+    <string name="play_queue_extension">Bistaratu erreprodukzio ilara</string>
+    <string name="keyguard_status_view_weather_format"><xliff:g id="temp">%1$s</xliff:g> <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_dpad_left">Kurtsorea ezkerrean</string>
+    <string name="accessibility_dpad_right">Kurtsorearen eskuinean</string>
+    <string name="menu_ime_always_show">Menu / Teklatu aldatzailea (erakutsi beti)</string>
+    <string name="search">Bilatu</string>
+    <string name="status_bar_clock">Erlojua</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">bezero %1$d</item>
+        <item quantity="other">%1$d bezero</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Deia</item>
+        <item>Sistema</item>
+        <item>Dei-doinua</item>
+        <item>Multimedia</item>
+        <item>Alarma</item>
+        <item>Jakinarazpena</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Kokaleku txostena: bateria aurrezteko modua.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Kokaleku txostena: sentsoreak besterik ez modua.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Kokaleku txostena: Zehaztasun handiko modua.</string>
+    <string name="quick_settings_location_battery_saving_label">Bateria aurreztea</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Bateria\naurreztea</string>
+    <string name="quick_settings_location_gps_only_label">Gailua bakarrik</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Gailua\nbesterik ez</string>
+    <string name="quick_settings_location_high_accuracy_label">Zehaztasun handia</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Zehaztasun\nhandia</string>
+    <string name="quick_settings_location_detail_title">Kokalekua</string>
+    <string name="quick_settings_location_detail_menu_title">Hautaketa modua:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Zehaztasun handia</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Bateria aurreztea</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Gailua bakarrik</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Erabili GPS, Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Erabili Wi\u2011Fi, Bluetooth, edo sare mugikorrak kokalekua zehazteko</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Erabili GPSa zure kokalekua zehazteko</string>
+    <string name="quick_settings_network_adb_label">Sare gaineko ADB</string>
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display itzalita.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display piztuta.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display itzalita.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display piztuta.</string>
+    <string name="quick_settings_caffeine_label">Kafeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafeina ez</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeina bai</string>
+    <string name="quick_settings_heads_up_label">Jakinarazpen flotatzaileak</string>
+    <string name="accessibility_quick_settings_heads_up_off">Jakinarazpen flotatzaileak ezgaituta.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Jakinarazpen flotatzaileak gaituta.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Jakinarazpen flotatzaileak ezgaituta.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Jakinarazpen flotatzaileak gaituta.</string>
+    <string name="quick_settings_sync_label">Sinkronizazioa</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronizazioa ezgaituta.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronizazioa gaituta.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronizazioa ezgaituta.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronizazioa gaituta.</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="quick_settings_sync_label">Sinkronizazioa</string>
+    <string name="quick_settings_volume_panel_label">Bolumen panela</string>
+    <string name="accessibility_lock_task">Eragotzi <xliff:g id="task">%1$s</xliff:g> baztertzea</string>
+    <string name="accessibility_unlock_task">Baimendu <xliff:g id="task">%1$s</xliff:g> baztertzea</string>
+    <string name="live_display_auto">Automatikoa</string>
+    <string name="live_display_auto_summary">Doitu automatikoki pantailaren kolore tenperatura ilunabarra eta egunsentiaren ostean</string>
+    <string name="live_display_off">Ez</string>
+    <string name="live_display_off_summary">Desgaitu doitze guztiak</string>
+    <string name="live_display_day">Eguna</string>
+    <string name="live_display_day_summary">Erabili eguneko ezarpenak besterik ez</string>
+    <string name="live_display_night">Gaua</string>
+    <string name="live_display_night_summary">Erabili gaueko ezarpenak besterik ez</string>
+    <string name="live_display_outdoor">Kalean (eguzkipean)</string>
+    <string name="live_display_outdoor_summary">Erabili kaleko ezarpenak besterik ez</string>
+    <string name="live_display_hint">LiveDisplayk begi nekea gutxitu eta gauez lo egiten lagundu dezake. Probatu ezazu!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desgaituta.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modu automatikoa.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: eguneko modua.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gaueko modua.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: kaleko modua.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desgaituta.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay modu automatikora aldatu da.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay eguneko modura aldatu da.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gaueko modura aldatu da.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay kaleko modura aldatu da.</string>
+</resources>

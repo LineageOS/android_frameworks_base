@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">Faidhlichean</string>
+    <string name="downloads_label">Luchdaidhean a-nuas</string>
+    <string name="title_open">Fosgail o</string>
+    <string name="title_save">Sàbhail gu</string>
+    <string name="menu_create_dir">Pasgan ùr</string>
+    <string name="menu_grid">Sealladh griod</string>
+    <string name="menu_list">Sealladh liosta</string>
+    <string name="menu_sort">Seòrsaich a-rèir</string>
+    <string name="menu_search">Lorg</string>
+    <string name="menu_settings">Roghainnean an stòrais</string>
+    <string name="menu_open">Fosgail</string>
+    <string name="menu_save">Sàbhail</string>
+    <string name="menu_share">Co-roinn</string>
+    <string name="menu_delete">Sguab às</string>
+    <string name="menu_select_all">Tagh na h-uile</string>
+    <string name="menu_copy">Cuir lethbhreac dheth gu\u2026</string>
+    <string name="menu_move">Gluais gu\u2026</string>
+    <string name="menu_new_window">Uinneag ùr</string>
+    <string name="menu_copy_to_clipboard">Dèan lethbhreac</string>
+    <string name="menu_paste_from_clipboard">Cuir ann</string>
+    <string name="menu_advanced_show">Seall an stòras inntearnail</string>
+    <string name="menu_advanced_hide">Falaich an stòras inntearnail</string>
+    <string name="menu_file_size_show">Seall meud na faidhlichean</string>
+    <string name="menu_file_size_hide">Falaich meud nam faidhlichean</string>
+    <string name="button_select">Tagh</string>
+    <string name="button_copy">Dèan lethbhreac</string>
+    <string name="button_move">Gluais</string>
+    <string name="button_dismiss">Leig seachad</string>
+    <string name="button_retry">Feuch ris a-rithist</string>
+    <string name="sort_name">A-rèir ainm</string>
+    <string name="sort_date">A-rèir ceann-là an atharrachaidh</string>
+    <string name="sort_size">A-rèir meud</string>
+    <string name="drawer_open">Seall na freumhan</string>
+    <string name="drawer_close">Falaich na freumhan</string>
+    <string name="save_error">Dh’fhàillig sàbhaladh na sgrìobhainn</string>
+    <string name="create_error">Dh’fhàillig cruthachadh a’ phasgain</string>
+    <string name="query_error">Chan urrainn dhuinn an t-susbaint a luchdadh an-dràsta</string>
+    <string name="root_recent">O chionn goirid</string>
+    <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> saor</string>
+    <string name="root_type_service">Seirbheisean stòrais</string>
+    <string name="root_type_shortcut">Ath-ghoiridean</string>
+    <string name="root_type_device">Uidheaman</string>
+    <string name="root_type_apps">Barrachd aplacaidean</string>
+    <string name="empty">Chan eil nì ann</string>
+    <string name="no_results">Cha deach maids a lorg am broinn %1$s</string>
+    <string name="toast_no_application">Cha b’ urrainn dhuinn am faidhle fhosgladh</string>
+    <string name="toast_failed_delete">Cha b’ urrainn dhuinn gach sgrìobhainn a sguabadh às</string>
+    <string name="share_via">Co-roinn slighe</string>
+    <string name="copy_notification_title">A’ dèanamh lethbhreac de dh’fhaidhlichean</string>
+    <string name="move_notification_title">A’ gluasad faidhlichean</string>
+    <string name="delete_notification_title">A’ sguabadh às faidhlichean</string>
+    <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> air fhàgail</string>
+    <plurals name="copy_begin">
+        <item quantity="one">A’ dèanamh lethbhreac de <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="two">A’ dèanamh lethbhreac de <xliff:g id="count" example="3">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="few">A’ dèanamh lethbhreac de <xliff:g id="count" example="3">%1$d</xliff:g> faidhlichean.</item>
+        <item quantity="other">A’ dèanamh lethbhreac de <xliff:g id="count" example="3">%1$d</xliff:g> faidhle.</item>
+    </plurals>
+    <plurals name="move_begin">
+        <item quantity="one">A’ gluasad <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="two">A’ gluasad <xliff:g id="count" example="3">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="few">A’ gluasad <xliff:g id="count" example="3">%1$d</xliff:g> faidhlichean.</item>
+        <item quantity="other">A’ gluasad <xliff:g id="count" example="3">%1$d</xliff:g> faidhle.</item>
+    </plurals>
+    <plurals name="deleting">
+        <item quantity="one">A’ sguabadh às <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="two">A’ sguabadh às <xliff:g id="count" example="3">%1$d</xliff:g> fhaidhle.</item>
+        <item quantity="few">A’ sguabadh às <xliff:g id="count" example="3">%1$d</xliff:g> faidhlichean.</item>
+        <item quantity="other">A’ sguabadh às <xliff:g id="count" example="3">%1$d</xliff:g> faidhle.</item>
+    </plurals>
+    <string name="undo">Neo-dhèan</string>
+    <string name="copy_preparing">Ag ullachadh an lethbhric\u2026</string>
+    <string name="move_preparing">Ag ullachadh a’ ghluasaid\u2026</string>
+    <string name="delete_preparing">Ag ullachadh an sguabaidh às\u2026</string>
+    <plurals name="copy_error_notification_title">
+        <item quantity="one">Tha <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+        <item quantity="two">Tha <xliff:g id="count" example="2">%1$d</xliff:g> fhaidhle dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+        <item quantity="few">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhlichean dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+        <item quantity="other">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhle dhe nach b’ urrainn dhuinn lethbhreac-glèidhidh a dhèanamh</item>
+    </plurals>
+    <plurals name="move_error_notification_title">
+        <item quantity="one">Tha <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle nach b’ urrainn dhuinn gluasad</item>
+        <item quantity="two">Tha <xliff:g id="count" example="2">%1$d</xliff:g> fhaidhle nach b’ urrainn dhuinn gluasad</item>
+        <item quantity="few">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhlichean nach b’ urrainn dhuinn gluasad</item>
+        <item quantity="other">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhle nach b’ urrainn dhuinn gluasad</item>
+    </plurals>
+    <plurals name="delete_error_notification_title">
+        <item quantity="one">Tha <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle nach b’ urrainn dhuinn sguabadh às</item>
+        <item quantity="two">Tha <xliff:g id="count" example="2">%1$d</xliff:g> fhaidhle nach b’ urrainn dhuinn sguabadh às</item>
+        <item quantity="few">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhlichean nach b’ urrainn dhuinn sguabadh às</item>
+        <item quantity="other">Tha <xliff:g id="count" example="2">%1$d</xliff:g> faidhle nach b’ urrainn dhuinn sguabadh às</item>
+    </plurals>
+    <string name="notification_touch_for_details">Thoir gnogag airson mion-fhiosrachadh a shealltainn</string>
+    <string name="close">Dùin</string>
+    <string name="copy_failure_alert_content">Cha deach lethbhreac a dhèanamh dhe na faidhlichean seo: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="move_failure_alert_content">Cha deach na faidhlichean seo a ghluasad: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="delete_failure_alert_content">Cha deach na faidhlichean seo a sguabadh às: <xliff:g id="list">%1$s</xliff:g></string>
+    <string name="copy_converted_warning_content">Chaidh na faidhlichean seo iompachadh gu fòrmat eile: <xliff:g id="list" example="Document.pdf, Photo.jpg, Song.ogg">%1$s</xliff:g></string>
+    <plurals name="clipboard_files_clipped">
+        <item quantity="one">Chaidh lethbhreac dhe <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle a chur air an stòr-bhòrd.</item>
+        <item quantity="two">Chaidh lethbhreac dhe <xliff:g id="count" example="3">%1$d</xliff:g> fhaidhle a chur air an stòr-bhòrd.</item>
+        <item quantity="few">Chaidh lethbhreac dhe <xliff:g id="count" example="3">%1$d</xliff:g> faidhlichean a chur air an stòr-bhòrd.</item>
+        <item quantity="other">Chaidh lethbhreac dhe <xliff:g id="count" example="3">%1$d</xliff:g> faidhle a chur air an stòr-bhòrd.</item>
+    </plurals>
+    <string name="clipboard_files_cannot_paste">Chan urrainn dhuinn na faidhlichean a thagh thu a chur san ionad seo.</string>
+    <string name="menu_rename">Thoir ainm ùr air</string>
+    <string name="rename_error">Cha deach leinn ainm ùr a thoirt air an sgrìobhainn</string>
+    <string name="notification_copy_files_converted_title">Chaidh cuid a dh’fhaidhlichean iompachadh</string>
+    <string name="open_external_dialog_request">A bheil thu airson cead a thoirt dha <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g>
+        airson pasgan <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> inntrigeadh air
+        <xliff:g id="storage" example="SD Card"><i>^3</i></xliff:g>?</string>
+    <string name="open_external_dialog_request_primary_volume">A bheil thu airson cead a thoirt dha <xliff:g id="appName" example="System Settings"><b>^1</b></xliff:g>
+        airson pasgan <xliff:g id="directory" example="Pictures"><i>^2</i></xliff:g> inntrigeadh?</string>
+    <string name="open_external_dialog_root_request">An doir thu cead inntrigidh dhan dàta agad, a’ gabhail a-staigh nan dealbhan is videothan, air &lt;xliff:g id="storage" example="SD Card"&gt;&lt;i&gt;^2&lt;/i&gt;&lt;/xliff:g&gt; dha &lt;xliff:g id="appName" example="System Settings"&gt;&lt;b&gt;^1&lt;/b&gt;?</string>
+    <string name="never_ask_again">Na faighnich dhìom a-rithist</string>
+    <string name="allow">Ceadaich</string>
+    <string name="deny">Diùlt</string>
+    <plurals name="elements_selected">
+        <item quantity="one">Chaidh <xliff:g id="count" example="1">%1$d</xliff:g> a thaghadh</item>
+        <item quantity="two">Chaidh <xliff:g id="count" example="3">%1$d</xliff:g> a thaghadh</item>
+        <item quantity="few">Chaidh <xliff:g id="count" example="3">%1$d</xliff:g> a thaghadh</item>
+        <item quantity="other">Chaidh <xliff:g id="count" example="3">%1$d</xliff:g> a thaghadh</item>
+    </plurals>
+    <plurals name="elements_dragged">
+        <item quantity="one"><xliff:g id="count" example="1">%1$d</xliff:g> nì</item>
+        <item quantity="two"><xliff:g id="count" example="3">%1$d</xliff:g> nì</item>
+        <item quantity="few"><xliff:g id="count" example="3">%1$d</xliff:g> nithean</item>
+        <item quantity="other"><xliff:g id="count" example="3">%1$d</xliff:g> nì</item>
+    </plurals>
+    <string name="delete_filename_confirmation_message">A bheil thu airson “<xliff:g id="name" example="cat.jpg">%1$s</xliff:g>” a sguabadh às?</string>
+    <string name="delete_foldername_confirmation_message">A bheil thu airson am pasgan “<xliff:g id="name" example="Photos">%1$s</xliff:g>” ’s na tha ’na bhroinn a sguabadh às?</string>
+    <plurals name="delete_files_confirmation_message">
+        <item quantity="one">A bheil thu airson <xliff:g id="count" example="1">%1$d</xliff:g> fhaidhle a sguabadh às?</item>
+        <item quantity="two">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> fhaidhle a sguabadh às?</item>
+        <item quantity="few">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> faidhlichean a sguabadh às?</item>
+        <item quantity="other">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> faidhle a sguabadh às?</item>
+    </plurals>
+    <plurals name="delete_folders_confirmation_message">
+        <item quantity="one">A bheil thu airson <xliff:g id="count" example="1">%1$d</xliff:g> phasgan ’s na tha ’na bhroinn a sguabadh às?</item>
+        <item quantity="two">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> phasgan ’s na tha ’nam broinn a sguabadh às?</item>
+        <item quantity="few">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> pasganan ’s na tha ’nam broinn a sguabadh às?</item>
+        <item quantity="other">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> pasgan ’s na tha ’nam broinn a sguabadh às?</item>
+    </plurals>
+    <plurals name="delete_items_confirmation_message">
+        <item quantity="one">A bheil thu airson <xliff:g id="count" example="1">%1$d</xliff:g> nì a sguabadh às?</item>
+        <item quantity="two">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> nì a sguabadh às?</item>
+        <item quantity="few">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> nithean a sguabadh às?</item>
+        <item quantity="other">A bheil thu airson <xliff:g id="count" example="3">%1$d</xliff:g> nì a sguabadh às?</item>
+    </plurals>
+    <string name="too_many_selected">Tha sinn duilich ach chan urrainn dhut còrr is 1000 nì a thaghadh aig an aon àm</string>
+    <string name="too_many_in_select_all">Cha deach ach 1000 nì dhiubh a thaghadh</string>
+</resources>

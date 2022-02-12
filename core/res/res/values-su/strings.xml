@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="byteShort">B</string>
+    <string name="kilobyteShort">KB</string>
+    <string name="megabyteShort">MB</string>
+    <string name="gigabyteShort">GB</string>
+    <string name="terabyteShort">TB</string>
+    <string name="petabyteShort">PB</string>
+    <string name="fileSizeSuffix"><xliff:g id="number" example="123">%1$s</xliff:g> <xliff:g id="unit" example="KB">%2$s</xliff:g></string>
+    <string name="durationDays"><xliff:g id="days">%1$d</xliff:g> poé</string>
+    <string name="durationDayHours"><xliff:g id="days">%1$d</xliff:g> poé
+            <xliff:g id="hours">%2$d</xliff:g> jam</string>
+    <string name="durationDayHour"><xliff:g id="days">%1$d</xliff:g> poé
+            <xliff:g id="hours">%2$d</xliff:g> jm</string>
+    <string name="durationHours"><xliff:g id="hours">%1$d</xliff:g> jam</string>
+    <string name="durationHourMinutes"><xliff:g id="hours">%1$d</xliff:g> jm
+            <xliff:g id="minutes">%2$d</xliff:g> mnit</string>
+    <string name="durationHourMinute"><xliff:g id="hours">%1$d</xliff:g> jm
+            <xliff:g id="minutes">%2$d</xliff:g> mnt</string>
+    <string name="durationMinutes"><xliff:g id="minutes">%1$d</xliff:g> mnit</string>
+    <string name="durationMinute"><xliff:g id="minutes">%1$d</xliff:g> mnt</string>
+    <string name="durationMinuteSeconds"><xliff:g id="minutes">%1$d</xliff:g> mnt
+            <xliff:g id="seconds">%2$d</xliff:g> dtik</string>
+    <string name="durationMinuteSecond"><xliff:g id="minutes">%1$d</xliff:g> mnt
+            <xliff:g id="seconds">%2$d</xliff:g> dtk</string>
+    <string name="durationSeconds"><xliff:g id="seconds">%1$d</xliff:g> dtik</string>
+    <string name="durationSecond"><xliff:g id="seconds">%1$d</xliff:g> dtk</string>
+    <string name="untitled">&lt;Tanpa judul&gt;</string>
+    <string name="emptyPhoneNumber">(Tanpa nomer telepon)</string>
+    <string name="unknownName">Teu dipikanyaho</string>
+    <string name="defaultVoiceMailAlphaTag">Surélékswara</string>
+    <string name="defaultMsisdnAlphaTag">MSISDN1</string>
+    <string name="mmiError">Masalah sambungan atawa kodeu MMI teu valid.</string>
+    <string name="mmiFdnError">Pangoperasian diwates jang menerkeun nomer calukan hungkul.</string>
+    <string name="serviceEnabled">Layanan geus dihurungkeun.</string>
+    <string name="serviceEnabledFor">Layanan geus dihurungkeun jang:</string>
+    <string name="serviceDisabled">Layanan geus dipareuman.</string>
+    <string name="serviceRegistered">Régistrasi geus hasil.</string>
+    <string name="serviceErased">Pameresihan geus hasil.</string>
+    <string name="passwordIncorrect">Sandi salah.</string>
+    <string name="mmiComplete">MMI lengkep.</string>
+    <string name="badPin">PIN heubeul nu anjeun ketikkeun salah.</string>
+    <string name="badPuk">PUK nu anjeun ketikkeun salah.</string>
+    <string name="mismatchPin">PIN nu anjeun ketikkeun teu cocog.</string>
+    <string name="invalidPin">Ketikkeun PIN anu 4 nika 8 nomer.</string>
+    <string name="invalidPuk">Ketikkeun PUK anu 8 nomer leuwih.</string>
+    <string name="needPuk">Kartu SIM anjeun dikonci ku PUK. Ketikkeun kodeu PUK pikeun mukana.</string>
+    <string name="needPuk2">Ketikkeun PUK2 pikeun muka konci kartu SIM.</string>
+    <string name="enablePin">Gagal, hurungkeun SIM/Konci RUIM.</string>
+    <plurals name="pinpuk_attempts">
+        <item quantity="other">Anjeun boga <xliff:g id="number">%d</xliff:g> kali deui kasempetan méméh SIM anjeun kakonci.</item>
+    </plurals>
+    <string name="imei">IMEI</string>
+    <string name="meid">MEID</string>
+    <string name="ClipMmi">ID Panyaluk Asup</string>
+    <string name="ClirMmi">ID Panyaluk Kaluar</string>
+    <string name="ColpMmi">ID Galur Nyambung</string>
+    <string name="ColrMmi">ID Galur Nyambung Diwates</string>
+    <string name="CfMmi">Pangalihan calukan</string>
+    <string name="CwMmi">Calukan dago</string>
+    <string name="BaMmi">Calukan pawatesan</string>
+    <string name="PwdMmi">Parobahan sandi</string>
+    <string name="PinMmi">Parobahan PIN</string>
+    <string name="CnipMmi">Nomer calukan sayaga</string>
+    <string name="CnirMmi">Nomer calukan diwates</string>
+    <string name="ThreeWCMmi">Calukan tilu cara</string>
+    <string name="RuacMmi">Panolakan calukan nu ngaganggu anu teu dipiharep</string>
+    <string name="CndMmi">Pangiriman nomer calukan</string>
+    <string name="DndMmi">Ulah ngaganggu</string>
+    <string name="CLIRDefaultOnNextCallOn">ID panyaluk bawaanna mah diwates. Calukan saterusna: Diwates</string>
+    <string name="CLIRDefaultOnNextCallOff">ID panyaluk bawaanna mah diwates. Calukan saterusna: Teu diwates</string>
+    <string name="CLIRDefaultOffNextCallOn">ID panyaluk bawaanna mah teu diwates. Calukan saterusna: Diwates</string>
+    <string name="CLIRDefaultOffNextCallOff">ID panyaluk bawaanna mah teu diwates. Calukan saterusna: Teu diwates</string>
+    <string name="serviceNotProvisioned">Layanan teu sayaga.</string>
+    <string name="CLIRPermanent">Anjeun teu bisa ngarobah setélan ID panyaluk.</string>
+    <string name="RestrictedOnData">Layanan data dipeungpeuk.</string>
+    <string name="RestrictedOnEmergency">Layanan darurat dipeungpeuk.</string>
+    <string name="RestrictedOnNormal">Layanan vidio dipeungpeuk.</string>
+    <string name="RestrictedOnAllVoice">Sakumna layanan swara dipeungpeuk.</string>
+    <string name="RestrictedOnSms">Layanan SMS dipeungpeuk.</string>
+    <string name="RestrictedOnVoiceData">Layanan swara/data dipeungpeuk.</string>
+    <string name="RestrictedOnVoiceSms">Layanan swara/SMS dipeungpeuk.</string>
+    <string name="RestrictedOnAll">Sakumna layanan swara/data/SMS dipeungpeuk.</string>
+    <string name="peerTtyModeFull">Peer mundut Modeu TTY FULL</string>
+    <string name="peerTtyModeHco">Peer mundut Modeu TTY HCO</string>
+    <string name="peerTtyModeVco">Peer mundut Modeu TTY VCO</string>
+    <string name="peerTtyModeOff">Peer mundut Modeu TTY OFF</string>
+    <string name="serviceClassVoice">Swara</string>
+    <string name="serviceClassData">Data</string>
+    <string name="serviceClassFAX">FAX</string>
+    <string name="serviceClassSMS">SMS</string>
+    <string name="serviceClassDataAsync">Asingkronan</string>
+    <string name="serviceClassDataSync">Singkronan</string>
+    <string name="serviceClassPacket">Pakét</string>
+    <string name="serviceClassPAD">PAD</string>
+    <string name="roamingText0">Indikator Roaming Hurung</string>
+    <string name="roamingText1">Indikator Roaming Pareum</string>
+    <string name="roamingText2">Indikator Roaming Kumiceup</string>
+    <string name="roamingText3">Di luar Lingkungan</string>
+    <string name="roamingText4">Di luar Wangunan</string>
+    <string name="roamingText5">Roaming - Sistem Dipiresep</string>
+    <string name="roamingText6">Roaming - Sistem Sayaga</string>
+    <string name="roamingText7">Roaming - Mitra Aliansi</string>
+    <string name="roamingText8">Roaming - Mitra Prémium</string>
+    <string name="roamingText9">Roaming - Fungsi Layanan Gembleng</string>
+    <string name="roamingText10">Roaming - Fungsi Layanan Waréhan</string>
+    <string name="roamingText11">Béner Roaming Hurung</string>
+    <string name="roamingText12">Béner Roaming Pareum</string>
+    <string name="roamingTextSearching">Néangan Layanan</string>
+    <string name="wfcRegErrorTitle">Calukan Wi-Fi</string>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi Calling</item>
+    </string-array>
+    <string name="wifi_calling_off_summary">Pareum</string>
+    <string name="wfc_mode_wifi_preferred_summary">Resepan Wi-Fi</string>
+    <string name="wfc_mode_cellular_preferred_summary">Resepan sélulér</string>
+    <string name="wfc_mode_wifi_only_summary">Wi-Fi hungkul</string>
+    <string name="cfTemplateNotForwarded"><xliff:g id="bearer_service_code">{0}</xliff:g>: Teu dialihkeun</string>
+    <string name="cfTemplateForwarded"><xliff:g id="bearer_service_code">{0}</xliff:g>: <xliff:g id="dialing_number">{1}</xliff:g></string>
+    <string name="cfTemplateForwardedTime"><xliff:g id="bearer_service_code">{0}</xliff:g>: <xliff:g id="dialing_number">{1}</xliff:g> sanggeus <xliff:g id="time_delay">{2}</xliff:g> detik</string>
+    <string name="cfTemplateRegistered"><xliff:g id="bearer_service_code">{0}</xliff:g>: Teu dialihkeun</string>
+    <string name="cfTemplateRegisteredTime"><xliff:g id="bearer_service_code">{0}</xliff:g>: Teu dialihkeun</string>
+    <string name="fcComplete">Kodeu fitur lengkep.</string>
+    <string name="fcError">Masalah sambungan atawa kodeu fitur teu sah.</string>
+    <string name="httpErrorOk">Okéh</string>
+    <string name="httpError">Aya ku éror jaringan téh.</string>
+    <string name="httpErrorLookup">Teu bisa manggihan URL.</string>
+    <string name="httpErrorUnsupportedAuthScheme">Skéma oténtikasi situs teu dirojong.</string>
+    <string name="httpErrorAuth">Teu bisa ngoténtikasi.</string>
+    <string name="httpErrorProxyAuth">Oténtikasi liwat sérver proksi gagal.</string>
+    <string name="httpErrorConnect">Teu bisa nyambungkeun ka sérver.</string>
+    <string name="httpErrorIO">Teu bisa komunikasi jeung sérver. Pecakan deui engké.</string>
+    <string name="httpErrorTimeout">Sambungan ka sérver béakeun waktu.</string>
+    <string name="httpErrorRedirectLoop">Kaca loba teuing ngandung alihan sérver.</string>
+    <string name="httpErrorUnsupportedScheme">Protokol teu dirojong.</string>
+    <string name="httpErrorFailedSslHandshake">Teu bisa nyetabilkeun sambungan aman.</string>
+    <string name="httpErrorBadUrl">Teu bisa muka kaca lantaran URLna teu sah.</string>
+    <string name="httpErrorFile">Teu bisa ngaksés koropak.</string>
+    <string name="httpErrorFileNotFound">Teu bisa manggihan koropak nu dipénta.</string>
+    <string name="httpErrorTooManyRequests">Loba teuing pamundut nu keur diprosés. Pecakan deui engké.</string>
+    <string name="notification_title">Asup téh éror pikeun <xliff:g id="account" example="foo@gmail.com">%1$s</xliff:g> mah</string>
+    <string name="contentServiceSync">Singkronan</string>
+    <string name="contentServiceSyncNotificationTitle">Singkronan</string>
+    <string name="contentServiceTooManyDeletesNotificationDesc">Loba teuing <xliff:g id="content_type">%s</xliff:g> pupuseun.</string>
+    <string name="low_memory" product="tablet">Panyimpenan tablét pinuh. Pupus sawaréh koropak pikeun ngalolongkrangan.</string>
+    <string name="low_memory" product="watch">Panyimpenan arloji pinuh. Pupus sawaréh koropak pikeun ngalolongkrangan.</string>
+    <string name="low_memory" product="tv">Panyimpenan tipi pinuh. Pupus sawaréh koropak pikeun ngalolongkrangan.</string>
+    <string name="low_memory" product="default">Panyimpenan telepon pinuh. Pupus sawaréh koropak pikeun ngalolongkrangan.</string>
+    <string name="ssl_ca_cert_noti_by_unknown">Ku pihak katilu nu teu dipikanyaho</string>
+    <string name="ssl_ca_cert_noti_by_administrator">Ku administratur profil gawé anjeun</string>
+    <string name="ssl_ca_cert_noti_managed">Ku <xliff:g id="managing_domain">%s</xliff:g></string>
+    <string name="work_profile_deleted">Profil gawé dipupus</string>
+    <string name="work_profile_deleted_description">Profil gawé dipupus alatan apl admin leungit.</string>
+    <string name="work_profile_deleted_details">Apl admin profil gawé leungit atawa rajét.
+         Balukarna, profil gawé anjeun jeung data pakaitanna geus dipupus. Konték administratur anjeun pikeun pitulung.</string>
+    <string name="work_profile_deleted_description_dpm_wipe">Profil gawé anjeun geus kamana boa na ieu parangkat mah.</string>
+    <string name="factory_reset_warning">Parangkat anjeun rék diberesihkeun</string>
+    <string name="factory_reset_message">Apl admin leungiteun komponén atawa rajét, jadi teu bisa dipaké wéh.
+         Parangkat anjeun rék diberesihkeun ayeuna. Konték administratur anjeun pikeun pitulungna.</string>
+    <string name="me">Kuring</string>
+    <string name="power_dialog" product="tablet">Opsi tablét</string>
+    <string name="power_dialog" product="tv">Opsi tipi</string>
+    <string name="power_dialog" product="default">Opsi telepon</string>
+    <string name="silent_mode">Modeu jempé</string>
+    <string name="turn_on_radio">Hurungkeun nirkabel</string>
+    <string name="turn_off_radio">Pareuman nirkabel</string>
+    <string name="screen_lock">Konci layar</string>
+    <string name="power_off">Pareuman</string>
+    <string name="silent_mode_silent">Dering pareum</string>
+    <string name="silent_mode_vibrate">Dering geter</string>
+    <string name="silent_mode_ring">Dering hurung</string>
+    <string name="reboot_to_update_title">Sistem apdét Android</string>
+    <string name="reboot_to_update_prepare">Tatahar jang apdét\u2026</string>
+    <string name="reboot_to_update_package">Mrosés pakét apdétan\u2026</string>
+    <string name="reboot_to_update_reboot">Ngaréstar\u2026</string>
+    <string name="reboot_to_reset_title">Balikkeun ka setélan pabrik</string>
+    <string name="reboot_to_reset_message">Ngaréstar\u2026</string>
+    <string name="shutdown_progress">Maéhan\u2026</string>
+    <string name="shutdown_confirm" product="tablet">Tablét anjeun rék dipaéhan.</string>
+    <string name="shutdown_confirm" product="tv">Tipi anjeun rék dipaéhan.</string>
+    <string name="shutdown_confirm" product="watch">Arloji anjeun rék dipaéhan.</string>
+    <string name="shutdown_confirm" product="default">Telepon anjeun rék dipaéhan.</string>
+    <string name="shutdown_confirm_question">Anjeun rék maéhan lin?</string>
+    <string name="reboot_safemode_title">Hirupan deui kana safe mode</string>
+    <string name="reboot_safemode_confirm">Anjeun rék ngahirupan deui kana safe mode lin?
+         Ieu bakal mareuman sakumna aplikasi pihak katilu nu geus dipasang.
+         Aréta téh bakal dibalikkeun deui sabot anjeun ngahirupan ulang deui.</string>
+    <string name="recent_tasks_title">Bucit</string>
+    <string name="no_recent_tasks">Taya apl kabucit.</string>
+    <string name="global_actions" product="tablet">Opsi tablét</string>
+    <string name="global_actions" product="tv">Opsi tipi</string>
+    <string name="global_actions" product="default">Opsi telepon</string>
+    <string name="global_action_lock">Konci layar</string>
+    <string name="global_action_power_off">Pareuman</string>
+    <string name="global_action_bug_report">Laporan bug</string>
+    <string name="bugreport_title">Cokot laporan bug</string>
+    <string name="bugreport_message">Ieu bakal ngumpulkeum informasi ngeunaan
+        kaayaan parangkat anjeun kiwari, pikeun ngirim talatah surélék.  Ieu mah sakeudeungeun
+        ti mimiti laporan bug nikakeun siap dikirim; wayahna sing
+        sabar.</string>
+    <string name="global_action_toggle_silent_mode">Modeu jempé</string>
+    <string name="global_action_silent_mode_on_status">Sora pareum</string>
+    <string name="global_action_silent_mode_off_status">Sora hurung</string>
+    <string name="global_actions_toggle_airplane_mode">Modeu pasawat</string>
+    <string name="global_actions_airplane_mode_on_status">Modeu pasawat hurung</string>
+    <string name="global_actions_airplane_mode_off_status">Modeu pasawat pareum</string>
+    <string name="global_action_settings">Sétingan</string>
+    <string name="global_action_assist">Pitulung</string>
+    <string name="global_action_voice_assist">Pilutung Swara</string>
+    <string name="global_action_lockdown">Konci ayeuna</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="safeMode">Safe mode</string>
+    <string name="android_system_label">Sistem Android</string>
+    <string name="permgrouplab_contacts">Kontak</string>
+    <string name="permgroupdesc_contacts">aksés kontak anjeun</string>
+    <string name="permgrouplab_location">Lokasi</string>
+    <string name="permgroupdesc_location">aksés lokasi ieu parangkat</string>
+    <string name="permgrouplab_calendar">Kalénder</string>
+    <string name="permgroupdesc_calendar">aksés kalénder anjeun</string>
+    <string name="permgrouplab_sms">SMS</string>
+    <string name="permgroupdesc_sms">SMS</string>
+    <string name="permgrouplab_storage">Panyimpenan</string>
+    <string name="permgroupdesc_storage">aksés foto, média, sarta koropak na parangkat anjeun</string>
+    <string name="permgrouplab_microphone">Mikrofon</string>
+    <string name="permgroupdesc_microphone">rékam audio</string>
+    <string name="permgrouplab_camera">Kaméra</string>
+    <string name="permgroupdesc_camera">jeprét gambar sarta rékam vidio</string>
+    <string name="permgrouplab_phone">Telepon</string>
+    <string name="permgroupdesc_phone">Telepon</string>
+    <string name="capability_title_canRequestFilterKeyEvents">Titénan téks ketikan anjeun</string>
+    <string name="capability_desc_canRequestFilterKeyEvents">Kaasup data pribadi kayaning nomer
+        kartu kiridit sarta sandi.</string>
+    <string name="permlab_statusBar">pareuman atawa ropéa wilah status</string>
+    <string-array name="fingerprint_acquired_vendor"/>
+    <string-array name="fingerprint_error_vendor"/>
+</resources>

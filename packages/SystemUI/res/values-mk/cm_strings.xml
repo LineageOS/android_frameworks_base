@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="cm_power_notification_controls_description">Со контроли за известување за моќ, можете да поставите ниво на важност од 0 до 6 за известувања на апликацијата.
+        \n\n<b>Ниво 6</b>
+        \n- Покажи на врвот на листата со известувања
+        \n- Дозволи прекин на целиот екран
+        \n- Секогаш гледај
+        \n\n<b>Ниво 5</b>
+        \n- Спречете прекин на целиот екран
+        \n- Секогаш гледај
+        \n\n<b>Ниво 4</b>
+        \n- Спречете прекин на целиот екран
+        \n- Никогаш не гледај
+        \n\n<b> Ниво 3 </b>
+        \n- Спречете прекин на целиот екран
+        \n- Никогаш не гледај
+        \n- Никогаш не прави звук и вибрации
+        \n\n<b>Ниво 2</b>
+        \n- Спречете прекин на целиот екран
+        \n- Никогаш не гледај
+        \n- Никогаш не прави звук или вибрации
+        \n- Сокриј од заклучен екран
+        \n- Покажи на дното од листата со известувања
+        \n\n<b>Ниво 1</b>
+        \n- Спречете прекин на целиот екран
+        \n- Никогаш не гледај
+        \n- Никогаш не прави звук или вибрира
+        \n- Сокриј од заклучен екран и лента со статус
+        \n- Покажи на дното од листата со известувања
+        \n\n<b>Ниво 0</b>
+        \n- Блокирај ги сите известувања од апликацијата    </string>
+    <string name="importance_level_title">Важност: Ниво%1$d</string>
+    <string name="notification_importance_very_low">Нема прекин на целиот екран, ѕиркање, звук или вибрации. Сокриј од заклучен екран.</string>
+    <string name="shortcut_hint">Повлечете од иконата за %1$s</string>
+    <string name="menu_ime_always_show">Мени / Менувач на тастатура (секогаш прикажи)</string>
+    <string name="search">Пребарување</string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Повик</item>
+        <item>Систем</item>
+        <item>Ѕвони</item>
+        <item>Медија</item>
+        <item>Аларм</item>
+        <item>Известување</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="quick_settings_location_battery_saving_label_twoline">Штедење\nбатерија</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Само\nуред</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Висока\nточност</string>
+    <string name="quick_settings_location_detail_title">Локација</string>
+    <string name="quick_settings_location_detail_menu_title">Изберете режим:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Користете GPS, Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Користете Wi\u2011Fi, Bluetooth или мобилни мрежи за да ја одредите локацијата</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Користете GPS за да ја одредите локацијата</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеинот е исклучен</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеинот е уклучен</string>
+    <string name="accessibility_lock_task">Спречи <xliff:g id="task">%1$s</xliff:g> од отфрлање</string>
+    <string name="accessibility_unlock_task">Дозволи <xliff:g id="task">%1$s</xliff:g> за отфрлање</string>
+    <string name="live_display_auto">Автоматски</string>
+    <string name="live_display_auto_summary">Автоматски прилагоди ја температурата на бојата на екранот по зајдисонце и изгрејсонце</string>
+    <string name="live_display_off">Исклучено</string>
+    <string name="live_display_off_summary">Оневозможи ги сите прилагодувања</string>
+    <string name="live_display_day">Ден</string>
+    <string name="live_display_day_summary">Користи само поставки за ден</string>
+    <string name="live_display_night">Ноќ</string>
+    <string name="live_display_night_summary">Користи само поставки за ноќ</string>
+    <string name="live_display_outdoor">Надвор (силно сонце)</string>
+    <string name="live_display_outdoor_summary">Користи само поставки за надвор</string>
+    <string name="live_display_hint">LiveDisplay може да помогне во проблемите со очите и да ви помогне да спиете ноќе. Кликни тука за да го пробате!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay исклучен.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматски режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневен режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ноќен режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на отворено.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay е исклучен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay се промени во автоматски режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay се промени во дневен режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay се промени во ноќен режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay се промени во режим на отворено.</string>
+</resources>

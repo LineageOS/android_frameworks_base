@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2015 The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="wifi_status">
+        <item/>
+        <item>’Ga sganadh\u2026</item>
+        <item>’Ga cheangal…</item>
+        <item>’Ga dhearbhadh\u2026</item>
+        <item>A’ faighinn seòladh IP…</item>
+        <item>Ceangailte</item>
+        <item>’Na dhàil</item>
+        <item>A’ briseadh a’ cheangail\u2026</item>
+        <item>Gun cheangal</item>
+        <item>Cha deach leis</item>
+        <item>Chaidh a bhacadh</item>
+        <item>A’ seachnadh droch-cheangal gu sealach</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item/>
+        <item>’Ga sganadh\u2026</item>
+        <item>A’ ceangal ri <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>A’ dearbhadh le <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>A’ faighinn seòladh IP o <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Ceangailte ri <xliff:g id="network_name">%1$s</xliff:g></item>
+        <item>’Na dhàil</item>
+        <item>A’ briseadh a’ cheangail ri <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Gun cheangal</item>
+        <item>Cha deach leis</item>
+        <item>Chaidh a bhacadh</item>
+        <item>A’ seachnadh droch-cheangal gu sealach</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Na doir sùil idir</item>
+        <item>Thoir sùil airson susbaint fo DRM a-mhàin</item>
+        <item>Thoir sùil an-còmhnaidh</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Na doir sùil le HDCP idir</item>
+        <item>Thoir sùil airson susbaint fo DRM le HDCP a-mhàin</item>
+        <item>Thoir sùil le HDCP an-còmhnaidh</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Dheth</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1 mh.</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Dheth</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Dheth</item>
+        <item>64K gach bufair logaidh</item>
+        <item>256K gach bufair logaidh</item>
+        <item>1M gach bufair logaidh</item>
+        <item>4M gach bufair logaidh</item>
+        <item>16M gach bufair logaidh</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Dheth</item>
+        <item>Na h-uile</item>
+        <item>Na h-uile ach an rèidio</item>
+        <item>an t-eitean a-mhàin</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Dheth</item>
+        <item>A h-uile bufair logaidh</item>
+        <item>A h-uile bufair logaidh ach on rèidio</item>
+        <item>bufair logaidh an eitein a-mhàin</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Beòthachadh dheth</item>
+        <item>Sgèile 0.5x air na beòthachaidhean</item>
+        <item>Sgèile 1x air na beòthachaidhean</item>
+        <item>Sgèile 1.5x air na beòthachaidhean</item>
+        <item>Sgèile 2x air na beòthachaidhean</item>
+        <item>Sgèile 5x air na beòthachaidhean</item>
+        <item>Sgèile 10x air na beòthachaidhean</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Beòthachadh dheth</item>
+        <item>Sgèile 0.5x air na beòthachaidhean</item>
+        <item>Sgèile 1x air na beòthachaidhean</item>
+        <item>Sgèile 1.5x air na beòthachaidhean</item>
+        <item>Sgèile 2x air na beòthachaidhean</item>
+        <item>Sgèile 5x air na beòthachaidhean</item>
+        <item>Sgèile 10x air na beòthachaidhean</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Beòthachadh dheth</item>
+        <item>Sgèile 0.5x air na beòthachaidhean</item>
+        <item>Sgèile 1x air na beòthachaidhean</item>
+        <item>Sgèile 1.5x air na beòthachaidhean</item>
+        <item>Sgèile 2x air na beòthachaidhean</item>
+        <item>Sgèile 5x air na beòthachaidhean</item>
+        <item>Sgèile 10x air na beòthachaidhean</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Chan eil gin</item>
+        <item>480p</item>
+        <item>480p (tèarainte)</item>
+        <item>720p</item>
+        <item>720p (tèarainte)</item>
+        <item>1080p</item>
+        <item>1080p (tèarainte)</item>
+        <item>4K</item>
+        <item>4K (tèarainte)</item>
+        <item>4K (sgèileadh suas)</item>
+        <item>4K (sgèileadh suas, tèarainte)</item>
+        <item>720p, 1080p (dà sgrìn)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Chan eil gin</item>
+        <item>Logcat</item>
+        <item>Systrace (grafaigeachd)</item>
+        <item>Staca ghairmean air glGetError</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Dheth</item>
+        <item>Tarraing raon bearraidh nach eil ceart-cheàrnach ann an gorm</item>
+        <item>Soillsich àitheantan tarraing fo dheuchainn ann an uaine</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Dheth</item>
+        <item>Air an sgrìn ’na bhàraichean</item>
+        <item>Ann an adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Dheth</item>
+        <item>Seall raointean tar-tharraing</item>
+        <item>Seall raointean airson Deuteranomaly</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Crìoch stannardach</item>
+        <item>Gun phròiseas sa chùlaibh</item>
+        <item>1 phròiseas air a char as àirde</item>
+        <item>2 phròiseas air a char as àirde</item>
+        <item>3 pròiseasan air a char as àirde</item>
+        <item>4 pròiseasan air a char as àirde</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Teàirrdseadh</item>
+        <item>MTP (pròtacal tar-chur mheadhanan)</item>
+        <item>PTP (pròtacal tar-chur dhealbhan)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Tùs fuaime</item>
+        <item>MIDI</item>
+    </string-array>
+</resources>

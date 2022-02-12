@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2011 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="backup_confirm_title">Aḥraz ummid</string>
+    <string name="restore_confirm_title">Tiririt tummiḍt</string>
+    <string name="backup_confirm_text">Aḥraz ummid n isefka ar uselkim yeqqnen ittusuter. Tebɣiḍ ad teǧǧeḍ ayagi ad yeḍru\?\n\nMa yella ur tsutreḍ ara ayagi, ur ttaǧǧa ara tamhelt ad tkemmel.</string>
+    <string name="allow_backup_button_label">Ḥrez isefka-inu</string>
+    <string name="deny_backup_button_label">Ur ḥerrez ara</string>
+    <string name="restore_confirm_text">Tiririt tummidt n isefka seg uselkim yeqqnen ittusuter. Tebɣiḍ ad teǧǧeḍ ayagi ad yeḍru\?\n\nMa yella ur tsutreḍ ara tiririt s yiman-ik, ur ttaǧǧa ara tamhelt ad tkemmel. Ayagi ad isemselsi isefka yellan tura deg ibenk!</string>
+    <string name="allow_restore_button_label">Err-d isefka-iw</string>
+    <string name="deny_restore_button_label">Ur d-ttara ara</string>
+    <string name="current_password_text">Sekcem awal uffir amiran n uḥraz ddaw-a:</string>
+    <string name="device_encryption_restore_text">Sekcem awal uffir n uwgelhen n yibenk ddaw-a.</string>
+    <string name="device_encryption_backup_text">Ttxil sekcem awal uffir n usegeleh n ibenk illan ddaw. aya ad isttwaseqdec daɣen i uwgeleh n tarcivt n uḥraz.</string>
+    <string name="backup_enc_password_text">Ttxil sekcem awal uffir ara tesqedceḍ i uwgeleh n isefka n uḥraz. ma teǧǧiḍ aya, awal uffir amiaran n tuɣalin ara ttwasqedcen:</string>
+    <string name="backup_enc_password_optional">Ma tebɣiḍ awgeleh isefka n uḥraz taččarant, sekcem awal uffir n ddaw:</string>
+    <string name="backup_enc_password_required">Skud ibenk ittwawgeleh, ilaq daɣen awgeleh n uḥraz. Ttxil sekcem awal uffir n ddaw:</string>
+    <string name="restore_enc_password_text">Ma yella ttwawgelehen isefka n tuɣalin, ttxil sekcem awal uffir n ddaw:</string>
+    <string name="toast_backup_started">Aḥraz yekker...</string>
+    <string name="toast_backup_ended">Aḥraz yemmed</string>
+    <string name="toast_restore_started">Tiririt tekker...</string>
+    <string name="toast_restore_ended">Tiririt tfuk</string>
+    <string name="toast_timeout">Akud n temhelt yezri</string>
+</resources>

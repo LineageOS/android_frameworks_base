@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_quick_settings_profiles_off">Profili isključeni.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profili su isključeni.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil promjenjen u <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">Profili isključeni.</string>
+    <string name="lockscreen_default_target">Zadano</string>
+    <string name="select_application">Odaberite aplikaciju</string>
+    <string name="lockscreen_none_target">Ništa</string>
+    <string name="search">Pretraga</string>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string-array name="volume_stream_titles_lineage">
+        <item>Poziv</item>
+        <item>Sistem</item>
+        <item>Zvono</item>
+        <item>Mediji</item>
+        <item>Alarm</item>
+        <item>Obavjest</item>
+        <item>Bluetooth</item>
+        <item/>
+        <item/>
+        <item/>
+        </string-array>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Ušteda\nbaterije</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Samo\nuređaj</string>
+    <string name="quick_settings_location_high_accuracy_label">Visoka preciznost</string>
+    <string name="quick_settings_location_detail_title">Lokacija</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Visoka preciznost</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Koristi GPS, Wi\u2011Fi, Bluetooth, ili mobilnu mrežu za utvrđivanje lokacije</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Koristi Wi\u2011Fi, Bluetooth, ili mobilnu mrežu za utvrđivanje lokacije</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Koristi GPS za utvrđivanje vaše lokacije</string>
+    <string name="live_display_off">Isključeno</string>
+    <string name="live_display_day">Dan</string>
+    <string name="live_display_night">Noć</string>
+</resources>

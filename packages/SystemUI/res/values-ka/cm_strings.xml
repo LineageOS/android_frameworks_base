@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_quick_settings_profiles_off">პროფილები გამორთ.</string>
+    <string name="accessibility_quick_settings_profiles">პროფილი: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">პროფილები გამორთულია.</string>
+    <string name="accessibility_quick_settings_profiles_changed">პროფილად მიეთითა <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_profiles_off">პროფილები გამორთ.</string>
+    <string name="quick_settings_profiles">სისტემური პროფილები</string>
+    <string name="led_notification_title">განათების პარამეტრები</string>
+    <string name="lockscreen_default_target">ნაგულისხმევი</string>
+    <string name="lockscreen_choose_action_title">მოქმედების არჩევა</string>
+    <string name="lockscreen_none_target">არცერთი</string>
+    <string name="search">ძიება</string>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">მდებარეობის დადგენა: ბატარეის დაზოგვის რეჟიმი.</string>
+    <string name="accessibility_quick_settings_location_gps_only">მდებარეობის დადგენა: მხოლოდ აპარატურის რეჟიმი.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">მდებარეობის დადგენა: მაღალი სიზუსტის რეჟიმი.</string>
+    <string name="quick_settings_location_battery_saving_label">ბატარეის დაზოგვა</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">ბატარეის\nდაზოგვა</string>
+    <string name="quick_settings_location_detail_title">მდებარეობა</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">ბატარეის დაზოგვა</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS, Wi\u2011Fi, Bluetooth ან ფიჭური ქსელებით დადგენა მდებარეობის</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Wi\u2011Fi, Bluetooth ან ფიჭური ქსელებით დადგენა მდებარეობის</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS-ით დადგენა მდებარეობის</string>
+    <string name="quick_settings_network_adb_label">ADB ქსელით</string>
+    <string name="quick_settings_ambient_display_label">ურთიერთქმედი ეკრანი</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ურთიერთქმედი ეკრანი გამორთ.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ურთიერთქმედი ეკრანი ჩართ.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">ურთიერთქმედი ეკრანი გამორთულია.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">ურთიერთქმედი ეკრანი ჩართულია.</string>
+</resources>

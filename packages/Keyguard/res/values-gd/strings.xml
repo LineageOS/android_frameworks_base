@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Dìon iuchraichean</string>
+    <string name="keyguard_password_enter_pin_code">Cuir a-steach còd PIN</string>
+    <string name="keyguard_password_enter_puk_code">Cuir a-steach PUK an t-SIM agus còd PIN ùr</string>
+    <string name="keyguard_password_enter_puk_prompt">Còd PUK an t-SIM</string>
+    <string name="keyguard_password_enter_pin_prompt">Còd PIN ùr an t-SIM</string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">Suath ris airson am facal-faire a sgrìobhadh</font></string>
+    <string name="keyguard_password_enter_password_code">Cuir a-steach am facal-faire gus a’ ghlas a thoirt dheth</string>
+    <string name="keyguard_password_enter_pin_password_code">Cuir a-steach am PIN gus a’ ghlas a thoirt dheth</string>
+    <string name="keyguard_password_wrong_pin_code">Còd PIN ceàrr.</string>
+    <string name="keyguard_charged">Air a làn-teàirrds</string>
+    <string name="keyguard_plugged_in">’Ga theàirrdseadh</string>
+    <string name="keyguard_plugged_in_charging_fast">’Ga theàirrdseadh gu luath</string>
+    <string name="keyguard_plugged_in_charging_slowly">\'Ga theàirrdseadh gu mall</string>
+    <string name="keyguard_low_battery">Ceangail teàirrdsear ris.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Brùth air “Clàr-taice” airson a ghlas a thoirt uaithe.</string>
+    <string name="keyguard_network_locked_message">Lìonra glaiste</string>
+    <string name="keyguard_missing_sim_message_short">Chan eil cairt SIM ann</string>
+    <string name="keyguard_missing_sim_message" product="tablet">Chan eil cairt SIM san tablaid.</string>
+    <string name="keyguard_missing_sim_message" product="default">Chan eil cairt SIM san fhòn.</string>
+    <string name="keyguard_missing_sim_instructions">Cuir a-steach cairt SIM.</string>
+    <string name="keyguard_missing_sim_instructions_long">Tha a’ chairt SIM a dhìth no cha ghabh a leughadh. Cuir a-steach cairt SIM.</string>
+    <string name="keyguard_permanent_disabled_sim_message_short">Cairt SIM nach gabh cleachdadh.</string>
+    <string name="keyguard_permanent_disabled_sim_instructions">Chaidh a’ chairt SIM agad a chur à comas gu buan.\n
+    Cuir fios gun t-solaraiche seirbheis uèirleas agad airson cairt SIM eile.</string>
+    <string name="keyguard_sim_locked_message">Tha a’ chairt SIM glaiste.</string>
+    <string name="keyguard_sim_puk_locked_message">Chaidh a’ chairt SIM a ghlasadh le PUK.</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">A’ toirt a’ ghlas far na cairt SIM\u2026</string>
+    <string name="keyguard_accessibility_pin_area">Raon a’ PIN</string>
+    <string name="keyguard_accessibility_sim_pin_area">Raon PIN an t-SIM</string>
+    <string name="keyguard_accessibility_sim_puk_area">Raon PUK an t-SIM</string>
+    <string name="keyguard_accessibility_next_alarm">Bidh an ath-chaismeachd <xliff:g id="alarm" example="Fri 8:30 AM">%1$s</xliff:g></string>
+    <string name="keyboardview_keycode_delete">Sguab às</string>
+    <string name="keyboardview_keycode_enter">Enter</string>
+    <string name="kg_forgot_pattern_button_text">Pàtran air a dhìochuimhneachadh</string>
+    <string name="kg_wrong_pattern">Pàtran ceàrr</string>
+    <string name="kg_wrong_password">Facal-faire ceàrr</string>
+    <string name="kg_wrong_pin">PIN ceàrr</string>
+    <string name="kg_too_many_failed_attempts_countdown">Feuch ris a-rithist an ceann <xliff:g id="number">%d</xliff:g> diog(an).</string>
+    <string name="kg_pattern_instructions">Tarraing am pàtran agad</string>
+    <string name="kg_sim_pin_instructions">Cuir a-steach PIN an t-SIM</string>
+    <string name="kg_sim_pin_instructions_multi">Cuir a-steach PIN an t-SIM airson “<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>”</string>
+    <string name="kg_pin_instructions">Cuir a-steach am PIN</string>
+    <string name="kg_password_instructions">Cuir a-steach am facal-faire</string>
+    <string name="kg_puk_enter_puk_hint">Tha an SIM à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</string>
+    <string name="kg_puk_enter_puk_hint_multi">Tha an SIM “<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>” à comas a-nis. Cuir a-steach còd PUK airson leantainn air adhart. Cuir fios gun ghiùlanair airson barrachd fiosrachaidh.</string>
+    <string name="kg_puk_enter_pin_hint">Cuir a-steach an còd PIN a thogras tu</string>
+    <string name="kg_enter_confirm_pin_hint">Dearbh an còd PIN a thogras tu</string>
+    <string name="kg_sim_unlock_progress_dialog_message">A’ toirt a’ ghlas far na cairt SIM\u2026</string>
+    <string name="kg_invalid_sim_pin_hint">Cuir a-steach PIN a tha eadar 4 is 8 àireamhan a dh’fhaid.</string>
+    <string name="kg_invalid_sim_puk_hint">Bu chòir an còd PUK a bhith ’na 8 àireamhan no nas fhaide.</string>
+    <string name="kg_invalid_puk">Cuir a-steach an còd PUK ceart a-rithist. Cuiridh iomadh oidhirp an SIM à comas gu buan.</string>
+    <string name="kg_invalid_confirm_pin_hint" product="default">Chan eil an dà chòd PIN co-ionnann</string>
+    <string name="kg_login_too_many_attempts">Cus oidhirpean air a’ phàtran</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">        Sgrìobh thu am PIN agad gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+        \n\nFeuch ris a-rithist an ceann <xliff:g id="number">%2$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">        Sgrìobh thu am facal-faire agad gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+        \n\nFeuch ris a-rithist an ceann <xliff:g id="number">%2$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">        Tharraing thu am pàtran neo-ghlasaidh gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+        \n\nFeuch ris a-rithist an ceann <xliff:g id="number">%2$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid an tablaid seo ath-shuidheachadh ’s a h-uile dàta a th’ oirre a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid am fòn seo ath-shuidheachadh ’s a h-uile dàta a th’ air a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid an tablaid seo ath-shuidheachadh ’s a h-uile dàta a th’ oirre a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid am fòn seo ath-shuidheachadh ’s a h-uile dàta a th’ air a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="tablet">        Tharraing thu am pàtran neo-ghlasaidh gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g>oidhirp(ean) neo-shoirbheachail eile,
+       thèid iarraidh ort gun doir thu a’ ghlas far na tablaid agad le cunntas puist-d.\n\n
+       Feuch ris a-rithist an ceann <xliff:g id="number">%3$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="default">        Tharraing thu am pàtran neo-ghlasaidh gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g>oidhirp(ean) neo-shoirbheachail eile,
+       thèid iarraidh ort gun doir thu a’ ghlas far an fhòn agad le cunntas puist-d.\n\n
+       Feuch ris a-rithist an ceann <xliff:g id="number">%3$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_password_wrong_pin_code_pukked">Còd PIN an t-SIM ceàrr. Feumaidh tu bruidhinn ris a’ ghiùlanair agad a-nis airson a’ ghlas a thoirt far an uidheim agad.</string>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad mus bi agad ri bruidhinn ris a’ ghiùlanair agad airson a’ ghlas a thoirt far an uidheim agad.</item>
+        <item quantity="two">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad.</item>
+        <item quantity="few">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirpean eile agad.</item>
+        <item quantity="other">Còd PIN an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad.</item>
+    </plurals>
+    <string name="kg_password_wrong_puk_code_dead">Cha ghabh an SIM seo cleachdadh. Cuir fios gun ghiùlanair agad.</string>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="one">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+        <item quantity="two">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+        <item quantity="few">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirpean eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+        <item quantity="other">Còd PUK an t-SIM ceàrr. Tha <xliff:g id="number">%d</xliff:g> oidhirp eile agad gus am bi an SIM agad gun fheum gu buan.</item>
+    </plurals>
+    <string name="kg_password_pin_failed">Dh’fhàillig le obrachadh PIN an t-SIM!</string>
+    <string name="kg_password_puk_failed">Dh’fhàillig le obrachadh PUK an t-SIM!</string>
+    <string name="kg_pin_accepted">Chaidh gabhail ris a’ chòd!</string>
+    <string name="keyguard_carrier_default">Gun seirbheis.</string>
+    <string name="accessibility_ime_switch_button" msgid="5032926134740456424">Geàrr leum gu modh ion-chuir eile</string>
+    <string name="airplane_mode">Am modh itealain</string>
+    <string name="kg_prompt_reason_restart_pattern">Tha pàtran riatanach an dèidh an t-uidheam ath-thòiseachadh</string>
+    <string name="kg_prompt_reason_restart_pin">Tha PIN riatanach an dèidh an t-uidheam ath-thòiseachadh</string>
+    <string name="kg_prompt_reason_restart_password">Tha facal-faire riatanach an dèidh an t-uidheam ath-thòiseachadh</string>
+    <string name="kg_prompt_reason_timeout_pattern">Tha pàtran riatanach a chùm barrachd tèarainteachd</string>
+    <string name="kg_prompt_reason_timeout_pin">Tha PIN riatanach a chùm barrachd tèarainteachd</string>
+    <string name="kg_prompt_reason_timeout_password">Tha facal-faire riatanach a chùm barrachd tèarainteachd</string>
+    <string name="kg_prompt_reason_switch_profiles_pattern">Tha pàtran riatanach nuair a ghearras tu leum gu pròifil eile</string>
+    <string name="kg_prompt_reason_switch_profiles_pin">Tha PIN riatanach nuair a ghearras tu leum gu pròifil eile</string>
+    <string name="kg_prompt_reason_switch_profiles_password">Tha facal-faire riatanach nuair a ghearras tu leum gu pròifil eile</string>
+    <string name="kg_prompt_reason_device_admin">Ghlais rianaire an uidheim an t-uidheam</string>
+    <string name="kg_prompt_reason_user_request">Chaidh an t-uidheam a ghlasadh a làimh</string>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="one">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ phàtran.</item>
+        <item quantity="two">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ phàtran.</item>
+        <item quantity="few">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uairean a thìde. Dearbh leis a’ phàtran.</item>
+        <item quantity="other">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ phàtran.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="one">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ PIN.</item>
+        <item quantity="two">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ PIN.</item>
+        <item quantity="few">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uairean a thìde. Dearbh leis a’ PIN.</item>
+        <item quantity="other">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis a’ PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="one">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis an fhacal-fhaire.</item>
+        <item quantity="two">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis an fhacal-fhaire.</item>
+        <item quantity="few">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uairean a thìde. Dearbh leis an fhacal-fhaire.</item>
+        <item quantity="other">Cha deach a’ ghlas a thoirt far an uidheim fad <xliff:g id="number">%d</xliff:g> uair a thìde. Dearbh leis an fhacal-fhaire.</item>
+    </plurals>
+    <string name="fingerprint_not_recognized">Gun aithneachadh</string>
+</resources>

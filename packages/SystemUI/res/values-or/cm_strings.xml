@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017, The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * you may not use this file except in compliance with the License. 
+ * You may obtain a copy of the License at 
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0 
+ *
+ * Unless required by applicable law or agreed to in writing, software 
+ * distributed under the License is distributed on an "AS IS" BASIS, 
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_notification_brightness">ଆଲୋକ ଉଜ୍ଜ୍ୱଳତା</string>
+    <string name="accessibility_quick_settings_profiles_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_profiles">ପ୍ରୋଫାଇଲ୍‍: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ କରାଯାଇଛି।</string>
+    <string name="accessibility_quick_settings_profiles_changed">ପ୍ରୋଫାଇଲ୍ <xliff:g id="profile" example="Default">%s</xliff:g>କୁ ପରିବର୍ତ୍ତିତ ହେଲା।</string>
+    <string name="quick_settings_profiles_off">ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ ଅଫ୍‍ ଅଛି।</string>
+    <string name="quick_settings_profiles">ସିଷ୍ଟମ୍‍ ପ୍ରୋଫାଇଲ୍‍ଗୁଡିକ</string>
+    <string name="led_notification_title">ଲାଇଟ୍‍ ସେଟିଂସ୍‍</string>
+    <string name="led_notification_text">ସେଟିଂସ୍‍ ଦ୍ୱାରା LED ଆ୍ଲୋକ ସଷମ କରାଯାଇଛି</string>
+    <string name="quick_settings_tile_flashlight_not_title">ଫ୍ଲାସ୍‍ଲାଇଟ୍‍ ଅନ୍‍ ଅଛି</string>
+    <string name="quick_settings_tile_flashlight_not_summary">ଅଫ୍‍ କରିବା ପାଇଁ ଟ୍ୟାପ୍‍ କରନ୍ତୁ</string>
+    <string name="screen_pinning_description_no_navbar">ଆପଣ ଅନପିନ୍‌ ନକରିବା ପର୍ଯ୍ୟନ୍ତ ଏହାକୁ ଦର୍ଶନ ରଖନ୍ତୁ। ଅନ୍‍ପିନ୍‍ କରିବା ପାଇଁ ବ୍ୟାକ୍‍ ବଟନ୍‍ ସ୍ପର୍ଶ କରନ୍ତୁ ଓ ଧରି ରଖନ୍ତୁ।</string>
+    <string name="lockscreen_message">ଏକ ଲକ୍‍ ସ୍କ୍ରିନ୍‍ ସର୍ଟକ‍ ପୁନଃ ପ୍ରଦାନ କରିବା ପାଇଁ ବାମ ବା ଡାହାଣରେ ଥିବା ଏକ ଆଇକନ୍‍କୁ ଟ୍ୟାପ୍‍ କରନ୍ତୁ।</string>
+    <string name="lockscreen_default_target">ଡିଫଲ୍ଟ</string>
+    <string name="select_application">ଆପ୍ଲିକେସନ୍ ଚୟନ କରନ୍ତୁ</string>
+    <string name="lockscreen_choose_action_title">କାର୍ଯ ଚୟନ କରନ୍ତୁ</string>
+    <string name="lockscreen_none_target">କିଛି ନୁହେଁ</string>
+    <string name="play_queue_extension">ଚାଳନା ଧାଡି ଦେଖାନ୍ତୁ</string>
+    <string name="accessibility_dpad_left">କର୍ସର୍‍ ବାମ</string>
+    <string name="accessibility_dpad_right">କର୍ସର୍ ଡାହାଣ</string>
+    <plurals name="wifi_hotspot_connected_clients_label">
+        <item quantity="one">%1$d client</item>
+        <item quantity="other">%1$d clients</item>
+    </plurals>
+    <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <string name="accessibility_quick_settings_location_battery_saving">ଅବସ୍ଥାନ ରିପୋର୍ଟିଂ: ବ୍ୟାଟେରୀ ସଂରକ୍ଷଣ ମୋଡ୍‍</string>
+    <string name="accessibility_quick_settings_location_gps_only">ଅବସ୍ଥାନ ରିପୋର୍ଟିଂ: କେବଳ ସେନ୍‍ସର୍‍ ମୋଡ୍‍</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">ଅବସ୍ଥାନ ରିପୋର୍ଟିଂ: ଅଧିକ ସଠିକତା ମୋଡ୍‍</string>
+    <string name="quick_settings_location_battery_saving_label">ବ୍ୟାଟେରୀ ସଞ୍ଚୟ</string>
+    <string name="quick_settings_location_gps_only_label">କେବଳ ଡିଭାଇସ୍</string>
+    <string name="quick_settings_location_high_accuracy_label">ଅଧିକ ସଠିକତା</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">ଅଧିକ ସଠିକତା</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">ବ୍ୟାଟେରୀ ସଞ୍ଚୟ</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">କେବଳ ଡିଭାଇସ୍</string>
+    <string name="quick_settings_network_adb_label">ନେଟ୍‍ୱାର୍କ୍‍ରେ ADB</string>
+    <string name="quick_settings_ambient_display_label">ଏମ୍ବିଏଣ୍ଟ ପ୍ରଦର୍ଶନ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅଫ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅଫ୍‍ କରାଯାଇଛି।</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">ଆମ୍ବିଏଣ୍ଟ୍‍ ଡିସ୍‍ପ୍ଲେ ଅନ୍‍ କରାଯାଇଛି।</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_heads_up_label">ହେଡ୍ସ୍‍ ଅପ୍‍</string>
+    <string name="accessibility_quick_settings_heads_up_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_heads_up_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅଫ୍‍ କରାଯାଇଛି।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ହେଡ୍ସ୍‍ ଅପ୍‍ ଅନ୍‍‍ କରାଯାଇଛି।</string>
+    <string name="quick_settings_sync_label">ସିଙ୍କ୍</string>
+    <string name="accessibility_quick_settings_sync_off">ସିଙ୍କ୍‍ ଅଫ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_sync_on">ସିଙ୍କ୍‍ ଅନ୍‍ ଅଛି।</string>
+    <string name="accessibility_quick_settings_sync_changed_off">ସିଙ୍କ୍‍ ଅଫ୍‍ କରାଯାଇଛି।</string>
+    <string name="accessibility_quick_settings_sync_changed_on">ସିଙ୍କ୍‍ ଅନ୍‍‍ କରାଯାଇଛି।</string>
+    <string name="quick_settings_usb_tether_label">USB ଟିଥରିଂ</string>
+    <string name="quick_settings_sync_label">ସିଙ୍କ୍</string>
+    <string name="quick_settings_volume_panel_label">ଭୋଲ୍ୟୁମ୍‍ ପ୍ୟାନେଲ୍‍</string>
+</resources>

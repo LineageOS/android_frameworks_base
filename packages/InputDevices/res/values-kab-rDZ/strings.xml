@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_label">Ibenkan n unekcum</string>
+    <string name="keyboard_layouts_label">Anasiw Android</string>
+    <string name="keyboard_layout_english_uk_label">Aglizi (Tag. Yedd.)</string>
+    <string name="keyboard_layout_english_us_label">Aglizi (Marikan)</string>
+    <string name="keyboard_layout_english_us_intl">Aglizi (Marikan), aɣanib agraɣlan</string>
+    <string name="keyboard_layout_english_us_colemak_label">Aglizi (Marikan), aɣanib Colemak</string>
+    <string name="keyboard_layout_english_us_dvorak_label">Aglizi (Marikan), aɣanib Dvorak</string>
+    <string name="keyboard_layout_german_label">Almani</string>
+    <string name="keyboard_layout_french_label">Tafṛansist</string>
+    <string name="keyboard_layout_french_ca_label">Tanfransist (Kanana)</string>
+    <string name="keyboard_layout_russian_label">Tarusit</string>
+    <string name="keyboard_layout_russian_mac_label">Tarusit, aɣanib Mac</string>
+    <string name="keyboard_layout_spanish_label">Taspanit</string>
+    <string name="keyboard_layout_swiss_french_label">Tafṛansist n Swis</string>
+    <string name="keyboard_layout_swiss_german_label">Talmanit n Swis</string>
+    <string name="keyboard_layout_belgian">Tabiljikt</string>
+    <string name="keyboard_layout_bulgarian">Tabulgarit</string>
+    <string name="keyboard_layout_italian">Taṭelyanit</string>
+    <string name="keyboard_layout_danish">Tadanit</string>
+    <string name="keyboard_layout_norwegian">Tanurvijit</string>
+    <string name="keyboard_layout_swedish">Taswidit</string>
+    <string name="keyboard_layout_finnish">Tafinit</string>
+    <string name="keyboard_layout_croatian">Takrwasit</string>
+    <string name="keyboard_layout_czech">Taččikit</string>
+    <string name="keyboard_layout_estonian">Tastunit</string>
+    <string name="keyboard_layout_hungarian">Tahungrit</string>
+    <string name="keyboard_layout_icelandic">Taslandit</string>
+    <string name="keyboard_layout_brazilian">Tabrizilit</string>
+    <string name="keyboard_layout_portuguese">Tapurtugit</string>
+    <string name="keyboard_layout_slovak">Tasluvakt</string>
+    <string name="keyboard_layout_slovenian">Tasluvinit</string>
+    <string name="keyboard_layout_turkish">Taṭurkit</string>
+    <string name="keyboard_layout_ukrainian">Tukranit</string>
+    <string name="keyboard_layout_arabic">Taɛrabt</string>
+    <string name="keyboard_layout_greek">Tagrikit</string>
+    <string name="keyboard_layout_hebrew">Taɛbrit</string>
+    <string name="keyboard_layout_lithuanian">Taliṭwanit</string>
+    <string name="keyboard_layout_latvian">Talitunit</string>
+</resources>

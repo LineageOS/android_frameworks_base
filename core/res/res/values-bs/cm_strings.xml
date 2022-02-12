@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2012-2014 The CyanogenMod Project
+     Copyright (c) 2013, The Linux Foundation. All rights reserved.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Pokreni ponovo</string>
+    <string name="global_action_current_user">Trenutni</string>
+    <string name="reboot_reboot">Pokreni ponovo</string>
+    <string name="reboot_bootloader">Bootloader</string>
+    <string name="reboot_title">Pokreni ponovo</string>
+    <string name="reboot_confirm" product="tablet">Vaš tablet će se resetovati.</string>
+    <string name="reboot_confirm" product="default">Vaš mobitel će se resetovati.</string>
+    <string name="reboot_progress">Resetujem\u2026</string>
+    <string name="adb_net_active_notification_title">ADB preko mreže omogućen</string>
+    <string name="adb_active_generic_notification_message">Dodirnite da izgasite debugging</string>
+    <string name="privacy_guard_notification">Čuvar privatnosti aktivan</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> neće moći pristupati ličnim podacima</string>
+    <string name="privacy_guard_dialog_title">Čuvar privatnosti</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> želi da <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="permission_remember_choice">Zapamti moj odabir</string>
+    <string name="app_ops_access_camera">pristup kameri</string>
+    <string name="app_ops_access_location">pristup lokaciji</string>
+    <string name="app_ops_access_notifications">čita vaše obavijesti</string>
+    <string name="app_ops_activate_vpn">aktivira VPN</string>
+    <string name="app_ops_auto_start">pokrene se prilikom paljenja</string>
+    <string name="app_ops_delete_contacts">briše vaše kontakte</string>
+    <string name="app_ops_delete_mms">briše vaše MMS poruke</string>
+    <string name="app_ops_delete_sms">briše vaše SMS poruke</string>
+    <string name="app_ops_make_phone_call">pozivanje telefonskih brojeva</string>
+    <string name="app_ops_read_call_log">čita vaš zapisnik poziva</string>
+    <string name="app_ops_read_contacts">čita vaše kontakte</string>
+    <string name="app_ops_read_mms">čita vaše MMS poruke</string>
+    <string name="app_ops_read_sms">čita vaše SMS poruke</string>
+    <string name="silent_mode_priority">Prioritet</string>
+    <string name="silent_mode_none">Ništa</string>
+</resources>

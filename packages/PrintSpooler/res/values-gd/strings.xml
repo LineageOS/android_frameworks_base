@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">Spùlair clò-bhualaidh</string>
+    <string name="more_options_button">Barrachd roghainnean</string>
+    <string name="label_destination">Ceann-uidhe</string>
+    <string name="label_copies">Lethbhreacan</string>
+    <string name="label_copies_summary">Lethbhreacan:</string>
+    <string name="label_paper_size">Meud a’ phàipeir</string>
+    <string name="label_paper_size_summary">Meud a’ phàipeir:</string>
+    <string name="label_color">Dath</string>
+    <string name="label_duplex">Dà-thaobhach</string>
+    <string name="label_orientation">Comhair</string>
+    <string name="label_pages">Duilleagan</string>
+    <string name="destination_default_text">Tagh clò-bhualadair</string>
+    <string name="template_all_pages">Na h-uile <xliff:g id="page_count" example="100">%1$s</xliff:g></string>
+    <string name="template_page_range">Cuidh dhiubh <xliff:g id="page_count" example="100">%1$s</xliff:g></string>
+    <string name="pages_range_example">can 1–5,8,11–13</string>
+    <string name="print_preview">Ro-shealladh clò-bhualaidh</string>
+    <string name="install_for_print_preview">Stàlaich sealladair PDF airson ro-shealladh</string>
+    <string name="printing_app_crashed">Thuislich aplacaid a’ chlò-bhualaidh</string>
+    <string name="generating_print_job">A’ gintinn obair clò-bhualaidh</string>
+    <string name="save_as_pdf">Sàbhail mar PDF</string>
+    <string name="all_printers">Na h-uile clò-bhualadair…</string>
+    <string name="print_dialog">Còmhradh a’ chlò-bhualaidh</string>
+    <string name="current_page_template"><xliff:g id="current_page">%1$d</xliff:g>
+        /<xliff:g id="page_count">%2$d</xliff:g></string>
+    <string name="page_description_template">Duilleag <xliff:g id="current_page" example="1">%1$d</xliff:g>
+        à <xliff:g id="page_count" example="100">%2$d</xliff:g></string>
+    <string name="summary_template">Geàrr-chunntas, leth-bhreacan: <xliff:g id="copies" example="1">%1$s</xliff:g>,
+        meud a’ phàipeir: <xliff:g id="paper_size" example="A4">%2$s</xliff:g></string>
+    <string name="expand_handle">Leudaich an làmhrachan</string>
+    <string name="collapse_handle">Co-theannaich an làmhrachan</string>
+    <string name="print_button">Clò-bhuail</string>
+    <string name="savetopdf_button">Sàbhail gu PDF</string>
+    <string name="print_options_expanded">Chaidh roghainnean a’ chlò-bhualaidh a leudachadh</string>
+    <string name="print_options_collapsed">Chaidh roghainnean a’ chlò-bhualaidh a cho-theannachadh</string>
+    <string name="search">Lorg</string>
+    <string name="all_printers_label">Na h-uile clò-bhualadair</string>
+    <string name="add_print_service_label">Cuir seirbheis ris</string>
+    <string name="print_search_box_shown_utterance">Tha am bogsa-luirg ’ga shealltainn</string>
+    <string name="print_search_box_hidden_utterance">Chaidh am bogsa-luirg fhalach</string>
+    <string name="print_add_printer">Cuir clò-bhualadair ris</string>
+    <string name="print_select_printer">Tagh clò-bhualadair</string>
+    <string name="print_forget_printer">Dìochuimhnich an clò-bhualadair</string>
+    <plurals name="print_search_result_count_utterance">
+        <item quantity="one">Chaidh <xliff:g id="count" example="1">%1$s</xliff:g> chlò-bhualadair a lorg</item>
+        <item quantity="two">Chaidh <xliff:g id="count" example="2">%1$s</xliff:g> chlò-bhualadair a lorg</item>
+        <item quantity="few">Chaidh <xliff:g id="count" example="2">%1$s</xliff:g> clò-bhualadairean a lorg</item>
+        <item quantity="other">Chaidh <xliff:g id="count" example="2">%1$s</xliff:g> clò-bhualadair a lorg</item>
+    </plurals>
+    <string name="printer_extended_description_template"><xliff:g id="print_service_label" example="Canon Print Service">%1$s</xliff:g> – <xliff:g id="printer_description" example="Printer under the stairs">%2$s</xliff:g></string>
+    <string name="printer_info_desc">Barrachd fiosrachaidh mun chlò-bhualadair seo</string>
+    <string name="could_not_create_file">Cha b’ urrainn dhuinn am faidhle a chruthachadh</string>
+    <string name="print_services_disabled_toast">Tha cuid a sheirbheisean clò-bhualaidh à comas</string>
+    <string name="print_searching_for_printers">A’ lorg clò-bhualadairean</string>
+    <string name="print_no_print_services">Chan eil seirbheis clò-bhualaidh an comas</string>
+    <string name="print_no_printers">Cha deach clò-bhualadair a lorg</string>
+    <string name="cannot_add_printer">Cha ghabh clò-bhualadair a chur ris</string>
+    <string name="select_to_add_printers">Tagh airson clò-bhualadair a chur ris</string>
+    <string name="enable_print_service">Tagh seo airson a chur an comas</string>
+    <string name="enabled_services_title">Na seirbheisean a tha an comas</string>
+    <string name="recommended_services_title">Seirbheisean a mholamaid</string>
+    <string name="disabled_services_title">Na seirbheisean a tha à comas</string>
+    <string name="all_services_title">Na seirbheisean uile</string>
+    <plurals name="print_services_recommendation_subtitle">
+        <item quantity="one">Stàlaich airson <xliff:g id="count" example="1">%1$s</xliff:g> chlò-bhualadair a lorg</item>
+        <item quantity="two">Stàlaich airson <xliff:g id="count" example="2">%1$s</xliff:g> chlò-bhualadair a lorg</item>
+        <item quantity="few">Stàlaich airson <xliff:g id="count" example="2">%1$s</xliff:g> clò-bhualadairean a lorg</item>
+        <item quantity="other">Stàlaich airson <xliff:g id="count" example="2">%1$s</xliff:g> clò-bhualadair a lorg</item>
+    </plurals>
+    <string name="printing_notification_title_template">A’ clò-bhualadh <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
+    <string name="cancelling_notification_title_template">A’ sgur dhe <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
+    <string name="failed_notification_title_template">Mearachd le clò-bhualadh <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
+    <string name="blocked_notification_title_template">Chaidh an clò-bhualadair a bhacadh dha <xliff:g id="print_job_name" example="foo.jpg">%1$s</xliff:g></string>
+    <string name="cancel">Sguir dheth</string>
+    <string name="restart">Ath-thòisich</string>
+    <string name="no_connection_to_printer">Chan eil ceangal ris a’ chlò-bhualadair ann</string>
+    <string name="reason_unknown">chan eil fhios</string>
+    <string name="print_service_security_warning_title">A bhail thu airson
+         <xliff:g id="service" example="My Print Service">%1$s</xliff:g> a chleachdadh?</string>
+    <string name="print_service_security_warning_summary">Dh’fhaoidte gun dèid an sgrìobhainn agad tro fhrithealaiche no dhà
+         air a slighe dhan chlò-bhualadair.</string>
+    <string-array name="color_mode_labels">
+        <item>Dubh ⁊ geal</item>
+        <item>Dath</item>
+    </string-array>
+    <string-array name="duplex_mode_labels">
+        <item>Chan eil gin</item>
+        <item>An oir fhada</item>
+        <item>An oir ghoirid</item>
+    </string-array>
+    <string-array name="orientation_labels">
+        <item>Portraid</item>
+        <item>Cruth-tìre</item>
+    </string-array>
+    <string name="print_write_error_message">Cha b’ urrainn dhuinn sgrìobhadh dhan fhaidhle</string>
+    <string name="print_error_default_message">Tha sinn duilich ach cha do dh’obraich seo. Feuch ris a-rithist.</string>
+    <string name="print_error_retry">Feuch ris a-rithist</string>
+    <string name="print_error_printer_unavailable">Chan eil an clò-bhualadair seo ri làimh an-dràsta fhèin.</string>
+    <string name="print_cannot_load_page">Chan urrainn dhuinn an ro-shealladh a taisbeanadh</string>
+    <string name="print_preparing_preview">Ag ullachadh an ro-sheallaidh\u2026</string>
+</resources>
