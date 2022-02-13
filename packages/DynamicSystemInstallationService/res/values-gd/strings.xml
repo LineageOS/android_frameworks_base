@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keyguard_description">Cuir a-steach am facal-faire agad is lean air adhart gu ùrachaidhean innsgineach an t-siostaim</string>
+    <string name="notification_install_completed">Tha an siostam innsgineach deiseil. Ath-thòisich an t-uidheam agad gus a chleachdadh.</string>
+    <string name="notification_install_inprogress">’Ga stàladh</string>
+    <string name="notification_install_failed">Dh’fhàillig leis an stàladh</string>
+    <string name="notification_image_validation_failed">Dh’fhàillig le dearbhadh na h-ìomhaighe. Leig seachad an stàladh.</string>
+    <string name="notification_dynsystem_in_use">Tha thu a’ ruith siostam innsgineach. Ath-thòisich airson an tionndadh tùsail de dh’Android a chleachdadh.</string>
+    <string name="notification_action_cancel">Sguir dheth</string>
+    <string name="notification_action_discard">Tilg air falbh</string>
+    <string name="notification_action_reboot_to_dynsystem">Ath-thòisich</string>
+    <string name="notification_action_reboot_to_origin">Ath-thòisich</string>
+    <string name="toast_dynsystem_discarded">Chaidh an siostam innsgineach a thilgeil air falbh</string>
+    <string name="toast_failed_to_reboot_to_dynsystem">Chan urrainn dhuinn an siostam innsgineach ath-thòiseachadh no a luchdadh.</string>
+</resources>

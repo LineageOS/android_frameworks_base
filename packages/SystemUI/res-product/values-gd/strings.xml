@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dock_alignment_slow_charging" product="default">Cuir am fòn ann gu ceart airson teàirrdseadh nas luaithe</string>
+    <string name="dock_alignment_not_charging" product="default">Cuir am fòn ann gu ceart airson teàirrdseadh gun uèir</string>
+    <string name="inattentive_sleep_warning_message" product="tv">Thèid an TBh Android a chur dheth a dh’aithghearr; brùth air putan gus a chumail air.</string>
+    <string name="inattentive_sleep_warning_message" product="default">Thèid an t-uidheam a chur dheth a dh’aithghearr; brùth air gus a chumail air.</string>
+    <string name="keyguard_missing_sim_message" product="tablet">Chan eil cairt SIM san tablaid.</string>
+    <string name="keyguard_missing_sim_message" product="default">Chan eil cairt SIM san fhòn.</string>
+    <string name="kg_invalid_confirm_pin_hint" product="default">Chan eil an dà chòd PIN co-ionnann</string>
+    <string name="global_action_lock_message" product="default">Thoir a’ ghlas far an fhòn agad airson barrachd roghainnean</string>
+    <string name="global_action_lock_message" product="tablet">Thoir a’ ghlas far na tablaid agad airson barrachd roghainnean</string>
+    <string name="global_action_lock_message" product="device">Thoir a’ ghlas far an uidheim agad airson barrachd roghainnean</string>
+</resources>

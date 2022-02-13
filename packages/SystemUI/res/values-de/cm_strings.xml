@@ -62,7 +62,7 @@
     <string name="vpn_credentials_username">Benutzername</string>
     <string name="vpn_credentials_password">Passwort</string>
     <string name="vpn_credentials_dialog_connect">Verbinden</string>
-    <string name="quick_settings_anti_flicker">Anti-Flimmer</string>
+    <string name="quick_settings_anti_flicker">Anti-Flimmern</string>
     <string name="accessibility_dpad_left">Pfeiltaste links</string>
     <string name="accessibility_dpad_right">Pfeiltaste rechts</string>
     <string name="global_action_restart_more">Neustart wird durchgeführt\u2026</string>

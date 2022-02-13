@@ -28,42 +28,53 @@
         <item>Suspendióse</item>
         <item>Desconectando\u2026</item>
         <item>Desconectóse</item>
-        <item>Hai fallos</item>
+        <item>Produxéronse fallos</item>
         <item>Bloquióse</item>
-        <item>Evitando temporalmente la conexón feble</item>
+        <item>Evitando temporalmente la conexón mala</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
         <item/>
         <item>Buscando\u2026</item>
-        <item>Conectando a <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <item>Autenticando con <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <item>Consiguiendo la direición IP de <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <item>Conectóse a <xliff:g id="network_name">%1$s</xliff:g></item>
+        <item>Conectando a «<xliff:g id="network_name">%1$s</xliff:g>»\u2026</item>
+        <item>Autenticando con «<xliff:g id="network_name">%1$s</xliff:g>»\u2026</item>
+        <item>Consiguiendo la direición IP de: <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Conectóse a «<xliff:g id="network_name">%1$s</xliff:g>»</item>
         <item>Suspendióse</item>
-        <item>Desconectando de <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Desconectando de: <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
         <item>Desconectóse</item>
-        <item>Hai fallos</item>
+        <item>Produxéronse fallos</item>
         <item>Bloquióse</item>
-        <item>Evitando temporalmente la conexón feble</item>
+        <item>Evitando temporalmente la conexón mala</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
-        <item>Enxamás comprobar</item>
-        <item>Comprobar namái conteníu DRM</item>
+        <item>Nun comprobar enxamás</item>
+        <item>Comprobar namás el conteníu con DRM</item>
         <item>Comprobar siempres</item>
     </string-array>
     <string-array name="hdcp_checking_summaries">
-        <item>Never use HDCP checking</item>
-        <item>Use HDCP checking for DRM content only</item>
-        <item>Usa siempres la comprobación HDCP</item>
+        <item>Nun usar enxamás la comprobación HDCP</item>
+        <item>Usar namás la comprobación HDCP pal conteníu con DRM</item>
+        <item>Usar siempres la comprobación HDCP</item>
+    </string-array>
+    <string-array name="bt_hci_snoop_log_entries">
+        <item>Desactivóse</item>
+        <item>Activóse con peñeres</item>
+        <item>Activóse</item>
     </string-array>
     <string-array name="bluetooth_avrcp_versions">
-        <item>AVRCP 1.5 (Por defeutu)</item>
+        <item>AVRCP 1.5 (por defeutu)</item>
         <item>AVRCP 1.3</item>
         <item>AVRCP 1.4</item>
         <item>AVRCP 1.6</item>
     </string-array>
+    <string-array name="bluetooth_avrcp_version_values">
+        <item>avrcp15</item>
+        <item>avrcp13</item>
+        <item>avrcp14</item>
+        <item>avrcp16</item>
+    </string-array>
     <string-array name="bluetooth_map_versions">
-        <item>MAP 1.2 (Por defeutu)</item>
+        <item>MAP 1.2 (por defeutu)</item>
         <item>MAP 1.3</item>
         <item>MAP 1.4</item>
     </string-array>
@@ -72,43 +83,78 @@
         <item>map13</item>
         <item>map14</item>
     </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Usar la esbilla del sistema (por defeutu)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Audiu <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g></item>
+        <item>Audiu <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g></item>
+        <item>LDAC</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Usar la esbilla del sistema (por defeutu)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Audiu <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g></item>
+        <item>Audiu <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g></item>
+        <item>LDAC</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Usar la esbilla del sistema (por defeutu)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Usar la esbilla del sistema (por defeutu)</item>
+        <item>44,1 kHz</item>
+        <item>48,0 kHz</item>
+        <item>88,2 kHz</item>
+        <item>96,0 kHz</item>
+    </string-array>
     <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
-        <item>Use System Selection (Default)</item>
+        <item>Usar la esbilla del sistema (por defeutu)</item>
         <item>16 bits/amuesa</item>
         <item>24 bits/amuesa</item>
         <item>32 bits/amuesa</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
-        <item>Use System Selection (Default)</item>
+        <item>Usar la esbilla del sistema (por defeutu)</item>
         <item>16 bits/amuesa</item>
         <item>24 bits/amuesa</item>
         <item>32 bits/amuesa</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
-        <item>Usar esbilla del sistema (Por defeutu)</item>
-        <item>Mono</item>
-        <item>Stereo</item>
+        <item>Usar la esbilla del sistema (por defeutu)</item>
+        <item>Monu</item>
+        <item>Estéreu</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Usar la esbilla del sistema (por defeutu)</item>
+        <item>Monu</item>
+        <item>Estéreu</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
-        <item>Optimizáu pa Calidá d\'Audio (990kbps/909kbps)</item>
-        <item>Equilibráu Calidá d\'Audiu y Conexón (660kbps/606kbps)</item>
-        <item>Optimizáu pa Calidá de Conexón (990kbps/909kbps)</item>
-        <item>Meyor esfuerzu (velocidá de bits adaptativa)</item>
+        <item>Optimización pa la calidá del audiu (330kbps/303kbps)</item>
+        <item>Calidá equilibrada del audiu y la conexón (660kbps/606kbps)</item>
+        <item>Optimización pa la calidá de la conexón (330kbps/303kbps)</item>
+        <item>El meyor resultáu (tasa de bits adautable)</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
-        <item>Optimizáu pa Calidá d\'Audiu</item>
-        <item>Equilibráu de Calidá d\'Audiu y Conexón</item>
-        <item>Optimizáu pa Calidá de Conexón</item>
-        <item>Meyor esfuerzu (velocidá de bits adaptativa)</item>
+        <item>Optimización pa la calidá del audiu</item>
+        <item>Calidá equilibrada del audiu y la conexón</item>
+        <item>Optimización pa la calidá de la conexón</item>
+        <item>El meyor resultáu (tasa de bits adautable)</item>
     </string-array>
     <string-array name="bluetooth_audio_active_device_summaries">
         <item/>
-        <item>, activu</item>
-        <item>, activu (multimedia)</item>
-        <item>, activu (teléfonu)</item>
+        <item>, n\'activo</item>
+        <item>, n\'activo (multimedia)</item>
+        <item>, n\'activo (teléfonu)</item>
     </string-array>
     <string-array name="select_logd_size_titles">
-        <item>Off</item>
+        <item>Non</item>
         <item>64K</item>
         <item>256K</item>
         <item>1M</item>
@@ -116,107 +162,107 @@
         <item>16M</item>
     </string-array>
     <string-array name="select_logd_size_lowram_titles">
-        <item>Off</item>
+        <item>Non</item>
         <item>64K</item>
         <item>256K</item>
         <item>1M</item>
     </string-array>
     <string-array name="select_logd_size_summaries">
-        <item>Deshabilitáu</item>
-        <item>64K per log buffer</item>
-        <item>256K per log buffer</item>
-        <item>1M per log buffer</item>
-        <item>4M per log buffer</item>
-        <item>16M per log buffer</item>
+        <item>Non</item>
+        <item>64K per búfer de rexistru</item>
+        <item>256K per búfer de rexistru</item>
+        <item>1M per búfer de rexistru</item>
+        <item>4M per búfer de rexistru</item>
+        <item>16M per búfer de rexistru</item>
     </string-array>
     <string-array name="select_logpersist_titles">
-        <item>Off</item>
-        <item>All</item>
-        <item>All but radio</item>
-        <item>namái kernel</item>
+        <item>Non</item>
+        <item>Too</item>
+        <item>Too menos señal móvil</item>
+        <item>namás kernel</item>
     </string-array>
     <string-array name="select_logpersist_summaries">
-        <item>Desactiváu</item>
+        <item>Non</item>
         <item>Tolos búferes de rexistru</item>
-        <item>Toos menos los buffers de rexistru de radio</item>
-        <item>namái búfer de rexistros del kernel</item>
+        <item>Too sacante los búferes de rexistru de señal móvil</item>
+        <item>namás el búfer de rexistru del kernel</item>
     </string-array>
     <string-array name="window_animation_scale_entries">
-        <item>Animation off</item>
-        <item>Escala d\'animación 0,5x</item>
-        <item>Escala d\'animación 1x</item>
-        <item>Escala d\'animación 1,5x</item>
-        <item>Escala d\'animación 2x</item>
-        <item>Escala d\'animación 5x</item>
-        <item>Escala d\'animación 10x</item>
+        <item>Animación desactivada</item>
+        <item>Escala d\'animación x0,5</item>
+        <item>Escala d\'animación x1</item>
+        <item>Escala d\'animación x1,5</item>
+        <item>Escala d\'animación x2</item>
+        <item>Escala d\'animación x5</item>
+        <item>Escala d\'animación x10</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">
-        <item>Animation off</item>
-        <item>Escala d\'animación 0,5x</item>
-        <item>Escala d\'animación 1x</item>
-        <item>Escala d\'animación 1,5x</item>
-        <item>Escala d\'animación 2x</item>
-        <item>Escala d\'animación 5x</item>
-        <item>Escala d\'animación 10x</item>
+        <item>Animación desactivada</item>
+        <item>Escala d\'animación x0,5</item>
+        <item>Escala d\'animación x1</item>
+        <item>Escala d\'animación x1,5</item>
+        <item>Escala d\'animación x2</item>
+        <item>Escala d\'animación x5</item>
+        <item>Escala d\'animación x10</item>
     </string-array>
     <string-array name="animator_duration_scale_entries">
-        <item>Animation off</item>
-        <item>Escala d\'animación 0,5x</item>
-        <item>Escala d\'animación 1x</item>
-        <item>Escala d\'animación 1,5x</item>
-        <item>Escala d\'animación 2x</item>
-        <item>Escala d\'animación 5x</item>
-        <item>Escala d\'animación 10x</item>
+        <item>Animación desactivada</item>
+        <item>Escala d\'animación x0,5</item>
+        <item>Escala d\'animación x1</item>
+        <item>Escala d\'animación x1,5</item>
+        <item>Escala d\'animación x2</item>
+        <item>Escala d\'animación x5</item>
+        <item>Animation scale 10x</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
-        <item>None</item>
+        <item>Nada</item>
         <item>480p</item>
-        <item>480p (secure)</item>
+        <item>480p (seguru)</item>
         <item>720p</item>
-        <item>720p (secure)</item>
+        <item>720p (seguru)</item>
         <item>1080p</item>
-        <item>1080p (secure)</item>
+        <item>1080p (seguru)</item>
         <item>4K</item>
-        <item>4K (secure)</item>
-        <item>4K (upscaled)</item>
-        <item>4K (upscaled, secure)</item>
+        <item>4K (seguru)</item>
+        <item>4K (engrandáu)</item>
+        <item>4K (engrandáu, seguru)</item>
         <item>720p, 1080p (pantalla doble)</item>
     </string-array>
     <string-array name="enable_opengl_traces_entries">
-        <item>Nenguna</item>
+        <item>Nada</item>
         <item>Logcat</item>
         <item>Systrace (gráficos)</item>
         <item>Pila de llamaes en glGetError</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">
-        <item>Apagáu</item>
-        <item>Dibuxar rexón de recorte non rectangular n\'azul</item>
-        <item>Resaltar comandos de dibuxu probaos en verde</item>
+        <item>Non</item>
+        <item>Dibuxar n\'azul l\'área recorte non rectangular n\'azul</item>
+        <item>Rescamplar en verde los comandos de dibuxu probaos</item>
     </string-array>
     <string-array name="track_frame_time_entries">
-        <item>Off</item>
-        <item>En pantalla como barres</item>
-        <item>En <xliff:g id="as_typed_command">adb shell dumpsys gfxinfo</xliff:g></item>
+        <item>Non</item>
+        <item>En pantalla en forma de barres</item>
+        <item>N\'<xliff:g id="as_typed_command">adb shell dumpsys gfxinfo</xliff:g></item>
     </string-array>
     <string-array name="debug_hw_overdraw_entries">
-        <item>Apagáu</item>
-        <item>Amosar árees superpuestes</item>
-        <item>Amosar árees pa deuteranomalía</item>
+        <item>Non</item>
+        <item>Amosar les árees superpuestes</item>
+        <item>Amosar les árees pa la deuteranomalía</item>
     </string-array>
     <string-array name="app_process_limit_entries">
         <item>Llende estándar</item>
-        <item>Ensin procesos de fondu</item>
-        <item>Como muncho 1 procesu</item>
-        <item>Como muncho 2 procesos</item>
-        <item>Como muncho 3 procesos</item>
-        <item>Como muncho 4 procesos</item>
+        <item>Ensin procesos en segundu planu</item>
+        <item>1 procesu como máximu</item>
+        <item>2 procesos como máximu</item>
+        <item>3 procesos como máximu</item>
+        <item>4 procesos como máximu</item>
     </string-array>
     <string-array name="usb_configuration_titles">
-        <item>Carga llétrica</item>
-        <item>MTP (Protocolu de tresferencia de medios)</item>
+        <item>Carga</item>
+        <item>MTP (Protocolu de tresferencia multimedia)</item>
         <item>PTP (Protocolu de tresferencia de semeyes)</item>
-        <item>RNDIS (Ethernet USB)</item>
-        <item>Fonte d\'audiu</item>
+        <item>RNDIS (ethernet per USB)</item>
+        <item>Orixe del audiu</item>
         <item>MIDI</item>
     </string-array>
 </resources>

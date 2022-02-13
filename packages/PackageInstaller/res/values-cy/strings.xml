@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Gosodwr pecyn</string>
+    <string name="install">Gosod</string>
+    <string name="done">Iawn</string>
+    <string name="cancel">Diddymu</string>
+    <string name="installing">Yn gosod\u2026</string>
+    <string name="installing_app">Yn gosod <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
+    <string name="install_done">Gosodwyd yr ap.</string>
+    <string name="install_confirm_question">Wyt ti eisiau gosod yr ap hwn?</string>
+    <string name="install_confirm_question_update">Wyt ti eisiau gosod diweddariad
+            i\'r ap hwn sy\'n bodoli eisoes?
+            Ni chaiff dy ddata ei golli.</string>
+    <string name="install_confirm_question_update_system">Wyt ti eisiau gosod diweddariad
+            i\'r ap hwn daeth gyda\'r system?
+            Ni chaiff dy ddata ei golli.</string>
+    <string name="install_failed">Ni osodwyd yr ap.</string>
+    <string name="install_failed_blocked">Cafodd yr ap ei atal rhag cael ei osod.</string>
+    <string name="install_failed_conflict">Ni osodwyd yr ap am fod y pecyn yn gwrthdaro â phecyn sy\'n bodoli.</string>
+    <string name="install_failed_incompatible" product="tablet">Ni osodwyd yr ap am nad
+        yw\'n gydnaws â dy lechen.</string>
+    <string name="install_failed_incompatible" product="tv">Dyw\'r ap hwn ddim
+        yn gydnaws â dy deledu.</string>
+    <string name="install_failed_incompatible" product="default">Ni osodwyd yr ap am nad
+        yw\'n gydnaws â dy ffôn.</string>
+    <string name="install_failed_invalid_apk">Dyw\'r ap heb ei osod am fod y pecyn yn ymddangos i fod yn annilys.</string>
+    <string name="install_failed_msg" product="tablet">Methwyd â gosod <xliff:g id="app_name">%1$s</xliff:g> ar dy lechen.</string>
+    <string name="install_failed_msg" product="tv">Methwyd â gosod <xliff:g id="app_name">%1$s</xliff:g> ar dy deledu.</string>
+    <string name="install_failed_msg" product="default">Methwyd â gosod <xliff:g id="app_name">%1$s</xliff:g> ar dy ffôn.</string>
+    <string name="launch">Agor</string>
+    <string name="unknown_apps_admin_dlg_text">Nid yw dy weinyddwr yn caniatáu gosod apiau o ffynonellau anhysbys</string>
+    <string name="unknown_apps_user_restriction_dlg_text">Ni all y defnyddiwr hwn osod apiau anhysbys</string>
+    <string name="install_apps_user_restriction_dlg_text">Nid yw\'r defnyddiwr hwn yn cael gosod apiau</string>
+    <string name="ok">Iawn</string>
+    <string name="manage_applications">Rheoli apiau</string>
+    <string name="out_of_space_dlg_title">Dim digon o le</string>
+    <string name="out_of_space_dlg_text">Methwyd â gosod <xliff:g id="app_name">%1$s</xliff:g>. Rhyddha ychydig o le storio a rhoi cynnig arall arni.</string>
+    <string name="app_not_found_dlg_title">Ni chanfuwyd yr ap</string>
+    <string name="app_not_found_dlg_text">Ni chanfuwyd yr ap yn y rhestr o apiau wedi\'u gosod.</string>
+    <string name="user_is_not_allowed_dlg_title">Ni chaniateir</string>
+    <string name="user_is_not_allowed_dlg_text">Dyw\'r defnyddiwr cyfredol ddim yn cael cyflawni\'r dadosod hwn.</string>
+    <string name="generic_error_dlg_title">Gwall</string>
+    <string name="generic_error_dlg_text">Nid oedd yn bosib dadosod yr ap.</string>
+    <string name="uninstall_application_title">Dadosod yr ap</string>
+    <string name="uninstall_update_title">Dadosod y diweddariad</string>
+    <string name="uninstall_activity_text">Mae <xliff:g id="activity_name">%1$s</xliff:g> yn rhan o\'r ap hwn:</string>
+    <string name="uninstall_application_text">Wyt ti eisiau dadosod yr ap hwn?</string>
+    <string name="uninstall_application_text_all_users">Wyt ti eisiau dadosod yr ap hwn ar gyfer <b>pob</b> defnyddiwr? Caiff yr ap a\'i holl ddata ei ddileu ar gyfer <b>pob</b> defnyddiwr ar y ddyfais.</string>
+    <string name="uninstall_application_text_user">Wyt ti eisiau dadosod yr ap hwn ar gyfer y defnyddiwr <xliff:g id="username">%1$s</xliff:g>?</string>
+    <string name="uninstall_update_text">Disodli\'r ap hwn gyda\'r fersiwn o\'r ffatri? Caiff yr holl ddata ei golli.</string>
+    <string name="uninstall_update_text_multiuser">Disodli\'r ap hwn gyda\'r fersiwn o\'r ffatri? Caiff yr holl ddata ei golli. Mae hyn yn effeithio ar holl ddefnyddwyr y ddyfais hon, gan gynnwys y rhai gyda phroffiliau gwaith.</string>
+    <string name="uninstall_keep_data">Cadw <xliff:g id="size" example="1.5MB">%1$s</xliff:g> o ddata\'r ap.</string>
+    <string name="uninstalling_notification_channel">Yn cael eu dadosod</string>
+    <string name="uninstall_failure_notification_channel">Methwyd eu dadosod</string>
+    <string name="uninstalling">Yn dadosod\u2026</string>
+    <string name="uninstalling_app">Yn dadosod <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
+    <string name="uninstall_done">Wedi cwblhau dadosod.</string>
+    <string name="uninstall_done_app">Dadosodwyd <xliff:g id="package_label">%1$s</xliff:g></string>
+    <string name="uninstall_failed">Dadosod aflwyddiannus.</string>
+    <string name="uninstall_failed_app">Methwyd dadosod <xliff:g id="package_label">%1$s</xliff:g>.</string>
+    <string name="uninstall_failed_device_policy_manager">Ni ellir ddadosod ap gweithredol gweinyddu\'r ddyfais</string>
+    <string name="uninstall_failed_device_policy_manager_of_user">Ni ellir ddadosod ap gweithredol gweinyddu\'r ddyfais ar gyfer <xliff:g id="username">%1$s</xliff:g></string>
+    <string name="uninstall_all_blocked_profile_owner">Mae angen yr ap hwn ar rai defnyddwyr neu broffiliau ac mi gafodd ei ddadosod i eraill.</string>
+    <string name="uninstall_blocked_profile_owner">Mae ar dy broffil angen yr ap hwn ac nid yw\'n bosib ei ddadosod.</string>
+    <string name="uninstall_blocked_device_owner">Mae gweinyddwr dy ddyfais yn mynnu bod angen yr ap hwn felly ni ellir ei ddadosod.</string>
+    <string name="manage_device_administrators">Rheoli apiau gweinyddu\'r ddyfais</string>
+    <string name="manage_users">Rheoli defnyddwyr</string>
+    <string name="uninstall_failed_msg">Methwyd dadosod <xliff:g id="app_name">%1$s</xliff:g>.</string>
+    <string name="Parse_error_dlg_text">Roedd problem wrth dosrannu\'r pecyn.</string>
+    <string name="wear_not_allowed_dlg_title">Android Wear</string>
+    <string name="wear_not_allowed_dlg_text">Gosod/dadosod gweithredoedd na sy\'n gydnaws â Wear.</string>
+    <string name="message_staging">Ap camau cadw…</string>
+    <string name="app_name_unknown">Anhysbys</string>
+    <string name="untrusted_external_source_warning" product="tablet">I ddiogelu dy ddata, dyw\'r llechen hon heb ei chaniatáu i osod apiau o ffynonellau anhysbys.</string>
+    <string name="untrusted_external_source_warning" product="tv">I ddiogelu dy ddata, dyw\'r teledu hwn heb ei chaniatáu i osod apiau o ffynonellau anhysbys.</string>
+    <string name="untrusted_external_source_warning" product="default">I ddiogelu dy ddata, dyw\'r ffôn hwn heb ei chaniatáu i osod apiau o ffynonellau anhysbys.</string>
+    <string name="anonymous_source_warning" product="default">Mae dy ffôn a dy ddata personol yn llai diogel rhag ymosodiad gan apiau anhysbys. Wrth osod yr ap hwn, rwyt yn cytuno dy fod yn gyfrifol am unrhyw niwed i dy ddyfais neu golled data gall ddigwydd o ganlyniad i\'w defnyddio.    </string>
+    <string name="anonymous_source_warning" product="tablet">Mae dy lechen a dy ddata personol yn llai diogel rhag ymosodiad gan apiau anhysbys. Wrth osod yr ap hwn, rwyt yn cytuno dy fod yn gyfrifol am unrhyw niwed i dy ddyfais neu golled data gall ddigwydd o ganlyniad i\'w defnyddio.    </string>
+    <string name="anonymous_source_warning" product="tv">Mae dy deledu a dy ddata personol yn llai diogel rhag ymosodiad gan apiau anhysbys. Wrth osod yr ap hwn, rwyt yn cytuno dy fod yn gyfrifol am unrhyw niwed i dy ddyfais neu golled data gall ddigwydd o ganlyniad i\'w defnyddio.    </string>
+    <string name="anonymous_source_continue">Parhau</string>
+    <string name="external_sources_settings">Gosodiadau</string>
+    <string name="wear_app_channel">Gosod/dadosod apiau Wear</string>
+    <string name="app_installed_notification_channel_description">Hysbysiad ap wedi\'i osod</string>
+    <string name="notification_installation_success_message">Wedi\'i osod yn llwyddiannus</string>
+    <string name="notification_installation_success_status">Wedi gosod \u201c<xliff:g id="appname" example="Package Installer">%1$s</xliff:g>\u201d yn llwyddiannus</string>
+</resources>

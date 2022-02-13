@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Instalador de paquetes</string>
+    <string name="install">Instalar</string>
+    <string name="done">Fecho</string>
+    <string name="cancel">Encaboxar</string>
+    <string name="installing">Instalando\u2026</string>
+    <string name="installing_app">Instalando «<xliff:g id="package_label">%1$s</xliff:g>»\u2026</string>
+    <string name="install_done">Instalóse l\'aplicación.</string>
+    <string name="install_confirm_question">¿Quies instalar esta aplicación?</string>
+    <string name="install_confirm_question_update">¿Quies instalar un anovamientu
+            d\'esta aplicación? Nun van perdese los datos
+            esistentes.</string>
+    <string name="install_confirm_question_update_system">¿Quies instalar un anovamientu
+            d\'esta aplicación integrada? Nun van perdese los
+            datos esistentes.</string>
+    <string name="install_failed">L\'aplicación nun s\'instaló.</string>
+    <string name="install_failed_blocked">Bloquióse la instalación del paquete.</string>
+    <string name="install_failed_conflict">L\'aplicación nun s\'instaló darréu que\'l paquete tien conflictos con unu esistente.</string>
+    <string name="install_failed_incompatible" product="tablet">L\'aplicación nun s\'instaló darréu
+        que nun ye compatible cola tableta.</string>
+    <string name="install_failed_incompatible" product="tv">Esta aplicación
+        nun ye compatible cola TV.</string>
+    <string name="install_failed_incompatible" product="default">L\'aplicación nun s\'instaló darréu
+        que nun ye compatible col teléfonu.</string>
+    <string name="install_failed_invalid_apk">L\'aplicación nun s\'instaló darréu que\'l paquete nun paez ser válidu.</string>
+    <string name="install_failed_msg" product="tablet">«<xliff:g id="app_name">%1$s</xliff:g>» nun se pudo instalar na tableta.</string>
+    <string name="install_failed_msg" product="tv">«<xliff:g id="app_name">%1$s</xliff:g>» nun se pudo instalar na TV.</string>
+    <string name="install_failed_msg" product="default">«<xliff:g id="app_name">%1$s</xliff:g>» nun se pudo instalar nel teléfonu.</string>
+    <string name="launch">Abrir</string>
+    <string name="unknown_apps_admin_dlg_text">L\'alministrador nun permite la instalación
+        d\'aplicaciones d\'oríxenes desconocíos</string>
+    <string name="unknown_apps_user_restriction_dlg_text">Esti usuariu nun pue instalar aplicaciones
+        desconocíes</string>
+    <string name="install_apps_user_restriction_dlg_text">Esti usuariu nun tien permisu pa instalar aplicaciones</string>
+    <string name="ok">D\'acuerdu</string>
+    <string name="manage_applications">Xestionar aplics.</string>
+    <string name="out_of_space_dlg_title">Ensin espaciu</string>
+    <string name="out_of_space_dlg_text">«<xliff:g id="app_name">%1$s</xliff:g>» nun se pudo instalar. Llibera espaciu y volvi tentalo.</string>
+    <string name="app_not_found_dlg_title">Nun s\'atopó l\'aplicación</string>
+    <string name="app_not_found_dlg_text"> Nun s\'atopó l\'aplicación na llista d\'aplicaciones instalaes.</string>
+    <string name="user_is_not_allowed_dlg_title">Ensin permisu</string>
+    <string name="user_is_not_allowed_dlg_text">L\'usuariu actual nun tien permisu pa facer esta desinstalación.</string>
+    <string name="generic_error_dlg_title">Fallu</string>
+    <string name="generic_error_dlg_text">Nun se pudo desinstalar l\'aplicación.</string>
+    <string name="uninstall_application_title">Desinstalación d\'aplicación</string>
+    <string name="uninstall_update_title">Desinstalación d\'anovamientu</string>
+    <string name="uninstall_activity_text">«<xliff:g id="activity_name">%1$s</xliff:g>» ye parte de la aplicación siguiente:</string>
+    <string name="uninstall_application_text">¿Quies desinstalar esta aplicación?</string>
+    <string name="uninstall_application_text_all_users">¿Quies desinstalar esta aplicación pa <b>tolos</b>
+        usuarios? L\'aplicación y los sos datos van desaniciase pa <b>tolos</b> usuarios del preséu.</string>
+    <string name="uninstall_application_text_user">¿Quies desinstalar esta aplicación pal usuariu «<xliff:g id="username">%1$s</xliff:g>»?</string>
+    <string name="uninstall_update_text">¿Quies trocar la versión d\'esta aplicación pola de fábrica? Van desaniciase tolos datos.</string>
+    <string name="uninstall_update_text_multiuser">¿Quies trocar la versión d\'esta aplicación pola de fábrica? Van desaniciase tolos datos. Esto afeuta a tolos usuarios del preséu, incluyíos los que tengan perfiles llaborales.</string>
+    <string name="uninstall_keep_data">Caltener <xliff:g id="size" example="1.5MB">%1$s</xliff:g> de datos de l\'aplicación.</string>
+    <string name="uninstalling_notification_channel">Desinstalaciones n\'execución</string>
+    <string name="uninstall_failure_notification_channel">Desinstalaciones fallíes</string>
+    <string name="uninstalling">Desinstalando\u2026</string>
+    <string name="uninstalling_app">Desinstalando «<xliff:g id="package_label">%1$s</xliff:g>»\u2026</string>
+    <string name="uninstall_done">La desinstalación finó.</string>
+    <string name="uninstall_done_app">Desinstalóse «<xliff:g id="package_label">%1$s</xliff:g>»</string>
+    <string name="uninstall_failed">Hebo un fallu na desinstalación.</string>
+    <string name="uninstall_failed_app">Hebo un fallu al desinstalar «<xliff:g id="package_label">%1$s</xliff:g>».</string>
+    <string name="uninstall_failed_device_policy_manager">Nun se pue desinstalar l\'aplicación
+        activa del alministrador del preséu</string>
+    <string name="uninstall_failed_device_policy_manager_of_user">Nun se pue desinstalar l\'aplicación
+        activa del alministrador del preséu pa «<xliff:g id="username">%1$s</xliff:g>»</string>
+    <string name="uninstall_all_blocked_profile_owner">Esta aplicación ye necesaria pa dalgunos
+        usuarios o perfiles y desinstalóse pa
+        otros</string>
+    <string name="uninstall_blocked_profile_owner">Esta aplicación ye necesaria pa dalgunos
+        usuarios o perfiles y nun se pue
+        desinstalar.</string>
+    <string name="uninstall_blocked_device_owner">Esta aplicación ye necesaria pal
+        alministrador del preséu y nun se pue desinstalar.</string>
+    <string name="manage_device_administrators">Xestionar les aplic. del alministrador del preséu</string>
+    <string name="manage_users">Xestionar los usuarios</string>
+    <string name="uninstall_failed_msg">«<xliff:g id="app_name">%1$s</xliff:g>» nun se pue desinstalar.</string>
+    <string name="Parse_error_dlg_text">Hebo un problema al analizar el paquete.</string>
+    <string name="wear_not_allowed_dlg_title">Android Wear</string>
+    <string name="wear_not_allowed_dlg_text">Les aiciones de des/instalación nun son compatibles en Wear.</string>
+    <string name="message_staging">Tresnando l\'aplicación…</string>
+    <string name="app_name_unknown">Nome desconocíu</string>
+    <string name="untrusted_external_source_warning" product="tablet">Por seguranza, la tableta nun tien permisu pa instalar aplicaciones desconocíes d\'esti orixe.</string>
+    <string name="untrusted_external_source_warning" product="tv">Por seguranza, la TV nun tien permisu pa instalar aplicaciones desconocíes d\'esti orixe.</string>
+    <string name="untrusted_external_source_warning" product="default">Por seguranza, el teléfonu nun tien permisu pa instalar aplicaciones desconocíes d\'esti orixe.</string>
+    <string name="anonymous_source_warning" product="default">        Los datos personales y los del teléfonu son más
+        vulnerables a los ataques d\'aplicaciones desconocíes.
+        Al instalar esta aplicación, aceptes que yes responsable
+        de cualesquier dañu que se produza al preséu o de la
+        perda de datos que resulte del usu de l\'aplicación.
+    </string>
+    <string name="anonymous_source_warning" product="tablet">        Los datos personales y los de la tableta son más
+        vulnerables a los ataques d\'aplicaciones desconocíes.
+        Al instalar esta aplicación, aceptes que yes responsable
+        de cualesquier dañu que se produza al preséu o de la
+        perda de datos que resulte del usu de l\'aplicación.
+    </string>
+    <string name="anonymous_source_warning" product="tv">        Los datos personales y los de la TV son más
+        vulnerables a los ataques d\'aplicaciones desconocíes.
+        Al instalar esta aplicación, aceptes que yes responsable
+        de cualesquier dañu que se produza al preséu o de la
+        perda de datos que resulte del usu de l\'aplicación.
+    </string>
+    <string name="anonymous_source_continue">Siguir</string>
+    <string name="external_sources_settings">Axustes</string>
+    <string name="wear_app_channel">Des/instalación d\'aplicaciones de Wear</string>
+    <string name="app_installed_notification_channel_description">Avisu d\'aplicación instalada</string>
+    <string name="notification_installation_success_message">Instalóse correutamente</string>
+    <string name="notification_installation_success_status">«<xliff:g id="appname" example="Package Installer">%1$s</xliff:g>» instalóse correutamente</string>
+</resources>

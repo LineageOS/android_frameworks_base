@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="prompt">باغلىنىش ئىلتىماسى</string>
-    <string name="warning"><xliff:g id="app">%s</xliff:g> سىزنىڭ  VPN ئۇلىنىشىنى بېكىتىشىڭىزنى تەلەپ قىلىدۇ، تورنى نازارەت قىلدۇ. ئەگەر سىز ئىشەنسىڭىز يول قويۇڭ.&lt;br /&gt;&lt;br /&gt;&lt;img src="vpn_icon" /&gt; ئېكراننىڭ چوققىسىدا كۆرۈنسە، VPN نىڭ ئاكتىپ ئىكەنلىكىنى بىلدۈرىدۇ.    </string>
+    <string name="warning"><xliff:g id="app">%s</xliff:g> سىزنىڭ  VPN ئۇلىنىشىنى بېكىتىشىڭىزنى تەلەپ قىلىدۇ، تورنى نازارەت قىلدۇ. ئەگەر سىز ئىشەنسىڭىز يول قويۇڭ.<![CDATA[<br /><br /><img src="vpn_icon" />]]> ئېكراننىڭ چوققىسىدا كۆرۈنسە، VPN نىڭ ئاكتىپ ئىكەنلىكىنى بىلدۈرىدۇ.    </string>
     <string name="legacy_title">VPN باغلاندى</string>
     <string name="session">سۆزلىشىش</string>
     <string name="duration">داۋاملىشىش ۋاقتى:</string>

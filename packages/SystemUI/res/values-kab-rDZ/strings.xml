@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">Anagarw UI</string>
+    <string name="status_bar_clear_all_button">Sfeḍ</string>
+    <string name="status_bar_no_notifications_title">Ulac ilɣa</string>
+    <string name="status_bar_latest_events_title">Ilɣa</string>
+    <string name="battery_low_percent_format"><xliff:g id="percentage">%s</xliff:g> i d-yeqqimen</string>
+    <string name="battery_low_why">Iɣewwaṛen</string>
+    <string name="battery_saver_confirmation_ok">Rmed</string>
+    <string name="status_bar_settings_settings_button">Iɣewwaṛen</string>
+    <string name="status_bar_settings_wifi_button">Wi-Fi</string>
+    <string name="status_bar_settings_mute_label">SGUGEM</string>
+    <string name="status_bar_settings_auto_brightness_label">AWURMAN</string>
+    <string name="status_bar_settings_notifications">Ilɣa</string>
+    <string name="label_view">Wali</string>
+    <string name="usb_debugging_allow">Sireg</string>
+    <string name="wifi_debugging_allow">Sireg</string>
+    <string name="screenshot_saving_ticker">Asekles n tuṭṭfa n ugdil\u2026</string>
+    <string name="screenshot_saving_title">Asekles n tuṭṭfa n ugdil\u2026</string>
+    <string name="screenrecord_resume_label">Kemmel</string>
+    <string name="screenrecord_cancel_label">Sefsex</string>
+    <string name="accessibility_back">Ar deffir</string>
+    <string name="accessibility_home">Agdil agejdan</string>
+    <string name="accessibility_menu">Umuɣ</string>
+    <string name="accessibility_recent">Agzul</string>
+    <string name="accessibility_search_light">Nadi</string>
+    <string name="accessibility_camera_button">Takamiṛat</string>
+    <string name="accessibility_phone_button">Tiliɣri</string>
+    <string name="accessibility_voice_assist_button">Amarag aɣectan</string>
+    <string name="accessibility_unlock_button">Serreḥ</string>
+    <string name="phone_label">ldi tiliɣri</string>
+    <string name="camera_label">ldi takamiṛat</string>
+    <string name="cancel">Sefsex</string>
+    <string name="accessibility_bluetooth_connected">Bluetooth iqqen.</string>
+    <string name="accessibility_no_phone">Ulac tiliɣri.</string>
+    <string name="accessibility_no_data">Ulac isefka.</string>
+    <string name="accessibility_no_wimax">Ulac WiMAX.</string>
+    <string name="accessibility_not_connected">Ur iqqin ara.</string>
+    <string name="accessibility_zero_bars">Ulac ifeggagen.</string>
+    <string name="accessibility_one_bar">Yiwen n ufeggag.</string>
+    <string name="accessibility_two_bars">Sin ifeggagen.</string>
+    <string name="accessibility_three_bars">Kṛaḍ ifeggagen.</string>
+    <string name="accessibility_desc_on">Rmed.</string>
+    <string name="accessibility_desc_off">Sens.</string>
+    <string name="accessibility_desc_connected">Iqqen.</string>
+    <string name="accessibility_desc_connecting">Tuqna.</string>
+    <string name="data_connection_gprs">GPRS</string>
+    <string name="data_connection_hspa">HSPA</string>
+    <string name="data_connection_3g">3G</string>
+    <string name="data_connection_4g">4G</string>
+    <string name="data_connection_lte">LTE</string>
+    <string name="data_connection_roaming">Ambiwel</string>
+    <string name="accessibility_data_connection_wifi">Wi-Fi</string>
+    <string name="accessibility_airplane_mode">Askar asafag.</string>
+    <string name="accessibility_no_sims">Ulac takarḍa SIM.</string>
+    <string name="accessibility_settings_button">Iγewwaṛen n unagraw.</string>
+    <string name="accessibility_notifications_button">Ilɣa.</string>
+    <string name="accessibility_remove_notification">Sfeḍ ilɣa.</string>
+    <string name="accessibility_gps_enabled">GPS irmed.</string>
+    <string name="accessibility_desc_quick_settings">Iɣewwaṛen iruraden.</string>
+    <string name="accessibility_desc_lock_screen">Agdil usewḥel.</string>
+    <string name="accessibility_desc_settings">Iɣewwaṛen</string>
+    <string name="accessibility_desc_recent_apps">Agzul.</string>
+    <string name="accessibility_desc_close">Mdel</string>
+    <string name="accessibility_quick_settings_wifi"><xliff:g id="signal" example="Three bars">%1$s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_wifi_changed_off">Wifi yensa.</string>
+    <string name="accessibility_quick_settings_wifi_changed_on">Wifi irmed.</string>
+    <string name="accessibility_quick_settings_bluetooth_off">Bluetooth yensa.</string>
+    <string name="accessibility_quick_settings_bluetooth_on">Bluetooth irmed.</string>
+    <string name="accessibility_quick_settings_bluetooth_connecting">Tuqna n Bluetooth.</string>
+    <string name="accessibility_quick_settings_bluetooth_connected">Bluetooth iqqen.</string>
+    <string name="accessibility_quick_settings_bluetooth_changed_off">Bluetooth yensa.</string>
+    <string name="accessibility_quick_settings_bluetooth_changed_on">Bluetooth irmed.</string>
+    <string name="accessibility_quick_settings_more_time">Ugar n wakud.</string>
+    <string name="accessibility_ambient_display_charging">Ittɛemmiṛ</string>
+    <string name="data_usage_disabled_dialog_enable">Kemmel</string>
+    <string name="status_bar_notification_inspect_item_title">Iɣewwaren n ilɣa</string>
+    <string name="status_bar_notification_app_settings_title"><xliff:g id="app_name" example="Calendar">%s</xliff:g> iɣewwaṛen</string>
+    <string name="quick_settings_dnd_priority_label">Tazwart kan</string>
+    <string name="quick_settings_dnd_alarms_label">Aṭenṭen kan</string>
+    <string name="quick_settings_dnd_none_label">Tasusmi taččurant</string>
+    <string name="quick_settings_brightness_label">Abruṛeq</string>
+    <string name="quick_settings_rotation_locked_portrait_label">S teɣzi</string>
+    <string name="quick_settings_ime_label">Tarrayt n usekcem</string>
+    <string name="quick_settings_location_label">Adig</string>
+    <string name="quick_settings_settings_label">Iɣewwaṛen</string>
+    <string name="quick_settings_time_label">Akud</string>
+    <string name="quick_settings_user_label">Nek</string>
+    <string name="quick_settings_user_title">Aseqdac</string>
+    <string name="quick_settings_cast_device_default_name">Ibenk war isem</string>
+    <string name="quick_settings_brightness_dialog_title">Abruṛeq</string>
+    <string name="quick_settings_brightness_dialog_auto_brightness_label">AWURMAN</string>
+    <string name="quick_settings_inversion_label">Tti initen</string>
+    <string name="quick_settings_more_settings">Iγewwaṛen nniḍen</string>
+    <string name="quick_settings_done">Immed</string>
+    <string name="quick_settings_connected">Iqqen</string>
+    <string name="quick_settings_connecting">Tuqqna...</string>
+    <string name="quick_settings_notifications_label">Ilɣa</string>
+    <string name="quick_settings_flashlight_label">Taftilt n lǧib</string>
+    <string name="expanded_header_battery_charged">Yuli</string>
+    <string name="expanded_header_battery_charging">Ittɛemmiṛ</string>
+    <string name="description_target_search">Nadi</string>
+    <string name="zen_priority_customize_button">Sagen</string>
+    <string name="interruption_level_none">Tasusmi taččurant</string>
+    <string name="interruption_level_priority">Tazwart kan</string>
+    <string name="interruption_level_alarms">Aṭenṭen kan</string>
+    <string name="accessibility_multi_user_switch_switcher">Beddel aseqdac</string>
+    <string name="user_add_user">Rnu aseqdac</string>
+    <string name="guest_exit_guest_dialog_remove">Kkes</string>
+    <string name="guest_wipe_session_wipe">Ales tanekra</string>
+    <string name="user_remove_user_remove">Kkes</string>
+    <string name="battery_saver_notification_text">Senɣes isefka n tmellit d ugilal</string>
+    <string name="media_projection_remember_text">Ur d-skan ara tikkelt-nniḍen</string>
+    <string name="clear_all_notifications_text">Sfeḍ akk</string>
+    <string name="notification_section_header_alerting">Ilɣa</string>
+    <string name="empty_shade_text">Ulac ilɣa</string>
+    <string name="hidden_notifications_cancel">Uhu tannemmit</string>
+    <string name="hidden_notifications_setup">Sebded</string>
+    <string name="accessibility_volume_expand">Snefli</string>
+    <string name="accessibility_volume_collapse">Ḍfes</string>
+    <string name="screen_pinning_positive">Awi-t</string>
+    <string name="screen_pinning_negative">Uhu tannemmit</string>
+    <string name="quick_settings_reset_confirmation_button">Ffer</string>
+    <string name="stream_alarm">Teṭentunt</string>
+    <string name="output_service_wifi">Wi-Fi</string>
+    <string name="status_bar">Afeggag n waddad</string>
+    <string name="overview">Agzul</string>
+    <string name="status_bar_alarm">Teṭentunt</string>
+    <string name="status_bar_airplane">Askar asafag</string>
+    <string name="got_it">Awi-t</string>
+    <string name="enable_bluetooth_confirmation_ok">Rmed</string>
+    <string name="notification_header_default_channel">Ilɣa</string>
+    <string name="inline_done_button">Immed</string>
+    <string name="notification_conversation_channel_settings">Iɣewwaṛen</string>
+    <string name="notification_appops_settings">Iɣewwaṛen</string>
+    <string name="notification_more_settings">Iγewwaṛen nniḍen</string>
+    <string name="notification_app_settings">Sagen</string>
+    <string name="notification_done">Immed</string>
+    <string name="notification_menu_settings_action">Iɣewwaṛen</string>
+    <string name="battery_detail_switch_summary">Senɣes isefka n tmellit d ugilal</string>
+    <string name="keyboard_key_home">Agdil agejdan</string>
+    <string name="keyboard_key_back">Ar deffir</string>
+    <string name="keyboard_key_move_home">Agdil agejdan</string>
+    <string name="keyboard_shortcut_group_system_home">Agdil agejdan</string>
+    <string name="keyboard_shortcut_group_system_back">Ar deffir</string>
+    <string name="keyboard_shortcut_group_system_notifications">Ilɣa</string>
+    <string name="tuner_time">Akud</string>
+    <string name="pip_phone_expand">Snefli</string>
+    <string name="pip_phone_close">Mdel</string>
+    <string name="pip_phone_settings">Iɣewwaṛen</string>
+    <string name="pip_menu_title">Umuɣ</string>
+    <string name="tuner_menu">Umuɣ</string>
+    <string name="app_info">Talɣut n usnas</string>
+    <string name="slice_permission_allow">Sireg</string>
+    <string name="slice_permission_deny">Aggi</string>
+    <string name="no_auto_saver_action">Uhu tannemmit</string>
+    <string name="open_saver_setting_action">Iɣewwaṛen</string>
+    <string name="auto_saver_okay_action">Awi-t</string>
+    <string name="bubbles_user_education_got_it">Awi-t</string>
+    <string name="priority_onboarding_done_button_title">Awi-t</string>
+    <string name="priority_onboarding_settings_button_title">Iɣewwaṛen</string>
+    <string name="controls_media_resume">Kemmel</string>
+    <string name="controls_media_settings_button">Iɣewwaṛen</string>
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Stàladh phacaidean</string>
+    <string name="install">Stàlaich</string>
+    <string name="done">Deiseil</string>
+    <string name="cancel">Sguir dheth</string>
+    <string name="installing">’Ga stàladh\u2026</string>
+    <string name="installing_app">A’ stàladh <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
+    <string name="install_done">Chaidh an aplacaid a stàladh.</string>
+    <string name="install_confirm_question">An stàlaich thu an aplacaid seo?</string>
+    <string name="install_confirm_question_update">A bheil thu airson ùrachadh
+            dhan aplacaid seo a stàladh?  Cha chaill thu an dàta
+            a th’ agad.</string>
+    <string name="install_confirm_question_update_system">A bheil thu airson ùrachadh
+            dhan aplacaid thùsail seo a stàladh?  Cha chaill thu an dàta
+            a th’ agad.</string>
+    <string name="install_failed">Cha deach an aplacaid a stàladh.</string>
+    <string name="install_failed_blocked">Chaidh stàladh na pacaid a bhacadh.</string>
+    <string name="install_failed_conflict">Cha deach an aplacaid a stàladh on a tha còmhstri eadar a’ phacaid seo agus pacaid eile.</string>
+    <string name="install_failed_incompatible" product="tablet">Cha deach an aplacaid a stàladh oir nach eil an aplacaid seo
+        co-chòrdail ris an tablaid agad.</string>
+    <string name="install_failed_incompatible" product="tv">Chan eil an aplacaid seo
+        co-chòrdail ris an TBh agad.</string>
+    <string name="install_failed_incompatible" product="default">Cha deach an aplacaid a stàladh oir nach eil an aplacaid seo
+        co-chòrdail ris an fhòn agad.</string>
+    <string name="install_failed_invalid_apk">Cha deach an aplacaid a stàladh on a tha coltas mì-dhligheach air a’ phacaid.</string>
+    <string name="launch">Fosgail</string>
+    <string name="unknown_apps_admin_dlg_text">Cha cheadaich an rianaire agad gun stàlaich thu aplacaidean
+        o thùs nach aithne dhuinn.</string>
+    <string name="unknown_apps_user_restriction_dlg_text">Chan fhaod an cleachdaiche seo aplacaidean nach aithne dhuinn
+        a stàladh</string>
+    <string name="install_apps_user_restriction_dlg_text">Chan fhaod an cleachdaiche seo aplacaidean a stàladh</string>
+    <string name="ok">Ceart ma-thà</string>
+    <string name="manage_applications">Stiùir na h-aplacaidean</string>
+    <string name="out_of_space_dlg_title">Chan eil àite air fhàgail</string>
+    <string name="app_not_found_dlg_title">Cha deach an aplacaid a lorg</string>
+    <string name="app_not_found_dlg_text"> Cha deach an aplacaid a lorg air liosta nan aplacaidean stàlaichte.</string>
+    <string name="user_is_not_allowed_dlg_title">Gun chead</string>
+    <string name="user_is_not_allowed_dlg_text">Chan fhaod an cleachdaiche seo an dì-stàladh seo a dhèanamh.</string>
+    <string name="generic_error_dlg_title">Mearachd</string>
+    <string name="generic_error_dlg_text">Cha b’ urrainn dhuinn a aplacaid a dhì-stàladh.</string>
+    <string name="uninstall_application_title">Dì-stàlaich an aplacaid</string>
+    <string name="uninstall_update_title">Dì-stàlaich an t-ùrachadh</string>
+    <string name="uninstall_application_text">An dì-stàlaich thu an aplacaid seo?</string>
+    <string name="uninstall_update_text">A bheil thu airson tionndadh an fhactaraidh a chur an àite na h-aplacaid seo? Thèid a h-uile dàta a thoirt air falbh.</string>
+    <string name="uninstall_update_text_multiuser">A bheil thu airson tionndadh an fhactaraidh a chur an àite na h-aplacaid seo? Thèid a h-uile dàta a thoirt air falbh. Bidh buaidh aig seo air gach cleachdaiche an uidheim seo, a’ gabhail a-staigh an fheadhainn aig a bheil pròifil obrach. </string>
+    <string name="uninstalling_notification_channel">Dì-stàlaidhean ’gan ruith</string>
+    <string name="uninstall_failure_notification_channel">Dì-stàlaidhean a dh’fhàillig leotha</string>
+    <string name="uninstalling">’Ga dhì-stàladh\u2026</string>
+    <string name="uninstall_done">Chaidh a dhì-stàladh.</string>
+    <string name="uninstall_failed">Cha deach leinn a dhì-stàladh.</string>
+    <string name="uninstall_failed_device_policy_manager">Cha ghabh an aplacaid ghnìomhach airson rianachd an uidheim
+        a dhì-stàladh</string>
+    <string name="uninstall_all_blocked_profile_owner">Tha an aplacaid seo riatanach air cuid a phròifilean cleachdaiche
+        agus chaidh a dì-stàladh do dh’fheadhainn eile</string>
+    <string name="uninstall_blocked_profile_owner">Feumaidh a’ phròifil agad an aplacaid seo
+        agus cha ghabh a dì-stàladh.</string>
+    <string name="uninstall_blocked_device_owner">Dh’iarr rianaire an uidheim agad an aplacaid seo
+        agus cha ghabh a dì-stàladh.</string>
+    <string name="manage_device_administrators">Stiùir aplacaidean rianachd an uidheim</string>
+    <string name="manage_users">Stiùir na cleachdaichean</string>
+    <string name="Parse_error_dlg_text">Bha duilgheadas le parsadh na pacaid.</string>
+    <string name="wear_not_allowed_dlg_text">Cha chuir Wear taic ri gnìomhan stàlaidh/dì-stàlaidh.</string>
+    <string name="app_name_unknown">Chan eil fhios</string>
+    <string name="untrusted_external_source_warning" product="tablet">A chùm do thèarainteachd, chan fhaod an tablaid agad aplacaidean nach aithne dhuinn a stàladh on tùs seo.</string>
+    <string name="untrusted_external_source_warning" product="tv">A chùm do thèarainteachd, chan fhaod an TBh agad aplacaidean nach aithne dhuinn a stàladh on tùs seo.</string>
+    <string name="untrusted_external_source_warning" product="default">A chùm do thèarainteachd, chan fhaod am fòn agad aplacaidean nach aithne dhuinn a stàladh on tùs seo.</string>
+    <string name="anonymous_source_warning" product="default">        Tha am fòn ’s an dàta pearsanta agad nas so-leònta
+        a thaobh ionnsaighean o aplacaidean nach aithne dhuinn. Ma stàlaicheas tu an aplacaid seo,
+        aontaichidh tu gu bheil thu fhèin an urra ri
+        dochann sam bith air an fhòn agad no call dàta sam bith a dh’èireas o chleachdadh na h-aplacaid seo ma dh’fhaoidte.
+    </string>
+    <string name="anonymous_source_warning" product="tablet">        Tha an tablaid ’s an dàta pearsanta agad nas so-leònta
+        a thaobh ionnsaighean o aplacaidean nach aithne dhuinn. Ma stàlaicheas tu an aplacaid seo,
+        aontaichidh tu gu bheil thu fhèin an urra ri
+        dochann sam bith air an tablaid agad no call dàta sam bith a dh’èireas o chleachdadh na h-aplacaid seo ma dh’fhaoidte.
+    </string>
+    <string name="anonymous_source_warning" product="tv">        Tha an TBh ’s an dàta pearsanta agad nas so-leònta
+        a thaobh ionnsaighean o aplacaidean nach aithne dhuinn. Ma stàlaicheas tu an aplacaid seo,
+        aontaichidh tu gu bheil thu fhèin an urra ri
+        dochann sam bith air an TBh agad no call dàta sam bith a dh’èireas o chleachdadh na h-aplacaid seo ma dh’fhaoidte.
+    </string>
+    <string name="anonymous_source_continue">Air adhart</string>
+    <string name="external_sources_settings">Roghainnean</string>
+    <string name="wear_app_channel">A’ stàladh/dhì-stàladh aplacaidean wear</string>
+    <string name="app_installed_notification_channel_description">Brath air stàladh aplacaid</string>
+    <string name="notification_installation_success_message">Chaidh a stàladh</string>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dock_alignment_slow_charging" product="default">Ail-alinio\u2019r ffôn i wefru\u2019n mwy cyflym</string>
+    <string name="dock_alignment_not_charging" product="default">Ail-alionio\u2019r ffôn i wefru\u2019n ddiwifr</string>
+    <string name="inattentive_sleep_warning_message" product="tv">Bydd y ddyfais Android TV yn troi i ffwrdd yn fuan. Pwysa fotwm i\'w cadw ymlaen.</string>
+    <string name="inattentive_sleep_warning_message" product="default">Bydd y ddyfais yn troi i ffwrdd yn fuan. Pwysa fotwm i\'w cadw ymlaen.</string>
+    <string name="keyguard_missing_sim_message" product="tablet">Dim cerdyn SIM yn y llechen.</string>
+    <string name="keyguard_missing_sim_message" product="default">Dim cerdyn SIM yn y ffôn.</string>
+    <string name="kg_invalid_confirm_pin_hint" product="default">Dyw\'r codau PIN ddim yr un fath</string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="tablet">Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y llechen ei ail-osod a bydd ei holl ddata yn cael ei ddileu.    </string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="default">Rwyt wedi ceisio a methu datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y ffôn ei ail-osod a bydd ei holl ddata yn cael ei ddileu.    </string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">Rwyt wedi gwneud <xliff:g id="number">%d</xliff:g> ymdrech i ddatgloi\'r llechen. 
+Caiff y llechen ei ailosod, gan ddileu ei holl ddata.    </string>
+    <string name="kg_failed_attempts_now_wiping" product="default">Rwyt wedi gwneud <xliff:g id="number">%d</xliff:g> ymdrech i ddatgloi\'r ffôn. 
+Caiff y ffôn ei ailosod, gan ddileu ei holl ddata.    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="tablet">Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y defnyddiwr ei dynnu a bydd holl ddata\'r defnyddiwr yn cael ei dileu.    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="default">Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y defnyddiwr ei dynnu a bydd holl ddata\'r defnyddiwr yn cael ei dileu.    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="tablet">Rwyt wedi gwneud <xliff:g id="number">%d</xliff:g> ymdrech i ddatgloi\'r llechen. 
+Caiff y defnyddiwr ei dynnu, gan ddileu ei holl ddata.    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="default">Rwyt wedi gwneud <xliff:g id="number">%d</xliff:g> ymdrech i ddatgloi\'r ffôn. 
+Caiff y defnyddiwr ei dynnu, gan ddileu ei holl ddata.    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="tablet">Rwyt wedi ceisio a methu â datgloi\'r llechen <xliff:g id="number">%1$d</xliff:g> tro.
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y proffil gwaith ei dynnu a bydd holl ddata\'r proffil yn cael ei dileu.    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="default">Rwyt wedi ceisio a methu â datgloi\'r ffôn <xliff:g id="number">%1$d</xliff:g> tro.
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, caiff y proffil gwaith ei dynnu a bydd holl ddata\'r proffil yn cael ei dileu.    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="tablet">Rwyt wedi gwneud <xliff:g id="number">%d</xliff:g> ymdrech i ddatgloi\'r llechen. 
+Caiff y proffil gwaith ei dynnu, gan ddileu holl ddata\'r proffil.    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="default">Rwyt wedi gwneud <xliff:g id="number">%d</xliff:g> ymdrech i ddatgloi\'r ffôn. 
+Caiff y proffil gwaith ei dynnu, gan ddileu holl ddata\'r proffil.    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="tablet">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r llechen gan ddefnyddio cyfrif e-bost.\n\n
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="default">Rwyt wedi cael y patrwm yn anghywir <xliff:g id="number">%1$d</xliff:g> tro.\n
+Ar ôl <xliff:g id="number">%2$d</xliff:g> cynnig aflwyddiannus arall, mi fydd gofyn iti ddatgloi\'r ffôn gan ddefnyddio cyfrif e-bost.\n\n
+Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </string>
+    <string name="global_action_lock_message" product="default">Rhaid datgloi dy ffôn am ragor o ddewisiadau</string>
+    <string name="global_action_lock_message" product="tablet">Rhaid datgloi dy lechen am ragor o ddewisiadau</string>
+    <string name="global_action_lock_message" product="device">Rhaid datgloi dy ddyfais am ragor o ddewisiadau</string>
+</resources>

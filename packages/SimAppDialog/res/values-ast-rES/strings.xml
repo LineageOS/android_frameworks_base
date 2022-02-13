@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2018 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Diálogu d\'aplicación pa tarxetes SIM</string>
+    <string name="install_carrier_app_title">Activación del serviciu móvil</string>
+    <string name="install_carrier_app_description">Pa que la SIM nueva funcione afayadizamente,
+        tienes d\'instalar l\'aplicación «<xliff:g name="carrier_name" example="Project Fi">%1$s</xliff:g>»
+    </string>
+    <string name="install_carrier_app_description_default">Pa que la SIM nueva funcione afayadizamente,
+        tienes d\'instalar l\'aplicación de la operadora
+    </string>
+    <string name="install_carrier_app_defer_action">Agora non</string>
+    <string name="install_carrier_app_download_action">Baxar l\'aplicación</string>
+</resources>

@@ -15,6 +15,7 @@
 -->
 <resources>
     <string name="app_label">Almacenamientu esternu</string>
+    <string name="storage_description">Almacenamientu llocal</string>
     <string name="root_internal_storage">Almacenamientu internu</string>
     <string name="root_documents">Documentos</string>
 </resources>

@@ -16,10 +16,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="prompt">Cais am gysylltu</string>
     <string name="warning">Mae <xliff:g id="app">%s</xliff:g> eisiau gosod cysylltiad VPN sy\'n ei alluogi i fonitro traffig rhwydwaith. Paid â derbyn oni bai dy fod yn ymddiried ynddo. Mae\'r eicon isod yn ymddangos ar frig y sgrin tra bod VPN ar waith.
-                &lt;br /&gt;
-        &lt;br /&gt;
-        &lt;img src="vpn_icon" /&gt;
-        ;    </string>
+        <![CDATA[        <br />
+        <br />
+        <img src="vpn_icon" />
+        ]]>;    </string>
     <string name="legacy_title">VPN wedi cysylltu</string>
     <string name="session">Sesiwn:</string>
     <string name="duration">Hyd:</string>

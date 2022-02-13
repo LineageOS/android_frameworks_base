@@ -330,7 +330,7 @@
     <string name="permgroupdesc_activityRecognition">cothrom air gnìomhachd do bhodhaige</string>
     <string name="permgrouplab_camera">Camara</string>
     <string name="permgroupdesc_camera">dealbhan a thogail ’s videothan a chlàradh</string>
-    <string name="permgrouplab_calllog">Logaichean nan gairmean</string>
+    <string name="permgrouplab_calllog">Loga nan gairm</string>
     <string name="permgroupdesc_calllog">loga gairmean an fhòn a leughadh ’s a sgrìobhadh</string>
     <string name="permgrouplab_phone">Fòn</string>
     <string name="permgroupdesc_phone">gairmean fòn a chur ’s a stiùireadh</string>
@@ -1572,7 +1572,7 @@
     <string name="no_permissions">Chan eil feum air ceadan</string>
     <string name="perm_costs_money">dh’fhaoidte gun coisg seo airgead</string>
     <string name="dlg_ok">Ceart ma-thà</string>
-    <string name="usb_charging_notification_title">A’ teàirrdseadh an uidheim seo slighe USB</string>
+    <string name="usb_charging_notification_title">’Ga theàirrdseadh slighe USB</string>
     <string name="usb_supplying_notification_title">A’ teàirrdseadh uidheam ceangailte slighe USB</string>
     <string name="usb_mtp_notification_title">Chaidh tar-chur fhaidhlichean le USB a chur air</string>
     <string name="usb_ptp_notification_title">Chaidh PTP slighe USB a chur air</string>
@@ -1592,7 +1592,7 @@
     <string name="test_harness_mode_notification_title">Tha am modh Test Harness an comas</string>
     <string name="test_harness_mode_notification_message">Ath-shuidhich air roghainnean an fhactaraidh airson modh Test Harness a chur à comas.</string>
     <string name="console_running_notification_title">Tha a’ chonsoil shreathach an comas</string>
-    <string name="console_running_notification_message">Tha buair aid an dèanadas. gus a chur à comas, thoir sùil air a’ bootloader.</string>
+    <string name="console_running_notification_message">Tha buaidh air an dèanadas. Gus a chur à comas, thoir sùil air a’ bootloader.</string>
     <string name="usb_contaminant_detected_title">Lionn no treathlaich sa phort USB</string>
     <string name="usb_contaminant_detected_message">Chaidh am port USB a chur à comas gu fèin-obrachail. Thoir gnogag airson barrachd fiosrachaidh.</string>
     <string name="usb_contaminant_not_detected_title">Gabhaidh am port USB a chleachdadh a-rithist</string>
@@ -1691,6 +1691,7 @@
     <string name="deny">Diùlt</string>
     <string name="permission_request_notification_title">Chaidh cead iarraidh</string>
     <string name="permission_request_notification_with_subtitle">Chaidh cead iarraidh\nairson cunntas <xliff:g id="account" example="foo@gmail.com">%s</xliff:g>.</string>
+    <string name="permission_request_notification_for_app_with_subtitle">Dh’iarr <xliff:g id="app" example="Gmail">%1$s</xliff:g> cead\ndo chunntas <xliff:g id="account" example="foo@gmail.com">%2$s</xliff:g>.</string>
     <string name="forward_intent_to_owner">Tha thu a’ cleachdadh na h-aplacaid seo taobh a-muigh pròifil na h-obrach agad</string>
     <string name="forward_intent_to_work">Tha thu a’ cleachdadh na h-aplacaid ann am pròifil na h-obrach agad</string>
     <string name="input_method_binding_label">Modh ion-chuir</string>
@@ -2268,7 +2269,7 @@
     <string name="pin_specific_target">Prìnich <xliff:g id="label" example="Tweet">%1$s</xliff:g></string>
     <string name="unpin_target">Dì-phrìnich </string>
     <string name="unpin_specific_target">Dì-phrìnich <xliff:g id="label" example="Tweet">%1$s</xliff:g></string>
-    <string name="app_info">Fiosrachadh mun aplacaid</string>
+    <string name="app_info">Mun aplacaid</string>
     <string name="negative_duration">\u2212<xliff:g id="time" example="1:14">%1$s</xliff:g></string>
     <string name="demo_starting_message">A’ tòiseachadh air demo\u2026</string>
     <string name="demo_restarting_message">Ag ath-shuidheachadh an uidheim\u2026</string>
