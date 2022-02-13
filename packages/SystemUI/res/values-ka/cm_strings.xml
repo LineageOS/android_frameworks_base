@@ -18,7 +18,9 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_recovery">აღმდგენი</string>
     <string name="global_action_restart_bootloader">ჩამტვირთავი</string>
+    <string name="global_action_restart_recovery_progress">გადაიტვირთება აღმდგენ რეჟიმში\u2026</string>
     <string name="quick_settings_network_adb_label">ADB ქსელით</string>
     <string name="quick_settings_ambient_display_label">ურთიერთქმედი ეკრანი</string>
     <string name="accessibility_quick_settings_ambient_display_off">ურთიერთქმედი ეკრანი გამორთ.</string>

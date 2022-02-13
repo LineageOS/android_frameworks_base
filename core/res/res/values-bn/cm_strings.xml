@@ -23,6 +23,7 @@
     <string name="app_ops_access_camera">ক্যামেরায় প্রবেশাধিকার</string>
     <string name="app_ops_access_location">আপনার অবস্থানে প্রবেশাধিকার</string>
     <string name="app_ops_access_notifications">আপনার নোটিফিকেশানস প্রবেশাধিকার</string>
+    <string name="app_ops_assist_screenshot">স্ক্রিনশট নিন</string>
     <string name="app_ops_get_usage_stats">অ্যাপের সংস্থান তথ্যাদি পান</string>
     <string name="app_ops_keep_device_awake">আপনার ডিভাইস জাগ্রত রাখা</string>
     <string name="app_ops_make_phone_call">একটি ফোন কল করুন</string>
@@ -38,6 +39,7 @@
     <string name="app_ops_read_clipboard">ক্লিপবোর্ড এ প্রবেশাধিকার</string>
     <string name="app_ops_read_contacts">যোগাযোগসমূহে প্রবেশাধিকার</string>
     <string name="app_ops_read_mms">এমএমএস বার্তায় প্রবেশাধিকার</string>
+    <string name="app_ops_read_phone_state">ফোনের অবস্থা জানতে পারে</string>
     <string name="app_ops_read_sms">এমএমএস বার্তায় প্রবেশাধিকার</string>
     <string name="app_ops_receive_sms">একটি এসএমএস বার্তা গ্রহণ</string>
     <string name="app_ops_record_audio">অডিও রেকর্ড</string>

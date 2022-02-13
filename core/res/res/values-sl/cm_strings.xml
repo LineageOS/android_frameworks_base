@@ -95,7 +95,7 @@
     <string name="app_ops_use_media_volume">nadzor glasnosti predstavnosti</string>
     <string name="app_ops_use_notification_volume">nadzor glasnosti obvestil</string>
     <string name="app_ops_use_ring_volume">nadzor glasnosti zvonjenja</string>
-    <string name="app_ops_use_vibrate">uporaba haptičnega zaznavanja</string>
+    <string name="app_ops_use_vibrate">uporaba haptičnega odziva</string>
     <string name="app_ops_use_voice_volume">nadzor glasnosti klicev</string>
     <string name="app_ops_wifi_change">spreminjanje stanja Wi-Fi</string>
     <string name="app_ops_write_external_storage">pisanje zunanje pomnilniške naprave</string>

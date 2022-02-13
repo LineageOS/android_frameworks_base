@@ -38,10 +38,8 @@
     <string name="app_ops_read_clipboard">පසුරු පුවරුව කියවීම</string>
     <string name="app_ops_read_contacts">ඔබගේ සම්බන්ධතා කියවීම</string>
     <string name="app_ops_read_mms">ඔබගේ MMS පනිවිඩ කියවීම</string>
-    <string name="app_ops_read_sms">ඔබගේ කෙටි පනිවිඩ කියවීම</string>
+    <string name="app_ops_read_sms">ඔබගේ කෙටි පණිවිඩ කියවීම</string>
     <string name="app_ops_receive_sms">කෙටි පනිවිඩයක් බාර ගැනීම</string>
-    <string name="app_ops_record_audio">ශ්‍රව්‍ය රෙකෝඩනය</string>
-    <string name="app_ops_send_mms">MMS පනිවිඩයක් යැවීම</string>
     <string name="app_ops_send_sms">කෙටි පනිවිඩයක් යැවීම</string>
     <string name="app_ops_start_at_bootup">පණගැන්වීමේදී ධාවනය</string>
     <string name="app_ops_toggle_bluetooth">බ්ලූටූත් ටොගලනය</string>
@@ -66,5 +64,4 @@
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g>ට පුද්ගලික දත්ත පරිශීලනය කල නොහැක</string>
     <string name="privacy_guard_dialog_title">පෞද්ගලිකත්වයේ මුරකරු</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="op">%2$s</xliff:g> සඳහා <xliff:g id="app">%1$s</xliff:g>ට අවශ්‍යව ඇත.</string>
-    <string name="permission_remember_choice">මගේ තේරීම මතක තබා ගන්න</string>
 </resources>

@@ -40,6 +40,7 @@
     <string name="keyboard_layout_lithuanian">Liotuainis</string>
     <string name="keyboard_layout_spanish_latin">Spàinntis (Laideann)</string>
     <string name="keyboard_layout_latvian">Laitbheis</string>
+    <string name="keyboard_layout_persian">Peirsis</string>
     <string name="keyboard_layout_azerbaijani">Asarbaideànais</string>
     <string name="keyboard_layout_polish">Pòlainnis</string>
 </resources>

@@ -15,6 +15,7 @@
 -->
 <resources>
     <string name="app_label">Stòras air an taobh a-muigh</string>
+    <string name="storage_description">Stòras ionadail</string>
     <string name="root_internal_storage">Stòras inntearnail</string>
     <string name="root_documents">Sgrìobhainnean</string>
 </resources>

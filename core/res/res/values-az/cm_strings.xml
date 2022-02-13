@@ -68,7 +68,7 @@
     <string name="app_ops_read_phone_state">telefon vəziyyətinə müraciət</string>
     <string name="app_ops_read_sms">SMS mesajlarını oxu</string>
     <string name="app_ops_receive_sms">SMS mesajı qəbul et</string>
-    <string name="app_ops_receive_emergency_broadcast">təcili vəziyyət yayım mesajı al</string>
+    <string name="app_ops_receive_emergency_broadcast">fövqəladə vəziyyət yayım mesajı al</string>
     <string name="app_ops_record_audio">səs yaz</string>
     <string name="app_ops_request_delete_packages">paketləri silmə sorğusu</string>
     <string name="app_ops_run_in_background">arxaplanda işlət</string>

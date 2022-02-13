@@ -30,6 +30,8 @@
     <string name="app_ops_assist_structure">structuur voor ondersteuning gebruiken</string>
     <string name="app_ops_audio_accessibility_volume">toegankelijkheidsvolume</string>
     <string name="app_ops_auto_start">starten tijdens opstarten</string>
+    <string name="app_ops_bind_accessibility_service">binden aan een toegankelijkheidsservice</string>
+    <string name="app_ops_bluetooth_scan">bluetooth scan</string>
     <string name="app_ops_change_wallpaper">achtergrond aanpassen</string>
     <string name="app_ops_delete_call_log">oproepgeschiedenis verwijderen</string>
     <string name="app_ops_delete_contacts">contacten verwijderen</string>
@@ -38,8 +40,10 @@
     <string name="app_ops_draw_on_top">bovenop tekenen</string>
     <string name="app_ops_get_accounts">apparaataccounts opvragen</string>
     <string name="app_ops_get_usage_stats">app-gebruiksstatistieken opvragen</string>
+    <string name="app_ops_accept_handover">overdracht van een oproep van een andere app</string>
     <string name="app_ops_install_packages">pakketten installeren</string>
     <string name="app_ops_keep_device_awake">apparaat wakker houden</string>
+    <string name="app_ops_manage_ipsec_tunnels">beheer IPsec-tunnels</string>
     <string name="app_ops_make_phone_call">telefoongesprek starten</string>
     <string name="app_ops_mock_location">neplocatie gebruiken</string>
     <string name="app_ops_modify_calendar">agenda vernieuwen</string>
@@ -64,12 +68,16 @@
     <string name="app_ops_read_phone_state">toegang tot telefoonstatus</string>
     <string name="app_ops_read_sms">sms-berichten lezen</string>
     <string name="app_ops_receive_sms">sms-bericht ontvangen</string>
+    <string name="app_ops_receive_emergency_broadcast">ontvang een noodwaarschuwingsbericht</string>
     <string name="app_ops_record_audio">audio opnemen</string>
+    <string name="app_ops_request_delete_packages">verwijdering van pakketten aanvragen</string>
     <string name="app_ops_run_in_background">op de achtergrond uitvoeren</string>
+    <string name="app_ops_run_any_in_background">alle op de achtergrond uitvoeren</string>
     <string name="app_ops_scan_wifi">wifi-netwerken scannen</string>
     <string name="app_ops_send_mms">mms-bericht versturen</string>
     <string name="app_ops_send_sms">sms-bericht versturen</string>
     <string name="app_ops_start_at_bootup">starten tijdens opstarten</string>
+    <string name="app_ops_start_foreground">start op de voorgrond</string>
     <string name="app_ops_su">root-toegang krijgen</string>
     <string name="app_ops_toast_window">meldingen weergeven</string>
     <string name="app_ops_toggle_bluetooth">Bluetooth aan-/uitzetten</string>

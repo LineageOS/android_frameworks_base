@@ -19,6 +19,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_recovery">Gendannelse</string>
+    <string name="global_action_restart_bootloader">Opstartslæser</string>
+    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_progress">Genstarter\u2026</string>
+    <string name="global_action_restart_recovery_progress">Genstarter i gendannelses tilstand\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Genstarter i opstartslæser tilstand\u2026</string>
+    <string name="global_action_restart_download_progress">Genstarter i download tilstand\u2026</string>
+    <string name="global_action_current_user">Aktuel</string>
     <string name="quick_settings_network_adb_label">ADB over netværk</string>
     <string name="quick_settings_ambient_display_label">Aktiv låseskærm</string>
     <string name="accessibility_quick_settings_ambient_display_off">Aktiv låseskærm fra.</string>
@@ -33,6 +41,9 @@
     <string name="accessibility_quick_settings_heads_up_on">Banner notifikationer til.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Banner notifikationer slået fra.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Banner notifikationer slået til.</string>
+    <string name="quick_settings_reading_mode">Læsetilstand</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Læsetilstand til.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Læsetilstand fra.</string>
     <string name="quick_settings_sync_label">Synkronisering</string>
     <string name="accessibility_quick_settings_sync_off">Synkronisering fra.</string>
     <string name="accessibility_quick_settings_sync_on">Synkronisering til.</string>

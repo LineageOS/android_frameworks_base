@@ -28,12 +28,15 @@
     <string name="destination_default_text">Tagh clò-bhualadair</string>
     <string name="template_all_pages">Na h-uile <xliff:g id="page_count" example="100">%1$s</xliff:g></string>
     <string name="template_page_range">Cuidh dhiubh <xliff:g id="page_count" example="100">%1$s</xliff:g></string>
+    <string name="pages_range_example">m.e. 1—5,8,11—13</string>
     <string name="print_preview">Ro-shealladh clò-bhualaidh</string>
     <string name="install_for_print_preview">Stàlaich sealladair PDF airson ro-shealladh</string>
     <string name="printing_app_crashed">Thuislich aplacaid a’ chlò-bhualaidh</string>
     <string name="generating_print_job">A’ gintinn obair clò-bhualaidh</string>
     <string name="save_as_pdf">Sàbhail mar PDF</string>
+    <string name="all_printers">A h-uile clò-bhualadair…</string>
     <string name="print_dialog">Còmhradh a’ chlò-bhualaidh</string>
+    <string name="current_page_template"><xliff:g id="current_page">%1$d</xliff:g>/<xliff:g id="page_count">%2$d</xliff:g></string>
     <string name="page_description_template">Duilleag <xliff:g id="current_page" example="1">%1$d</xliff:g>
         à <xliff:g id="page_count" example="100">%2$d</xliff:g></string>
     <string name="summary_template">Geàrr-chunntas, leth-bhreacan: <xliff:g id="copies" example="1">%1$s</xliff:g>,
@@ -60,6 +63,8 @@
     </plurals>
     <string name="printer_extended_description_template"><xliff:g id="print_service_label" example="Canon Print Service">%1$s</xliff:g> – <xliff:g id="printer_description" example="Printer under the stairs">%2$s</xliff:g></string>
     <string name="printer_info_desc">Barrachd fiosrachaidh mun chlò-bhualadair seo</string>
+    <string name="notification_channel_progress">Obraichean clò-bhualaidh ’gan ruith</string>
+    <string name="notification_channel_failure">Obraichean clò-bhualaidh a dh’fhàillig</string>
     <string name="could_not_create_file">Cha b’ urrainn dhuinn am faidhle a chruthachadh</string>
     <string name="print_services_disabled_toast">Tha cuid a sheirbheisean clò-bhualaidh à comas</string>
     <string name="print_searching_for_printers">A’ lorg clò-bhualadairean</string>
