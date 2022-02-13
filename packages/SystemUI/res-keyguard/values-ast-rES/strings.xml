@@ -74,8 +74,8 @@
     <string name="kg_sim_lock_esim_instructions"><xliff:g id="previous_msg" example="Enter SIM PIN.">%1$s</xliff:g> Desactiva la eSIM pa usar el preséu ensin serviciu móvil.</string>
     <string name="kg_pin_instructions">Introduz el PIN</string>
     <string name="kg_password_instructions">Introduz la contraseña</string>
-    <string name="kg_puk_enter_puk_hint">La tarxeta SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más detalles.</string>
-    <string name="kg_puk_enter_puk_hint_multi">Agora la SIM «<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>» ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más detalles.</string>
+    <string name="kg_puk_enter_puk_hint">La tarxeta SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más información.</string>
+    <string name="kg_puk_enter_puk_hint_multi">Agora la SIM «<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>» ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más información.</string>
     <string name="kg_puk_enter_pin_hint">Introduz el códigu PIN deseáu</string>
     <string name="kg_enter_confirm_pin_hint">Confirma\'l códigu PIN deseáu</string>
     <string name="kg_sim_unlock_progress_dialog_message">Desbloquiando la tarxeta SIM\u2026</string>
@@ -191,8 +191,8 @@
         <item quantity="other">Introduz el PIN de la SIM. Quédente <xliff:g id="number">%d</xliff:g> intentos.</item>
     </plurals>
     <plurals name="kg_password_default_puk_message">
-        <item quantity="one">Agora la SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Quédate <xliff:g id=" number">%d</xliff:g> intentu enantes d\'inutilizar dafechu la SIM. Ponte en contautu cola operadora pa consiguir más detalles.</item>
-        <item quantity="other">Agora la SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Quédente <xliff:g id=" number">%d</xliff:g> intentos enantes d\'inutilizar dafechu la SIM. Ponte en contautu cola operadora pa consiguir más detalles.</item>
+        <item quantity="one">Agora la SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Quédate <xliff:g id=" number">%d</xliff:g> intentu enantes d\'inutilizar dafechu la SIM. Ponte en contautu cola operadora pa consiguir más información.</item>
+        <item quantity="other">Agora la SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Quédente <xliff:g id=" number">%d</xliff:g> intentos enantes d\'inutilizar dafechu la SIM. Ponte en contautu cola operadora pa consiguir más información.</item>
     </plurals>
     <string name="clock_title_default">Por defeutu</string>
     <string name="clock_title_bubble">Burbuya</string>

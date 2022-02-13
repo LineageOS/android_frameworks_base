@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_bar_label">Clàradh air loidhne</string>
+    <string name="sign_up_failed">Dh’fhàillig leis a’ chlàradh</string>
+</resources>

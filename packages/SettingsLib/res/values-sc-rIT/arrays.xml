@@ -18,24 +18,44 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="wifi_status_with_ssid">
+    <string-array name="wifi_status">
         <item/>
-        <item>Scanning\u2026</item>
-        <item>Connecting to 
-            <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <item>Authenticating with 
-            <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <item>Obtaining IP address from 
-            <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <item>Connected to 
-            <xliff:g id="network_name">%1$s</xliff:g>
-        </item>
-        <item>Suspended</item>
-        <item>Disconnecting from 
-            <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <item>Disconnected</item>
+        <item>Iscansionende\u2026</item>
+        <item>Connetende·si\u2026</item>
+        <item>Autentichende\u2026</item>
+        <item>Otenende s\'indiritzu IP\u2026</item>
+        <item>Connètidu</item>
+        <item>Suspesu</item>
+        <item>Iscolleghende·si\u2026</item>
+        <item>Disconnètidu</item>
         <item>Errore</item>
         <item>Blocadu</item>
         <item>Pro immoe evitende sa connessione dèbile</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item/>
+        <item>Iscansionende\u2026</item>
+        <item>Connetende·si a <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Autentichende cun <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Otenende s\'indiritzu IP dae <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Collegadu a <xliff:g id="network_name">%1$s</xliff:g></item>
+        <item>Suspesu</item>
+        <item>Iscolleghende·si dae <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Disconnètidu</item>
+        <item>Errore</item>
+        <item>Blocadu</item>
+        <item>Pro immoe evitende sa connessione dèbile</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Off</item>
+        <item>All</item>
+        <item>All but radio</item>
+        <item>nùcleu ebbia</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Off</item>
+        <item>All log buffers</item>
+        <item>All but radio log buffers</item>
+        <item>isceti sa memòria intermediària de registru nùcleu</item>
     </string-array>
 </resources>

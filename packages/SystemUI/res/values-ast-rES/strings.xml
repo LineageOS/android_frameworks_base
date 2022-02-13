@@ -402,8 +402,8 @@ supervisada</string>
     <string name="notification_tap_again">Volvi tocar p\'abrir</string>
     <string name="keyguard_unlock">Esliza p\'arriba p\'abrir</string>
     <string name="keyguard_retry">Esllizar p\'arriba pa retentar</string>
-    <string name="dock_alignment_slow_charging" product="default">Coloca bien el preséu na base p\'activar la carga rápida</string>
-    <string name="dock_alignment_not_charging" product="default">Coloca bien el preséu na base p\'activar la carga ensin filos</string>
+    <string name="dock_alignment_slow_charging" product="default">Coloca bien el preséu na base pa cargalu más rápido</string>
+    <string name="dock_alignment_not_charging" product="default">Coloca bien el preséu na base pa cargalu ensin filos</string>
     <string name="do_disclosure_generic">La to organización xestiona esti preséu</string>
     <string name="do_disclosure_with_name">«<xliff:g id="organization_name" example="Foo, Inc.">%s</xliff:g>» xestiona esti preséu</string>
     <string name="phone_hint">Esliza dende l\'iconu p\'abrir el teléfonu</string>
@@ -923,6 +923,8 @@ prioridá</string>
     <string name="mobile_data_disable_title">¿Quies desactivar los datos móviles?</string>
     <string name="mobile_data_disable_message">Nun vas tener accesu a los datos nin a internet pente «<xliff:g id="carrier" example="T-Mobile">%s</xliff:g>». La conexón a internet namás va tar disponible per Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">la to operadora</string>
+    <string name="touch_filtered_warning">Pola mor d\'una aplicación que bloquía la solicitú de
+        permisos, «Axustes» nun pue verificar la to rempuesta.</string>
     <string name="slice_permission_title">¿Quies permitir que «<xliff:g id="app" example="Example App">%1$s</xliff:g> amuese fragmentos de l\'aplicación «<xliff:g id="app_2" example="Other Example App">%2$s</xliff:g>»?</string>
     <string name="slice_permission_text_1"> - Pue lleer la información de l\'aplicación «<xliff:g id="app" example="Example App">%1$s</xliff:g>»</string>
     <string name="slice_permission_text_2"> - Pue facer aiciones na aplicación «<xliff:g id="app" example="Example App">%1$s</xliff:g>»</string>

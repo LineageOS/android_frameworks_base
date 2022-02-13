@@ -331,7 +331,7 @@
     <string name="permgroupdesc_camera">dealbhan a thogail ’s videothan a chlàradh</string>
     <string name="permgrouprequest_camera">A bheil thu airson cead a thoirt dha
         &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; dealbhan a thogail is videothan a chlàradh?</string>
-    <string name="permgrouplab_calllog">Logaichean nan gairmean</string>
+    <string name="permgrouplab_calllog">Loga nan gairm</string>
     <string name="permgroupdesc_calllog">loga gairmean an fhòn a leughadh ’s a sgrìobhadh</string>
     <string name="permgrouprequest_calllog">A bheil thu airson cead a thoirt dha
         &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; logaichean gairmean an fhòn agad inntrigeadh?</string>
@@ -1637,7 +1637,7 @@
     <string name="no_permissions">Chan eil feum air ceadan</string>
     <string name="perm_costs_money">dh’fhaoidte gun coisg seo airgead</string>
     <string name="dlg_ok">Ceart ma-thà</string>
-    <string name="usb_charging_notification_title">A’ teàirrdseadh an uidheim seo slighe USB</string>
+    <string name="usb_charging_notification_title">’Ga theàirrdseadh slighe USB</string>
     <string name="usb_supplying_notification_title">A’ teàirrdseadh uidheam ceangailte slighe USB</string>
     <string name="usb_mtp_notification_title">Chaidh tar-chur fhaidhlichean le USB a chur air</string>
     <string name="usb_ptp_notification_title">Chaidh PTP slighe USB a chur air</string>
@@ -2285,7 +2285,7 @@
     <string name="usb_mtp_launch_notification_description">Thoir gnogag gus faidhlichean a shealltainn</string>
     <string name="pin_target">Prìnich</string>
     <string name="unpin_target">Dì-phrìnich</string>
-    <string name="app_info">Fiosrachadh mun aplacaid</string>
+    <string name="app_info">Mun aplacaid</string>
     <string name="negative_duration">\u2212<xliff:g id="time" example="1:14">%1$s</xliff:g></string>
     <string name="demo_starting_message">A’ tòiseachadh air demo\u2026</string>
     <string name="demo_restarting_message">Ag ath-shuidheachadh an uidheim\u2026</string>

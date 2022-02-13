@@ -50,12 +50,35 @@
     <string name="bluetooth_hid_profile_summary_connected">Collegadu a su dispositivu de intrada</string>
     <string name="bluetooth_map_profile_summary_use_for">Imprea pro sa mapa</string>
     <string name="bluetooth_sap_profile_summary_use_for">Imprea pro s\'atzessu a sa SIM</string>
-    <string name="tether_settings_title_usb_bluetooth">Tethering</string>
-    <string name="tether_settings_title_all">Tethering e puntu de atzessu portàtile</string>
+    <string name="bluetooth_opp_profile_summary_use_for">Imprea pro sa tràmuda de archìvios</string>
+    <string name="bluetooth_hid_profile_summary_use_for">Imprea pro s\'intrada</string>
+    <string name="bluetooth_pairing_accept">Assòtzia</string>
+    <string name="bluetooth_pairing_accept_all_caps">ASSÒTZIA</string>
+    <string name="bluetooth_pairing_decline">Annulla</string>
+    <string name="bluetooth_pairing_will_share_phonebook">Cando collegadu, s\'assòtziu donat s\'atzessu a is cuntatos e a sa cronologia de mutidas tuas.</string>
+    <string name="bluetooth_pairing_error_message">No at fatu a s\'assotziare cun <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_pin_error_message">No at fatu a s\'assotziare cun <xliff:g id="device_name">%1$s</xliff:g> ca su PIN o sa crae de intrada est isballiada.</string>
+    <string name="bluetooth_pairing_device_down_error_message">No at fatu a comunicare cun <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_rejected_error_message">Assòtziu refudadu dae <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="accessibility_wifi_off">Wifi disativadu.</string>
+    <string name="accessibility_no_wifi">Wifi iscollegadu.</string>
+    <string name="accessibility_wifi_one_bar">Wifi a un\'istanca.</string>
+    <string name="accessibility_wifi_two_bars">Wifi a duas istancas.</string>
+    <string name="accessibility_wifi_three_bars">Wifi a tres istancas.</string>
+    <string name="accessibility_wifi_signal_full">Segnale Wifi a su màssimu.</string>
+    <string name="process_kernel_label">Android OS</string>
+    <string name="data_usage_uninstalled_apps">Aplicatziones bogadas</string>
+    <string name="data_usage_uninstalled_apps_users">Aplicatziones e utèntzias bogadas</string>
+    <string name="tether_settings_title_usb">Ancoràgiu web USB</string>
+    <string name="tether_settings_title_wifi">Puntu de atzessu portàtile</string>
+    <string name="tether_settings_title_bluetooth">Ancoràgiu web Bluetooth.</string>
+    <string name="tether_settings_title_usb_bluetooth">Ancoràgiu web</string>
+    <string name="tether_settings_title_all">Ancoràgiu web e puntu de atzessu portàtile</string>
     <string name="unknown">Disconnotu</string>
     <string name="running_process_item_user_label">Utente: <xliff:g id="user_name">%1$s</xliff:g></string>
     <string name="tts_status_title">Istadu de limba predefinidu</string>
     <string name="daltonizer_mode_disabled">Disativadu</string>
     <string name="battery_info_status_unknown">Disconnotu</string>
     <string name="disabled">Disativadu</string>
+    <string name="cancel">Annulla</string>
 </resources>

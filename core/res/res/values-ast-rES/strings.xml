@@ -534,7 +534,7 @@
     <string name="permdesc_vibrate">Permite que l\'aplicación controle\'l vibrador.</string>
     <string name="permlab_callPhone">llamada direuta a los númberos de teléfonu</string>
     <string name="permdesc_callPhone">Permite que l\'aplicación faiga llamaes
-      ensin la to intervención. Esta aición pue producir cargos o llamaes
+      ensin la to intervención. Esta aición pue xenerar cargos o llamaes
       inesperaos. Decátate qu\'esto nun permite a l\'aplicación facer llamaes a
       númberos d\'emerxencia. Les aplicaciones malicioses puen facer llamaes
       ensin la to confirmación y xenerar costos adicionales.</string>
@@ -1936,7 +1936,7 @@
     <string name="kg_sim_pin_instructions">Introduz el PIN de la SIM</string>
     <string name="kg_pin_instructions">Introduz el PIN</string>
     <string name="kg_password_instructions">Introduz la contraseña</string>
-    <string name="kg_puk_enter_puk_hint">La tarxeta SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más detalles.</string>
+    <string name="kg_puk_enter_puk_hint">La tarxeta SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más información.</string>
     <string name="kg_puk_enter_pin_hint">Introduz el códigu PIN deseáu</string>
     <string name="kg_enter_confirm_pin_hint">Confirma\'l códigu PIN deseáu</string>
     <string name="kg_sim_unlock_progress_dialog_message">Desbloquiando la tarxeta SIM\u2026</string>
@@ -2215,7 +2215,7 @@
     <string name="zen_mode_default_every_night_name">Dormiendo</string>
     <string name="muted_by">«<xliff:g id="third_party">%1$s</xliff:g>» ta desactivando dalgunos soníos</string>
     <string name="system_error_wipe_data">Hai un problema internu col preséu y pue que funcione de forma inestable hasta que lu reafites.</string>
-    <string name="system_error_manufacturer">Hai un problema internu col preséu. Ponte en contautu col fabricante pa consiguir más detalles.</string>
+    <string name="system_error_manufacturer">Hai un problema internu col preséu. Ponte en contautu col fabricante pa consiguir más información.</string>
     <string name="stk_cc_ussd_to_dial">La solicitú USSD camudó a una llamada normal</string>
     <string name="stk_cc_ussd_to_ss">La solicitú USSD camudó a una solicitú SS</string>
     <string name="stk_cc_ussd_to_ussd">Camudó a una solicitú USSD nueva</string>

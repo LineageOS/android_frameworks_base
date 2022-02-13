@@ -152,7 +152,7 @@
     <string name="launch_defaults_none">Cha deach a bun-roghainn a shuidheachadh</string>
     <string name="tts_settings">Roghainnean teacsa ’na chainnt</string>
     <string name="tts_settings_title">Às-chur teacsa ’na chainnt</string>
-    <string name="tts_default_rate_title">Astar a’ bhruidhinn</string>
+    <string name="tts_default_rate_title">Astar na bruidhne</string>
     <string name="tts_default_rate_summary">Dè cho luath a thèid an teacsa a ràdh</string>
     <string name="tts_default_pitch_title">Gleus</string>
     <string name="tts_default_pitch_summary">Bidh buaidh air gnè-fhuaime na cainnt co-thàthte</string>
@@ -448,7 +448,7 @@
         cairt-creideis. Thig e o aplacaid 
 <xliff:g id="ime_application_name">%1$s</xliff:g>
         A bheil thu airson am modh ion-chuir seo a chleachdadh?</string>
-    <string name="direct_boot_unaware_dialog_message">An aire: As dèidh ath-thòiseachadh, chan urrainn dhan aplacaid seo tòiseachadh mus doir thu a’ ghlas fhad an fhòn agad</string>
+    <string name="direct_boot_unaware_dialog_message">An aire: As dèidh ath-thòiseachadh, chan urrainn dhan aplacaid seo tòiseachadh mus doir thu a’ ghlas far an fhòn agad</string>
     <string name="ims_reg_title">"Staid clàradh IMS"</string>
     <string name="ims_reg_status_registered">"Clàraichte"</string>
     <string name="ims_reg_status_not_registered">"Gun chlàradh"</string>

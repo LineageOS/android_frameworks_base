@@ -81,4 +81,5 @@
     <string name="print_error_default_message">A dolu mannu no at funtzionadu. Torra a proare.</string>
     <string name="print_error_retry">Torra a proare</string>
     <string name="print_error_printer_unavailable">Custa imprentadora immoe no est a disponimentu.</string>
+    <string name="print_preparing_preview">Preparende s\'anteprima \u2026</string>
 </resources>

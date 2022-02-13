@@ -449,7 +449,7 @@
     <string name="user_logout_notification_text">Allgofnodi\'r defnyddiwr presennol.</string>
     <string name="user_logout_notification_action">ALLGOFNODI DEFNYDDIWR</string>
     <string name="user_add_user_title" msgid="2108112641783146007">Ychwanegu defnyddiwr newydd?</string>
-    <string name="user_add_user_message_short" msgid="1511354412249044381">Pan fydd defnyddiwr newydd yn cael ei ychwanegu, bydd angen i\'r person hwnnw osod eu gofod.\n\nGall unrhyw ddefnyddiwr diweddaru apiau ar gyfer pob defnyddiwr arall. </string>
+    <string name="user_add_user_message_short" msgid="1511354412249044381">Pan fydd defnyddiwr newydd yn cael ei ychwanegu, bydd angen i\'r person hwnnw osod ei ofod.\n\nGall unrhyw ddefnyddiwr ddiweddaru apiau ar gyfer pob defnyddiwr arall. </string>
     <string name="user_limit_reached_title">Terfyn defnyddwyr wedi\'i gyrraedd</string>
     <plurals name="user_limit_reached_message">
         <item quantity="zero">Gellir ychwanegu <xliff:g id="count" example="3">%d</xliff:g> mwy o ddefnyddwyr.</item>
@@ -576,7 +576,7 @@
     <string name="volume_ringer_status_silent">Distewi</string>
     <string name="qs_status_phone_vibrate">Ffôn yn dirgrynu</string>
     <string name="qs_status_phone_muted">Ffôn yn ddistaw</string>
-    <string name="volume_stream_content_description_unmute">%1$s. Tapia i ddad-distewi.</string>
+    <string name="volume_stream_content_description_unmute">%1$s. Tapia i ddad-ddistewi.</string>
     <string name="volume_stream_content_description_vibrate">%1$s. Tapia i\'w osod i ddirgrynu. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
     <string name="volume_stream_content_description_mute">%1$s. Tapia i\'w distewi. Mae\'n bosib bydd gwasanaethau hygyrchedd yn cael eu distewi.</string>
     <string name="volume_stream_content_description_vibrate_a11y">%1$s. Tapia i\'w osod i ddirgrynu.</string>

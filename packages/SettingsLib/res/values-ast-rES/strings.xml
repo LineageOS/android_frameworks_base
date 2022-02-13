@@ -53,8 +53,10 @@
     <string name="osu_sign_up_failed">Nun se pudo completar el rexistru. Toca equí pa retentalo.</string>
     <string name="osu_sign_up_complete">Completóse\'l rexistru. Conectando\u2026</string>
     <string name="speed_label_very_slow">Velocidá perlenta</string>
+    <string name="speed_label_slow">Lenta</string>
     <string name="speed_label_okay">Velocidá aceptable</string>
     <string name="speed_label_medium">Velocidá mediana</string>
+    <string name="speed_label_fast">Rápida</string>
     <string name="speed_label_very_fast">Velocidá perrápida</string>
     <string name="preference_summary_default_combination"><xliff:g id="state" example="ON">%1$s</xliff:g> / <xliff:g id="description" example="High accuracy mode">%2$s</xliff:g></string>
     <string name="bluetooth_disconnected">Desconectóse</string>
@@ -179,6 +181,17 @@
     <string name="tts_general_section_title">Xeneral</string>
     <string name="tts_reset_speech_pitch_title">Reafitar el tonu de voz</string>
     <string name="tts_reset_speech_pitch_summary">Reafita\'l tonu predetermináu col que se llee\'l testu.</string>
+    <string-array name="tts_rate_entries">
+        <item>Perlenta</item>
+        <item>Lenta</item>
+        <item>Normal</item>
+        <item>Rápida</item>
+        <item>Más rápida</item>
+        <item>Perrápida</item>
+        <item>Superrápida</item>
+        <item>Hiperrápida</item>
+        <item>La más rápida</item>
+    </string-array>
     <string-array name="tts_rate_values">
         <item>60</item>
         <item>80</item>
@@ -195,13 +208,18 @@
     <string name="category_work">Llaboral</string>
     <string name="development_settings_title">Opciones de desendolcador</string>
     <string name="development_settings_enable">Activar les opciones pa desendolcadores</string>
+    <string name="development_settings_summary">Afita les opciones pal desendolcu d\'aplicaciones</string>
     <string name="development_settings_not_available">Les opciones pa desendolcadores nun tán disponibles pa esti usuariu</string>
     <string name="vpn_settings_not_available">Los axustes de la VPN nun tán disponibles pa esti usuariu</string>
     <string name="tethering_settings_not_available">Los axustes del tethering nun tán disponibles pa esti usuariu</string>
     <string name="apn_settings_not_available">Los axustes del APN nun tán disponibles pa esti usuariu</string>
     <string name="enable_adb">Depuración per USB</string>
+    <string name="enable_adb_summary">Activa\'l mou de depuración al conectar l\'USB</string>
+    <string name="clear_adb_keys">Revocar autorizaciones de depur. USB</string>
     <string name="bugreport_in_power">Atayu «Informe de fallos»</string>
     <string name="bugreport_in_power_summary">Amuesa un botón nel menú d\'apagáu pa crear un informe de fallos</string>
+    <string name="keep_screen_on">Pantalla encesa siempres</string>
+    <string name="keep_screen_on_summary">La pantalla nun duerme enxamás mentanto\'l preséu ta en carga</string>
     <string name="bt_hci_snoop_log">Activar el rexistru de busca HCI Bluetooth</string>
     <string name="bt_hci_snoop_log_summary">Captura los paquetes de Bluetooth (alterna\'l Bluetooth dempués de camudar esti axuste).</string>
     <string name="oem_unlock_enable">Desbloquéu d\'OEM</string>
@@ -211,6 +229,7 @@
     <string name="mock_location_app">Esbillar l\'aplicación d\'allugamientu ficticiu</string>
     <string name="mock_location_app_not_set">Nun s\'afitó l\'aplicación d\'allugamientu ficticiu</string>
     <string name="mock_location_app_set">Aplicación d\'allugamientu ficticiu: <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="debug_networking_category">Redes</string>
     <string name="wifi_display_certification">Certificación de visualización ensin filos</string>
     <string name="wifi_verbose_logging">Activar el rexistru detalláu de la Wi\u2011Fi</string>
     <string name="wifi_scan_throttling">Llende de la busca de redes Wi\u2011Fi</string>
@@ -239,6 +258,7 @@
     <string name="private_dns_mode_provider_hostname_hint">Introduz l\'agospiador del fornidor de DNS</string>
     <string name="private_dns_mode_provider_failure">Nun se pudo conectar</string>
     <string name="wifi_display_certification_summary">Amuesa les opciones de la certificación de visualización ensin filos</string>
+    <string name="wifi_verbose_logging_summary">Aumenta\'l nivel de rexistru de la Wi\u2011Fi y amuesa\'l RSSI de los SSID nel selector Wi\u2011Fi</string>
     <string name="wifi_scan_throttling_summary">Amenorga\'l consumu d\'enerxía y ameyora\'l rindimientu de la rede</string>
     <string name="wifi_metered_label">Con llende de datos</string>
     <string name="wifi_unmetered_label">Ensin llende de datos</string>
@@ -248,8 +268,12 @@
     <string name="dev_logpersist_clear_warning_message">Cuando yá nun supervisemos col rexistrador permanente, tenemos de desaniciar los datos del rexistrador qu\'heba nel preséu.</string>
     <string name="select_logpersist_title">Atroxar los datos del rexistrador permanentemente nel preséu</string>
     <string name="select_logpersist_dialog_title">Esbilla los búferes de rexistru p\'atroxalos permanentemente nel preséu</string>
+    <string name="select_usb_configuration_title">Configuración del USB</string>
+    <string name="select_usb_configuration_dialog_title">Configuración del USB</string>
     <string name="allow_mock_location">Permitir l\'allugamientu ficticiu</string>
     <string name="allow_mock_location_summary">Permite l\'allugamientu ficticiu</string>
+    <string name="debug_view_attributes">Inspeición d\'atributos de visualización</string>
+    <string name="mobile_data_always_on_summary">Caltién los datos móviles siempres activos, magar que la Wi\u2011Fi tea activada (pa cambiar rápido de rede).</string>
     <string name="tethering_hardware_offload_summary">Si ta disponible, usa l\'aceleración per hardware pal tethering</string>
     <string name="adb_warning_title">¿Quies permitir la depuración per USB?</string>
     <string name="adb_warning_message">La depuración per USB ta diseñada namás p\'actividaes de desendolcu. Úsala pa copiar datos ente un ordenador y esti preséu, pa instalar aplicaciones nel preséu ensin avisar y pa lleer los datos del rexistru.</string>
@@ -268,11 +292,13 @@
     <string name="debug_app">Esbillar l\'aplicación de depuración</string>
     <string name="debug_app_not_set">Nun s\'afitó nenguna aplicación de depuración</string>
     <string name="debug_app_set">Aplicación de depuración: <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="select_application">Esbilla d\'una aplicación</string>
     <string name="no_application">Nada</string>
     <string name="wait_for_debugger">Esperar pol depurador</string>
     <string name="wait_for_debugger_summary">Enantes d\'executase, l\'aplicación depurada
         espera a que s\'axunte\'l depurador</string>
     <string name="debug_input_category">Entrada</string>
+    <string name="debug_drawing_category">Dibuxu</string>
     <string name="debug_hw_drawing_category">Renderización acelerada per hardware</string>
     <string name="media_category">Multimedia</string>
     <string name="debug_monitoring_category">Supervisión</string>
@@ -285,12 +311,16 @@
     <string name="show_touches">Amosar los toques</string>
     <string name="show_touches_summary">Amuesa un indicador onde se faen los toques</string>
     <string name="show_screen_updates">Anovamientos de superficie</string>
+    <string name="show_screen_updates_summary">Relluma toles superficies de les ventanes al anovales</string>
     <string name="show_hw_screen_updates">Anov. de visualización</string>
     <string name="show_hw_screen_updates_summary">Relluma les vistes de les ventanes al dibuxales</string>
-    <string name="show_hw_layers_updates_summary">Relluma en verde les capes de hardware cuando s\'anueven</string>
+    <string name="show_hw_layers_updates">Amosar anov. de capes del HW</string>
+    <string name="show_hw_layers_updates_summary">Relluma en verde les capes del hardware cuando s\'anueven</string>
     <string name="debug_hw_overdraw">Depurar superposiciones de GPU</string>
+    <string name="disable_overlays">Desact. superposiciones del HW</string>
     <string name="disable_overlays_summary">Usa siempres la GPU pa la composición de pantalla</string>
     <string name="simulate_color_space">Simular l\'espaciu de color</string>
+    <string name="enable_opengl_traces_title">Activar el siguimientu d\'OpenGL</string>
     <string name="usb_audio_disable_routing">Desact. l\'encam. del audiu USB</string>
     <string name="usb_audio_disable_routing_summary">Desactiva l\'encaminamientu automáticu a los periféricos d\'audiu USB</string>
     <string name="debug_layout">Llendes de la distribución</string>
