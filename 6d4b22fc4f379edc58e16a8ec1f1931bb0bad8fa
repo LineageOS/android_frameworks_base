@@ -67,6 +67,23 @@
       "message": "well they probably don\u0027t want something that\u0027s allegedly \"kangbang\"ed.",
       "revId": "6d4b22fc4f379edc58e16a8ec1f1931bb0bad8fa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50a25f8f_53f40523",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30486
+      },
+      "writtenOn": "2022-02-13T11:55:06Z",
+      "side": 1,
+      "message": "This needs to be merged asap. Burn-In is still present in even recent AMOLED displays, and I think it\u0027s not reasonable to just let it go on any further, especially if someone went out of his way to write the code for it.\nIf noone suggestion an improvement or a change, I see no reason why it shouldn\u0027t be merged.",
+      "revId": "6d4b22fc4f379edc58e16a8ec1f1931bb0bad8fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
