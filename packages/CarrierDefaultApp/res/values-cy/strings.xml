@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CarrierDefaultApp</string>
+    <string name="android_system_label">Darparwr Gwasanaeth</string>
+    <string name="portal_notification_id">Allan o ddata symudol</string>
+    <string name="no_data_notification_id">Mae dy ddata symudol wedi\'i ddadactifadu</string>
+    <string name="portal_notification_detail">Tapia i ymweld â gwefan %s</string>
+    <string name="no_data_notification_detail">Cysyllta â dy ddarparwr gwasanaeth %s</string>
+    <string name="no_mobile_data_connection_title">Dim cysylltiad data symudol</string>
+    <string name="no_mobile_data_connection">Ychwanega ddata neu gynllun crwydro gyda %s</string>
+    <string name="mobile_data_status_notification_channel_name">Statws data symudol</string>
+    <string name="action_bar_label">Mewngofnodi i rwydwaith symudol</string>
+    <string name="ssl_error_warning">Mae yna broblemau diogelwch gyda’r rhwydwaith rwyt yn ceisio ymuno â fo.</string>
+    <string name="ssl_error_example">Er enghraifft, efallai nad yw’r dudalen mewngofnodi yn perthyn i’r mudiad a ddangosir.</string>
+    <string name="ssl_error_continue">Parhau trwy’r porwr beth bynnag</string>
+</resources>

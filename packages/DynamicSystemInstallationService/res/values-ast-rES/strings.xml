@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Anovamientos del sistema dinámicu</string>
+    <string name="notification_channel_name">Anovamientos del sistema dinámicu</string>
+    <string name="keyguard_title">Anovamientos del sistema dinámicu</string>
+    <string name="keyguard_description">Introduz la contraseña y sigui con «Anovamientos del sistema dinámicu»</string>
+    <string name="notification_install_completed">El sistema dinámicu ta preparáu. Pa comenzar a usalu, reanicia\'l preséu.</string>
+    <string name="notification_install_inprogress">Instalación en cursu</string>
+    <string name="notification_install_failed">La instalación falló</string>
+    <string name="notification_image_validation_failed">La validación de la imaxe falló. Alborta la instalación.</string>
+    <string name="notification_dynsystem_in_use">Tas executando un sistema dinámicu. Reanicia\'l preséu pa usar la versión orixinal d\'Android.</string>
+    <string name="notification_action_cancel">Encaboxar</string>
+    <string name="notification_action_discard">Escartar</string>
+    <string name="notification_action_reboot_to_dynsystem">Reaniciar</string>
+    <string name="notification_action_reboot_to_origin">Reaniciar</string>
+    <string name="toast_dynsystem_discarded">Escartóse\'l sistema dinámicu</string>
+    <string name="toast_failed_to_reboot_to_dynsystem">Nun se pue reaniciar o cargar el sistema dinámicu</string>
+</resources>

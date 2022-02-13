@@ -19,60 +19,128 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Bloquéu de tecles</string>
-    <string name="keyguard_enter_your_pin">Introduz el to PIN</string>
-    <string name="keyguard_sim_error_message_short">Tarxeta inválida.</string>
-    <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • Cargando</string>
-    <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • Cargando rápido</string>
-    <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • Cargando adulces</string>
-    <string name="keyguard_network_locked_message">Rede torgada</string>
-    <string name="keyguard_accessibility_password">Clave del preséu</string>
+    <string name="keyguard_password_enter_pin_code">Teclexa\'l códigu PIN</string>
+    <string name="keyguard_password_enter_puk_code">Teclexa\'l PUK de la SIM y el códigu PIN nuevu</string>
+    <string name="keyguard_password_enter_puk_prompt">Códigu PUK de la SIM</string>
+    <string name="keyguard_password_enter_pin_prompt">Códigu PIN nuevu de la SIM</string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">Toca pa teclexar la contraseña</font></string>
+    <string name="keyguard_password_enter_password_code">Teclexa la contraseña pa desbloquiar</string>
+    <string name="keyguard_password_enter_pin_password_code">Teclexa\'l PIN pa desbloquiar</string>
+    <string name="keyguard_enter_your_pin">Introduz el PIN</string>
+    <string name="keyguard_enter_your_pattern">Introduz el patrón</string>
+    <string name="keyguard_enter_your_password">Introduz la contraseña</string>
+    <string name="keyguard_password_wrong_pin_code">El códigu PIN ye incorreutu.</string>
+    <string name="keyguard_sim_error_message_short">La tarxeta nun ye válida.</string>
+    <string name="keyguard_charged">Cargó</string>
+    <string name="keyguard_plugged_in_wireless"><xliff:g id="percentage" example="20%">%s</xliff:g> • En carga, ensin filos</string>
+    <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • En carga</string>
+    <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • En carga, rápida</string>
+    <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • En carga, lenta</string>
+    <string name="keyguard_plugged_in_charging_limited"><xliff:g id="percentage">%s</xliff:g> • Optimizando pa caltener l\'estáu de la batería</string>
+    <string name="keyguard_low_battery">Conecta\'l cargador.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Primi «Menú» pa desbloquiar.</string>
+    <string name="keyguard_network_locked_message">Rede bloquiada</string>
+    <string name="keyguard_missing_sim_message_short">Nun hai nenguna tarxeta SIM</string>
+    <string name="keyguard_missing_sim_instructions">Inxerta una tarxeta SIM.</string>
+    <string name="keyguard_missing_sim_instructions_long">Falta la tarxeta SIM o nun se pue lleer. Inxerta una.</string>
+    <string name="keyguard_permanent_disabled_sim_message_short">La tarxeta SIM ta inutilizada.</string>
+    <string name="keyguard_permanent_disabled_sim_instructions">La tarxeta SIM inhabilitóse dafechu.\n
+    Ponte en contautu col to fornidor de servicios ensin filos pa consiguir otra.</string>
+    <string name="keyguard_sim_locked_message">La tarxeta SIM ta bloquiada.</string>
+    <string name="keyguard_sim_puk_locked_message">La tarxeta SIM ta bloquiada col PUK.</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">Desbloquiando la tarxeta SIM\u2026</string>
+    <string name="keyguard_accessibility_pin_area">Área del PIN</string>
+    <string name="keyguard_accessibility_password">Contraseña del preséu</string>
+    <string name="keyguard_accessibility_sim_pin_area">Área del PIN de la SIM</string>
+    <string name="keyguard_accessibility_sim_puk_area">Área del PUK de la SIM</string>
+    <string name="keyguard_accessibility_next_alarm">L\'alarma siguiente programóse pa la hora: <xliff:g id="alarm" example="Fri 8:30 AM">%1$s</xliff:g></string>
     <string name="keyboardview_keycode_delete">Desaniciar</string>
-    <string name="disable_carrier_button_text">eSIM desactivada</string>
-    <string name="error_disable_esim_title">Nu\u2019n se puede desconeutar la eSIM</string>
-    <string name="error_disable_esim_msg">La eSIM Nu\u2019u se puede desconeutar pola mor d\'un erru.</string>
+    <string name="disable_carrier_button_text">Desactivar la eSIM</string>
+    <string name="error_disable_esim_title">Nun se pue desactivar la eSIM</string>
+    <string name="error_disable_esim_msg">La eSIM nun se pue desactivar pola mor d\'un fallu.</string>
+    <string name="keyboardview_keycode_enter">Retornu</string>
+    <string name="kg_forgot_pattern_button_text">Escaecí\'l patrón</string>
+    <string name="kg_wrong_pattern">El patrón ye incorreutu</string>
+    <string name="kg_wrong_password">La contraseña ye incorreuta</string>
+    <string name="kg_wrong_pin">El PIN ye incorreutu</string>
     <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="one">Volvi tentalo nun segundu.</item>
-        <item quantity="other">Volvi tentalo en <xliff:g id="number">%d</xliff:g>segundos.</item>
+        <item quantity="one">Volvi tentalo en 1 segundu.</item>
+        <item quantity="other">Volvi tentalo en <xliff:g id="number">%d</xliff:g> segundos.</item>
     </plurals>
+    <string name="kg_pattern_instructions">Dibuxa\'l patrón</string>
+    <string name="kg_sim_pin_instructions">Introduz el PIN de la SIM.</string>
+    <string name="kg_sim_pin_instructions_multi">Introduz el PIN de la SIM de: <xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>.</string>
     <string name="kg_sim_lock_esim_instructions"><xliff:g id="previous_msg" example="Enter SIM PIN.">%1$s</xliff:g> Desactiva la eSIM pa usar el preséu ensin serviciu móvil.</string>
-    <string name="kg_puk_enter_puk_hint_multi">Agora la SIM <xliff:g id="carrier" example="CARD 1">%1$s</xliff:g> ta inhabilitada. Introduz el códigu PUK pa siguir. Contauta cola operadora pa más detalles.</string>
-    <string name="kg_too_many_failed_pattern_attempts_dialog_message">        Dibuxesti incorreutamente\'l to patrón de desbloquéu <xliff:g id="number">%1$d</xliff:g> times.
+    <string name="kg_pin_instructions">Introduz el PIN</string>
+    <string name="kg_password_instructions">Introduz la contraseña</string>
+    <string name="kg_puk_enter_puk_hint">La tarxeta SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más información.</string>
+    <string name="kg_puk_enter_puk_hint_multi">Agora la SIM «<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>» ta inhabilitada. Introduz el códigu PUK pa siguir. Ponte en contautu cola operadora pa consiguir más información.</string>
+    <string name="kg_puk_enter_pin_hint">Introduz el códigu PIN deseáu</string>
+    <string name="kg_enter_confirm_pin_hint">Confirma\'l códigu PIN deseáu</string>
+    <string name="kg_sim_unlock_progress_dialog_message">Desbloquiando la tarxeta SIM\u2026</string>
+    <string name="kg_invalid_sim_pin_hint">Teclexa un PIN que seya de 4 a 8 númberos.</string>
+    <string name="kg_invalid_sim_puk_hint">El códigu PUK ha ser de 8 númberos o más.</string>
+    <string name="kg_invalid_puk">Volvi introducir el códigu PUK correutu. Si s\'introduz mal más vegaes, la SIM va inhabilitase dafechu.</string>
+    <string name="kg_login_too_many_attempts">Dibuxesti mal el patrón milenta vegaes</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">        Teclexesti incorreutamente\'l PIN <xliff:g id="number">%1$d</xliff:g> vegaes.
         \n\nVolvi tentalo en <xliff:g id="number">%2$d</xliff:g> segundos.
     </string>
-    <string name="kg_password_wrong_pin_code_pukked">Códigu PIN de la SIM incorreutu, agora has contautar cola operadora pa desbloquiar el preséu.</string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">        Teclexesti incorreutamente la contraseña <xliff:g id="number">%1$d</xliff:g> vegaes.
+        \n\nVolvi tentalo en <xliff:g id="number">%2$d</xliff:g> segundos.
+    </string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">        Dibuxesti incorreutamente\'l patrón de desbloquéu <xliff:g id="number">%1$d</xliff:g> vegaes.
+        \n\nVolvi tentalo en <xliff:g id="number">%2$d</xliff:g> segundos.
+    </string>
+    <string name="kg_password_wrong_pin_code_pukked">El códigu PIN de la SIM ye incorreutu. Agora tienes de ponete en contautu cola operadora pa desbloquiar el preséu.</string>
     <plurals name="kg_password_wrong_pin_code">
-        <item quantity="one">Códigu PIN de la SIM incorreutu, quédate <xliff:g id="number">%d</xliff:g> intentu enantes de tener de llamar a la operadora pa desbloquiar el preséu.</item>
-        <item quantity="other">Códigu PIN de la SIM incorreutu, quédate <xliff:g id="number">%d</xliff:g> intentu enantes de tener de llamar a la operadora pa desbloquiar el preséu.</item>
+        <item quantity="one">El códigu PIN de la SIM ye incorreutu. Quédate <xliff:g id="number">%d</xliff:g> intentu enantes de tener de ponete en contautu cola operadora pa desbloquiar el preséu.</item>
+        <item quantity="other">El códigu PIN de la SIM ye incorreutu. Quédente <xliff:g id="number">%d</xliff:g> intentos.</item>
     </plurals>
-    <string name="kg_password_wrong_puk_code_dead">La SIM ta inutilizada. Contauta cola operadora.</string>
+    <string name="kg_password_wrong_puk_code_dead">La SIM ta inutilizada. Ponte en contautu cola operadora.</string>
     <plurals name="kg_password_wrong_puk_code">
-        <item quantity="one">Códigu PUK de la SIM incorreutu, quédate <xliff:g id="number">%d</xliff:g> intentu enantes d\'inutilizar dafechu la SIM.</item>
-        <item quantity="other">Códigu PUK de la SIM incorreutu, quédate <xliff:g id="number">%d</xliff:g> intentu enantes d\'inutilizar dafechu la SIM.</item>
+        <item quantity="one">El códigu PUK de la SIM ye incorreutu. Quédate <xliff:g id="number">%d</xliff:g> intentu enantes d\'inutilizar dafechu la SIM.</item>
+        <item quantity="other">El códigu PUK de la SIM ye incorreutu. Quédente <xliff:g id="number">%d</xliff:g> intentos enantes d\'inutilizar dafechu la SIM.</item>
     </plurals>
-    <string name="kg_prompt_reason_switch_profiles_pin">Ríquese\'l PIN cuando camudes de perfil</string>
-    <string name="kg_prompt_reason_switch_profiles_password">Ríquese la contraseña cuando camudes de perfil</string>
-    <string name="kg_prompt_reason_device_admin">Preséu candáu pol alministrador</string>
-    <string name="kg_prompt_reason_user_request">Bloquióse\'l preséu a mano</string>
+    <string name="kg_password_pin_failed">¡La operación col PIN de la SIM falló!</string>
+    <string name="kg_password_puk_failed">¡La operación col PUK de la SIM falló!</string>
+    <string name="kg_pin_accepted">¡Aceptóse\'l códigu!</string>
+    <string name="keyguard_carrier_default">Nun hai serviciu.</string>
+    <string name="accessibility_ime_switch_button" msgid="5032926134740456424">Botón «Cambiar el métodu d\'entrada»</string>
+    <string name="airplane_mode">Mou avión</string>
+    <string name="kg_prompt_reason_restart_pattern">Tienes de dibuxar el patrón darréu de reaniciar el preséu</string>
+    <string name="kg_prompt_reason_restart_pin">Tienes d\'introducir el PIN darréu de reaniciar el preséu</string>
+    <string name="kg_prompt_reason_restart_password">Tienes d\'introducir la contraseña darréu de reaniciar el preséu</string>
+    <string name="kg_prompt_reason_timeout_pattern">Tienes de dibuxar el patrón pa tener más seguranza</string>
+    <string name="kg_prompt_reason_timeout_pin">Tienes d\'introducir el PIN pa tener más seguranza</string>
+    <string name="kg_prompt_reason_timeout_password">Tienes d\'introducir la contraseña pa tener más seguranza</string>
+    <string name="kg_prompt_reason_switch_profiles_pattern">Tienes de dibuxar el patrón al cambiar de perfil</string>
+    <string name="kg_prompt_reason_switch_profiles_pin">Tienes d\'introducir el PIN al cambiar de perfil</string>
+    <string name="kg_prompt_reason_switch_profiles_password">Tienes d\'introducir la contraseña al cambiar de perfil</string>
+    <string name="kg_prompt_reason_device_admin">L\'alministrador bloquió\'l preséu</string>
+    <string name="kg_prompt_reason_user_request">El preséu bloquióse manualmente</string>
     <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="one">Hai <xliff:g id="number">%d</xliff:g> hora que nun se desbloquia\'l preséu. Confirma\'l patrón.</item>
-        <item quantity="other">Hai <xliff:g id="number">%d</xliff:g> hores que nun se desbloquia\'l preséu. Confirma\'l patrón.</item>
+        <item quantity="one">El preséu nun se desbloquió demientres <xliff:g id="number">%d</xliff:g> hora. Confirma\'l patrón.</item>
+        <item quantity="other">El preséu nun se desbloquió demientres <xliff:g id="number">%d</xliff:g> hores. Confirma\'l patrón.</item>
     </plurals>
     <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="one">Hai <xliff:g id="number">%d</xliff:g> hora que nun se desbloquia\'l preséu. Confirma\'l PIN.</item>
-        <item quantity="other">Hai <xliff:g id="number">%d</xliff:g> hores que nun se desbloquia\'l preséu. Confirma\'l PIN.</item>
+        <item quantity="one">El preséu nun se desbloquió demientres <xliff:g id="number">%d</xliff:g> hora. Confirma\'l PIN.</item>
+        <item quantity="other">El preséu nun se desbloquió demientres <xliff:g id="number">%d</xliff:g> hores. Confirma\'l PIN.</item>
     </plurals>
     <plurals name="kg_prompt_reason_time_password">
-        <item quantity="one">Hai <xliff:g id="number">%d</xliff:g> hora que nun se desbloquia\'l preséu. Confirma la contraseña.</item>
-        <item quantity="other">Hai <xliff:g id="number">%d</xliff:g> hores que nun se desbloquia\'l preséu. Confirma la contraseña.</item>
+        <item quantity="one">El preséu nun se desbloquió demientres <xliff:g id="number">%d</xliff:g> hora. Confirma la contraseña.</item>
+        <item quantity="other">El preséu nun se desbloquió demientres <xliff:g id="number">%d</xliff:g> hores. Confirma la contraseña.</item>
     </plurals>
     <string name="kg_fingerprint_not_recognized">Nun se reconoz</string>
     <string name="kg_face_not_recognized">Nun se reconoz</string>
     <plurals name="kg_password_default_pin_message">
-        <item quantity="one">Introduz el PIN de la SIM, tienes <xliff:g id="number">%d</xliff:g> intentu restante enantes qu\'hebas contautar col to operador pa desbloquiar el to preséu.</item>
-        <item quantity="other">Introduz el PIN de la SIM, tienes <xliff:g id="number">%d</xliff:g> intentu restante enantes qu\'hebas contautar col to operador pa desbloquiar el to preséu.</item>
+        <item quantity="one">Introduz el PIN de la SIM. Quédate <xliff:g id="number">%d</xliff:g> intentu enantes de tener de ponete en contautu cola operadora pa desbloquiar el preséu.</item>
+        <item quantity="other">Introduz el PIN de la SIM. Quédente <xliff:g id="number">%d</xliff:g> intentos.</item>
     </plurals>
     <plurals name="kg_password_default_puk_message">
-        <item quantity="one">Agora deshabilitóse la SIM. Introduz el códigu PUK pa siguir. Tienes <xliff:g id=" number">%d</xliff:g> intentu restante enantes de dexar inservible dafechu la SIM. Contauta col operador pa más detalles.</item>
-        <item quantity="other">Agora deshabilitóse la SIM. Introduz el códigu PUK pa siguir. Tienes <xliff:g id=" number">%d</xliff:g> intentu restante enantes de dexar inservible dafechu la SIM. Contauta col operador pa más detalles.</item>
+        <item quantity="one">Agora la SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Quédate <xliff:g id=" number">%d</xliff:g> intentu enantes d\'inutilizar dafechu la SIM. Ponte en contautu cola operadora pa consiguir más información.</item>
+        <item quantity="other">Agora la SIM ta inhabilitada. Introduz el códigu PUK pa siguir. Quédente <xliff:g id=" number">%d</xliff:g> intentos enantes d\'inutilizar dafechu la SIM. Ponte en contautu cola operadora pa consiguir más información.</item>
     </plurals>
+    <string name="clock_title_default">Por defeutu</string>
+    <string name="clock_title_bubble">Burbuya</string>
+    <string name="clock_title_analog">Analóxicu</string>
 </resources>

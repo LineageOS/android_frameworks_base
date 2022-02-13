@@ -59,6 +59,7 @@
     <string name="speed_label_medium">Canolig</string>
     <string name="speed_label_fast">Gweddol gyflym</string>
     <string name="speed_label_very_fast">Cyflym iawn</string>
+    <string name="wifi_passpoint_expired">Wedi dod i ben</string>
     <string name="preference_summary_default_combination"><xliff:g id="state" example="ON">%1$s</xliff:g> / <xliff:g id="description" example="High accuracy mode">%2$s</xliff:g></string>
     <string name="bluetooth_disconnected">Heb gysylltu</string>
     <string name="bluetooth_disconnecting">Yn datgysylltu\u2026</string>
@@ -113,8 +114,8 @@
     <string name="bluetooth_pairing_accept_all_caps">PARU</string>
     <string name="bluetooth_pairing_decline">Diddymu</string>
     <string name="bluetooth_pairing_will_share_phonebook">Mae paru yn rhoi mynediad at dy gysylltiadau a hanes galwadau tra wedi cysylltu.</string>
-    <string name="bluetooth_pairing_error_message">Methwyd â pharu gyda <xliff:g id="device_name">%1$s</xliff:g>.</string>
-    <string name="bluetooth_pairing_pin_error_message">Methwyd â pharu gyda <xliff:g id="device_name">%1$s</xliff:g> oherwydd PIN neu cyfrinallwedd anghywir.</string>
+    <string name="bluetooth_pairing_error_message">Methwyd â pharu â <xliff:g id="device_name">%1$s</xliff:g>.</string>
+    <string name="bluetooth_pairing_pin_error_message">Methwyd â pharu â <xliff:g id="device_name">%1$s</xliff:g> oherwydd PIN neu cyfrinallwedd anghywir.</string>
     <string name="bluetooth_pairing_device_down_error_message">Methu â chyfathrebu gyda <xliff:g id="device_name">%1$s</xliff:g>.</string>
     <string name="bluetooth_pairing_rejected_error_message">Gwrthodwyd paru gan <xliff:g id="device_name">%1$s</xliff:g>.</string>
     <string name="bluetooth_talkback_computer">Cyfrifiadur</string>
@@ -124,8 +125,8 @@
     <string name="bluetooth_talkback_headphone">Clustffonau</string>
     <string name="bluetooth_talkback_input_peripheral">Perifferol Mewnbwn</string>
     <string name="bluetooth_talkback_bluetooth">Bluetooth</string>
-    <string name="bluetooth_hearingaid_left_pairing_message">Yn paru teclyn clyw\'r chwith\u2026</string>
-    <string name="bluetooth_hearingaid_right_pairing_message">Yn paru teclyn clyw\'r dde\u2026</string>
+    <string name="bluetooth_hearingaid_left_pairing_message">Yn paru â theclyn clyw\'r chwith\u2026</string>
+    <string name="bluetooth_hearingaid_right_pairing_message">Yn paru â theclyn clyw\'r dde\u2026</string>
     <string name="bluetooth_hearingaid_left_battery_level">Chwith - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batri</string>
     <string name="bluetooth_hearingaid_right_battery_level">De - <xliff:g id="battery_level_as_percentage">%1$s</xliff:g> batri</string>
     <string name="accessibility_wifi_off">Wi-fi i ffwrdd.</string>
@@ -190,6 +191,17 @@
         <item>Hynod o gyflym</item>
         <item>Cyflymaf</item>
     </string-array>
+    <string-array name="tts_rate_values">
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
+    </string-array>
     <string name="choose_profile">Dewis proffil</string>
     <string name="category_personal">Personol</string>
     <string name="category_work">Gwaith</string>
@@ -202,7 +214,34 @@
     <string name="enable_adb">Dadfygio USB</string>
     <string name="enable_adb_summary">Modd dadfygio tra bod USB wedi\'i gysylltu</string>
     <string name="clear_adb_keys">Dirymu caniatâd dadfygio USB</string>
+    <string name="enable_adb_wireless">Dadfygio di-wifr</string>
+    <string name="enable_adb_wireless_summary">Modd dadfygio tra bod cysylltiad Wi\u2011Fi</string>
+    <string name="adb_wireless_error">Gwall</string>
+    <string name="adb_wireless_settings">Dadfygio di-wifr</string>
+    <string name="adb_wireless_list_empty_off">I weld a defnyddio dyfeisiau sydd ar gael, rhaid troi dadfygio diwifr ymlaen</string>
+    <string name="adb_pair_method_qrcode_title">Paru â dyfais gyda chod QR</string>
+    <string name="adb_pair_method_qrcode_summary">Paru â dyfeisiau newydd gan ddefnyddio sganiwr QR</string>
+    <string name="adb_pair_method_code_title">Paru â dyfais gyda chod paru</string>
+    <string name="adb_pair_method_code_summary">Paru â dyfeisiau newydd gyda chod chwe digid</string>
+    <string name="adb_paired_devices_title">Dyfeisiau wedi\'u paru</string>
+    <string name="adb_wireless_device_connected_summary">Wedi cysylltu ar hyn o bryd</string>
+    <string name="adb_wireless_device_details_title">Manylion y ddyfais</string>
+    <string name="adb_device_forget">Anghofio</string>
+    <string name="adb_device_fingerprint_title_format">Ôl bys y ddyfais: <xliff:g id="fingerprint_param" example="a1:b2:c3:d4:e5:f6">%1$s</xliff:g></string>
+    <string name="adb_wireless_connection_failed_title">Methodd y cysylltu</string>
+    <string name="adb_wireless_connection_failed_message">Gwiria fod <xliff:g id="device_name" example="Bob\'s Macbook">%1$s</xliff:g> wedi\'i gysylltu â\'r rhwydwaith cywir</string>
+    <string name="adb_pairing_device_dialog_title">Paru â dyfais</string>
+    <string name="adb_pairing_device_dialog_pairing_code_label">Cod paru Wi\u2011Fi</string>
+    <string name="adb_pairing_device_dialog_failed_title">Methodd y paru</string>
     <string name="adb_pairing_device_dialog_failed_msg">Gwiria fod y ddyfais wedi\'i chysylltu â\'r un rhwydwaith.</string>
+    <string name="adb_wireless_qrcode_summary">Paru â dyfais dros Wi\u2011Fi gan sganio cod QR</string>
+    <string name="adb_wireless_verifying_qrcode_text">Yn paru â dyfais\u2026</string>
+    <string name="adb_qrcode_pairing_device_failed_msg">Methwyd paru\'r ddyfais. Nail ai bod y cod QR yn anghywir neu dyw\'r ddyfais heb ei chysylltu â\'r un rhwydwaith.</string>
+    <string name="adb_wireless_ip_addr_preference_title">Cyfeiriad IP \u0026 Porth</string>
+    <string name="adb_wireless_qrcode_pairing_title">Sganio cod QR</string>
+    <string name="adb_wireless_qrcode_pairing_description">Paru â dyfais dros Wi\u2011Fi gan sganio cod QR</string>
+    <string name="adb_wireless_no_network_msg">Cysyllta â rhwydwaith Wi\u2011Fi</string>
+    <string name="keywords_adb_wireless">adb, debug, dev, dadfygio</string>
     <string name="bugreport_in_power">Botwm adrodd am wallau</string>
     <string name="bugreport_in_power_summary">Dangos botwm yn y ddewislen pŵer er mwyn adrodd am wallau</string>
     <string name="keep_screen_on">Aros yn effro</string>
@@ -220,16 +259,22 @@
     <string name="wifi_display_certification">Tystysgrifio dangosyddion diwifr</string>
     <string name="wifi_verbose_logging">Galluogi Logio Wi\u2011Fi Geiriog</string>
     <string name="wifi_scan_throttling">Throtlo sganio am Wi\u2011Fi</string>
+    <string name="wifi_enhanced_mac_randomization">Wi\u2011Fi\u2011 MAC gwell ar hap</string>
     <string name="mobile_data_always_on">Data symudol yn weithredol o hyd</string>
     <string name="tethering_hardware_offload">Cyflymiad caledwedd tenynnu</string>
     <string name="bluetooth_show_devices_without_names">Dangos dyfeisiau Bluetooth heb enwau</string>
     <string name="bluetooth_disable_absolute_volume">Analluogi lefel sain absoliwt</string>
+    <string name="bluetooth_enable_gabeldorsche">Galluogi Gabeldorsche</string>
     <string name="bluetooth_select_avrcp_version_string">Fersiwn AVRCP Bluetooth</string>
     <string name="bluetooth_select_avrcp_version_dialog_title">Dewis Fersiwn AVRCP Bluetooth</string>
+    <string name="bluetooth_select_map_version_string">Fersiwn MAP Bluetooth</string>
+    <string name="bluetooth_select_map_version_dialog_title">Dewis Fersiwn MAP Bluetooth</string>
     <string name="bluetooth_select_a2dp_codec_type">Codec Sain Bluetooth</string>
     <string name="bluetooth_select_a2dp_codec_type_dialog_title">Sbarduno Codec Sain Bluetooth\u000ADewis</string>
     <string name="bluetooth_select_a2dp_codec_sample_rate">Sampl Cyfradd Sain Bluetooth</string>
     <string name="bluetooth_select_a2dp_codec_sample_rate_dialog_title">Sbarduno Codec Sain Bluetooth\u000ADewis: Cyfadd Sampl</string>
+    <string name="bluetooth_select_a2dp_codec_type_help_info">Golyga llwyd nad yw\'r ffôn na\'r 
+        penset yn cael ei gefnogi</string>
     <string name="bluetooth_select_a2dp_codec_bits_per_sample">Bluetooth - Didau Sain y Sampl</string>
     <string name="bluetooth_select_a2dp_codec_bits_per_sample_dialog_title">Sbarduno Codec Sain Bluetooth\u000ADewis: Didau y Sampl</string>
     <string name="bluetooth_select_a2dp_codec_channel_mode">Modd Sianel Sain Bluetooth</string>
@@ -247,6 +292,7 @@
     <string name="wifi_display_certification_summary">Dangos dewisiadau ar gyfer tystysgrifo dangosyddion di-wifr</string>
     <string name="wifi_verbose_logging_summary">Cynyddu lefel logio Wi\u2011Fi, gan ddangos fesul SSID RSSI yn Dewisydd Wi\u2011Fi</string>
     <string name="wifi_scan_throttling_summary">Mae\'n lleihau defnydd batri ac yn gwella perfformiad rhwydwaith</string>
+    <string name="wifi_enhanced_mac_randomization_summary">Pan fydd y modd hwn wedi\'i alluogi, gall gyfeiriad MAC y ddyfais hon newid bob tro y mae\'n cysylltu â rhwydwaith sydd â hap MAC ymlaen.</string>
     <string name="wifi_metered_label">Wedi\'i mesur</string>
     <string name="wifi_unmetered_label">Heb ei mesur</string>
     <string name="select_logd_size_title">Meintiau byfferau logwyr</string>
@@ -264,6 +310,8 @@
     <string name="tethering_hardware_offload_summary">Defnyddio cyflyniad caledwedd tenynnu os ar gael</string>
     <string name="adb_warning_title">Caniatáu dadfygio USB?</string>
     <string name="adb_warning_message">Mae dadfygio USB ar gyfer pwrpasau datblygu yn unig. Mae\'n bosib ei ddefnyddio i gopïo data rhwng dy gyfrifiadur a dy ddyfais, gosod apiau ar dy ddyfais heb rybudd, a darllen data logiau.</string>
+    <string name="adbwifi_warning_title">Galluogi dadfygio di-wifr?</string>
+    <string name="adbwifi_warning_message">Mae dadfygio di-wifr ar gyfer pwrpasau datblygu yn unig. Mae\'n bosib ei ddefnyddio i gopïo data rhwng dy gyfrifiadur a dy ddyfais, gosod apiau ar dy ddyfais heb rybudd, a darllen data logiau.</string>
     <string name="adb_keys_warning_message">Dirymu mynediad at ddadfygio USB o bob cyfrifiadur wyt wedi ei ganiatáu yn y gorffennol?</string>
     <string name="dev_settings_warning_title">Caniatáu gosodiadau datblygu?</string>
     <string name="dev_settings_warning_message">Mae\'r gosodiadau hyn ar gyfer pwrpas datblygiad yn unig. Mae\'n bosib iddyn nhw achosi apiau i gamweithio neu i dorri dy ddyfais.</string>
@@ -271,6 +319,8 @@
     <string name="verify_apps_over_usb_summary">Gwirio apiau wedi\'u gosod trwy ADB/ADT am ymddygiad niweidiol.</string>
     <string name="bluetooth_show_devices_without_names_summary">Caiff dyfeisiau Bluetooth heb enwau (cyfeiriadau MAC yn unig) eu dangos</string>
     <string name="bluetooth_disable_absolute_volume_summary">Mae\'n analluogi nodwedd uchelder sain absoliwt y Bluetooth rhag ofn bod problemau lefel sain gyda dyfeisiau pell, megis sain yn rhy uchel neu ddiffyg rheolaeth.</string>
+    <string name="bluetooth_enable_gabeldorsche_summary">Mae\'n galluogi\'r nodwedd stac Bluetooth Gabeldorsche.</string>
+    <string name="enhanced_connectivity_summary">Mae\'n galluogi\'r nodwedd Cysylltedd Uwch</string>
     <string name="enable_terminal_title">Terfynell leol</string>
     <string name="enable_terminal_summary">Galluogi ap terfynell sy\'n cynnig mynediad cragen leol</string>
     <string name="hdcp_checking_title">Gwirio HDCP</string>
@@ -317,6 +367,8 @@
     <string name="track_frame_time">Proffilio rendro HWUI</string>
     <string name="enable_gpu_debug_layers">Galluogi haenau dadfygio GPU</string>
     <string name="enable_gpu_debug_layers_summary">Galluogi llwytho haenau dadfygio GPU ar gyfer apiau dadfygio</string>
+    <string name="enable_verbose_vendor_logging">Galluogi cofnodi modd llawn y gwerthwr</string>
+    <string name="enable_verbose_vendor_logging_summary">Cynnwys cofnodion dyfais benodol ychwanegol y gwerthwr yn yr adroddiadau gwall, gall gynnwys manylion preifat, defnyddio rhagor o fatri a/neu ddefnyddio rhagor o\'r storfa.</string>
     <string name="window_animation_scale_title">Graddfa animeiddiad ffenestr</string>
     <string name="transition_animation_scale_title">Graddfa animeiddiad trawsnewid</string>
     <string name="animator_duration_scale_title">Graddfa hyd animeiddiwr</string>
@@ -378,6 +430,7 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <string name="daltonizer_mode_protanomaly">Protoanomaledd (coch-gwyrdd)</string>
     <string name="daltonizer_mode_tritanomaly">Trithoanomaledd (glas-melyn)</string>
     <string name="accessibility_display_daltonizer_preference_title">Cywiriad lliw</string>
+    <string name="accessibility_display_daltonizer_preference_subtitle"><![CDATA[Mae cywiro\'r lliw yn dy ganiatáu i newid sut mae lliwiau yn cael eu dangos ar dy ddyfais]]></string>
     <string name="daltonizer_type_overridden">Mae\'n cael ei or-reoli gan <xliff:g id="title" example="Simulate color space">%1$s</xliff:g></string>
     <string name="power_remaining_settings_home_page"><xliff:g id="percentage" example="10%">%1$s</xliff:g> - <xliff:g id="time_string" example="1 hour left based on your usage">%2$s</xliff:g></string>
     <string name="power_remaining_duration_only">Tua <xliff:g id="time_remaining">%1$s</xliff:g> yn weddill</string>
@@ -390,9 +443,25 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <string name="power_discharge_by">Dylai para tan tua <xliff:g id="time">%1$s</xliff:g> (<xliff:g id="level">%2$s</xliff:g>)</string>
     <string name="power_discharge_by_only">Dylai para tan tua <xliff:g id="time">%1$s</xliff:g></string>
     <string name="power_discharge_by_only_short">Hyd at <xliff:g id="time" example="12 PM">%1$s</xliff:g></string>
+    <string name="power_suggestion_battery_run_out">Gallai\'r batri rhedeg allan erbyn <xliff:g id="time" example="12 PM">%1$s</xliff:g></string>
+    <string name="power_remaining_less_than_duration_only">Llai na <xliff:g id="threshold">%1$s</xliff:g> yn weddill</string>
+    <string name="power_remaining_less_than_duration">Llai na <xliff:g id="time_remaining">%1$s</xliff:g> yn weddill (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_more_than_subtext">Mwy na <xliff:g id="time_remaining">%1$s</xliff:g> yn weddill (<xliff:g id="level">%2$s</xliff:g>)</string>
+    <string name="power_remaining_only_more_than_subtext">Mwy na <xliff:g id="time_remaining">%1$s</xliff:g> yn weddill</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="default">Gallai\'r ffôn diffodd yn fuan</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="tablet">Gallai\'r llechen diffodd yn fuan</string>
+    <string name="power_remaining_duration_only_shutdown_imminent" product="device">Gallai\'r ddyfais diffodd yn fuan</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="default">Gallai\'r ffôn diffodd yn fuan (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="tablet">Gallai\'r llechen diffodd yn fuan (<xliff:g id="level">%1$s</xliff:g>)</string>
+    <string name="power_remaining_duration_shutdown_imminent" product="device">Gallai\'r ddyfais diffodd yn fuan (<xliff:g id="level">%1$s</xliff:g>)</string>
     <string name="power_charging"><xliff:g id="level">%1$s</xliff:g> - <xliff:g id="state">%2$s</xliff:g></string>
+    <string name="power_remaining_charging_duration_only"><xliff:g id="time">%1$s</xliff:g> nes wedi gwefru</string>
+    <string name="power_charging_duration"><xliff:g id="level">%1$s</xliff:g> - <xliff:g id="time">%2$s</xliff:g> nes wedi gwefru</string>
+    <string name="power_charging_limited"><xliff:g id="level">%1$s</xliff:g> - Yn optimeiddio er iechyd batri</string>
     <string name="battery_info_status_unknown">Anhysybys</string>
     <string name="battery_info_status_charging">Yn gwefru</string>
+    <string name="battery_info_status_charging_fast">Yn gwefru\'n gyflym</string>
+    <string name="battery_info_status_charging_slow">Yn gwefru\'n araf</string>
     <string name="battery_info_status_discharging">Dim yn gwefru</string>
     <string name="battery_info_status_not_charging">Wedi cysylltu â phŵer ond methu a gwefru ar hyn o bryd</string>
     <string name="battery_info_status_full">Llawn</string>
@@ -455,7 +524,50 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <string name="zen_mode_duration_always_prompt_title">Gofyn bob tro</string>
     <string name="zen_mode_forever">Nes dy fod yn ei ddiffodd</string>
     <string name="time_unit_just_now">Jyst nawr</string>
+    <string name="media_transfer_this_device_name">Seinydd y ffôn</string>
+    <string name="profile_connect_timeout_subtext">Problem cysylltu. Diffodda\'r ddyfais a\'i throi nôl ymlaen</string>
+    <string name="media_transfer_wired_device_name">Dyfais sain gwifredig</string>
     <string name="help_label">Cymorth ac adborth</string>
+    <string name="storage_category">Storfa</string>
+    <string name="shared_data_title">Data a rennir</string>
+    <string name="shared_data_summary">Gweld ac addasu data a rennir</string>
+    <string name="shared_data_no_blobs_text">Nid oes unrhyw ddata a rennir ar gyfer y defnyddiwr hwn.</string>
+    <string name="shared_data_query_failure_text">Roedd gwall yn estyn data a rennir. Ceisia eto.</string>
+    <string name="blob_id_text">ID data a rennir:<xliff:g id="blob_id" example="100">%d</xliff:g></string>
+    <string name="blob_expires_text">Yn dod i ben ar <xliff:g id="date" example="Mar 20, 2020 11:59:59 GMT">%s</xliff:g></string>
+    <string name="shared_data_delete_failure_text">Bu gwall wrth ddileu\'r data a rennir.</string>
+    <string name="shared_data_no_accessors_dialog_text">Heb gymryd prydlesi ar gyfer y data a rennir hwn. Hoffet ti ei ddileu?</string>
+    <string name="accessor_info_title">Apiau yn rhannu data</string>
+    <string name="accessor_no_description_text">Dim disgrifiad ar gael gan yr ap.</string>
+    <string name="accessor_expires_text">Prydles yn dod i ben ar<xliff:g id="date" example="Mar 20, 2020 11:59:59 GMT"> %s</xliff:g></string>
+    <string name="delete_blob_text">Dileu data a rennir</string>
+    <string name="delete_blob_confirmation_text">Wyt ti\'n siŵr dy fod am ddileu\'r data a rennir?</string>
+    <string name="user_add_user_item_summary">Mae gan ddefnyddwyr eu hapiau a\'u cynnwys eu hunain</string>
+    <string name="user_add_profile_item_summary">Gelli gyfyngu mynediad at apiau a chynnwys o dy gyfrif</string>
+    <string name="user_add_user_item_title">Defnyddiwr</string>
+    <string name="user_add_profile_item_title">Proffil cyfyngedig</string>
+    <string name="user_add_user_title">Ychwanegu defnyddiwr newydd?</string>
+    <string name="user_add_user_message_long">Gellir rhannu\'r ddyfais hon gyda phobol eraill wrth greu defnyddwyr ychwanegol. Bydd gan bob defnyddiwr ei le ei hun er mwyn ffurfweddu apiau, papurau wal, ac yn y blaen. Gall defnyddwyr hefyd addasu gosodiadau\'r ddyfais sy\'n effeithio ar bawb, megis gosodiadau Wi\u2011Fi.\n\nPan fydd defnyddiwr newydd yn cael ei ychwanegu, bydd angen i\'r person hwnnw osod ei ofod ei hun.\n\nGall unrhyw ddefnyddiwr ddiweddaru apiau ar gyfer pob defnyddiwr. Ni fydd gosodiadau na gwasanaethau hygyrchedd yn cael eu trosglwyddo i\'r defnyddiwr newydd.</string>
+    <string name="user_add_user_message_short">Pan fydd defnyddiwr newydd yn cael ei ychwanegu, bydd angen i\'r person hwnnw osod ei ofod ei hun.\n\nGall unrhyw ddefnyddiwr ddiweddaru apiau ar gyfer pob defnyddiwr arall. </string>
+    <string name="user_setup_dialog_title">Gosod y defnyddiwr nawr?</string>
+    <string name="user_setup_dialog_message">Rhaid bod y person ar gael i gymryd y ddyfais a gosod ei ofod</string>
+    <string name="user_setup_profile_dialog_message">Gosod y proffil nawr?</string>
+    <string name="user_setup_button_setup_now">Gosod nawr</string>
+    <string name="user_setup_button_setup_later">Dim nawr</string>
+    <string name="user_add_user_type_title">Ychwanegu</string>
+    <string name="user_new_user_name">Defnyddiwr newydd</string>
+    <string name="user_new_profile_name">Proffil newydd</string>
+    <string name="user_info_settings_title">Gwybodaeth defnyddiwr</string>
+    <string name="profile_info_settings_title">Gwybodaeth proffil</string>
+    <string name="user_need_lock_message">Cyn medru creu proffil cyfyngedig, rhaid gosod sgrin cloi i warchod dy apiau a data personol.</string>
+    <string name="user_set_lock_button">Gosod clo</string>
+    <string name="user_switch_to_user">Newid i <xliff:g id="user_name" example="John Doe">%s</xliff:g></string>
+    <string name="guest_new_guest">Ychwanegu gwestai</string>
+    <string name="guest_exit_guest">Tynnu gwestai</string>
     <string name="guest_nickname">Gwestai</string>
+    <string name="cached_apps_freezer_device_default">Rhagosodiad y ddyfais</string>
     <string name="cached_apps_freezer_disabled">Wedi\'i analluogi</string>
+    <string name="cached_apps_freezer_enabled">Galluogwyd</string>
+    <string name="cached_apps_freezer_reboot_dialog_text">Rhaid ailgychwyn dy ddyfais er mwyn i\'r newid hwn fod yn berthnasol. Ailgychwyna nawr neu ddiddymu.</string>
+    <string name="media_transfer_wired_usb_device_name">Clustffonau gwifr</string>
 </resources>

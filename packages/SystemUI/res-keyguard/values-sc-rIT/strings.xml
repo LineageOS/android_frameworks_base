@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/*
+/* //device/apps/common/assets/res/any/strings.xml
 **
-** Copyright 2016 The CyanogenMod Project
+** Copyright 2006, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -18,6 +18,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="screen_zoom_summary_smaller">Más pequeñu</string>
-    <string name="screen_zoom_summary_smallest">Lo más pequeñu</string>
+    <string name="error_disable_esim_title">Non faghet a disativare eSIM</string>
+    <string name="error_disable_esim_msg">Non faghet a disativare sa eSIM pro neghe de un\'errore.</string>
 </resources>

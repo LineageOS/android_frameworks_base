@@ -79,7 +79,7 @@
     <string name="screenshot_saving_ticker">A’ sàbhaladh a’ ghlacaidh-sgrìn\u2026</string>
     <string name="screenshot_saving_title">A’ sàbhaladh a’ ghlacaidh-sgrìn\u2026</string>
     <string name="screenshot_saved_title">Chaidh glacadh-sgrìn a shàbhaladh</string>
-    <string name="screenshot_saved_text">Thoir gnogag gus an glacadh-sgrìn agad a shealltainn</string>
+    <string name="screenshot_saved_text">Thoir gnogag a shealltainn a’ ghlacaidh-sgrìn</string>
     <string name="screenshot_failed_title">Cha b’ urrainn dhuinn an glacadh-sgrìn a shàbhaladh</string>
     <string name="screenshot_failed_to_save_unknown_text">Feuch an tog thu an glacadh-sgrìn a-rithist</string>
     <string name="screenshot_failed_to_save_text">Cha ghabh an glacadh-sgrìn a shàbhaladh ri linn gainnead stòrais</string>
@@ -993,7 +993,7 @@ Leibheil 0</b>
     <string name="instant_apps_title">Tha <xliff:g id="app" example="Gmail">%1$s</xliff:g> a’ ruith</string>
     <string name="instant_apps_message">Chaidh aplacaid fhosgladh gun feum air a stàladh.</string>
     <string name="instant_apps_message_with_help">Chaidh aplacaid fhosgladh gun feum air a stàladh. Thoir gnogag airson barrachd fiosrachaidh.</string>
-    <string name="app_info">Fiosrachadh mun aplacaid</string>
+    <string name="app_info">Mun aplacaid</string>
     <string name="go_to_web">Tadhail air a’ bhrabhsair</string>
     <string name="mobile_data">Dàta mobile</string>
     <string name="mobile_data_text_format"><xliff:g name="roaming_status" example="Roaming">%1$s</xliff:g> \u2014 <xliff:g name="mobile_data_type" example="LTE">%2$s</xliff:g></string>

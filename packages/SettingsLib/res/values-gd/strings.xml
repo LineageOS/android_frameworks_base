@@ -154,7 +154,7 @@
     <string name="launch_defaults_none">Cha deach a bun-roghainn a shuidheachadh</string>
     <string name="tts_settings">Roghainnean teacsa ’na chainnt</string>
     <string name="tts_settings_title">Às-chur teacsa ’na chainnt</string>
-    <string name="tts_default_rate_title">Astar a’ bhruidhinn</string>
+    <string name="tts_default_rate_title">Astar na bruidhne</string>
     <string name="tts_default_rate_summary">Dè cho luath a thèid an teacsa a ràdh</string>
     <string name="tts_default_pitch_title">Gleus</string>
     <string name="tts_default_pitch_summary">Bidh buaidh air gnè-fhuaime na cainnt co-thàthte</string>
@@ -426,7 +426,7 @@
     <string name="daltonizer_mode_protanomaly">Protanomaly (dearg-uaine)</string>
     <string name="daltonizer_mode_tritanomaly">Tritanomaly (gorm-buidhe)</string>
     <string name="accessibility_display_daltonizer_preference_title">Ceartachadh nan dathan</string>
-    <string name="accessibility_display_daltonizer_preference_subtitle">Leigidh ceartachadh nan dathan leat gun cuir thu gleus air mar a chì thu dathan air an uidheam agad</string>
+    <string name="accessibility_display_daltonizer_preference_subtitle"><![CDATA[Leigidh ceartachadh nan dathan leat gun cuir thu gleus air mar a chì thu dathan air an uidheam agad]]></string>
     <string name="daltonizer_type_overridden">’Ga thar-àithne le <xliff:g id="title" example="Simulate color space">%1$s</xliff:g></string>
     <string name="power_remaining_settings_home_page"><xliff:g id="percentage" example="10%">%1$s</xliff:g> – <xliff:g id="time_string" example="1 hour left based on your usage">%2$s</xliff:g></string>
     <string name="power_remaining_duration_only">Mu <xliff:g id="time_remaining">%1$s</xliff:g> air fhàgail</string>
@@ -493,7 +493,7 @@
         cairt-creideis. Thig e o aplacaid 
 <xliff:g id="ime_application_name">%1$s</xliff:g>
         A bheil thu airson am modh ion-chuir seo a chleachdadh?</string>
-    <string name="direct_boot_unaware_dialog_message">An aire: As dèidh ath-thòiseachadh, chan urrainn dhan aplacaid seo tòiseachadh mus doir thu a’ ghlas fhad an fhòn agad</string>
+    <string name="direct_boot_unaware_dialog_message">An aire: As dèidh ath-thòiseachadh, chan urrainn dhan aplacaid seo tòiseachadh mus doir thu a’ ghlas far an fhòn agad</string>
     <string name="ims_reg_title">"Staid clàradh IMS"</string>
     <string name="ims_reg_status_registered">"Clàraichte"</string>
     <string name="ims_reg_status_not_registered">"Gun chlàradh"</string>
@@ -555,7 +555,7 @@
     <string name="user_add_user_type_title">Cuir ris</string>
     <string name="user_new_user_name">Cleachdaiche ùr</string>
     <string name="user_new_profile_name">Pròifil ùr</string>
-    <string name="user_info_settings_title">Fiosrachadh mun chleachdaiche</string>
+    <string name="user_info_settings_title">Mun chleachdaiche</string>
     <string name="profile_info_settings_title">Fiosrachadh na pròifil</string>
     <string name="user_need_lock_message">Mus urrainn dhut pròifil chuingichte a chruthachadh, feumaidh tu glas na sgrìn a shuidheachadh airson na h-aplacaidean is an dàta pearsanta agad a dhìon.</string>
     <string name="user_set_lock_button">Suidhich glas</string>

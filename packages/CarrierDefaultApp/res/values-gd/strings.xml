@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplacaid bhunaiteach a’ ghiùlanair</string>
+    <string name="android_system_label">Giùlanair mobile</string>
+    <string name="portal_notification_id">Theirig an dàta mobile agad</string>
+    <string name="no_data_notification_id">Chaidh an dàta mobile agad a chur à gnìomh</string>
+    <string name="no_mobile_data_connection_title">Chan eil ceangal ri dàta mobile ann</string>
+    <string name="mobile_data_status_notification_channel_name">Staid an dàta mobile</string>
+    <string name="action_bar_label">Clàraich a-steach gu lìonra mobile</string>
+    <string name="ssl_error_warning">Tha duilgheadasan tèarainteachd aig an lìonra dhan a bheil thu airson dol a-steach</string>
+    <string name="ssl_error_example">Mar eisimpleir, dh’fhaoidte nach ann leis a’ bhuidheann a chì thu ’s a tha duilleag a’ chlàraidh a-steach.</string>
+    <string name="ssl_error_continue">Lean air co-dhiù le brabhsair</string>
+</resources>

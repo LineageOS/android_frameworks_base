@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OsuLogin</string>
+    <string name="action_bar_label">Cofrestru Ar-lein</string>
+    <string name="sign_up_failed">Methodd y cofrestru</string>
+</resources>

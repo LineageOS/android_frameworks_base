@@ -15,12 +15,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="prompt">Solicitú de conexón</string>
-    <string name="warning"><xliff:g id="app">%s</xliff:g> quier configurar una conexón VPN
+    <string name="warning">«<xliff:g id="app">%s</xliff:g>» quier configurar una conexón VPN
         que-y permite supervisar el tránsitu de la rede. Acepta namás si t\'enfotes nel orixe.
-                &lt;br /&gt;
-        &lt;br /&gt;
-        &lt;img src="vpn_icon" /&gt;
-         apaez no cimero de la pantalla al activar la VPN.
+        <![CDATA[        <br />
+        <br />
+        <img src="vpn_icon" />
+        ]]> apaez no cimero de la pantalla al activar la VPN.
     </string>
     <string name="legacy_title">La VPN ta conectada</string>
     <string name="session">Sesión:</string>
@@ -29,20 +29,19 @@
     <string name="data_received">Recibióse:</string>
     <string name="data_value_format">        <xliff:g id="number">%1$s</xliff:g> bytes /
         <xliff:g id="number">%2$s</xliff:g> paquetes
-    </string>
-    <string name="always_on_disconnected_title">Nun se puede coneutar con una VPN siempre encesa</string>
-    <string name="always_on_disconnected_message">        <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g> ta configuráu pa tar coneutáu tol
-        tiempu, pero nun se puede coneutar agora. El to teléfonu va usar una rede pública hasta que pueda
-        reconeutar con <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>.
     </string>
-    <string name="always_on_disconnected_message_lockdown">        <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>ta configuráu pa tar coneutáu tol
-        tiempu, pero nun se puede coneutar agora. Nun vas tener conexón hasta que la VPN pueda
-        reconeutar.
-    
+    <string name="always_on_disconnected_title">Nun se pue conectar a la VPN siempres activa</string>
+    <string name="always_on_disconnected_message">        L\'aplicación «<xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>» ta configurada pa caltener la
+        conexón VPN de contino, mas nun se pue conectar nesti momentu. El teléfonu va usar una rede pública hasta que\'l preséu pueda
+        volver conectase a la VPN de: <xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>.
     </string>
-    <string name="always_on_disconnected_message_settings_link">Camudar axustes de VPN</string>
+    <string name="always_on_disconnected_message_lockdown">        L\'aplicación «<xliff:g id="vpn_app" example="Foo VPN App">%1$s</xliff:g>» ta configurada pa caltener la
+        conexón VPN de contino, mas nun se pue conectar nesti momentu. Nun vas tener conexón
+        hasta que la VPN pueda volver conectase.
+    </string>
+    <string name="always_on_disconnected_message_settings_link">Camudar los axustes de la VPN</string>
     <string name="configure">Configurar</string>
     <string name="disconnect">Desconectar</string>
-    <string name="open_app">Abrir aplicación</string>
+    <string name="open_app">Abrir l\'aplicación</string>
     <string name="dismiss">Escartar</string>
 </resources>
