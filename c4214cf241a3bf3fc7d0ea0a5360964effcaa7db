@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a94b8de2_0d70a940",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-02-18T13:58:48Z",
+      "side": 1,
+      "message": "I have updated the help description of the \"remove\" command lines.",
+      "revId": "c4214cf241a3bf3fc7d0ea0a5360964effcaa7db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
