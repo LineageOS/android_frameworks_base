@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c03be26_7d1c2ecc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-02-18T06:24:03Z",
+      "side": 1,
+      "message": "I did it as discussed on Reddit, can you check it?",
+      "revId": "69bd96e1689cabd2d313001e93c843f21899cf5d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
