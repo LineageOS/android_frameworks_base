@@ -16,6 +16,24 @@
       "message": "I have updated the help description of the \"remove\" command lines.",
       "revId": "c4214cf241a3bf3fc7d0ea0a5360964effcaa7db",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ae895e_d0fcdf92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-02-18T15:58:42Z",
+      "side": 1,
+      "message": "so, you\u0027re familiar with Gerrit right? CR+1 means code is good, v+1 mean you personally tested it.\n\nThose both accurate?",
+      "parentUuid": "a94b8de2_0d70a940",
+      "revId": "c4214cf241a3bf3fc7d0ea0a5360964effcaa7db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
