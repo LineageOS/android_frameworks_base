@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87df1896_d3ed046d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30528
+      },
+      "writtenOn": "2022-02-18T06:20:43Z",
+      "side": 1,
+      "message": "Sorry if I\u0027m late to the game but I\u0027m a bit confused at where this was left off.\n\n\u003e - The modified version of the patch by LineageOS would have made use of a permission whitelisting model exclusive to LineageOS’ platform SDK.\n\nThis can\u0027t be a problem, lots of things are unique to the LinageOS platform SDK, right? I mean this feature isn\u0027t provided by any major distro, so it\u0027s not like we\u0027re refusing an industry standard by delivering functionality.\n\n\u003e Under this model an external source would be able to access a whitelist-only permission by providing an XML with specific signature attributes for the calling package.  As a downside here, this would leave open a path for a non-microg usage of this permission as well. \n\nIf the XML file is owned by root, the user would have to have a rooted version of LOS to edit it. If they don\u0027t there would be nothing further they could do. If they do, they have all kinds of malicious powers at hand (such as rewriting all of the APKs).\n\n\u003e -In a worst case scenario where the microg signing key became insecure (ex. accidentally publicly exposed), there is an opportunity for a rogue attacker to target our users.\n\nThis isn\u0027t unique though. I mean later on in this defense you talk about the small userbase of microg, but if Google\u0027s signing key became insecure and 90% of your users install the Play Store, then would they also not be equally vulnerable? So yes, if microg is spoofing the Play Store and their signing key became insecure, the same vulnerability would cascade down.\n\n\u003e Spoofing a signature to impersonate another application is a break in the API integrity for application developers calling GMS. \n\nThis is the downside of an open platform. I mean, what\u0027s the difference from allowing the users of LOS to spoof a signature (which we\u0027re rejecting) when the users of Linux (include LOS) can make use of using LD_PRELOAD to spoof a library? Which LOS does a lot (search the source code for LD_PRELOAD). You can not trust a signature when you develop an app, because there are active forks with spoofing enabled that can run that app. So if that\u0027s your security model, full stop -- it\u0027s wrong. The same can be said of GPS spoofing, right? Even if LOS denied this ability and required a fork, it still wouldn\u0027t stop people from exploiting Pokemon Go on other systems, and they\u0027d still have contend with people spoofing GPS coordinates on open platforms.\n\nThanks a ton for the breakdown you provide. If I am on the same page, I disagree with it; but, I\u0027m glad the attempt was made. I would very much implore you to reconsider. Ultimately, I\u0027m going to go with whatever distribution of Android is more open. I do value security, and I would really love a response that just addressed where the vulnerability was, with a use case. Perhaps if the concerns were better communicated rather than a philosophical rejection of \"spoofing\" on an open system, a better solution could be provided.",
+      "revId": "217b8bc5748b10e79f7dfd28e5aa8e9855f53ba1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
