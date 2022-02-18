@@ -16,6 +16,24 @@
       "message": "please add topic:eleven-data-restriction",
       "revId": "7dd86d971b451e31dfdd17c86d4c92c9221b1a7f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd457c7_372c6aca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-02-18T07:41:44Z",
+      "side": 1,
+      "message": "I created a topic here: https://www.reddit.com/r/LineageOS/comments/svc7qn/lineageos_181_add_cli_commands_to_restrict_wifi/",
+      "parentUuid": "78cee76a_1d86f984",
+      "revId": "7dd86d971b451e31dfdd17c86d4c92c9221b1a7f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
