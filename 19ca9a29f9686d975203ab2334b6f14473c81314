@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "031ceb2a_84db1434",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-02-19T21:17:38Z",
+      "side": 1,
+      "message": "Verified:\nWithout this patch, clicking \"Share\" then \"Edit\" (is on the top of the share menu), it just crashes/closes. With this patch, the same happens as when you press the Edit button directly (instead of Share + Edit)",
+      "revId": "19ca9a29f9686d975203ab2334b6f14473c81314",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
