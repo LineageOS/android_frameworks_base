@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71da4a82_43504ed4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27741
+      },
+      "writtenOn": "2022-02-20T04:15:23Z",
+      "side": 1,
+      "message": "bruno you seem to have broken it\n```\n297: error: cannot find symbol                                                                                                                                                  .setChannelId(BATTERY_NOTIFICATION_CHANNEL_ID_TV));                                                                                   ^                                                                           symbol:   variable BATTERY_NOTIFICATION_CHANNEL_ID_TV                                                                   location: class PowerNotificationWarnings \n```",
+      "revId": "35172c315c4b7ea0c1e0f1fd42ac8c2bfedec5fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
