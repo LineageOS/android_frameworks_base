@@ -60,7 +60,6 @@ class ControlActionCoordinatorImpl @Inject constructor(
 ) : ControlActionCoordinator {
     private var dialog: Dialog? = null
     private val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-    private var pendingAction: Action? = null
     private var actionsInProgress = mutableSetOf<String>()
     private val isLocked: Boolean
         get() = !keyguardStateController.isUnlocked()
@@ -122,14 +121,6 @@ class ControlActionCoordinatorImpl @Inject constructor(
         }, false /* blockable */))
     }
 
-    override fun runPendingAction(controlId: String) {
-        if (isLocked) return
-        if (pendingAction?.controlId == controlId) {
-            pendingAction?.invoke()
-            pendingAction = null
-        }
-    }
-
     @MainThread
     override fun enableActionOnTouch(controlId: String) {
         actionsInProgress.remove(controlId)
@@ -148,17 +139,11 @@ class ControlActionCoordinatorImpl @Inject constructor(
     @VisibleForTesting
     fun bouncerOrRun(action: Action) {
         if (keyguardStateController.isShowing()) {
-            if (isLocked) {
-                context.sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
-
-                // pending actions will only run after the control state has been refreshed
-                pendingAction = action
-            }
             activityStarter.dismissKeyguardThenExecute({
                 Log.d(ControlsUiController.TAG, "Device unlocked, invoking controls action")
                 action.invoke()
                 true
-            }, { pendingAction = null }, true /* afterKeyguardGone */)
+            }, null, true /* afterKeyguardGone */)
         } else {
             action.invoke()
         }
