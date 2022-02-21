@@ -25,6 +25,9 @@
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
 
+    <!-- Udfps display mode provider class name -->
+    <string name="config_udfpsDisplayModeProviderComponent">com.android.systemui.biometrics.DummyUdfpsDisplayModeProvider</string>
+
     <!-- Doze: does the double tap sensor need a proximity check? -->
     <bool name="doze_double_tap_proximity_check">false</bool>
 
