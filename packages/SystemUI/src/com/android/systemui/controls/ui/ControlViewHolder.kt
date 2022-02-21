@@ -172,8 +172,6 @@ class ControlViewHolder(
                 controlActionCoordinator.longPress(this@ControlViewHolder)
                 true
             })
-
-            controlActionCoordinator.runPendingAction(cws.ci.controlId)
         }
 
         val wasLoading = isLoading
