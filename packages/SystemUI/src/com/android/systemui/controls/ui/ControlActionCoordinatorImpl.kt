@@ -64,7 +64,6 @@ class ControlActionCoordinatorImpl @Inject constructor(
         private val featureFlags: FeatureFlags,
 ) : ControlActionCoordinator {
     private var dialog: Dialog? = null
-    private var pendingAction: Action? = null
     private var actionsInProgress = mutableSetOf<String>()
     private val isLocked: Boolean
         get() = !keyguardStateController.isUnlocked()
@@ -166,15 +165,6 @@ class ControlActionCoordinatorImpl @Inject constructor(
         )
     }
 
-    override fun runPendingAction(controlId: String) {
-        if (isLocked) return
-        if (pendingAction?.controlId == controlId) {
-            showSettingsDialogIfNeeded(pendingAction!!)
-            pendingAction?.invoke()
-            pendingAction = null
-        }
-    }
-
     @MainThread
     override fun enableActionOnTouch(controlId: String) {
         actionsInProgress.remove(controlId)
@@ -196,17 +186,11 @@ class ControlActionCoordinatorImpl @Inject constructor(
         val authRequired = action.authIsRequired || !allowTrivialControls
 
         if (keyguardStateController.isShowing() && authRequired) {
-            if (isLocked) {
-                broadcastSender.closeSystemDialogs()
-
-                // pending actions will only run after the control state has been refreshed
-                pendingAction = action
-            }
             activityStarter.dismissKeyguardThenExecute({
                 Log.d(ControlsUiController.TAG, "Device unlocked, invoking controls action")
                 action.invoke()
                 true
-            }, { pendingAction = null }, true /* afterKeyguardGone */)
+            }, null, true /* afterKeyguardGone */)
         } else {
             showSettingsDialogIfNeeded(action)
             action.invoke()
