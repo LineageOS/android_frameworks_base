@@ -93,6 +93,7 @@ import com.android.systemui.util.time.SystemClock;
 import com.android.systemui.util.time.SystemClockImpl;
 import com.android.systemui.wallet.dagger.WalletModule;
 import com.android.systemui.wmshell.BubblesManager;
+import com.android.systemui.R;
 import com.android.wm.shell.bubbles.Bubbles;
 
 import java.util.Optional;
@@ -198,8 +199,17 @@ public abstract class SystemUIModule {
     @BindsOptionalOf
     abstract CentralSurfaces optionalCentralSurfaces();
 
-    @BindsOptionalOf
-    abstract UdfpsDisplayModeProvider optionalUdfpsDisplayModeProvider();
+    @Provides
+    static UdfpsDisplayModeProvider getUdfpsDisplayModeProvider(Context context) {
+        String className = context.getString(R.string.config_udfpsDisplayModeProviderComponent);
+        try {
+            Class<?> clazz = context.getClassLoader().loadClass(className);
+            return (UdfpsDisplayModeProvider) clazz.getDeclaredConstructor(
+                    new Class[] { Context.class }).newInstance(context);
+        } catch (Throwable t) {
+            throw new RuntimeException("Error loading UdfpsDisplayModeProvider " + className, t);
+        }
+    }
 
     @BindsOptionalOf
     abstract AlternateUdfpsTouchProvider optionalUdfpsTouchProvider();
