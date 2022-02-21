@@ -68,12 +68,6 @@ interface ControlActionCoordinator {
     fun setValue(cvh: ControlViewHolder, templateId: String, newValue: Float)
 
     /**
-     * Actions may have been put on hold while the device is unlocked. Invoke this action if
-     * present.
-     */
-    fun runPendingAction(controlId: String)
-
-    /**
      * User interaction with a control may be blocked for a period of time while actions are being
      * executed by the application.  When the response returns, run this method to enable further
      * user interaction.
