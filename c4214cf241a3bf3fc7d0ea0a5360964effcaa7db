@@ -52,6 +52,23 @@
       "parentUuid": "11ae895e_d0fcdf92",
       "revId": "c4214cf241a3bf3fc7d0ea0a5360964effcaa7db",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "972e7929_bec68aa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-02-21T06:30:56Z",
+      "side": 1,
+      "message": "I\u0027m very sorry for answering late. I lost a very long time to build and test the patches I created.\nBut I\u0027m sure, it has worked!\nThis is the post with the test video, please see it: https://www.reddit.com/r/LineageOS/comments/sxmon0/test_include_video_cli_commands_to_restrict_wifi/",
+      "revId": "c4214cf241a3bf3fc7d0ea0a5360964effcaa7db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
