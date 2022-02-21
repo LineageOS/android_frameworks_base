@@ -24,6 +24,7 @@
 -keep class com.android.systemui.tv.TvSystemUIFactory
 -keep class * extends com.android.systemui.SystemUI
 -keep class * implements com.android.systemui.SystemUI$Injector
+-keep class * implements com.android.systemui.biometrics.UdfpsHbmProvider
 
 -keepclasseswithmembers class * {
     public <init>(android.content.Context, android.util.AttributeSet);
