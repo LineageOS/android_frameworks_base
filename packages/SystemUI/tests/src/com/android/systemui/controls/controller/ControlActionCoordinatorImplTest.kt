@@ -128,16 +128,6 @@ class ControlActionCoordinatorImplTest : SysuiTestCase() {
         verify(coordinator).bouncerOrRun(action)
         verify(activityStarter).dismissKeyguardThenExecute(any(), any(), anyBoolean())
         verify(action, never()).invoke()
-
-        // Simulate a refresh call from a Publisher, which will trigger a call to runPendingAction
-        reset(action)
-        coordinator.runPendingAction(ID)
-        verify(action, never()).invoke()
-
-        `when`(keyguardStateController.isUnlocked()).thenReturn(true)
-        reset(action)
-        coordinator.runPendingAction(ID)
-        verify(action).invoke()
     }
 
     @Test
