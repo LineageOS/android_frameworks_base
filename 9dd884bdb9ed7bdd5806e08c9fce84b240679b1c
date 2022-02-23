@@ -16,6 +16,41 @@
       "message": "@Arian, since you dug a lot into audio panel, do you have any idea on how to fix the landscape issue?",
       "revId": "9dd884bdb9ed7bdd5806e08c9fce84b240679b1c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd9d977_de8b91de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-02-23T22:07:58Z",
+      "side": 1,
+      "message": "Yes, i have had some ideas and can work on this after a while. I currently don\u0027t have much time for it :/",
+      "parentUuid": "29f04a60_af8c77a6",
+      "revId": "9dd884bdb9ed7bdd5806e08c9fce84b240679b1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95c16e9d_d23a8e8c",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 29
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-02-23T22:07:58Z",
+      "side": 1,
+      "message": "If someone else gets to it before me, the extra padding here needs to be moved to right if the panel is on left. After changing this there will still be a padding to the left though, it\u0027s reserved for the animation. The animation also needs to be inverted for the left side panel.",
+      "revId": "9dd884bdb9ed7bdd5806e08c9fce84b240679b1c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
