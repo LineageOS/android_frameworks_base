@@ -16,6 +16,23 @@
       "message": "I checked it on custom ROM and make sure it works correctly.",
       "revId": "6bade14bac90eea1722e2e577fe8bb5ef3dc65e9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4c65ae_59ff0265",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-02-24T06:38:31Z",
+      "side": 1,
+      "message": "set topic like the other one",
+      "revId": "6bade14bac90eea1722e2e577fe8bb5ef3dc65e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
