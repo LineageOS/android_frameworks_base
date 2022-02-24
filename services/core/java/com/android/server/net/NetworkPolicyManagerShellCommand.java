@@ -18,6 +18,7 @@ package com.android.server.net;
 
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
@@ -86,6 +87,8 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         pw.println("    Adds a UID to the whitelist for restrict background usage.");
         pw.println("  add restrict-background-blacklist UID");
         pw.println("    Adds a UID to the blacklist for restrict background usage.");
+        pw.println("  add restrict-network-usage-blacklist UID");
+        pw.println("    Adds a UID to the blacklist for restrict network usage.");
         pw.println("  add restrict-wifi-data-blacklist UID");
         pw.println("    Adds a UID to the blacklist for restrict Wi-Fi data usage.");
         pw.println("  add restrict-mobile-data-blacklist UID");
@@ -104,6 +107,8 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         pw.println("    Lists UIDs that are whitelisted for restrict background usage.");
         pw.println("  list restrict-background-blacklist");
         pw.println("    Lists UIDs that are blacklisted for restrict background usage.");
+        pw.println("  list restrict-network-usage-blacklist");
+        pw.println("    Lists UIDs that are blacklisted for restrict network usage.");
         pw.println("  list restrict-wifi-data-blacklist");
         pw.println("    Lists UIDs that are blacklisted for restrict Wi-Fi data usage.");
         pw.println("  list restrict-mobile-data-blacklist");
@@ -114,6 +119,8 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         pw.println("    Removes a UID from the whitelist for restrict background usage.");
         pw.println("  remove restrict-background-blacklist UID");
         pw.println("    Removes a UID from the blacklist for restrict background usage.");
+        pw.println("  remove restrict-network-usage-blacklist UID");
+        pw.println("    Removes a UID from the blacklist for restrict network usage.");
         pw.println("  remove restrict-wifi-data-blacklist UID");
         pw.println("    Removes a UID from the blacklist for restrict Wi-Fi data usage.");
         pw.println("  remove restrict-mobile-data-blacklist UID");
@@ -182,6 +189,8 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
                 return listRestrictBackgroundWhitelist();
             case "restrict-background-blacklist":
                 return listRestrictBackgroundBlacklist();
+            case "restrict-network-usage-blacklist":
+                return listRestrictNetworkUsageBlacklist();
             case "restrict-wifi-data-blacklist":
                 return listRestrictWiFiDataBlacklist();
             case "restrict-mobile-data-blacklist":
@@ -205,6 +214,8 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
                 return addRestrictBackgroundWhitelist();
             case "restrict-background-blacklist":
                 return addRestrictBackgroundBlacklist();
+            case "restrict-network-usage-blacklist":
+                return addRestrictNetworkUsageBlacklist();
             case "restrict-wifi-data-blacklist":
                 return addRestrictWiFiDataBlacklist();
             case "restrict-mobile-data-blacklist":
@@ -230,6 +241,8 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
                 return removeRestrictBackgroundWhitelist();
             case "restrict-background-blacklist":
                 return removeRestrictBackgroundBlacklist();
+            case "restrict-network-usage-blacklist":
+                return removeRestrictNetworkUsageBlacklist();
             case "restrict-wifi-data-blacklist":
                 return removeRestrictWiFiDataBlacklist();
             case "restrict-mobile-data-blacklist":
@@ -288,6 +301,11 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
     private int listRestrictBackgroundBlacklist() throws RemoteException {
         return listUidPolicies("Restrict background blacklisted UIDs",
                 POLICY_REJECT_METERED_BACKGROUND);
+    }
+
+    private int listRestrictNetworkUsageBlacklist() throws RemoteException {
+        return listUidPolicies("Restrict network usage blacklisted UIDs",
+                POLICY_REJECT_ALL);
     }
 
     private int listRestrictWiFiDataBlacklist() throws RemoteException {
@@ -377,6 +395,10 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         return setUidPolicy(POLICY_REJECT_METERED_BACKGROUND);
     }
 
+    private int addRestrictNetworkUsageBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_ALL);
+    }
+
     private int addRestrictWiFiDataBlacklist() throws RemoteException {
         return setUidPolicy(POLICY_REJECT_WIFI);
     }
@@ -391,6 +413,10 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
 
     private int removeRestrictBackgroundBlacklist() throws RemoteException {
         return resetUidPolicy("not blacklisted", POLICY_REJECT_METERED_BACKGROUND);
+    }
+
+    private int removeRestrictNetworkUsageBlacklist() throws RemoteException {
+        return resetUidPolicy("not blacklisted", POLICY_REJECT_ALL);
     }
 
     private int removeRestrictWiFiDataBlacklist() throws RemoteException {
