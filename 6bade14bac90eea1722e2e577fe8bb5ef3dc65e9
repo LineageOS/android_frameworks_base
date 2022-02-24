@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be80b802_9a7c58d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-02-24T06:19:23Z",
+      "side": 1,
+      "message": "I checked it on custom ROM and make sure it works correctly.",
+      "revId": "6bade14bac90eea1722e2e577fe8bb5ef3dc65e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
