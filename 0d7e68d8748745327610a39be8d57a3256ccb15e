@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b4a082_9a25c31e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-02-25T17:11:01Z",
+      "side": 1,
+      "message": "\u003e Patch Set 2:\n\u003e \n\u003e \u003e Patch Set 1: Code-Review+2\n\u003e \n\u003e need to pick forward to 19.0 and merge with the other pending 19.0 one.\n\nPick it and verify.",
+      "revId": "0d7e68d8748745327610a39be8d57a3256ccb15e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
