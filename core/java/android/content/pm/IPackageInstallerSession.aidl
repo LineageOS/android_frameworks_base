@@ -34,4 +34,6 @@ interface IPackageInstallerSession {
     void close();
     void commit(in IntentSender statusReceiver);
     void abandon();
+
+    int getInstallFlags();
 }
