@@ -128,6 +128,10 @@ import com.android.systemui.MultiListLayout.MultiListAdapter;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
+import com.android.systemui.controls.dagger.ControlsComponent;
+import com.android.systemui.controls.management.ControlsListingController;
+import com.android.systemui.controls.ui.ControlsActivity;
+import com.android.systemui.controls.ui.ControlsUiController;
 import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.model.SysUiState;
@@ -256,6 +260,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     private int mSmallestScreenWidthDp;
     private final StatusBar mStatusBar;
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
+    private final ControlsComponent mControlsComponent;
 
     @VisibleForTesting
     public enum GlobalActionsEvent implements UiEventLogger.UiEventEnum {
@@ -367,7 +372,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             @Main Handler handler,
             PackageManager packageManager,
             StatusBar statusBar,
-            KeyguardUpdateMonitor keyguardUpdateMonitor) {
+            KeyguardUpdateMonitor keyguardUpdateMonitor,
+            ControlsComponent controlsComponent) {
         mContext = context;
         mWindowManagerFuncs = windowManagerFuncs;
         mAudioManager = audioManager;
@@ -399,6 +405,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         mSmallestScreenWidthDp = resources.getConfiguration().smallestScreenWidthDp;
         mStatusBar = statusBar;
         mKeyguardUpdateMonitor = keyguardUpdateMonitor;
+        mControlsComponent = controlsComponent;
         mLineageGlobalActions = LineageGlobalActions.getInstance(mContext);
 
         // receive broadcasts
@@ -659,6 +666,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 }
             } else if (GLOBAL_ACTION_KEY_EMERGENCY.equals(actionKey)) {
                 addIfShouldShowAction(tempActions, new EmergencyDialerAction());
+            } else if (GLOBAL_ACTION_KEY_DEVICECONTROLS.equals(actionKey)) {
+                addIfShouldShowAction(tempActions, new DeviceControlsAction());
             } else {
                 Log.e(TAG, "Invalid global action key " + actionKey);
             }
@@ -2224,6 +2233,38 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             int index = (Integer) v.getTag();
             mAudioManager.setRingerMode(indexToRingerMode(index));
             mHandler.sendEmptyMessageDelayed(MESSAGE_DISMISS, DIALOG_DISMISS_DELAY);
+        }
+    }
+
+    private final class DeviceControlsAction extends SinglePressAction {
+        private DeviceControlsAction() {
+            super(com.android.systemui.R.drawable.controls_icon,
+                    com.android.systemui.R.string.quick_controls_title);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return false;
+        }
+
+        @Override
+        public void onPress() {
+            Intent intent = new Intent(mContext, ControlsActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .putExtra(ControlsUiController.EXTRA_ANIMATE, true);
+            mContext.startActivity(intent);
+        }
+
+        @Override
+        public boolean shouldShow() {
+            return super.shouldShow() &&
+                    mControlsComponent.getControlsController().isPresent() &&
+                    !mControlsComponent.getControlsController().get().getFavorites().isEmpty();
         }
     }
 
