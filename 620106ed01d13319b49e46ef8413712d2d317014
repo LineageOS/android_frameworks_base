@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0bc29c4_4abb3ad3",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-02-25T11:31:13Z",
+      "side": 1,
+      "message": "Should move this up.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 30
+      },
+      "revId": "620106ed01d13319b49e46ef8413712d2d317014",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
