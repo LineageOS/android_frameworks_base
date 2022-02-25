@@ -38,4 +38,6 @@ interface IPackageInstallerSession {
     void commit(in IntentSender statusReceiver, boolean forTransferred);
     void transfer(in String packageName);
     void abandon();
+
+    int getInstallFlags();
 }
