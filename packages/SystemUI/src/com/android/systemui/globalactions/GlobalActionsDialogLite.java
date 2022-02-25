@@ -862,6 +862,11 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         public boolean showBeforeProvisioning() {
             return true;
         }
+
+        @Override
+        public boolean shouldShow() {
+            return mHasTelephony;
+        }
     }
 
     protected int getEmergencyTextColor(Context context) {
