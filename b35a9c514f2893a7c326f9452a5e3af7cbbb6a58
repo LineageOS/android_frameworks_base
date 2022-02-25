@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "036aa2bd_cd330fb0",
+        "filename": "packages/SystemUI/src/com/android/systemui/controls/ui/ControlActionCoordinatorImpl.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-02-25T12:40:07Z",
+      "side": 0,
+      "message": "This is the only bit that throws me off.\nI don\u0027t think it should be removed, if any system dialog would be open ( nfc ) it would overlay on our dialog?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 81
+      },
+      "revId": "b35a9c514f2893a7c326f9452a5e3af7cbbb6a58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
