@@ -66,6 +66,7 @@ import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
+import com.android.systemui.controls.dagger.ControlsComponent;
 import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.model.SysUiState;
@@ -172,7 +173,8 @@ public class GlobalActionsDialog extends GlobalActionsDialogLite
             @Main Handler handler,
             PackageManager packageManager,
             StatusBar statusBar,
-            KeyguardUpdateMonitor keyguardUpdateMonitor) {
+            KeyguardUpdateMonitor keyguardUpdateMonitor,
+            ControlsComponent controlsComponent) {
 
         super(context,
                 windowManagerFuncs,
@@ -204,7 +206,8 @@ public class GlobalActionsDialog extends GlobalActionsDialogLite
                 handler,
                 packageManager,
                 statusBar,
-                keyguardUpdateMonitor);
+                keyguardUpdateMonitor,
+                controlsComponent);
 
         mLockPatternUtils = lockPatternUtils;
         mKeyguardStateController = keyguardStateController;
