@@ -105,6 +105,24 @@
       "message": "if we add the string \"global_action_restart_progress\", wouldnt it be useful to use it here?",
       "revId": "facaab52ec593a286858c606de8e5cc4140ec0e9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "863ad024_91f07b55",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsImpl.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-02-25T10:13:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e791c00f_1adc1344",
+      "revId": "facaab52ec593a286858c606de8e5cc4140ec0e9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
