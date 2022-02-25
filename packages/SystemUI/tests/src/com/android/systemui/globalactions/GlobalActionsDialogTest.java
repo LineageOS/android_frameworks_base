@@ -60,6 +60,7 @@ import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.SysuiTestCase;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
+import com.android.systemui.controls.dagger.ControlsComponent;
 import com.android.systemui.model.SysUiState;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.GlobalActions;
@@ -128,6 +129,7 @@ public class GlobalActionsDialogTest extends SysuiTestCase {
     @Mock private SecureSettings mSecureSettings;
     @Mock private StatusBar mStatusBar;
     @Mock private KeyguardUpdateMonitor mKeyguardUpdateMonitor;
+    @Mock private ControlsComponent mControlsComponent;
 
     private TestableLooper mTestableLooper;
 
@@ -172,7 +174,8 @@ public class GlobalActionsDialogTest extends SysuiTestCase {
                 mHandler,
                 mPackageManager,
                 mStatusBar,
-                mKeyguardUpdateMonitor
+                mKeyguardUpdateMonitor,
+                mControlsComponent
         );
         mGlobalActionsDialog.setZeroDialogPressDelayForTesting();
 
