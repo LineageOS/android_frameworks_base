@@ -16,6 +16,24 @@
       "message": "A sensor HAL is not impossible to implement.\n",
       "revId": "fbb8b5aabaf43b28cb6ae679f14029b47b535a3c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78ea36e1_5259b092",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2022-02-25T06:43:58Z",
+      "side": 1,
+      "message": "of course it isn\u0027t but it surely is when you want to get stuff working on day 1 ;)",
+      "parentUuid": "a12ad568_3a2e3281",
+      "revId": "fbb8b5aabaf43b28cb6ae679f14029b47b535a3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
