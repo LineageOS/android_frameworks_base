@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a12ad568_3a2e3281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2022-02-25T05:09:56Z",
+      "side": 1,
+      "message": "A sensor HAL is not impossible to implement.\n",
+      "revId": "fbb8b5aabaf43b28cb6ae679f14029b47b535a3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
