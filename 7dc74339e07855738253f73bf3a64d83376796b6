@@ -16,6 +16,24 @@
       "message": "Noticed that this was missing in eleven-backport while doing the twelve-backport.",
       "revId": "7dc74339e07855738253f73bf3a64d83376796b6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38a834d6_5622fe79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-02-25T10:05:55Z",
+      "side": 1,
+      "message": "Actually, it looks like the string was introduced with the eleven-backport but never really used.",
+      "parentUuid": "d218a867_5602439d",
+      "revId": "7dc74339e07855738253f73bf3a64d83376796b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
