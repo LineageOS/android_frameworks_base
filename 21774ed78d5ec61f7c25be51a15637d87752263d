@@ -16,6 +16,23 @@
       "message": "any issues in merging this?",
       "revId": "21774ed78d5ec61f7c25be51a15637d87752263d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "897a1d8c_5daa4bce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2022-02-26T21:41:43Z",
+      "side": 1,
+      "message": "reqiured for not-so-ultralegacy mt6763 platform on kernel 4.9 to not create gibberish",
+      "revId": "21774ed78d5ec61f7c25be51a15637d87752263d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
