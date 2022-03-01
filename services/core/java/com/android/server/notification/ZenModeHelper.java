@@ -85,6 +85,7 @@ public class ZenModeHelper {
 
     // The amount of time rules instances can exist without their owning app being installed.
     private static final int RULE_INSTANCE_GRACE_PERIOD = 1000 * 60 * 60 * 72;
+    static final int RULE_LIMIT_PER_PACKAGE = 100;
 
     private final Context mContext;
     private final H mHandler;
@@ -294,8 +295,9 @@ public class ZenModeHelper {
                 ruleInstanceLimit = owner.metaData.getInt(
                         ConditionProviderService.META_DATA_RULE_INSTANCE_LIMIT, -1);
             }
-            if (ruleInstanceLimit > 0 && ruleInstanceLimit
-                    < (getCurrentInstanceCount(automaticZenRule.getOwner()) + 1)) {
+            if ((getCurrentInstanceCount(automaticZenRule.getOwner()) + 1) > RULE_LIMIT_PER_PACKAGE
+                || (ruleInstanceLimit > 0 && ruleInstanceLimit
+                    < (getCurrentInstanceCount(automaticZenRule.getOwner()) + 1))) {
                 throw new IllegalArgumentException("Rule instance limit exceeded");
             }
         }
