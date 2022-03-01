@@ -20,10 +20,13 @@ import static android.app.NotificationManager.Policy.SUPPRESSED_EFFECT_BADGE;
 import static android.app.NotificationManager.Policy.SUPPRESSED_EFFECT_FULL_SCREEN_INTENT;
 import static android.app.NotificationManager.Policy.SUPPRESSED_EFFECT_LIGHTS;
 import static android.app.NotificationManager.Policy.SUPPRESSED_EFFECT_PEEK;
+import static com.android.server.notification.ZenModeHelper.RULE_LIMIT_PER_PACKAGE;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.fail;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
@@ -44,6 +47,9 @@ import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
@@ -69,6 +75,8 @@ import com.android.internal.util.FastXmlSerializer;
 import com.android.server.UiServiceTestCase;
 import android.util.Slog;
 
+import com.google.common.collect.ImmutableList;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -87,8 +95,12 @@ import java.io.ByteArrayOutputStream;
 @TestableLooper.RunWithLooper
 public class ZenModeHelperTest extends UiServiceTestCase {
 
+    private static final String CUSTOM_PKG_NAME = "not.android";
+    private static final int CUSTOM_PKG_UID = 1;
+
     ConditionProviders mConditionProviders;
     @Mock NotificationManager mNotificationManager;
+    @Mock PackageManager mPackageManager;
     @Mock private Resources mResources;
     private TestableLooper mTestableLooper;
     private ZenModeHelper mZenModeHelperSpy;
@@ -96,7 +108,7 @@ public class ZenModeHelperTest extends UiServiceTestCase {
     private ContentResolver mContentResolver;
 
     @Before
-    public void setUp() {
+    public void setUp() throws PackageManager.NameNotFoundException {
         MockitoAnnotations.initMocks(this);
 
         mTestableLooper = TestableLooper.get(this);
@@ -112,6 +124,16 @@ public class ZenModeHelperTest extends UiServiceTestCase {
         mConditionProviders.addSystemProvider(new CountdownConditionProvider());
         mZenModeHelperSpy = spy(new ZenModeHelper(mContext, mTestableLooper.getLooper(),
                 mConditionProviders));
+
+        ResolveInfo ri = new ResolveInfo();
+        ri.activityInfo = new ActivityInfo();
+        when(mPackageManager.queryIntentActivitiesAsUser(any(), anyInt(), anyInt())).thenReturn(
+                ImmutableList.of(ri));
+        when(mPackageManager.getPackageUidAsUser(eq(CUSTOM_PKG_NAME), anyInt()))
+                .thenReturn(CUSTOM_PKG_UID);
+        when(mPackageManager.getPackagesForUid(anyInt())).thenReturn(
+                new String[] {getContext().getPackageName()});
+        mZenModeHelperSpy.mPm = mPackageManager;
     }
 
     private ByteArrayOutputStream writeXmlAndPurge(boolean forBackup, Integer version)
@@ -842,6 +864,34 @@ public class ZenModeHelperTest extends UiServiceTestCase {
         assertEquals(true, ZenModeConfig.isValidCountdownConditionId(conditionId));
         assertEquals(originalConfig, mZenModeHelperSpy.mConfig);
         assertEquals(1, mZenModeHelperSpy.mConditions.mSubscriptions.size());
+    }
+
+    @Test
+    public void testAddAutomaticZenRule_beyondSystemLimit() {
+        for (int i = 0; i < RULE_LIMIT_PER_PACKAGE; i++) {
+            ScheduleInfo si = new ScheduleInfo();
+            si.startHour = i;
+            AutomaticZenRule zenRule = new AutomaticZenRule("name" + i,
+                    null,
+                    new ComponentName("android", "ScheduleConditionProvider"),
+                    ZenModeConfig.toScheduleConditionId(si),
+                    new ZenPolicy.Builder().build(),
+                    NotificationManager.INTERRUPTION_FILTER_PRIORITY, true);
+            String id = mZenModeHelperSpy.addAutomaticZenRule(zenRule, "test");
+            assertNotNull(id);
+        }
+        try {
+            AutomaticZenRule zenRule = new AutomaticZenRule("name",
+                    null,
+                    new ComponentName("android", "ScheduleConditionProvider"),
+                    ZenModeConfig.toScheduleConditionId(new ScheduleInfo()),
+                    new ZenPolicy.Builder().build(),
+                    NotificationManager.INTERRUPTION_FILTER_PRIORITY, true);
+            String id = mZenModeHelperSpy.addAutomaticZenRule(zenRule, "test");
+            fail("allowed too many rules to be created");
+        } catch (IllegalArgumentException e) {
+            // yay
+        }
     }
 
     private void setupZenConfig() {
