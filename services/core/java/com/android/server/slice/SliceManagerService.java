@@ -239,6 +239,8 @@ public class SliceManagerService extends ISliceManager.Stub {
         if (autoGrantPermissions != null) {
             // Need to own the Uri to call in with permissions to grant.
             enforceOwner(pkg, uri, userId);
+            // b/208232850: Needs to verify caller before granting slice access
+            verifyCaller(pkg);
             for (String perm : autoGrantPermissions) {
                 if (mContext.checkPermission(perm, pid, uid) == PERMISSION_GRANTED) {
                     int providerUser = ContentProvider.getUserIdFromUri(uri, userId);
