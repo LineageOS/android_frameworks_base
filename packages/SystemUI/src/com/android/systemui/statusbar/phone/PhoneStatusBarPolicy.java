@@ -28,11 +28,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.media.AudioManager;
+import android.net.ConnectivityManager;
+import android.net.INetworkPolicyListener;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkPolicyManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings.Global;
 import android.service.notification.ZenModeConfig;
@@ -41,6 +50,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 
 import com.android.systemui.R;
@@ -121,11 +131,13 @@ public class PhoneStatusBarPolicy
     private final String mSlotCamera;
     private final String mSlotSensorsOff;
     private final String mSlotScreenRecord;
+    private final String mSlotFirewall;
     private final int mDisplayId;
     private final SharedPreferences mSharedPreferences;
     private final DateFormatUtil mDateFormatUtil;
     private final TelecomManager mTelecomManager;
 
+    private final Context mContext;
     private final Handler mHandler;
     private final CastController mCast;
     private final HotspotController mHotspot;
@@ -152,6 +164,8 @@ public class PhoneStatusBarPolicy
     private final RecordingController mRecordingController;
     private final RingerModeTracker mRingerModeTracker;
     private final PrivacyLogger mPrivacyLogger;
+    private final ConnectivityManager mConnectivityManager;
+    private final NetworkPolicyManager mNetworkPolicyManager;
 
     private boolean mZenVisible;
     private boolean mVibrateVisible;
@@ -159,12 +173,15 @@ public class PhoneStatusBarPolicy
     private boolean mCurrentUserSetup;
 
     private boolean mManagedProfileIconVisible = false;
+    private boolean mFirewallVisible = false;
+
+    private int mLastResumedActivityUid = -1;
 
     private BluetoothController mBluetooth;
     private AlarmManager.AlarmClockInfo mNextAlarm;
 
     @Inject
-    public PhoneStatusBarPolicy(StatusBarIconController iconController,
+    public PhoneStatusBarPolicy(Context context, StatusBarIconController iconController,
             CommandQueue commandQueue, BroadcastDispatcher broadcastDispatcher,
             @Main Executor mainExecutor, @UiBackground Executor uiBgExecutor, @Main Looper looper,
             @Main Resources resources, CastController castController,
@@ -183,6 +200,7 @@ public class PhoneStatusBarPolicy
             RingerModeTracker ringerModeTracker,
             PrivacyItemController privacyItemController,
             PrivacyLogger privacyLogger) {
+        mContext = context;
         mIconController = iconController;
         mCommandQueue = commandQueue;
         mBroadcastDispatcher = broadcastDispatcher;
@@ -211,6 +229,8 @@ public class PhoneStatusBarPolicy
         mTelecomManager = telecomManager;
         mRingerModeTracker = ringerModeTracker;
         mPrivacyLogger = privacyLogger;
+        mConnectivityManager = context.getSystemService(ConnectivityManager.class);
+        mNetworkPolicyManager = context.getSystemService(NetworkPolicyManager.class);
 
         mSlotCast = resources.getString(com.android.internal.R.string.status_bar_cast);
         mSlotHotspot = resources.getString(com.android.internal.R.string.status_bar_hotspot);
@@ -231,6 +251,7 @@ public class PhoneStatusBarPolicy
         mSlotSensorsOff = resources.getString(com.android.internal.R.string.status_bar_sensors_off);
         mSlotScreenRecord = resources.getString(
                 com.android.internal.R.string.status_bar_screen_record);
+        mSlotFirewall = resources.getString(R.string.status_bar_firewall_slot);
 
         mDisplayId = displayId;
         mSharedPreferences = sharedPreferences;
@@ -256,6 +277,8 @@ public class PhoneStatusBarPolicy
 
         // listen for user / profile change.
         mUserTracker.addCallback(mUserSwitchListener, mMainExecutor);
+
+        mNetworkPolicyManager.registerListener(mNetworkPolicyListener);
 
         // TTY status
         updateTTY();
@@ -327,6 +350,10 @@ public class PhoneStatusBarPolicy
         // screen record
         mIconController.setIcon(mSlotScreenRecord, R.drawable.stat_sys_screen_record, null);
         mIconController.setIconVisibility(mSlotScreenRecord, false);
+
+        // firewall
+        mIconController.setIcon(mSlotFirewall, R.drawable.stat_sys_firewall, null);
+        mIconController.setIconVisibility(mSlotFirewall, mFirewallVisible);
 
         mRotationLockController.addCallback(this);
         mBluetooth.addCallback(this);
@@ -575,6 +602,72 @@ public class PhoneStatusBarPolicy
         });
     }
 
+    private void updateFirewall() {
+        mUiBgExecutor.execute(() -> {
+            try {
+                final int uid = ActivityTaskManager.getService().getLastResumedActivityUid();
+                if (mLastResumedActivityUid != uid) {
+                    mLastResumedActivityUid = uid;
+                    try {
+                        mConnectivityManager.unregisterNetworkCallback(mNetworkCallback);
+                    } catch (IllegalArgumentException e) {
+                        // Ignore
+                    }
+                    mConnectivityManager.registerDefaultNetworkCallbackForUid(uid, mNetworkCallback,
+                            mHandler);
+                }
+                final boolean isRestricted =
+                        mNetworkPolicyManager.isUidNetworkingBlocked(uid, false /*meteredNetwork*/);
+                boolean isLauncher = false;
+                List<ResolveInfo> homeActivities =
+                        mContext.getPackageManager().queryIntentActivitiesAsUser(
+                                new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME)
+                                        .addCategory(Intent.CATEGORY_DEFAULT),
+                                PackageManager.ResolveInfoFlags.of(0), UserHandle.getUserId(uid));
+                for (ResolveInfo homeActivity : homeActivities) {
+                    if (uid == homeActivity.activityInfo.applicationInfo.uid) {
+                        isLauncher = true;
+                        break;
+                    }
+                }
+                final boolean finalIsLauncher = isLauncher;
+                mHandler.post(() -> {
+                    final boolean showIcon;
+                    if (!finalIsLauncher && isRestricted && (!mKeyguardStateController.isShowing()
+                            || mKeyguardStateController.isOccluded())) {
+                        showIcon = true;
+                        mIconController.setIcon(mSlotFirewall, R.drawable.stat_sys_firewall, null);
+                    } else {
+                        showIcon = false;
+                    }
+                    if (mFirewallVisible != showIcon) {
+                        mIconController.setIconVisibility(mSlotFirewall, showIcon);
+                        mFirewallVisible = showIcon;
+                    }
+                });
+            } catch (RemoteException e) {
+                Log.w(TAG, "updateFirewall: ", e);
+            }
+        });
+    }
+
+    private final ConnectivityManager.NetworkCallback mNetworkCallback =
+            new ConnectivityManager.NetworkCallback() {
+                @Override
+                public void onCapabilitiesChanged(@NonNull Network network,
+                        @NonNull NetworkCapabilities networkCapabilities) {
+                    mHandler.post(() -> updateFirewall());
+                }
+            };
+
+    private final INetworkPolicyListener mNetworkPolicyListener =
+            new NetworkPolicyManager.Listener() {
+        @Override
+        public void onUidPoliciesChanged(int uid, int uidPolicies) {
+            mHandler.post(() -> updateFirewall());
+        }
+    };
+
     private final UserTracker.Callback mUserSwitchListener =
             new UserTracker.Callback() {
                 @Override
@@ -630,12 +723,14 @@ public class PhoneStatusBarPolicy
             boolean forced) {
         if (mDisplayId == displayId) {
             updateManagedProfile();
+            updateFirewall();
         }
     }
 
     @Override
     public void onKeyguardShowingChanged() {
         updateManagedProfile();
+        updateFirewall();
     }
 
     @Override
