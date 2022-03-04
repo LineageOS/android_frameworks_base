@@ -3780,6 +3780,19 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
         }
     }
 
+    /** Return the uid of the last resumed activity. */
+    @Override
+    public int getLastResumedActivityUid() {
+        mAmInternal.enforceCallingPermission(
+                Manifest.permission.INTERACT_ACROSS_USERS_FULL, "getLastResumedActivityUserId()");
+        synchronized (mGlobalLock) {
+            if (mLastResumedActivity == null) {
+                return 0;
+            }
+            return mLastResumedActivity.getUid();
+        }
+    }
+
     @Override
     public void updateLockTaskFeatures(int userId, int flags) {
         final int callingUid = Binder.getCallingUid();
