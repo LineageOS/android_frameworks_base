@@ -29,6 +29,10 @@
         android:title="@string/headset" />
 
     <com.android.systemui.tuner.StatusBarSwitch
+        android:key="firewall"
+        android:title="@string/status_bar_firewall" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
         android:icon="@drawable/ic_statusbar_work"
         android:key="managed_profile"
         android:title="@string/status_bar_work" />
