@@ -175,23 +175,14 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
                 LineageSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0) == 1;
         if (mScramblePin) {
             Collections.shuffle(sNumbers);
-            // get all children who are NumPadKey's
-            List<NumPadKey> views = new ArrayList<NumPadKey>();
+            int digit = 0;
             for (int i = 0; i < mContainer.getChildCount(); i++) {
-                if (mContainer.getChildAt(i) instanceof LinearLayout) {
-                    LinearLayout nestedLayout = ((LinearLayout) mContainer.getChildAt(i));
-                    for (int j = 0; j < nestedLayout.getChildCount(); j++){
-                        View view = nestedLayout.getChildAt(j);
-                        if (view.getClass() == NumPadKey.class) {
-                            views.add((NumPadKey) view);
-                        }
-                    }
+                View view = mContainer.getChildAt(i);
+                if (view instanceof NumPadKey) {
+                    NumPadKey key = (NumPadKey) view;
+                    key.setDigit(sNumbers.get(digit));
+                    digit++;
                 }
-            }
-            // reset the digits in the views
-            for (int i = 0; i < sNumbers.size(); i++) {
-                NumPadKey view = views.get(i);
-                view.setDigit(sNumbers.get(i));
             }
         }
     }
