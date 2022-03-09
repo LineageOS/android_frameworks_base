@@ -788,6 +788,13 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     }
 
     @Override
+    public void onUiModeChanged() {
+        if (mDialog != null && mDialog.isShowing()) {
+            mDialog.refreshDialog();
+        }
+    }
+
+    @Override
     public void onConfigChanged(Configuration newConfig) {
         if (mDialog != null && mDialog.isShowing()
                 && (newConfig.smallestScreenWidthDp != mSmallestScreenWidthDp)) {
@@ -2916,6 +2923,9 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
             // Update the list as the max number of items per row has probably changed.
             mGlobalActionsLayout.updateList();
+
+            // Colors may change, depending on UI mode
+            mContext.getTheme().applyStyle(mContext.getThemeResId(), true);
         }
 
         public void onRotate(int from, int to) {
