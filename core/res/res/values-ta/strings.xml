@@ -170,16 +170,16 @@
     <string name="httpErrorFailedSslHandshake" msgid="546319061228876290">"பாதுகாப்பான இணைப்பை நிறுவ முடியவில்லை."</string>
     <string name="httpErrorBadUrl" msgid="754447723314832538">"URL தவறாக உள்ளதால் பக்கத்தைத் திறக்க முடியவில்லை."</string>
     <string name="httpErrorFile" msgid="3400658466057744084">"ஃபைலை அணுக முடியவில்லை."</string>
-    <string name="httpErrorFileNotFound" msgid="5191433324871147386">"கோரப்பட்ட கோப்பைக் கண்டறிய முடியவில்லை."</string>
+    <string name="httpErrorFileNotFound" msgid="5191433324871147386">"கோரப்பட்ட ஃபைலைக் கண்டறிய முடியவில்லை."</string>
     <string name="httpErrorTooManyRequests" msgid="2149677715552037198">"மிக அதிகமான கோரிக்கைகள் செயல்படுத்தப்படுகின்றன. பிறகு முயற்சிக்கவும்."</string>
     <string name="notification_title" msgid="5783748077084481121">"<xliff:g id="ACCOUNT">%1$s</xliff:g> க்கான உள்நுழைவு பிழை"</string>
     <string name="contentServiceSync" msgid="2341041749565687871">"ஒத்திசை"</string>
     <string name="contentServiceSyncNotificationTitle" msgid="5766411446676388623">"ஒத்திசைக்க முடியவில்லை"</string>
     <string name="contentServiceTooManyDeletesNotificationDesc" msgid="4562226280528716090">"அதிகளவிலான <xliff:g id="CONTENT_TYPE">%s</xliff:g> உள்ளடக்க வகைகளை நீக்க முயன்றுள்ளீர்கள்."</string>
-    <string name="low_memory" product="tablet" msgid="5557552311566179924">"டேப்லெட் சேமிப்பிடம் நிரம்பியது. இடத்தைக் காலியாக்க சில கோப்புகளை அழிக்கவும்."</string>
-    <string name="low_memory" product="watch" msgid="3479447988234030194">"வாட்ச் சேமிப்பிடம் நிரம்பியது. இடத்தைக் காலியாக்க சில கோப்புகளை நீக்கவும்."</string>
+    <string name="low_memory" product="tablet" msgid="5557552311566179924">"டேப்லெட் சேமிப்பிடம் நிரம்பியது. இடத்தைக் காலியாக்க சில ஃபைல்களை அழிக்கவும்."</string>
+    <string name="low_memory" product="watch" msgid="3479447988234030194">"வாட்ச் சேமிப்பிடம் நிரம்பியது. இடத்தைக் காலியாக்க சில ஃபைல்களை நீக்கவும்."</string>
     <string name="low_memory" product="tv" msgid="6663680413790323318">"Android TVயின் சேமிப்பிடம் நிரம்பிவிட்டது. இடத்தைக் காலியாக்க சில ஃபைல்களை நீக்கவும்."</string>
-    <string name="low_memory" product="default" msgid="2539532364144025569">"மொபைல் சேமிப்பிடம் நிரம்பியது. இடத்தைக் காலியாக்க சில கோப்புகளை அழிக்கவும்."</string>
+    <string name="low_memory" product="default" msgid="2539532364144025569">"மொபைல் சேமிப்பிடம் நிரம்பியது. இடத்தைக் காலியாக்க சில ஃபைல்களை அழிக்கவும்."</string>
     <plurals name="ssl_ca_cert_warning" formatted="false" msgid="2288194355006173029">
       <item quantity="other">சான்றிதழ் அங்கீகாரங்கள் நிறுவப்பட்டன</item>
       <item quantity="one">சான்றிதழ் அங்கீகாரம் நிறுவப்பட்டது</item>
@@ -311,7 +311,7 @@
     <string name="permgrouplab_sms" msgid="795737735126084874">"SMS"</string>
     <string name="permgroupdesc_sms" msgid="5726462398070064542">"SMS அனுப்பலாம், வந்த SMSகளைப் பார்க்கலாம்"</string>
     <string name="permgrouplab_storage" msgid="1938416135375282333">"ஃபைல்களும் மீடியாவும்"</string>
-    <string name="permgroupdesc_storage" msgid="6351503740613026600">"உங்கள் சாதனத்தில் உள்ள படங்கள், மீடியா மற்றும் கோப்புகளை அணுக வேண்டும்"</string>
+    <string name="permgroupdesc_storage" msgid="6351503740613026600">"உங்கள் சாதனத்தில் உள்ள படங்கள், மீடியா மற்றும் ஃபைல்களை அணுக வேண்டும்"</string>
     <string name="permgrouplab_microphone" msgid="2480597427667420076">"மைக்ரோஃபோன்"</string>
     <string name="permgroupdesc_microphone" msgid="1047786732792487722">"ஒலிப் பதிவு செய்யலாம்"</string>
     <string name="permgrouplab_activityRecognition" msgid="3324466667921775766">"உடல் செயல்பாடுகள்"</string>
@@ -616,6 +616,7 @@
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"முகத் தோற்றப் பதிவைத் தட்டி நீக்கிவிட்டு உங்கள் முகத்தை மீண்டும் சேர்க்கவும்"</string>
     <string name="face_setup_notification_title" msgid="8843461561970741790">"\'முகம் காட்டித் திறத்தல்\' அம்சத்தை அமைத்தல்"</string>
     <string name="face_setup_notification_content" msgid="5463999831057751676">"மொபைலைப் பார்ப்பதன் மூலம் அதை அன்லாக் செய்யலாம்"</string>
+    <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"முகம் காட்டித் திறத்தல் அம்சத்தைப் பயன்படுத்த, அமைப்புகள் &gt; தனியுரிமை என்பதற்குச் சென்று "<b>"கேமரா அணுகலை"</b>" இயக்கவும்"</string>
     <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"அன்லாக் செய்ய மேலும் பல வழிகளை அமையுங்கள்"</string>
     <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"கைரேகையைச் சேர்க்கத் தட்டுங்கள்"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"கைரேகை அன்லாக்"</string>
@@ -729,9 +730,11 @@
     <string name="policylab_watchLogin" msgid="7599669460083719504">"திரையை அன்லாக் செய்வதற்கான முயற்சிகளைக் கண்காணி"</string>
     <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"திரையைத் திறக்கும்போது உள்ளிட்ட தவறான கடவுச்சொற்களின் எண்ணிக்கையைக் கண்காணிக்கும், மேலும் கடவுச்சொற்கள் பலமுறை தவறாக உள்ளிட்டிருந்தால், டேப்லெட்டைப் பூட்டும் அல்லது டேப்லெட்டின் எல்லா தரவையும் அழிக்கும்."</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"திரையைத் திறக்கும்போது எத்தனை முறை தவறான கடவுச்சொற்களை உள்ளிட்டீர்கள் என்பதைக் கண்காணிக்கும், பலமுறை தவறாக உள்ளிட்டிருந்தால் Android TVயைப் பூட்டும் அல்லது Android TVயின் அனைத்துத் தரவையும் அழிக்கும்."</string>
+    <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"திரையை அன்லாக் செய்யும்போது உள்ளிடப்படும் தவறான கடவுச்சொற்களின் எண்ணிக்கையைக் கண்காணிக்கும். மேலும் கடவுச்சொற்கள் பலமுறை தவறாக உள்ளிடப்பட்டிருந்தால் இன்ஃபோடெயின்மென்ட் சிஸ்டமைப் பூட்டும் அல்லது அதன் அனைத்துத் தரவையும் அழிக்கும்."</string>
     <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"திரையைத் திறக்கும்போது உள்ளிட்ட தவறான கடவுச்சொற்களின் எண்ணிக்கையைக் கண்காணிக்கும், மேலும் கடவுச்சொற்கள் பலமுறை தவறாக உள்ளிட்டிருந்தால், மொபைலைப் பூட்டும் அல்லது மொபைலின் எல்லா தரவையும் அழிக்கும்."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"திரையைத் திறக்கும் போது, எத்தனை முறை தவறான கடவுச்சொல்லை உள்ளிட்டீர்கள் என்பதைக் கண்காணிக்கிறது மற்றும் கடவுச்சொற்களைப் பல முறை தவறாக உள்ளிட்டால், டேப்லெட்டைப் பூட்டும் அல்லது இந்தப் பயனரின் எல்லா தரவையும் அழிக்கும்."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"திரையைத் திறக்கும் போது எத்தனை முறை தவறான கடவுச்சொல்லை உள்ளிட்டீர்கள் என்பதைக் கண்காணிப்பதோடு கடவுச்சொற்களைப் பல முறை தவறாக உள்ளிட்டால் Android TVயைப் பூட்டும் அல்லது இந்தப் பயனரின் அனைத்துத் தரவையும் அழிக்கும்."</string>
+    <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"திரையை அன்லாக் செய்யும்போது உள்ளிடப்படும் தவறான கடவுச்சொற்களின் எண்ணிக்கையைக் கண்காணிக்கும். மேலும் கடவுச்சொற்கள் பலமுறை தவறாக உள்ளிடப்பட்டிருந்தால் இன்ஃபோடெயின்மென்ட் சிஸ்டமைப் பூட்டும் அல்லது இந்தச் சுயவிவரத்தின் அனைத்துத் தரவையும் அழிக்கும்."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="default" msgid="9177645136475155924">"திரையைத் திறக்கும் போது, எத்தனை முறை தவறான கடவுச்சொல்லை உள்ளிட்டீர்கள் என்பதைக் கண்காணிக்கிறது மற்றும் கடவுச்சொற்களைப் பல முறை தவறாக உள்ளிட்டால், ஃபோனைப் பூட்டும் அல்லது இந்தப் பயனரின் எல்லா தரவையும் அழிக்கும்."</string>
     <string name="policylab_resetPassword" msgid="214556238645096520">"திரைப் பூட்டை மாற்றுதல்"</string>
     <string name="policydesc_resetPassword" msgid="4626419138439341851">"திரைப் பூட்டை மாற்றும்."</string>
@@ -740,10 +743,13 @@
     <string name="policylab_wipeData" msgid="1359485247727537311">"எல்லா டேட்டாவையும் அழித்தல்"</string>
     <string name="policydesc_wipeData" product="tablet" msgid="7245372676261947507">"ஆரம்பநிலைத் தரவு மீட்டமைப்பின் மூலம் எச்சரிக்கை வழங்காமல் டேப்லெட்டின் தரவை அழிக்கலாம்."</string>
     <string name="policydesc_wipeData" product="tv" msgid="513862488950801261">"தரவின் ஆரம்பநிலைக்கு மீட்டமைப்பதன் மூலம் எச்சரிக்கை செய்யாமல் Android TVயின் தரவை அழிக்கும்."</string>
+    <string name="policydesc_wipeData" product="automotive" msgid="660804547737323300">"தரவின் ஆரம்பநிலை மீட்டமைப்பைச் செயல்படுத்துவதன் மூலம் எச்சரிக்கை எதுவுமின்றி இன்ஃபோடெயின்மென்ட் சிஸ்டமின் தரவை அழிக்கும்."</string>
     <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"ஆரம்பநிலைத் தரவு மீட்டமைப்பின் மூலம் எச்சரிக்கை வழங்காமல் மொபைலின் தரவை அழிக்கலாம்."</string>
-    <string name="policylab_wipeData_secondaryUser" msgid="413813645323433166">"பயனர் தரவை அழி"</string>
+    <string name="policylab_wipeData_secondaryUser" product="automotive" msgid="115034358520328373">"சுயவிவரத் தரவை அழித்தல்"</string>
+    <string name="policylab_wipeData_secondaryUser" product="default" msgid="413813645323433166">"பயனர் தரவை அழி"</string>
     <string name="policydesc_wipeData_secondaryUser" product="tablet" msgid="2336676480090926470">"எச்சரிக்கை எதுவுமின்றி, டேப்லெட்டில் உள்ள இந்தப் பயனரின் தரவை அழிக்கும்."</string>
     <string name="policydesc_wipeData_secondaryUser" product="tv" msgid="2293713284515865200">"எச்சரிக்கை செய்யாமல் Android TVயில் உள்ள இந்தப் பயனரின் தரவை அழிக்கும்."</string>
+    <string name="policydesc_wipeData_secondaryUser" product="automotive" msgid="4658832487305780879">"எச்சரிக்கை எதுவுமின்றி இந்த இன்ஃபோடெயின்மென்ட் சிஸ்டத்திலுள்ள இந்தச் சுயவிவரத்தின் தரவை அழிக்கும்."</string>
     <string name="policydesc_wipeData_secondaryUser" product="default" msgid="2788325512167208654">"எச்சரிக்கை எதுவுமின்றி, ஃபோனில் உள்ள இந்தப் பயனரின் தரவை அழிக்கும்."</string>
     <string name="policylab_setGlobalProxy" msgid="215332221188670221">"சாதன குளோபல் ப்ராக்ஸியை அமை"</string>
     <string name="policydesc_setGlobalProxy" msgid="7149665222705519604">"கொள்கை இயக்கப்பட்டிருக்கும்போது பயன்படுத்த வேண்டிய சாதன குளோபல் ப்ராக்ஸியை அமைக்கவும். சாதன உரிமையாளரால் மட்டுமே குளோபல் ப்ராக்ஸியை அமைக்க முடியும்."</string>
@@ -1413,7 +1419,7 @@
     <string name="ext_media_new_notification_message" product="tv" msgid="216863352100263668">"அமைக்கத் தேர்ந்தெடுங்கள்"</string>
     <string name="ext_media_new_notification_message" product="automotive" msgid="5140127881613227162">"சாதனத்தை ரீஃபார்மேட் செய்ய வேண்டியிருக்கும். வெளியேற்ற தட்டவும்."</string>
     <string name="ext_media_ready_notification_message" msgid="777258143284919261">"படங்களையும் மீடியாவையும் மாற்றலாம்"</string>
-    <string name="ext_media_ready_notification_message" product="tv" msgid="8847134811163165935">"மீடியா கோப்புகளை உலாவுக"</string>
+    <string name="ext_media_ready_notification_message" product="tv" msgid="8847134811163165935">"மீடியா ஃபைல்களை உலாவுக"</string>
     <string name="ext_media_unmountable_notification_title" msgid="4895444667278979910">"<xliff:g id="NAME">%s</xliff:g> இல் சிக்கல்"</string>
     <string name="ext_media_unmountable_notification_title" product="automotive" msgid="3142723758949023280">"<xliff:g id="NAME">%s</xliff:g> வேலை செய்யவில்லை"</string>
     <string name="ext_media_unmountable_notification_message" msgid="3256290114063126205">"சரிசெய்ய, தட்டவும்"</string>
@@ -1505,8 +1511,8 @@
     <string name="vpn_lockdown_disconnected" msgid="5573611651300764955">"எப்போதும் இயக்கத்தில் இருக்கும்படி அமைத்த VPN இலிருந்து துண்டிக்கப்பட்டது"</string>
     <string name="vpn_lockdown_error" msgid="4453048646854247947">"எப்போதும் ஆனில் இருக்கும்படி அமைத்த VPN உடன் இணைக்க முடியவில்லை"</string>
     <string name="vpn_lockdown_config" msgid="8331697329868252169">"நெட்வொர்க் அல்லது VPN அமைப்புகளை மாற்றவும்"</string>
-    <string name="upload_file" msgid="8651942222301634271">"கோப்பைத் தேர்வுசெய்"</string>
-    <string name="no_file_chosen" msgid="4146295695162318057">"எந்தக் கோப்பும் தேர்வுசெய்யப்படவில்லை"</string>
+    <string name="upload_file" msgid="8651942222301634271">"ஃபலைத் தேர்வுசெய்"</string>
+    <string name="no_file_chosen" msgid="4146295695162318057">"எந்த ஃபைலும் தேர்வுசெய்யப்படவில்லை"</string>
     <string name="reset" msgid="3865826612628171429">"மீட்டமை"</string>
     <string name="submit" msgid="862795280643405865">"சமர்ப்பி"</string>
     <string name="car_mode_disable_notification_title" msgid="8450693275833142896">"\'வாகனம் ஓட்டும் பயன்முறை’ ஆனில் உள்ளது"</string>
@@ -1693,7 +1699,7 @@
     <string name="accessibility_shortcut_toogle_warning" msgid="4161716521310929544">"ஷார்ட்கட் இயக்கத்தில் இருக்கும்போது ஒலியளவு பட்டன்கள் இரண்டையும் 3 வினாடிகளுக்கு அழுத்தினால் அணுகல்தன்மை அம்சம் இயக்கப்படும்."</string>
     <string name="accessibility_shortcut_multiple_service_warning_title" msgid="3135860819356676426">"அணுகல்தன்மை அம்சங்களுக்கான ஷார்ட்கட்டை ஆன் செய்யவா?"</string>
     <string name="accessibility_shortcut_multiple_service_warning" msgid="3740723309483706911">"இரண்டு ஒலியளவு விசைகளையும் சில விநாடிகள் பிடித்திருந்தால் அணுகல்தன்மை அம்சங்கள் ஆன் செய்யப்படும். இதனால் உங்கள் சாதனம் வேலை செய்யும் முறை மாறக்கூடும்.\n\nதற்போதைய அம்சங்கள்:\n<xliff:g id="SERVICE">%1$s</xliff:g>\nதேர்ந்தெடுத்த அம்சங்களை அமைப்புகள் &gt; அணுகல்தன்மைக்குச் சென்று உங்களால் மாற்ற முடியும்."</string>
-    <string name="accessibility_shortcut_multiple_service_list" msgid="6935581470716541531">"	• <xliff:g id="SERVICE">%1$s</xliff:g>\n"</string>
+    <string name="accessibility_shortcut_multiple_service_list" msgid="2128323171922023762">" • <xliff:g id="SERVICE">%1$s</xliff:g>\n"</string>
     <string name="accessibility_shortcut_single_service_warning_title" msgid="1909518473488345266">"<xliff:g id="SERVICE">%1$s</xliff:g> அம்சத்துக்கான ஷார்ட்கட்டை ஆன் செய்யவா?"</string>
     <string name="accessibility_shortcut_single_service_warning" msgid="6363127705112844257">"இரண்டு ஒலியளவு விசைகளையும் சில விநாடிகள் பிடித்திருப்பதால் அணுகல்தன்மை அம்சமான <xliff:g id="SERVICE">%1$s</xliff:g> ஆன் ஆகும். இதனால் உங்கள் சாதனம் வேலை செய்யும் முறை மாறக்கூடும்.\n\nஅமைப்புகள் &gt; அணுகல்தன்மைக்குச் சென்று இந்த ஷார்ட்கட்டை வேறு அம்சத்திற்கு மாற்ற முடியும்."</string>
     <string name="accessibility_shortcut_on" msgid="5463618449556111344">"ஆன் செய்"</string>

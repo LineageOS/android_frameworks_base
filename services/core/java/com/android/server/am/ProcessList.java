@@ -374,6 +374,16 @@ public final class ProcessList {
     private static final long NATIVE_HEAP_POINTER_TAGGING = 135754954; // This is a bug id.
 
     /**
+     * Native heap allocations in AppZygote process and its descendants will now have a
+     * non-zero tag in the most significant byte.
+     * @see <a href="https://source.android.com/devices/tech/debug/tagged-pointers">Tagged
+     * Pointers</a>
+     */
+    @ChangeId
+    @EnabledAfter(targetSdkVersion = Build.VERSION_CODES.S)
+    private static final long NATIVE_HEAP_POINTER_TAGGING_APP_ZYGOTE = 207557677;
+
+    /**
      * Enable asynchronous (ASYNC) memory tag checking in this process. This
      * flag will only have an effect on hardware supporting the ARM Memory
      * Tagging Extension (MTE).
@@ -1738,6 +1748,16 @@ public final class ProcessList {
         return level;
     }
 
+    private int decideTaggingLevelForAppZygote(ProcessRecord app) {
+        int level = decideTaggingLevel(app);
+        // TBI ("fake" pointer tagging) in AppZygote is controlled by a separate compat feature.
+        if (!mPlatformCompat.isChangeEnabled(NATIVE_HEAP_POINTER_TAGGING_APP_ZYGOTE, app.info)
+                && level == Zygote.MEMORY_TAG_LEVEL_TBI) {
+            level = Zygote.MEMORY_TAG_LEVEL_NONE;
+        }
+        return level;
+    }
+
     private int decideGwpAsanLevel(ProcessRecord app) {
         // Look at the process attribute first.
        if (app.processInfo != null
@@ -2238,7 +2258,8 @@ public final class ProcessList {
                 // not the calling one.
                 appInfo.packageName = app.getHostingRecord().getDefiningPackageName();
                 appInfo.uid = uid;
-                appZygote = new AppZygote(appInfo, uid, firstUid, lastUid);
+                int runtimeFlags = decideTaggingLevelForAppZygote(app);
+                appZygote = new AppZygote(appInfo, uid, firstUid, lastUid, runtimeFlags);
                 mAppZygotes.put(app.info.processName, uid, appZygote);
                 zygoteProcessList = new ArrayList<ProcessRecord>();
                 mAppZygoteProcesses.put(appZygote, zygoteProcessList);
@@ -2750,8 +2771,8 @@ public final class ProcessList {
             int reasonCode, int subReason, String reason) {
         return killPackageProcessesLSP(packageName, appId, userId, minOomAdj,
                 false /* callerWillRestart */, true /* allowRestart */, true /* doit */,
-                false /* evenPersistent */, false /* setRemoved */, reasonCode,
-                subReason, reason);
+                false /* evenPersistent */, false /* setRemoved */, false /* uninstalling */,
+                reasonCode, subReason, reason);
     }
 
     @GuardedBy("mService")
@@ -2784,9 +2805,10 @@ public final class ProcessList {
     @GuardedBy({"mService", "mProcLock"})
     boolean killPackageProcessesLSP(String packageName, int appId,
             int userId, int minOomAdj, boolean callerWillRestart, boolean allowRestart,
-            boolean doit, boolean evenPersistent, boolean setRemoved, int reasonCode,
-            int subReason, String reason) {
-        ArrayList<ProcessRecord> procs = new ArrayList<>();
+            boolean doit, boolean evenPersistent, boolean setRemoved, boolean uninstalling,
+            int reasonCode, int subReason, String reason) {
+        final PackageManagerInternal pm = mService.getPackageManagerInternal();
+        final ArrayList<Pair<ProcessRecord, Boolean>> procs = new ArrayList<>();
 
         // Remove all processes this package may have touched: all with the
         // same UID (except for the system or root user), and all whose name
@@ -2803,7 +2825,18 @@ public final class ProcessList {
                 }
                 if (app.isRemoved()) {
                     if (doit) {
-                        procs.add(app);
+                        boolean shouldAllowRestart = false;
+                        if (!uninstalling && packageName != null) {
+                            // This package has a dependency on the given package being stopped,
+                            // while it's not being frozen nor uninstalled, allow to restart it.
+                            shouldAllowRestart = !app.getPkgList().containsKey(packageName)
+                                    && app.getPkgDeps() != null
+                                    && app.getPkgDeps().contains(packageName)
+                                    && app.info != null
+                                    && !pm.isPackageFrozen(app.info.packageName, app.uid,
+                                            app.userId);
+                        }
+                        procs.add(new Pair<>(app, shouldAllowRestart));
                     }
                     continue;
                 }
@@ -2817,6 +2850,8 @@ public final class ProcessList {
                     // may be scheduled to unbind and become an executing service (oom adj 0).
                     continue;
                 }
+
+                boolean shouldAllowRestart = false;
 
                 // If no package is specified, we call all processes under the
                 // give user id.
@@ -2839,8 +2874,15 @@ public final class ProcessList {
                     if (userId != UserHandle.USER_ALL && app.userId != userId) {
                         continue;
                     }
-                    if (!app.getPkgList().containsKey(packageName) && !isDep) {
+                    final boolean isInPkgList = app.getPkgList().containsKey(packageName);
+                    if (!isInPkgList && !isDep) {
                         continue;
+                    }
+                    if (!isInPkgList && isDep && !uninstalling && app.info != null
+                            && !pm.isPackageFrozen(app.info.packageName, app.uid, app.userId)) {
+                        // This package has a dependency on the given package being stopped,
+                        // while it's not being frozen nor uninstalled, allow to restart it.
+                        shouldAllowRestart = true;
                     }
                 }
 
@@ -2851,14 +2893,15 @@ public final class ProcessList {
                 if (setRemoved) {
                     app.setRemoved(true);
                 }
-                procs.add(app);
+                procs.add(new Pair<>(app, shouldAllowRestart));
             }
         }
 
         int N = procs.size();
         for (int i=0; i<N; i++) {
-            removeProcessLocked(procs.get(i), callerWillRestart, allowRestart,
-                    reasonCode, subReason, reason);
+            final Pair<ProcessRecord, Boolean> proc = procs.get(i);
+            removeProcessLocked(proc.first, callerWillRestart, allowRestart || proc.second,
+                     reasonCode, subReason, reason);
         }
         killAppZygotesLocked(packageName, appId, userId, false /* force */);
         mService.updateOomAdjLocked(OomAdjuster.OOM_ADJ_REASON_PROCESS_END);

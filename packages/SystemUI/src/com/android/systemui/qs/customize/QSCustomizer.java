@@ -33,9 +33,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QS;
+import com.android.systemui.plugins.qs.QSContainerController;
 import com.android.systemui.qs.QSDetailClipper;
 import com.android.systemui.statusbar.phone.LightBarController;
-import com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer;
+import com.android.systemui.util.Utils;
 
 /**
  * Allows full-screen customization of QS, through show() and hide().
@@ -54,7 +55,7 @@ public class QSCustomizer extends LinearLayout {
     private boolean isShown;
     private final RecyclerView mRecyclerView;
     private boolean mCustomizing;
-    private NotificationsQuickSettingsContainer mNotifQsContainer;
+    private QSContainerController mQsContainerController;
     private QS mQs;
     private int mX;
     private int mY;
@@ -84,8 +85,7 @@ public class QSCustomizer extends LinearLayout {
 
     void updateResources() {
         LayoutParams lp = (LayoutParams) mTransparentView.getLayoutParams();
-        lp.height = mContext.getResources().getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+        lp.height = Utils.getQsHeaderSystemIconsAreaHeight(mContext);
         mTransparentView.setLayoutParams(lp);
     }
 
@@ -99,8 +99,8 @@ public class QSCustomizer extends LinearLayout {
         lightBarController.setQsCustomizing(mIsShowingNavBackdrop && isShown);
     }
 
-    public void setContainer(NotificationsQuickSettingsContainer notificationsQsContainer) {
-        mNotifQsContainer = notificationsQsContainer;
+    public void setContainerController(QSContainerController controller) {
+        mQsContainerController = controller;
     }
 
     public void setQs(QS qs) {
@@ -119,8 +119,8 @@ public class QSCustomizer extends LinearLayout {
             mOpening = true;
             setVisibility(View.VISIBLE);
             mClipper.animateCircularClip(mX, mY, true, new ExpandAnimatorListener(tileAdapter));
-            mNotifQsContainer.setCustomizerAnimating(true);
-            mNotifQsContainer.setCustomizerShowing(true);
+            mQsContainerController.setCustomizerAnimating(true);
+            mQsContainerController.setCustomizerShowing(true);
         }
     }
 
@@ -132,8 +132,8 @@ public class QSCustomizer extends LinearLayout {
             mClipper.showBackground();
             isShown = true;
             setCustomizing(true);
-            mNotifQsContainer.setCustomizerAnimating(false);
-            mNotifQsContainer.setCustomizerShowing(true);
+            mQsContainerController.setCustomizerAnimating(false);
+            mQsContainerController.setCustomizerShowing(true);
         }
     }
 
@@ -150,8 +150,8 @@ public class QSCustomizer extends LinearLayout {
             } else {
                 setVisibility(View.GONE);
             }
-            mNotifQsContainer.setCustomizerAnimating(animate);
-            mNotifQsContainer.setCustomizerShowing(false);
+            mQsContainerController.setCustomizerAnimating(animate);
+            mQsContainerController.setCustomizerShowing(false);
         }
     }
 
@@ -189,7 +189,7 @@ public class QSCustomizer extends LinearLayout {
                 setCustomizing(true);
             }
             mOpening = false;
-            mNotifQsContainer.setCustomizerAnimating(false);
+            mQsContainerController.setCustomizerAnimating(false);
             mRecyclerView.setAdapter(mTileAdapter);
         }
 
@@ -197,7 +197,7 @@ public class QSCustomizer extends LinearLayout {
         public void onAnimationCancel(Animator animation) {
             mOpening = false;
             mQs.notifyCustomizeChanged();
-            mNotifQsContainer.setCustomizerAnimating(false);
+            mQsContainerController.setCustomizerAnimating(false);
         }
     }
 
@@ -207,7 +207,7 @@ public class QSCustomizer extends LinearLayout {
             if (!isShown) {
                 setVisibility(View.GONE);
             }
-            mNotifQsContainer.setCustomizerAnimating(false);
+            mQsContainerController.setCustomizerAnimating(false);
         }
 
         @Override
@@ -215,7 +215,7 @@ public class QSCustomizer extends LinearLayout {
             if (!isShown) {
                 setVisibility(View.GONE);
             }
-            mNotifQsContainer.setCustomizerAnimating(false);
+            mQsContainerController.setCustomizerAnimating(false);
         }
     };
 

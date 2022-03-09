@@ -47,7 +47,6 @@ import static android.view.KeyEvent.KEYCODE_VOLUME_UP;
 import static android.view.WindowManager.LayoutParams.FIRST_APPLICATION_WINDOW;
 import static android.view.WindowManager.LayoutParams.FIRST_SUB_WINDOW;
 import static android.view.WindowManager.LayoutParams.FIRST_SYSTEM_WINDOW;
-import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
 import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
 import static android.view.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
 import static android.view.WindowManager.LayoutParams.LAST_SUB_WINDOW;
@@ -430,7 +429,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private AccessibilityShortcutController mAccessibilityShortcutController;
 
     boolean mSafeMode;
-    private WindowState mKeyguardCandidate = null;
 
     // Whether to allow dock apps with METADATA_DOCK_HOME to temporarily take over the Home key.
     // This is for car dock and this is updated from resource.
@@ -560,7 +558,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mKeyguardOccludedChanged;
 
     private ActivityTaskManagerInternal.SleepTokenAcquirer mScreenOffSleepTokenAcquirer;
-    volatile boolean mKeyguardOccluded;
     boolean mMenuPressed;
     boolean mAppSwitchLongPressed;
     Intent mHomeIntent;
@@ -2092,14 +2089,22 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mWindowManagerInternal.registerAppTransitionListener(new AppTransitionListener() {
             @Override
-            public int onAppTransitionStartingLocked(boolean keyguardGoingAway, long duration,
-                    long statusBarAnimationStartTime, long statusBarAnimationDuration) {
-                return handleStartTransitionForKeyguardLw(keyguardGoingAway, duration);
+            public int onAppTransitionStartingLocked(boolean keyguardGoingAway,
+                    boolean keyguardOccluding, long duration, long statusBarAnimationStartTime,
+                    long statusBarAnimationDuration) {
+                // When remote animation is enabled for KEYGUARD_GOING_AWAY transition, SysUI
+                // receives IRemoteAnimationRunner#onAnimationStart to start animation, so we don't
+                // need to call IKeyguardService#keyguardGoingAway here.
+                return handleStartTransitionForKeyguardLw(keyguardGoingAway
+                        && !WindowManagerService.sEnableRemoteKeyguardGoingAwayAnimation,
+                        keyguardOccluding, duration);
             }
 
             @Override
             public void onAppTransitionCancelledLocked(boolean keyguardGoingAway) {
-                handleStartTransitionForKeyguardLw(keyguardGoingAway, 0 /* duration */);
+                handleStartTransitionForKeyguardLw(
+                        keyguardGoingAway, false /* keyguardOccludingStarted */,
+                        0 /* duration */);
             }
         });
 
@@ -2844,7 +2849,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // the keyguard is being hidden. This is okay because starting windows never show
                 // secret information.
                 // TODO(b/113840485): Occluded may not only happen on default display
-                if (displayId == DEFAULT_DISPLAY && mKeyguardOccluded) {
+                if (displayId == DEFAULT_DISPLAY && isKeyguardOccluded()) {
                     windowFlags |= FLAG_SHOW_WHEN_LOCKED;
                 }
             }
@@ -3568,31 +3573,34 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     @Override
     public void onKeyguardOccludedChangedLw(boolean occluded) {
-        if (mKeyguardDelegate != null && mKeyguardDelegate.isShowing()) {
+        if (mKeyguardDelegate != null && mKeyguardDelegate.isShowing()
+                && !WindowManagerService.sEnableShellTransitions) {
             mPendingKeyguardOccluded = occluded;
             mKeyguardOccludedChanged = true;
         } else {
-            setKeyguardOccludedLw(occluded, false /* force */);
+            setKeyguardOccludedLw(occluded, false /* force */,
+                    false /* transitionStarted */);
         }
     }
 
     @Override
-    public int applyKeyguardOcclusionChange() {
+    public int applyKeyguardOcclusionChange(boolean transitionStarted) {
         if (mKeyguardOccludedChanged) {
             if (DEBUG_KEYGUARD) Slog.d(TAG, "transition/occluded changed occluded="
                     + mPendingKeyguardOccluded);
-            mKeyguardOccludedChanged = false;
-            if (setKeyguardOccludedLw(mPendingKeyguardOccluded, false /* force */)) {
+            if (setKeyguardOccludedLw(mPendingKeyguardOccluded, false /* force */,
+                    transitionStarted)) {
                 return FINISH_LAYOUT_REDO_LAYOUT | FINISH_LAYOUT_REDO_WALLPAPER;
             }
         }
         return 0;
     }
 
-    private int handleStartTransitionForKeyguardLw(boolean keyguardGoingAway, long duration) {
-        final int res = applyKeyguardOcclusionChange();
-        if (res != 0) return res;
-        if (!WindowManagerService.sEnableRemoteKeyguardGoingAwayAnimation && keyguardGoingAway) {
+    private int handleStartTransitionForKeyguardLw(boolean keyguardGoingAway,
+            boolean keyguardOccluding, long duration) {
+        final int redoLayout = applyKeyguardOcclusionChange(keyguardOccluding);
+        if (redoLayout != 0) return redoLayout;
+        if (keyguardGoingAway) {
             if (DEBUG_KEYGUARD) Slog.d(TAG, "Starting keyguard exit animation");
             startKeyguardExitAnimation(SystemClock.uptimeMillis(), duration);
         }
@@ -3749,7 +3757,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 return;
             }
 
-            if (!mKeyguardOccluded && mKeyguardDelegate.isInputRestricted()) {
+            if (!isKeyguardOccluded() && mKeyguardDelegate.isInputRestricted()) {
                 // when in keyguard restricted mode, must first verify unlock
                 // before launching home
                 mKeyguardDelegate.verifyUnlock(new OnKeyguardExitResult() {
@@ -3796,46 +3804,32 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mNavBarVirtualKeyHapticFeedbackEnabled = enabled;
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public void setKeyguardCandidateLw(WindowState win) {
-        mKeyguardCandidate = win;
-        setKeyguardOccludedLw(mKeyguardOccluded, true /* force */);
-    }
-
     /**
      * Updates the occluded state of the Keyguard.
      *
+     * @param isOccluded Whether the Keyguard is occluded by another window.
+     * @param force notify the occluded status to KeyguardService and update flags even though
+     *             occlude status doesn't change.
+     * @param transitionStarted {@code true} if keyguard (un)occluded transition started.
      * @return Whether the flags have changed and we have to redo the layout.
      */
-    private boolean setKeyguardOccludedLw(boolean isOccluded, boolean force) {
+    private boolean setKeyguardOccludedLw(boolean isOccluded, boolean force,
+            boolean transitionStarted) {
         if (DEBUG_KEYGUARD) Slog.d(TAG, "setKeyguardOccluded occluded=" + isOccluded);
-        final boolean wasOccluded = mKeyguardOccluded;
-        final boolean showing = mKeyguardDelegate.isShowing();
-        final boolean changed = wasOccluded != isOccluded || force;
-        if (!isOccluded && changed && showing) {
-            mKeyguardOccluded = false;
-            mKeyguardDelegate.setOccluded(false, true /* animate */);
-            if (mKeyguardCandidate != null) {
-                if (!mKeyguardDelegate.hasLockscreenWallpaper()) {
-                    mKeyguardCandidate.getAttrs().flags |= FLAG_SHOW_WALLPAPER;
-                }
-            }
-            return true;
-        } else if (isOccluded && changed && showing) {
-            mKeyguardOccluded = true;
-            mKeyguardDelegate.setOccluded(true, false /* animate */);
-            if (mKeyguardCandidate != null) {
-                mKeyguardCandidate.getAttrs().flags &= ~FLAG_SHOW_WALLPAPER;
-            }
-            return true;
-        } else if (changed) {
-            mKeyguardOccluded = isOccluded;
-            mKeyguardDelegate.setOccluded(isOccluded, false /* animate */);
-            return false;
-        } else {
+        mKeyguardOccludedChanged = false;
+        if (isKeyguardOccluded() == isOccluded && !force) {
             return false;
         }
+
+        final boolean showing = mKeyguardDelegate.isShowing();
+        final boolean animate = showing && !isOccluded;
+        // When remote animation is enabled for keyguard (un)occlude transition, KeyguardService
+        // uses remote animation start as a signal to update its occlusion status ,so we don't need
+        // to notify here.
+        final boolean notify = !WindowManagerService.sEnableRemoteKeyguardOccludeAnimation
+                || !transitionStarted;
+        mKeyguardDelegate.setOccluded(isOccluded, animate, notify);
+        return showing;
     }
 
     private void setVolumeWakeTriggered(final int keyCode, boolean triggered) {
@@ -4993,6 +4987,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                                     pmWakeReason)) + ")");
         }
 
+        mActivityTaskManagerInternal.notifyWakingUp();
         mDefaultDisplayPolicy.setAwake(true);
 
         // Since goToSleep performs these functions synchronously, we must
@@ -5332,7 +5327,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     @Override
     public boolean isKeyguardShowingAndNotOccluded() {
         if (mKeyguardDelegate == null) return false;
-        return mKeyguardDelegate.isShowing() && !mKeyguardOccluded;
+        return mKeyguardDelegate.isShowing() && !isKeyguardOccluded();
     }
 
     @Override
@@ -5358,7 +5353,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     @Override
     public boolean isKeyguardOccluded() {
         if (mKeyguardDelegate == null) return false;
-        return mKeyguardOccluded;
+        return mKeyguardDelegate.isOccluded();
     }
 
     /** {@inheritDoc} */
@@ -6068,7 +6063,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         proto.write(KEYGUARD_DRAW_COMPLETE, mDefaultDisplayPolicy.isKeyguardDrawComplete());
         proto.write(WINDOW_MANAGER_DRAW_COMPLETE,
                 mDefaultDisplayPolicy.isWindowManagerDrawComplete());
-        proto.write(KEYGUARD_OCCLUDED, mKeyguardOccluded);
+        proto.write(KEYGUARD_OCCLUDED, isKeyguardOccluded());
         proto.write(KEYGUARD_OCCLUDED_CHANGED, mKeyguardOccludedChanged);
         proto.write(KEYGUARD_OCCLUDED_PENDING, mPendingKeyguardOccluded);
         if (mKeyguardDelegate != null) {
@@ -6147,7 +6142,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             final int key = mDisplayHomeButtonHandlers.keyAt(i);
             pw.println(mDisplayHomeButtonHandlers.get(key));
         }
-        pw.print(prefix); pw.print("mKeyguardOccluded="); pw.print(mKeyguardOccluded);
+        pw.print(prefix); pw.print("mKeyguardOccluded="); pw.print(isKeyguardOccluded());
                 pw.print(" mKeyguardOccludedChanged="); pw.print(mKeyguardOccludedChanged);
                 pw.print(" mPendingKeyguardOccluded="); pw.println(mPendingKeyguardOccluded);
         pw.print(prefix); pw.print("mAllowLockscreenWhenOnDisplays=");

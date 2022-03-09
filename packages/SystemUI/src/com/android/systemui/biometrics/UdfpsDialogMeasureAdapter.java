@@ -21,6 +21,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.graphics.Insets;
 import android.graphics.Rect;
+import android.hardware.biometrics.SensorLocationInternal;
 import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 import android.util.Log;
 import android.view.Surface;
@@ -103,7 +104,7 @@ public class UdfpsDialogMeasureAdapter {
         // Go through each of the children and do the custom measurement.
         int totalHeight = 0;
         final int numChildren = mView.getChildCount();
-        final int sensorDiameter = mSensorProps.sensorRadius * 2;
+        final int sensorDiameter = mSensorProps.getLocation().sensorRadius * 2;
         for (int i = 0; i < numChildren; i++) {
             final View child = mView.getChildAt(i);
             if (child.getId() == R.id.biometric_icon_frame) {
@@ -169,7 +170,7 @@ public class UdfpsDialogMeasureAdapter {
         final int horizontalSpacerWidth = calculateHorizontalSpacerWidthForLandscape(
                 mSensorProps, displayWidth, dialogMargin);
 
-        final int sensorDiameter = mSensorProps.sensorRadius * 2;
+        final int sensorDiameter = mSensorProps.getLocation().sensorRadius * 2;
         final int remeasuredWidth = sensorDiameter + 2 * horizontalSpacerWidth;
 
         int remeasuredHeight = 0;
@@ -256,10 +257,10 @@ public class UdfpsDialogMeasureAdapter {
     static int calculateBottomSpacerHeightForPortrait(
             @NonNull FingerprintSensorPropertiesInternal sensorProperties, int displayHeightPx,
             int textIndicatorHeightPx, int buttonBarHeightPx, int dialogMarginPx) {
-
+        final SensorLocationInternal location = sensorProperties.getLocation();
         final int sensorDistanceFromBottom = displayHeightPx
-                - sensorProperties.sensorLocationY
-                - sensorProperties.sensorRadius;
+                - location.sensorLocationY
+                - location.sensorRadius;
 
         final int spacerHeight = sensorDistanceFromBottom
                 - textIndicatorHeightPx
@@ -313,10 +314,10 @@ public class UdfpsDialogMeasureAdapter {
     static int calculateHorizontalSpacerWidthForLandscape(
             @NonNull FingerprintSensorPropertiesInternal sensorProperties, int displayWidthPx,
             int dialogMarginPx) {
-
+        final SensorLocationInternal location = sensorProperties.getLocation();
         final int sensorDistanceFromEdge = displayWidthPx
-                - sensorProperties.sensorLocationY
-                - sensorProperties.sensorRadius;
+                - location.sensorLocationY
+                - location.sensorRadius;
 
         final int horizontalPadding = sensorDistanceFromEdge
                 - dialogMarginPx;
