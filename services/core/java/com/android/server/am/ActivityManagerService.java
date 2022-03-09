@@ -31,6 +31,7 @@ import static android.app.ActivityManager.INTENT_SENDER_ACTIVITY;
 import static android.app.ActivityManager.PROCESS_STATE_IMPORTANT_FOREGROUND;
 import static android.app.ActivityManager.PROCESS_STATE_NONEXISTENT;
 import static android.app.ActivityManager.PROCESS_STATE_TOP;
+import static android.app.ActivityManager.StopUserOnSwitch;
 import static android.app.ActivityManagerInternal.ALLOW_FULL_ONLY;
 import static android.app.ActivityManagerInternal.ALLOW_NON_FULL;
 import static android.app.AppOpsManager.OP_NONE;
@@ -91,6 +92,7 @@ import static android.provider.Settings.Global.DEBUG_APP;
 import static android.provider.Settings.Global.NETWORK_ACCESS_TIMEOUT_MS;
 import static android.provider.Settings.Global.WAIT_FOR_DEBUGGER;
 import static android.text.format.DateUtils.DAY_IN_MILLIS;
+import static android.util.FeatureFlagUtils.SETTINGS_ENABLE_MONITOR_PHANTOM_PROCS;
 
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_CONFIGURATION;
 import static com.android.server.am.ActivityManagerDebugConfig.DEBUG_ALL;
@@ -182,7 +184,6 @@ import android.app.PendingIntent;
 import android.app.ProcessMemoryState;
 import android.app.ProfilerInfo;
 import android.app.PropertyInvalidatedCache;
-import android.app.RemoteServiceException;
 import android.app.SyncNotedAppOp;
 import android.app.WaitResult;
 import android.app.backup.BackupManager.OperationType;
@@ -300,6 +301,7 @@ import android.text.style.SuggestionSpan;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.EventLog;
+import android.util.FeatureFlagUtils;
 import android.util.IntArray;
 import android.util.Log;
 import android.util.Pair;
@@ -338,6 +340,7 @@ import com.android.internal.os.BinderTransactionNameResolver;
 import com.android.internal.os.ByteTransferPipe;
 import com.android.internal.os.IResultReceiver;
 import com.android.internal.os.ProcessCpuTracker;
+import com.android.internal.os.SomeArgs;
 import com.android.internal.os.TransferPipe;
 import com.android.internal.os.Zygote;
 import com.android.internal.policy.AttributeCache;
@@ -1472,8 +1475,6 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     static final int FIRST_BROADCAST_QUEUE_MSG = 200;
 
-    static final String SERVICE_RECORD_KEY = "servicerecord";
-
     /**
      * Flag whether the current user is a "monkey", i.e. whether
      * the UI is driven by a UI automation tool.
@@ -1549,6 +1550,13 @@ public class ActivityManagerService extends IActivityManager.Stub
     private static final int INDEX_TOTAL_MEMTRACK_GRAPHICS = 13;
     private static final int INDEX_TOTAL_MEMTRACK_GL = 14;
     private static final int INDEX_LAST = 15;
+
+    /**
+     * Used to notify activity lifecycle events.
+     */
+    @Nullable
+    volatile ActivityManagerInternal.VoiceInteractionManagerProvider
+            mVoiceInteractionManagerProvider;
 
     final class UiHandler extends Handler {
         public UiHandler() {
@@ -1645,8 +1653,12 @@ public class ActivityManagerService extends IActivityManager.Stub
                 mServices.serviceForegroundTimeout((ServiceRecord) msg.obj);
             } break;
             case SERVICE_FOREGROUND_CRASH_MSG: {
-                mServices.serviceForegroundCrash((ProcessRecord) msg.obj,
-                        msg.getData().getCharSequence(SERVICE_RECORD_KEY));
+                SomeArgs args = (SomeArgs) msg.obj;
+                mServices.serviceForegroundCrash(
+                        (ProcessRecord) args.arg1,
+                        (String) args.arg2,
+                        (ComponentName) args.arg3);
+                args.recycle();
             } break;
             case UPDATE_TIME_ZONE: {
                 synchronized (mProcLock) {
@@ -1884,6 +1896,14 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     public IAppOpsService getAppOpsService() {
         return mAppOpsService;
+    }
+
+    /**
+     * Sets the internal voice interaction manager service.
+     */
+    private void setVoiceInteractionManagerProvider(
+            @Nullable ActivityManagerInternal.VoiceInteractionManagerProvider provider) {
+        mVoiceInteractionManagerProvider = provider;
     }
 
     static class MemBinder extends Binder {
@@ -2737,6 +2757,11 @@ public class ActivityManagerService extends IActivityManager.Stub
                 || event == Event.ACTIVITY_DESTROYED)) {
             contentCaptureService.notifyActivityEvent(userId, activity, event);
         }
+        // TODO(b/201234353): Move the logic to client side.
+        if (mVoiceInteractionManagerProvider != null && (event == Event.ACTIVITY_PAUSED
+                || event == Event.ACTIVITY_RESUMED || event == Event.ACTIVITY_STOPPED)) {
+            mVoiceInteractionManagerProvider.notifyActivityEventChanged();
+        }
     }
 
     /**
@@ -2979,15 +3004,16 @@ public class ActivityManagerService extends IActivityManager.Stub
     }
 
     @Override
-    public void crashApplication(int uid, int initialPid, String packageName, int userId,
-            String message, boolean force) {
-        crashApplicationWithType(uid, initialPid, packageName, userId, message, force,
-                RemoteServiceException.TYPE_ID);
+    public void crashApplicationWithType(int uid, int initialPid, String packageName, int userId,
+            String message, boolean force, int exceptionTypeId) {
+        crashApplicationWithTypeWithExtras(uid, initialPid, packageName, userId, message,
+                force, exceptionTypeId, null);
     }
 
     @Override
-    public void crashApplicationWithType(int uid, int initialPid, String packageName, int userId,
-            String message, boolean force, int exceptionTypeId) {
+    public void crashApplicationWithTypeWithExtras(int uid, int initialPid, String packageName,
+            int userId, String message, boolean force, int exceptionTypeId,
+            @Nullable Bundle extras) {
         if (checkCallingPermission(android.Manifest.permission.FORCE_STOP_PACKAGES)
                 != PackageManager.PERMISSION_GRANTED) {
             String msg = "Permission Denial: crashApplication() from pid="
@@ -3000,7 +3026,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         synchronized(this) {
             mAppErrors.scheduleAppCrashLocked(uid, initialPid, packageName, userId,
-                    message, force, exceptionTypeId);
+                    message, force, exceptionTypeId, extras);
         }
     }
 
@@ -4160,7 +4186,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
             didSomething |= mProcessList.killPackageProcessesLSP(packageName, appId, userId,
                     ProcessList.INVALID_ADJ, callerWillRestart, false /* allowRestart */, doit,
-                    evenPersistent, true /* setRemoved */,
+                    evenPersistent, true /* setRemoved */, uninstalling,
                     packageName == null ? ApplicationExitInfo.REASON_USER_STOPPED
                     : ApplicationExitInfo.REASON_USER_REQUESTED,
                     ApplicationExitInfo.SUBREASON_UNKNOWN,
@@ -4806,6 +4832,8 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     @Override
     public void bootAnimationComplete() {
+        if (DEBUG_ALL) Slog.d(TAG, "bootAnimationComplete: Callers=" + Debug.getCallers(4));
+
         final boolean callFinishBooting;
         synchronized (this) {
             callFinishBooting = mCallFinishBooting;
@@ -7194,6 +7222,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                             ProcessList.PERSISTENT_PROC_ADJ, false /* callerWillRestart */,
                             true /* callerWillRestart */, true /* doit */,
                             true /* evenPersistent */, false /* setRemoved */,
+                            false /* uninstalling */,
                             ApplicationExitInfo.REASON_OTHER,
                             ApplicationExitInfo.SUBREASON_KILL_UID,
                             reason != null ? reason : "kill uid");
@@ -7215,6 +7244,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                             ProcessList.PERSISTENT_PROC_ADJ, false /* callerWillRestart */,
                             true /* callerWillRestart */, true /* doit */,
                             true /* evenPersistent */, false /* setRemoved */,
+                            false /* uninstalling */,
                             ApplicationExitInfo.REASON_PERMISSION_CHANGE,
                             ApplicationExitInfo.SUBREASON_UNKNOWN,
                             reason != null ? reason : "kill uid");
@@ -7628,7 +7658,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         // On Automotive, at this point the system user has already been started and unlocked,
         // and some of the tasks we do here have already been done. So skip those in that case.
-        // TODO(b/132262830): this workdound shouldn't be necessary once we move the
+        // TODO(b/132262830, b/203885241): this workdound shouldn't be necessary once we move the
         // headless-user start logic to UserManager-land
         final boolean bootingSystemUser = currentUserId == UserHandle.USER_SYSTEM;
 
@@ -14248,6 +14278,8 @@ public class ActivityManagerService extends IActivityManager.Stub
     private void checkExcessivePowerUsage() {
         updateCpuStatsNow();
 
+        final boolean monitorPhantomProcs = mSystemReady && FeatureFlagUtils.isEnabled(mContext,
+                SETTINGS_ENABLE_MONITOR_PHANTOM_PROCS);
         synchronized (mProcLock) {
             final boolean doCpuKills = mLastPowerCheckUptime != 0;
             final long curUptime = SystemClock.uptimeMillis();
@@ -14273,9 +14305,11 @@ public class ActivityManagerService extends IActivityManager.Stub
 
                     updateAppProcessCpuTimeLPr(uptimeSince, doCpuKills, checkDur, cpuLimit, app);
 
-                    // Also check the phantom processes if there is any
-                    updatePhantomProcessCpuTimeLPr(
-                            uptimeSince, doCpuKills, checkDur, cpuLimit, app);
+                    if (monitorPhantomProcs) {
+                        // Also check the phantom processes if there is any
+                        updatePhantomProcessCpuTimeLPr(
+                                uptimeSince, doCpuKills, checkDur, cpuLimit, app);
+                    }
                 }
             });
         }
@@ -15073,6 +15107,21 @@ public class ActivityManagerService extends IActivityManager.Stub
     @Override
     public boolean switchUser(final int targetUserId) {
         return mUserController.switchUser(targetUserId);
+    }
+
+    @Override
+    public String getSwitchingFromUserMessage() {
+        return mUserController.getSwitchingFromSystemUserMessage();
+    }
+
+    @Override
+    public String getSwitchingToUserMessage() {
+        return mUserController.getSwitchingToSystemUserMessage();
+    }
+
+    @Override
+    public void setStopUserOnSwitch(@StopUserOnSwitch int value) {
+        mUserController.setStopUserOnSwitch(value);
     }
 
     @Override
@@ -16356,6 +16405,26 @@ public class ActivityManagerService extends IActivityManager.Stub
             synchronized (ActivityManagerService.this) {
                 return mProcessList.getIsolatedProcessesLocked(uid);
             }
+        }
+
+        /** @see ActivityManagerService#sendIntentSender */
+        @Override
+        public int sendIntentSender(IIntentSender target, IBinder allowlistToken, int code,
+                Intent intent, String resolvedType,
+                IIntentReceiver finishedReceiver, String requiredPermission, Bundle options) {
+            return ActivityManagerService.this.sendIntentSender(target, allowlistToken, code,
+                    intent, resolvedType, finishedReceiver, requiredPermission, options);
+        }
+
+        @Override
+        public void setVoiceInteractionManagerProvider(
+                @Nullable ActivityManagerInternal.VoiceInteractionManagerProvider provider) {
+            ActivityManagerService.this.setVoiceInteractionManagerProvider(provider);
+        }
+
+        @Override
+        public void setStopUserOnSwitch(int value) {
+            ActivityManagerService.this.setStopUserOnSwitch(value);
         }
     }
 

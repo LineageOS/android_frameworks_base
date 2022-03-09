@@ -47,6 +47,7 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.DeviceConfig;
 import android.telecom.TelecomManager;
+import android.telephony.AccessNetworkConstants;
 import android.telephony.Annotation;
 import android.telephony.Annotation.RadioPowerState;
 import android.telephony.Annotation.SrvccState;
@@ -1025,7 +1026,6 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
             return;
         }
 
-        int phoneId = getPhoneIdFromSubId(subId);
         synchronized (mRecords) {
             // register
             IBinder b = callback.asBinder();
@@ -1048,21 +1048,24 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
             // Legacy applications pass SubscriptionManager.DEFAULT_SUB_ID,
             // force all illegal subId to SubscriptionManager.DEFAULT_SUB_ID
             if (!SubscriptionManager.isValidSubscriptionId(subId)) {
+                if (DBG) {
+                    log("invalid subscription id, use default id");
+                }
                 r.subId = SubscriptionManager.DEFAULT_SUBSCRIPTION_ID;
             } else {//APP specify subID
                 r.subId = subId;
             }
-            r.phoneId = phoneId;
+            r.phoneId = getPhoneIdFromSubId(r.subId);
             r.eventList = events;
 
             if (DBG) {
-                log("listen:  Register r=" + r + " r.subId=" + r.subId + " phoneId=" + phoneId);
+                log("listen:  Register r=" + r + " r.subId=" + r.subId + " r.phoneId=" + r.phoneId);
             }
-            if (notifyNow && validatePhoneId(phoneId)) {
+            if (notifyNow && validatePhoneId(r.phoneId)) {
                 if (events.contains(TelephonyCallback.EVENT_SERVICE_STATE_CHANGED)){
                     try {
-                        if (VDBG) log("listen: call onSSC state=" + mServiceState[phoneId]);
-                        ServiceState rawSs = new ServiceState(mServiceState[phoneId]);
+                        if (VDBG) log("listen: call onSSC state=" + mServiceState[r.phoneId]);
+                        ServiceState rawSs = new ServiceState(mServiceState[r.phoneId]);
                         if (checkFineLocationAccess(r, Build.VERSION_CODES.Q)) {
                             r.callback.onServiceStateChanged(rawSs);
                         } else if (checkCoarseLocationAccess(r, Build.VERSION_CODES.Q)) {
@@ -1078,8 +1081,8 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 }
                 if (events.contains(TelephonyCallback.EVENT_SIGNAL_STRENGTH_CHANGED)) {
                     try {
-                        if (mSignalStrength[phoneId] != null) {
-                            int gsmSignalStrength = mSignalStrength[phoneId]
+                        if (mSignalStrength[r.phoneId] != null) {
+                            int gsmSignalStrength = mSignalStrength[r.phoneId]
                                     .getGsmSignalStrength();
                             r.callback.onSignalStrengthChanged((gsmSignalStrength == 99 ? -1
                                     : gsmSignalStrength));
@@ -1092,7 +1095,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         TelephonyCallback.EVENT_MESSAGE_WAITING_INDICATOR_CHANGED)) {
                     try {
                         r.callback.onMessageWaitingIndicatorChanged(
-                                mMessageWaiting[phoneId]);
+                                mMessageWaiting[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
@@ -1101,7 +1104,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         TelephonyCallback.EVENT_CALL_FORWARDING_INDICATOR_CHANGED)) {
                     try {
                         r.callback.onCallForwardingIndicatorChanged(
-                                mCallForwarding[phoneId]);
+                                mCallForwarding[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
@@ -1109,11 +1112,11 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 if (validateEventAndUserLocked(
                         r, TelephonyCallback.EVENT_CELL_LOCATION_CHANGED)) {
                     try {
-                        if (DBG_LOC) log("listen: mCellIdentity = " + mCellIdentity[phoneId]);
+                        if (DBG_LOC) log("listen: mCellIdentity = " + mCellIdentity[r.phoneId]);
                         if (checkCoarseLocationAccess(r, Build.VERSION_CODES.BASE)
                                 && checkFineLocationAccess(r, Build.VERSION_CODES.Q)) {
                             // null will be translated to empty CellLocation object in client.
-                            r.callback.onCellLocationChanged(mCellIdentity[phoneId]);
+                            r.callback.onCellLocationChanged(mCellIdentity[r.phoneId]);
                         }
                     } catch (RemoteException ex) {
                         remove(r.binder);
@@ -1121,38 +1124,38 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 }
                 if (events.contains(TelephonyCallback.EVENT_LEGACY_CALL_STATE_CHANGED)) {
                     try {
-                        r.callback.onLegacyCallStateChanged(mCallState[phoneId],
-                                getCallIncomingNumber(r, phoneId));
+                        r.callback.onLegacyCallStateChanged(mCallState[r.phoneId],
+                                getCallIncomingNumber(r, r.phoneId));
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_CALL_STATE_CHANGED)) {
                     try {
-                        r.callback.onCallStateChanged(mCallState[phoneId]);
+                        r.callback.onCallStateChanged(mCallState[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_DATA_CONNECTION_STATE_CHANGED)) {
                     try {
-                        r.callback.onDataConnectionStateChanged(mDataConnectionState[phoneId],
-                                mDataConnectionNetworkType[phoneId]);
+                        r.callback.onDataConnectionStateChanged(mDataConnectionState[r.phoneId],
+                                mDataConnectionNetworkType[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_DATA_ACTIVITY_CHANGED)) {
                     try {
-                        r.callback.onDataActivity(mDataActivity[phoneId]);
+                        r.callback.onDataActivity(mDataActivity[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_SIGNAL_STRENGTHS_CHANGED)) {
                     try {
-                        if (mSignalStrength[phoneId] != null) {
-                            r.callback.onSignalStrengthsChanged(mSignalStrength[phoneId]);
+                        if (mSignalStrength[r.phoneId] != null) {
+                            r.callback.onSignalStrengthsChanged(mSignalStrength[r.phoneId]);
                         }
                     } catch (RemoteException ex) {
                         remove(r.binder);
@@ -1162,8 +1165,8 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         TelephonyCallback.EVENT_ALWAYS_REPORTED_SIGNAL_STRENGTH_CHANGED)) {
                     updateReportSignalStrengthDecision(r.subId);
                     try {
-                        if (mSignalStrength[phoneId] != null) {
-                            r.callback.onSignalStrengthsChanged(mSignalStrength[phoneId]);
+                        if (mSignalStrength[r.phoneId] != null) {
+                            r.callback.onSignalStrengthsChanged(mSignalStrength[r.phoneId]);
                         }
                     } catch (RemoteException ex) {
                         remove(r.binder);
@@ -1172,11 +1175,13 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 if (validateEventAndUserLocked(
                         r, TelephonyCallback.EVENT_CELL_INFO_CHANGED)) {
                     try {
-                        if (DBG_LOC) log("listen: mCellInfo[" + phoneId + "] = "
-                                + mCellInfo.get(phoneId));
+                        if (DBG_LOC) {
+                            log("listen: mCellInfo[" + r.phoneId + "] = "
+                                    + mCellInfo.get(r.phoneId));
+                        }
                         if (checkCoarseLocationAccess(r, Build.VERSION_CODES.BASE)
                                 && checkFineLocationAccess(r, Build.VERSION_CODES.Q)) {
-                            r.callback.onCellInfoChanged(mCellInfo.get(phoneId));
+                            r.callback.onCellInfoChanged(mCellInfo.get(r.phoneId));
                         }
                     } catch (RemoteException ex) {
                         remove(r.binder);
@@ -1184,22 +1189,22 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 }
                 if (events.contains(TelephonyCallback.EVENT_PRECISE_CALL_STATE_CHANGED)) {
                     try {
-                        r.callback.onPreciseCallStateChanged(mPreciseCallState[phoneId]);
+                        r.callback.onPreciseCallStateChanged(mPreciseCallState[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_CALL_DISCONNECT_CAUSE_CHANGED)) {
                     try {
-                        r.callback.onCallDisconnectCauseChanged(mCallDisconnectCause[phoneId],
-                                mCallPreciseDisconnectCause[phoneId]);
+                        r.callback.onCallDisconnectCauseChanged(mCallDisconnectCause[r.phoneId],
+                                mCallPreciseDisconnectCause[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_IMS_CALL_DISCONNECT_CAUSE_CHANGED)) {
                     try {
-                        r.callback.onImsCallDisconnectCauseChanged(mImsReasonInfo.get(phoneId));
+                        r.callback.onImsCallDisconnectCauseChanged(mImsReasonInfo.get(r.phoneId));
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
@@ -1208,7 +1213,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         TelephonyCallback.EVENT_PRECISE_DATA_CONNECTION_STATE_CHANGED)) {
                     try {
                         for (PreciseDataConnectionState pdcs
-                                : mPreciseDataConnectionStates.get(phoneId).values()) {
+                                : mPreciseDataConnectionStates.get(r.phoneId).values()) {
                             r.callback.onPreciseDataConnectionStateChanged(pdcs);
                         }
                     } catch (RemoteException ex) {
@@ -1225,29 +1230,29 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 if (events.contains(TelephonyCallback.EVENT_VOICE_ACTIVATION_STATE_CHANGED)) {
                     try {
                         r.callback.onVoiceActivationStateChanged(
-                                mVoiceActivationState[phoneId]);
+                                mVoiceActivationState[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_DATA_ACTIVATION_STATE_CHANGED)) {
                     try {
-                        r.callback.onDataActivationStateChanged(mDataActivationState[phoneId]);
+                        r.callback.onDataActivationStateChanged(mDataActivationState[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_USER_MOBILE_DATA_STATE_CHANGED)) {
                     try {
-                        r.callback.onUserMobileDataStateChanged(mUserMobileDataState[phoneId]);
+                        r.callback.onUserMobileDataStateChanged(mUserMobileDataState[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_DISPLAY_INFO_CHANGED)) {
                     try {
-                        if (mTelephonyDisplayInfos[phoneId] != null) {
-                            r.callback.onDisplayInfoChanged(mTelephonyDisplayInfos[phoneId]);
+                        if (mTelephonyDisplayInfos[r.phoneId] != null) {
+                            r.callback.onDisplayInfoChanged(mTelephonyDisplayInfos[r.phoneId]);
                         }
                     } catch (RemoteException ex) {
                         remove(r.binder);
@@ -1284,20 +1289,20 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 }
                 if (events.contains(TelephonyCallback.EVENT_SRVCC_STATE_CHANGED)) {
                     try {
-                        r.callback.onSrvccStateChanged(mSrvccState[phoneId]);
+                        r.callback.onSrvccStateChanged(mSrvccState[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_CALL_ATTRIBUTES_CHANGED)) {
                     try {
-                        r.callback.onCallAttributesChanged(mCallAttributes[phoneId]);
+                        r.callback.onCallAttributesChanged(mCallAttributes[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
                 }
                 if (events.contains(TelephonyCallback.EVENT_BARRING_INFO_CHANGED)) {
-                    BarringInfo barringInfo = mBarringInfo.get(phoneId);
+                    BarringInfo barringInfo = mBarringInfo.get(r.phoneId);
                     BarringInfo biNoLocation = barringInfo != null
                             ? barringInfo.createLocationInfoSanitizedCopy() : null;
                     if (VDBG) log("listen: call onBarringInfoChanged=" + barringInfo);
@@ -1315,8 +1320,8 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         r.callback.onPhysicalChannelConfigChanged(
                                 shouldSanitizeLocationForPhysicalChannelConfig(r)
                                         ? getLocationSanitizedConfigs(
-                                                mPhysicalChannelConfigs.get(phoneId))
-                                        : mPhysicalChannelConfigs.get(phoneId));
+                                                mPhysicalChannelConfigs.get(r.phoneId))
+                                        : mPhysicalChannelConfigs.get(r.phoneId));
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
@@ -1325,7 +1330,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         TelephonyCallback.EVENT_DATA_ENABLED_CHANGED)) {
                     try {
                         r.callback.onDataEnabledChanged(
-                                mIsDataEnabled[phoneId], mDataEnabledReason[phoneId]);
+                                mIsDataEnabled[r.phoneId], mDataEnabledReason[r.phoneId]);
                     } catch (RemoteException ex) {
                         remove(r.binder);
                     }
@@ -1333,9 +1338,9 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 if (events.contains(
                         TelephonyCallback.EVENT_LINK_CAPACITY_ESTIMATE_CHANGED)) {
                     try {
-                        if (mLinkCapacityEstimateLists.get(phoneId) != null) {
+                        if (mLinkCapacityEstimateLists.get(r.phoneId) != null) {
                             r.callback.onLinkCapacityEstimateChanged(mLinkCapacityEstimateLists
-                                    .get(phoneId));
+                                    .get(r.phoneId));
                         }
                     } catch (RemoteException ex) {
                         remove(r.binder);
@@ -1577,7 +1582,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                     }
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_SERVICE_STATE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
 
                         try {
                             ServiceState stateToSend;
@@ -1639,7 +1644,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         if ((activationType == SIM_ACTIVATION_TYPE_VOICE)
                                 && r.matchTelephonyCallbackEvent(
                                         TelephonyCallback.EVENT_VOICE_ACTIVATION_STATE_CHANGED)
-                                && idMatch(r.subId, subId, phoneId)) {
+                                && idMatch(r, subId, phoneId)) {
                             if (DBG) {
                                 log("notifyVoiceActivationStateForPhoneId: callback.onVASC r=" + r
                                         + " subId=" + subId + " phoneId=" + phoneId
@@ -1650,7 +1655,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                         if ((activationType == SIM_ACTIVATION_TYPE_DATA)
                                 && r.matchTelephonyCallbackEvent(
                                         TelephonyCallback.EVENT_DATA_ACTIVATION_STATE_CHANGED)
-                                && idMatch(r.subId, subId, phoneId)) {
+                                && idMatch(r, subId, phoneId)) {
                             if (DBG) {
                                 log("notifyDataActivationStateForPhoneId: callback.onDASC r=" + r
                                         + " subId=" + subId + " phoneId=" + phoneId
@@ -1692,7 +1697,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                             TelephonyCallback.EVENT_SIGNAL_STRENGTHS_CHANGED)
                             || r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_ALWAYS_REPORTED_SIGNAL_STRENGTH_CHANGED))
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             if (DBG) {
                                 log("notifySignalStrengthForPhoneId: callback.onSsS r=" + r
@@ -1706,7 +1711,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                     }
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_SIGNAL_STRENGTH_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             int gsmSignalStrength = signalStrength.getGsmSignalStrength();
                             int ss = (gsmSignalStrength == 99 ? -1 : gsmSignalStrength);
@@ -1753,7 +1758,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_CARRIER_NETWORK_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onCarrierNetworkChange(active);
                         } catch (RemoteException ex) {
@@ -1785,7 +1790,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (validateEventAndUserLocked(
                             r, TelephonyCallback.EVENT_CELL_INFO_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)
+                            && idMatch(r, subId, phoneId)
                             && (checkCoarseLocationAccess(r, Build.VERSION_CODES.BASE)
                                     && checkFineLocationAccess(r, Build.VERSION_CODES.Q))) {
                         try {
@@ -1819,7 +1824,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_MESSAGE_WAITING_INDICATOR_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onMessageWaitingIndicatorChanged(mwi);
                         } catch (RemoteException ex) {
@@ -1846,7 +1851,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_USER_MOBILE_DATA_STATE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onUserMobileDataStateChanged(state);
                         } catch (RemoteException ex) {
@@ -1885,7 +1890,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_DISPLAY_INFO_CHANGED)
-                            && idMatchWithoutDefaultPhoneCheck(r.subId, subId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             if (!mConfigurationProvider.isDisplayInfoNrAdvancedSupported(
                                     r.callingPackage, Binder.getCallingUserHandle())) {
@@ -1937,7 +1942,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_CALL_FORWARDING_INDICATOR_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onCallForwardingIndicatorChanged(cfi);
                         } catch (RemoteException ex) {
@@ -1966,7 +1971,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                     // Notify by correct subId.
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_DATA_ACTIVITY_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onDataActivity(state);
                         } catch (RemoteException ex) {
@@ -1995,42 +2000,8 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
 
         ApnSetting apnSetting = preciseState.getApnSetting();
 
-        int apnTypes = apnSetting.getApnTypeBitmask();
-        int state = preciseState.getState();
-        int networkType = preciseState.getNetworkType();
-
         synchronized (mRecords) {
             if (validatePhoneId(phoneId)) {
-                // We only call the callback when the change is for default APN type.
-                if ((ApnSetting.TYPE_DEFAULT & apnTypes) != 0
-                        && (mDataConnectionState[phoneId] != state
-                        || mDataConnectionNetworkType[phoneId] != networkType)) {
-                    String str = "onDataConnectionStateChanged("
-                            + TelephonyUtils.dataStateToString(state)
-                            + ", " + getNetworkTypeName(networkType)
-                            + ") subId=" + subId + ", phoneId=" + phoneId;
-                    log(str);
-                    mLocalLog.log(str);
-                    for (Record r : mRecords) {
-                        if (r.matchTelephonyCallbackEvent(
-                                TelephonyCallback.EVENT_DATA_CONNECTION_STATE_CHANGED)
-                                && idMatch(r.subId, subId, phoneId)) {
-                            try {
-                                if (DBG) {
-                                    log("Notify data connection state changed on sub: " + subId);
-                                }
-                                r.callback.onDataConnectionStateChanged(state, networkType);
-                            } catch (RemoteException ex) {
-                                mRemoveList.add(r.binder);
-                            }
-                        }
-                    }
-                    handleRemoveListLocked();
-
-                    mDataConnectionState[phoneId] = state;
-                    mDataConnectionNetworkType[phoneId] = networkType;
-                }
-
                 Pair<Integer, ApnSetting> key = Pair.create(preciseState.getTransportType(),
                         preciseState.getApnSetting());
                 PreciseDataConnectionState oldState = mPreciseDataConnectionStates.get(phoneId)
@@ -2039,7 +2010,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                     for (Record r : mRecords) {
                         if (r.matchTelephonyCallbackEvent(
                                 TelephonyCallback.EVENT_PRECISE_DATA_CONNECTION_STATE_CHANGED)
-                                && idMatch(r.subId, subId, phoneId)) {
+                                && idMatch(r, subId, phoneId)) {
                             try {
                                 r.callback.onPreciseDataConnectionStateChanged(preciseState);
                             } catch (RemoteException ex) {
@@ -2061,6 +2032,73 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 // connection, so remove it from the cache.
                 if (preciseState.getState() != TelephonyManager.DATA_DISCONNECTED) {
                     mPreciseDataConnectionStates.get(phoneId).put(key, preciseState);
+                }
+
+                // Note that below is just the workaround for reporting the correct data connection
+                // state. The actual fix should be put in the new data stack in T.
+                // TODO: Remove the code below in T.
+
+                // Collect all possible candidate data connection state for internet. Key is the
+                // data connection state, value is the precise data connection state.
+                Map<Integer, PreciseDataConnectionState> internetConnections = new ArrayMap<>();
+                if (preciseState.getState() == TelephonyManager.DATA_DISCONNECTED
+                        && preciseState.getApnSetting().getApnTypes()
+                        .contains(ApnSetting.TYPE_DEFAULT)) {
+                    internetConnections.put(TelephonyManager.DATA_DISCONNECTED, preciseState);
+                }
+                for (Map.Entry<Pair<Integer, ApnSetting>, PreciseDataConnectionState> entry :
+                        mPreciseDataConnectionStates.get(phoneId).entrySet()) {
+                    if (entry.getKey().first == AccessNetworkConstants.TRANSPORT_TYPE_WWAN
+                            && entry.getKey().second.getApnTypes()
+                            .contains(ApnSetting.TYPE_DEFAULT)) {
+                        internetConnections.put(entry.getValue().getState(), entry.getValue());
+                    }
+                }
+
+                // If any internet data is in connected state, then report connected, then check
+                // suspended, connecting, disconnecting, and disconnected. The order is very
+                // important.
+                int[] statesInPriority = new int[]{TelephonyManager.DATA_CONNECTED,
+                        TelephonyManager.DATA_SUSPENDED, TelephonyManager.DATA_CONNECTING,
+                        TelephonyManager.DATA_DISCONNECTING,
+                        TelephonyManager.DATA_DISCONNECTED};
+                int state = TelephonyManager.DATA_DISCONNECTED;
+                int networkType = TelephonyManager.NETWORK_TYPE_UNKNOWN;
+                for (int s : statesInPriority) {
+                    if (internetConnections.containsKey(s)) {
+                        state = s;
+                        networkType = internetConnections.get(s).getNetworkType();
+                        break;
+                    }
+                }
+
+                if (mDataConnectionState[phoneId] != state
+                        || mDataConnectionNetworkType[phoneId] != networkType) {
+                    String str = "onDataConnectionStateChanged("
+                            + TelephonyUtils.dataStateToString(state)
+                            + ", " + TelephonyManager.getNetworkTypeName(networkType)
+                            + ") subId=" + subId + ", phoneId=" + phoneId;
+                    log(str);
+                    mLocalLog.log(str);
+                    for (Record r : mRecords) {
+                        if (r.matchTelephonyCallbackEvent(
+                                TelephonyCallback.EVENT_DATA_CONNECTION_STATE_CHANGED)
+                                && idMatch(r, subId, phoneId)) {
+                            try {
+                                if (DBG) {
+                                    log("Notify data connection state changed on sub: " + subId);
+                                }
+                                r.callback.onDataConnectionStateChanged(state, networkType);
+                            } catch (RemoteException ex) {
+                                mRemoveList.add(r.binder);
+                            }
+                        }
+                    }
+
+                    mDataConnectionState[phoneId] = state;
+                    mDataConnectionNetworkType[phoneId] = networkType;
+
+                    handleRemoveListLocked();
                 }
             }
         }
@@ -2086,7 +2124,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (validateEventAndUserLocked(
                             r, TelephonyCallback.EVENT_CELL_LOCATION_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)
+                            && idMatch(r, subId, phoneId)
                             && (checkCoarseLocationAccess(r, Build.VERSION_CODES.BASE)
                                     && checkFineLocationAccess(r, Build.VERSION_CODES.Q))) {
                         try {
@@ -2140,7 +2178,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_PRECISE_CALL_STATE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onPreciseCallStateChanged(mPreciseCallState[phoneId]);
                         } catch (RemoteException ex) {
@@ -2149,7 +2187,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                     }
                     if (notifyCallAttributes && r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_CALL_ATTRIBUTES_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onCallAttributesChanged(mCallAttributes[phoneId]);
                         } catch (RemoteException ex) {
@@ -2174,7 +2212,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_CALL_DISCONNECT_CAUSE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onCallDisconnectCauseChanged(mCallDisconnectCause[phoneId],
                                     mCallPreciseDisconnectCause[phoneId]);
@@ -2199,7 +2237,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_IMS_CALL_DISCONNECT_CAUSE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             if (DBG_LOC) {
                                 log("notifyImsCallDisconnectCause: mImsReasonInfo="
@@ -2231,7 +2269,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_SRVCC_STATE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             if (DBG_LOC) {
                                 log("notifySrvccStateChanged: mSrvccState=" + state + " r=" + r);
@@ -2260,7 +2298,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                     }
                     if ((r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_OEM_HOOK_RAW))
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onOemHookRawEvent(rawData);
                         } catch (RemoteException ex) {
@@ -2340,7 +2378,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_RADIO_POWER_STATE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onRadioPowerStateChanged(state);
                         } catch (RemoteException ex) {
@@ -2369,7 +2407,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_EMERGENCY_NUMBER_LIST_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onEmergencyNumberListChanged(mEmergencyNumberList);
                             if (VDBG) {
@@ -2456,7 +2494,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_CALL_ATTRIBUTES_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onCallAttributesChanged(mCallAttributes[phoneId]);
                         } catch (RemoteException ex) {
@@ -2487,7 +2525,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_REGISTRATION_FAILURE)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onRegistrationFailed(
                                     checkFineLocationAccess(r, Build.VERSION_CODES.BASE)
@@ -2530,7 +2568,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_BARRING_INFO_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             if (DBG_LOC) {
                                 log("notifyBarringInfo: mBarringInfo="
@@ -2575,7 +2613,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_PHYSICAL_CHANNEL_CONFIG_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             if (DBG_LOC) {
                                 log("notifyPhysicalChannelConfig: mPhysicalChannelConfigs="
@@ -2642,7 +2680,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_DATA_ENABLED_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onDataEnabledChanged(enabled, reason);
                         } catch (RemoteException ex) {
@@ -2677,7 +2715,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_ALLOWED_NETWORK_TYPE_LIST_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             if (VDBG) {
                                 log("notifyAllowedNetworkTypesChanged: reason= " + reason
@@ -2719,7 +2757,7 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
                 for (Record r : mRecords) {
                     if (r.matchTelephonyCallbackEvent(
                             TelephonyCallback.EVENT_LINK_CAPACITY_ESTIMATE_CHANGED)
-                            && idMatch(r.subId, subId, phoneId)) {
+                            && idMatch(r, subId, phoneId)) {
                         try {
                             r.callback.onLinkCapacityEstimateChanged(linkCapacityEstimateList);
                         } catch (RemoteException ex) {
@@ -3169,33 +3207,24 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
     }
 
     /**
-     * If the registrant specified a subId, then we should only notify it if subIds match.
-     * If the registrant registered with DEFAULT subId, we should notify only when the related subId
-     * is default subId (which could be INVALID if there's no default subId).
+     * Match the sub id or phone id of the event to the record
      *
-     * This should be the correct way to check record ID match. in idMatch the record's phoneId is
-     * speculated based on subId passed by the registrant so it's not a good reference.
-     * But to avoid triggering potential regression only replace idMatch with it when an issue with
-     * idMatch is reported. Eventually this should replace all instances of idMatch.
+     * We follow the rules below:
+     * 1) If sub id of the event is invalid, phone id should be used.
+     * 2) The event on default sub should be notified to the records
+     * which register the default sub id.
+     * 3) Sub id should be exactly matched for all other cases.
      */
-    private boolean idMatchWithoutDefaultPhoneCheck(int subIdInRecord, int subIdToNotify) {
-        if (subIdInRecord == SubscriptionManager.DEFAULT_SUBSCRIPTION_ID) {
-            return (subIdToNotify == mDefaultSubId);
-        } else {
-            return (subIdInRecord == subIdToNotify);
-        }
-    }
+    boolean idMatch(Record r, int subId, int phoneId) {
 
-    boolean idMatch(int rSubId, int subId, int phoneId) {
-
-        if(subId < 0) {
-            // Invalid case, we need compare phoneId with default one.
-            return (mDefaultPhoneId == phoneId);
+        if (subId < 0) {
+            // Invalid case, we need compare phoneId.
+            return (r.phoneId == phoneId);
         }
-        if(rSubId == SubscriptionManager.DEFAULT_SUBSCRIPTION_ID) {
+        if (r.subId == SubscriptionManager.DEFAULT_SUBSCRIPTION_ID) {
             return (subId == mDefaultSubId);
         } else {
-            return (rSubId == subId);
+            return (r.subId == subId);
         }
     }
 

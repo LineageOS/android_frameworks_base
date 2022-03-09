@@ -89,14 +89,13 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
     private final WindowManager mWindowManager;
     private final IActivityManager mActivityManager;
     private final DozeParameters mDozeParameters;
+    private final KeyguardStateController mKeyguardStateController;
     private final LayoutParams mLpChanged;
-    private boolean mKeyguardScreenRotation;
     private final long mLockScreenDisplayTimeout;
     private final float mKeyguardPreferredRefreshRate; // takes precedence over max
     private final float mKeyguardMaxRefreshRate;
     private final KeyguardViewMediator mKeyguardViewMediator;
     private final KeyguardBypassController mKeyguardBypassController;
-    private final KeyguardStateController mKeyguardStateController;
     private final AuthController mAuthController;
     private ViewGroup mNotificationShadeView;
     private LayoutParams mLp;
@@ -129,9 +128,8 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
         mContext = context;
         mWindowManager = windowManager;
         mActivityManager = activityManager;
-        mKeyguardStateController = keyguardStateController;
-        mKeyguardScreenRotation = shouldEnableKeyguardScreenRotation();
         mDozeParameters = dozeParameters;
+        mKeyguardStateController = keyguardStateController;
         mScreenBrightnessDoze = mDozeParameters.getScreenBrightnessDoze();
         mLpChanged = new LayoutParams();
         mKeyguardViewMediator = keyguardViewMediator;
@@ -343,7 +341,7 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
 
     private void adjustScreenOrientation(State state) {
         if (state.isKeyguardShowingAndNotOccluded() || state.mDozing) {
-            if (mKeyguardScreenRotation) {
+            if (shouldEnableKeyguardScreenRotation()) {
                 mLpChanged.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_USER;
             } else {
                 mLpChanged.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_NOSENSOR;
@@ -493,7 +491,8 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
         for (StatusBarWindowCallback cb : activeCallbacks) {
             cb.onStateChanged(mCurrentState.mKeyguardShowing,
                     mCurrentState.mKeyguardOccluded,
-                    mCurrentState.mBouncerShowing);
+                    mCurrentState.mBouncerShowing,
+                    mCurrentState.mDozing);
         }
     }
 
@@ -884,7 +883,6 @@ public class NotificationShadeWindowControllerImpl implements NotificationShadeW
 
         @Override
         public void onChange(boolean selfChange) {
-            mKeyguardScreenRotation = shouldEnableKeyguardScreenRotation();
             // update the state
             apply(mCurrentState);
         }

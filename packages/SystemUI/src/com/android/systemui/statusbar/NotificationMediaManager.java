@@ -24,7 +24,6 @@ import android.annotation.MainThread;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.Notification;
-import android.app.WallpaperManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -34,11 +33,9 @@ import android.graphics.drawable.Icon;
 import android.media.MediaMetadata;
 import android.media.session.MediaController;
 import android.media.session.MediaSession;
-import android.media.session.MediaSessionManager;
 import android.media.session.PlaybackState;
 import android.os.AsyncTask;
 import android.os.Trace;
-import android.os.UserHandle;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.NotificationStats;
 import android.service.notification.StatusBarNotification;
@@ -53,6 +50,8 @@ import com.android.systemui.Dumpable;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.dagger.qualifiers.Main;
+import com.android.systemui.dump.DumpManager;
+import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.media.MediaData;
 import com.android.systemui.media.MediaDataManager;
 import com.android.systemui.media.SmartspaceMediaData;
@@ -73,9 +72,7 @@ import com.android.systemui.statusbar.phone.ScrimController;
 import com.android.systemui.statusbar.phone.ScrimState;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
-import com.android.systemui.statusbar.VisualizerView;
 import com.android.systemui.tuner.TunerService;
-import com.android.systemui.util.DeviceConfigProxy;
 import com.android.systemui.util.Utils;
 import com.android.systemui.util.concurrency.DelayableExecutor;
 
@@ -87,8 +84,8 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import dagger.Lazy;
@@ -138,12 +135,10 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
     private final DelayableExecutor mMainExecutor;
 
     private final Context mContext;
-    private final MediaSessionManager mMediaSessionManager;
     private final ArrayList<MediaListener> mMediaListeners;
-    private final Lazy<StatusBar> mStatusBarLazy;
+    private final Lazy<Optional<StatusBar>> mStatusBarOptionalLazy;
     private final MediaArtworkProcessor mMediaArtworkProcessor;
     private final Set<AsyncTask<?, ?, ?>> mProcessArtworkTasks = new ArraySet<>();
-    private final WallpaperManager mWallpaperManager;
 
     protected NotificationPresenter mPresenter;
     private MediaController mMediaController;
@@ -168,8 +163,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                     clearCurrentMediaNotification();
                 }
                 findAndUpdateMediaNotifications();
-                mStatusBarLazy.get().getVisualizerView()
-                        .setPlaying(state.getState() == PlaybackState.STATE_PLAYING);
             }
         }
 
@@ -190,7 +183,7 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
      */
     public NotificationMediaManager(
             Context context,
-            Lazy<StatusBar> statusBarLazy,
+            Lazy<Optional<StatusBar>> statusBarOptionalLazy,
             Lazy<NotificationShadeWindowController> notificationShadeWindowController,
             NotificationEntryManager notificationEntryManager,
             MediaArtworkProcessor mediaArtworkProcessor,
@@ -199,20 +192,14 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
             NotifCollection notifCollection,
             FeatureFlags featureFlags,
             @Main DelayableExecutor mainExecutor,
-            DeviceConfigProxy deviceConfig,
-            MediaDataManager mediaDataManager) {
+            MediaDataManager mediaDataManager,
+            DumpManager dumpManager) {
         mContext = context;
         mMediaArtworkProcessor = mediaArtworkProcessor;
         mKeyguardBypassController = keyguardBypassController;
         mMediaListeners = new ArrayList<>();
-        // TODO: use MediaSessionManager.SessionListener to hook us up to future updates
-        // in session state
-        mMediaSessionManager = (MediaSessionManager) mContext.getSystemService(
-                Context.MEDIA_SESSION_SERVICE);
-        mWallpaperManager = (WallpaperManager) mContext.getSystemService(
-                Context.WALLPAPER_SERVICE);
         // TODO: use KeyguardStateController#isOccluded to remove this dependency
-        mStatusBarLazy = statusBarLazy;
+        mStatusBarOptionalLazy = statusBarOptionalLazy;
         mNotificationShadeWindowController = notificationShadeWindowController;
         mEntryManager = notificationEntryManager;
         mMainExecutor = mainExecutor;
@@ -227,6 +214,8 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
             setupNotifPipeline();
             mUsingNotifPipeline = true;
         }
+
+        dumpManager.registerDumpable(this);
 
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, LOCKSCREEN_MEDIA_METADATA);
@@ -272,12 +261,13 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
             @Override
             public void onMediaDataLoaded(@NonNull String key,
                     @Nullable String oldKey, @NonNull MediaData data, boolean immediately,
-                    boolean isSsReactivated) {
+                    int receivedSmartspaceCardLatency) {
             }
 
             @Override
             public void onSmartspaceMediaDataLoaded(@NonNull String key,
-                    @NonNull SmartspaceMediaData data, boolean shouldPrioritize) {
+                    @NonNull SmartspaceMediaData data, boolean shouldPrioritize,
+                    boolean isSsReactivated) {
             }
 
             @Override
@@ -346,12 +336,13 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
             @Override
             public void onMediaDataLoaded(@NonNull String key,
                     @Nullable String oldKey, @NonNull MediaData data, boolean immediately,
-                    boolean isSsReactivated) {
+                    int receivedSmartspaceCardLatency) {
             }
 
             @Override
             public void onSmartspaceMediaDataLoaded(@NonNull String key,
-                    @NonNull SmartspaceMediaData data, boolean shouldPrioritize) {
+                    @NonNull SmartspaceMediaData data, boolean shouldPrioritize,
+                    boolean isSsReactivated) {
 
             }
 
@@ -490,7 +481,8 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         NotificationEntry mediaNotification = null;
         MediaController controller = null;
         for (NotificationEntry entry : allNotifications) {
-            if (entry.isMediaNotification()) {
+            Notification notif = entry.getSbn().getNotification();
+            if (notif.isMediaNotification()) {
                 final MediaSession.Token token =
                         entry.getSbn().getNotification().extras.getParcelable(
                                 Notification.EXTRA_MEDIA_SESSION);
@@ -505,35 +497,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                         mediaNotification = entry;
                         controller = aController;
                         break;
-                    }
-                }
-            }
-        }
-        if (mediaNotification == null) {
-            // Still nothing? OK, let's just look for live media sessions and see if they match
-            // one of our notifications. This will catch apps that aren't (yet!) using media
-            // notifications.
-
-            if (mMediaSessionManager != null) {
-                // TODO: Should this really be for all users? It appears that inactive users
-                //  can't have active sessions, which would mean it is fine.
-                final List<MediaController> sessions =
-                        mMediaSessionManager.getActiveSessionsForUser(null, UserHandle.ALL);
-
-                for (MediaController aController : sessions) {
-                    // now to see if we have one like this
-                    final String pkg = aController.getPackageName();
-
-                    for (NotificationEntry entry : allNotifications) {
-                        if (entry.getSbn().getPackageName().equals(pkg)) {
-                            if (DEBUG_MEDIA) {
-                                Log.v(TAG, "DEBUG_MEDIA: found controller matching "
-                                        + entry.getSbn().getKey());
-                            }
-                            controller = aController;
-                            mediaNotification = entry;
-                            break;
-                        }
                     }
                 }
             }
@@ -583,8 +546,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
 
     @Override
     public void dump(@NonNull FileDescriptor fd, @NonNull PrintWriter pw, @NonNull String[] args) {
-        pw.print("    mMediaSessionManager=");
-        pw.println(mMediaSessionManager);
         pw.print("    mMediaNotificationKey=");
         pw.println(mMediaNotificationKey);
         pw.print("    mMediaController=");
@@ -708,10 +669,9 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         }
         boolean hasMediaArtwork = artworkDrawable != null;
         boolean allowWhenShade = false;
-        Bitmap lockWallpaper = null;
         // if no media artwork, show normal lockscreen wallpaper
         if (ENABLE_LOCKSCREEN_WALLPAPER && artworkDrawable == null) {
-            lockWallpaper =
+            Bitmap lockWallpaper =
                     mLockscreenWallpaper != null ? mLockscreenWallpaper.getBitmap() : null;
             if (lockWallpaper != null) {
                 artworkDrawable = new LockscreenWallpaper.WallpaperDrawable(
@@ -724,33 +684,13 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
 
         NotificationShadeWindowController windowController =
                 mNotificationShadeWindowController.get();
-        boolean hideBecauseOccluded = mStatusBarLazy.get().isOccluded();
+        boolean hideBecauseOccluded =
+                mStatusBarOptionalLazy.get().map(StatusBar::isOccluded).orElse(false);
 
         final boolean hasArtwork = artworkDrawable != null;
         mColorExtractor.setHasMediaArtwork(hasMediaArtwork);
         if (mScrimController != null) {
             mScrimController.setHasBackdrop(hasArtwork);
-        }
-
-        if (mStatusBarStateController.getState() != StatusBarState.SHADE) {
-            VisualizerView visualizerView = mStatusBarLazy.get().getVisualizerView();
-            if (!mKeyguardStateController.isKeyguardFadingAway() &&
-                    !mStatusBarLazy.get().isScreenFullyOff()) {
-                visualizerView.setPlaying(getMediaControllerPlaybackState(mMediaController) ==
-                        PlaybackState.STATE_PLAYING);
-            }
-
-            if (artworkDrawable instanceof BitmapDrawable) {
-                // always use current backdrop to color eq
-                visualizerView.setBitmap(((BitmapDrawable) artworkDrawable).getBitmap());
-            } else if (lockWallpaper instanceof Bitmap) {
-                // use lockscreen wallpaper in case user set one
-                visualizerView.setBitmap(lockWallpaper.getConfig() == Bitmap.Config.HARDWARE ?
-                        lockWallpaper.copy(Bitmap.Config.ARGB_8888, false) : lockWallpaper);
-            } else {
-                // use regular wallpaper
-                visualizerView.setBitmap(mWallpaperManager.getBitmap(false));
-            }
         }
 
         if ((hasArtwork || DEBUG_MEDIA_FAKE_ARTWORK)

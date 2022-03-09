@@ -62,6 +62,8 @@
 
 namespace android {
 
+using gui::FocusRequest;
+
 static void doThrowNPE(JNIEnv* env) {
     jniThrowNullPointerException(env, NULL);
 }
@@ -868,6 +870,13 @@ static void nativeSetFixedTransformHint(JNIEnv* env, jclass clazz, jlong transac
     transaction->setFixedTransformHint(ctrl, transformHint);
 }
 
+static void nativeSetDropInputMode(JNIEnv* env, jclass clazz, jlong transactionObj,
+                                   jlong nativeObject, jint mode) {
+    auto transaction = reinterpret_cast<SurfaceComposerClient::Transaction*>(transactionObj);
+    SurfaceControl* const ctrl = reinterpret_cast<SurfaceControl*>(nativeObject);
+    transaction->setDropInputMode(ctrl, static_cast<gui::DropInputMode>(mode));
+}
+
 static jlongArray nativeGetPhysicalDisplayIds(JNIEnv* env, jclass clazz) {
     const auto displayIds = SurfaceComposerClient::getPhysicalDisplayIds();
     jlongArray array = env->NewLongArray(displayIds.size());
@@ -887,6 +896,12 @@ static jlongArray nativeGetPhysicalDisplayIds(JNIEnv* env, jclass clazz) {
 
     env->ReleaseLongArrayElements(array, values, 0);
     return array;
+}
+
+static jlong nativeGetPrimaryPhysicalDisplayId(JNIEnv* env, jclass clazz) {
+    PhysicalDisplayId displayId;
+    SurfaceComposerClient::getPrimaryPhysicalDisplayId(&displayId);
+    return static_cast<jlong>(displayId.value);
 }
 
 static jobject nativeGetPhysicalDisplayToken(JNIEnv* env, jclass clazz, jlong physicalDisplayId) {
@@ -1011,6 +1026,17 @@ static void nativeSetDisplayLayerStack(JNIEnv* env, jclass clazz,
     {
         auto transaction = reinterpret_cast<SurfaceComposerClient::Transaction*>(transactionObj);
         transaction->setDisplayLayerStack(token, layerStack);
+    }
+}
+
+static void nativeSetDisplayFlags(JNIEnv* env, jclass clazz, jlong transactionObj, jobject tokenObj,
+                                  jint flags) {
+    sp<IBinder> token(ibinderForJavaObject(env, tokenObj));
+    if (token == NULL) return;
+
+    {
+        auto transaction = reinterpret_cast<SurfaceComposerClient::Transaction*>(transactionObj);
+        transaction->setDisplayFlags(token, flags);
     }
 }
 
@@ -1789,16 +1815,18 @@ static void nativeSetTransformHint(JNIEnv* env, jclass clazz, jlong nativeSurfac
     if (surface == nullptr) {
         return;
     }
-    surface->setTransformHint(
-            ui::Transform::toRotationFlags(static_cast<ui::Rotation>(transformHint)));
+    surface->setTransformHint(transformHint);
 }
 
 static jint nativeGetTransformHint(JNIEnv* env, jclass clazz, jlong nativeSurfaceControl) {
     sp<SurfaceControl> surface(reinterpret_cast<SurfaceControl*>(nativeSurfaceControl));
-    ui::Transform::RotationFlags transformHintRotationFlags =
-            static_cast<ui::Transform::RotationFlags>(surface->getTransformHint());
+    return surface->getTransformHint();
+}
 
-    return toRotationInt(ui::Transform::toRotation((transformHintRotationFlags)));
+static jint nativeGetLayerId(JNIEnv* env, jclass clazz, jlong nativeSurfaceControl) {
+    sp<SurfaceControl> surface(reinterpret_cast<SurfaceControl*>(nativeSurfaceControl));
+
+    return surface->getLayerId();
 }
 
 // ----------------------------------------------------------------------------
@@ -1879,6 +1907,8 @@ static const JNINativeMethod sSurfaceControlMethods[] = {
             (void*)nativeReleaseFrameRateFlexibilityToken },
     {"nativeGetPhysicalDisplayIds", "()[J",
             (void*)nativeGetPhysicalDisplayIds },
+    {"nativeGetPrimaryPhysicalDisplayId", "()J",
+            (void*)nativeGetPrimaryPhysicalDisplayId },
     {"nativeGetPhysicalDisplayToken", "(J)Landroid/os/IBinder;",
             (void*)nativeGetPhysicalDisplayToken },
     {"nativeCreateDisplay", "(Ljava/lang/String;Z)Landroid/os/IBinder;",
@@ -1889,6 +1919,8 @@ static const JNINativeMethod sSurfaceControlMethods[] = {
             (void*)nativeSetDisplaySurface },
     {"nativeSetDisplayLayerStack", "(JLandroid/os/IBinder;I)V",
             (void*)nativeSetDisplayLayerStack },
+    {"nativeSetDisplayFlags", "(JLandroid/os/IBinder;I)V",
+            (void*)nativeSetDisplayFlags },
     {"nativeSetDisplayProjection", "(JLandroid/os/IBinder;IIIIIIIII)V",
             (void*)nativeSetDisplayProjection },
     {"nativeSetDisplaySize", "(JLandroid/os/IBinder;II)V",
@@ -1994,6 +2026,10 @@ static const JNINativeMethod sSurfaceControlMethods[] = {
             (void*)nativeGetTransformHint },
     {"nativeSetTrustedOverlay", "(JJZ)V",
             (void*)nativeSetTrustedOverlay },
+    {"nativeSetDropInputMode", "(JJI)V",
+             (void*)nativeSetDropInputMode },
+    {"nativeGetLayerId", "(J)I",
+            (void*)nativeGetLayerId },
         // clang-format on
 };
 

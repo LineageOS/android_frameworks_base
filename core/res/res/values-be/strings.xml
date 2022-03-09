@@ -402,7 +402,7 @@
     <string name="permdesc_persistentActivity" product="tablet" msgid="6055271149187369916">"Дазваляе прыкладанню захоўваць некаторыя пастаянныя часткi ў памяцi. Гэта можа абмежаваць аб\'ём памяці, даступнай для іншых прыкладанняў, i запаволiць працу планшэта."</string>
     <string name="permdesc_persistentActivity" product="tv" msgid="6800526387664131321">"Дазваляе праграме пастаянна захоўваць некаторыя свае часткі ў памяці прылады. Гэта можа абмежаваць аб\'ём памяці, даступнай для іншых праграм, і запаволіць працу прылады Android TV."</string>
     <string name="permdesc_persistentActivity" product="default" msgid="1914841924366562051">"Дазваляе прыкладанню захоўваць некаторыя пастаянныя часткi ў памяцi. Гэта можа абмежаваць аб\'ём памяці, даступнай для іншых прыкладанняў, i запаволiць працу тэлефона."</string>
-    <string name="permlab_foregroundService" msgid="1768855976818467491">"запусціць асноўныя сэрвісы"</string>
+    <string name="permlab_foregroundService" msgid="1768855976818467491">"запусціць актыўныя сэрвісы"</string>
     <string name="permdesc_foregroundService" msgid="8720071450020922795">"Дазваляе праграме выкарыстоўваць асноўныя сэрвісы."</string>
     <string name="permlab_getPackageSize" msgid="375391550792886641">"вымерыць прастору для захоўвання прыкладання"</string>
     <string name="permdesc_getPackageSize" msgid="742743530909966782">"Дазваляе прыкладанням атрымліваць яго код, дадзеныя і аб\'ём кэш-памяці"</string>
@@ -622,6 +622,7 @@
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Націсніце, каб выдаліць мадэль твару, пасля дадайце твар яшчэ раз"</string>
     <string name="face_setup_notification_title" msgid="8843461561970741790">"Наладзьце распазнаванне твару"</string>
     <string name="face_setup_notification_content" msgid="5463999831057751676">"Разблакіруйце свой тэлефон, паглядзеўшы на яго"</string>
+    <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Каб выкарыстоўваць распазнаванне твару, уключыце "<b>"доступ да камеры"</b>" праз раздзел \"Налады &gt; Прыватнасць\""</string>
     <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Наладзьце дадатковыя спосабы разблакіроўкі"</string>
     <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Націсніце, каб дадаць адбітак пальца"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Разблакіраванне адбіткам пальца"</string>
@@ -720,8 +721,8 @@
     <string name="permdesc_handoverStatus" msgid="3842269451732571070">"Дазваляе праграме атрымліваць інфармацыю аб бягучых перадачах Android Beam"</string>
     <string name="permlab_removeDrmCertificates" msgid="710576248717404416">"выдаленне сертыфікатаў DRM"</string>
     <string name="permdesc_removeDrmCertificates" msgid="4068445390318355716">"Дазваляе праграме выдаляць сертыфікаты DRM. Ніколі не павінна патрабавацца для звычайных праграм."</string>
-    <string name="permlab_bindCarrierMessagingService" msgid="3363450860593096967">"прывязка да службы паведамленняў аператара"</string>
-    <string name="permdesc_bindCarrierMessagingService" msgid="6316457028173478345">"Дазваляе ўладальніку выконваць прывязку да інтэрфейсу верхняга ўзроўню службы паведамленняў аператара. Ніколі не павінна патрабавацца для звычайных праграм."</string>
+    <string name="permlab_bindCarrierMessagingService" msgid="3363450860593096967">"падключэнне да сэрвісу абмену паведамленнямі аператара"</string>
+    <string name="permdesc_bindCarrierMessagingService" msgid="6316457028173478345">"Дазваляе ўладальніку выконваць падключэнне да базавага інтэрфейсу сэрвісу абмену паведамленнямі аператара. Звычайныя праграмы ніколі не выкарыстоўваюць гэты дазвол."</string>
     <string name="permlab_bindCarrierServices" msgid="2395596978626237474">"прывязвацца з сэрвісаў аператара"</string>
     <string name="permdesc_bindCarrierServices" msgid="9185614481967262900">"Дазваляе ўладальніку ажыццяўляць прывязку да сэрвісаў аператара. Ніколі не павінна патрабавацца для звычайных праграм."</string>
     <string name="permlab_access_notification_policy" msgid="5524112842876975537">"атрымліваць доступ да рэжыму «Не турбаваць»"</string>
@@ -735,9 +736,11 @@
     <string name="policylab_watchLogin" msgid="7599669460083719504">"Сачыць за спробамі разблакіроўкі экрана"</string>
     <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"Сачыць за колькасцю няправільных набраных пароляў падчас разблакоўкі экрана і блакаваць планшэт або сціраць усе дадзеныя на ім, калі няправільны пароль набраны занадта шмат разоў."</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і заблакіраваць прыладу Android TV або сцерці ўсе даныя на прыладзе, калі няправільны пароль набраны занадта шмат разоў."</string>
+    <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"Падчас разблакіроўкі экрана сачыць за колькасцю няправільна набраных пароляў і, калі няправільны пароль набраны занадта шмат разоў, заблакіраваць інфармацыйна-забаўляльную сістэму ці сцерці ў ёй усе даныя."</string>
     <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"Сачыць за колькасцю няправільных набраных пароляў падчас разблакоўкі экрана і блакаваць тяэлефон або сціраць усе дадзеныя на ім, калі набрана занадта шмат няправільных пароляў."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і блакіраваць планшэт або сцерці ўсе даныя гэтага карыстальніка, калі няправільны пароль набраны занадта шмат разоў."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і заблакіраваць прыладу Android TV або сцерці ўсе даныя карыстальніка, калі няправільны пароль набраны занадта шмат разоў."</string>
+    <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"Падчас разблакіроўкі экрана сачыць за колькасцю няправільна набраных пароляў і, калі няправільны пароль набраны занадта шмат разоў, заблакіраваць інфармацыйна-забаўляльную сістэму ці сцерці ўсе даныя гэтага профілю."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="default" msgid="9177645136475155924">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і блакіраваць тэлефон або сцерці ўсе даныя гэтага карыстальніка, калі няправільны пароль набраны занадта шмат разоў."</string>
     <string name="policylab_resetPassword" msgid="214556238645096520">"Змяніць блакіроўку экрана"</string>
     <string name="policydesc_resetPassword" msgid="4626419138439341851">"Змяніць блакіроўку экрана."</string>
@@ -746,10 +749,13 @@
     <string name="policylab_wipeData" msgid="1359485247727537311">"Сцерці ўсе даныя"</string>
     <string name="policydesc_wipeData" product="tablet" msgid="7245372676261947507">"Cцерці даныя з планшэта без папярэджання, выканаўшы скід да заводскіх даных."</string>
     <string name="policydesc_wipeData" product="tv" msgid="513862488950801261">"Сцерці даныя з прылады Android TV без папярэджання, выканаўшы скід да заводскіх налад."</string>
+    <string name="policydesc_wipeData" product="automotive" msgid="660804547737323300">"Падчас скіду да заводскіх налад сцерці даныя ў інфармацыйна-забаўляльнай сістэме без папярэджання."</string>
     <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"Сцерці даныя з тэлефона без папярэджання, выканаўшы скід да заводскіх налад."</string>
-    <string name="policylab_wipeData_secondaryUser" msgid="413813645323433166">"Сцерці карыстальніцкія даныя"</string>
+    <string name="policylab_wipeData_secondaryUser" product="automotive" msgid="115034358520328373">"Сцерці даныя профілю"</string>
+    <string name="policylab_wipeData_secondaryUser" product="default" msgid="413813645323433166">"Сцерці карыстальніцкія даныя"</string>
     <string name="policydesc_wipeData_secondaryUser" product="tablet" msgid="2336676480090926470">"Сцерці даныя гэтага карыстальніка на дадзеным планшэце без папярэджання."</string>
     <string name="policydesc_wipeData_secondaryUser" product="tv" msgid="2293713284515865200">"Сцерці даныя карыстальніка з гэтай прылады Android TV без папярэджання."</string>
+    <string name="policydesc_wipeData_secondaryUser" product="automotive" msgid="4658832487305780879">"Сцерці даныя гэтага профілю ў гэтай інфармацыйна-забаўляльнай сістэме без папярэджання."</string>
     <string name="policydesc_wipeData_secondaryUser" product="default" msgid="2788325512167208654">"Сцерці даныя гэтага карыстальніка на дадзеным тэлефоне без папярэджання."</string>
     <string name="policylab_setGlobalProxy" msgid="215332221188670221">"Усталяваць глабальны проксі прылады"</string>
     <string name="policydesc_setGlobalProxy" msgid="7149665222705519604">"Задаць агульны проксі-cервер прылады, які будзе выкарыстоўвацца, калі прылада актыўная. Толькі ўладальнік прылады можа задаць агульны проксі-сервер."</string>
@@ -1737,7 +1743,7 @@
     <string name="accessibility_shortcut_toogle_warning" msgid="4161716521310929544">"Калі хуткі доступ уключаны, вы можаце націснуць абедзве кнопкі гучнасці і ўтрымліваць іх 3 секунды, каб запусціць функцыю спецыяльных магчымасцей."</string>
     <string name="accessibility_shortcut_multiple_service_warning_title" msgid="3135860819356676426">"Уключыць хуткі доступ да спецыяльных магчымасцей?"</string>
     <string name="accessibility_shortcut_multiple_service_warning" msgid="3740723309483706911">"Утрымліванне націснутымі абедзвюх клавіш гучнасці на працягу некалькіх секунд уключае спецыяльныя магчымасці. У выніку ваша прылада можа пачаць працаваць па-іншаму.\n\nБягучыя функцыі:\n<xliff:g id="SERVICE">%1$s</xliff:g>\nВыбраныя функцыі можна змяніць у меню \"Налады &gt; Спецыяльныя магчымасці\"."</string>
-    <string name="accessibility_shortcut_multiple_service_list" msgid="6935581470716541531">"	• <xliff:g id="SERVICE">%1$s</xliff:g>\n"</string>
+    <string name="accessibility_shortcut_multiple_service_list" msgid="2128323171922023762">" • <xliff:g id="SERVICE">%1$s</xliff:g>\n"</string>
     <string name="accessibility_shortcut_single_service_warning_title" msgid="1909518473488345266">"Уключыць хуткі доступ да сэрвісу \"<xliff:g id="SERVICE">%1$s</xliff:g>\"?"</string>
     <string name="accessibility_shortcut_single_service_warning" msgid="6363127705112844257">"Утрымліванне націснутымі абедзвюх клавіш гучнасці на працягу некалькіх секунд уключае службу \"<xliff:g id="SERVICE">%1$s</xliff:g>\", якая з\'яўляецца спецыяльнай магчымасцю. У выніку ваша прылада можа пачаць працаваць па-іншаму.\n\nВы можаце задаць гэта спалучэнне клавіш для іншай функцыі ў меню \"Налады &gt; Спецыяльныя магчымасці\"."</string>
     <string name="accessibility_shortcut_on" msgid="5463618449556111344">"Уключыць"</string>
@@ -2171,7 +2177,7 @@
     <string name="dynamic_mode_notification_channel_name" msgid="2986926422100223328">"Апавяшчэнне з інфармацыяй пра ўсталяваны рэжым"</string>
     <string name="dynamic_mode_notification_title" msgid="9205715501274608016">"Акумулятар можа разрадзіцца хутчэй, чым прыйдзе час звычайнай зарадкі"</string>
     <string name="dynamic_mode_notification_summary" msgid="4141614604437372157">"Каб павялічыць тэрмін работы акумулятара, уключаны рэжым эканоміі зараду"</string>
-    <string name="battery_saver_notification_channel_name" msgid="3918243458067916913">"Эканомія зараду"</string>
+    <string name="battery_saver_notification_channel_name" msgid="3918243458067916913">"Рэжым энергазберажэння"</string>
     <string name="battery_saver_off_notification_title" msgid="7637255960468032515">"Рэжым эканоміі зараду выключаны"</string>
     <string name="battery_saver_charged_notification_summary" product="default" msgid="5544457317418624367">"У тэлефона дастатковы ўзровень зараду. Функцыі больш не абмежаваны."</string>
     <string name="battery_saver_charged_notification_summary" product="tablet" msgid="4426317048139996888">"У планшэта дастатковы ўзровень зараду. Функцыі больш не абмежаваны."</string>

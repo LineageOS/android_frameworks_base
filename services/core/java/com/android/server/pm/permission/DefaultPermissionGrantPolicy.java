@@ -434,7 +434,8 @@ final class DefaultPermissionGrantPolicy {
                     || !pm.isGranted(Manifest.permission.READ_PRIVILEGED_PHONE_STATE,
                             pkg, UserHandle.of(userId))
                     || !pm.isGranted(Manifest.permission.READ_PHONE_STATE, pkg,
-                            UserHandle.of(userId))) {
+                            UserHandle.of(userId))
+                    || pm.isSysComponentOrPersistentPlatformSignedPrivApp(pkg)) {
                 continue;
             }
 
@@ -913,6 +914,11 @@ final class DefaultPermissionGrantPolicy {
         }
         grantPermissionsToSystemPackage(pm, dialerPackage, userId,
                 CONTACTS_PERMISSIONS, SMS_PERMISSIONS, MICROPHONE_PERMISSIONS, CAMERA_PERMISSIONS);
+        boolean isAndroidAutomotive =
+                mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE, 0);
+        if (isAndroidAutomotive) {
+            grantPermissionsToSystemPackage(pm, dialerPackage, userId, NEARBY_DEVICES_PERMISSIONS);
+        }
     }
 
     private void grantDefaultPermissionsToDefaultSystemSmsApp(PackageManagerWrapper pm,

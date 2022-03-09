@@ -22,7 +22,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.PowerManager;
 import android.os.SystemClock;
-import android.os.UserHandle;
 import android.util.AttributeSet;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
@@ -135,9 +134,8 @@ public class NumPadKey extends ViewGroup {
     }
 
     private void updateText() {
-       boolean scramblePin = LineageSettings.System.getIntForUser(getContext().getContentResolver(),
-                LineageSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0,
-                UserHandle.USER_CURRENT) == 1;
+       boolean scramblePin = (LineageSettings.System.getInt(getContext().getContentResolver(),
+                LineageSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0) == 1);
         if (mDigit >= 0) {
             mDigitText.setText(Integer.toString(mDigit));
             if (sKlondike == null) {
@@ -190,7 +188,9 @@ public class NumPadKey extends ViewGroup {
         measureChildren(widthMeasureSpec, heightMeasureSpec);
 
         // Set width/height to the same value to ensure a smooth circle for the bg, but shrink
-        // the height to match the old pin bouncer
+        // the height to match the old pin bouncer.
+        // This is only used for PIN/PUK; the main PIN pad now uses ConstraintLayout, which will
+        // force our width/height to conform to the ratio in the layout.
         int width = getMeasuredWidth();
 
         boolean shortenHeight = mAnimator == null

@@ -159,7 +159,7 @@ interface IDevicePolicyManager {
     void reportKeyguardDismissed(int userHandle);
     void reportKeyguardSecured(int userHandle);
 
-    boolean setDeviceOwner(in ComponentName who, String ownerName, int userId);
+    boolean setDeviceOwner(in ComponentName who, String ownerName, int userId, boolean setProfileOwnerOnCurrentUserIfNecessary);
     ComponentName getDeviceOwnerComponent(boolean callingUserOnly);
     boolean hasDeviceOwner();
     String getDeviceOwnerName();
@@ -261,6 +261,8 @@ interface IDevicePolicyManager {
     int startUserInBackground(in ComponentName who, in UserHandle userHandle);
     int stopUser(in ComponentName who, in UserHandle userHandle);
     int logoutUser(in ComponentName who);
+    int getLogoutUserId();
+    void clearLogoutUser();
     List<UserHandle> getSecondaryUsers(in ComponentName who);
     void resetNewUserDisclaimer();
 
@@ -378,6 +380,7 @@ interface IDevicePolicyManager {
 
     void setOrganizationColor(in ComponentName admin, in int color);
     void setOrganizationColorForUser(in int color, in int userId);
+    void clearOrganizationIdForUser(int userHandle);
     int getOrganizationColor(in ComponentName admin);
     int getOrganizationColorForUser(int userHandle);
 
