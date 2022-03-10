@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90a5dc32_3a99837b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2022-03-10T17:48:41Z",
+      "side": 1,
+      "message": "no microG here but we\u0027re (ab)using it for raviole (Pixel 6) IMS stack",
+      "revId": "529143d5def4562a3f2626ad983d19564446f720",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
