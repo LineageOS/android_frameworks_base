@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be6c7e28_0cfd4201",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-03-10T20:35:32Z",
+      "side": 1,
+      "message": "The whole point of this is getting rid of the nested layout. can be done without changing that much code. besides, there are other issues as well",
+      "revId": "148424a04bcb92aaab44eabb424309824bb8e73b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4145b9f_79d0684b",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardPINView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-03-10T20:35:32Z",
+      "side": 1,
+      "message": "useless, mContainer from the old code already contains this (see L#149)",
+      "range": {
+        "startLine": 178,
+        "startChar": 12,
+        "endLine": 178,
+        "endChar": 93
+      },
+      "revId": "148424a04bcb92aaab44eabb424309824bb8e73b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dee17bd0_725ce10f",
