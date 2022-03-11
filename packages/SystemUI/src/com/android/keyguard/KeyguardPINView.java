@@ -178,14 +178,9 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
             // get all children who are NumPadKey's
             List<NumPadKey> views = new ArrayList<NumPadKey>();
             for (int i = 0; i < mContainer.getChildCount(); i++) {
-                if (mContainer.getChildAt(i) instanceof LinearLayout) {
-                    LinearLayout nestedLayout = ((LinearLayout) mContainer.getChildAt(i));
-                    for (int j = 0; j < nestedLayout.getChildCount(); j++){
-                        View view = nestedLayout.getChildAt(j);
-                        if (view.getClass() == NumPadKey.class) {
-                            views.add((NumPadKey) view);
-                        }
-                    }
+                View view = mContainer.getChildAt(i);
+                if (view.getClass() == NumPadKey.class) {
+                    views.add((NumPadKey) view);
                 }
             }
             // reset the digits in the views
