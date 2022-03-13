@@ -16,6 +16,24 @@
       "message": "Should it be following config_enableDynamicKeyguardPositioning for example to enable the large clock on tablets?",
       "revId": "7efa589d30ac7de8a2305ed17ecc067c44e00c97",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3910dd84_4cfe9914",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-13T18:22:20Z",
+      "side": 1,
+      "message": "Yea, I\u0027d like to leave tablets untouched since it works fine there. However, I am unsure about using that config to detect device as tablet.",
+      "parentUuid": "d5e86a47_b412c159",
+      "revId": "7efa589d30ac7de8a2305ed17ecc067c44e00c97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
