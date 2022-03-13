@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5e86a47_b412c159",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-03-13T18:16:18Z",
+      "side": 1,
+      "message": "Should it be following config_enableDynamicKeyguardPositioning for example to enable the large clock on tablets?",
+      "revId": "7efa589d30ac7de8a2305ed17ecc067c44e00c97",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
