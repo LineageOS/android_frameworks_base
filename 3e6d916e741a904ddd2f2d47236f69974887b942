@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8952a83e_82d84c88",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-03-13T21:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7d2bb0b_2a954c55",
+      "range": {
+        "startLine": 115,
+        "startChar": 20,
+        "endLine": 115,
+        "endChar": 43
+      },
+      "revId": "3e6d916e741a904ddd2f2d47236f69974887b942",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58d13bd4_ebd52857",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-13T18:02:17Z",
       "side": 1,
       "message": "callback can be null here as well.",
+      "range": {
+        "startLine": 172,
+        "startChar": 58,
+        "endLine": 172,
+        "endChar": 74
+      },
+      "revId": "3e6d916e741a904ddd2f2d47236f69974887b942",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2867d169_de8a0484",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-03-13T21:04:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58d13bd4_ebd52857",
       "range": {
         "startLine": 172,
         "startChar": 58,
