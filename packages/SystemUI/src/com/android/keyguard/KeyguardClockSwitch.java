@@ -23,6 +23,7 @@ import com.android.keyguard.dagger.KeyguardStatusViewScope;
 import com.android.systemui.R;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.plugins.ClockPlugin;
+import com.android.systemui.shared.recents.utilities.Utilities;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -90,8 +91,11 @@ public class KeyguardClockSwitch extends RelativeLayout {
     private int mClockSwitchYAmount;
     @VisibleForTesting boolean mChildrenAreLaidOut = false;
 
+    private final boolean mAllowLandscapeLargeClock;
+
     public KeyguardClockSwitch(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mAllowLandscapeLargeClock = Utilities.isTablet(context);
     }
 
     @Override
@@ -100,7 +104,8 @@ public class KeyguardClockSwitch extends RelativeLayout {
 
         if (mDisplayedClockSize != null) {
             boolean landscape = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
-            boolean useLargeClock = mDisplayedClockSize == LARGE && !landscape;
+            boolean useLargeClock =
+                    mDisplayedClockSize == LARGE && !landscape || mAllowLandscapeLargeClock;
             animateClockChange(useLargeClock);
         }
     }
@@ -291,7 +296,7 @@ public class KeyguardClockSwitch extends RelativeLayout {
         }
         boolean landscape = getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
-        boolean useLargeClock = clockSize == LARGE && !landscape;
+        boolean useLargeClock = clockSize == LARGE && !landscape || mAllowLandscapeLargeClock;
 
         // let's make sure clock is changed only after all views were laid out so we can
         // translate them properly
