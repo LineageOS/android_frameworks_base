@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8379d3df_30063719",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-03-14T18:36:02Z",
+      "side": 1,
+      "message": "This is set at tablet dpi",
+      "range": {
+        "startLine": 98,
+        "startChar": 44,
+        "endLine": 98,
+        "endChar": 83
+      },
+      "revId": "5716ce099280ccca81f8a95b86868997a2957c3c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
