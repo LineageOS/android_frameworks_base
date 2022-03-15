@@ -30,6 +30,8 @@ import static android.hardware.biometrics.BiometricAuthenticator.TYPE_NONE;
 import static android.hardware.biometrics.BiometricConstants.BIOMETRIC_ERROR_CANCELED;
 import static android.hardware.biometrics.BiometricManager.Authenticators;
 
+import static com.android.server.biometrics.sensors.fingerprint.aidl.FingerprintProvider.getWorkaroundSensorProps;
+
 import android.annotation.NonNull;
 import android.app.AppOpsManager;
 import android.content.Context;
@@ -974,6 +976,10 @@ public class AuthService extends SystemService {
         final int[] udfpsProps = getContext().getResources().getIntArray(
                 com.android.internal.R.array.config_udfps_sensor_props);
 
+        // Non-empty workaroundLocations indicates that the sensor is SFPS.
+        final List<SensorLocationInternal> workaroundLocations =
+                getWorkaroundSensorProps(getContext());
+
         final boolean isUdfps = !ArrayUtils.isEmpty(udfpsProps);
 
         // config_is_powerbutton_fps indicates whether device has a power button fingerprint sensor.
@@ -1003,6 +1009,12 @@ public class AuthService extends SystemService {
                     resetLockoutRequiresHardwareAuthToken,
                     List.of(new SensorLocationInternal("" /* display */, udfpsProps[0],
                             udfpsProps[1], udfpsProps[2])));
+        } else if (!workaroundLocations.isEmpty()) {
+            return new FingerprintSensorPropertiesInternal(sensorId,
+                    Utils.authenticatorStrengthToPropertyStrength(strength), maxEnrollmentsPerUser,
+                    componentInfo, sensorType, false /* halControlsIllumination */,
+                    resetLockoutRequiresHardwareAuthToken,
+                    workaroundLocations);
         } else {
             return new FingerprintSensorPropertiesInternal(sensorId,
                     Utils.authenticatorStrengthToPropertyStrength(strength), maxEnrollmentsPerUser,
