@@ -31,11 +31,14 @@ import static android.hardware.biometrics.BiometricAuthenticator.TYPE_NONE;
 import static android.hardware.biometrics.BiometricConstants.BIOMETRIC_ERROR_CANCELED;
 import static android.hardware.biometrics.BiometricManager.Authenticators;
 
+import static com.android.server.biometrics.sensors.fingerprint.aidl.FingerprintProvider.getWorkaroundSensorProps;
+
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.hardware.biometrics.BiometricAuthenticator;
 import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.ComponentInfoInternal;
@@ -741,6 +744,8 @@ public class AuthService extends SystemService {
         // The existence of config_udfps_sensor_props indicates that the sensor is UDFPS.
         final int[] udfpsProps = getContext().getResources().getIntArray(
                 com.android.internal.R.array.config_udfps_sensor_props);
+        final List<SensorLocationInternal> workaroundLocations =
+                getWorkaroundSensorProps(getContext());
 
         final boolean isUdfps = !ArrayUtils.isEmpty(udfpsProps);
 
@@ -770,6 +775,11 @@ public class AuthService extends SystemService {
                     componentInfo, sensorType, resetLockoutRequiresHardwareAuthToken,
                     List.of(new SensorLocationInternal("" /* display */,
                             udfpsProps[0], udfpsProps[1], udfpsProps[2])));
+        } else if (isPowerbuttonFps && !workaroundLocations.isEmpty()) {
+            return new FingerprintSensorPropertiesInternal(sensorId,
+                    Utils.authenticatorStrengthToPropertyStrength(strength), maxEnrollmentsPerUser,
+                    componentInfo, sensorType, resetLockoutRequiresHardwareAuthToken,
+                    workaroundLocations);
         } else {
             return new FingerprintSensorPropertiesInternal(sensorId,
                     Utils.authenticatorStrengthToPropertyStrength(strength), maxEnrollmentsPerUser,
