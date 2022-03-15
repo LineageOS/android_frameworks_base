@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b698cef1_f0ab538f",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-15T19:44:28Z",
+      "side": 1,
+      "message": "Why did you change this here, btw? getTag() is used in other places.",
+      "range": {
+        "startLine": 696,
+        "startChar": 19,
+        "endLine": 696,
+        "endChar": 22
+      },
+      "revId": "884164ac876a03d5a2cd969f79ab0976d97ad3f4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
