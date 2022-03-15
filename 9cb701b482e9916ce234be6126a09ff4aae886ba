@@ -16,6 +16,23 @@
       "message": "An alternative to other change:\n\n320350: Biometrics: Allow disabling of fingerprint cleanups | https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/320350\n\nwhich didn\u0027t work for me. ( enumerate method was called but ended in an error).",
       "revId": "9cb701b482e9916ce234be6126a09ff4aae886ba",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc124d6d_9d2764b5",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-03-15T16:19:01Z",
+      "side": 1,
+      "message": "100 chars",
+      "revId": "9cb701b482e9916ce234be6126a09ff4aae886ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
