@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "5b52658b_d8d58f6b",
         "filename": "services/core/Android.bp",
@@ -14,8 +15,25 @@
       "side": 1,
       "message": "Forgot to fix here?",
       "revId": "d480d38a17882d47547cab1a3ac7997f821347f0",
-      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
-      "unresolved": true
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9f3a7c9_4ec609b9",
+        "filename": "services/core/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-16T15:12:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b52658b_d8d58f6b",
+      "revId": "d480d38a17882d47547cab1a3ac7997f821347f0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
