@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dadf182d_5a196c82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24080
+      },
+      "writtenOn": "2022-03-16T10:23:07Z",
+      "side": 1,
+      "message": "Topic P_asb_2022-03 builds OK for hammerhead.",
+      "revId": "792705d025ecd15eef032ead850708fe91ffeb2f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
