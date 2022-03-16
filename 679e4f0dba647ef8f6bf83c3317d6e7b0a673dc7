@@ -22,6 +22,30 @@
       },
       "revId": "679e4f0dba647ef8f6bf83c3317d6e7b0a673dc7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3edba49_66b69216",
+        "filename": "core/java/android/os/BatteryManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-03-16T16:44:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4b3f3b6_c770be2a",
+      "range": {
+        "startLine": 252,
+        "startChar": 6,
+        "endLine": 255,
+        "endChar": 7
+      },
+      "revId": "679e4f0dba647ef8f6bf83c3317d6e7b0a673dc7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
