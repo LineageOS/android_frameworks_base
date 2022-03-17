@@ -70,6 +70,30 @@
       },
       "revId": "466c1084d00c1e425070f775015849efc19e80fa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d88d4800_68bbe5cd",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/AuthController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 19907
+      },
+      "writtenOn": "2022-03-17T09:52:56Z",
+      "side": 1,
+      "message": "Yep, setting that overlay to my screen resolution worked fine",
+      "parentUuid": "2c5d745b_2303d2df",
+      "range": {
+        "startLine": 535,
+        "startChar": 29,
+        "endLine": 535,
+        "endChar": 81
+      },
+      "revId": "466c1084d00c1e425070f775015849efc19e80fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
