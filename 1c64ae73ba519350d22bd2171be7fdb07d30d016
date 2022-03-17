@@ -52,6 +52,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "396bf3fa_d41143bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-03-17T12:41:34Z",
+      "side": 1,
+      "message": "For this specific commit, no. This is only for devices that do not have properly working fingerprint when screen is off as you can read in above comments.",
+      "parentUuid": "1cf51742_b1527128",
+      "revId": "1c64ae73ba519350d22bd2171be7fdb07d30d016",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d08eaab_2d375c36",
