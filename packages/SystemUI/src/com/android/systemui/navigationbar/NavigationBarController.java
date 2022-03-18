@@ -20,17 +20,21 @@ import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_FLOATIN
 import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_GESTURE;
 import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR;
 import static android.view.Display.DEFAULT_DISPLAY;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
 
 import static com.android.systemui.shared.recents.utilities.Utilities.isTablet;
 
+import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.om.IOverlayManager;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.hardware.display.DisplayManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
@@ -60,7 +64,10 @@ import com.android.systemui.statusbar.phone.AutoHideController;
 import com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
 import com.android.systemui.statusbar.phone.LightBarController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
+import com.android.systemui.tuner.TunerService;
 import com.android.wm.shell.pip.Pip;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -86,6 +93,7 @@ public class NavigationBarController implements
     private final TaskbarDelegate mTaskbarDelegate;
     private int mNavMode;
     @VisibleForTesting boolean mIsTablet;
+    private boolean mIsHintEnabled;
 
     /** A displayId - nav bar maps. */
     @VisibleForTesting
@@ -95,6 +103,19 @@ public class NavigationBarController implements
     private final InterestingConfigChanges mConfigChanges = new InterestingConfigChanges(
             ActivityInfo.CONFIG_FONT_SCALE | ActivityInfo.CONFIG_SCREEN_LAYOUT
                     | ActivityInfo.CONFIG_UI_MODE);
+
+    private static final String KEY_NAVIGATION_HINT =
+            "lineagesystem:" + LineageSettings.System.NAVIGATION_BAR_HINT;
+    private static final String OVERLAY_NAVIGATION_HIDE_HINT =
+            "org.lineageos.overlay.customization.navbar.nohint";
+
+    private final TunerService.Tunable mTunable = (key, newValue) -> {
+        if (KEY_NAVIGATION_HINT.equals(key)) {
+            mIsHintEnabled = TunerService.parseIntegerSwitch(newValue, true);
+            updateHint();
+            recreateTaskbarIfNecessary();
+        }
+    };
 
     @Inject
     public NavigationBarController(Context context,
@@ -110,7 +131,8 @@ public class NavigationBarController implements
             DumpManager dumpManager,
             AutoHideController autoHideController,
             LightBarController lightBarController,
-            Optional<Pip> pipOptional) {
+            Optional<Pip> pipOptional,
+            TunerService tunerService) {
         mContext = context;
         mHandler = mainHandler;
         mNavigationBarFactory = navigationBarFactory;
@@ -125,6 +147,7 @@ public class NavigationBarController implements
                 dumpManager, autoHideController, lightBarController, pipOptional);
         mIsTablet = isTablet(mContext);
         dumpManager.registerDumpable(this);
+        tunerService.addTunable(mTunable, KEY_NAVIGATION_HINT);
     }
 
     @Override
@@ -156,6 +179,7 @@ public class NavigationBarController implements
         final int oldMode = mNavMode;
         mNavMode = mode;
         updateAccessibilityButtonModeIfNeeded();
+        updateHint();
 
         mHandler.post(() -> {
             // create/destroy nav bar based on nav mode only in unfolded state
@@ -210,6 +234,24 @@ public class NavigationBarController implements
         return taskbarShown;
     }
 
+    private void updateHint() {
+        final IOverlayManager iom = IOverlayManager.Stub.asInterface(
+                ServiceManager.getService(Context.OVERLAY_SERVICE));
+        final boolean state = mNavMode == NAV_BAR_MODE_GESTURAL && !mIsHintEnabled;
+        final int userId = ActivityManager.getCurrentUser();
+        try {
+            iom.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
+            if (state) {
+                // As overlays are also used to apply navigation mode, it is needed to set
+                // our customization overlay to highest priority to ensure it is applied.
+                iom.setHighestPriority(OVERLAY_NAVIGATION_HIDE_HINT, userId);
+            }
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
+                    + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
+        }
+    }
+
     /** @return {@code true} if taskbar is enabled, false otherwise */
     private boolean initializeTaskbarIfNecessary() {
         if (mIsTablet) {
@@ -220,6 +262,13 @@ public class NavigationBarController implements
             mTaskbarDelegate.destroy();
         }
         return mIsTablet;
+    }
+
+    private void recreateTaskbarIfNecessary() {
+        if (mIsTablet) {
+            mTaskbarDelegate.destroy();
+            mTaskbarDelegate.init(mContext.getDisplayId());
+        }
     }
 
     @Override
