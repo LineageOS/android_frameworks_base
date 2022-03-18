@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "714049f0_d5985b51",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-18T22:59:30Z",
+      "side": 1,
+      "message": "Luk suggested to call isTablet on every configuration change just like Google does in NavigationBarController.",
+      "range": {
+        "startLine": 106,
+        "startChar": 35,
+        "endLine": 106,
+        "endChar": 53
+      },
+      "revId": "b5379d3a1e08321a111727db185dd4f1fa0fdc30",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
