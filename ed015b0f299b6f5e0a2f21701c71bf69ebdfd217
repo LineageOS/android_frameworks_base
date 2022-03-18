@@ -16,6 +16,24 @@
       "message": "this actually breaks left/right edge gestures",
       "revId": "ed015b0f299b6f5e0a2f21701c71bf69ebdfd217",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24f64545_20206198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-03-18T14:39:49Z",
+      "side": 1,
+      "message": "works now.",
+      "parentUuid": "0a7e54e1_7c3092d9",
+      "revId": "ed015b0f299b6f5e0a2f21701c71bf69ebdfd217",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
