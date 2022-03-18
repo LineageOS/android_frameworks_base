@@ -94,8 +94,6 @@ public class NavigationBarInflaterView extends FrameLayout
 
     private static final String KEY_NAVIGATION_HINT =
             "lineagesystem:" + LineageSettings.System.NAVIGATION_BAR_HINT;
-    private static final String OVERLAY_NAVIGATION_HIDE_HINT =
-            "org.lineageos.overlay.customization.navbar.nohint";
 
     protected LayoutInflater mLayoutInflater;
     protected LayoutInflater mLandscapeInflater;
@@ -193,7 +191,6 @@ public class NavigationBarInflaterView extends FrameLayout
             updateLayoutInversion();
         } else if (KEY_NAVIGATION_HINT.equals(key)) {
             mIsHintEnabled = TunerService.parseIntegerSwitch(newValue, true);
-            updateHint();
             onLikelyDefaultLayoutChange();
         }
     }
@@ -253,24 +250,6 @@ public class NavigationBarInflaterView extends FrameLayout
     private void updateAlternativeOrder(View v) {
         if (v instanceof ReverseLinearLayout) {
             ((ReverseLinearLayout) v).setAlternativeOrder(mAlternativeOrder);
-        }
-    }
-
-    private void updateHint() {
-        final IOverlayManager iom = IOverlayManager.Stub.asInterface(
-                ServiceManager.getService(Context.OVERLAY_SERVICE));
-        final boolean state = mNavBarMode == NAV_BAR_MODE_GESTURAL && !mIsHintEnabled;
-        final int userId = ActivityManager.getCurrentUser();
-        try {
-            iom.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
-            if (state) {
-                // As overlays are also used to apply navigation mode, it is needed to set
-                // our customization overlay to highest priority to ensure it is applied.
-                iom.setHighestPriority(OVERLAY_NAVIGATION_HIDE_HINT, userId);
-            }
-        } catch (RemoteException e) {
-            Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
-                    + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
         }
     }
 
