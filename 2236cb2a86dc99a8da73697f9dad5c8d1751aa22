@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a92caef7_34bd7b7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-03-18T15:49:14Z",
+      "side": 1,
+      "message": "somewhat acceptable; requires going back home to fully get rid of hint bar.",
+      "revId": "2236cb2a86dc99a8da73697f9dad5c8d1751aa22",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
