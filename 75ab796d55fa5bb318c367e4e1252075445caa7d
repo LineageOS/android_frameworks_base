@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf19d4f_6f3b8193",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-03-18T22:32:09Z",
+      "side": 1,
+      "message": "The logic looks wrong to me. This makes the clock ALWAYS large on tablets. Should still be able to automatically switch between large and small.\n-\u003e boolean useLargeClock \u003d mDisplayedClockSize \u003d\u003d LARGE \u0026\u0026 (!landscape || mAllowLandscapeLargeClock);",
+      "revId": "75ab796d55fa5bb318c367e4e1252075445caa7d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdf74218_ba8b5e53",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardClockSwitch.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-03-18T22:32:09Z",
+      "side": 1,
+      "message": "same",
+      "revId": "75ab796d55fa5bb318c367e4e1252075445caa7d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
