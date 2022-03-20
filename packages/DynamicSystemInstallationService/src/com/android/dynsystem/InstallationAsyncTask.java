@@ -21,11 +21,13 @@ import android.gsi.AvbPublicKey;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.MemoryFile;
+import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
+import android.os.SharedMemory;
 import android.os.SystemProperties;
 import android.os.image.DynamicSystemManager;
 import android.service.persistentdata.PersistentDataBlockManager;
+import android.system.ErrnoException;
 import android.util.Log;
 import android.util.Range;
 import android.webkit.URLUtil;
@@ -37,6 +39,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
@@ -503,35 +506,52 @@ class InstallationAsyncTask extends AsyncTask<String, InstallationAsyncTask.Prog
                     "Failed to start installation with requested size: " + partitionSize);
         }
 
-        Log.d(TAG, "Start installing: " + partitionName);
+        ByteBuffer buffer = null;
+        try (SharedMemory sharedMemory =
+                SharedMemory.create("dsu_buffer_" + partitionName, mSharedMemorySize)) {
+            buffer = sharedMemory.mapReadWrite();
 
-        MemoryFile memoryFile = new MemoryFile("dsu_" + partitionName, mSharedMemorySize);
-        ParcelFileDescriptor pfd = new ParcelFileDescriptor(memoryFile.getFileDescriptor());
+            Parcel parcel = Parcel.obtain();
+            sharedMemory.writeToParcel(parcel, /* flags = */ 0);
+            parcel.setDataPosition(0);
+            ParcelFileDescriptor ashmemFd = parcel.readFileDescriptor();
+            mInstallationSession.setAshmem(ashmemFd, mSharedMemorySize);
 
-        mInstallationSession.setAshmem(pfd, memoryFile.length());
+            Log.d(TAG, "Start installing: " + partitionName);
 
-        Progress progress = new Progress(partitionName, partitionSize, mNumInstalledPartitions++);
+            Progress progress = new Progress(partitionName, partitionSize, mNumInstalledPartitions++);
 
-        long installedSize = 0;
-        byte[] bytes = new byte[memoryFile.length()];
-        int numBytesRead;
+            byte[] readBuffer = new byte[mSharedMemorySize];
+            long prevInstalledSize = 0;
+            long installedSize = 0;
+            while (true) {
+                if (isCancelled()) {
+                    return;
+                }
 
-        while ((numBytesRead = sis.read(bytes, 0, bytes.length)) != -1) {
-            if (isCancelled()) {
-                return;
+                int numBytesRead = sis.read(readBuffer);
+                if (numBytesRead < 0) {
+                    break;
+                }
+
+                buffer.position(0);
+                buffer.put(readBuffer, 0, numBytesRead);
+                if (!mInstallationSession.submitFromAshmem(numBytesRead)) {
+                    throw new IOException("Failed submitFromAshmem() to DynamicSystem");
+                }
+
+                installedSize += numBytesRead;
+                if (installedSize > prevInstalledSize + MIN_PROGRESS_TO_PUBLISH) {
+                    publishProgress(installedSize);
+                    prevInstalledSize = installedSize;
+                }
             }
-
-            memoryFile.writeBytes(bytes, 0, 0, numBytesRead);
-
-            if (!mInstallationSession.submitFromAshmem(numBytesRead)) {
-                throw new IOException("Failed write() to DynamicSystem");
-            }
-
-            installedSize += numBytesRead;
-
-            if (installedSize > progress.installedSize + MIN_PROGRESS_TO_PUBLISH) {
-                progress.installedSize = installedSize;
-                publishProgress(progress);
+        } catch (ErrnoException e) {
+            e.rethrowAsIOException();
+        } finally {
+            if (buffer != null) {
+                SharedMemory.unmap(buffer);
+                buffer = null;
             }
         }
 
