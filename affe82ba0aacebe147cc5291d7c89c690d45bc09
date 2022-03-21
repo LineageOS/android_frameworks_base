@@ -48,6 +48,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ed5e52_62e1a76f",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-21T09:43:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dd6e0e3_6d87af07",
+      "range": {
+        "startLine": 438,
+        "startChar": 42,
+        "endLine": 438,
+        "endChar": 68
+      },
+      "revId": "affe82ba0aacebe147cc5291d7c89c690d45bc09",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1bf6424_33d9f50a",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Makes no sense either.",
       "parentUuid": "c1bf6424_33d9f50a",
+      "range": {
+        "startLine": 1424,
+        "startChar": 38,
+        "endLine": 1424,
+        "endChar": 64
+      },
+      "revId": "affe82ba0aacebe147cc5291d7c89c690d45bc09",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe25fa5b_b8be1fb0",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 34
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-21T09:43:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e96d6be_aa7f42fe",
       "range": {
         "startLine": 1424,
         "startChar": 38,
