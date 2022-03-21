@@ -22,6 +22,30 @@
       },
       "revId": "8de2c3109a48b79ec6f8952a18f675265ef8b2f2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c096d532_ffa427d0",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-03-21T19:52:11Z",
+      "side": 1,
+      "message": "It\u0027s overlayed in vendor/lineage Ie46cc3b72a1496707b367d01dc3e0329e2335187 .",
+      "parentUuid": "7ab81b65_3ac3771a",
+      "range": {
+        "startLine": 676,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 55
+      },
+      "revId": "8de2c3109a48b79ec6f8952a18f675265ef8b2f2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
