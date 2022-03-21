@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ab81b65_3ac3771a",
+        "filename": "packages/SystemUI/res/values/config.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-03-21T19:49:14Z",
+      "side": 1,
+      "message": "shouldn\u0027t we have removed this?",
+      "range": {
+        "startLine": 676,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 55
+      },
+      "revId": "8de2c3109a48b79ec6f8952a18f675265ef8b2f2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
