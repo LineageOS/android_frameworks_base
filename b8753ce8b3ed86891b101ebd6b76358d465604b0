@@ -18,6 +18,23 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23e8d2fa_fe80426c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-21T22:50:44Z",
+      "side": 1,
+      "message": "Yea, still not quite ready. It\u0027s broken when there are two or more visible rows(for example, during a phone call) and panel is on the left.",
+      "revId": "b8753ce8b3ed86891b101ebd6b76358d465604b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4e3298a_64468468",
