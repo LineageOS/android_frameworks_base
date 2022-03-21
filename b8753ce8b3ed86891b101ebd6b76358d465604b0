@@ -22,6 +22,30 @@
       },
       "revId": "b8753ce8b3ed86891b101ebd6b76358d465604b0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18f50a4d_d75e63ad",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-03-21T19:57:46Z",
+      "side": 1,
+      "message": "nvm, I didn\u0027t see isLandscape()",
+      "parentUuid": "f4e3298a_64468468",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 54
+      },
+      "revId": "b8753ce8b3ed86891b101ebd6b76358d465604b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
