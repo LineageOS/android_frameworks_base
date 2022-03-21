@@ -61,6 +61,12 @@ public class LineageClockController implements ClockPlugin {
     private TextClock mClock;
 
     /**
+     * Small clock shown on lock screen above stack scroller.
+     */
+    private View mLockClockContainer;
+    private TextClock mLockClock;
+
+    /**
      * Create a DefaultClockController instance.
      *
      * @param res Resources contains title and thumbnail.
@@ -77,6 +83,9 @@ public class LineageClockController implements ClockPlugin {
         mView = (ClockLayout) mLayoutInflater
                 .inflate(R.layout.lineage_clock, null);
         mClock = (TextClock) mView.findViewById(R.id.clock);
+        mLockClockContainer = mLayoutInflater.inflate(R.layout.digital_clock, null);
+        mLockClock = (TextClock) mLockClockContainer.findViewById(R.id.lock_screen_clock);
+
         mClock.setFormat12Hour("hh\nmm");
         mClock.setFormat24Hour("kk\nmm");
     }
@@ -85,6 +94,8 @@ public class LineageClockController implements ClockPlugin {
     public void onDestroyView() {
         mView = null;
         mClock = null;
+        mLockClockContainer = null;
+        mLockClock = null;
     }
 
     @Override
@@ -120,15 +131,18 @@ public class LineageClockController implements ClockPlugin {
 
     @Override
     public View getView() {
-        if (mView == null) {
+        if (mLockClockContainer == null) {
             createViews();
         }
-        return mView;
+        return mLockClockContainer;
     }
 
     @Override
     public View getBigClockView() {
-        return null;
+        if (mView == null) {
+            createViews();
+        }
+        return mView;
     }
 
     @Override
@@ -146,6 +160,7 @@ public class LineageClockController implements ClockPlugin {
     public void onTimeTick() {
         mView.onTimeChanged();
         mClock.refreshTime();
+        mLockClock.refreshTime();
     }
 
     @Override
