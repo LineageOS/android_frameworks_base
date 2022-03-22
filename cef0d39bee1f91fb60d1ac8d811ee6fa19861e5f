@@ -70,6 +70,24 @@
       "parentUuid": "1485290f_95399e1e",
       "revId": "cef0d39bee1f91fb60d1ac8d811ee6fa19861e5f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "608b1dc5_f47141cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-03-22T19:08:45Z",
+      "side": 1,
+      "message": "all i could find is this \nAndroidRuntime: VM exiting with result code 0, cleanup skipped.\n\ni can send you logs in discord if you want to check",
+      "parentUuid": "6e57f218_7318eba0",
+      "revId": "cef0d39bee1f91fb60d1ac8d811ee6fa19861e5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
