@@ -34,6 +34,24 @@
       "parentUuid": "6d81253f_8546de4f",
       "revId": "cef0d39bee1f91fb60d1ac8d811ee6fa19861e5f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1485290f_95399e1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-03-22T18:55:40Z",
+      "side": 1,
+      "message": "Systemui kept crashing when I try do something in statusbar (only when lockscreen is set to none) and only this showed in logs regarding crash. This commit fixed my issue. I was actually testing on an android tv box, lineage_arm gsi.",
+      "parentUuid": "45585d82_5121f46e",
+      "revId": "cef0d39bee1f91fb60d1ac8d811ee6fa19861e5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
