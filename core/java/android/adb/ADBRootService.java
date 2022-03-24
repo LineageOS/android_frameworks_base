@@ -62,6 +62,21 @@ public class ADBRootService {
     /**
      * @hide
      */
+    public boolean isSupported() {
+        try {
+            final IADBRootService svc = getService();
+            if (svc != null) {
+                return svc.isSupported();
+            }
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+        return false;
+    }
+
+    /**
+     * @hide
+     */
     public void setEnabled(boolean enable) {
         try {
             final IADBRootService svc = getService();
