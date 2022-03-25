@@ -62,6 +62,7 @@ public:
     static const char* VENDOR_OVERLAY_DIR;
     static const char* PRODUCT_OVERLAY_DIR;
     static const char* SYSTEM_EXT_OVERLAY_DIR;
+    static const char* CUSTOM_OVERLAY_DIR;
     static const char* ODM_OVERLAY_DIR;
     static const char* OEM_OVERLAY_DIR;
     /*

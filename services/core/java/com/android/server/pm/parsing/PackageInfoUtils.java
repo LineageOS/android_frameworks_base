@@ -494,7 +494,8 @@ public class PackageInfoUtils {
                 | flag(pkg.isVendor(), ApplicationInfo.PRIVATE_FLAG_VENDOR)
                 | flag(pkg.isProduct(), ApplicationInfo.PRIVATE_FLAG_PRODUCT)
                 | flag(pkg.isOdm(), ApplicationInfo.PRIVATE_FLAG_ODM)
-                | flag(pkg.isSignedWithPlatformKey(), ApplicationInfo.PRIVATE_FLAG_SIGNED_WITH_PLATFORM_KEY);
+                | flag(pkg.isSignedWithPlatformKey(), ApplicationInfo.PRIVATE_FLAG_SIGNED_WITH_PLATFORM_KEY)
+                | flag(pkg.isCustom(), ApplicationInfo.PRIVATE_FLAG_CUSTOM);
         return appInfoPrivateFlags(pkgWithoutStateFlags, pkgSetting);
         // @formatter:on
     }

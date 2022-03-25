@@ -735,6 +735,11 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
      */
     public static final int PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING = 1 << 31;
 
+    /**
+     * @hide
+     */
+    public static final int PRIVATE_FLAG_CUSTOM = 1 << 32;
+
     /** @hide */
     @IntDef(flag = true, prefix = { "PRIVATE_FLAG_" }, value = {
             PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE,
@@ -767,6 +772,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
             PRIVATE_FLAG_REQUEST_LEGACY_EXTERNAL_STORAGE,
             PRIVATE_FLAG_ODM,
             PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING,
+            PRIVATE_FLAG_CUSTOM,
     })
     @Retention(RetentionPolicy.SOURCE)
     public @interface ApplicationInfoPrivateFlags {}
@@ -2415,6 +2421,11 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     /** @hide */
     public boolean isSystemExt() {
         return (privateFlags & ApplicationInfo.PRIVATE_FLAG_SYSTEM_EXT) != 0;
+    }
+
+    /** @hide */
+    public boolean isCustom() {
+        return (privateFlags & ApplicationInfo.PRIVATE_FLAG_CUSTOM) != 0;
     }
 
     /** @hide */

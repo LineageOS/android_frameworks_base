@@ -65,6 +65,7 @@ public class Environment {
     private static final String ENV_VENDOR_ROOT = "VENDOR_ROOT";
     private static final String ENV_PRODUCT_ROOT = "PRODUCT_ROOT";
     private static final String ENV_SYSTEM_EXT_ROOT = "SYSTEM_EXT_ROOT";
+    private static final String ENV_CUSTOM_ROOT = "CUSTOM_ROOT";
     private static final String ENV_APEX_ROOT = "APEX_ROOT";
 
     /** {@hide} */
@@ -107,6 +108,8 @@ public class Environment {
     private static final File DIR_PRODUCT_ROOT = getDirectory(ENV_PRODUCT_ROOT, "/product");
     private static final File DIR_SYSTEM_EXT_ROOT = getDirectory(ENV_SYSTEM_EXT_ROOT,
             "/system_ext");
+    private static final File DIR_CUSTOM_ROOT = getDirectory(ENV_CUSTOM_ROOT,
+            "/custom");
     private static final File DIR_APEX_ROOT = getDirectory(ENV_APEX_ROOT,
             "/apex");
 
@@ -315,6 +318,13 @@ public class Environment {
     @SystemApi
     public static @NonNull File getSystemExtDirectory() {
         return DIR_SYSTEM_EXT_ROOT;
+    }
+
+    /**
+     * @hide
+     */
+    public static @NonNull File getCustomDirectory() {
+        return DIR_CUSTOM_ROOT;
     }
 
     /**

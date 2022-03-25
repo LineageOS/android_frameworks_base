@@ -79,6 +79,7 @@ bool FileDescriptorAllowlist::IsAllowed(const std::string& path) const {
     static const char* kFrameworksPrefix[] = {
             "/system/framework/",
             "/system_ext/framework/",
+            "/custom/framework/",
     };
 
     static const char* kJarSuffix = ".jar";
@@ -118,6 +119,8 @@ bool FileDescriptorAllowlist::IsAllowed(const std::string& path) const {
     static const char* kProductOverlayDir = "/product/overlay";
     static const char* kSystemSystemExtOverlayDir = "/system/system_ext/overlay/";
     static const char* kSystemExtOverlayDir = "/system_ext/overlay";
+    static const char* kSystemCustomOverlayDir = "/system/custom/overlay/";
+    static const char* kCustomOverlayDir = "/custom/overlay";
     static const char* kSystemOdmOverlayDir = "/system/odm/overlay";
     static const char* kOdmOverlayDir = "/odm/overlay";
     static const char* kSystemOemOverlayDir = "/system/oem/overlay";
@@ -131,6 +134,8 @@ bool FileDescriptorAllowlist::IsAllowed(const std::string& path) const {
          android::base::StartsWith(path, kProductOverlayDir) ||
          android::base::StartsWith(path, kSystemSystemExtOverlayDir) ||
          android::base::StartsWith(path, kSystemExtOverlayDir) ||
+         android::base::StartsWith(path, kSystemCustomOverlayDir) ||
+         android::base::StartsWith(path, kCustomOverlayDir) ||
          android::base::StartsWith(path, kSystemOdmOverlayDir) ||
          android::base::StartsWith(path, kOdmOverlayDir) ||
          android::base::StartsWith(path, kSystemOemOverlayDir) ||

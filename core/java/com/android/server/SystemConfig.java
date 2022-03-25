@@ -224,6 +224,9 @@ public class SystemConfig {
     final ArrayMap<String, ArraySet<String>> mSystemExtPrivAppPermissions = new ArrayMap<>();
     final ArrayMap<String, ArraySet<String>> mSystemExtPrivAppDenyPermissions = new ArrayMap<>();
 
+    final ArrayMap<String, ArraySet<String>> mCustomPrivAppPermissions = new ArrayMap<>();
+    final ArrayMap<String, ArraySet<String>> mCustomPrivAppDenyPermissions = new ArrayMap<>();
+
     final ArrayMap<String, ArrayMap<String, Boolean>> mOemPermissions = new ArrayMap<>();
 
     // Allowed associations between applications.  If there are any entries
@@ -390,6 +393,14 @@ public class SystemConfig {
      */
     public ArraySet<String> getSystemExtPrivAppDenyPermissions(String packageName) {
         return mSystemExtPrivAppDenyPermissions.get(packageName);
+    }
+
+    public ArraySet<String> getCustomPrivAppPermissions(String packageName) {
+        return mCustomPrivAppPermissions.get(packageName);
+    }
+
+    public ArraySet<String> getCustomPrivAppDenyPermissions(String packageName) {
+        return mCustomPrivAppDenyPermissions.get(packageName);
     }
 
     public Map<String, Boolean> getOemPermissions(String packageName) {
@@ -568,6 +579,11 @@ public class SystemConfig {
                 Environment.getSystemExtDirectory(), "etc", "sysconfig"), ALLOW_ALL);
         readPermissions(Environment.buildPath(
                 Environment.getSystemExtDirectory(), "etc", "permissions"), ALLOW_ALL);
+
+        readPermissions(Environment.buildPath(
+                Environment.getCustomDirectory(), "etc", "sysconfig"), ALLOW_ALL);
+        readPermissions(Environment.buildPath(
+                Environment.getCustomDirectory(), "etc", "permissions"), ALLOW_ALL);
 
         // Skip loading configuration from apex if it is not a system process.
         if (!isSystemProcess()) {
@@ -1051,6 +1067,8 @@ public class SystemConfig {
                                     Environment.getProductDirectory().toPath() + "/");
                             boolean systemExt = permFile.toPath().startsWith(
                                     Environment.getSystemExtDirectory().toPath() + "/");
+                            boolean custom = permFile.toPath().startsWith(
+                                    Environment.getCustomDirectory().toPath() + "/");
                             if (vendor) {
                                 readPrivAppPermissions(parser, mVendorPrivAppPermissions,
                                         mVendorPrivAppDenyPermissions);
@@ -1060,6 +1078,9 @@ public class SystemConfig {
                             } else if (systemExt) {
                                 readPrivAppPermissions(parser, mSystemExtPrivAppPermissions,
                                         mSystemExtPrivAppDenyPermissions);
+                            } else if (custom) {
+                                readPrivAppPermissions(parser, mCustomPrivAppPermissions,
+                                        mCustomPrivAppDenyPermissions);
                             } else {
                                 readPrivAppPermissions(parser, mPrivAppPermissions,
                                         mPrivAppDenyPermissions);
@@ -1581,7 +1602,7 @@ public class SystemConfig {
 
     private void readPublicNativeLibrariesList() {
         readPublicLibrariesListFile(new File("/vendor/etc/public.libraries.txt"));
-        String[] dirs = {"/system/etc", "/system_ext/etc", "/product/etc"};
+        String[] dirs = {"/custom/etc", "/system/etc", "/system_ext/etc", "/product/etc"};
         for (String dir : dirs) {
             File[] files = new File(dir).listFiles();
             if (files == null) {

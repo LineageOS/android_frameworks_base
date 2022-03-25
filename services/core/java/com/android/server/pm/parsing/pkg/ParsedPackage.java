@@ -85,6 +85,8 @@ public interface ParsedPackage extends AndroidPackage {
 
     ParsedPackage setSystemExt(boolean systemExt);
 
+    ParsedPackage setCustom(boolean custom);
+
     ParsedPackage setVendor(boolean vendor);
 
     ParsedPackage removePermission(int index);

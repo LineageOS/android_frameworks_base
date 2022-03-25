@@ -386,6 +386,9 @@ interface PkgAppInfo {
     /** @see ApplicationInfo#PRIVATE_FLAG_SYSTEM_EXT */
     boolean isSystemExt();
 
+    /** @see ApplicationInfo#PRIVATE_FLAG_CUSTOM */
+    boolean isCustom();
+
     /** @see ApplicationInfo#PRIVATE_FLAG_VENDOR */
     boolean isVendor();
 

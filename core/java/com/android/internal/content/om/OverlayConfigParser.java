@@ -143,6 +143,7 @@ final class OverlayConfigParser {
             switch (partition.type) {
                 case PackagePartitions.PARTITION_SYSTEM:
                 case PackagePartitions.PARTITION_SYSTEM_EXT:
+                case PackagePartitions.PARTITION_CUSTOM:
                     return POLICY_SYSTEM;
                 case PackagePartitions.PARTITION_VENDOR:
                     return POLICY_VENDOR;

@@ -3509,6 +3509,8 @@ public class PermissionManagerService extends IPermissionManager.Stub {
             permissions = systemConfig.getProductPrivAppPermissions(pkg.getPackageName());
         } else if (pkg.isSystemExt()) {
             permissions = systemConfig.getSystemExtPrivAppPermissions(pkg.getPackageName());
+        } else if (pkg.isCustom()) {
+            permissions = systemConfig.getCustomPrivAppPermissions(pkg.getPackageName());
         } else {
             permissions = systemConfig.getPrivAppPermissions(pkg.getPackageName());
         }
@@ -3525,6 +3527,8 @@ public class PermissionManagerService extends IPermissionManager.Stub {
             permissions = systemConfig.getProductPrivAppDenyPermissions(pkg.getPackageName());
         } else if (pkg.isSystemExt()) {
             permissions = systemConfig.getSystemExtPrivAppDenyPermissions(pkg.getPackageName());
+        } else if (pkg.isCustom()) {
+            permissions = systemConfig.getCustomPrivAppDenyPermissions(pkg.getPackageName());
         } else {
             permissions = systemConfig.getPrivAppDenyPermissions(pkg.getPackageName());
         }

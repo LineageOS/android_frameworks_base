@@ -144,6 +144,7 @@ public final class PackageImpl extends ParsingPackageImpl implements ParsedPacka
                 SIGNED_WITH_PLATFORM_KEY,
                 NATIVE_LIBRARY_ROOT_REQUIRES_ISA,
                 STUB,
+                CUSTOM,
         })
         public @interface Flags {}
 
@@ -159,6 +160,7 @@ public final class PackageImpl extends ParsingPackageImpl implements ParsedPacka
         private static final int SIGNED_WITH_PLATFORM_KEY = 1 << 9;
         private static final int NATIVE_LIBRARY_ROOT_REQUIRES_ISA = 1 << 10;
         private static final int STUB = 1 << 11;
+        private static final int CUSTOM = 1 << 12;
     }
 
     private ParsedPackage setBoolean(@Booleans.Flags int flag, boolean value) {
@@ -658,6 +660,11 @@ public final class PackageImpl extends ParsingPackageImpl implements ParsedPacka
     }
 
     @Override
+    public boolean isCustom() {
+        return getBoolean(Booleans.CUSTOM);
+    }
+
+    @Override
     public boolean isPrivileged() {
         return getBoolean(Booleans.PRIVILEGED);
     }
@@ -722,6 +729,12 @@ public final class PackageImpl extends ParsingPackageImpl implements ParsedPacka
     @Override
     public PackageImpl setSystemExt(boolean value) {
         setBoolean(Booleans.SYSTEM_EXT, value);
+        return this;
+    }
+
+    @Override
+    public PackageImpl setCustom(boolean value) {
+        setBoolean(Booleans.CUSTOM, value);
         return this;
     }
 

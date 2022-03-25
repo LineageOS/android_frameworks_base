@@ -394,7 +394,8 @@ public class OtaDexoptService extends IOtaDexopt.Stub {
             if (pkg.getPath().startsWith("/system")
                     || pkg.getPath().startsWith("/vendor")
                     || pkg.getPath().startsWith("/product")
-                    || pkg.getPath().startsWith("/system_ext")) {
+                    || pkg.getPath().startsWith("/system_ext")
+                    || pkg.getPath().startsWith("/custom")) {
                 continue;
             }
 

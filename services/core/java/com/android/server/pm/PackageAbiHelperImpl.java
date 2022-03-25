@@ -67,6 +67,8 @@ final class PackageAbiHelperImpl implements PackageAbiHelper {
             codeRoot = Environment.getProductDirectory();
         } else if (FileUtils.contains(Environment.getSystemExtDirectory(), codePath)) {
             codeRoot = Environment.getSystemExtDirectory();
+        } else if (FileUtils.contains(Environment.getCustomDirectory(), codePath)) {
+            codeRoot = Environment.getCustomDirectory();
         } else if (FileUtils.contains(Environment.getOdmDirectory(), codePath)) {
             codeRoot = Environment.getOdmDirectory();
         } else if (FileUtils.contains(Environment.getApexDirectory(), codePath)) {

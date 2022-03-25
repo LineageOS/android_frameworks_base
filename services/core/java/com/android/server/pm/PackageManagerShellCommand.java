@@ -2438,6 +2438,16 @@ class PackageManagerShellCommand extends ShellCommand {
         }
     }
 
+    private boolean isCustomApp(String pkg) {
+        try {
+            final PackageInfo info = mInterface.getPackageInfo(
+                    pkg, PackageManager.MATCH_ANY_USER, UserHandle.USER_SYSTEM);
+            return info != null && info.applicationInfo.isCustom();
+        } catch (RemoteException e) {
+            return false;
+        }
+    }
+
     private int runGetPrivappPermissions() {
         final String pkg = getNextArg();
         if (pkg == null) {
@@ -2453,6 +2463,9 @@ class PackageManagerShellCommand extends ShellCommand {
         } else if (isSystemExtApp(pkg)) {
             privAppPermissions = SystemConfig.getInstance()
                     .getSystemExtPrivAppPermissions(pkg);
+        } else if (isCustomApp(pkg)) {
+            privAppPermissions = SystemConfig.getInstance()
+                    .getCustomPrivAppPermissions(pkg);
         } else {
             privAppPermissions = SystemConfig.getInstance().getPrivAppPermissions(pkg);
         }
@@ -2477,6 +2490,9 @@ class PackageManagerShellCommand extends ShellCommand {
         } else if (isSystemExtApp(pkg)) {
             privAppPermissions = SystemConfig.getInstance()
                     .getSystemExtPrivAppDenyPermissions(pkg);
+        } else if (isCustomApp(pkg)) {
+            privAppPermissions = SystemConfig.getInstance()
+                    .getCustomPrivAppDenyPermissions(pkg);
         } else {
             privAppPermissions = SystemConfig.getInstance().getPrivAppDenyPermissions(pkg);
         }

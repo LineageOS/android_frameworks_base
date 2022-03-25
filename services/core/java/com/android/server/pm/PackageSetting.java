@@ -307,6 +307,10 @@ public class PackageSetting extends PackageSettingBase {
         return (pkgPrivateFlags & ApplicationInfo.PRIVATE_FLAG_SYSTEM_EXT) != 0;
     }
 
+    public boolean isCustom() {
+        return (pkgPrivateFlags & ApplicationInfo.PRIVATE_FLAG_CUSTOM) != 0;
+    }
+
     public boolean isOdm() {
         return (pkgPrivateFlags & ApplicationInfo.PRIVATE_FLAG_ODM) != 0;
     }

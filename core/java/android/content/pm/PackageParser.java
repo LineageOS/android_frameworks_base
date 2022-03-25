@@ -7205,6 +7205,11 @@ public class PackageParser {
         }
 
         /** @hide */
+        public boolean isCustomExt() {
+            return applicationInfo.isCustom();
+        }
+
+        /** @hide */
         public boolean isOdm() {
             return applicationInfo.isOdm();
         }

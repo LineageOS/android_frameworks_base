@@ -220,7 +220,7 @@ final class IdmapManager {
 
         // System_ext partition (/system_ext) is considered as system
         // Check this last since every partition except for data is scanned as system in the PMS.
-        if (overlayPackage.isSystem() || overlayPackage.isSystemExt()) {
+        if (overlayPackage.isSystem() || overlayPackage.isSystemExt() || overlayPackage.isCustom()) {
             return fulfilledPolicies | OverlayablePolicy.SYSTEM_PARTITION;
         }
 

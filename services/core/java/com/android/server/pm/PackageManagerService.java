@@ -583,6 +583,7 @@ public class PackageManagerService extends IPackageManager.Stub
     static final int SCAN_AS_SYSTEM_EXT = 1 << 21;
     static final int SCAN_AS_ODM = 1 << 22;
     static final int SCAN_AS_APK_IN_APEX = 1 << 23;
+    static final int SCAN_AS_CUSTOM = 1 << 24;
 
     @IntDef(flag = true, prefix = { "SCAN_" }, value = {
             SCAN_NO_DEX,
@@ -7236,6 +7237,8 @@ public class PackageManagerService extends IPackageManager.Stub
                     return SCAN_AS_PRODUCT;
                 case PackagePartitions.PARTITION_SYSTEM_EXT:
                     return SCAN_AS_SYSTEM_EXT;
+                case PackagePartitions.PARTITION_CUSTOM:
+                    return SCAN_AS_CUSTOM;
                 default:
                     throw new IllegalStateException("Unable to determine scan flag for "
                             + partition.getFolder());
@@ -14008,6 +14011,10 @@ public class PackageManagerService extends IPackageManager.Stub
                 scanFlags |= SCAN_AS_SYSTEM_EXT;
             }
             if ((systemPkgSetting.pkgPrivateFlags
+                    & ApplicationInfo.PRIVATE_FLAG_CUSTOM) != 0) {
+                scanFlags |= SCAN_AS_CUSTOM;
+            }
+            if ((systemPkgSetting.pkgPrivateFlags
                     & ApplicationInfo.PRIVATE_FLAG_ODM) != 0) {
                 scanFlags |= SCAN_AS_ODM;
             }
@@ -14877,6 +14884,7 @@ public class PackageManagerService extends IPackageManager.Stub
                 .setVendor((scanFlags & SCAN_AS_VENDOR) != 0)
                 .setProduct((scanFlags & SCAN_AS_PRODUCT) != 0)
                 .setSystemExt((scanFlags & SCAN_AS_SYSTEM_EXT) != 0)
+                .setCustom((scanFlags & SCAN_AS_CUSTOM) != 0)
                 .setOdm((scanFlags & SCAN_AS_ODM) != 0);
 
         // Check if the package is signed with the same key as the platform package.
@@ -21181,6 +21189,7 @@ public class PackageManagerService extends IPackageManager.Stub
                     final boolean product = oldPackage.isProduct();
                     final boolean odm = oldPackage.isOdm();
                     final boolean systemExt = oldPackage.isSystemExt();
+                    final boolean custom = oldPackage.isCustom();
                     final @ParseFlags int systemParseFlags = parseFlags;
                     final @ScanFlags int systemScanFlags = scanFlags
                             | SCAN_AS_SYSTEM
@@ -21189,7 +21198,8 @@ public class PackageManagerService extends IPackageManager.Stub
                             | (vendor ? SCAN_AS_VENDOR : 0)
                             | (product ? SCAN_AS_PRODUCT : 0)
                             | (odm ? SCAN_AS_ODM : 0)
-                            | (systemExt ? SCAN_AS_SYSTEM_EXT : 0);
+                            | (systemExt ? SCAN_AS_SYSTEM_EXT : 0)
+                            | (custom ? SCAN_AS_CUSTOM : 0);
 
                     if (DEBUG_INSTALL) {
                         Slog.d(TAG, "replaceSystemPackageLI: new=" + parsedPackage
