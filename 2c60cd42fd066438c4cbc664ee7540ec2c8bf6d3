@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca60d049_812aa499",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-03-25T10:20:42Z",
+      "side": 1,
+      "message": "Unfortunately this doesn\u0027t work since UIDs don\u0027t necessarily match across installations. Needs custom handling",
+      "revId": "2c60cd42fd066438c4cbc664ee7540ec2c8bf6d3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
