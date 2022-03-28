@@ -84,6 +84,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "742e0ddd_965e9930",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-03-28T20:51:25Z",
+      "side": 1,
+      "message": "Do we want \n```\nif (!isLandscape()) {\n    portrait handling\n} else if (!mVolumePanelOnLeft) {\n    default landscape handling (designed for panel on right)\n} else {\n    custom landscape handling (designed for panel on left)\n}\n```\nor\n```\nif (!isLandscape()) {\n    portrait handling\n} else if (mVolumePanelOnLeft) {\n    custom landscape handling (designed for panel on left)\n} else {\n    default landscape handling (designed for panel on right)\n}\n```\nhere? I\u0027d like it to be consistent with the similar check in updateBackgroundForDrawerClosedAmount().",
+      "range": {
+        "startLine": 858,
+        "startChar": 8,
+        "endLine": 858,
+        "endChar": 41
+      },
+      "revId": "b8753ce8b3ed86891b101ebd6b76358d465604b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f0c45a2_1d5217ee",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 43
