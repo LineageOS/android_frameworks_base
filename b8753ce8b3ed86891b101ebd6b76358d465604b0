@@ -80,6 +80,29 @@
       },
       "revId": "b8753ce8b3ed86891b101ebd6b76358d465604b0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f0c45a2_1d5217ee",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 2383,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-03-28T20:36:45Z",
+      "side": 1,
+      "message": "This could be getRingerDrawerOpenExtraSize()",
+      "range": {
+        "startLine": 2383,
+        "startChar": 48,
+        "endLine": 2383,
+        "endChar": 73
+      },
+      "revId": "b8753ce8b3ed86891b101ebd6b76358d465604b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
