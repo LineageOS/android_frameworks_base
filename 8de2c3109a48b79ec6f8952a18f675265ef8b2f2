@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a836095_f0c23898",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-03-28T20:24:09Z",
+      "side": 1,
+      "message": "This causes issues with statusbar icons in lineageparts - a12 thing, volume and alarm icon toggle doesn\u0027t do anything. its better if we remove all these and lineageparts do the thing. 😅",
+      "revId": "8de2c3109a48b79ec6f8952a18f675265ef8b2f2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ab81b65_3ac3771a",
         "filename": "packages/SystemUI/res/values/config.xml",
         "patchSetId": 4
