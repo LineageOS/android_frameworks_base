@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b9f2dfa_50a53233",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-03-28T20:37:51Z",
+      "side": 1,
+      "message": "It\u0027s not relevant to this change. https://review.lineageos.org/c/LineageOS/android_vendor_lineage/+/326712 instead.",
+      "parentUuid": "8a836095_f0c23898",
+      "revId": "8de2c3109a48b79ec6f8952a18f675265ef8b2f2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ab81b65_3ac3771a",
