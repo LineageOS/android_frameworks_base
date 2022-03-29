@@ -40,6 +40,8 @@ import android.util.Slog;
 import com.android.server.biometrics.BiometricsProto;
 import com.android.server.biometrics.Utils;
 
+import lineageos.providers.LineageSettings;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,6 +80,8 @@ public abstract class AuthenticationClient<T> extends AcquisitionClient<T>
     private final boolean mIsRestricted;
     private final boolean mAllowBackgroundAuthentication;
     private final boolean mIsKeyguardBypassEnabled;
+    private final boolean mVibrateOnSuccessConfig;
+    private final boolean mVibrateOnSuccessEnabled;
 
     protected final long mOperationId;
 
@@ -125,6 +129,11 @@ public abstract class AuthenticationClient<T> extends AcquisitionClient<T>
         mIsRestricted = restricted;
         mAllowBackgroundAuthentication = allowBackgroundAuthentication;
         mIsKeyguardBypassEnabled = isKeyguardBypassEnabled;
+        mVibrateOnSuccessConfig = context.getResources().getBoolean(
+                org.lineageos.platform.internal.R.bool.config_biometricsVibrateOnSuccess);
+        mVibrateOnSuccessEnabled = LineageSettings.System.getInt(context.getContentResolver(),
+                LineageSettings.System.BIOMETRICS_SUCCESS_HAPTIC_FEEDBACK,
+                mVibrateOnSuccessConfig ? 1 : 0) == 1;
     }
 
     public @LockoutTracker.LockoutMode int handleFailedAttempt(int userId) {
@@ -307,7 +316,7 @@ public abstract class AuthenticationClient<T> extends AcquisitionClient<T>
 
                 @Override
                 public void sendHapticFeedback() {
-                    if (listener != null && mShouldVibrate) {
+                    if (listener != null && mShouldVibrate && mVibrateOnSuccessEnabled) {
                         vibrateSuccess();
                     }
                 }
