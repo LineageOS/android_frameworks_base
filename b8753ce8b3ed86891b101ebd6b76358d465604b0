@@ -107,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6dca7bf8_073c68ce",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 43
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-29T11:19:16Z",
+      "side": 1,
+      "message": "Make it consistent with updateBackgroundForDrawerClosedAmount().",
+      "parentUuid": "742e0ddd_965e9930",
+      "range": {
+        "startLine": 858,
+        "startChar": 8,
+        "endLine": 858,
+        "endChar": 41
+      },
+      "revId": "b8753ce8b3ed86891b101ebd6b76358d465604b0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f0c45a2_1d5217ee",
         "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
         "patchSetId": 43
