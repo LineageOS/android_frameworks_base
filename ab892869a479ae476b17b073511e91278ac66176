@@ -16,6 +16,41 @@
       "message": "This plays well with multiple rows now. Can someone verify the odi captions button and tooltip?",
       "revId": "ab892869a479ae476b17b073511e91278ac66176",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "775d539a_33b4f15a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 55
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2022-03-30T14:07:37Z",
+      "side": 1,
+      "message": "Plays well here as well. Had to slightly change layout file for landscape to have odi captions right.",
+      "parentUuid": "1dfb9b37_12c6b261",
+      "revId": "ab892869a479ae476b17b073511e91278ac66176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12e3f897_dd9ce087",
+        "filename": "packages/SystemUI/res/layout-land/volume_dialog.xml",
+        "patchSetId": 55
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2022-03-30T14:07:37Z",
+      "side": 1,
+      "message": "removed marginRight and added:\nandroid:paddingLeft\u003d\"@dimen/volume_tool_tip_right_margin\"\nandroid:paddingRight\u003d\"@dimen/volume_tool_tip_right_margin\"",
+      "revId": "ab892869a479ae476b17b073511e91278ac66176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
