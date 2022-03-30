@@ -159,6 +159,24 @@
       "parentUuid": "029c22e1_1b29dc1c",
       "revId": "ab892869a479ae476b17b073511e91278ac66176",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe12bbd7_5d292fc8",
+        "filename": "packages/SystemUI/res/layout-land/volume_dialog.xml",
+        "patchSetId": 55
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2022-03-30T16:10:22Z",
+      "side": 1,
+      "message": "Having a right margin somehow caused it to drift away from the screen edge towards the middle when on landscape and left. I wasn\u0027t talking about the var name either. I think it should be fine if this line was removed entirely. Will be able to confirm this in the next few days unless someone here tries first",
+      "parentUuid": "eb44af78_78789d5e",
+      "revId": "ab892869a479ae476b17b073511e91278ac66176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
