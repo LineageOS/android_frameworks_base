@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c66794cf_a43ae01a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 58
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-03-30T22:45:03Z",
+      "side": 1,
+      "message": "Apart from the comment i left, the code looks good to me. Odi captions need to be verified!",
+      "revId": "0521a9d4352e9b8b615ff2c27b7332d0100ffcef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af6ad4ae_c5b16203",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 58
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-03-30T22:45:03Z",
+      "side": 1,
+      "message": "mODICaptionsTooltipViewStub would currently still have \"bottom | right\" gravity even if the panel is on the left side. Since it\u0027s a ViewStub i don\u0027t know how we can set that.",
+      "revId": "0521a9d4352e9b8b615ff2c27b7332d0100ffcef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
