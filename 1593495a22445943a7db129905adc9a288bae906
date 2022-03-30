@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de1063b_f2d8e35d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-03-30T22:45:45Z",
+      "side": 1,
+      "message": "Seems to work good, both on left and right side. Testing is welcome.",
+      "revId": "1593495a22445943a7db129905adc9a288bae906",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
