@@ -177,6 +177,24 @@
       "parentUuid": "eb44af78_78789d5e",
       "revId": "ab892869a479ae476b17b073511e91278ac66176",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f83a7fc9_a5b33c51",
+        "filename": "packages/SystemUI/res/layout-land/volume_dialog.xml",
+        "patchSetId": 55
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-03-30T16:29:59Z",
+      "side": 1,
+      "message": "I don\u0027t think this can be removed. The margin is supposed to make the tooltip appear next to the volume panel, not over it. 76dp is the width of one row + padding of one row + 4 dp extra space. So the tooltip won\u0027t appear over the row. However when making the margin padding instead it will increase the tooltip size instead of the space before it starts and display over the row.",
+      "parentUuid": "fe12bbd7_5d292fc8",
+      "revId": "ab892869a479ae476b17b073511e91278ac66176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
