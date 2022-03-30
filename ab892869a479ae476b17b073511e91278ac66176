@@ -105,6 +105,24 @@
       "parentUuid": "cdec37cd_8dda6570",
       "revId": "ab892869a479ae476b17b073511e91278ac66176",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5bd72f6_b80470e7",
+        "filename": "packages/SystemUI/res/layout-land/volume_dialog.xml",
+        "patchSetId": 55
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-30T16:03:50Z",
+      "side": 1,
+      "message": "It was only for the same reason we renamed volume_dialog_panel_transparent_padding_right to volume_dialog_panel_transparent_padding_horizontal.",
+      "parentUuid": "7dca8cf0_839090d8",
+      "revId": "ab892869a479ae476b17b073511e91278ac66176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
