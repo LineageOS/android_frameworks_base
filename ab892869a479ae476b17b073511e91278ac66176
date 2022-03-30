@@ -123,6 +123,24 @@
       "parentUuid": "7dca8cf0_839090d8",
       "revId": "ab892869a479ae476b17b073511e91278ac66176",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "029c22e1_1b29dc1c",
+        "filename": "packages/SystemUI/res/layout-land/volume_dialog.xml",
+        "patchSetId": 55
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2022-03-30T16:04:30Z",
+      "side": 1,
+      "message": "It was too far from the edge. Not too close. Actually when I think of it we can probably remove it altogether (have no paddings or margins entirely)",
+      "parentUuid": "7dca8cf0_839090d8",
+      "revId": "ab892869a479ae476b17b073511e91278ac66176",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
