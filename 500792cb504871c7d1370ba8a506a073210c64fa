@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da588863_a15af145",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-03-30T22:41:34Z",
+      "side": 1,
+      "message": "Fixes the issue described in commit message. I have also uploaded this change to AOSP, we could wait for a review there.",
+      "revId": "500792cb504871c7d1370ba8a506a073210c64fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
