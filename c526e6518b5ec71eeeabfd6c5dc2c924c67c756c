@@ -34,6 +34,24 @@
       "parentUuid": "ea83c73f_2f3d79e0",
       "revId": "c526e6518b5ec71eeeabfd6c5dc2c924c67c756c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "573f2eff_025a06af",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-03-31T07:06:53Z",
+      "side": 1,
+      "message": "yeah didn\u0027t notice the first null check was in the same lane, this concerns only isEmpty argument",
+      "parentUuid": "b80bc71d_f71f0f20",
+      "revId": "c526e6518b5ec71eeeabfd6c5dc2c924c67c756c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
