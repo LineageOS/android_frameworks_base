@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea83c73f_2f3d79e0",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-03-31T06:28:40Z",
+      "side": 1,
+      "message": "you can remove the ternary operator, isEmpty allows null",
+      "revId": "c526e6518b5ec71eeeabfd6c5dc2c924c67c756c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
