@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Cursor à esquerda</string>
     <string name="accessibility_dpad_right">Cursor à direita</string>
+    <string name="global_action_restart_more">Reiniciar\u2026</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recuperação</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Transferência</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">A reiniciar\u2026</string>
+    <string name="global_action_restart_recovery_progress">A reiniciar para o modo de recuperação\u2026</string>
+    <string name="global_action_restart_bootloader_progress">A reiniciar para o modo de bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">A reiniciar para o modo de transferência\u2026</string>
+    <string name="global_action_restart_fastboot_progress">A reiniciar para o modo de fastbootd\u2026</string>
+    <string name="global_action_current_user">Atual</string>
+    <string name="global_action_users">Utilizadores</string>
     <string name="quick_settings_ambient_display_label">Visualização ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Visualização ambiente desativada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Visualização ambiente ativada.</string>
@@ -39,6 +52,11 @@
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desligado\nPoupança de energia</string>
     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare\nBateria demasiado fraca</string>
     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare está ativado</string>
+    <string name="quick_settings_reading_mode">Modo de leitura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo de leitura ativado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo de leitura desativado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">O modo de leitura foi ativado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">O modo de leitura foi desativado.</string>
     <string name="quick_settings_sync_label">Sincronização</string>
     <string name="accessibility_quick_settings_sync_off">Sincronização desativada.</string>
     <string name="accessibility_quick_settings_sync_on">Sincronização ativada.</string>

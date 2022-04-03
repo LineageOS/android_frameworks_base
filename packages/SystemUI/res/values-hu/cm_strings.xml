@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Kurzor balra</string>
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
+    <string name="global_action_restart_more">Újraindítás\u2026</string>
+    <string name="global_action_restart_system">Rendszer</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Download-mód</string>
+    <string name="global_action_restart_fastboot">Fastboot-mód</string>
+    <string name="global_action_restart_progress">Újraindítás\u2026</string>
+    <string name="global_action_restart_recovery_progress">Újraindítás recovery-módba\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Újraindítás bootloader-módba\u2026</string>
+    <string name="global_action_restart_download_progress">Újraindítás download-módba\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Újraindítás Fastboot-módba\u2026</string>
+    <string name="global_action_current_user">Jelenlegi</string>
+    <string name="global_action_users">Felhasználók</string>
     <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
     <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
@@ -39,6 +52,11 @@
     <string name="quick_settings_powershare_off_powersave_label">PowerShare ki\nAkkukímélő</string>
     <string name="quick_settings_powershare_off_low_battery_label">PowerShare ki\nAlacsony akkuszint</string>
     <string name="quick_settings_powershare_enabled_label">A PowerShare bekapcsolva</string>
+    <string name="quick_settings_reading_mode">Olvasómód</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Olvasómód be.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Olvasómód ki.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Olvasómód bekapcsolva.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Olvasómód kikapcsolva.</string>
     <string name="quick_settings_sync_label">Szinkronizálás</string>
     <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki.</string>
     <string name="accessibility_quick_settings_sync_on">Szinkronizálás be.</string>

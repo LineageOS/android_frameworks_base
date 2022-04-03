@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Cursor esquerra</string>
     <string name="accessibility_dpad_right">Cursor dreta</string>
+    <string name="global_action_restart_more">Reinicia\u2026</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recuperació</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Descàrrega</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">S\'està reiniciant\u2026</string>
+    <string name="global_action_restart_recovery_progress">S\'està reiniciant al mode de recuperació\u2026</string>
+    <string name="global_action_restart_bootloader_progress">S\'està reiniciant al mode bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">S\'està reiniciant al mode de descàrrega\u2026</string>
+    <string name="global_action_restart_fastboot_progress">S\'està reiniciant al mode fastbootd\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuaris</string>
     <string name="quick_settings_ambient_display_label">Pantalla ambient</string>
     <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambient desactivada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambient activada.</string>
@@ -39,6 +52,11 @@
     <string name="quick_settings_powershare_off_powersave_label">PowerShare sense fils desactivat\nEstalvi de bateria</string>
     <string name="quick_settings_powershare_off_low_battery_label">PowerShare sense fils desactivat\nBateria massa baixa</string>
     <string name="quick_settings_powershare_enabled_label">PowerShare sense fils està activat</string>
+    <string name="quick_settings_reading_mode">Mode lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">S\'ha activat el mode lectura.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">S\'ha desactivat el mode lectura.</string>
     <string name="quick_settings_sync_label">Sinc</string>
     <string name="accessibility_quick_settings_sync_off">Sinc desactivada.</string>
     <string name="accessibility_quick_settings_sync_on">Sinc activada.</string>

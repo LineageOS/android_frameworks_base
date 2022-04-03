@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,30 +18,50 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="accessibility_dpad_left">Cursor esquierda</string>
-    <string name="accessibility_dpad_right">Cursor derecha</string>
-    <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente activada.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente desactivada.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Desactivóse la pantalla ambiente.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Activóse la pantalla ambiente.</string>
+    <string name="accessibility_dpad_left">Cursor a la esquierda</string>
+    <string name="accessibility_dpad_right">Cursor a la derecha</string>
+    <string name="clock">Reló</string>
+    <string name="global_action_restart_more">Reaniciar\u2026</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Cargador d\'arrinque</string>
+    <string name="global_action_restart_download">Descarga</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Reaniciando\u2026</string>
+    <string name="global_action_restart_recovery_progress">Reaniciando al mou del recovery\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Reaniciando al mou del xestor d\'arrinque\u2026</string>
+    <string name="global_action_restart_download_progress">Reaniciando al mou de descarga\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Reaniciando al mou fastbootd\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuarios</string>
+    <string name="quick_settings_ambient_display_label">Visualización d\'ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Visualización d\'ambiente activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Visualización d\'ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Desactivóse la visualización d\'ambiente.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Activóse la visualización d\'ambiente.</string>
+    <string name="quick_settings_aod_label">Mou AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">Mou AOD desactiváu\nAforrador d\'enerxía</string>
     <string name="quick_settings_caffeine_label">Cafeína</string>
-    <string name="accessibility_quick_settings_caffeine_off">Desactivar Cafeína.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
-    <string name="quick_settings_heads_up_label">Avisos
-emerxentes</string>
-    <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emerxentes.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Activar notificaciones emerxentes.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emerxentes desactivaes.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emerxentes activaes.</string>
-    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
-    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desactiváu\nAforrador d\'enerxía</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare desactiváu\nQueda perpoca batería</string>
-    <string name="quick_settings_powershare_enabled_label">El Wireless PowerShare ta activáu</string>
+    <string name="accessibility_quick_settings_caffeine_off">«Cafeína» desactivada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">«Cafeína» activada.</string>
+    <string name="quick_settings_heads_up_label">Avisos emerxentes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Avisos emerxentes desactivaos.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Avisos emerxentes activaos.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Desactiváronse los avisos emerxentes.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Activáronse los avisos emerxentes.</string>
+    <string name="quick_settings_powershare_label">PowerShare ensin filos</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare ensin filos desactiváu\nAforrador d\'enerxía</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare ensin filos desactiváu\nQueda perpoca batería</string>
+    <string name="quick_settings_powershare_enabled_label">El PowerShare ensin filos ta activáu</string>
+    <string name="quick_settings_reading_mode">Mou de llectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mou de llectura activáu.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mou de llectura desactiváu.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Activóse\'l mou de llectura.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Desactivóse\'l mou de llectura.</string>
     <string name="quick_settings_sync_label">Sincronización</string>
     <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
     <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Sincronización desactivada.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Sincronización activada.</string>
-    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Desactivóse la sincronización.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Activóse la sincronización.</string>
+    <string name="quick_settings_usb_tether_label">Tethering per USB</string>
 </resources>

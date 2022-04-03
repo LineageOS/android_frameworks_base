@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">কার্সর বামে</string>
     <string name="accessibility_dpad_right">কার্সর ডানে</string>
+    <string name="global_action_restart_more">রিস্টার্ট\u2026</string>
+    <string name="global_action_restart_system">সিস্টেম</string>
+    <string name="global_action_restart_recovery">রিকভারি</string>
+    <string name="global_action_restart_bootloader">বুটলোডার</string>
+    <string name="global_action_restart_download">ডাউনলোড</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">রিস্টার্টিং\u2026</string>
+    <string name="global_action_restart_recovery_progress">রিকভারি মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
+    <string name="global_action_restart_bootloader_progress">বুটলোডার মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
+    <string name="global_action_restart_download_progress">ডাউনলোড মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Fastbootd মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
+    <string name="global_action_users">ব্যবহারকারী</string>
     <string name="quick_settings_aod_off_powersave_label">AOD বন্ধ\nব্যাটারি সেভার</string>
     <string name="quick_settings_caffeine_label">ক্যাফেইন</string>
     <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ।</string>

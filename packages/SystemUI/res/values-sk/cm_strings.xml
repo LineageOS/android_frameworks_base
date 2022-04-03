@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Kurzor vľavo</string>
     <string name="accessibility_dpad_right">Kurzor vpravo</string>
+    <string name="global_action_restart_more">Reštartovať\u2026</string>
+    <string name="global_action_restart_system">Systém</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Sťahovanie</string>
+    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_progress">Reštartovanie\u2026</string>
+    <string name="global_action_restart_recovery_progress">Reštartovanie do režimu Recovery\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Reštartovanie do režimu Bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">Reštartovanie do režimu sťahovania\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Reštartovanie do režimu fastboot\u2026</string>
+    <string name="global_action_current_user">Aktuálny</string>
+    <string name="global_action_users">Používatelia</string>
     <string name="quick_settings_ambient_display_label">Ambientné zobrazenie</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambientné zobrazenie povolené.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambientné zobrazenie zakázané.</string>
@@ -39,6 +52,11 @@
     <string name="quick_settings_powershare_off_powersave_label">Bezdrôtové reverzné nabíjanie PowerShare vypnuté\nŠetrenie batérie</string>
     <string name="quick_settings_powershare_off_low_battery_label">Bezdrôtové reverzné nabíjanie PowerShare vypnuté\nSlabá batéria</string>
     <string name="quick_settings_powershare_enabled_label">Bezdrôtové reverzné nabíjanie PowerShare je zapnuté</string>
+    <string name="quick_settings_reading_mode">Režim čítania</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Režim čítania zap.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Režim čítania vyp.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čítania je zapnutý.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čítania je vypnutý.</string>
     <string name="quick_settings_sync_label">Synchronizácia</string>
     <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
     <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>

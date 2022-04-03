@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
     <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
+    <string name="global_action_restart_more">إعادة تشغيل\u2026</string>
+    <string name="global_action_restart_system">النظام</string>
+    <string name="global_action_restart_recovery">الاسترداد</string>
+    <string name="global_action_restart_bootloader">محمل الاقلاع</string>
+    <string name="global_action_restart_download">التنزيل</string>
+    <string name="global_action_restart_fastboot">إعادة التشغيل إلى وضع الإقلاع السريع</string>
+    <string name="global_action_restart_progress">جارٍ إعادة التشغيل\u2026</string>
+    <string name="global_action_restart_recovery_progress">إعادة التشغيل في وضع الاسترداد\u2026</string>
+    <string name="global_action_restart_bootloader_progress">إعادة التشغيل في وضع مُحمّل الإقلاع\u2026</string>
+    <string name="global_action_restart_download_progress">إعادة التشغيل في وضع التنزيل\u2026</string>
+    <string name="global_action_restart_fastboot_progress">إعادة التشغيل إلى وضع الإقلاع السريع\u2026</string>
+    <string name="global_action_current_user">الحالي</string>
+    <string name="global_action_users">المستخدمون</string>
     <string name="quick_settings_ambient_display_label">العرض المحيط</string>
     <string name="accessibility_quick_settings_ambient_display_off">تعطيل العرض المحيط.</string>
     <string name="accessibility_quick_settings_ambient_display_on">تشغيل العرض المحيط.</string>
@@ -39,6 +52,11 @@
     <string name="quick_settings_powershare_off_powersave_label">إيقاف\n مشاركة الشحن لاسلكياً عند تفعيل وضع توفير البطارية</string>
     <string name="quick_settings_powershare_off_low_battery_label">إيقاف\n مشاركة الشحن لاسلكياً عندما يكون مستوى البطارية منخفضة جداً</string>
     <string name="quick_settings_powershare_enabled_label">مشاركة الشحن لاسلكياً مفعلة</string>
+    <string name="quick_settings_reading_mode">وضع القراءة</string>
+    <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">وضع القراءة قيد التشغيل.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">وضع القراءة قيد الإيقاف.</string>
     <string name="quick_settings_sync_label">المزامنة</string>
     <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>
     <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>

@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,11 +20,24 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Sol kursor</string>
     <string name="accessibility_dpad_right">Sağ kursor</string>
+    <string name="global_action_restart_more">Yenidən başlat\u2026</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Bərpa</string>
+    <string name="global_action_restart_bootloader">Önyükləyici</string>
+    <string name="global_action_restart_download">Endirmə</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Yenidən başladılır\u2026</string>
+    <string name="global_action_restart_recovery_progress">Bərpa rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Önyükləyici rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_restart_download_progress">Endirmə rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Fastbootd rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_current_user">Hazırki</string>
+    <string name="global_action_users">İstifadəçilər</string>
     <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
     <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı söndürüldü.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı işə salındı.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı yandırıldı.</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD bağlıdır\nBatereyaya qənaət</string>
     <string name="quick_settings_caffeine_label">Kofein</string>
@@ -33,12 +46,17 @@
     <string name="quick_settings_heads_up_label">Açılan başlıqlar</string>
     <string name="accessibility_quick_settings_heads_up_off">Açılan başlıqlar bağlıdır.</string>
     <string name="accessibility_quick_settings_heads_up_on">Açılan başlıqlar açıqdır.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıqlar söndürüldü.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Açılan başlıqlar işə salındı.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Açılan başlıqlar işə salındı.</string>
     <string name="quick_settings_powershare_label">Naqilsiz Enerji Paylaşma</string>
     <string name="quick_settings_powershare_off_powersave_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereyaya qənaət</string>
     <string name="quick_settings_powershare_off_low_battery_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereya səviyyəsi aşağıdır</string>
     <string name="quick_settings_powershare_enabled_label">Naqilsiz Enerji Paylaşma fəaldır</string>
+    <string name="quick_settings_reading_mode">Oxuma rejimi</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Oxuma rejimi açıqdır.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Oxuma rejimi bağlıdır.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Oxuma rejimi işə salındı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Oxuma rejimi söndürüldü.</string>
     <string name="quick_settings_sync_label">Eyniləşdirmə</string>
     <string name="accessibility_quick_settings_sync_off">Eyniləşdirmə bağlıdır.</string>
     <string name="accessibility_quick_settings_sync_on">Eyniləşdirmə açıqdır.</string>

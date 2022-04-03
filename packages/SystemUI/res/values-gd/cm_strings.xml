@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Cùrsair clì</string>
     <string name="accessibility_dpad_right">Cùrsair deas</string>
+    <string name="global_action_restart_more">Ath-thòisich\u2026</string>
+    <string name="global_action_restart_system">An siostam</string>
+    <string name="global_action_restart_recovery">Aiseag</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Luchdadh a-nuas</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">’Ga ath-thòiseachadh\u2026</string>
+    <string name="global_action_restart_recovery_progress">’Ga ath-thòiseachadh gun mhodh aisig\u2026</string>
+    <string name="global_action_restart_bootloader_progress">’Ga ath-thòiseachadh gun mhodh bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">’Ga ath-thòiseachadh gun mhodh luchdaidh a-nuas\u2026</string>
+    <string name="global_action_restart_fastboot_progress">’Ga ath-thòiseachadh gun mhodh fastbootd\u2026</string>
+    <string name="global_action_current_user">Làithreach</string>
+    <string name="global_action_users">Cleachdaichean</string>
     <string name="quick_settings_ambient_display_label">Taisbeanadh cuairteach</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tha an taisbeanadh cuairteach dheth.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Tha an taisbeanadh cuairteach air.</string>
@@ -39,6 +52,11 @@
     <string name="quick_settings_powershare_off_powersave_label">Tha co-roinneadh cumhachd uèirleas dheth\nCaomhnaiche a’ bhataraidh</string>
     <string name="quick_settings_powershare_off_low_battery_label">Tha co-roinneadh cumhachd uèirleas dheth\nBataraidh ro fhann</string>
     <string name="quick_settings_powershare_enabled_label">Tha co-roinneadh cumhachd uèirleas an comas</string>
+    <string name="quick_settings_reading_mode">Modh leughaidh</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Tha am modh leughaidh air.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Tha am modh leughaidh dheth.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Chaidh am modh leughaidh a chur air.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Chaidh am modh leughaidh a chur dheth.</string>
     <string name="quick_settings_sync_label">Sioncronaich</string>
     <string name="accessibility_quick_settings_sync_off">Tha an sioncronachadh dheth.</string>
     <string name="accessibility_quick_settings_sync_on">Tha an sioncronachadh air.</string>

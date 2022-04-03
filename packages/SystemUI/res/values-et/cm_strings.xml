@@ -2,7 +2,7 @@
 <!--
 /**
  * Copyright (c) 2015, The CyanogenMod Project
- * Copyright (c) 2017-2019, The LineageOS Project
+ * Copyright (c) 2017-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Kursor vasakule</string>
     <string name="accessibility_dpad_right">Kursor paremale</string>
+    <string name="global_action_restart_more">Taaskäivita\u2026</string>
+    <string name="global_action_restart_recovery">Taastus</string>
+    <string name="global_action_restart_bootloader">Käivituslaadur</string>
+    <string name="global_action_restart_download">Allalaadimine</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Taaskäivitamine\u2026</string>
+    <string name="global_action_restart_recovery_progress">Taaskäivitamine taastusrežiimi\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Taaskäivitamine käivituslaadurisse\u2026</string>
+    <string name="global_action_restart_download_progress">Taaskäivitamine allalaadimisrežiimi\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Taaskäivitamine fastbootd-režiimi\u2026</string>
+    <string name="global_action_current_user">Praegune</string>
+    <string name="global_action_users">Kasutajad</string>
     <string name="quick_settings_ambient_display_label">Säästlik ekraan</string>
     <string name="accessibility_quick_settings_ambient_display_off">Säästlik ekraan väljas.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Säästlik ekraan sees.</string>
@@ -39,6 +51,11 @@
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare väljas\nAkusäästja</string>
     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare väljas\nAku on liiga tühi</string>
     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare sees</string>
+    <string name="quick_settings_reading_mode">Lugemisrežiim</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Lugemisrežiim sees.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lugemisrežiim väljas.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Lugemisrežiim sisselülitatud.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Lugemisrežiim väljalülitatud.</string>
     <string name="quick_settings_sync_label">Sünk</string>
     <string name="accessibility_quick_settings_sync_off">Sünk väljas.</string>
     <string name="accessibility_quick_settings_sync_on">Sünk sees.</string>
