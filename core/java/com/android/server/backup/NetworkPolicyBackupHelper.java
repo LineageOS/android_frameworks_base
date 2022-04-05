@@ -33,8 +33,11 @@ public class NetworkPolicyBackupHelper extends BlobBackupHelper {
     // Key under which the payload blob is stored
     static final String KEY_NETWORK_POLICY = "network_policy";
 
-    public NetworkPolicyBackupHelper() {
+    private final int mUserId;
+
+    public NetworkPolicyBackupHelper(int userId) {
         super(BLOB_VERSION, KEY_NETWORK_POLICY);
+        mUserId = userId;
     }
 
     @Override
@@ -44,10 +47,10 @@ public class NetworkPolicyBackupHelper extends BlobBackupHelper {
             try {
                 INetworkPolicyManager npm = INetworkPolicyManager.Stub.asInterface(
                         ServiceManager.getService(Context.NETWORK_POLICY_SERVICE));
-                newPayload = npm.getBackupPayload();
+                newPayload = npm.getBackupPayload(mUserId);
             } catch (Exception e) {
                 // Treat as no data
-                Slog.e(TAG, "Couldn't communicate with network policy manager");
+                Slog.e(TAG, "Couldn't communicate with network policy manager", e);
                 newPayload = null;
             }
         }
@@ -64,9 +67,9 @@ public class NetworkPolicyBackupHelper extends BlobBackupHelper {
             try {
                 INetworkPolicyManager.Stub.asInterface(
                         ServiceManager.getService(Context.NETWORK_POLICY_SERVICE))
-                        .applyRestore(payload);
+                        .applyRestore(payload, mUserId);
             } catch (Exception e) {
-                Slog.e(TAG, "Couldn't communicate with network policy manager");
+                Slog.e(TAG, "Couldn't communicate with network policy manager", e);
             }
         }
     }
