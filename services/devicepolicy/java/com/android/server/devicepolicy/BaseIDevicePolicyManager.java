@@ -15,10 +15,12 @@
  */
 package com.android.server.devicepolicy;
 
+import android.accounts.Account;
 import android.annotation.UserIdInt;
 import android.app.admin.IDevicePolicyManager;
 import android.content.ComponentName;
 import android.os.PersistableBundle;
+import android.os.UserHandle;
 import android.security.keymaster.KeymasterCertificateChain;
 import android.security.keystore.ParcelableKeyGenParameterSpec;
 import android.telephony.data.ApnSetting;
@@ -158,5 +160,9 @@ abstract class BaseIDevicePolicyManager extends IDevicePolicyManager.Stub {
 
     @Override
     public void setDefaultSmsApplication(ComponentName admin, String packageName) {
+    }
+
+    public void finalizeWorkProfileProvisioning(
+            UserHandle managedProfileUser, Account migratedAccount) {
     }
 }
