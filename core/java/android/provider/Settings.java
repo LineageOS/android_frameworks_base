@@ -15168,7 +15168,7 @@ public final class Settings {
         public static final String ONE_HANDED_KEYGUARD_SIDE = "one_handed_keyguard_side";
 
         /**
-         * A list of uids that is allowed to use restricted networks.
+         * A list of uids that are allowed to use restricted networks.
          *
          * @hide
          */
