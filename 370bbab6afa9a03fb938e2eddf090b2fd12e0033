@@ -33,6 +33,24 @@
       "message": "can be moved into constructor",
       "revId": "370bbab6afa9a03fb938e2eddf090b2fd12e0033",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06124cd1_f0304533",
+        "filename": "core/java/android/permission/PermissionManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-04-05T10:25:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f905a9b2_0694bd6c",
+      "revId": "370bbab6afa9a03fb938e2eddf090b2fd12e0033",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
