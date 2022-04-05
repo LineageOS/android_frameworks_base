@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cd65423_4b3a070a",
+        "filename": "packages/SystemUI/res/drawable/ic_qs_mono_audio.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 30101
+      },
+      "writtenOn": "2022-04-05T14:28:55Z",
+      "side": 1,
+      "message": "Repurposed packages/SystemUI/res/drawable/ic_headset.xml",
+      "revId": "b60b99d1834bf83a13f450fb593e469bbfad7c8c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f83f91c5_57e95c1f",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tileimpl/QSFactoryImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 30101
+      },
+      "writtenOn": "2022-04-05T14:28:55Z",
+      "side": 1,
+      "message": "Changes in this file are based on heads up tile. I\u0027m open to constructive criticism as this is my first contribution.",
+      "revId": "b60b99d1834bf83a13f450fb593e469bbfad7c8c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
