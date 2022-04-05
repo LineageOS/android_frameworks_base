@@ -191,8 +191,6 @@ public class SettingsValidators {
 
     public static final Validator TILE_LIST_VALIDATOR = new TileListValidator();
 
-    public static final Validator UID_LIST_VALIDATOR = new UidListValidator();
-
     static final Validator COLON_SEPARATED_COMPONENT_LIST_VALIDATOR =
             new ComponentNameListValidator(":");
 
