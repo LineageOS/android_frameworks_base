@@ -423,7 +423,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     private static final String ATTR_OWNER_PACKAGE = "ownerPackage";
     private static final String ATTR_NETWORK_TYPES = "networkTypes";
     private static final String ATTR_XML_UTILS_NAME = "name";
-    private static final String ATTR_USER_ID = "userId";
 
     private static final String ACTION_ALLOW_BACKGROUND =
             "com.android.server.net.action.ALLOW_BACKGROUND";
@@ -2443,7 +2442,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         FileInputStream fis = null;
         try {
             fis = mPolicyFile.openRead();
-            readPolicyXml(fis, false);
+            readPolicyXml(fis, false, UserHandle.USER_ALL);
         } catch (FileNotFoundException e) {
             // missing policy is okay, probably first boot
             upgradeDefaultBackgroundDataUL();
@@ -2457,8 +2456,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         migrateNetworkIsolation();
     }
 
-    private void readPolicyXml(InputStream inputStream, boolean forRestore) throws IOException,
-            XmlPullParserException {
+    private void readPolicyXml(InputStream inputStream, boolean forRestore, int userId)
+            throws IOException, XmlPullParserException {
         final TypedXmlPullParser in = Xml.resolvePullParser(inputStream);
 
          // Must save the <restrict-background> tags and convert them to <uid-policy> later,
@@ -2618,7 +2617,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                             SubscriptionPlan.class, mSubscriptionPlans.get(subId), plan));
                     mSubscriptionPlansOwner.put(subId, ownerPackage);
                 } else if (TAG_UID_POLICY.equals(tag)) {
-                    int uid = readUidAttribute(in, forRestore);
+                    int uid = readUidAttribute(in, forRestore, userId);
                     final int policy = readIntAttribute(in, ATTR_POLICY);
 
                     if (UserHandle.isApp(uid)) {
@@ -2641,10 +2640,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 } else if (TAG_WHITELIST.equals(tag)) {
                     insideAllowlist = true;
                 } else if (TAG_RESTRICT_BACKGROUND.equals(tag) && insideAllowlist) {
-                    int uid = readUidAttribute(in, forRestore);
+                    int uid = readUidAttribute(in, forRestore, userId);
                     restrictBackgroundAllowedUids.append(uid, true);
                 } else if (TAG_REVOKED_RESTRICT_BACKGROUND.equals(tag) && insideAllowlist) {
-                    int uid = readUidAttribute(in, forRestore);
+                    int uid = readUidAttribute(in, forRestore, userId);
                     mRestrictBackgroundAllowlistRevokedUids.put(uid, true);
                 }
             } else if (type == END_TAG) {
@@ -2748,7 +2747,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         FileOutputStream fos = null;
         try {
             fos = mPolicyFile.startWrite();
-            writePolicyXml(fos, false);
+            writePolicyXml(fos, false, UserHandle.USER_ALL);
             mPolicyFile.finishWrite(fos);
         } catch (IOException e) {
             if (fos != null) {
@@ -2757,10 +2756,64 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
-    private void writePolicyXml(OutputStream outputStream, boolean forBackup) throws IOException {
+    private void writePolicyXml(OutputStream outputStream, boolean forBackup, int userId)
+            throws IOException {
         TypedXmlSerializer out = Xml.resolveSerializer(outputStream);
         out.startDocument(null, true);
 
+        // only write UID-independent attributes during normal operation or system user backups
+        if (!forBackup || userId == UserHandle.USER_SYSTEM) {
+            writeUidIndependentAttributes(out);
+        }
+
+        // write all known uid policies
+        for (int i = 0; i < mUidPolicy.size(); i++) {
+            final int uid = mUidPolicy.keyAt(i);
+            final int policy = mUidPolicy.valueAt(i);
+
+            // skip writing policies belonging to other users
+            if (forBackup && UserHandle.getUserId(uid) != userId) {
+                continue;
+            }
+            // skip writing empty policies
+            if (policy == POLICY_NONE) continue;
+
+            out.startTag(null, TAG_UID_POLICY);
+            if (!forBackup) {
+                writeIntAttribute(out, ATTR_UID, uid);
+            } else {
+                writeStringAttribute(out, ATTR_XML_UTILS_NAME, getPackageForUid(uid));
+            }
+            writeIntAttribute(out, ATTR_POLICY, policy);
+            out.endTag(null, TAG_UID_POLICY);
+        }
+
+        // write all allowlists
+        out.startTag(null, TAG_WHITELIST);
+
+        // revoked restrict background allowlist
+        int size = mRestrictBackgroundAllowlistRevokedUids.size();
+        for (int i = 0; i < size; i++) {
+            final int uid = mRestrictBackgroundAllowlistRevokedUids.keyAt(i);
+            // skip writing policies belonging to other users
+            if (forBackup && UserHandle.getUserId(uid) != userId) {
+                continue;
+            }
+            out.startTag(null, TAG_REVOKED_RESTRICT_BACKGROUND);
+            if (!forBackup) {
+                writeIntAttribute(out, ATTR_UID, uid);
+            } else {
+                writeStringAttribute(out, ATTR_XML_UTILS_NAME, getPackageForUid(uid));
+            }
+            out.endTag(null, TAG_REVOKED_RESTRICT_BACKGROUND);
+        }
+
+        out.endTag(null, TAG_WHITELIST);
+
+        out.endDocument();
+    }
+
+    private void writeUidIndependentAttributes(TypedXmlSerializer out) throws IOException {
         out.startTag(null, TAG_POLICY_LIST);
         writeIntAttribute(out, ATTR_VERSION, VERSION_LATEST);
         writeBooleanAttribute(out, ATTR_RESTRICT_BACKGROUND, mRestrictBackground);
@@ -2827,89 +2880,43 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 writeLongAttribute(out, ATTR_USAGE_TIME, plan.getDataUsageTime());
                 try {
                     writeIntArrayXml(plan.getNetworkTypes(), ATTR_NETWORK_TYPES, out);
-                } catch (XmlPullParserException ignored) { }
+                } catch (XmlPullParserException ignored) {
+                }
                 out.endTag(null, TAG_SUBSCRIPTION_PLAN);
             }
         }
-
-        // write all known uid policies
-        for (int i = 0; i < mUidPolicy.size(); i++) {
-            final int uid = mUidPolicy.keyAt(i);
-            final int policy = mUidPolicy.valueAt(i);
-
-            // skip writing empty policies
-            if (policy == POLICY_NONE) continue;
-
-            out.startTag(null, TAG_UID_POLICY);
-            if (!forBackup) {
-                writeIntAttribute(out, ATTR_UID, uid);
-            } else {
-                writeStringAttribute(out, ATTR_XML_UTILS_NAME, getPackageForUid(uid));
-                writeIntAttribute(out, ATTR_USER_ID, UserHandle.getUserId(uid));
-            }
-            writeIntAttribute(out, ATTR_POLICY, policy);
-            out.endTag(null, TAG_UID_POLICY);
-        }
-
         out.endTag(null, TAG_POLICY_LIST);
-
-        // write all allowlists
-        out.startTag(null, TAG_WHITELIST);
-
-        // revoked restrict background allowlist
-        int size = mRestrictBackgroundAllowlistRevokedUids.size();
-        for (int i = 0; i < size; i++) {
-            final int uid = mRestrictBackgroundAllowlistRevokedUids.keyAt(i);
-            out.startTag(null, TAG_REVOKED_RESTRICT_BACKGROUND);
-            if (!forBackup) {
-                writeIntAttribute(out, ATTR_UID, uid);
-            } else {
-                writeStringAttribute(out, ATTR_XML_UTILS_NAME, getPackageForUid(uid));
-                writeIntAttribute(out, ATTR_USER_ID, UserHandle.getUserId(uid));
-            }
-            out.endTag(null, TAG_REVOKED_RESTRICT_BACKGROUND);
-        }
-
-        out.endTag(null, TAG_WHITELIST);
-
-        out.endDocument();
     }
 
     @Override
-    public byte[] getBackupPayload() {
+    public byte[] getBackupPayload(int user) {
         enforceSystemCaller();
-        if (LOGD) Slog.d(TAG, "getBackupPayload");
+        if (LOGD) Slog.d(TAG, "getBackupPayload u= " + user);
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
-            writePolicyXml(baos, true);
+            writePolicyXml(baos, true, user);
             return baos.toByteArray();
         } catch (IOException e) {
-            Slog.w(TAG, "getBackupPayload: error writing payload", e);
+            Slog.w(TAG, "getBackupPayload: error writing payload for user " + user, e);
         }
         return null;
     }
 
     @Override
-    public void applyRestore(byte[] payload) {
+    public void applyRestore(byte[] payload, int user) {
         enforceSystemCaller();
-        if (LOGD) Slog.d(TAG, "applyRestore payload="
+        if (LOGD) Slog.d(TAG, "applyRestore u=" + user + " payload="
                 + (payload != null ? new String(payload, StandardCharsets.UTF_8) : null));
         if (payload == null) {
-            Slog.w(TAG, "applyRestore: no payload to restore");
+            Slog.w(TAG, "applyRestore: no payload to restore for user " + user);
             return;
         }
 
-        // clear any existing policy and read from disk
-        mNetworkPolicy.clear();
-        mSubscriptionPlans.clear();
-        mSubscriptionPlansOwner.clear();
-        mUidPolicy.clear();
-
         final ByteArrayInputStream bais = new ByteArrayInputStream(payload);
         try {
-            readPolicyXml(bais, true);
+            readPolicyXml(bais, true, user);
         } catch (IOException | XmlPullParserException e) {
-            Slog.w(TAG, "applyRestore: error reading payload", e);
+            Slog.w(TAG, "applyRestore: error reading payload for user " + user, e);
         }
 
         // Migrate from pre-12 network-isolation to restricted-networking-mode
@@ -6021,17 +6028,21 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
-    private int readUidAttribute(TypedXmlPullParser in, boolean forRestore) throws IOException {
+    private int readUidAttribute(TypedXmlPullParser in, boolean forRestore, int userId)
+            throws IOException {
         if (!forRestore) {
             return readIntAttribute(in, ATTR_UID);
         } else {
-            return getUidForPackage(readStringAttribute(in, ATTR_XML_UTILS_NAME),
-                    readIntAttribute(in, ATTR_USER_ID));
+            return getUidForPackage(readStringAttribute(in, ATTR_XML_UTILS_NAME), userId);
         }
     }
 
     private String getPackageForUid(int uid) {
-        return mContext.getPackageManager().getPackagesForUid(uid)[0];
+        try {
+            return mContext.getPackageManager().getPackagesForUid(uid)[0];
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private int getUidForPackage(String packageName, int userId) {
