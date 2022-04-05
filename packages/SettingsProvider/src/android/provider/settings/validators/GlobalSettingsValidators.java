@@ -23,7 +23,6 @@ import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VA
 import static android.provider.settings.validators.SettingsValidators.NONE_NEGATIVE_LONG_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.PACKAGE_NAME_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.PERCENTAGE_INTEGER_VALIDATOR;
-import static android.provider.settings.validators.SettingsValidators.UID_LIST_VALIDATOR;
 import static android.view.Display.HdrCapabilities.HDR_TYPES;
 
 import android.os.BatteryManager;
@@ -145,7 +144,6 @@ public class GlobalSettingsValidators {
         VALIDATORS.put(Global.AUTOMATIC_POWER_SAVE_MODE, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(Global.ADVANCED_BATTERY_USAGE_AMOUNT, PERCENTAGE_INTEGER_VALIDATOR);
         VALIDATORS.put(Global.POWER_BUTTON_LONG_PRESS_DURATION_MS, NONE_NEGATIVE_LONG_VALIDATOR);
-        VALIDATORS.put(Global.UIDS_ALLOWED_ON_RESTRICTED_NETWORKS, UID_LIST_VALIDATOR);
     }
 }
 
