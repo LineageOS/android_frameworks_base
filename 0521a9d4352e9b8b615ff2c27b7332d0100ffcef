@@ -33,6 +33,24 @@
       "message": "mODICaptionsTooltipViewStub would currently still have \"bottom | right\" gravity even if the panel is on the left side. Since it\u0027s a ViewStub i don\u0027t know how we can set that.",
       "revId": "0521a9d4352e9b8b615ff2c27b7332d0100ffcef",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b8588bb_5ede4d3f",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 58
+      },
+      "lineNbr": 612,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-04-06T22:02:17Z",
+      "side": 1,
+      "message": "per your request, commented lines removed, and we don\u0027t enable live caption on devices, nor does MTG supported gapps package.",
+      "parentUuid": "af6ad4ae_c5b16203",
+      "revId": "0521a9d4352e9b8b615ff2c27b7332d0100ffcef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
