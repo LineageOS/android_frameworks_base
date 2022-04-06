@@ -41,6 +41,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8b52f40_2dc6d3b5",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-04-06T18:50:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5fd601d_f27e5916",
+      "range": {
+        "startLine": 702,
+        "startChar": 0,
+        "endLine": 715,
+        "endChar": 19
+      },
+      "revId": "6ef85f5d9429bb613fcb68121fcd91a32e2a4801",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9a90250_da89bca2",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-04-06T18:45:53Z",
       "side": 1,
       "message": "Indentation here is a bit off.",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 716,
+        "endChar": 9
+      },
+      "revId": "6ef85f5d9429bb613fcb68121fcd91a32e2a4801",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa8e8bd1_8a751a73",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-04-06T18:50:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9a90250_da89bca2",
       "range": {
         "startLine": 716,
         "startChar": 0,
