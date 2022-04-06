@@ -2788,6 +2788,26 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             out.endTag(null, TAG_UID_POLICY);
         }
 
+        if (forBackup) {
+            try {
+                List<PackageInfo> packages = mIPm.getPackagesHoldingPermissions(
+                        new String[]{android.Manifest.permission.INTERNET}, 0, userId
+                ).getList();
+                List<Integer> uids = packages.stream().map(packageInfo ->
+                        packageInfo.applicationInfo.uid).collect(Collectors.toList());
+                uids.removeAll(
+                        ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext));
+                for (int uid : uids) {
+                    out.startTag(null, TAG_UID_POLICY);
+                    writeStringAttribute(out, ATTR_XML_UTILS_NAME, getPackageForUid(uid));
+                    writeIntAttribute(out, ATTR_POLICY, POLICY_REJECT_ALL);
+                    out.endTag(null, TAG_UID_POLICY);
+                }
+            } catch (RemoteException ignored) {
+
+            }
+        }
+
         // write all allowlists
         out.startTag(null, TAG_WHITELIST);
 
