@@ -16,6 +16,29 @@
       "message": "Tested on Realme 6",
       "revId": "6ef85f5d9429bb613fcb68121fcd91a32e2a4801",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a90250_da89bca2",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-04-06T18:45:53Z",
+      "side": 1,
+      "message": "Indentation here is a bit off.",
+      "range": {
+        "startLine": 716,
+        "startChar": 0,
+        "endLine": 716,
+        "endChar": 9
+      },
+      "revId": "6ef85f5d9429bb613fcb68121fcd91a32e2a4801",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
