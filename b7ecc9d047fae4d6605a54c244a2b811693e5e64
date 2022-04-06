@@ -16,6 +16,23 @@
       "message": "Whole topic builds fine for potter.",
       "revId": "b7ecc9d047fae4d6605a54c244a2b811693e5e64",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d049b85_02a19d8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-04-06T16:40:39Z",
+      "side": 1,
+      "message": "all good on ys",
+      "revId": "b7ecc9d047fae4d6605a54c244a2b811693e5e64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
