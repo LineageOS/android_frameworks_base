@@ -734,8 +734,7 @@ public class ScreenshotController {
 
             @Override
             public void onTouchOutside() {
-                // TODO(159460485): Remove this when focus is handled properly in the system
-                setWindowFocusable(false);
+                dismissScreenshot(SCREENSHOT_DISMISSED_OTHER);
             }
         }, mActionExecutor, mFlags);
         mScreenshotView.setDefaultDisplay(mDisplayTracker.getDefaultDisplayId());
