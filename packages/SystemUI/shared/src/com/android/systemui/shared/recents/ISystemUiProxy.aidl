@@ -100,6 +100,9 @@ interface ISystemUiProxy {
     /** Sets home rotation enabled. */
     oneway void setHomeRotationEnabled(boolean enabled) = 45;
 
+    /** Notifies when taskbar is enabled or disabled */
+    oneway void setTaskbarEnabled(boolean enabled) = 500;
+
     /** Notifies when taskbar status updated */
     oneway void notifyTaskbarStatus(boolean visible, boolean stashed) = 47;
 
