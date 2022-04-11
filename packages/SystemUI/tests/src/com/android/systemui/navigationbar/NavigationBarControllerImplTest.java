@@ -141,7 +141,7 @@ public class NavigationBarControllerImplTest extends SysuiTestCase {
     @Test
     public void testCreateNavigationBarsIncludeDefaultTrue() {
         // Large screens may be using taskbar and the logic is different
-        mNavigationBarController.mIsLargeScreen = false;
+        mNavigationBarController.mTaskbarShowing = false;
         doNothing().when(mNavigationBarController).createNavigationBar(any(), any(), any());
 
         mNavigationBarController.createNavigationBars(true, null);
