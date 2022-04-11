@@ -75,6 +75,7 @@ public class NavigationBarController implements
         Callbacks,
         ConfigurationController.ConfigurationListener,
         NavigationModeController.ModeChangedListener,
+        OverviewProxyService.OverviewProxyListener,
         Dumpable {
 
     private static final String TAG = NavigationBarController.class.getSimpleName();
@@ -86,6 +87,7 @@ public class NavigationBarController implements
     private final TaskbarDelegate mTaskbarDelegate;
     private int mNavMode;
     @VisibleForTesting boolean mIsTablet;
+    private boolean mTaskbarShowing;
 
     /** A displayId - nav bar maps. */
     @VisibleForTesting
@@ -124,14 +126,15 @@ public class NavigationBarController implements
                 navBarHelper, navigationModeController, sysUiFlagsContainer,
                 dumpManager, autoHideController, lightBarController, pipOptional);
         mIsTablet = isTablet(mContext);
+        overviewProxyService.addCallback(this);
         dumpManager.registerDumpable(this);
     }
 
     @Override
     public void onConfigChanged(Configuration newConfig) {
-        boolean isOldConfigTablet = mIsTablet;
+        boolean isOldConfigTablet = shouldShowTaskbar();
         mIsTablet = isTablet(mContext);
-        boolean largeScreenChanged = mIsTablet != isOldConfigTablet;
+        boolean largeScreenChanged = shouldShowTaskbar() != isOldConfigTablet;
         // If we folded/unfolded while in 3 button, show navbar in folded state, hide in unfolded
         if (largeScreenChanged && updateNavbarForTaskbar()) {
             return;
@@ -170,6 +173,16 @@ public class NavigationBarController implements
                 navBar.getView().updateStates();
             }
         });
+    }
+
+    @Override
+    public void onTaskbarEnabled(boolean enabled) {
+        boolean isOldConfigTablet = shouldShowTaskbar();
+        mTaskbarShowing = enabled;
+        boolean largeScreenChanged = shouldShowTaskbar() != isOldConfigTablet;
+        if (largeScreenChanged) {
+            updateNavbarForTaskbar();
+        }
     }
 
     private void updateAccessibilityButtonModeIfNeeded() {
@@ -212,14 +225,14 @@ public class NavigationBarController implements
 
     /** @return {@code true} if taskbar is enabled, false otherwise */
     private boolean initializeTaskbarIfNecessary() {
-        if (mIsTablet) {
+        if (shouldShowTaskbar()) {
             // Remove navigation bar when taskbar is showing
             removeNavigationBar(mContext.getDisplayId());
             mTaskbarDelegate.init(mContext.getDisplayId());
         } else {
             mTaskbarDelegate.destroy();
         }
-        return mIsTablet;
+        return shouldShowTaskbar();
     }
 
     @Override
@@ -296,7 +309,7 @@ public class NavigationBarController implements
 
         // We may show TaskBar on the default display for large screen device. Don't need to create
         // navigation bar for this case.
-        if (mIsTablet && isOnDefaultDisplay) {
+        if (shouldShowTaskbar() && isOnDefaultDisplay) {
             return;
         }
 
@@ -416,6 +429,10 @@ public class NavigationBarController implements
         } else if (displayId == DEFAULT_DISPLAY && mTaskbarDelegate.isInitialized()) {
             mTaskbarDelegate.showPinningEscapeToast();
         }
+    }
+
+    private boolean shouldShowTaskbar() {
+        return mIsTablet && mTaskbarShowing;
     }
 
     /** @return {@link NavigationBar} on the default display. */
