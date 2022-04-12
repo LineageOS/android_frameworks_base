@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb6151f_28221c00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30835
+      },
+      "writtenOn": "2022-04-12T20:06:43Z",
+      "side": 1,
+      "message": "Thanks I really needed this useful info and I will use the use of LinageOS \n",
+      "revId": "e1fdf013e6f244f82268821f28e0700b3ed3e328",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
