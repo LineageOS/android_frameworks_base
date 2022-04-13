@@ -168,13 +168,22 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
         gravity = android.view.Gravity.TOP or android.view.Gravity.LEFT
         layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS
         flags = (Utils.FINGERPRINT_OVERLAY_LAYOUT_PARAM_FLAGS or
+                WindowManager.LayoutParams.FLAG_DIM_BEHIND or
                 WindowManager.LayoutParams.FLAG_SPLIT_TOUCH)
         privateFlags = WindowManager.LayoutParams.PRIVATE_FLAG_TRUSTED_OVERLAY or
                 WindowManager.LayoutParams.PRIVATE_FLAG_EXCLUDE_FROM_SCREEN_MAGNIFICATION
+        dimAmount = 0.0f
         // Avoid announcing window title.
         accessibilityTitle = " "
         inputFeatures = WindowManager.LayoutParams.INPUT_FEATURE_SPY
     }
+
+    var dimAmount
+        get() = coreLayoutParams.dimAmount
+        set(value) {
+            coreLayoutParams.dimAmount = value
+            windowManager.updateViewLayout(getTouchOverlay(), coreLayoutParams)
+        }
 
     /** If the overlay is currently showing. */
     val isShowing: Boolean
