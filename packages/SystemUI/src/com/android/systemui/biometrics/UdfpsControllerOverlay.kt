@@ -120,14 +120,22 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
         gravity = android.view.Gravity.TOP or android.view.Gravity.LEFT
         layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS
         flags = (Utils.FINGERPRINT_OVERLAY_LAYOUT_PARAM_FLAGS or
+                WindowManager.LayoutParams.FLAG_DIM_BEHIND or
                 WindowManager.LayoutParams.FLAG_SPLIT_TOUCH)
         privateFlags = WindowManager.LayoutParams.PRIVATE_FLAG_TRUSTED_OVERLAY
+        dimAmount = 0.0f
         // Avoid announcing window title.
         accessibilityTitle = " "
 
         if (featureFlags.isEnabled(Flags.UDFPS_NEW_TOUCH_DETECTION)) {
             inputFeatures = WindowManager.LayoutParams.INPUT_FEATURE_SPY
         }
+    }
+
+    fun updateDimAmount(newDimAmount: Float): Float {
+        coreLayoutParams.dimAmount = newDimAmount
+        windowManager.updateViewLayout(overlayView, coreLayoutParams)
+        return newDimAmount
     }
 
     /** A helper if the [requestReason] was due to enrollment. */

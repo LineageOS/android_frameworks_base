@@ -42,6 +42,7 @@ import android.os.Process;
 import android.os.Trace;
 import android.os.VibrationAttributes;
 import android.os.VibrationEffect;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.RotationUtils;
 import android.view.LayoutInflater;
@@ -59,6 +60,7 @@ import com.android.internal.util.LatencyTracker;
 import com.android.keyguard.FaceAuthApiRequestReason;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.Dumpable;
+import com.android.systemui.R;
 import com.android.systemui.animation.ActivityLaunchAnimator;
 import com.android.systemui.biometrics.dagger.BiometricsBackground;
 import com.android.systemui.biometrics.udfps.InteractionEvent;
@@ -188,6 +190,9 @@ public class UdfpsController implements DozeReceiver, Dumpable {
     private boolean mOnFingerDown;
     private boolean mAttemptedToDismissKeyguard;
     private final Set<Callback> mCallbacks = new HashSet<>();
+
+    private boolean mFrameworkDimming;
+    private int[][] mBrightnessAlphaArray;
 
     @VisibleForTesting
     public static final VibrationAttributes UDFPS_VIBRATION_ATTRIBUTES =
@@ -786,6 +791,8 @@ public class UdfpsController implements DozeReceiver, Dumpable {
                     return Unit.INSTANCE;
                 });
 
+        mFrameworkDimming = context.getResources().getBoolean(R.bool.config_udfpsFrameworkDimming);
+
         final UdfpsOverlayController mUdfpsOverlayController = new UdfpsOverlayController();
         mFingerprintManager.setUdfpsOverlayController(mUdfpsOverlayController);
 
@@ -833,6 +840,7 @@ public class UdfpsController implements DozeReceiver, Dumpable {
 
     private void showUdfpsOverlay(@NonNull UdfpsControllerOverlay overlay) {
         mExecution.assertIsMainThread();
+        parseBrightnessAlphaArray();
 
         mOverlay = overlay;
         final int requestReason = overlay.getRequestReason();
@@ -977,6 +985,61 @@ public class UdfpsController implements DozeReceiver, Dumpable {
         return mSensorProps.sensorType == FingerprintSensorProperties.TYPE_UDFPS_OPTICAL;
     }
 
+    private static int interpolate(int x, int xa, int xb, int ya, int yb) {
+        return ya - (ya - yb) * (x - xa) / (xb - xa);
+    }
+
+    private int getBrightness() {
+        int brightness = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS, 100);
+        // Since the brightness is taken from the system settings, we need to interpolate it
+        final int brightnessMin =
+                mContext.getResources().getInteger(R.integer.config_udfpsDimmingBrightnessMin);
+        final int brightnessMax =
+                mContext.getResources().getInteger(R.integer.config_udfpsDimmingBrightnessMax);
+        if (brightnessMax > 0) {
+            brightness = interpolate(brightness, 0, 255, brightnessMin, brightnessMax);
+        }
+        return brightness;
+    }
+
+    private void updateViewDimAmount() {
+        if (mFrameworkDimming) {
+            if (isFingerDown()) {
+                int curBrightness = getBrightness();
+                int i, dimAmount;
+                for (i = 0; i < mBrightnessAlphaArray.length; i++) {
+                    if (mBrightnessAlphaArray[i][0] >= curBrightness) break;
+                }
+                if (i == 0) {
+                    dimAmount = mBrightnessAlphaArray[i][1];
+                } else if (i == mBrightnessAlphaArray.length) {
+                    dimAmount = mBrightnessAlphaArray[i-1][1];
+                } else {
+                    dimAmount = interpolate(curBrightness,
+                            mBrightnessAlphaArray[i][0], mBrightnessAlphaArray[i-1][0],
+                            mBrightnessAlphaArray[i][1], mBrightnessAlphaArray[i-1][1]);
+                }
+                mOverlay.updateDimAmount(dimAmount / 255.0f);
+            } else {
+                mOverlay.updateDimAmount(0.0f);
+            }
+        }
+    }
+
+    private void parseBrightnessAlphaArray() {
+        if (mFrameworkDimming) {
+            String[] array = mContext.getResources().getStringArray(
+                    R.array.config_udfpsDimmingBrightnessAlphaArray);
+            mBrightnessAlphaArray = new int[array.length][2];
+            for (int i = 0; i < array.length; i++) {
+                String[] s = array[i].split(",");
+                mBrightnessAlphaArray[i][0] = Integer.parseInt(s[0]);
+                mBrightnessAlphaArray[i][1] = Integer.parseInt(s[1]);
+            }
+        }
+    }
+
     public boolean isFingerDown() {
         return mOnFingerDown;
     }
@@ -1068,6 +1131,7 @@ public class UdfpsController implements DozeReceiver, Dumpable {
                     mFingerprintManager.onUiReady(requestId, mSensorProps.sensorId);
                     mLatencyTracker.onActionEnd(LatencyTracker.ACTION_UDFPS_ILLUMINATE);
                 }
+                updateViewDimAmount();
             });
         }
 
@@ -1133,6 +1197,23 @@ public class UdfpsController implements DozeReceiver, Dumpable {
             unconfigureDisplay(view);
         }
         cancelAodSendFingerUpAction();
+
+        // Add a delay to ensure that the dim amount is updated after the display has had chance
+        // to switch out of HBM mode. The delay, in ms is stored in config_udfpsDimmingDisableDelay.
+        // If the delay is 0, the dim amount will be updated immediately.
+        final int delay = mContext.getResources().getInteger(
+                R.integer.config_udfpsDimmingDisableDelay);
+        if (delay > 0) {
+            mFgExecutor.executeDelayed(() -> {
+                // A race condition exists where the overlay is destroyed before the dim amount
+                // is updated. This check ensures that the overlay is still valid.
+                if (mOverlay != null && mOverlay.matchesRequestId(requestId)) {
+                    updateViewDimAmount();
+                }
+            }, delay);
+        } else {
+            updateViewDimAmount();
+        }
     }
 
     /**
