@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a49f9a6d_225e5937",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/brightness/BrightnessController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-04-18T18:53:50Z",
+      "side": 1,
+      "message": "wdym? Factory creates the BrightnessController, so a getIcon method on the factory is of no use - BrightnessController has no access to it\u0027s calling factory)",
+      "parentUuid": "1c136310_053284bc",
+      "range": {
+        "startLine": 479,
+        "startChar": 43,
+        "endLine": 479,
+        "endChar": 55
+      },
+      "revId": "d0b85f3688de995ecd2b7d76e8e1366583dc6636",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a870b5cc_7c596fb2",
         "filename": "packages/SystemUI/src/com/android/systemui/settings/brightness/BrightnessController.java",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2022-04-18T17:09:57Z",
       "side": 1,
       "message": "no remove it, so we\u0027re sure we\u0027re calling the proper factory.",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 70
+      },
+      "revId": "d0b85f3688de995ecd2b7d76e8e1366583dc6636",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3498acd_f735f306",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/brightness/BrightnessController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-04-18T18:53:50Z",
+      "side": 1,
+      "message": "Well, this makes the change touch less files. we are sure we call the proper factory since wrongly calling this one will just make the icon not work. Changing the additional caller (instead of doing it this way) adds nothing of value imo",
+      "parentUuid": "a870b5cc_7c596fb2",
       "range": {
         "startLine": 488,
         "startChar": 0,
