@@ -76,6 +76,9 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.server.SystemService;
 import com.android.server.SystemService.TargetUser;
 
+import lineageos.app.Profile;
+import lineageos.app.ProfileManager;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -138,6 +141,8 @@ public class TrustManagerService extends SystemService {
     private final LockPatternUtils mLockPatternUtils;
     private final UserManager mUserManager;
     private final ActivityManager mActivityManager;
+    private final ProfileManager mProfileManager;
+    private int mLockscreenState;
 
     @GuardedBy("mUserIsTrusted")
     private final SparseBooleanArray mUserIsTrusted = new SparseBooleanArray();
@@ -194,6 +199,7 @@ public class TrustManagerService extends SystemService {
         mContext = context;
         mUserManager = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
         mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+        mProfileManager = ProfileManager.getInstance(mContext);
         mLockPatternUtils = new LockPatternUtils(context);
         mStrongAuthTracker = new StrongAuthTracker(context);
         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
@@ -394,6 +400,9 @@ public class TrustManagerService extends SystemService {
     }
 
     private void updateTrust(int userId, int flags, boolean isFromUnlock) {
+        Profile p = mProfileManager.getActiveProfile();
+        int lockscreenState = p != null ? p.getScreenLockMode().getValue()
+                : Profile.LockMode.DEFAULT;
         boolean managed = aggregateIsTrustManaged(userId);
         dispatchOnTrustManagedChanged(managed, userId);
         if (mStrongAuthTracker.isTrustAllowedForUser(userId)
@@ -429,14 +438,15 @@ public class TrustManagerService extends SystemService {
             mUserIsTrusted.put(userId, trusted);
         }
         dispatchOnTrustChanged(trusted, userId, flags);
-        if (changed) {
+        if (changed || lockscreenState != mLockscreenState) {
             refreshDeviceLockedForUser(userId);
-            if (!trusted) {
+            if (!trusted || lockscreenState != mLockscreenState) {
                 maybeLockScreen(userId);
             } else {
                 scheduleTrustTimeout(userId, false /* override */);
             }
         }
+        mLockscreenState = lockscreenState;
     }
 
     private void updateTrustUsuallyManaged(int userId, boolean managed) {
@@ -680,9 +690,15 @@ public class TrustManagerService extends SystemService {
                 synchronized(mUsersUnlockedByBiometric) {
                     biometricAuthenticated = mUsersUnlockedByBiometric.get(id, false);
                 }
-                try {
-                    showingKeyguard = wm.isKeyguardLocked();
-                } catch (RemoteException e) {
+                if (mLockscreenState == Profile.LockMode.DISABLE) {
+                    showingKeyguard = false;
+                }
+                // Not disabled by current profile
+                if (showingKeyguard) {
+                    try {
+                        showingKeyguard = wm.isKeyguardLocked();
+                    } catch (RemoteException e) {
+                    }
                 }
             }
             boolean deviceLocked = secure && showingKeyguard && !trusted &&
