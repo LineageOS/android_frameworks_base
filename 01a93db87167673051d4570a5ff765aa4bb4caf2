@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9b2157_38cd9ee0",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/QSPanel.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-04-18T20:47:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c0ae357_0200fdbc",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 23
+      },
+      "revId": "01a93db87167673051d4570a5ff765aa4bb4caf2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0414fe0_bc2d78b8",
@@ -47,6 +71,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20b70902_415e02b2",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/brightness/BrightnessSliderController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-04-18T20:47:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0414fe0_bc2d78b8",
+      "range": {
+        "startLine": 80,
+        "startChar": 16,
+        "endLine": 80,
+        "endChar": 36
+      },
+      "revId": "01a93db87167673051d4570a5ff765aa4bb4caf2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9a6c006_ff8d42fd",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-04-18T20:25:38Z",
       "side": 1,
       "message": "Should save the view here instead of using findViewById on mBrightnessMirror",
+      "revId": "01a93db87167673051d4570a5ff765aa4bb4caf2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1204a7c_bd2e7bd1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BrightnessMirrorController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-04-18T20:47:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a6c006_ff8d42fd",
       "revId": "01a93db87167673051d4570a5ff765aa4bb4caf2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
