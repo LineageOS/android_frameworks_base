@@ -100,4 +100,8 @@
 
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB tethering</string>
+
+    <!-- StatusBar icon titles -->
+    <string name="volume_mute">Mute</string>
+    <string name="volume_vibrate">Vibrate</string>
 </resources>
