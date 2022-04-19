@@ -16,6 +16,24 @@
       "message": "Maybe it should be seperated in the settings page instead?\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-19.1/packages/SystemUI/res/xml/status_bar_prefs.xml",
       "revId": "a9ecabb5aeea0b3428de9a406c24f71aad95b905",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ba9103_18122a86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-04-19T08:00:53Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/329173",
+      "parentUuid": "4adc49a5_74d7b104",
+      "revId": "a9ecabb5aeea0b3428de9a406c24f71aad95b905",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
