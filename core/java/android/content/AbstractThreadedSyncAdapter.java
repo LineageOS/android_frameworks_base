@@ -17,6 +17,7 @@
 package android.content;
 
 import android.accounts.Account;
+import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Process;
@@ -160,9 +161,22 @@ public abstract class AbstractThreadedSyncAdapter {
     }
 
     private class ISyncAdapterImpl extends ISyncAdapter.Stub {
+        private boolean isCallerSystem() {
+            final long callingUid = Binder.getCallingUid();
+            if (callingUid != Process.SYSTEM_UID) {
+                android.util.EventLog.writeEvent(0x534e4554, "203229608", -1, "");
+                return false;
+            }
+            return true;
+        }
+
         @Override
         public void startSync(ISyncContext syncContext, String authority, Account account,
                 Bundle extras) {
+            if (!isCallerSystem()) {
+                return;
+            }
+
             final SyncContext syncContextClient = new SyncContext(syncContext);
 
             boolean alreadyInProgress;
@@ -203,6 +217,9 @@ public abstract class AbstractThreadedSyncAdapter {
 
         @Override
         public void cancelSync(ISyncContext syncContext) {
+            if (!isCallerSystem()) {
+                return;
+            }
             // synchronize to make sure that mSyncThreads doesn't change between when we
             // check it and when we use it
             SyncThread info = null;
