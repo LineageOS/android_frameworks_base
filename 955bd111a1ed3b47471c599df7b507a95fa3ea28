@@ -16,6 +16,24 @@
       "message": "might want to consider renaming this to vibrate unless volume_unknown also encompasses the ringer icon",
       "revId": "955bd111a1ed3b47471c599df7b507a95fa3ea28",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb731f7_0a4458b0",
+        "filename": "packages/SystemUI/res/xml/status_bar_prefs.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-04-19T15:51:39Z",
+      "side": 1,
+      "message": "that would require more changes. its kind of same with aosp. https://github.com/LineageOS/android_frameworks_base/blob/lineage-19.1/packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java#L213",
+      "parentUuid": "0ff205c7_be33a18e",
+      "revId": "955bd111a1ed3b47471c599df7b507a95fa3ea28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
