@@ -25,6 +25,7 @@ import com.android.systemui.log.DebugLogger.debugLog
 import com.android.systemui.res.R
 import com.android.systemui.screenshot.ActionIntentCreator.createEdit
 import com.android.systemui.screenshot.ActionIntentCreator.createShareWithSubject
+import com.android.systemui.screenshot.ActionIntentCreator.createView
 import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_EDIT_TAPPED
 import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_PREVIEW_TAPPED
 import com.android.systemui.screenshot.ScreenshotEvent.SCREENSHOT_SHARE_TAPPED
@@ -84,7 +85,7 @@ constructor(
                 uiEventLogger.log(SCREENSHOT_PREVIEW_TAPPED, 0, request.packageNameString)
                 onDeferrableActionTapped { result ->
                     actionExecutor.startSharedTransition(
-                        createEdit(result.uri, context),
+                        createView(result.uri, context),
                         result.user,
                         true
                     )
