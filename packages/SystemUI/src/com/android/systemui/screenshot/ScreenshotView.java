@@ -817,7 +817,7 @@ public class ScreenshotView extends FrameLayout implements
             prepareSharedTransition();
             mActionExecutor.launchIntentAsync(
                     ActionIntentCreator.INSTANCE.createEdit(imageData.uri, mContext),
-                    imageData.editTransition.get().bundle,
+                    imageData.viewTransition.get().bundle,
                     imageData.owner, true);
         });
         if (mQuickShareChip != null) {
