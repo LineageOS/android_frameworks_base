@@ -167,6 +167,34 @@ public class ScreenshotNotificationSmartActionsTest extends SysuiTestCase {
         assertEquals(smartActions.size(), 0);
     }
 
+    // Tests for view action extras
+    @Test
+    public void testViewActionExtras() {
+        if (Looper.myLooper() == null) {
+            Looper.prepare();
+        }
+
+        ScreenshotController.SaveImageInBackgroundData
+                data = new ScreenshotController.SaveImageInBackgroundData();
+        data.image = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
+        data.finisher = null;
+        data.mActionsReadyListener = null;
+        SaveImageInBackgroundTask task =
+                new SaveImageInBackgroundTask(mContext, null, mScreenshotSmartActions, data,
+                        ActionTransition::new);
+
+        Notification.Action viewAction = task.createViewAction(mContext, mContext.getResources(),
+                Uri.parse("Screenshot_123.png")).get().action;
+
+        Intent intent = viewAction.actionIntent.getIntent();
+        assertNotNull(intent);
+        Bundle bundle = intent.getExtras();
+        assertTrue(bundle.containsKey(ScreenshotController.EXTRA_ID));
+        assertTrue(bundle.containsKey(ScreenshotController.EXTRA_SMART_ACTIONS_ENABLED));
+        assertEquals(ScreenshotController.ACTION_TYPE_VIEW, viewAction.title);
+        assertEquals(Intent.ACTION_VIEW, intent.getAction());
+    }
+
     // Tests for share action extras
     @Test
     public void testShareActionExtras() {
