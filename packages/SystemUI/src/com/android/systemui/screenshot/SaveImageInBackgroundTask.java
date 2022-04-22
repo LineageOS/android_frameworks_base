@@ -165,6 +165,7 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
 
             mImageData.uri = uri;
             mImageData.smartActions = smartActions;
+            mImageData.viewTransition = createViewAction(mContext, mContext.getResources(), uri);
             mImageData.shareTransition = createShareAction(mContext, mContext.getResources(), uri);
             mImageData.editTransition = createEditAction(mContext, mContext.getResources(), uri);
             mImageData.deleteAction = createDeleteAction(mContext, mContext.getResources(), uri);
@@ -218,6 +219,51 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         }
         mParams.finisher.accept(null);
         mParams.clearImage();
+    }
+
+    @VisibleForTesting
+    Supplier<ActionTransition> createViewAction(Context context, Resources r, Uri uri) {
+        return () -> {
+            ActionTransition transition = mSharedElementTransition.get();
+            // Note: the view, share and edit actions are proxied through ActionProxyReceiver in
+            // order to do some common work like dismissing the keyguard and sending
+            // closeSystemWindows
+
+            // Create an edit intent, if a specific package is provided as the editor, then
+            // launch that directly
+            Intent viewIntent = new Intent(Intent.ACTION_VIEW);
+            viewIntent.setDataAndType(uri, "image/png");
+            viewIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            viewIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+            PendingIntent pendingIntent = PendingIntent.getActivityAsUser(
+                    context, 0, viewIntent, PendingIntent.FLAG_IMMUTABLE,
+                    transition.bundle, UserHandle.CURRENT);
+
+            // Make sure pending intents for the system user are still unique across users
+            // by setting the (otherwise unused) request code to the current user id.
+            int requestCode = mContext.getUserId();
+
+            // Create a view action
+            PendingIntent viewAction = PendingIntent.getBroadcastAsUser(context, requestCode,
+                    new Intent(context, ActionProxyReceiver.class)
+                            .putExtra(ScreenshotController.EXTRA_ACTION_INTENT, pendingIntent)
+                            .putExtra(ScreenshotController.EXTRA_ID, mScreenshotId)
+                            .putExtra(ScreenshotController.EXTRA_SMART_ACTIONS_ENABLED,
+                                    mSmartActionsEnabled)
+                            .putExtra(ScreenshotController.EXTRA_OVERRIDE_TRANSITION, true)
+                            .setAction(Intent.ACTION_VIEW)
+                            .addFlags(Intent.FLAG_RECEIVER_FOREGROUND),
+                    PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE,
+                    UserHandle.SYSTEM);
+            Notification.Action.Builder editActionBuilder = new Notification.Action.Builder(
+                    Icon.createWithResource(r, com.android.internal.R.drawable.ic_screenshot),
+                    r.getString(com.android.internal.R.string.global_action_screenshot),
+                    viewAction);
+
+            transition.action = editActionBuilder.build();
+            return transition;
+        };
     }
 
     /**
