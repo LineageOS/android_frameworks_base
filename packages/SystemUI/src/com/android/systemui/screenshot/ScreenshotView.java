@@ -796,7 +796,7 @@ public class ScreenshotView extends FrameLayout implements
             mUiEventLogger.log(ScreenshotEvent.SCREENSHOT_PREVIEW_TAPPED, 0, mPackageName);
             prepareSharedTransition();
             mCallbacks.onAction(
-                    ActionIntentCreator.INSTANCE.createEdit(imageData.uri, mContext),
+                    ActionIntentCreator.INSTANCE.createView(imageData.uri, mContext),
                     imageData.owner, true);
         });
         if (mQuickShareChip != null) {
