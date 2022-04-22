@@ -781,7 +781,7 @@ public class ScreenshotView extends FrameLayout implements
         mScreenshotPreview.setOnClickListener(v -> {
             mUiEventLogger.log(ScreenshotEvent.SCREENSHOT_PREVIEW_TAPPED, 0, mPackageName);
             startSharedTransition(
-                    imageData.editTransition.get());
+                    imageData.viewTransition.get());
         });
         if (mQuickShareChip != null) {
             mQuickShareChip.setPendingIntent(imageData.quickShareAction.actionIntent,
