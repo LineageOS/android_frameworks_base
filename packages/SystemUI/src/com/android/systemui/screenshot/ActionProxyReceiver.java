@@ -20,6 +20,7 @@ import static android.view.Display.DEFAULT_DISPLAY;
 
 import static com.android.systemui.screenshot.ScreenshotController.ACTION_TYPE_EDIT;
 import static com.android.systemui.screenshot.ScreenshotController.ACTION_TYPE_SHARE;
+import static com.android.systemui.screenshot.ScreenshotController.ACTION_TYPE_VIEW;
 import static com.android.systemui.screenshot.ScreenshotController.EXTRA_ACTION_INTENT;
 import static com.android.systemui.screenshot.ScreenshotController.EXTRA_DISALLOW_ENTER_PIP;
 import static com.android.systemui.screenshot.ScreenshotController.EXTRA_ID;
@@ -98,9 +99,15 @@ public class ActionProxyReceiver extends BroadcastReceiver {
         }
 
         if (intent.getBooleanExtra(EXTRA_SMART_ACTIONS_ENABLED, false)) {
-            String actionType = Intent.ACTION_EDIT.equals(intent.getAction())
-                    ? ACTION_TYPE_EDIT
-                    : ACTION_TYPE_SHARE;
+            String action = intent.getAction();
+            String actionType;
+            if (Intent.ACTION_VIEW.equals(action)) {
+                actionType = ACTION_TYPE_VIEW;
+            } else if (Intent.ACTION_EDIT.equals(action)) {
+                actionType = ACTION_TYPE_EDIT;
+            } else {
+                actionType = ACTION_TYPE_SHARE;
+            }
             mScreenshotSmartActions.notifyScreenshotAction(
                     context, intent.getStringExtra(EXTRA_ID), actionType, false, null);
         }
