@@ -290,17 +290,12 @@ public class CompanionDeviceManagerService extends SystemService implements Bind
             String callingPackage = component.getPackageName();
             checkCanCallNotificationApi(callingPackage);
             int userId = getCallingUserId();
-            String packageTitle = BidiFormatter.getInstance().unicodeWrap(
-                    getPackageInfo(callingPackage, userId)
-                            .applicationInfo
-                            .loadSafeLabel(getContext().getPackageManager())
-                            .toString());
-            long identity = Binder.clearCallingIdentity();
+            final long identity = Binder.clearCallingIdentity();
             try {
                 return PendingIntent.getActivity(getContext(),
                         0 /* request code */,
                         NotificationAccessConfirmationActivityContract.launcherIntent(
-                                userId, component, packageTitle),
+                                getContext(), userId, component),
                         PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_ONE_SHOT
                                 | PendingIntent.FLAG_CANCEL_CURRENT);
             } finally {
