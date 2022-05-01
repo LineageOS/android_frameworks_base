@@ -335,6 +335,10 @@ public class ScreenshotController {
 
         mWindow = FloatingWindowUtil.getFloatingWindow(mContext);
         mWindow.setWindowManager(mWindowManager, null, null);
+        mWindow.requestFeature(Window.FEATURE_NO_TITLE);
+        mWindow.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
+        mWindow.setBackgroundDrawableResource(android.R.color.transparent);
+        mWindow.setDecorFitsSystemWindows(false);
 
         mConfigChanges.applyNewConfig(context.getResources());
         reloadAssets();
