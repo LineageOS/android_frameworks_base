@@ -383,6 +383,7 @@ public class ScreenshotController {
         mWindow.requestFeature(Window.FEATURE_NO_TITLE);
         mWindow.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
         mWindow.setBackgroundDrawableResource(android.R.color.transparent);
+        mWindow.setDecorFitsSystemWindows(false);
 
         mConfigChanges.applyNewConfig(context.getResources());
         reloadAssets();
