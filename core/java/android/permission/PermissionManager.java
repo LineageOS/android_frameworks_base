@@ -145,8 +145,8 @@ public final class PermissionManager {
 
     private List<SplitPermissionInfo> mSplitPermissionInfos;
 
-    private static String[] mLocationProviderPkgNames;
-    private static String[] mLocationExtraPkgNames;
+    private static String[] sLocationProviderPkgNames;
+    private static String[] sLocationExtraPkgNames;
 
     /**
      * Creates a new instance.
@@ -163,9 +163,9 @@ public final class PermissionManager {
                 "permissionmgr"));
         mLegacyPermissionManager = context.getSystemService(LegacyPermissionManager.class);
 
-        mLocationProviderPkgNames = context.getResources().getStringArray(
+        sLocationProviderPkgNames = context.getResources().getStringArray(
                 R.array.config_locationProviderPackageNames);
-        mLocationExtraPkgNames = context.getResources().getStringArray(
+        sLocationExtraPkgNames = context.getResources().getStringArray(
                 R.array.config_locationExtraPackageNames);
     }
 
@@ -954,12 +954,20 @@ public final class PermissionManager {
                 pkgNames.add(exemptedPackage);
             }
         }
-        for (String pkgName: mLocationProviderPkgNames) {
+        if (sLocationProviderPkgNames == null) {
+            sLocationProviderPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationProviderPackageNames);
+        }
+        for (String pkgName: sLocationProviderPkgNames) {
             if (pkgName != null) {
                 pkgNames.add(pkgName);
             }
         }
-        for (String pkgName: mLocationExtraPkgNames) {
+        if (sLocationExtraPkgNames == null) {
+            sLocationExtraPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationExtraPackageNames);
+        }
+        for (String pkgName: sLocationExtraPkgNames) {
             if (pkgName != null) {
                 pkgNames.add(pkgName);
             }
