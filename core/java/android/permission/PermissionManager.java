@@ -954,10 +954,19 @@ public final class PermissionManager {
                 pkgNames.add(exemptedPackage);
             }
         }
+        if (mLocationProviderPkgNames == null) {
+            mLocationProviderPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationProviderPackageNames);
+        }
         for (String pkgName: mLocationProviderPkgNames) {
             if (pkgName != null) {
                 pkgNames.add(pkgName);
             }
+        }
+        if (mLocationExtraPkgNames != null) {
+            mLocationExtraPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationExtraPackageNames);
+
         }
         for (String pkgName: mLocationExtraPkgNames) {
             if (pkgName != null) {
