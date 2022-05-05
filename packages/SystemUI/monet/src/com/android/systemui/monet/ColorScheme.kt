@@ -50,7 +50,7 @@ internal interface Hue {
             val previousHue = hueAndRotations[previousIndex].first
             if (ColorScheme.angleIsBetween(sourceHue, thisHue, previousHue)) {
                 return ColorScheme.wrapDegreesDouble(sourceHue.toDouble() +
-                        hueAndRotations[previousIndex].first)
+                        hueAndRotations[previousIndex].second)
             }
         }
 
