@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "039103f3_4cc521c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24080
+      },
+      "writtenOn": "2022-05-05T18:50:12Z",
+      "side": 1,
+      "message": "Topic R_asb_2022-05 builds OK for sargo \u0026 sunfish",
+      "revId": "771fb7119b8dfaeb0fb0414abbc9945315acee9b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
