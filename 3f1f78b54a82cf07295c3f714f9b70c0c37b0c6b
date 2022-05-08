@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff80b846_60aca4dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-05-08T22:17:36Z",
+      "side": 1,
+      "message": "Or just revert https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/326160/3..5/core/java/android/permission/PermissionManager.java ?",
+      "revId": "3f1f78b54a82cf07295c3f714f9b70c0c37b0c6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
