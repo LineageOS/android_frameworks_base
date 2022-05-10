@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">কার্সর বামে</string>
     <string name="accessibility_dpad_right">কার্সর ডানে</string>
+    <string name="clock">ঘড়ি</string>
     <string name="global_action_restart_more">রিস্টার্ট\u2026</string>
     <string name="global_action_restart_system">সিস্টেম</string>
     <string name="global_action_restart_recovery">রিকভারি</string>
@@ -31,6 +32,7 @@
     <string name="global_action_restart_bootloader_progress">বুটলোডার মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
     <string name="global_action_restart_download_progress">ডাউনলোড মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
     <string name="global_action_restart_fastboot_progress">Fastbootd মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
+    <string name="global_action_current_user">বর্তমান</string>
     <string name="global_action_users">ব্যবহারকারী</string>
     <string name="quick_settings_aod_off_powersave_label">AOD বন্ধ\nব্যাটারি সেভার</string>
     <string name="quick_settings_caffeine_label">ক্যাফেইন</string>

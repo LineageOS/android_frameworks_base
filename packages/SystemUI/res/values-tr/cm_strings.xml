@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Sol imleç</string>
     <string name="accessibility_dpad_right">Sağ imleç</string>
+    <string name="clock">Saat</string>
     <string name="global_action_restart_more">Yeniden başlat\u2026</string>
     <string name="global_action_restart_system">Sistem</string>
     <string name="global_action_restart_recovery">Kurtarma</string>

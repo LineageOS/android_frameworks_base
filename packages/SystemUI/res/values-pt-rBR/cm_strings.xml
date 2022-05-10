@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Cursor à esquerda</string>
     <string name="accessibility_dpad_right">Cursor à direita</string>
+    <string name="clock">Relógio</string>
     <string name="global_action_restart_more">Reiniciar\u2026</string>
     <string name="global_action_restart_system">Sistema</string>
     <string name="global_action_restart_recovery">Recuperação</string>

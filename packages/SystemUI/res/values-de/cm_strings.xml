@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Pfeiltaste links</string>
     <string name="accessibility_dpad_right">Pfeiltaste rechts</string>
+    <string name="clock">Uhr</string>
     <string name="global_action_restart_more">Neustarten\u2026</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Recovery</string>

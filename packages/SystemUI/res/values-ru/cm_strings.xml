@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Курсор влево</string>
     <string name="accessibility_dpad_right">Курсор вправо</string>
+    <string name="clock">Часы</string>
     <string name="global_action_restart_more">Перезапуск\u2026</string>
     <string name="global_action_restart_system">Система</string>
     <string name="global_action_restart_recovery">Recovery</string>

@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Kursor vasakule</string>
     <string name="accessibility_dpad_right">Kursor paremale</string>
+    <string name="clock">Kell</string>
     <string name="global_action_restart_more">Taaskäivita\u2026</string>
     <string name="global_action_restart_recovery">Taastus</string>
     <string name="global_action_restart_bootloader">Käivituslaadur</string>

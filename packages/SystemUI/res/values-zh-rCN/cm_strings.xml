@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">光标左移</string>
     <string name="accessibility_dpad_right">光标右移</string>
+    <string name="clock">时钟</string>
     <string name="global_action_restart_more">重新启动\u2026</string>
     <string name="global_action_restart_system">系统</string>
     <string name="global_action_restart_recovery">恢复模式</string>

@@ -18,6 +18,9 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_dpad_left">მაჩვენებელი მარცხნივ</string>
+    <string name="clock">საათი</string>
+    <string name="global_action_restart_more">გადატვირთვა\u2026</string>
     <string name="global_action_restart_system">სისტემა</string>
     <string name="global_action_restart_recovery">აღმდგენი</string>
     <string name="global_action_restart_bootloader">ჩამტვირთავი</string>
@@ -35,6 +38,11 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">ურთიერთქმედი ეკრანი ჩართულია.</string>
     <string name="quick_settings_aod_label">მუდმივმოქმედი ეკრანი</string>
     <string name="quick_settings_aod_off_powersave_label">მუდმივი ეკრანი გამორთ.\nბატარეის დამზოგი</string>
+    <string name="quick_settings_heads_up_label">ამომხტომი</string>
+    <string name="accessibility_quick_settings_heads_up_off">ამომხტომები გამორთ.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ამომხტომები ჩართ.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ამომხტომი შეტყობინებები გამორთულია.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ამომხტომი შეტყობინებები ჩართულია.</string>
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare გამორთ.\nბატარეის დამზოგი</string>
     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare გამორთ.\nბატარეის მუხტი დაბალია</string>
