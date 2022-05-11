@@ -25348,6 +25348,11 @@ public class PackageManagerService extends IPackageManager.Stub
         public void userRemovedForTest() {
             mBlockDeleteOnUserRemoveForTest.open();
         }
+
+        @Override
+        public int getInstalledSdkVersion(PackageParser.Package pkg) {
+            return PackageManagerService.this.getSettingsVersionForPackage(pkg).sdkVersion;
+        }
     }
 
     @GuardedBy("mPackages")
