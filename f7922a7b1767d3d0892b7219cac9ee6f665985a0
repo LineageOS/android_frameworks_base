@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4088726_1e6cb070",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2022-05-13T18:08:38Z",
+      "side": 1,
+      "message": "Seems aight to me. I don\u0027t know enough about SystemUI code to say more. As discussed in Discord, it would be nice if it at least grayed out the list when the toggle is off (if not hide them).",
+      "revId": "f7922a7b1767d3d0892b7219cac9ee6f665985a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "573d5994_ad984cbb",
+        "filename": "packages/SystemUI/res/layout/profiles_dialog.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2022-05-13T18:08:38Z",
+      "side": 1,
+      "message": "I guess this is fine to leave as network style...I dunno if that makes it better or worse for porting later",
+      "revId": "f7922a7b1767d3d0892b7219cac9ee6f665985a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "491a3765_dd2990f5",
+        "filename": "packages/SystemUI/res/layout/profiles_dialog.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2022-05-13T18:08:38Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "f7922a7b1767d3d0892b7219cac9ee6f665985a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4152c7_966fc938",
+        "filename": "packages/SystemUI/res/layout/profiles_dialog.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2022-05-13T18:08:38Z",
+      "side": 1,
+      "message": "Same here",
+      "revId": "f7922a7b1767d3d0892b7219cac9ee6f665985a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
