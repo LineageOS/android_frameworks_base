@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485c7ccc_c043e352",
+        "filename": "core/java/android/permission/PermissionManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-05-14T15:01:57Z",
+      "side": 0,
+      "message": "you might want to call \"updateIndicatorExemptedPackages\" here instead, then? Just so the lists are initialized even when the caller doesn\u0027t call it before",
+      "range": {
+        "startLine": 166,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 58
+      },
+      "revId": "06fe7f4ce8654e98f27e9debbf02f95d29c858be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
