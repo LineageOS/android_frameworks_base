@@ -144,7 +144,7 @@ public class Utilities {
 
     /** @return whether or not {@param context} represents that of a large screen device or not */
     public static boolean isLargeScreen(WindowManager windowManager, Resources resources) {
-        final Rect bounds = windowManager.getCurrentWindowMetrics().getBounds();
+        final Rect bounds = windowManager.getMaximumWindowMetrics().getBounds();
 
         float smallestWidth = dpiFromPx(Math.min(bounds.width(), bounds.height()),
                 resources.getConfiguration().densityDpi);
