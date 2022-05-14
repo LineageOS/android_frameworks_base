@@ -139,7 +139,7 @@ public class Utilities {
     @TargetApi(Build.VERSION_CODES.R)
     public static boolean isLargeScreen(Context context) {
         final WindowManager windowManager = context.getSystemService(WindowManager.class);
-        final Rect bounds = windowManager.getCurrentWindowMetrics().getBounds();
+        final Rect bounds = windowManager.getMaximumWindowMetrics().getBounds();
 
         float smallestWidth = dpiFromPx(Math.min(bounds.width(), bounds.height()),
                 context.getResources().getConfiguration().densityDpi);
