@@ -22,6 +22,30 @@
       },
       "revId": "06fe7f4ce8654e98f27e9debbf02f95d29c858be",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c4fe06_6222866b",
+        "filename": "core/java/android/permission/PermissionManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-05-14T15:23:48Z",
+      "side": 0,
+      "message": "These arrays are only used in getIndicatorExemptedPackages and it calls updateIndicatorExemptedPackages.",
+      "parentUuid": "485c7ccc_c043e352",
+      "range": {
+        "startLine": 166,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 58
+      },
+      "revId": "06fe7f4ce8654e98f27e9debbf02f95d29c858be",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
