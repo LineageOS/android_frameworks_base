@@ -268,7 +268,7 @@ public class NavigationBarInflaterView extends FrameLayout
                 // our customization overlay to highest priority to ensure it is applied.
                 iom.setHighestPriority(OVERLAY_NAVIGATION_HIDE_HINT, userId);
             }
-        } catch (RemoteException e) {
+        } catch (IllegalArgumentException | RemoteException e) {
             Log.e(TAG, "Failed to " + (state ? "enable" : "disable")
                     + " overlay " + OVERLAY_NAVIGATION_HIDE_HINT + " for user " + userId);
         }
