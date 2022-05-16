@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22deb00d_70c1c5ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-05-16T10:48:05Z",
+      "side": 1,
+      "message": "Pixel launcher crash while switching pure black, not sure whether its launcher\u0027s fault or this. https://katb.in/efotiriqabe",
+      "revId": "73ddfabad444a3c5396bd54d7870559f21fc59b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
