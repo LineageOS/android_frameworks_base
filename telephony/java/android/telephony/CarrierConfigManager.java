@@ -10423,6 +10423,81 @@ public class CarrierConfigManager {
     public static final String KEY_WEAR_CONNECTIVITY_EXTEND_BT_TO_CELL_DELAY_ON_WIFI_MS_INT =
             "wifi_connectivity_extend_cell_delay";
 
+    /**
+     * Determines the SIB2 value for showing the 5G Ultra Wideband icon.
+     * The rest of the NR Ultra Wideband configs will be considere only if this value is 1. A value
+     * of 0 means the other NR Ultra Wideband configs will not be considered.
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_SIB2_VALUE =
+            "5g_ultra_wideband_icon_sib2_value";
+
+    /**
+     * Determines the minimum aggregate bandwidth for showing the 5G Ultra Wideband icon.
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_VALUE =
+            "5g_ultra_wideband_icon_min_bandwidth_value";
+
+    /**
+     * Determines the minimum aggregate bandwidth mode for which the 5G Ultra Wideband icon will be
+     * shown. The following modes are allowed: NONE, CONNECTED, IDLE, CONNECTED_AND_IDLE
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_MODE =
+            "5g_ultra_wideband_icon_min_bandwidth_mode";
+
+    /**
+     * Determines the 5G Ultra Wideband icon refresh timer type (key) and the refresh timer value
+     * (value) in seconds.
+     * The following types are allowed for the type: SCG_TO_MCG, IDLE_TO_CONNECT, IDLE
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_REFRESH_TIMER_MAP =
+            "5g_ultra_wideband_icon_refresh_timer_map";
+
+    /**
+     * Determines the mode in which the 5G Ultra Wideband icon will be shown for 5G NSA bands.
+     * The following modes are allowed: NONE, CONNECTED, IDLE, CONNECTED_AND_IDLE
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_MODE =
+            "5g_ultra_wideband_icon_nsa_band_mode";
+
+    /**
+     * Determines the list of 5G NSA bands for which 5G Ultra Wideband icons must be shown.
+     * For each list entry, the allowed values are either enabled (show the 5G Ultra Wideband icon)
+     * or disabled (do not show the 5G Ultra Wideband icon).
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_ARRAY =
+            "5g_ultra_wideband_icon_nsa_band_array";
+
+    /**
+     * Determines the mode in which the 5G Ultra Wideband icon will be shown for 5G SA bands.
+     * The following modes are allowed: NONE, CONNECTED, IDLE, CONNECTED_AND_IDLE
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_MODE =
+            "5g_ultra_wideband_icon_sa_band_mode";
+
+    /**
+     * Determines the list of 5G SA bands for which 5G Ultra Wideband icons must be shown.
+     * For each list entry, the allowed values are either enabled (show the 5G Ultra Wideband icon)
+     * or disabled (do not show the 5G Ultra Wideband icon).
+     *
+     * @hide
+     */
+    public static final String KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_ARRAY =
+            "5g_ultra_wideband_icon_sa_band_array";
+
     /** The default value for every variable. */
     private static final PersistableBundle sDefaults;
 
@@ -11058,6 +11133,15 @@ public class CarrierConfigManager {
                 TimeUnit.DAYS.toMillis(1));
         sDefaults.putStringArray(KEY_MISSED_INCOMING_CALL_SMS_ORIGINATOR_STRING_ARRAY,
                 new String[0]);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SIB2_VALUE, -1);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_VALUE, 0);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_MODE, 0);
+        sDefaults.putPersistableBundle(KEY_NR_ULTRA_WIDEBAND_ICON_REFRESH_TIMER_MAP,
+                PersistableBundle.EMPTY);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_MODE, 0);
+        sDefaults.putIntArray(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_ARRAY, new int[]{});
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_MODE, 0);
+        sDefaults.putIntArray(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_ARRAY, new int[]{});
 
         // Do not modify the priority unless you know what you are doing. This will have significant
         // impacts on the order of data network setup.
