@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c94d6cef_f2bfdaf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2022-05-18T15:54:30Z",
+      "side": 1,
+      "message": "On my op3/t build this commit avoids asking for the lock passphrase and sim pin on boot/reboot - instead the device boots directly to start screen after giving the encryption passphrase. ",
+      "revId": "ea52854b208d2a8e367c65068edbdff741b9eb80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
