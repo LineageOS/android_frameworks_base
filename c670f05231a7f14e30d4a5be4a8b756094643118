@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78174fba_fb45d5cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2022-05-19T10:29:12Z",
+      "side": 1,
+      "message": "Whole chain LGTM. Visually much more pleasing than the original version.",
+      "revId": "c670f05231a7f14e30d4a5be4a8b756094643118",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
