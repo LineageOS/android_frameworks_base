@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1196b87f_4aa1f3c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-05-20T12:23:44Z",
+      "side": 1,
+      "message": "idk if its only me, but sometime switching between dark/light mode, messes up powermenu dialog",
+      "revId": "86ded05d5c9be8daaecc40c312b26158ea30c96a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
