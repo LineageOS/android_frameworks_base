@@ -16,6 +16,23 @@
       "message": "Seems fixed--can\u0027t verify as icosa isn\u0027t booting yet but it compiles fine",
       "revId": "101a19622852ec7773fae3aaa9ecf158887432ee",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c876e62_de25373f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2022-05-20T06:58:19Z",
+      "side": 1,
+      "message": "Verified on loki_e_wifi. Give notification at 15%, then at 5%.",
+      "revId": "101a19622852ec7773fae3aaa9ecf158887432ee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
