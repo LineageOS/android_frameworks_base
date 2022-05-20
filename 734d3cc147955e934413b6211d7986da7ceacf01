@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce82fb8_1d99c0f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-05-20T19:34:07Z",
+      "side": 1,
+      "message": "Switching between dark/light mode still messes up powermenu dialog",
+      "revId": "734d3cc147955e934413b6211d7986da7ceacf01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
