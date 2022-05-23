@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "381217c9_e79fa543",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-05-23T13:18:05Z",
+      "side": 1,
+      "message": "this doesn\u0027t work in lockscreen.\nuse this method instead https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/331671",
+      "revId": "b33e8c4b44d7eec7551f2a93f721f90c8ce742fb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
