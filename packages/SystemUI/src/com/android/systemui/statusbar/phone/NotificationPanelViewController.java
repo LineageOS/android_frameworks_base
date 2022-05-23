@@ -4413,6 +4413,13 @@ public class NotificationPanelViewController extends PanelViewController {
         }
 
         @Override
+        public void onUiModeChanged() {
+            if (DEBUG) Log.d(TAG, "onUiModeChanged");
+            // Collapse QS to avoid any mis-alignments in panel after UI change
+            collapsePanel(true /* animate */, false /* delayed */, 1.0f /* speedUpFactor */);
+        }
+
+        @Override
         public void onSmallestScreenWidthChanged() {
             if (DEBUG) Log.d(TAG, "onSmallestScreenWidthChanged");
 
