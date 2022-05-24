@@ -16,6 +16,52 @@
       "message": "looks good\nsame as 18.1",
       "revId": "767064a6191454ac14ed383b62302c03c3858e0e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0efcc86_cae62ebf",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/deviceinfo/AbstractBatteryStatusPreferenceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-05-24T18:30:32Z",
+      "side": 1,
+      "message": "These should be placed after android. imports (between android. and com.android. imports).",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "767064a6191454ac14ed383b62302c03c3858e0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c66415_0f45bf65",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/deviceinfo/AbstractBatteryStatusPreferenceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-05-24T18:30:32Z",
+      "side": 1,
+      "message": "This went unnoticed before, but please fix it now.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 1
+      },
+      "revId": "767064a6191454ac14ed383b62302c03c3858e0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
