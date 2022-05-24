@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c4e1dc_ca7653a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-05-24T18:48:37Z",
+      "side": 1,
+      "message": "Still trying to make this better. This really doesn\u0027t look great atm (appreciate the general effort though). Adding vote as a blocker",
+      "revId": "060ded3336199526943bb29cd42a56a6d0d08336",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
