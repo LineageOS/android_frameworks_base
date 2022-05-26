@@ -49,6 +49,7 @@ import com.android.internal.graphics.ColorUtils;
 import com.android.settingslib.Utils;
 import com.android.systemui.R;
 import com.android.systemui.animation.Interpolators;
+import com.android.systemui.keyguard.KeyguardSliceProvider;
 import com.android.systemui.util.wakelock.KeepAwakeAnimationListener;
 
 import java.io.FileDescriptor;
@@ -446,13 +447,15 @@ public class KeyguardSliceView extends LinearLayout {
 
         private void updatePadding() {
             boolean hasText = !TextUtils.isEmpty(getText());
+            boolean isDate = Uri.parse(KeyguardSliceProvider.KEYGUARD_DATE_URI).equals(getTag());
             int padding = (int) getContext().getResources()
                     .getDimension(R.dimen.widget_horizontal_padding) / 2;
+            int iconPadding = (int) mContext.getResources()
+                    .getDimension(R.dimen.widget_icon_padding);
             // orientation is vertical, so add padding to top & bottom
-            setPadding(0, padding, 0, hasText ? padding : 0);
+            setPadding(!isDate ? iconPadding : 0, padding, 0, hasText ? padding : 0);
 
-            setCompoundDrawablePadding((int) mContext.getResources()
-                    .getDimension(R.dimen.widget_icon_padding));
+            setCompoundDrawablePadding(iconPadding);
         }
 
         @Override
