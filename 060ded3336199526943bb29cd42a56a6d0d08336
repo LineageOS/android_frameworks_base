@@ -33,6 +33,23 @@
       "message": "heard",
       "revId": "060ded3336199526943bb29cd42a56a6d0d08336",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73c49b18_151ba5b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-05-26T18:37:35Z",
+      "side": 1,
+      "message": "Can\u0027t come up with smth much better. fully collapsing might be the best option here, that way you don\u0027t end up in probably useless QQS state or full expansion but on wrong slide/tile page.\nidk, removing my hard vote anyway to not block it.",
+      "revId": "060ded3336199526943bb29cd42a56a6d0d08336",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
