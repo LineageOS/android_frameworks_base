@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "755798ae_abc0d557",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-05-28T14:23:09Z",
+      "side": 1,
+      "message": "unnecessary newline",
+      "revId": "66f95134229f7e005ab29fb7c00563cf15854325",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
