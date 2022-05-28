@@ -16,6 +16,24 @@
       "message": "unnecessary newline",
       "revId": "66f95134229f7e005ab29fb7c00563cf15854325",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df31de3e_2287d7f8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/ScrimController.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-05-28T16:15:12Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "755798ae_abc0d557",
+      "revId": "66f95134229f7e005ab29fb7c00563cf15854325",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
