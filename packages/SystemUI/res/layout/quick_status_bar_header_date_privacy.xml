@@ -25,14 +25,12 @@
     android:gravity="center"
     android:layout_gravity="top"
     android:orientation="horizontal"
-    android:clickable="true"
-    android:minHeight="48dp">
+    android:clickable="true">
 
     <FrameLayout
         android:id="@+id/date_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:minHeight="48dp"
         android:layout_weight="1"
         android:gravity="center_vertical|start" >
 
