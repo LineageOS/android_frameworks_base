@@ -29,6 +29,7 @@ import static android.app.AppOpsManager.OP_RECORD_AUDIO;
 import static android.content.Intent.EXTRA_PACKAGE_NAME;
 import static android.content.Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS;
 import static android.content.Intent.FLAG_ACTIVITY_NO_USER_ACTION;
+import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.hardware.SensorPrivacyManager.EXTRA_ALL_SENSORS;
 import static android.hardware.SensorPrivacyManager.EXTRA_SENSOR;
@@ -75,6 +76,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManagerInternal;
 import android.content.res.Configuration;
 import android.graphics.drawable.Icon;
 import android.hardware.ISensorPrivacyListener;
@@ -883,7 +885,10 @@ public final class SensorPrivacyService extends SystemService {
         }
 
         private void enforcePermission(String permission, String message) {
-            if (mContext.checkCallingOrSelfPermission(permission) == PERMISSION_GRANTED) {
+            PackageManagerInternal pm = LocalServices.getService(PackageManagerInternal.class);
+            if (mContext.checkCallingOrSelfPermission(permission) == PERMISSION_GRANTED ||
+                    Binder.getCallingUid() == pm.getPackageUid(pm.getSystemUiServiceComponent().
+                    getPackageName(), MATCH_SYSTEM_ONLY, USER_SYSTEM)) {
                 return;
             }
             throw new SecurityException(message);
