@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af82de3_7567e8c5",
+        "filename": "services/core/java/com/android/server/SensorPrivacyService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 26916
+      },
+      "writtenOn": "2022-06-01T12:13:12Z",
+      "side": 1,
+      "message": "Static import is missing for MATCH_SYSTEM_ONLY",
+      "revId": "2639edd58deba77c2815c83711f87da5405c8738",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
