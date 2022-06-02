@@ -36,6 +36,7 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.util.Log;
+import android.webkit.URLUtil;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.net.IProxyCallback;
@@ -209,8 +210,22 @@ public class PacManager {
      * @throws IOException
      */
     private static String get(Uri pacUri) throws IOException {
-        URL url = new URL(pacUri.toString());
-        URLConnection urlConnection = url.openConnection(java.net.Proxy.NO_PROXY);
+        if (!URLUtil.isValidUrl(pacUri.toString()))  {
+            throw new IOException("Malformed URL:" + pacUri);
+        }
+
+        final URL url = new URL(pacUri.toString());
+        URLConnection urlConnection;
+        try {
+            urlConnection = url.openConnection(java.net.Proxy.NO_PROXY);
+            // Catch the possible exceptions and rethrow as IOException to not to crash the system
+            // for illegal input.
+        } catch (IllegalArgumentException e) {
+            throw new IOException("Incorrect proxy type for " + pacUri);
+        } catch (UnsupportedOperationException e) {
+            throw new IOException("Unsupported URL connection type for " + pacUri);
+        }
+
         long contentLength = -1;
         try {
             contentLength = Long.parseLong(urlConnection.getHeaderField("Content-Length"));
