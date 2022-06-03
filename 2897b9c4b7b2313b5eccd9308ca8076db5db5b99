@@ -16,6 +16,29 @@
       "message": "Works fine on FP3.",
       "revId": "2897b9c4b7b2313b5eccd9308ca8076db5db5b99",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1d83402_19caa249",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2022-06-03T08:57:59Z",
+      "side": 1,
+      "message": "Can\u0027t we do\n if (!mCleanup) {\n     return;\n }\n ...\n?",
+      "range": {
+        "startLine": 702,
+        "startChar": 8,
+        "endLine": 702,
+        "endChar": 23
+      },
+      "revId": "2897b9c4b7b2313b5eccd9308ca8076db5db5b99",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
