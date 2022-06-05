@@ -80,6 +80,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
 
     private final RecordingController mController;
     private final UserContextProvider mUserContextProvider;
+    private final Context mUserContext;
     @Nullable
     private final Runnable mOnStartRecordingClicked;
     private final ActivityStarter mActivityStarter;
@@ -100,6 +101,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         super(context);
         mController = controller;
         mUserContextProvider = userContextProvider;
+        mUserContext = mUserContextProvider.getUserContext();
         mActivityStarter = activityStarter;
         mDialogLaunchAnimator = dialogLaunchAnimator;
         mFlags = flags;
@@ -176,7 +178,13 @@ public class ScreenRecordDialog extends SystemUIDialog {
             mAudioSwitch.setChecked(true);
         });
 
-        loadPrefs();
+        mTapsSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_TAPS, 0) == 1);
+        mStopDotSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_DOT, 0) == 1);
+        mLowQualitySwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_LOW, 0) == 1);
+        mLongerSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_LONGER, 0) == 1);
+        mAudioSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_AUDIO, 0) == 1);
+        mOptions.setSelection(Prefs.getInt(mUserContext, PREFS + PREF_AUDIO_SOURCE, 0));
+        mSkipSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_SKIP, 0) == 1);
     }
 
     /**
@@ -185,27 +193,32 @@ public class ScreenRecordDialog extends SystemUIDialog {
      *                      null to record the whole screen
      */
     private void requestScreenCapture(@Nullable MediaProjectionCaptureTarget captureTarget) {
-        Context userContext = mUserContextProvider.getUserContext();
-        savePrefs();
         boolean showTaps = mTapsSwitch.isChecked();
         boolean showStopDot = mStopDotSwitch.isChecked();
         boolean lowQuality = mLowQualitySwitch.isChecked();
         boolean longerDuration = mLongerSwitch.isChecked();
         boolean skipTime = mSkipSwitch.isChecked();
-        ScreenRecordingAudioSource audioMode = mAudioSwitch.isChecked()
-                ? (ScreenRecordingAudioSource) mOptions.getSelectedItem()
-                : NONE;
-        PendingIntent startIntent = PendingIntent.getForegroundService(userContext,
+        boolean audioSwitch = mAudioSwitch.isChecked();
+        ScreenRecordingAudioSource audioMode = audioSwitch
+                ? (ScreenRecordingAudioSource) mOptions.getSelectedItem() : NONE;
+        PendingIntent startIntent = PendingIntent.getForegroundService(mUserContext,
                 RecordingService.REQUEST_CODE,
                 RecordingService.getStartIntent(
-                        userContext, Activity.RESULT_OK,
+                        mUserContext, Activity.RESULT_OK,
                         audioMode.ordinal(), showTaps, captureTarget,
                         showStopDot, lowQuality, longerDuration),
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        PendingIntent stopIntent = PendingIntent.getService(userContext,
+        PendingIntent stopIntent = PendingIntent.getService(mUserContext,
                 RecordingService.REQUEST_CODE,
-                RecordingService.getStopIntent(userContext),
+                RecordingService.getStopIntent(mUserContext),
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        Prefs.putInt(mUserContext, PREFS + PREF_TAPS, showTaps ? 1 : 0);
+        Prefs.putInt(mUserContext, PREFS + PREF_DOT, showStopDot ? 1 : 0);
+        Prefs.putInt(mUserContext, PREFS + PREF_LOW, lowQuality ? 1 : 0);
+        Prefs.putInt(mUserContext, PREFS + PREF_LONGER, longerDuration ? 1 : 0);
+        Prefs.putInt(mUserContext, PREFS + PREF_AUDIO, audioSwitch ? 1 : 0);
+        Prefs.putInt(mUserContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
+        Prefs.putInt(mUserContext, PREFS + PREF_SKIP, skipTime ? 1 : 0);
         mController.startCountdown(skipTime ? NO_DELAY : DELAY_MS, INTERVAL_MS, startIntent, stopIntent);
     }
 
@@ -225,27 +238,5 @@ public class ScreenRecordDialog extends SystemUIDialog {
                 requestScreenCapture(captureTarget);
             }
         }
-    }
-
-    private void savePrefs() {
-        Context userContext = mUserContextProvider.getUserContext();
-        Prefs.putInt(userContext, PREFS + PREF_TAPS, mTapsSwitch.isChecked() ? 1 : 0);
-        Prefs.putInt(userContext, PREFS + PREF_DOT, mStopDotSwitch.isChecked() ? 1 : 0);
-        Prefs.putInt(userContext, PREFS + PREF_LOW, mLowQualitySwitch.isChecked() ? 1 : 0);
-        Prefs.putInt(userContext, PREFS + PREF_LONGER, mLongerSwitch.isChecked() ? 1 : 0);
-        Prefs.putInt(userContext, PREFS + PREF_AUDIO, mAudioSwitch.isChecked() ? 1 : 0);
-        Prefs.putInt(userContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
-        Prefs.putInt(userContext, PREFS + PREF_SKIP, mSkipSwitch.isChecked() ? 1 : 0);
-    }
-
-    private void loadPrefs() {
-        Context userContext = mUserContextProvider.getUserContext();
-        mTapsSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_TAPS, 0) == 1);
-        mStopDotSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_DOT, 0) == 1);
-        mLowQualitySwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_LOW, 0) == 1);
-        mLongerSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_LONGER, 0) == 1);
-        mAudioSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_AUDIO, 0) == 1);
-        mOptions.setSelection(Prefs.getInt(userContext, PREFS + PREF_AUDIO_SOURCE, 0));
-        mSkipSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_SKIP, 0) == 1);
     }
 }
