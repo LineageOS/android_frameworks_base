@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4669442e_4cea826d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-06-05T10:56:08Z",
+      "side": 1,
+      "message": "@Hamsi2k/@Samar/@Mohammad, could you please try out the new patch set once?\n\nThanks.",
+      "revId": "87f04da03724b26f64b78e628f171e4bc4b20673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
