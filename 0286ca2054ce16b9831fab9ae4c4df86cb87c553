@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f56144ed_29c2a96b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2022-06-06T19:04:35Z",
+      "side": 1,
+      "message": "With the Lineage common atv settings retaining the 1920x1080@320 resolution and dpi override, this commit is necessary.",
+      "revId": "0286ca2054ce16b9831fab9ae4c4df86cb87c553",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
