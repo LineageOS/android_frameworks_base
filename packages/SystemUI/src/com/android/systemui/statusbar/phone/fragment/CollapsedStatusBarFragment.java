@@ -332,7 +332,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         boolean showVibrateIcon =
                 mSecureSettings.getIntForUser(
                         Settings.Secure.STATUS_BAR_SHOW_VIBRATE_ICON,
-                        0,
+                        1,
                         UserHandle.USER_CURRENT) == 0;
 
         // Filter out vibrate icon from the blocklist if the setting is on
