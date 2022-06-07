@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d743164_eeebadbd",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 19763
+      },
+      "writtenOn": "2022-06-07T11:52:48Z",
+      "side": 1,
+      "message": "I don\u0027t think it will work like that. This line throws this error: https://katb.in/oqohamapomi\nShould you remove the line, everything works fine.",
+      "revId": "e16c54c5977c50b1001439034f8786e51ff04d4c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
