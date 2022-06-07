@@ -231,7 +231,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mBlockedIcons.addAll(Arrays.asList(getResources().getStringArray(
                 R.array.config_collapsed_statusbar_icon_blocklist)));
 
-        if (mSecureSettings.getInt(Settings.Secure.STATUS_BAR_SHOW_VIBRATE_ICON, 0) == 0) {
+        if (mSecureSettings.getInt(Settings.Secure.STATUS_BAR_SHOW_VIBRATE_ICON, 1) == 0) {
             mBlockedIcons.add(getString(com.android.internal.R.string.status_bar_volume));
         }
 
