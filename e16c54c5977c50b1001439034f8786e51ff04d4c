@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "708e1720_001bc6de",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-06-07T18:04:00Z",
+      "side": 1,
+      "message": "Yes, that addresses the crash.",
+      "parentUuid": "2cda48d6_f871142a",
+      "range": {
+        "startLine": 231,
+        "startChar": 7,
+        "endLine": 232,
+        "endChar": 68
+      },
+      "revId": "e16c54c5977c50b1001439034f8786e51ff04d4c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d743164_eeebadbd",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment.java",
         "patchSetId": 1
