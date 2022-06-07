@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2cda48d6_f871142a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-06-07T14:02:33Z",
+      "side": 1,
+      "message": "```\nmBlockedIcons.addAll(Arrays.asList(getResources().getStringArray(\n        R.array.config_collapsed_statusbar_icon_blocklist)));\n```\n\nmight work there.",
+      "range": {
+        "startLine": 231,
+        "startChar": 7,
+        "endLine": 232,
+        "endChar": 68
+      },
+      "revId": "e16c54c5977c50b1001439034f8786e51ff04d4c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d743164_eeebadbd",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment.java",
         "patchSetId": 1
