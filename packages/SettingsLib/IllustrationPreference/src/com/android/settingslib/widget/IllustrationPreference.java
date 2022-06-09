@@ -119,7 +119,7 @@ public class IllustrationPreference extends Preference {
         lp.width = screenWidth < screenHeight ? screenWidth : screenHeight;
         illustrationFrame.setLayoutParams(lp);
 
-        handleImageWithAnimation(illustrationView);
+        handleImageWithAnimation(illustrationFrame, illustrationView);
         handleImageFrameMaxHeight(backgroundView, illustrationView);
 
         if (mIsAutoScale) {
@@ -256,7 +256,8 @@ public class IllustrationPreference extends Preference {
         }
     }
 
-    private void handleImageWithAnimation(LottieAnimationView illustrationView) {
+    private void handleImageWithAnimation(FrameLayout illustrationFrame,
+            LottieAnimationView illustrationView) {
         if (mImageDrawable != null) {
             resetAnimations(illustrationView);
             illustrationView.setImageDrawable(mImageDrawable);
@@ -275,7 +276,7 @@ public class IllustrationPreference extends Preference {
             } else {
                 // The lottie image from the raw folder also returns null because the ImageView
                 // couldn't handle it now.
-                startLottieAnimationWith(illustrationView, mImageUri);
+                startLottieAnimationWith(illustrationFrame, illustrationView, mImageUri);
             }
         }
 
@@ -288,7 +289,7 @@ public class IllustrationPreference extends Preference {
             } else {
                 // The lottie image from the raw folder also returns null because the ImageView
                 // couldn't handle it now.
-                startLottieAnimationWith(illustrationView, mImageResId);
+                startLottieAnimationWith(illustrationFrame, illustrationView, mImageResId);
             }
         }
     }
@@ -326,21 +327,27 @@ public class IllustrationPreference extends Preference {
         ((Animatable) drawable).start();
     }
 
-    private static void startLottieAnimationWith(LottieAnimationView illustrationView,
-            Uri imageUri) {
+    private static void startLottieAnimationWith(FrameLayout illustrationFrame,
+            LottieAnimationView illustrationView, Uri imageUri) {
         final InputStream inputStream =
                 getInputStreamFromUri(illustrationView.getContext(), imageUri);
-        illustrationView.setFailureListener(
-                result -> Log.w(TAG, "Invalid illustration image uri: " + imageUri, result));
+        illustrationFrame.setVisibility(View.VISIBLE);
+        illustrationView.setFailureListener(result -> {
+            Log.w(TAG, "Invalid illustration image uri: " + imageUri, result);
+            illustrationFrame.setVisibility(View.GONE);
+        });
         illustrationView.setAnimation(inputStream, /* cacheKey= */ null);
         illustrationView.setRepeatCount(LottieDrawable.INFINITE);
         illustrationView.playAnimation();
     }
 
-    private static void startLottieAnimationWith(LottieAnimationView illustrationView,
-            @RawRes int rawRes) {
-        illustrationView.setFailureListener(
-                result -> Log.w(TAG, "Invalid illustration resource id: " + rawRes, result));
+    private static void startLottieAnimationWith(FrameLayout illustrationFrame,
+            LottieAnimationView illustrationView, @RawRes int rawRes) {
+        illustrationFrame.setVisibility(View.VISIBLE);
+        illustrationView.setFailureListener(result -> {
+            Log.w(TAG, "Invalid illustration resource id: " + rawRes, result);
+            illustrationFrame.setVisibility(View.GONE);
+        });
         illustrationView.setAnimation(rawRes);
         illustrationView.setRepeatCount(LottieDrawable.INFINITE);
         illustrationView.playAnimation();
