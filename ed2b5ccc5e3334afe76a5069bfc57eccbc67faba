@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc67561e_ae9270bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26658
+      },
+      "writtenOn": "2022-06-13T08:21:53Z",
+      "side": 1,
+      "message": "Builds fine for potter and thea.",
+      "revId": "ed2b5ccc5e3334afe76a5069bfc57eccbc67faba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
