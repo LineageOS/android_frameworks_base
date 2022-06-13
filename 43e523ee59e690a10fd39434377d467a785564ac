@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edcb984d_9d641ecd",
+        "filename": "services/core/java/com/android/server/om/OverlayManagerSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2022-06-13T17:23:35Z",
+      "side": 1,
+      "message": "shouldn\u0027t || be used here?",
+      "revId": "43e523ee59e690a10fd39434377d467a785564ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
