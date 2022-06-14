@@ -16,6 +16,41 @@
       "message": "On my op3/t build this commit avoids asking for the lock passphrase and sim pin on boot/reboot - instead the device boots directly to start screen after giving the encryption passphrase. ",
       "revId": "ea52854b208d2a8e367c65068edbdff741b9eb80",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "187e0155_3f8ca196",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2022-06-14T17:54:13Z",
+      "side": 1,
+      "message": "Reported issue is OP3T device-specific and not directly related to the topic (see my comment). Back-porting two commits into device/oppo/common will fix the Keyguard issue caused by the config panel.",
+      "revId": "ea52854b208d2a8e367c65068edbdff741b9eb80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f93fa457_4193a71e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2022-06-14T17:54:13Z",
+      "side": 1,
+      "message": "Thanks for the feedback. I have created a lineage 16 build for the OP3T now and flashed it to try reproducing the behavior, which you have described: \nIndeed, different from other devices (Osprey and P9 in my case, which I did test) and seemingly different from the positive test feedback from the others having tested this topic with with their devices - probably specific for the OP3T - the behavior described above happens on the OP3T device.\n\nAfter further doing some research, I found the solution. This is indeed specific to the OP3T device: The issue comes from the our \"friend\", the config panel (and was solved in higher releases). If you back-port the below commits into the lineage-16.0 tree, it will work properly:\n\nhttps://github.com/LineageOS/android_device_oppo_common/commit/fcd768e8a9a05e5d60ad1d418594c10bd09b4f1d\n\nhttps://github.com/LineageOS/android_device_oppo_common/commit/2ffe9b7d3c5ceb9b207fbcfb78bc7d153a4fa347\n\nTherefore, please +1 this commit, as the ASB topic as such is OK.",
+      "parentUuid": "c94d6cef_f2bfdaf8",
+      "revId": "ea52854b208d2a8e367c65068edbdff741b9eb80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
