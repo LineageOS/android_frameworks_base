@@ -68,6 +68,23 @@
       "message": "My success message was too early, after a further restart of the phone, the issue came back unfortunately! Nevertheless - I still think this is specific to the OP3T device and not a general issue of the topic.\n\nIn fact, after tapping the on/off switch twice, you can enter the PIN and the unlock key is also queried, so the device is usable - and since you had to enter the decryption key at start to get here, there is also no security risk of an unauthorized use of the device.\n\nOpinions of others?",
       "revId": "ea52854b208d2a8e367c65068edbdff741b9eb80",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "febe8aad_c5029c35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12847
+      },
+      "writtenOn": "2022-06-14T20:15:06Z",
+      "side": 1,
+      "message": "Thanx!",
+      "revId": "ea52854b208d2a8e367c65068edbdff741b9eb80",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
