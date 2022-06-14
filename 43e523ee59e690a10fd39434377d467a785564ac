@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c914218_e51611f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2022-06-14T15:32:01Z",
+      "side": 1,
+      "message": "\u003e Patch Set 2:\n\u003e \n\u003e Hmm, i think so. Can you upload a fixup change for this?\n\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/332722",
+      "revId": "43e523ee59e690a10fd39434377d467a785564ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edcb984d_9d641ecd",
