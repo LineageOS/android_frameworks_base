@@ -16,6 +16,24 @@
       "message": "shouldn\u0027t || be used here?",
       "revId": "43e523ee59e690a10fd39434377d467a785564ac",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "253b11da_0a23ed64",
+        "filename": "services/core/java/com/android/server/om/OverlayManagerSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-06-14T13:16:25Z",
+      "side": 1,
+      "message": "it does\nshould be \u0026\u0026 ( || )",
+      "parentUuid": "edcb984d_9d641ecd",
+      "revId": "43e523ee59e690a10fd39434377d467a785564ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
