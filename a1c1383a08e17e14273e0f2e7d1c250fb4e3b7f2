@@ -33,6 +33,23 @@
       "message": "Topic builds and runs fine on gtaxllte.",
       "revId": "a1c1383a08e17e14273e0f2e7d1c250fb4e3b7f2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5949f11_67121268",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2022-06-15T12:44:56Z",
+      "side": 1,
+      "message": "Topic ready f. merge",
+      "revId": "a1c1383a08e17e14273e0f2e7d1c250fb4e3b7f2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
