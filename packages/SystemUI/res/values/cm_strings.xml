@@ -102,6 +102,11 @@
     <string name="vpn_credentials_password">Password</string>
     <string name="vpn_credentials_dialog_connect">Connect</string>
 
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">VPN tethering</string>
+    <string name="vpn_tethering_changed_off">VPN tethering turned off.</string>
+    <string name="vpn_tethering_changed_on">VPN tethering turned on.</string>
+
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
