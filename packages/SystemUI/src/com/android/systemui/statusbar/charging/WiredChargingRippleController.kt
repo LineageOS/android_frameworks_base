@@ -99,8 +99,9 @@ class WiredChargingRippleController @Inject constructor(
                 nowPluggedIn: Boolean,
                 charging: Boolean
             ) {
-                // Suppresses the ripple when the state change comes from wireless charging.
-                if (batteryController.isPluggedInWireless) {
+                // Suppresses the ripple when it's disabled, or when the state change comes
+                // from wireless charging.
+                if (!rippleEnabled || batteryController.isPluggedInWireless) {
                     return
                 }
                 val wasPluggedIn = pluggedIn
@@ -147,7 +148,7 @@ class WiredChargingRippleController @Inject constructor(
     }
 
     fun startRipple() {
-        if (rippleView.rippleInProgress || rippleView.parent != null) {
+        if (!rippleEnabled || rippleView.rippleInProgress || rippleView.parent != null) {
             // Skip if ripple is still playing, or not playing but already added the parent
             // (which might happen just before the animation starts or right after
             // the animation ends.)
