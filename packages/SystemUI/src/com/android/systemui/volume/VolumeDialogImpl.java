@@ -1242,20 +1242,22 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     public void initSettingsH() {
         if (mSettingsView != null) {
+            final MediaController mediaController = getActiveLocalMediaController();
             mSettingsView.setVisibility(mDeviceProvisionedController.isCurrentUserSetup()
-                    && mActivityManager.getLockTaskModeState() == LOCK_TASK_MODE_NONE
-                    && isBluetoothA2dpConnected()
-                    ? VISIBLE : GONE);
+                                    && mActivityManager.getLockTaskModeState()
+                                            == LOCK_TASK_MODE_NONE
+                                    && isBluetoothA2dpConnected()
+                                    && (mediaController != null
+                                            && !TextUtils.isEmpty(mediaController.getPackageName()))
+                            ? VISIBLE
+                            : GONE);
         }
         if (mSettingsIcon != null) {
             mSettingsIcon.setOnClickListener(v -> {
                 Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
                 final MediaController mediaController = getActiveLocalMediaController();
                 String packageName =
-                        mediaController != null
-                                && !TextUtils.isEmpty(mediaController.getPackageName())
-                                ? mediaController.getPackageName()
-                                : "";
+                        mediaController != null ? mediaController.getPackageName() : "";
                 mMediaOutputDialogFactory.create(packageName, false, mDialogView);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
             });
