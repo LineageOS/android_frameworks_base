@@ -16,7 +16,7 @@
   -->
 
 <resources>
-    <bool name="are_flags_overrideable">false</bool>
+    <bool name="are_flags_overrideable">true</bool>
 
     <bool name="flag_monet">true</bool>
 
