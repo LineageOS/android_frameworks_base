@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">ஒத்திசைவு ஆன்</string>
     <string name="accessibility_quick_settings_sync_changed_off">ஒத்திசைவு அணைக்கப்பட்டது</string>
     <string name="accessibility_quick_settings_sync_changed_on">ஒத்திசைவு துவக்கப்பட்டது</string>
+    <string name="quick_settings_profiles_label">சிஸ்டம் சுயவிவரங்கள்</string>
+    <string name="accessibility_quick_settings_profiles_off">சுயவிவரங்கள் ஆஃப்.</string>
+    <string name="accessibility_quick_settings_profiles">சுயவிவரம்: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">சுயவிவரங்கள் ஆஃப் செய்யப்பட்டன.</string>
+    <string name="accessibility_quick_settings_profiles_changed">சுயவிவரம் <xliff:g id="profile" example="Default">%s</xliff:g>க்கு மாற்றப்பட்டது.</string>
     <string name="quick_settings_usb_tether_label">USB டெதெரிங்</string>
 </resources>

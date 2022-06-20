@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">قەدەمداش ئوچۇق.</string>
     <string name="accessibility_quick_settings_sync_changed_off">قەدەمداش قىلىش تاقاق.</string>
     <string name="accessibility_quick_settings_sync_changed_on">قەدەمداش قىلىش ئوچۇق.</string>
+    <string name="quick_settings_profiles_label">سىستېما سەپلىمە ھۆججەتلىرى</string>
+    <string name="accessibility_quick_settings_profiles_off">مۇھىت ھالىتى تاقاق.</string>
+    <string name="accessibility_quick_settings_profiles">مۇھىت ھالىتى: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">مۇھىت ھالىتى تاقالدى.</string>
+    <string name="accessibility_quick_settings_profiles_changed">مۇھىت ھالىتى <xliff:g id="profile" example="Default">%s</xliff:g> گە ئۆزگەرتىلدى.</string>
     <string name="quick_settings_usb_tether_label">USB ھەمبەھىر</string>
 </resources>

@@ -62,5 +62,16 @@
     <string name="accessibility_quick_settings_sync_on">同步處理開啟</string>
     <string name="accessibility_quick_settings_sync_changed_off">同步處理已關閉</string>
     <string name="accessibility_quick_settings_sync_changed_on">同步處理已開啟</string>
+    <string name="quick_settings_profiles_label">系統設定檔</string>
+    <string name="accessibility_quick_settings_profiles_off">設定檔關閉</string>
+    <string name="accessibility_quick_settings_profiles">設定檔：<xliff:g id="profile" example="Default">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_profiles_changed_off">設定檔已關閉</string>
+    <string name="accessibility_quick_settings_profiles_changed">設定檔已變更為<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
     <string name="quick_settings_usb_tether_label">USB 網路共享</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">連線到\u2026</string>
+    <string name="vpn_credentials_hint">請輸入您的身份驗證資訊以連接到<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">使用者名稱</string>
+    <string name="vpn_credentials_password">密碼</string>
+    <string name="vpn_credentials_dialog_connect">連接</string>
 </resources>

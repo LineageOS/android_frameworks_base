@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">सिंक चालू.</string>
     <string name="accessibility_quick_settings_sync_changed_off">सिंक बंद केले.</string>
     <string name="accessibility_quick_settings_sync_changed_on">सिंक चालू केले.</string>
+    <string name="quick_settings_profiles_label">सिस्टिम प्रोफाइल्स</string>
+    <string name="accessibility_quick_settings_profiles_off">प्रोफाइल्स बंद.</string>
+    <string name="accessibility_quick_settings_profiles">प्रोफाइल: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">प्रोफाइल्स बंद केला.</string>
+    <string name="accessibility_quick_settings_profiles_changed">प्रोफाइल <xliff:g id="profile" example="Default">%s</xliff:g>ला बदलला.</string>
     <string name="quick_settings_usb_tether_label">USB टेदरिंग</string>
 </resources>

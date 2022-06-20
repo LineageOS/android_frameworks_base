@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">커서 왼쪽</string>
     <string name="accessibility_dpad_right">커서 오른쪽</string>
+    <string name="clock">시계</string>
     <string name="global_action_restart_more">다시 시작\u2026</string>
     <string name="global_action_restart_system">시스템</string>
     <string name="global_action_restart_recovery">복구 모드</string>
@@ -62,5 +63,16 @@
     <string name="accessibility_quick_settings_sync_on">동기화 켜짐</string>
     <string name="accessibility_quick_settings_sync_changed_off">동기화가 해제되었습니다.</string>
     <string name="accessibility_quick_settings_sync_changed_on">동기화가 설정되었습니다.</string>
+    <string name="quick_settings_profiles_label">시스템 프로필</string>
+    <string name="accessibility_quick_settings_profiles_off">프로필 꺼짐.</string>
+    <string name="accessibility_quick_settings_profiles">현재 프로필: <xliff:g id="profile" example="Default">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_profiles_changed_off">프로필이 이제 꺼짐.</string>
+    <string name="accessibility_quick_settings_profiles_changed">프로필이 <xliff:g id="profile" example="Default">%s</xliff:g>으(로) 바뀜.</string>
     <string name="quick_settings_usb_tether_label">USB 테더링</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">연결 중…</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g>에 연결하기 위해 자격 증명을 입력하세요</string>
+    <string name="vpn_credentials_username">사용자 이름</string>
+    <string name="vpn_credentials_password">비밀번호</string>
+    <string name="vpn_credentials_dialog_connect">연결</string>
 </resources>

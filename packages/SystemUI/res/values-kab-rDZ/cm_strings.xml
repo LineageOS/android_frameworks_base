@@ -20,12 +20,16 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Taḥenaccaḍt tazelmadt</string>
     <string name="accessibility_dpad_right">Taḥenaccaḍt tayeffust</string>
+    <string name="clock">Tamrint</string>
+    <string name="global_action_restart_more">Tulsa tanekra\u2026</string>
     <string name="global_action_restart_system">Anagraw</string>
     <string name="global_action_restart_recovery">Tiririt</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Sider</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Tulsa n tnekra\u2026</string>
     <string name="global_action_current_user">Amiran</string>
+    <string name="global_action_users">Iseqdacen</string>
     <string name="quick_settings_ambient_display_label">Askan n uskar n ugani</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tafat n timezzi tensa.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Tafat n timezzi termed.</string>
@@ -40,10 +44,21 @@
     <string name="accessibility_quick_settings_heads_up_on">Ilɣa yettafgen remden.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Ilɣa yettafgen nsan.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Ilɣa yettafgen remden.</string>
+    <string name="quick_settings_reading_mode">Askar n tɣuṛi</string>
     <string name="quick_settings_sync_label">Amtawi</string>
     <string name="accessibility_quick_settings_sync_off">Amtawi yensa.</string>
     <string name="accessibility_quick_settings_sync_on">Amtawi irmed.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Amtawi insa.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Amtawi irmed.</string>
+    <string name="quick_settings_profiles_label">Imaɣnuyen n unagraw</string>
+    <string name="accessibility_quick_settings_profiles_off">Imuɣna nsan.</string>
+    <string name="accessibility_quick_settings_profiles">Amaɣnu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Imuɣna nsan.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Amaɣnu yuɣal ar <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Beṭṭu n tuqqna USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Tuqna ɣer\u2026</string>
+    <string name="vpn_credentials_username">Isem n useqdac</string>
+    <string name="vpn_credentials_password">Awal uffir</string>
+    <string name="vpn_credentials_dialog_connect">Qqen</string>
 </resources>

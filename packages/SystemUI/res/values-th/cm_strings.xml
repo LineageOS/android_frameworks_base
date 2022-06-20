@@ -60,5 +60,15 @@
     <string name="accessibility_quick_settings_sync_on">การซิงค์เปิดอยู่</string>
     <string name="accessibility_quick_settings_sync_changed_off">การซิงค์ปิดอยู่</string>
     <string name="accessibility_quick_settings_sync_changed_on">การซิงค์เปิดอยู่</string>
+    <string name="quick_settings_profiles_label">โปรไฟล์ระบบ</string>
+    <string name="accessibility_quick_settings_profiles_off">โปรไฟล์ปิดอยู่</string>
+    <string name="accessibility_quick_settings_profiles">โปรไฟล์: <xliff:g id="profile" example="Default">%s</xliff:g></string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ปิดโปรไฟล์</string>
+    <string name="accessibility_quick_settings_profiles_changed">โปรไฟล์เปลี่ยนเป็น <xliff:g id="profile" example="Default">%s</xliff:g></string>
     <string name="quick_settings_usb_tether_label">ปล่อยสัญญาณผ่าน USB</string>
+    <string name="quick_settings_vpn_connect_dialog_title">เชื่อมต่อกับ\u2026</string>
+    <string name="vpn_credentials_hint">โปรดป้อนข้อมูลรับรองของคุณเพื่อเชื่อมต่อกับ <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">ชื่อผู้ใช้</string>
+    <string name="vpn_credentials_password">รหัสผ่าน</string>
+    <string name="vpn_credentials_dialog_connect">เชื่อมต่อ</string>
 </resources>

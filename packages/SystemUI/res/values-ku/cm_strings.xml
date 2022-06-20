@@ -22,5 +22,6 @@
     <string name="accessibility_dpad_right">جێنیشانده‌ر بۆ لای ڕاست</string>
     <string name="quick_settings_ambient_display_label">پیشاندەری دەوروبەر</string>
     <string name="quick_settings_heads_up_label">فه‌رمووه‌کان</string>
+    <string name="quick_settings_profiles_label">زانیاری تایبەتیەکانی سیستەم</string>
     <string name="quick_settings_usb_tether_label">گرتنەدەستی USB</string>
 </resources>

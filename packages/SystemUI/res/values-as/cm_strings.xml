@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">সকালীকৄত অন কৰক।</string>
     <string name="accessibility_quick_settings_sync_changed_off">সকালীকৄত অফ কৰা হৈছে।</string>
     <string name="accessibility_quick_settings_sync_changed_on">সকালীকৄত অন কৰা হৈছে।</string>
+    <string name="quick_settings_profiles_label">ছিষ্টেম প্ৰ\'ফাইল</string>
+    <string name="accessibility_quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
+    <string name="accessibility_quick_settings_profiles">প্ৰ\'ফাইল: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">প্ৰ\'ফাইল অফ কৰা হৈছে।</string>
+    <string name="accessibility_quick_settings_profiles_changed">প্ৰ\'ফাইল <xliff:g id="profile" example="Default">%s</xliff:g>লৈ পৰিৱৰ্তন কৰা হৈছে।</string>
     <string name="quick_settings_usb_tether_label">USB টেথাৰিং</string>
 </resources>

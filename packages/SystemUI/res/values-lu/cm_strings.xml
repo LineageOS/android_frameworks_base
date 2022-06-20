@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">Synchronisatioun un.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synchronisatioun ausgeschalt.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synchronisatioun ugeschalt.</string>
+    <string name="quick_settings_profiles_label">Systemprofiller</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiller aus.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiller ausgeschalt.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil op <xliff:g id="profile" example="Default">%s</xliff:g> geännert.</string>
     <string name="quick_settings_usb_tether_label">USB-Tethering</string>
 </resources>

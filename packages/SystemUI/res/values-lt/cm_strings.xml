@@ -35,5 +35,10 @@
     <string name="accessibility_quick_settings_sync_on">Sinchronizavimas įjungtas.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinchronizavimas išjungtas.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinchronizavimas įjungtas.</string>
+    <string name="quick_settings_profiles_label">Sistemos profiliai</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiliai išjungti.</string>
+    <string name="accessibility_quick_settings_profiles">Profilis: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiliai išjungti.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profilis pakeistas į <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB susiejimas</string>
 </resources>

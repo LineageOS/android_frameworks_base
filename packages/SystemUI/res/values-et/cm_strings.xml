@@ -62,5 +62,16 @@
     <string name="accessibility_quick_settings_sync_on">Sünk sees.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sünk välja lülitatud.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sünk sisse lülitatud.</string>
+    <string name="quick_settings_profiles_label">Süsteemi profiilid</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiilid väljas.</string>
+    <string name="accessibility_quick_settings_profiles">Profiil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiilid välja lülitatud.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profiil muudetud: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB lõastamine</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ühendu\u2026</string>
+    <string name="vpn_credentials_hint">Sisestage oma mandaadid <xliff:g id="name">%s</xliff:g> ühenduse loomiseks</string>
+    <string name="vpn_credentials_username">Kasutajanimi</string>
+    <string name="vpn_credentials_password">Parool</string>
+    <string name="vpn_credentials_dialog_connect">Ühenda</string>
 </resources>

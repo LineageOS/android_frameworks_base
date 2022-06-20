@@ -39,5 +39,10 @@
     <string name="accessibility_quick_settings_sync_on">Sinchronisering aan.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinchronisering afgeskakel.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinchronisering aangeskakel.</string>
+    <string name="quick_settings_profiles_label">Stelsel profiele</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiele af.</string>
+    <string name="accessibility_quick_settings_profiles">Profiel: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiele afgeskakel.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profiel verander na <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB internet verbinding</string>
 </resources>

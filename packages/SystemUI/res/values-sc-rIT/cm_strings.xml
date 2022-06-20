@@ -29,4 +29,8 @@
     <string name="quick_settings_reading_mode">Modalidade letura</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modalidade letura alluta.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modalidade letura istudada.</string>
+    <string name="quick_settings_profiles_label">Profilos de sistema</string>
+    <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilos istudados.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profilu cambiadu in <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
 </resources>

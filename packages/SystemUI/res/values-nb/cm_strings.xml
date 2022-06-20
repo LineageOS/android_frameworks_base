@@ -52,5 +52,10 @@
     <string name="accessibility_quick_settings_sync_on">Synkronisering på.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synkronisering avskrudd.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synkronisering aktivert.</string>
+    <string name="quick_settings_profiles_label">System profiler</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiler av.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profiler deaktivert.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil endret til <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
 </resources>

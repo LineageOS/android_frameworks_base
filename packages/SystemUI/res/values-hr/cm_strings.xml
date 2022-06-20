@@ -49,5 +49,10 @@
     <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinkronizacija je isključena.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinkronizacija je uključena.</string>
+    <string name="quick_settings_profiles_label">Profili sustava</string>
+    <string name="accessibility_quick_settings_profiles_off">Profili isklučeni.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profili su isključeni.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil je promijenjen u <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">Dijeljenje veze preko USB-a</string>
 </resources>

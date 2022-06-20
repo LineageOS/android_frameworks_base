@@ -52,5 +52,13 @@
     <string name="accessibility_quick_settings_sync_on">Sinkronizazioa gaituta.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sinkronizazioa ezgaituta.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sinkronizazioa gaituta.</string>
+    <string name="quick_settings_profiles_label">Sistema profilak</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilak ezgaituta.</string>
+    <string name="accessibility_quick_settings_profiles">Profila: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilak ezgaituta.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profil honetara aldatu da: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="vpn_credentials_username">Erabiltzaile-izena</string>
+    <string name="vpn_credentials_password">Pasahitza</string>
+    <string name="vpn_credentials_dialog_connect">Konektatu</string>
 </resources>

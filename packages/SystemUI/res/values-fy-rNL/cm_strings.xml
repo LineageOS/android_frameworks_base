@@ -60,5 +60,16 @@
     <string name="accessibility_quick_settings_sync_on">Syngr. oan.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Syngr. útskeakele.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Syngr. ynskeakele.</string>
+    <string name="quick_settings_profiles_label">Systeemprofilen</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilen út.</string>
+    <string name="accessibility_quick_settings_profiles">Profyl: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Profilen útskeakele.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Profyl wizige nei <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB-tethering</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ferbine mei\u2026</string>
+    <string name="vpn_credentials_hint">Folje jo gegevens yn om mei <xliff:g id="name">%s</xliff:g> te ferbinen</string>
+    <string name="vpn_credentials_username">Brûkersnamme</string>
+    <string name="vpn_credentials_password">Wachtwurd</string>
+    <string name="vpn_credentials_dialog_connect">Ferbine</string>
 </resources>

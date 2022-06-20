@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">સિંક્રનાઇઝ ચાલુ.</string>
     <string name="accessibility_quick_settings_sync_changed_off">સિંક્રનાઇઝ બંધ કરાયું.</string>
     <string name="accessibility_quick_settings_sync_changed_on">સિંક્રનાઇઝ ચાલુ કરાયું.</string>
+    <string name="quick_settings_profiles_label">સિસ્ટમ પ્રોફાઇલ્સ</string>
+    <string name="accessibility_quick_settings_profiles_off">પ્રોફાઇલ્સ બંધ.</string>
+    <string name="accessibility_quick_settings_profiles">પ્રોફાઇલ: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">પ્રોફાઇલ્સ બંધ કરાયું.</string>
+    <string name="accessibility_quick_settings_profiles_changed">પ્રોફાઇલ્સ બદલીને <xliff:g id="profile" example="Default">%s</xliff:g>કરાયું.</string>
     <string name="quick_settings_usb_tether_label">USB ટિથરિંગ</string>
 </resources>

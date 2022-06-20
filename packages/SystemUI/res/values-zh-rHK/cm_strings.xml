@@ -31,5 +31,10 @@
     <string name="accessibility_quick_settings_sync_on">已開啟同步。</string>
     <string name="accessibility_quick_settings_sync_changed_off">同步已關閉。</string>
     <string name="accessibility_quick_settings_sync_changed_on">同步已開啟。</string>
+    <string name="quick_settings_profiles_label">系統設定檔</string>
+    <string name="accessibility_quick_settings_profiles_off">設定檔已關閉。</string>
+    <string name="accessibility_quick_settings_profiles">設定檔：<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">設定檔已關閉。</string>
+    <string name="accessibility_quick_settings_profiles_changed">設定檔已改為<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
     <string name="quick_settings_usb_tether_label">USB 網絡共享</string>
 </resources>

@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">Сінхранізацыя ўключана.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Сінхранізацыя адключаная.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Сінхранізацыя ўключана.</string>
+    <string name="quick_settings_profiles_label">Сістэмныя профілі</string>
+    <string name="accessibility_quick_settings_profiles_off">Профілі выключаны.</string>
+    <string name="accessibility_quick_settings_profiles">Профіль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Профілі выключаны.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Профіль зменены на <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB-мадэм</string>
 </resources>

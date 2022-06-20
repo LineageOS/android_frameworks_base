@@ -36,5 +36,10 @@
     <string name="accessibility_quick_settings_sync_on">همگام‌سازی روشن.</string>
     <string name="accessibility_quick_settings_sync_changed_off">همگام‌سازی خاموش شد.</string>
     <string name="accessibility_quick_settings_sync_changed_on">همگام‌سازی روشن شد.</string>
+    <string name="quick_settings_profiles_label">پروفایل‌ها</string>
+    <string name="accessibility_quick_settings_profiles_off">پروفایل‌ها خاموش.</string>
+    <string name="accessibility_quick_settings_profiles">پروفایل: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">پروفایل‌ها خاموش شدند.</string>
+    <string name="accessibility_quick_settings_profiles_changed">پروفایل به <xliff:g id="profile" example="Default">%s</xliff:g> تغییر یافت.</string>
     <string name="quick_settings_usb_tether_label">تترینگ یو‌اس‌بی</string>
 </resources>

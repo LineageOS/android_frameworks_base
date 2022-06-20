@@ -54,5 +54,15 @@
     <string name="accessibility_quick_settings_sync_on">Синхронізацію увімкнено.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Синхронізація увімкнено.</string>
+    <string name="quick_settings_profiles_label">Системні профілі</string>
+    <string name="accessibility_quick_settings_profiles_off">Профілі вимкнено.</string>
+    <string name="accessibility_quick_settings_profiles">Профіль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Профілі вимкнено.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Профіль змінено на <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB-модем</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="vpn_credentials_hint">Введіть облікові дані для з\'єднання з <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Користувацьке ім\'я</string>
+    <string name="vpn_credentials_password">Пароль</string>
+    <string name="vpn_credentials_dialog_connect">З\'єднатись</string>
 </resources>

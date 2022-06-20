@@ -38,5 +38,10 @@
     <string name="accessibility_quick_settings_sync_on">సమకాలీకరణ ఆన్.</string>
     <string name="accessibility_quick_settings_sync_changed_off">సమకాలీకరణ ఆపివేయబడింది.</string>
     <string name="accessibility_quick_settings_sync_changed_on">సమకాలీకరణ ఆన్ చేయబడింది.</string>
+    <string name="quick_settings_profiles_label">సిస్టమ్ ప్రోఫైళ్ళు</string>
+    <string name="accessibility_quick_settings_profiles_off">ప్రోఫైళ్ళు ఆఫ్.</string>
+    <string name="accessibility_quick_settings_profiles">ప్రొఫైల్: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">ప్రోఫైళ్ళు ఆపివేయబడినవి.</string>
+    <string name="accessibility_quick_settings_profiles_changed">ప్రొఫైల్ <xliff:g id="profile" example="Default">%s</xliff:g>కు మార్చబడింది.</string>
     <string name="quick_settings_usb_tether_label">USB టీథరింగ్</string>
 </resources>
