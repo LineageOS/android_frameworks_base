@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ded546ad_2a1a53bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-06-21T13:03:34Z",
+      "side": 1,
+      "message": "I don\u0027t feel this as much useful in newer android version for phones. Status bar icons changes each time you open it. Maybe this is useful for navigation bar, that also changes when we open any fullscreen app.",
+      "revId": "df28eb972c141222c44a2f0e970b46297f00c9dc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
