@@ -10494,14 +10494,14 @@ public class CarrierConfigManager {
                 "enterprise:0", "default:1", "mms:2", "supl:2", "dun:2", "hipri:3", "fota:2",
                 "ims:2", "cbs:2", "ia:2", "emergency:2", "mcx:3", "xcap:3"
         });
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SIB2_VALUE, -1);
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_VALUE, 0);
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_MODE, 0);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SIB2_VALUE, Integer.MAX_VALUE);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_VALUE, Integer.MAX_VALUE);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_MODE, Integer.MAX_VALUE);
         sDefaults.putPersistableBundle(KEY_NR_ULTRA_WIDEBAND_ICON_REFRESH_TIMER_MAP,
                 PersistableBundle.EMPTY);
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_MODE, 0);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_MODE, Integer.MAX_VALUE);
         sDefaults.putIntArray(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_ARRAY, new int[]{});
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_MODE, 0);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_MODE, Integer.MAX_VALUE);
         sDefaults.putIntArray(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_ARRAY, new int[]{});
 
         // Do not modify the priority unless you know what you are doing. This will have significant
