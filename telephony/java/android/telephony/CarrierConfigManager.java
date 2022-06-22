@@ -11133,14 +11133,14 @@ public class CarrierConfigManager {
                 TimeUnit.DAYS.toMillis(1));
         sDefaults.putStringArray(KEY_MISSED_INCOMING_CALL_SMS_ORIGINATOR_STRING_ARRAY,
                 new String[0]);
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SIB2_VALUE, -1);
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_VALUE, 0);
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_MODE, 0);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SIB2_VALUE, Integer.MAX_VALUE);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_VALUE, Integer.MAX_VALUE);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_MIN_BANDWIDTH_MODE, Integer.MAX_VALUE);
         sDefaults.putPersistableBundle(KEY_NR_ULTRA_WIDEBAND_ICON_REFRESH_TIMER_MAP,
                 PersistableBundle.EMPTY);
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_MODE, 0);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_MODE, Integer.MAX_VALUE);
         sDefaults.putIntArray(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_ARRAY, new int[]{});
-        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_MODE, 0);
+        sDefaults.putInt(KEY_NR_ULTRA_WIDEBAND_ICON_SA_BAND_MODE, Integer.MAX_VALUE);
         sDefaults.putIntArray(KEY_NR_ULTRA_WIDEBAND_ICON_NSA_BAND_ARRAY, new int[]{});
 
         // Do not modify the priority unless you know what you are doing. This will have significant
