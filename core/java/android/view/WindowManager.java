@@ -834,6 +834,12 @@ public interface WindowManager extends ViewManager {
     int TAKE_SCREENSHOT_FULLSCREEN = 1;
 
     /**
+     * Invoke screenshot flow allowing the user to select a region.
+     * @hide
+     */
+    int TAKE_SCREENSHOT_SELECTED_REGION = 2;
+
+    /**
      * Invoke screenshot flow with an image provided by the caller.
      * @hide
      */
@@ -845,6 +851,7 @@ public interface WindowManager extends ViewManager {
      * @hide
      */
     @IntDef({TAKE_SCREENSHOT_FULLSCREEN,
+            TAKE_SCREENSHOT_SELECTED_REGION,
             TAKE_SCREENSHOT_PROVIDED_IMAGE})
     @interface ScreenshotType {}
 
