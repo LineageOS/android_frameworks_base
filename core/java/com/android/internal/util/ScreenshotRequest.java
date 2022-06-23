@@ -20,6 +20,7 @@ import static android.app.ActivityTaskManager.INVALID_TASK_ID;
 import static android.os.UserHandle.USER_NULL;
 import static android.view.WindowManager.TAKE_SCREENSHOT_FULLSCREEN;
 import static android.view.WindowManager.TAKE_SCREENSHOT_PROVIDED_IMAGE;
+import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
 
 import android.annotation.NonNull;
 import android.content.ComponentName;
@@ -173,7 +174,8 @@ public class ScreenshotRequest implements Parcelable {
         public Builder(
                 @WindowManager.ScreenshotType int type,
                 @WindowManager.ScreenshotSource int source) {
-            if (type != TAKE_SCREENSHOT_FULLSCREEN && type != TAKE_SCREENSHOT_PROVIDED_IMAGE) {
+            if (type != TAKE_SCREENSHOT_FULLSCREEN && type != TAKE_SCREENSHOT_PROVIDED_IMAGE
+                    && type != TAKE_SCREENSHOT_SELECTED_REGION) {
                 throw new IllegalArgumentException("Invalid screenshot type requested!");
             }
             mType = type;
@@ -186,6 +188,9 @@ public class ScreenshotRequest implements Parcelable {
         public ScreenshotRequest build() {
             if (mType == TAKE_SCREENSHOT_FULLSCREEN && mBitmap != null) {
                 Log.w(TAG, "Bitmap provided, but request is fullscreen. Bitmap will be ignored.");
+            }
+            if (mType == TAKE_SCREENSHOT_SELECTED_REGION && mBitmap != null) {
+                Log.w(TAG, "Bitmap provided, but request is partial. Bitmap will be ignored.");
             }
             if (mType == TAKE_SCREENSHOT_PROVIDED_IMAGE && mBitmap == null) {
                 throw new IllegalStateException(
