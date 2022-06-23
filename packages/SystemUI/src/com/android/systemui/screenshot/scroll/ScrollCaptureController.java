@@ -20,6 +20,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.BitmapDrawable;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.ScrollCaptureResponse;
@@ -144,6 +145,73 @@ public class ScrollCaptureController {
 
         public Drawable getDrawable() {
             return mImageTileSet.getDrawable();
+        }
+    }
+
+    public static class BitmapScreenshot extends LongScreenshot {
+        private final BitmapDrawable mBitmapDrawable;
+        private final Bitmap mBitmap;
+
+        public BitmapScreenshot(Context context, Bitmap bitmap) {
+            super(null, null);
+
+            mBitmap = bitmap;
+            mBitmapDrawable = new BitmapDrawable(context.getResources(), bitmap);
+        }
+
+        @Override
+        public Bitmap toBitmap() {
+            return mBitmap;
+        }
+
+        @Override
+        public Bitmap toBitmap(Rect bounds) {
+            // Not used anywhere
+            return mBitmap;
+        }
+
+        @Override
+        public void release() {
+        }
+
+        @Override
+        public int getLeft() {
+            return 0;
+        }
+
+        @Override
+        public int getTop() {
+            return 0;
+        }
+
+        @Override
+        public int getBottom() {
+            return getHeight();
+        }
+
+        @Override
+        public int getWidth() {
+            return mBitmap.getWidth();
+        }
+
+        @Override
+        public int getHeight() {
+            return mBitmap.getHeight();
+        }
+
+        @Override
+        public int getPageHeight() {
+            return getHeight();
+        }
+
+        @Override
+        public String toString() {
+            return "BitmapScrenshot{w=" + getWidth() + ", h=" + getHeight() + "}";
+        }
+
+        @Override
+        public Drawable getDrawable() {
+            return mBitmapDrawable;
         }
     }
 
