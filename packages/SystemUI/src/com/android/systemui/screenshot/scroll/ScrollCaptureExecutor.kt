@@ -100,6 +100,25 @@ constructor(
             }
     }
 
+    fun executeBatchScrollCapture(
+        longScreenshot: ScrollCaptureController.LongScreenshot,
+        onCaptureComplete: Runnable,
+        transition: ScrollTransitionReady,
+    ) {
+        // Clear the reference to prevent close() on reset
+        lastScrollCaptureResponse = null
+        longScreenshotFuture?.cancel(true)
+        mainExecutor.execute {
+            longScreenshotHolder.setLongScreenshot(longScreenshot)
+            longScreenshotHolder.setTransitionDestinationCallback {
+                destinationRect: Rect,
+                onTransitionEnd: Runnable ->
+                transition.onTransitionReady(destinationRect, onTransitionEnd, longScreenshot)
+            }
+            onCaptureComplete.run()
+        }
+    }
+
     fun close() {
         lastScrollCaptureRequest?.cancel(true)
         lastScrollCaptureRequest = null
