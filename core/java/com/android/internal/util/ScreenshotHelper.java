@@ -20,6 +20,7 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 import android.util.Log;
 import android.view.WindowManager.ScreenshotSource;
+import android.view.WindowManager.ScreenshotType;
 
 import com.android.internal.annotations.VisibleForTesting;
 
@@ -68,8 +69,25 @@ public class ScreenshotHelper {
      */
     public void takeScreenshot(@ScreenshotSource int source, @NonNull Handler handler,
             @Nullable Consumer<Uri> completionConsumer) {
+        takeScreenshot(TAKE_SCREENSHOT_FULLSCREEN, source, handler, completionConsumer);
+    }
+
+    /**
+     * Request a screenshot be taken.
+     * <p>
+     * Convenience method for taking a full screenshot with provided source.
+     *
+     * @param type               type of screenshot, defined by {@link ScreenshotType}
+     * @param source             source of the screenshot request, defined by {@link
+     *                           ScreenshotSource}
+     * @param handler            used to process messages received from the screenshot service
+     * @param completionConsumer receives the URI of the captured screenshot, once saved or
+     *                           null if no screenshot was saved
+     */
+    public void takeScreenshot(@ScreenshotType int type, @ScreenshotSource int source,
+            @NonNull Handler handler, @Nullable Consumer<Uri> completionConsumer) {
         ScreenshotRequest request =
-                new ScreenshotRequest.Builder(TAKE_SCREENSHOT_FULLSCREEN, source).build();
+                new ScreenshotRequest.Builder(type, source).build();
         takeScreenshot(request, handler, completionConsumer);
     }
 
