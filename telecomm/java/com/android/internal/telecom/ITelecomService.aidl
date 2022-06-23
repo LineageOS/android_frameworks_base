@@ -23,6 +23,7 @@ import android.telecom.PhoneAccountHandle;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telecom.PhoneAccount;
+import android.content.pm.ParceledListSlice;
 
 /**
  * Interface used to interact with Telecom. Mostly this is used by TelephonyManager for passing
@@ -55,19 +56,19 @@ interface ITelecomService {
     /**
      * @see TelecomServiceImpl#getCallCapablePhoneAccounts
      */
-    List<PhoneAccountHandle> getCallCapablePhoneAccounts(
+    ParceledListSlice getCallCapablePhoneAccounts(
             boolean includeDisabledAccounts, String callingPackage);
 
     /**
      * @see TelecomManager#getPhoneAccountsSupportingScheme
      */
-    List<PhoneAccountHandle> getPhoneAccountsSupportingScheme(in String uriScheme,
+    ParceledListSlice getPhoneAccountsSupportingScheme(in String uriScheme,
             String callingPackage);
 
     /**
      * @see TelecomManager#getPhoneAccountsForPackage
      */
-    List<PhoneAccountHandle> getPhoneAccountsForPackage(in String packageName);
+    ParceledListSlice getPhoneAccountsForPackage(in String packageName);
 
     /**
      * @see TelecomManager#getPhoneAccount
@@ -82,12 +83,12 @@ interface ITelecomService {
     /**
      * @see TelecomManager#getAllPhoneAccounts
      */
-    List<PhoneAccount> getAllPhoneAccounts();
+    ParceledListSlice getAllPhoneAccounts();
 
     /**
      * @see TelecomManager#getAllPhoneAccountHandles
      */
-    List<PhoneAccountHandle> getAllPhoneAccountHandles();
+    ParceledListSlice getAllPhoneAccountHandles();
 
     /**
      * @see TelecomServiceImpl#getSimCallManager
