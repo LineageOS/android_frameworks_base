@@ -445,15 +445,8 @@ public class ScreenshotController {
      */
     void takeScreenshotPartial(ComponentName topComponent,
             final Consumer<Uri> finisher, RequestCallback requestCallback) {
-        mScreenshotView.reset();
-        mCurrentRequestCallback = requestCallback;
-
-        attachWindow();
-        mWindow.setContentView(mScreenshotView);
-        mScreenshotView.requestApplyInsets();
-
-        mScreenshotView.takePartialScreenshot(
-                rect -> takeScreenshotInternal(topComponent, finisher, rect));
+        startPartialScreenshotActivity();
+        finisher.accept(null);
     }
 
     /**
@@ -594,6 +587,13 @@ public class ScreenshotController {
         return screenshot;
     }
 
+    private Bitmap captureScreenshot() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getDefaultDisplay().getRealMetrics(displayMetrics);
+        return captureScreenshot(
+                new Rect(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels));
+    }
+
     private void saveScreenshot(Bitmap screenshot, Consumer<Uri> finisher, Rect screenRect,
             Insets screenInsets, ComponentName topComponent, boolean showFlash) {
         if (mAccessibilityManager.isEnabled()) {
@@ -702,6 +702,40 @@ public class ScreenshotController {
                 onScrollCaptureResponseReady(mLastScrollCaptureRequest), mMainExecutor);
     }
 
+    public void startLongScreenshotActivity(ScrollCaptureController.LongScreenshot longScreenshot) {
+        mLongScreenshotHolder.setLongScreenshot(longScreenshot);
+        mLongScreenshotHolder.setTransitionDestinationCallback(
+                (transitionDestination, onTransitionEnd) ->
+                        mScreenshotView.startLongScreenshotTransition(
+                                transitionDestination, onTransitionEnd,
+                                longScreenshot));
+        mLongScreenshotHolder.setForegroundAppName(getForegroundAppLabel());
+
+        final Intent intent = new Intent(mContext, LongScreenshotActivity.class);
+        intent.setFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        mContext.startActivity(intent,
+                ActivityOptions.makeCustomAnimation(mContext, 0, 0).toBundle());
+        RemoteAnimationAdapter runner = new RemoteAnimationAdapter(
+                SCREENSHOT_REMOTE_RUNNER, 0, 0);
+        try {
+            WindowManagerGlobal.getWindowManagerService()
+                    .overridePendingAppTransitionRemote(runner, DEFAULT_DISPLAY);
+        } catch (Exception e) {
+            Log.e(TAG, "Error overriding screenshot app transition", e);
+        }
+    }
+
+    private void startPartialScreenshotActivity() {
+        Bitmap newScreenshot = captureScreenshot();
+
+        ScrollCaptureController.BitmapScreenshot bitmapScreenshot =
+            new ScrollCaptureController.BitmapScreenshot(mContext, newScreenshot);
+
+        startLongScreenshotActivity(bitmapScreenshot);
+    }
+
     private void onScrollCaptureResponseReady(Future<ScrollCaptureResponse> responseFuture) {
         try {
             if (mLastScrollCaptureResponse != null) {
@@ -751,28 +785,7 @@ public class ScreenshotController {
                             return;
                         }
 
-                        mLongScreenshotHolder.setLongScreenshot(longScreenshot);
-                        mLongScreenshotHolder.setTransitionDestinationCallback(
-                                (transitionDestination, onTransitionEnd) ->
-                                        mScreenshotView.startLongScreenshotTransition(
-                                                transitionDestination, onTransitionEnd,
-                                                longScreenshot));
-                        mLongScreenshotHolder.setForegroundAppName(getForegroundAppLabel());
-
-                        final Intent intent = new Intent(mContext, LongScreenshotActivity.class);
-                        intent.setFlags(
-                                Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-                        mContext.startActivity(intent,
-                                ActivityOptions.makeCustomAnimation(mContext, 0, 0).toBundle());
-                        RemoteAnimationAdapter runner = new RemoteAnimationAdapter(
-                                SCREENSHOT_REMOTE_RUNNER, 0, 0);
-                        try {
-                            WindowManagerGlobal.getWindowManagerService()
-                                    .overridePendingAppTransitionRemote(runner, DEFAULT_DISPLAY);
-                        } catch (Exception e) {
-                            Log.e(TAG, "Error overriding screenshot app transition", e);
-                        }
+                        startLongScreenshotActivity(longScreenshot);
                     }, mMainExecutor);
                 });
             });
