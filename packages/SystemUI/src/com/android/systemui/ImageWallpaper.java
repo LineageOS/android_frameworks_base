@@ -39,6 +39,9 @@ import androidx.annotation.NonNull;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.systemui.glwallpaper.EglHelper;
 import com.android.systemui.glwallpaper.ImageWallpaperRenderer;
+import com.android.systemui.tuner.TunerService;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -91,7 +94,12 @@ public class ImageWallpaper extends WallpaperService {
         mMiniBitmap = null;
     }
 
-    class GLEngine extends Engine implements DisplayListener {
+    class GLEngine extends Engine implements DisplayListener, TunerService.Tunable {
+
+        private static final String DISPLAY_SETTINGS_WALLPAPER_ZOOM =
+            "lineagesystem:" + LineageSettings.System.DISPLAY_SETTINGS_WALLPAPER_ZOOM;
+        private boolean mWallpaperZoomEnabled = true;
+
         // Surface is rejected if size below a threshold on some devices (ie. 8px on elfin)
         // set min to 64 px (CTS covers this), please refer to ag/4867989 for detail.
         @VisibleForTesting
@@ -136,6 +144,17 @@ public class ImageWallpaper extends WallpaperService {
             getDisplayContext().getSystemService(DisplayManager.class)
                     .registerDisplayListener(this, mWorker.getThreadHandler());
             Trace.endSection();
+
+            final TunerService tunerService = Dependency.get(TunerService.class);
+            tunerService.addTunable(this, DISPLAY_SETTINGS_WALLPAPER_ZOOM);
+        }
+
+        @Override
+        public void onTuningChanged(String key, String newValue) {
+            if (DISPLAY_SETTINGS_WALLPAPER_ZOOM.equals(key)) {
+                mWallpaperZoomEnabled = TunerService.parseIntegerSwitch(newValue, true);
+                setEnginesShouldZoomOut(mWallpaperZoomEnabled);
+            }
         }
 
         @Override
@@ -203,7 +222,8 @@ public class ImageWallpaper extends WallpaperService {
 
         @Override
         public boolean shouldZoomOutWallpaper() {
-            return true;
+            // Wallpaper zoom controlled by tuner now
+            return mWallpaperZoomEnabled;
         }
 
         @Override

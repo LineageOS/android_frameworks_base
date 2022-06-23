@@ -39194,6 +39194,7 @@ package android.service.wallpaper {
     ctor public WallpaperService();
     method public final android.os.IBinder onBind(android.content.Intent);
     method public abstract android.service.wallpaper.WallpaperService.Engine onCreateEngine();
+    method public void setEnginesShouldZoomOut(boolean);
     field public static final String SERVICE_INTERFACE = "android.service.wallpaper.WallpaperService";
     field public static final String SERVICE_META_DATA = "android.service.wallpaper";
   }
@@ -39223,6 +39224,7 @@ package android.service.wallpaper {
     method public void onVisibilityChanged(boolean);
     method public void onZoomChanged(@FloatRange(from=0.0f, to=1.0f) float);
     method public void setOffsetNotificationsEnabled(boolean);
+    method public void setShouldZoomOut(boolean);
     method public void setTouchEventsEnabled(boolean);
   }
 
