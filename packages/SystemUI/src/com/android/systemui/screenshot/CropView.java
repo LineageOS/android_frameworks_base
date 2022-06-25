@@ -57,7 +57,10 @@ public class CropView extends View {
     private static final String TAG = "CropView";
 
     public enum CropBoundary {
-        NONE, TOP, BOTTOM, LEFT, RIGHT
+        NONE, TOP, BOTTOM, LEFT, RIGHT,
+        TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT,
+        // Middle crop boundary is used for dragging
+        MIDDLE,
     }
 
     private final float mCropTouchMargin;
@@ -75,7 +78,8 @@ public class CropView extends View {
     private CropBoundary mCurrentDraggingBoundary = CropBoundary.NONE;
     private int mActivePointerId;
     // The starting value of mCurrentDraggingBoundary's crop, used to compute touch deltas.
-    private float mMovementStartValue;
+    private float mMovementStartValueX;
+    private float mMovementStartValueY;
     private float mStartingY;  // y coordinate of ACTION_DOWN
     private float mStartingX;
 
@@ -168,7 +172,10 @@ public class CropView extends View {
                     mActivePointerId = event.getPointerId(0);
                     mStartingY = event.getY();
                     mStartingX = event.getX();
-                    mMovementStartValue = getBoundaryPosition(mCurrentDraggingBoundary);
+                    CropBoundary hBoundary = getHorizontalBoundary(mCurrentDraggingBoundary);
+                    CropBoundary vBoundary = getVerticalBoundary(mCurrentDraggingBoundary);
+                    mMovementStartValueX = getBoundaryPosition(hBoundary);
+                    mMovementStartValueY = getBoundaryPosition(vBoundary);
                     updateListener(MotionEvent.ACTION_DOWN, event.getX());
                 }
                 return true;
@@ -177,12 +184,14 @@ public class CropView extends View {
                     int pointerIndex = event.findPointerIndex(mActivePointerId);
                     if (pointerIndex >= 0) {
                         // Original pointer still active, do the move.
-                        float deltaPx = isVertical(mCurrentDraggingBoundary)
-                                ? event.getY(pointerIndex) - mStartingY
-                                : event.getX(pointerIndex) - mStartingX;
-                        float delta = pixelDistanceToFraction((int) deltaPx,
-                                mCurrentDraggingBoundary);
-                        setBoundaryPosition(mCurrentDraggingBoundary, mMovementStartValue + delta);
+                        CropBoundary hBoundary = getHorizontalBoundary(mCurrentDraggingBoundary);
+                        CropBoundary vBoundary = getVerticalBoundary(mCurrentDraggingBoundary);
+                        float deltaPxX = event.getX(pointerIndex) - mStartingX;
+                        float deltaPxY = event.getY(pointerIndex) - mStartingY;
+                        float deltaX = pixelDistanceToFraction((int) deltaPxX, hBoundary);
+                        float deltaY = pixelDistanceToFraction((int) deltaPxY, vBoundary);
+                        setBoundaryPosition(hBoundary, mMovementStartValueX + deltaX);
+                        setBoundaryPosition(vBoundary, mMovementStartValueY + deltaY);
                         updateListener(MotionEvent.ACTION_MOVE, event.getX(pointerIndex));
                         invalidate();
                     }
@@ -238,15 +247,29 @@ public class CropView extends View {
      * Set the given boundary to the given value without animation.
      */
     public void setBoundaryPosition(CropBoundary boundary, float position) {
+        if (boundary == CropBoundary.NONE) {
+            return;
+        }
+
         position = (float) getAllowedValues(boundary).clamp(position);
         switch (boundary) {
             case TOP:
+                if (mCurrentDraggingBoundary == CropBoundary.MIDDLE) {
+                    // If the current dragging boundary is the middle, reposition the bottom side of
+                    // the selection too, so that the selection appears to be moving.
+                    mCrop.bottom = position + (mCrop.bottom - mCrop.top);
+                }
                 mCrop.top = position;
                 break;
             case BOTTOM:
                 mCrop.bottom = position;
                 break;
             case LEFT:
+                if (mCurrentDraggingBoundary == CropBoundary.MIDDLE) {
+                    // If the current dragging boundary is the middle, reposition the right side of
+                    // the selection too, so that the selection appears to be moving.
+                    mCrop.right = position + (mCrop.right - mCrop.left);
+                }
                 mCrop.left = position;
                 break;
             case RIGHT:
@@ -272,6 +295,38 @@ public class CropView extends View {
                 return mCrop.right;
         }
         return 0;
+    }
+
+    private CropBoundary getVerticalBoundary(CropBoundary boundary) {
+        switch (boundary) {
+            case TOP:
+            case TOP_LEFT:
+            case TOP_RIGHT:
+            case MIDDLE:
+                return CropBoundary.TOP;
+            case BOTTOM:
+            case BOTTOM_LEFT:
+            case BOTTOM_RIGHT:
+                return CropBoundary.BOTTOM;
+            default:
+                return CropBoundary.NONE;
+        }
+    }
+
+    private CropBoundary getHorizontalBoundary(CropBoundary boundary) {
+        switch (boundary) {
+            case LEFT:
+            case TOP_LEFT:
+            case BOTTOM_LEFT:
+            case MIDDLE:
+                return CropBoundary.LEFT;
+            case RIGHT:
+            case TOP_RIGHT:
+            case BOTTOM_RIGHT:
+                return CropBoundary.RIGHT;
+            default:
+                return CropBoundary.NONE;
+        }
     }
 
     private static boolean isVertical(CropBoundary boundary) {
@@ -349,6 +404,11 @@ public class CropView extends View {
     private Range getAllowedValues(CropBoundary boundary) {
         switch (boundary) {
             case TOP:
+                if (mCurrentDraggingBoundary == CropBoundary.MIDDLE) {
+                    // When the current dragging boundary is the middle, do not let the user move
+                    // the selection past the bottom edge.
+                    return new Range<>(0f, 1f - (mCrop.bottom - mCrop.top));
+                }
                 return new Range<>(0f,
                         mCrop.bottom - pixelDistanceToFraction(mCropTouchMargin,
                                 CropBoundary.BOTTOM));
@@ -357,6 +417,11 @@ public class CropView extends View {
                         mCrop.top + pixelDistanceToFraction(mCropTouchMargin,
                                 CropBoundary.TOP), 1f);
             case LEFT:
+                if (mCurrentDraggingBoundary == CropBoundary.MIDDLE) {
+                    // When the current dragging boundary is the middle, do not let the user move
+                    // the selection past the right edge.
+                    return new Range<>(0f, 1f - (mCrop.right - mCrop.left));
+                }
                 return new Range<>(0f,
                         mCrop.right - pixelDistanceToFraction(mCropTouchMargin,
                                 CropBoundary.RIGHT));
@@ -373,16 +438,17 @@ public class CropView extends View {
      * @param x coordinate of the relevant pointer.
      */
     private void updateListener(int action, float x) {
-        if (mCropInteractionListener != null && isVertical(mCurrentDraggingBoundary)) {
-            float boundaryPosition = getBoundaryPosition(mCurrentDraggingBoundary);
+        CropBoundary boundary = getVerticalBoundary(mCurrentDraggingBoundary);
+        if (mCropInteractionListener != null && boundary != CropBoundary.NONE) {
+            float boundaryPosition = getBoundaryPosition(boundary);
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
-                    mCropInteractionListener.onCropDragStarted(mCurrentDraggingBoundary,
+                    mCropInteractionListener.onCropDragStarted(boundary,
                             boundaryPosition, fractionToVerticalPixels(boundaryPosition),
                             (mCrop.left + mCrop.right) / 2, x);
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    mCropInteractionListener.onCropDragMoved(mCurrentDraggingBoundary,
+                    mCropInteractionListener.onCropDragMoved(boundary,
                             boundaryPosition, fractionToVerticalPixels(boundaryPosition),
                             (mCrop.left + mCrop.right) / 2, x);
                     break;
@@ -462,10 +528,25 @@ public class CropView extends View {
 
     private CropBoundary nearestBoundary(MotionEvent event, int topPx, int bottomPx, int leftPx,
             int rightPx) {
+        boolean isCloseToLeft = Math.abs(event.getX() - leftPx) < mCropTouchMargin;
+        boolean isCloseToRight = Math.abs(event.getX() - rightPx) < mCropTouchMargin;
+
         if (Math.abs(event.getY() - topPx) < mCropTouchMargin) {
+            if (isCloseToLeft) {
+                return CropBoundary.TOP_LEFT;
+            }
+            if (isCloseToRight) {
+                return CropBoundary.TOP_RIGHT;
+            }
             return CropBoundary.TOP;
         }
         if (Math.abs(event.getY() - bottomPx) < mCropTouchMargin) {
+            if (isCloseToLeft) {
+                return CropBoundary.BOTTOM_LEFT;
+            }
+            if (isCloseToRight) {
+                return CropBoundary.BOTTOM_RIGHT;
+            }
             return CropBoundary.BOTTOM;
         }
         if (event.getY() > topPx || event.getY() < bottomPx) {
@@ -476,6 +557,13 @@ public class CropView extends View {
                 return CropBoundary.RIGHT;
             }
         }
+
+        float x = event.getX();
+        float y = event.getY();
+        if (x > leftPx && x < rightPx && y > topPx && y < bottomPx) {
+            return CropBoundary.MIDDLE;
+        }
+
         return CropBoundary.NONE;
     }
 
