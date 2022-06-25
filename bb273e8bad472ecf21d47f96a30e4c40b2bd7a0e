@@ -22,6 +22,30 @@
       },
       "revId": "bb273e8bad472ecf21d47f96a30e4c40b2bd7a0e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99ed0078_365adfb9",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/LongScreenshotActivity.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-06-25T22:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5321ed8b_4f8c603b",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 59
+      },
+      "revId": "bb273e8bad472ecf21d47f96a30e4c40b2bd7a0e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
