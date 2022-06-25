@@ -101,6 +101,7 @@ constructor(
                                     response.packageName,
                                 )
                             }
+                            longScreenshotHolder.setNeedsMagnification(true)
                             longScreenshotHolder.setLongScreenshot(it)
                             longScreenshotHolder.setTransitionDestinationCallback {
                                 destinationRect: Rect,
@@ -124,6 +125,7 @@ constructor(
         lastScrollCaptureResponse = null
         longScreenshotFuture?.cancel(true)
         mainExecutor.execute {
+            longScreenshotHolder.setNeedsMagnification(false)
             longScreenshotHolder.setLongScreenshot(longScreenshot)
             longScreenshotHolder.setTransitionDestinationCallback {
                 destinationRect: Rect,
