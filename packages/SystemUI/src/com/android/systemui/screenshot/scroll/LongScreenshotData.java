@@ -33,6 +33,7 @@ public class LongScreenshotData {
     private final AtomicReference<ScreenshotController.TransitionDestination>
             mTransitionDestinationCallback;
     private String mForegroundAppName;
+    private boolean mNeedsMagnification;
 
     @Inject
     public LongScreenshotData() {
@@ -88,5 +89,13 @@ public class LongScreenshotData {
      */
     public String getForegroundAppName() {
         return mForegroundAppName;
+    }
+
+    public void setNeedsMagnification(boolean status) {
+        mNeedsMagnification = status;
+    }
+
+    public boolean getNeedsMagnification() {
+        return mNeedsMagnification;
     }
 }
