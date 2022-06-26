@@ -321,6 +321,13 @@ public class DozeParameters implements
     }
 
     /**
+     * Whether the double tap sensor uses the proximity sensor.
+     */
+    public boolean doubleTapUsesProx() {
+        return mResources.getBoolean(R.bool.doze_double_tap_uses_prox);
+    }
+
+    /**
      * Whether the long press sensor uses the proximity sensor.
      */
     public boolean longPressUsesProx() {
