@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "168c37b9_8885fa41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2022-06-26T10:54:25Z",
+      "side": 1,
+      "message": "Long pressing screenshot button in power menu for partial screenshot works inefficiently. Even power menu gets captured.\n\nOne way to resolve is adding delay for power menu to dismiss.\nhttps://github.com/crdroidandroid/android_frameworks_base/commit/72f8eb976e1f16b637476b6cfda9f323f48cc3b8",
+      "revId": "e110cba8fecf449207bca80f8696fe73af1d6e31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
