@@ -1133,8 +1133,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             super(R.drawable.ic_screenshot, R.string.global_action_screenshot);
         }
 
-        @Override
-        public void onPress() {
+        private void takeScreenshot(int type) {
             // Add a little delay before executing, to give the
             // dialog a chance to go away before it takes a
             // screenshot.
@@ -1142,7 +1141,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mScreenshotHelper.takeScreenshot(TAKE_SCREENSHOT_FULLSCREEN, true, true,
+                    mScreenshotHelper.takeScreenshot(type, true, true,
                             SCREENSHOT_GLOBAL_ACTIONS, mHandler, null);
                     mMetricsLogger.action(MetricsEvent.ACTION_SCREENSHOT_POWER_MENU);
                     mUiEventLogger.log(GlobalActionsEvent.GA_SCREENSHOT_PRESS);
@@ -1151,9 +1150,14 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         }
 
         @Override
+        public void onPress() {
+            takeScreenshot(TAKE_SCREENSHOT_FULLSCREEN);
+        }
+
+        @Override
         public boolean onLongPress() {
-            mScreenshotHelper.takeScreenshot(TAKE_SCREENSHOT_SELECTED_REGION, true, true,
-                    SCREENSHOT_GLOBAL_ACTIONS, mHandler, null);
+            takeScreenshot(TAKE_SCREENSHOT_SELECTED_REGION);
+
             return true;
         }
 
