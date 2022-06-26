@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "769fa949_052582ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-06-26T06:42:03Z",
+      "side": 1,
+      "message": "looks fine, maybe add a little commit msg why we need middle.",
+      "revId": "9df0a3eb2ff283c986ece2ad1239d35fa0f8fb15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43ec235d_971643f3",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/CropView.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-06-26T06:42:03Z",
+      "side": 1,
+      "message": "switch?",
+      "revId": "9df0a3eb2ff283c986ece2ad1239d35fa0f8fb15",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
