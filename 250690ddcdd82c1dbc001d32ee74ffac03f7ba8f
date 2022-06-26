@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1740f268_e5a79cbe",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-06-26T06:43:04Z",
+      "side": 1,
+      "message": "probably not needed, boolean defaults to false",
+      "revId": "250690ddcdd82c1dbc001d32ee74ffac03f7ba8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
