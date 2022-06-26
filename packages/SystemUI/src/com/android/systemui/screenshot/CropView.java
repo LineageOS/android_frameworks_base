@@ -78,8 +78,6 @@ public class CropView extends View {
     private float mMovementStartValue;
     private float mStartingY;  // y coordinate of ACTION_DOWN
     private float mStartingX;
-    // The allowable values for the current boundary being dragged
-    private Range<Float> mMotionRange;
 
     // Value [0,1] indicating progress in animateEntrance()
     private float mEntranceInterpolation = 1f;
@@ -176,7 +174,6 @@ public class CropView extends View {
                     mStartingX = event.getX();
                     mMovementStartValue = getBoundaryPosition(mCurrentDraggingBoundary);
                     updateListener(MotionEvent.ACTION_DOWN, event.getX());
-                    mMotionRange = getAllowedValues(mCurrentDraggingBoundary);
                 }
                 return true;
             case MotionEvent.ACTION_MOVE:
@@ -189,8 +186,7 @@ public class CropView extends View {
                                 : event.getX(pointerIndex) - mStartingX;
                         float delta = pixelDistanceToFraction((int) deltaPx,
                                 mCurrentDraggingBoundary);
-                        setBoundaryPosition(mCurrentDraggingBoundary,
-                                mMotionRange.clamp(mMovementStartValue + delta));
+                        setBoundaryPosition(mCurrentDraggingBoundary, mMovementStartValue + delta);
                         updateListener(MotionEvent.ACTION_MOVE, event.getX(pointerIndex));
                         invalidate();
                     }
