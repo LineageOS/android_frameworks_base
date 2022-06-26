@@ -2155,8 +2155,9 @@ public class VolumeDialogImpl implements VolumeDialog,
         final ColorStateList bgTint = Utils.getColorAttr(
                 mContext, android.R.attr.colorBackgroundFloating);
 
-        final ColorStateList inverseTextTint = Utils.getColorAttr(
-                mContext, com.android.internal.R.attr.textColorOnAccent);
+        final ColorStateList rowIconTint = mShowActiveStreamOnly
+                ? Utils.getColorAttr(mContext, R.color.accent_tint_color_selector)
+                : Utils.getColorAttr(mContext, com.android.internal.R.attr.textColorOnAccent);
 
         row.sliderProgressSolid.setTintList(colorTint);
         if (row.sliderBgIcon != null) {
@@ -2172,7 +2173,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
 
         if (row.icon != null) {
-            row.icon.setImageTintList(inverseTextTint);
+            row.icon.setImageTintList(rowIconTint);
             row.icon.setImageAlpha(alpha);
         }
 
