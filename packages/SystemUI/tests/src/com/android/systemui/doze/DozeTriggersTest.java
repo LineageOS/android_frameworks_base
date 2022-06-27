@@ -327,10 +327,10 @@ public class DozeTriggersTest extends SysuiTestCase {
     @Test
     public void testProximitySensorNotAvailable() {
         mProximitySensor.setSensorAvailable(false);
-        mTriggers.onSensor(DozeLog.PULSE_REASON_SENSOR_LONG_PRESS, 100, 100, null);
-        mTriggers.onSensor(DozeLog.PULSE_REASON_SENSOR_WAKE_REACH, 100, 100,
+        mTriggers.onSensor(DozeLog.PULSE_REASON_SENSOR_LONG_PRESS, false, 100, 100, null);
+        mTriggers.onSensor(DozeLog.PULSE_REASON_SENSOR_WAKE_REACH, false, 100, 100,
                 new float[]{1});
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_TAP, 100, 100, null);
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_TAP, false, 100, 100, null);
     }
 
     @Test
@@ -347,7 +347,7 @@ public class DozeTriggersTest extends SysuiTestCase {
         ).when(mHost).setPulsePending(boolCaptor.capture());
 
         // WHEN quick pick up is triggered
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_QUICK_PICKUP, 100, 100, null);
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_QUICK_PICKUP, false, 100, 100, null);
 
         // THEN request pulse
         verify(mMachine).requestPulse(anyInt());
@@ -364,7 +364,7 @@ public class DozeTriggersTest extends SysuiTestCase {
 
         // WHEN the pick up gesture is triggered and keyguard isn't occluded
         when(mKeyguardStateController.isOccluded()).thenReturn(false);
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_PICKUP, 100, 100, null);
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_PICKUP, false, 100, 100, null);
 
         // THEN wakeup
         verify(mMachine).wakeUp(DozeLog.REASON_SENSOR_PICKUP);
@@ -372,7 +372,7 @@ public class DozeTriggersTest extends SysuiTestCase {
 
     @Test
     public void test_onSensor_tap() {
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_TAP, 100, 200, null);
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_TAP, false, 100, 200, null);
 
         verify(mHost).onSlpiTap(100, 200);
         verify(mMachine).wakeUp(DozeLog.REASON_SENSOR_TAP);
@@ -380,7 +380,7 @@ public class DozeTriggersTest extends SysuiTestCase {
 
     @Test
     public void test_onSensor_double_tap() {
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_DOUBLE_TAP, 100, 200, null);
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_DOUBLE_TAP, false, 100, 200, null);
 
         verify(mHost).onSlpiTap(100, 200);
         verify(mMachine).wakeUp(DozeLog.REASON_SENSOR_DOUBLE_TAP);
@@ -393,7 +393,7 @@ public class DozeTriggersTest extends SysuiTestCase {
 
         // WHEN the pick up gesture is triggered and keyguard IS occluded
         when(mKeyguardStateController.isOccluded()).thenReturn(true);
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_PICKUP, 100, 100, null);
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_PICKUP, false, 100, 100, null);
 
         // THEN never wakeup
         verify(mMachine, never()).wakeUp(DozeLog.REASON_SENSOR_PICKUP);
@@ -412,7 +412,7 @@ public class DozeTriggersTest extends SysuiTestCase {
         float[] rawValues = new float[]{screenX, screenY, misc, major, minor};
 
         // WHEN longpress gesture is triggered
-        mTriggers.onSensor(reason, screenX, screenY, rawValues);
+        mTriggers.onSensor(reason, false, screenX, screenY, rawValues);
 
         // THEN
         // * don't immediately send interrupt
@@ -438,7 +438,7 @@ public class DozeTriggersTest extends SysuiTestCase {
         when(mHost.isPulsePending()).thenReturn(false);
         when(mMachine.isExecutingTransition()).thenReturn(true);
 
-        mTriggers.onSensor(DozeLog.PULSE_REASON_SENSOR_LONG_PRESS, 100, 100, null);
+        mTriggers.onSensor(DozeLog.PULSE_REASON_SENSOR_LONG_PRESS, false, 100, 100, null);
 
         verify(mDozeLog).tracePulseDropped(anyString(), eq(null));
     }
@@ -449,7 +449,7 @@ public class DozeTriggersTest extends SysuiTestCase {
         when(mMachine.getState()).thenReturn(DozeMachine.State.DOZE_AOD_PAUSED);
 
         // WHEN udfps long-press is triggered
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_UDFPS_LONG_PRESS, 100, 100,
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_UDFPS_LONG_PRESS, false, 100, 100,
                 new float[]{0, 1, 2, 3, 4});
 
         // THEN the pulse is NOT dropped
@@ -468,7 +468,7 @@ public class DozeTriggersTest extends SysuiTestCase {
         when(mMachine.getState()).thenReturn(DozeMachine.State.DOZE_AOD_PAUSING);
 
         // WHEN udfps long-press is triggered
-        mTriggers.onSensor(DozeLog.REASON_SENSOR_UDFPS_LONG_PRESS, 100, 100,
+        mTriggers.onSensor(DozeLog.REASON_SENSOR_UDFPS_LONG_PRESS, false, 100, 100,
                 new float[]{0, 1, 2, 3, 4});
 
         // THEN the pulse is NOT dropped
