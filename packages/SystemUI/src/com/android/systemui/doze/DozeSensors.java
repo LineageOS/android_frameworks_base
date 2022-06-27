@@ -209,7 +209,7 @@ public class DozeSensors {
                         true /* touchscreen */,
                         false /* ignoresSetting */,
                         false /* requiresProx */,
-                        true /* performsProxCheck */),
+                        !dozeParameters.doubleTapNeedsProximityCheck() /* performsProxCheck */),
                 new TriggerSensor(
                         findSensors(config.tapSensorTypeMapping()),
                         Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
