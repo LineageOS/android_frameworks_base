@@ -390,6 +390,10 @@ public class DozeParameters implements
         return mResources.getBoolean(R.bool.doze_single_tap_uses_prox);
     }
 
+    public boolean longPressNeedsProximityCheck() {
+        return mResources.getBoolean(R.bool.doze_long_press_proximity_check);
+    }
+
     /**
      * Whether the long press sensor uses the proximity sensor.
      */
