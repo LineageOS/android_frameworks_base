@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6faf4754_e3f96ca2",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/DozeParameters.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-06-27T22:29:51Z",
+      "side": 1,
+      "message": "Place it before doubleTapReportsTouchCoordinates to be properly sorted.",
+      "range": {
+        "startLine": 305,
+        "startChar": 19,
+        "endLine": 305,
+        "endChar": 47
+      },
+      "revId": "f9056dd4a15a82665a9a444eab1f484cee81da56",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
