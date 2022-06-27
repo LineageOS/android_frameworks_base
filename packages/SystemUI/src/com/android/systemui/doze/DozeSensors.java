@@ -236,6 +236,7 @@ public class DozeSensors {
                         true /* touchscreen */,
                         false /* ignoresSetting */,
                         dozeParameters.longPressUsesProx() /* requiresProx */,
+                        !dozeParameters.longPressNeedsProximityCheck() /* performsProxCheck */,
                         true /* immediatelyReRegister */,
                         false /* requiresAod */
                 ),
@@ -249,6 +250,7 @@ public class DozeSensors {
                         true /* touchscreen */,
                         false /* ignoresSetting */,
                         dozeParameters.longPressUsesProx(),
+                        !dozeParameters.longPressNeedsProximityCheck() /* performsProxCheck */,
                         false /* immediatelyReRegister */,
                         true /* requiresAod */
                 ),
