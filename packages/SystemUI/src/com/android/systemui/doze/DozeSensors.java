@@ -222,7 +222,8 @@ public class DozeSensors {
                         true /* reports touch coordinates */,
                         true /* touchscreen */,
                         false /* ignoresSetting */,
-                        dozeParameters.longPressUsesProx() /* requiresProx */),
+                        dozeParameters.longPressUsesProx() /* requiresProx */,
+                        !dozeParameters.longPressNeedsProximityCheck() /* performsProxCheck */),
                 new TriggerSensor(
                         findSensor(config.udfpsLongPressSensorType()),
                         "doze_pulse_on_auth",
@@ -232,7 +233,8 @@ public class DozeSensors {
                         true /* reports touch coordinates */,
                         true /* touchscreen */,
                         false /* ignoresSetting */,
-                        dozeParameters.longPressUsesProx()),
+                        dozeParameters.longPressUsesProx(),
+                        !dozeParameters.longPressNeedsProximityCheck() /* performsProxCheck */),
                 new PluginSensor(
                         new SensorManagerPlugin.Sensor(TYPE_WAKE_DISPLAY),
                         Settings.Secure.DOZE_WAKE_DISPLAY_GESTURE,
