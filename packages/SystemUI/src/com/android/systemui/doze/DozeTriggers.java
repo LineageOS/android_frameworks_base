@@ -282,7 +282,8 @@ public class DozeTriggers implements DozeMachine.Part {
     }
 
     @VisibleForTesting
-    void onSensor(int pulseReason, float screenX, float screenY, float[] rawValues) {
+    void onSensor(int pulseReason, boolean sensorPerformedProxCheck,
+            float screenX, float screenY, float[] rawValues) {
         boolean isDoubleTap = pulseReason == DozeLog.REASON_SENSOR_DOUBLE_TAP;
         boolean isTap = pulseReason == DozeLog.REASON_SENSOR_TAP;
         boolean isPickup = pulseReason == DozeLog.REASON_SENSOR_PICKUP;
@@ -299,11 +300,11 @@ public class DozeTriggers implements DozeMachine.Part {
                     mMachine.isExecutingTransition() ? null : mMachine.getState(),
                     pulseReason);
         } else if (isLongPress) {
-            requestPulse(pulseReason, true /* alreadyPerformedProxCheck */,
+            requestPulse(pulseReason, sensorPerformedProxCheck /* alreadyPerformedProxCheck */,
                     null /* onPulseSuppressedListener */);
         } else if (isWakeOnReach || isQuickPickup) {
             if (isWakeDisplayEvent) {
-                requestPulse(pulseReason, true /* alreadyPerformedProxCheck */,
+                requestPulse(pulseReason, sensorPerformedProxCheck /* alreadyPerformedProxCheck */,
                         null /* onPulseSuppressedListener */);
             }
         } else {
@@ -334,11 +335,12 @@ public class DozeTriggers implements DozeMachine.Part {
                                 rawValues[3] /* major */, rawValues[4] /* minor */);
                     }
 
-                    requestPulse(DozeLog.REASON_SENSOR_UDFPS_LONG_PRESS, true, null);
+                    requestPulse(DozeLog.REASON_SENSOR_UDFPS_LONG_PRESS, sensorPerformedProxCheck,
+                            null);
                 } else {
                     mDozeHost.extendPulse(pulseReason);
                 }
-            }, true /* alreadyPerformedProxCheck */, pulseReason);
+            }, sensorPerformedProxCheck /* alreadyPerformedProxCheck */, pulseReason);
         }
 
         if (isPickup && !shouldDropPickupEvent()) {
@@ -426,7 +428,7 @@ public class DozeTriggers implements DozeMachine.Part {
                     Optional.ofNullable(DozingUpdateUiEvent.fromReason(reason))
                             .ifPresent(mUiEventLogger::log);
                 }
-            }, false /* alreadyPerformedProxCheck */, reason);
+            }, true /* alreadyPerformedProxCheck */, reason);
         } else {
             boolean paused = (state == DozeMachine.State.DOZE_AOD_PAUSED);
             boolean pausing = (state == DozeMachine.State.DOZE_AOD_PAUSING);
