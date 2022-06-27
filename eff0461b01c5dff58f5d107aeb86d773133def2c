@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb8f0e25_27236e95",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-06-27T22:17:37Z",
+      "side": 1,
+      "message": "Name it nightMode after Google (line #540). Or make a method for it and use it in both places.",
+      "range": {
+        "startLine": 658,
+        "startChar": 16,
+        "endLine": 658,
+        "endChar": 27
+      },
+      "revId": "eff0461b01c5dff58f5d107aeb86d773133def2c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
