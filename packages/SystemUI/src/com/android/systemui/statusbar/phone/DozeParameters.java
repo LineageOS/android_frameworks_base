@@ -331,6 +331,10 @@ public class DozeParameters implements
         return mResources.getBoolean(R.bool.doze_long_press_uses_prox);
     }
 
+    public boolean longPressNeedsProximityCheck() {
+        return mResources.getBoolean(R.bool.doze_long_press_proximity_check);
+    }
+
     /**
      * Gets the brightness string array per posture. Brightness names along with
      * doze_brightness_sensor_type is used to determine the brightness sensor to use for
