@@ -153,14 +153,14 @@ public class DozeSensorsTest extends SysuiTestCase {
         mWakeLockScreenListener.onSensorChanged(mock(SensorManagerPlugin.SensorEvent.class));
         mTestableLooper.processAllMessages();
         verify(mCallback).onSensorPulse(eq(DozeLog.PULSE_REASON_SENSOR_WAKE_REACH),
-                anyFloat(), anyFloat(), eq(null));
+                eq(false), anyFloat(), anyFloat(), eq(null));
 
         mDozeSensors.requestTemporaryDisable();
         reset(mCallback);
         mWakeLockScreenListener.onSensorChanged(mock(SensorManagerPlugin.SensorEvent.class));
         mTestableLooper.processAllMessages();
         verify(mCallback, never()).onSensorPulse(eq(DozeLog.PULSE_REASON_SENSOR_WAKE_REACH),
-                anyFloat(), anyFloat(), eq(null));
+                eq(false), anyFloat(), anyFloat(), eq(null));
     }
 
     @Test
