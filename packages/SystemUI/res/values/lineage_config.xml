@@ -33,4 +33,7 @@
 
     <!-- Doze: does the double tap sensor need a proximity check? -->
     <bool name="doze_double_tap_proximity_check">false</bool>
+
+    <!-- Doze: does the long press sensor need a proximity check? -->
+    <bool name="doze_long_press_proximity_check">false</bool>
 </resources>
