@@ -22,6 +22,30 @@
       },
       "revId": "71ccba990afbca96e1c1d9f62e453e1d99b55650",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b7e794a_fb92ff9a",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/DozeParameters.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2022-06-28T07:14:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "846da7b6_c57f2390",
+      "range": {
+        "startLine": 334,
+        "startChar": 19,
+        "endLine": 334,
+        "endChar": 47
+      },
+      "revId": "71ccba990afbca96e1c1d9f62e453e1d99b55650",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
