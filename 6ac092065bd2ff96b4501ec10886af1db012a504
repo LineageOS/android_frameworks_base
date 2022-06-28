@@ -16,6 +16,24 @@
       "message": "100 chars",
       "revId": "6ac092065bd2ff96b4501ec10886af1db012a504",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3319ae_29975bc2",
+        "filename": "packages/SystemUI/src/com/android/systemui/doze/DozeSensors.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2022-06-28T12:08:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77cac059_67f2f557",
+      "revId": "6ac092065bd2ff96b4501ec10886af1db012a504",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
