@@ -131,6 +131,8 @@ import java.util.function.Consumer;
 
 import javax.inject.Inject;
 
+import lineageos.providers.LineageSettings;
+
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
  * the up to date information as well as a registration for callbacks that care
@@ -306,6 +308,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             mCallbacks = Lists.newArrayList();
     private ContentObserver mDeviceProvisionedObserver;
     private ContentObserver mTimeFormatChangeObserver;
+    private ContentObserver mSettingsChangeObserver;
 
     private boolean mSwitchingUser;
 
@@ -339,7 +342,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     private SensorPrivacyManager mSensorPrivacyManager;
     private int mFaceAuthUserId;
 
-    private final boolean mFingerprintWakeAndUnlock;
+    private boolean mFingerprintWakeAndUnlock;
 
     /**
      * Short delay before restarting fingerprint authentication after a successful try. This should
@@ -1826,8 +1829,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         mTelephonyListenerManager = telephonyListenerManager;
         mDeviceProvisioned = isDeviceProvisionedInSettingsDb();
         mStrongAuthTracker = new StrongAuthTracker(context, this::notifyStrongAuthStateChanged);
-        mFingerprintWakeAndUnlock = mContext.getResources().getBoolean(
-                com.android.systemui.R.bool.config_fingerprintWakeAndUnlock);
         mBackgroundExecutor = backgroundExecutor;
         mBroadcastDispatcher = broadcastDispatcher;
         mInteractionJankMonitor = interactionJankMonitor;
@@ -1840,6 +1841,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         mAuthController = authController;
         dumpManager.registerDumpable(getClass().getName(), this);
         mSensorPrivacyManager = context.getSystemService(SensorPrivacyManager.class);
+
+        updateFingerprintSettings();
 
         mHandler = new Handler(mainLooper) {
             @Override
@@ -2113,6 +2116,30 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.TIME_12_24),
                 false, mTimeFormatChangeObserver, UserHandle.USER_ALL);
+
+        mSettingsChangeObserver = new ContentObserver(mHandler) {
+            @Override
+            public void onChange(boolean selfChange) {
+                updateFingerprintSettings();
+            }
+        };
+        mContext.getContentResolver().registerContentObserver(
+                LineageSettings.System.getUriFor(
+                LineageSettings.System.FINGERPRINT_WAKE_UNLOCK), false,
+                mSettingsChangeObserver, UserHandle.USER_ALL);
+    }
+
+    private void updateFingerprintSettings() {
+        // Get default value from overlay we already use.
+        final boolean def = mContext.getResources().getBoolean(
+                com.android.systemui.R.bool.config_fingerprintWakeAndUnlock);
+        mFingerprintWakeAndUnlock = LineageSettings.System.getIntForUser(
+                mContext.getContentResolver(), LineageSettings.System.FINGERPRINT_WAKE_UNLOCK,
+                def ? 1 : 0, UserHandle.USER_CURRENT) == 1;
+        // Set default value for user toggle.
+        LineageSettings.System.putIntForUser(mContext.getContentResolver(),
+                LineageSettings.System.FINGERPRINT_WAKE_UNLOCK,
+                mFingerprintWakeAndUnlock ? 1 : 0, UserHandle.USER_CURRENT);
     }
 
     private void updateUdfpsEnrolled(int userId) {
@@ -3460,6 +3487,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
 
         if (mTimeFormatChangeObserver != null) {
             mContext.getContentResolver().unregisterContentObserver(mTimeFormatChangeObserver);
+        }
+
+        if (mSettingsChangeObserver != null) {
+            mContext.getContentResolver().unregisterContentObserver(mSettingsChangeObserver);
         }
 
         try {
