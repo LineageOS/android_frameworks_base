@@ -109,6 +109,7 @@ import com.android.systemui.shared.system.TaskStackChangeListeners;
 import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.statusbar.phone.KeyguardBypassController;
 import com.android.systemui.telephony.TelephonyListenerManager;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.Assert;
 import com.android.systemui.util.RingerModeTracker;
 
@@ -131,6 +132,8 @@ import java.util.function.Consumer;
 
 import javax.inject.Inject;
 
+import lineageos.providers.LineageSettings;
+
 /**
  * Watches for updates that may be interesting to the keyguard, and provides
  * the up to date information as well as a registration for callbacks that care
@@ -151,6 +154,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             = "com.android.facelock.FACE_UNLOCK_STARTED";
     private static final String ACTION_FACE_UNLOCK_STOPPED
             = "com.android.facelock.FACE_UNLOCK_STOPPED";
+    private static final String KEY_FINGERPRINT_WAKE_UNLOCK
+            = "lineagesystem:" + LineageSettings.System.FINGERPRINT_WAKE_UNLOCK;
 
     // Callback messages
     private static final int MSG_TIME_UPDATE = 301;
@@ -254,6 +259,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     private final boolean mIsAutomotive;
     private final AuthController mAuthController;
     private final StatusBarStateController mStatusBarStateController;
+    private final TunerService mTunerService;
     private int mStatusBarState;
     private final StatusBarStateController.StateListener mStatusBarStateControllerListener =
             new StatusBarStateController.StateListener() {
@@ -339,7 +345,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     private SensorPrivacyManager mSensorPrivacyManager;
     private int mFaceAuthUserId;
 
-    private final boolean mFingerprintWakeAndUnlock;
+    private boolean mFingerprintWakeAndUnlock;
 
     /**
      * Short delay before restarting fingerprint authentication after a successful try. This should
@@ -1819,6 +1825,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             LockPatternUtils lockPatternUtils,
             AuthController authController,
             TelephonyListenerManager telephonyListenerManager,
+            TunerService tunerService,
             InteractionJankMonitor interactionJankMonitor,
             LatencyTracker latencyTracker) {
         mContext = context;
@@ -1826,8 +1833,6 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         mTelephonyListenerManager = telephonyListenerManager;
         mDeviceProvisioned = isDeviceProvisionedInSettingsDb();
         mStrongAuthTracker = new StrongAuthTracker(context, this::notifyStrongAuthStateChanged);
-        mFingerprintWakeAndUnlock = mContext.getResources().getBoolean(
-                com.android.systemui.R.bool.config_fingerprintWakeAndUnlock);
         mBackgroundExecutor = backgroundExecutor;
         mBroadcastDispatcher = broadcastDispatcher;
         mInteractionJankMonitor = interactionJankMonitor;
@@ -1836,10 +1841,18 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         mStatusBarStateController = statusBarStateController;
         mStatusBarStateController.addCallback(mStatusBarStateControllerListener);
         mStatusBarState = mStatusBarStateController.getState();
+        mTunerService = tunerService;
         mLockPatternUtils = lockPatternUtils;
         mAuthController = authController;
         dumpManager.registerDumpable(getClass().getName(), this);
         mSensorPrivacyManager = context.getSystemService(SensorPrivacyManager.class);
+
+        final boolean mFingerprintWakeAndUnlockDefault = mContext.getResources().getBoolean(
+                com.android.systemui.R.bool.config_fingerprintWakeAndUnlock);
+        mFingerprintWakeAndUnlock = LineageSettings.System.getIntForUser(
+                mContext.getContentResolver(), LineageSettings.System.FINGERPRINT_WAKE_UNLOCK,
+                mFingerprintWakeAndUnlockDefault, UserHandle.USER_CURRENT);
+        mTunerService.addTunable(mTunable, KEY_FINGERPRINT_WAKE_UNLOCK);
 
         mHandler = new Handler(mainLooper) {
             @Override
@@ -2289,6 +2302,15 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 && !(face != null && face.mAuthenticated)
                 && !mUserHasTrust.get(getCurrentUser(), false);
     }
+
+    private final TunerService.Tunable mTunable = new TunerService.Tunable() {
+        @Override
+        public void onTuningChanged(String key, String newValue) {
+            if (KEY_FINGERPRINT_WAKE_UNLOCK.equals(key)) {
+                mFingerprintWakeAndUnlock = TunerService.parseIntegerSwitch(newValue, 1);
+            }
+        }
+    };
 
     @VisibleForTesting
     protected boolean shouldListenForFingerprint(boolean isUdfps) {
