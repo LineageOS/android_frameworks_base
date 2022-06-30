@@ -329,8 +329,7 @@ public class BackupManagerService extends IBackupManager.Stub implements BackupM
      * 1. Global suppression: If a suppression file exists for the system user
      *    {@code UserHandle.USER_SYSTEM}, backup is disabled for all users.
      * 2. User-specific suppression: Check if a suppression file exists for the specified user.
-     * 3. Default user activation: Check if the user's backup is initially set to active.
-     * 4. Explicit activation file: Check if an activation file exists for the user.
+     * Otherwise, it is activated for all users.
      */
     private boolean isBackupActivatedForUser(@UserIdInt int userId) {
         // 1. Global suppression.
@@ -343,13 +342,7 @@ public class BackupManagerService extends IBackupManager.Stub implements BackupM
             return false;
         }
 
-        // 3. Default user activation.
-        if (isDefaultBackupActiveUser(userId)) {
-            return true;
-        }
-
-        // 4. Explicit activation file.
-        return getActivatedFileForUser(userId).exists();
+        return true;
     }
 
     /** Determines the default activation state for backup for the specified user ID. */
