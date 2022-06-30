@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d39d5b92_da81ee9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-06-30T05:57:05Z",
+      "side": 1,
+      "message": "can\u0027t we make use of old config used? doze_proximity_sensor_supported",
+      "revId": "ca6dbf4fe7623d387656021ab7774b2f345d65a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
