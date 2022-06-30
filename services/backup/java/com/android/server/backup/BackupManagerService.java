@@ -319,14 +319,7 @@ public class BackupManagerService extends IBackupManager.Stub {
     /**
      * If there is a "suppress" file for the system user, backup is inactive for ALL users.
      *
-     * Otherwise, the below logic applies:
-     *
-     * For the {@link #mDefaultBackupUserId}, backup is active by default. Backup is only
-     * deactivated if there exists a "suppress" file for the user, which can be created by calling
-     * {@link #setBackupServiceActive}.
-     *
-     * For non-main users, backup is only active if there exists an "activated" file for the user,
-     * which can also be created by calling {@link #setBackupServiceActive}.
+     * Otherwise, it is activated for all users.
      */
     private boolean isBackupActivatedForUser(int userId) {
         if (getSuppressFileForUser(UserHandle.USER_SYSTEM).exists()) {
@@ -341,11 +334,7 @@ public class BackupManagerService extends IBackupManager.Stub {
             return false;
         }
 
-        if (isDefaultUser && getSuppressFileForUser(userId).exists()) {
-            return false;
-        }
-
-        return isDefaultUser || getActivatedFileForUser(userId).exists();
+        return true;
     }
 
     @VisibleForTesting
