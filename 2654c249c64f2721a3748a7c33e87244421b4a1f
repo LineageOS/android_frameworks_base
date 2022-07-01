@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dbb1fb_cebff16d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19763
+      },
+      "writtenOn": "2022-07-01T10:46:25Z",
+      "side": 1,
+      "message": "Works here on sake (ZenFone 8).",
+      "revId": "2654c249c64f2721a3748a7c33e87244421b4a1f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
