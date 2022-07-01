@@ -16,6 +16,24 @@
       "message": "can\u0027t we make use of old config used? doze_proximity_sensor_supported",
       "revId": "ca6dbf4fe7623d387656021ab7774b2f345d65a4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "becda065_59b0c68a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17257
+      },
+      "writtenOn": "2022-07-01T08:41:08Z",
+      "side": 1,
+      "message": "Nope. It\u0027s unrelated.",
+      "parentUuid": "d39d5b92_da81ee9e",
+      "revId": "ca6dbf4fe7623d387656021ab7774b2f345d65a4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
