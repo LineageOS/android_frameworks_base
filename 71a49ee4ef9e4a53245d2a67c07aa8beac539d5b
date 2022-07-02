@@ -16,6 +16,24 @@
       "message": "This is causes a minor issue some times when using circle battery. Needs to be double checked.",
       "revId": "71a49ee4ef9e4a53245d2a67c07aa8beac539d5b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ff135e5_23828d6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-07-02T07:31:49Z",
+      "side": 1,
+      "message": "okay",
+      "parentUuid": "932a8df1_a2f4ab86",
+      "revId": "71a49ee4ef9e4a53245d2a67c07aa8beac539d5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
