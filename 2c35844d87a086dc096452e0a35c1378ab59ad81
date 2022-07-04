@@ -33,6 +33,24 @@
       "message": "Maybe send this to AOSP?",
       "revId": "2c35844d87a086dc096452e0a35c1378ab59ad81",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9ae1388_5a6bd856",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19612
+      },
+      "writtenOn": "2022-07-04T15:08:16Z",
+      "side": 1,
+      "message": "Uploaded and added the original commit author as reviewer",
+      "parentUuid": "19c945f4_404525b0",
+      "revId": "2c35844d87a086dc096452e0a35c1378ab59ad81",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
