@@ -2585,8 +2585,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         final boolean isEncryptedOrLockdownForUser = isEncryptedOrLockdown(user);
         final boolean shouldListenUdfpsState = !isUdfps
                 || (!userCanSkipBouncer
-                    && !isEncryptedOrLockdownForUser
-                    && userDoesNotHaveTrust);
+                    && !isEncryptedOrLockdownForUser);
 
         final boolean shouldListen = shouldListenKeyguardState && shouldListenUserState
                 && shouldListenBouncerState && shouldListenUdfpsState && !isFingerprintLockedOut();
