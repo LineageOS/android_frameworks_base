@@ -16,6 +16,24 @@
       "message": "Port a patch from AOSP, and can fix this bug perfectly",
       "revId": "1039635cc8b69951367b9af39833e958f56b1be8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f10df28_0891b2b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-07-05T16:31:43Z",
+      "side": 1,
+      "message": "What do you mean by that? Is this partially taken from an AOSP change?",
+      "parentUuid": "4e4108ff_30c802c7",
+      "revId": "1039635cc8b69951367b9af39833e958f56b1be8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
