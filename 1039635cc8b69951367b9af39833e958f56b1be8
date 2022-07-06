@@ -51,6 +51,23 @@
       "message": "This is a whole patch from AOSP to fix icon overlay problem.See https://android-review.googlesource.com/c/platform/frameworks/base/+/2008755\nLineageOS has this problem but did not merge this patch.",
       "revId": "1039635cc8b69951367b9af39833e958f56b1be8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3781a8e4_3b794e08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-07-06T01:34:40Z",
+      "side": 1,
+      "message": "Then you have the wrong authorship and change-id on this. Pick the AOSP commit and push it here.",
+      "revId": "1039635cc8b69951367b9af39833e958f56b1be8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
