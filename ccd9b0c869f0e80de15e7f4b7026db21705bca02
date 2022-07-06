@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcc3ef67_d7464a64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31334
+      },
+      "writtenOn": "2022-07-06T03:04:34Z",
+      "side": 1,
+      "message": "Pick a commit from AOSP with authorship updated 😊",
+      "revId": "ccd9b0c869f0e80de15e7f4b7026db21705bca02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
