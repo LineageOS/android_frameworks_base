@@ -57,6 +57,16 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 public void onDensityOrFontScaleChanged() {
                     mView.scaleBatteryMeterViews();
                 }
+
+                @Override
+                public void onUiModeChanged() {
+                    mView.scaleBatteryMeterViews();
+                }
+
+                @Override
+                public void onThemeChanged() {
+                    mView.scaleBatteryMeterViews();
+                }
             };
 
     private final TunerService.Tunable mTunable = new TunerService.Tunable() {

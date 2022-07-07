@@ -125,8 +125,10 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         setupLayoutTransition();
 
         mBatteryIconView = new ImageView(context);
-        mBatteryIconView.setImageDrawable(mThemedDrawable);
+        updateBatteryStyle();
         final MarginLayoutParams mlp = new MarginLayoutParams(
+                mBatteryStyle == BATTERY_STYLE_CIRCLE ? getResources().getDimensionPixelSize(
+                R.dimen.status_bar_battery_icon_circle_width) :
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_width),
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_height));
         mlp.setMargins(0, 0, 0,
