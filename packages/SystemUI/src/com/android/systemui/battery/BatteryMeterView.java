@@ -125,15 +125,16 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         setupLayoutTransition();
 
         mBatteryIconView = new ImageView(context);
-        mBatteryIconView.setImageDrawable(mThemedDrawable);
         final MarginLayoutParams mlp = new MarginLayoutParams(
+                mBatteryStyle == BATTERY_STYLE_CIRCLE ? getResources().getDimensionPixelSize(
+                R.dimen.status_bar_battery_icon_circle_width) :
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_width),
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_height));
         mlp.setMargins(0, 0, 0,
                 getResources().getDimensionPixelOffset(R.dimen.battery_margin_bottom));
         addView(mBatteryIconView, mlp);
 
-        updateShowPercent();
+        updateBatteryIcon();
         mDualToneHandler = new DualToneHandler(context);
         // Init to not dark at all.
         onDarkChanged(new Rect(), 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
@@ -160,6 +161,10 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     protected void setBatteryStyle(int batteryStyle) {
         if (batteryStyle == mBatteryStyle) return;
         mBatteryStyle = batteryStyle;
+        updateBatteryIcon();
+    }
+
+    private void updateBatteryIcon() {
         updateBatteryStyle();
         updateShowPercent();
     }
