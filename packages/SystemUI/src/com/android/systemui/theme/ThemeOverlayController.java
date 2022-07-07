@@ -437,7 +437,6 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                             return;
                         }
                         reevaluateSystemTheme(true /* forceReload */);
-                        mConfigurationController.notifyThemeChanged();
                     }
                 },
                 UserHandle.USER_ALL);
