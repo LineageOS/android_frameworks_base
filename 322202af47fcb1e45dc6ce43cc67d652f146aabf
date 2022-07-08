@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d014aa4_78b56f65",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-07-08T15:18:22Z",
+      "side": 1,
+      "message": "Battery circle icon is not positioned properly on themechange, might have to redo the change.",
+      "revId": "322202af47fcb1e45dc6ce43cc67d652f146aabf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
