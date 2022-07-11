@@ -47,6 +47,7 @@ import android.os.UserManager;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+import android.util.ArraySet;
 import android.util.Log;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
@@ -66,6 +67,7 @@ import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
 import com.android.systemui.monet.ColorScheme;
 import com.android.systemui.settings.UserTracker;
+import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
@@ -441,6 +443,56 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                 },
                 UserHandle.USER_ALL);
 
+        mSystemSettings.registerContentObserverForUser(
+                LineageSettings.System.getUriFor(LineageSettings.System.STATUS_BAR_BATTERY_STYLE),
+                false,
+                new ContentObserver(mBgHandler) {
+                    @Override
+                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
+                            int userId) {
+                        if (DEBUG) Log.d(TAG, "Overlay changed for user: " + userId);
+                        if (mUserTracker.getUserId() != userId) {
+                            return;
+                        }
+                        if (!mDeviceProvisionedController.isUserSetup(userId)) {
+                            Log.i(TAG, "Theme application deferred when setting changed.");
+                            mDeferredThemeEvaluation = true;
+                            return;
+                        }
+                        if (isCircleBattery()) {
+                            reevaluateSystemTheme(true /* forceReload */);
+                        }
+                    }
+                },
+                UserHandle.USER_ALL);
+
+        mSystemSettings.registerContentObserverForUser(
+                Settings.System.getUriFor(StatusBarIconController.ICON_HIDE_LIST),
+                false,
+                new ContentObserver(mBgHandler) {
+                    @Override
+                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
+                            int userId) {
+                        if (DEBUG) Log.d(TAG, "Overlay changed for user: " + userId);
+                        if (mUserTracker.getUserId() != userId) {
+                            return;
+                        }
+                        if (!mDeviceProvisionedController.isUserSetup(userId)) {
+                            Log.i(TAG, "Theme application deferred when setting changed.");
+                            mDeferredThemeEvaluation = true;
+                            return;
+                        }
+                        ArraySet<String> icons = StatusBarIconController.getIconHideList(
+                                mContext, StatusBarIconController.ICON_HIDE_LIST);
+                        boolean mBatteryHidden = icons.contains(mContext.getResources().getString(
+                                com.android.internal.R.string.status_bar_battery));
+                        if (!mBatteryHidden && isCircleBattery()) {
+                            reevaluateSystemTheme(true /* forceReload */);
+                        }
+                    }
+                },
+                UserHandle.USER_ALL);
+
         if (!mIsMonetEnabled) {
             return;
         }
@@ -490,6 +542,13 @@ public class ThemeOverlayController extends SystemUI implements Dumpable {
                 }
             }
         });
+    }
+
+    private boolean isCircleBattery() {
+        return LineageSettings.System.getIntForUser(
+                mContext.getContentResolver(),
+                LineageSettings.System.STATUS_BAR_BATTERY_STYLE, 0,
+                UserHandle.USER_CURRENT) == 1; // BATTERY_STYLE_CIRCLE = 1
     }
 
     private void reevaluateSystemTheme(boolean forceReload) {
