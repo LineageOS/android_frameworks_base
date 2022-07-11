@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "375267b6_55fea6f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-07-11T20:44:31Z",
+      "side": 1,
+      "message": "need a bit more changes. QS tint sometimes doesn\u0027t apply",
+      "revId": "49ce9c0ddce1e0ac78c37a458f91897db9dd354b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
