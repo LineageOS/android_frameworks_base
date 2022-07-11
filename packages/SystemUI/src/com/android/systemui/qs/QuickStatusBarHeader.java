@@ -17,6 +17,8 @@ package com.android.systemui.qs;
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
+import static lineageos.providers.LineageSettings.System.STATUS_BAR_BATTERY_STYLE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -288,7 +290,10 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
         int textColor = Utils.getColorAttrDefaultColor(mContext, android.R.attr.textColorPrimary);
         if (textColor != mTextColorPrimary) {
+            boolean isCircleBattery = mBatteryRemainingIcon.getBatteryStyle() ==
+                    mBatteryRemainingIcon.BATTERY_STYLE_CIRCLE;
             int textColorSecondary = Utils.getColorAttrDefaultColor(mContext,
+                    isCircleBattery ? android.R.attr.textColorHint :
                     android.R.attr.textColorSecondary);
             mTextColorPrimary = textColor;
             mClockView.setTextColor(textColor);
