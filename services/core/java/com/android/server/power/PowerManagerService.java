@@ -1354,20 +1354,20 @@ public final class PowerManagerService extends SystemService
                 false, mSettingsObserver, UserHandle.USER_SYSTEM);
 
         // Register for Lineage settings changes.
-        resolver.registerContentObserver(LineageSettings.System.getUriFor(
-                LineageSettings.System.PROXIMITY_ON_WAKE),
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.PROXIMITY_ON_WAKE),
                 false, mSettingsObserver, UserHandle.USER_ALL);
-        resolver.registerContentObserver(LineageSettings.Global.getUriFor(
-                LineageSettings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
+        resolver.registerContentObserver(Settings.Global.getUriFor(
+                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
-        resolver.registerContentObserver(LineageSettings.System.getUriFor(
-                LineageSettings.System.FORCE_SHOW_NAVBAR),
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.FORCE_SHOW_NAVBAR),
                 false, mSettingsObserver, UserHandle.USER_ALL);
-        resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
-                LineageSettings.Secure.BUTTON_BRIGHTNESS),
+        resolver.registerContentObserver(Settings.Secure.getUriFor(
+                Settings.Secure.BUTTON_BRIGHTNESS),
                 false, mSettingsObserver, UserHandle.USER_ALL);
-        resolver.registerContentObserver(LineageSettings.Secure.getUriFor(
-                LineageSettings.Secure.BUTTON_BACKLIGHT_TIMEOUT),
+        resolver.registerContentObserver(Settings.Secure.getUriFor(
+                Settings.Secure.BUTTON_BACKLIGHT_TIMEOUT),
                 false, mSettingsObserver, UserHandle.USER_ALL);
 
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
@@ -1497,18 +1497,18 @@ public final class PowerManagerService extends SystemService
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL, UserHandle.USER_CURRENT);
 
-        mProximityWakeEnabled = LineageSettings.System.getInt(resolver,
-                LineageSettings.System.PROXIMITY_ON_WAKE,
+        mProximityWakeEnabled = Settings.System.getInt(resolver,
+                Settings.System.PROXIMITY_ON_WAKE,
                 mProximityWakeEnabledByDefaultConfig ? 1 : 0) == 1;
-        mForceNavbar = LineageSettings.System.getIntForUser(resolver,
-                LineageSettings.System.FORCE_SHOW_NAVBAR,
+        mForceNavbar = Settings.System.getIntForUser(resolver,
+                Settings.System.FORCE_SHOW_NAVBAR,
                 0, UserHandle.USER_CURRENT) == 1;
 
-        mButtonTimeout = LineageSettings.Secure.getIntForUser(resolver,
-                LineageSettings.Secure.BUTTON_BACKLIGHT_TIMEOUT,
+        mButtonTimeout = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.BUTTON_BACKLIGHT_TIMEOUT,
                 DEFAULT_BUTTON_ON_DURATION, UserHandle.USER_CURRENT);
-        mButtonBrightness = LineageSettings.Secure.getFloatForUser(resolver,
-                LineageSettings.Secure.BUTTON_BRIGHTNESS, mButtonBrightnessDefault,
+        mButtonBrightness = Settings.Secure.getFloatForUser(resolver,
+                Settings.Secure.BUTTON_BRIGHTNESS, mButtonBrightnessDefault,
                 UserHandle.USER_CURRENT);
 
         mDirty |= DIRTY_SETTINGS;
