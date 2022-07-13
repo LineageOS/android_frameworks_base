@@ -33,6 +33,24 @@
       "message": "we can\u0027t modify public api.",
       "revId": "66af5763ea345906a02a9c11b2ff4a158e99bc1b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb1f9d9_1176dee9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17890
+      },
+      "writtenOn": "2022-07-13T21:10:02Z",
+      "side": 1,
+      "message": "Any suggestions on how to change the variable during runtime otherwise? Requiring a reboot is wrong.",
+      "parentUuid": "3783e21c_f597345c",
+      "revId": "66af5763ea345906a02a9c11b2ff4a158e99bc1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
