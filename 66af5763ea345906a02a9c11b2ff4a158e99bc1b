@@ -16,6 +16,23 @@
       "message": "Disabling wallpaper zooming only solves the quality issue from the cropping. If the wallpaper is set using theme picker, the actual wallpaper quality will still be lower compared to 17.1 (A10).\n\nYou can do a comparison by using the same picture set as wallpaper using theme picker from 17.1, 18.1, and 19.1, both theme picker from 18.1 and 19.1 will set lower quality wallpaper regardless of the zooming.",
       "revId": "66af5763ea345906a02a9c11b2ff4a158e99bc1b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3783e21c_f597345c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-07-13T19:37:05Z",
+      "side": 1,
+      "message": "we can\u0027t modify public api.",
+      "revId": "66af5763ea345906a02a9c11b2ff4a158e99bc1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
