@@ -33,6 +33,24 @@
       "message": "why not modify config_wallpaperMaxScale value?",
       "revId": "a2ca58adef28903f351681cdff50a25614b61a5c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25b1eb53_6d9eb821",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17890
+      },
+      "writtenOn": "2022-07-14T16:47:05Z",
+      "side": 1,
+      "message": "config_wallpaperMaxScale is retrieved once on wallpaper controller creation. If this value were simply modified then it would require the user to re-set their wallpaper or maybe reboot. I think a reboot or systemui restart is needed to recreate the window manager which would in term create a new wallpaper controller. Doing it this way allows for runtime control. The user expects a change right away after the option is toggled.",
+      "parentUuid": "dfd03096_780e1c46",
+      "revId": "a2ca58adef28903f351681cdff50a25614b61a5c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
