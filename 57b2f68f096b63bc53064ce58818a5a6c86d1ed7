@@ -16,6 +16,23 @@
       "message": "Fixes bugs introduced by \"RESTRICT AUTOMERGE Prevent non-admin users from deleting system apps\"",
       "revId": "57b2f68f096b63bc53064ce58818a5a6c86d1ed7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8040ea2_b8ce47e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2022-07-17T20:07:35Z",
+      "side": 1,
+      "message": "This requires n-asb-2022-06 topic",
+      "revId": "57b2f68f096b63bc53064ce58818a5a6c86d1ed7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
