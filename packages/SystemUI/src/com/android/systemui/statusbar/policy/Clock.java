@@ -37,12 +37,10 @@ import android.text.format.DateFormat;
 import android.text.style.CharacterStyle;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
-import android.view.ContextThemeWrapper;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.FontSizeUtils;
 import com.android.systemui.R;
@@ -341,13 +339,6 @@ public class Clock extends TextView implements
     public void onDarkChanged(Rect area, float darkIntensity, int tint) {
         mNonAdaptedColor = DarkIconDispatcher.getTint(area, this, tint);
         setTextColor(mNonAdaptedColor);
-    }
-
-    // Update text color based when shade scrim changes color.
-    public void onColorsChanged(boolean lightTheme) {
-        final Context context = new ContextThemeWrapper(mContext,
-                lightTheme ? R.style.Theme_SystemUI_LightWallpaper : R.style.Theme_SystemUI);
-        setTextColor(Utils.getColorAttrDefaultColor(context, R.attr.wallpaperTextColor));
     }
 
     @Override
