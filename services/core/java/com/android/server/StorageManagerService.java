@@ -83,6 +83,7 @@ import android.content.res.ObbInfo;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Build;
 import android.os.DropBoxManager;
 import android.os.Environment;
 import android.os.Handler;
@@ -3408,6 +3409,9 @@ class StorageManagerService extends IStorageManager.Stub
                 }
             }
         } catch (Exception e) {
+            if (Build.IS_EMULATOR) {
+                return;
+            }
             EventLog.writeEvent(0x534e4554, "224585613", -1, "");
             Slog.wtf(TAG, e);
             // Make sure to re-throw this exception; we must not ignore failure
