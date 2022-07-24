@@ -16,6 +16,24 @@
       "message": "I\u0027m not greatly familiar with java and overrides. Is the proper fix here to do what this changeset does or to have ShadowPackageParser add a dummy function like mock has?",
       "revId": "d7f1a80214c2f4fa03f55ffd99e494e31f20c53b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c8d1890_601b6b81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2022-07-24T17:28:35Z",
+      "side": 1,
+      "message": "robolectric is an framework to run unit tests without android device. As that API is private and nonstandard, I think it does not matter at all.",
+      "parentUuid": "fcc3784d_df33aac4",
+      "revId": "d7f1a80214c2f4fa03f55ffd99e494e31f20c53b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
