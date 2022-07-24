@@ -16,6 +16,23 @@
       "message": "Fixes build error shown in description",
       "revId": "45710c74d72dfe21dbaa8ef22b8a18282ce6ccf5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1ddc5e0_78d083ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2022-07-24T07:19:25Z",
+      "side": 1,
+      "message": "To reproduce: `aidegen -n services` in LOS 19.1 tree",
+      "revId": "45710c74d72dfe21dbaa8ef22b8a18282ce6ccf5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
