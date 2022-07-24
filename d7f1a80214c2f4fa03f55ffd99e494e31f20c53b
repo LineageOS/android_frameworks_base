@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcc3784d_df33aac4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2022-07-24T17:20:42Z",
+      "side": 1,
+      "message": "I\u0027m not greatly familiar with java and overrides. Is the proper fix here to do what this changeset does or to have ShadowPackageParser add a dummy function like mock has?",
+      "revId": "d7f1a80214c2f4fa03f55ffd99e494e31f20c53b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
