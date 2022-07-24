@@ -34,6 +34,24 @@
       "parentUuid": "fcc3784d_df33aac4",
       "revId": "d7f1a80214c2f4fa03f55ffd99e494e31f20c53b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68ec9e9f_814a9912",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-07-24T20:46:09Z",
+      "side": 1,
+      "message": "per jav \"valid concern in C++, but not in Java\"",
+      "parentUuid": "2c8d1890_601b6b81",
+      "revId": "d7f1a80214c2f4fa03f55ffd99e494e31f20c53b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
