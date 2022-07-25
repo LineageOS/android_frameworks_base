@@ -2656,9 +2656,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     public void setUidPolicy(int uid, int policy) {
         mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
 
-        if (!UserHandle.isApp(uid)) {
+        /*if (!UserHandle.isApp(uid)) {
             throw new IllegalArgumentException("cannot apply policy to UID " + uid);
-        }
+        }*/
 
         if (LOGD) {
             Log.d(TAG, "setUidPolicy: uid = " + uid + " policy = " + policy);
@@ -2682,9 +2682,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     public void addUidPolicy(int uid, int policy) {
         mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
 
-        if (!UserHandle.isApp(uid)) {
+        /*if (!UserHandle.isApp(uid)) {
             throw new IllegalArgumentException("cannot apply policy to UID " + uid);
-        }
+        }*/
 
         if (LOGD) {
             Log.d(TAG, "addUidPolicy: uid = " + uid + " policy = " + policy);
@@ -2704,9 +2704,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     public void removeUidPolicy(int uid, int policy) {
         mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
 
-        if (!UserHandle.isApp(uid)) {
+        /*if (!UserHandle.isApp(uid)) {
             throw new IllegalArgumentException("cannot apply policy to UID " + uid);
-        }
+        }*/
 
         if (LOGD) {
             Log.d(TAG, "removeUidPolicy: uid = " + uid + " policy = " + policy);
