@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1adb7359_5dd01432",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27072
+      },
+      "writtenOn": "2022-07-28T18:03:18Z",
+      "side": 1,
+      "message": "I think black icon looks \"out of place\" for inactive rows.",
+      "revId": "e27d52b09737058c29bd4018c8745997bdf9c1d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
