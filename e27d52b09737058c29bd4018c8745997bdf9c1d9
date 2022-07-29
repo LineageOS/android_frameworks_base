@@ -16,6 +16,24 @@
       "message": "I think black icon looks \"out of place\" for inactive rows.",
       "revId": "e27d52b09737058c29bd4018c8745997bdf9c1d9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aabca480_3994bf31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-07-29T11:37:08Z",
+      "side": 1,
+      "message": "Do you have any other suggestion? I was trying the accent colour which looks like this: https://imgur.com/a/YcUCxu0 but doesn\u0027t look great in dark mode: https://imgur.com/a/nj7Xusk so it would need more complex handling. However i think that the black colour matches the ringer icons quite well: https://imgur.com/a/VioHyEG",
+      "parentUuid": "1adb7359_5dd01432",
+      "revId": "e27d52b09737058c29bd4018c8745997bdf9c1d9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
