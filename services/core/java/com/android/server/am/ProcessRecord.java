@@ -465,6 +465,10 @@ final class ProcessRecord {
         stringName = null;
     }
 
+    public int getPid() {
+        return pid;
+    }
+
     public void makeActive(IApplicationThread _thread, ProcessStatsService tracker) {
         String seempStr = "app_uid=" + uid
                             + ",app_pid=" + pid + ",oom_adj=" + curAdj
