@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dd7bb7b_47b09673",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBarKeyguardViewManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-08-03T06:44:25Z",
+      "side": 1,
+      "message": "Looks like a line that was added by mistake when cherry-picking the change? Building fails with this line anyway: \"cannot find symbol\"",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 26
+      },
+      "revId": "5e44fcbac99355be84dbae02850aab27bf0e415d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
