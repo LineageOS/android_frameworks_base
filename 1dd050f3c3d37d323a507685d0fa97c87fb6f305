@@ -16,6 +16,23 @@
       "message": "per jab weird behavior with AOD and lock screen pin entry.",
       "revId": "1dd050f3c3d37d323a507685d0fa97c87fb6f305",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb55aaf4_acb0102c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14010
+      },
+      "writtenOn": "2022-08-03T20:28:39Z",
+      "side": 1,
+      "message": "I\u0027ve experienced this issue every now and then on mata. It\u0027s nice to see it fixed :)",
+      "revId": "1dd050f3c3d37d323a507685d0fa97c87fb6f305",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
