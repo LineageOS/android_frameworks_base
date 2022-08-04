@@ -870,4 +870,8 @@ final class ProcessRecord {
     boolean hasForegroundServices() {
         return foregroundServices;
     }
+
+    ActiveInstrumentation getActiveInstrumentation() {
+        return instr;
+    }
 }
