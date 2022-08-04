@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acb430f2_38938f53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-08-04T15:24:30Z",
+      "side": 1,
+      "message": "Why was https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/334683 abandoned? That is the commit with the correct Change-Id",
+      "revId": "4c0591dddd1d266dd911ec051c9103f45b109096",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
