@@ -4907,6 +4907,26 @@ public class ActivityManagerService extends IActivityManager.Stub
         return procState;
     }
 
+    @GuardedBy("this")
+    private boolean hasActiveInstrumentationLocked(int pid) {
+        if (pid == 0) {
+            return false;
+        }
+        synchronized (mPidsSelfLocked) {
+            ProcessRecord process = mPidsSelfLocked.get(pid);
+            return process != null && process.getActiveInstrumentation() != null;
+        }
+    }
+    private String getPackageNameByPid(int pid) {
+        synchronized (mPidsSelfLocked) {
+            final ProcessRecord app = mPidsSelfLocked.get(pid);
+            if (app != null && app.info != null) {
+                return app.info.packageName;
+            }
+            return null;
+        }
+    }
+
     private boolean isCallerShell() {
         final int callingUid = Binder.getCallingUid();
         return callingUid == SHELL_UID || callingUid == ROOT_UID;
@@ -22264,6 +22284,8 @@ public class ActivityManagerService extends IActivityManager.Stub
             IInstrumentationWatcher watcher, IUiAutomationConnection uiAutomationConnection,
             int userId, String abiOverride) {
         enforceNotIsolatedCaller("startInstrumentation");
+        final int callingUid = Binder.getCallingUid();
+        final int callingPid = Binder.getCallingPid();
         userId = mUserController.handleIncomingUser(Binder.getCallingPid(), Binder.getCallingUid(),
                 userId, false, ALLOW_FULL_ONLY, "startInstrumentation", null);
         // Refuse possible leaked file descriptors
@@ -22308,6 +22330,18 @@ public class ActivityManagerService extends IActivityManager.Stub
                         + " not allowed because package " + ii.packageName
                         + " does not have a signature matching the target "
                         + ii.targetPackage;
+                reportStartInstrumentationFailureLocked(watcher, className, msg);
+                throw new SecurityException(msg);
+            }
+
+            if (!Build.IS_DEBUGGABLE && callingUid != ROOT_UID && callingUid != SHELL_UID
+                    && callingUid != SYSTEM_UID && !hasActiveInstrumentationLocked(callingPid)) {
+                // If it's not debug build and not called from root/shell/system uid, reject it.
+                final String msg = "Permission Denial: instrumentation test "
+                        + className + " from pid=" + callingPid + ", uid=" + callingUid
+                        + ", pkgName=" + getPackageNameByPid(callingPid)
+                        + " not allowed because it's not started from SHELL";
+                Slog.wtfQuiet(TAG, msg);
                 reportStartInstrumentationFailureLocked(watcher, className, msg);
                 throw new SecurityException(msg);
             }
