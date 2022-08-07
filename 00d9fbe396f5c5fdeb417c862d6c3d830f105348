@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a039418a_652be6ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15173
+      },
+      "writtenOn": "2022-08-07T13:18:38Z",
+      "side": 1,
+      "message": "I know where this topic came from, please to a public release (sha sums on aosp git repository) of the patches.",
+      "revId": "00d9fbe396f5c5fdeb417c862d6c3d830f105348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
