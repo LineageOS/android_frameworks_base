@@ -70,6 +70,24 @@
       "parentUuid": "9f0632b5_24c30103",
       "revId": "00d9fbe396f5c5fdeb417c862d6c3d830f105348",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e7717c_542c8df3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-08-10T04:10:13Z",
+      "side": 1,
+      "message": "Done. Changed the topics for all 4 changes. The cherry picked from line gives reference to corresponding change in AOSP sources.",
+      "parentUuid": "6d9f5bcb_304b2916",
+      "revId": "00d9fbe396f5c5fdeb417c862d6c3d830f105348",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
