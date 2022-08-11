@@ -1888,6 +1888,18 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         updateSubscriptions();
 
         synchronized (mUidRulesFirstLock) {
+            /* With split-tunnel VPNs (those that only include specific apps),
+             * the usual NetworkCallback handlers are never called, because the call to
+             * registerDefaultNetworkCallbackForUid only detects changes that affect this
+             * process; if this process is not covered by the VPN, it won't get callbacks.
+             * Ordinarily, updateRestrictedModeAllowlistUL() would be called from those.
+             * Firewall restrictions for apps will not be updated properly on VPN connect
+             * or disconnect if we don't call it from somewhere else, like here. */
+            // TODO: Come up with an appropriate callback that runs more promptly.
+            // updateNetworksInternal runs later than NetworkCallback handlers run, so
+            // this may present a window of opportunity for unauthorized network access.
+            updateRestrictedModeAllowlistUL();
+
             synchronized (mNetworkPoliciesSecondLock) {
                 ensureActiveCarrierPolicyAL();
                 normalizePoliciesNL();
