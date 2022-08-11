@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fa696a4_a67076a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29654
+      },
+      "writtenOn": "2022-08-11T17:35:07Z",
+      "side": 1,
+      "message": "Attempt to fix up abandoned repopick 304629",
+      "revId": "438930259af39392f1c757356b6f344dd21c6a19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
