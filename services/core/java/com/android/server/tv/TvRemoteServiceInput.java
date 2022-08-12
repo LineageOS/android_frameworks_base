@@ -88,6 +88,51 @@ final class TvRemoteServiceInput extends ITvRemoteServiceInput.Stub {
     }
 
     @Override
+    public void nvOpenInputBridge(IBinder token, String name, int width,
+                                int height, int maxPointers, int axisMin, int axisMax, int fuzz, int flat) {
+        if (DEBUG) {
+            Slog.d(TAG, "openInputBridge(), token: " + token
+                    + ", name: " + name + ", width: " + width
+                    + ", height: " + height + ", maxPointers: " + maxPointers + ", axisMin: " + axisMin + ", axisMax: " + axisMax + ", fuzz: " + fuzz + ", flat: " + flat);
+        }
+
+        synchronized (mLock) {
+            if (mBridgeMap.containsKey(token)) {
+                if (DEBUG) {
+                    Slog.d(TAG, "InputBridge already exists");
+                }
+            } else {
+                final long idToken = Binder.clearCallingIdentity();
+                try {
+                    mBridgeMap.put(token,
+                                   new UinputBridge(token, name, width, height, maxPointers, axisMin, axisMax, fuzz, flat));
+                    token.linkToDeath(new IBinder.DeathRecipient() {
+                        @Override
+                        public void binderDied() {
+                            closeInputBridge(token);
+                        }
+                    }, 0);
+                } catch (IOException e) {
+                    Slog.e(TAG, "Cannot create device for " + name);
+                    return;
+                } catch (RemoteException e) {
+                    Slog.e(TAG, "Token is already dead");
+                    closeInputBridge(token);
+                    return;
+                } finally {
+                    Binder.restoreCallingIdentity(idToken);
+                }
+            }
+        }
+
+        try {
+            mProvider.onInputBridgeConnected(token);
+        } catch (RemoteException e) {
+            Slog.e(TAG, "Failed remote call to onInputBridgeConnected");
+        }
+    }
+
+    @Override
     public void openGamepadBridge(IBinder token, String name) throws RemoteException {
         if (DEBUG) {
             Slog.d(TAG, String.format("openGamepadBridge(), token: %s, name: %s", token, name));
@@ -284,6 +329,116 @@ final class TvRemoteServiceInput extends ITvRemoteServiceInput.Stub {
             final long idToken = Binder.clearCallingIdentity();
             try {
                 inputBridge.sendPointerSync(token);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendMouseBtnLeft(IBinder token, boolean down) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseBtnLeft(), token: " + token + ", down: " + down);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseBtnLeft(token, down);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendMouseBtnRight(IBinder token, boolean down) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseBtnRight(), token: " + token + ", down: " + down);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseBtnRight(token, down);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendMouseMove(IBinder token, int x, int y) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseMove(), token: " + token + ", x: " + x + ", y: " + y);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseMove(token, x, y);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendMouseWheel(IBinder token, int x, int y) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendMouseWheel(), token: " + token + ", x: " + x + ", y: " + y);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendMouseWheel(token, x, y);
+            } finally {
+                Binder.restoreCallingIdentity(idToken);
+            }
+        }
+    }
+
+    @Override
+    public void sendAbsEvent(IBinder token, int x, int y, int axis) {
+        if (DEBUG_KEYS) {
+            Slog.d(TAG, "sendAbsEvent(), token: " + token + ", x: " + x + ", y: " + y + ", axis: " + axis);
+        }
+
+        synchronized (mLock) {
+            UinputBridge inputBridge = mBridgeMap.get(token);
+            if (inputBridge == null) {
+                Slog.w(TAG, String.format("Input bridge not found for token: %s", token));
+                return;
+            }
+
+            final long idToken = Binder.clearCallingIdentity();
+            try {
+                inputBridge.sendAbsEvent(token, x, y, axis);
             } finally {
                 Binder.restoreCallingIdentity(idToken);
             }

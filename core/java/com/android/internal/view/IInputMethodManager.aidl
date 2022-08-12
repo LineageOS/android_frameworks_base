@@ -17,6 +17,7 @@
 package com.android.internal.view;
 
 import android.os.ResultReceiver;
+import android.view.InputDevice;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodSubtype;
 import android.view.inputmethod.EditorInfo;
@@ -77,4 +78,8 @@ interface IInputMethodManager {
     void removeImeSurface();
     /** Remove the IME surface. Requires passing the currently focused window. */
     void removeImeSurfaceFromWindow(in IBinder windowToken);
+
+    void handleInputSourceChange(in InputDevice InputDevice);
+    void enableBeyonderSwitchImeNotifier();
+    String getCurrentInputMethod();
 }
