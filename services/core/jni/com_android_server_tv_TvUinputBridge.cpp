@@ -267,6 +267,10 @@ public:
     static NativeConnection* open(const char* name, const char* uniqueId,
             int32_t width, int32_t height, int32_t maxPointerId);
 
+    static NativeConnection* nvOpen(const char* name, const char* uniqueId, int32_t width,
+                                    int32_t height, int32_t maxPointerId, int32_t axisMin,
+                                    int32_t axisMax, int32_t fuzz, int32_t flat);
+
     static NativeConnection* openGamepad(const char* name, const char* uniqueId);
 
     void sendEvent(int32_t type, int32_t code, int32_t value);
@@ -320,6 +324,94 @@ NativeConnection* NativeConnection::open(const char* name, const char* uniqueId,
     return new NativeConnection(descriptor.Detach(), maxPointers, ConnectionType::kRemoteDevice);
 }
 
+NativeConnection* NativeConnection::nvOpen(const char* name, const char* uniqueId, int32_t width,
+                                           int32_t height, int32_t maxPointers, int32_t axisMin,
+                                           int32_t axisMax, int32_t fuzz, int32_t flat) {
+    ALOGI("Registering uinput device %s: touch pad size %dx%d, "
+          "max pointers %d, axis min %d, axis max %d, fuzz %d, "
+          "flat %d.",
+          name, width, height, maxPointers, axisMin, axisMax, fuzz, flat);
+
+    initKeysMap();
+
+    UInputDescriptor descriptor;
+    if (!descriptor.Open(name, uniqueId, GOOGLE_VIRTUAL_REMOTE_PRODUCT_ID)) {
+        return nullptr;
+    }
+
+    // set the keys mapped
+    for (size_t i = 0; i < NELEM(KEYS); i++) {
+        descriptor.EnableKey(KEYS[i].linuxKeyCode);
+    }
+
+    if (!descriptor.Create()) {
+        return nullptr;
+    }
+
+    int fd = descriptor.Detach();
+
+    // set the mouse event maps
+    ioctl(fd, UI_SET_KEYBIT, BTN_LEFT);
+    ioctl(fd, UI_SET_KEYBIT, BTN_RIGHT);
+    ioctl(fd, UI_SET_EVBIT, EV_REL);
+    ioctl(fd, UI_SET_RELBIT, REL_X);
+    ioctl(fd, UI_SET_RELBIT, REL_Y);
+    ioctl(fd, UI_SET_RELBIT, REL_HWHEEL);
+    ioctl(fd, UI_SET_RELBIT, REL_WHEEL);
+    if ((axisMin & axisMax & fuzz & flat) != (int)0xffffffff) {
+        // configure virtual controller
+        ioctl(fd, UI_SET_KEYBIT, BTN_SOUTH);
+        ioctl(fd, UI_SET_KEYBIT, BTN_EAST);
+        ioctl(fd, UI_SET_KEYBIT, BTN_NORTH);
+        ioctl(fd, UI_SET_KEYBIT, BTN_WEST);
+        ioctl(fd, UI_SET_KEYBIT, BTN_START);
+        ioctl(fd, UI_SET_KEYBIT, BTN_SELECT);
+        ioctl(fd, UI_SET_KEYBIT, BTN_MODE);
+        ioctl(fd, UI_SET_KEYBIT, BTN_THUMBL);
+        ioctl(fd, UI_SET_KEYBIT, BTN_THUMBR);
+        ioctl(fd, UI_SET_KEYBIT, BTN_TL);
+        ioctl(fd, UI_SET_KEYBIT, BTN_TR);
+        ioctl(fd, UI_SET_EVBIT, EV_ABS);
+        ioctl(fd, UI_SET_ABSBIT, ABS_HAT0X);
+        ioctl(fd, UI_SET_ABSBIT, ABS_HAT0Y);
+        // FIXME TODO: all wrong
+        input_absinfo axisInfo = {
+            .value = 0,
+            .minimum = -0xffff,
+            .maximum = 0xffff,
+            .fuzz = 1,
+            .flat = 0x10000,
+            .resolution = 1,
+        };
+        ioctl(fd, UI_SET_ABSBIT, ABS_X);
+        ioctl(fd, UI_SET_ABSBIT, ABS_Y);
+        axisInfo = {
+            .value = 0,
+            .minimum = axisMin,
+            .maximum = axisMax,
+            .fuzz = fuzz,
+            .flat = flat,
+            .resolution = 1,
+        };
+        ioctl(fd, EVIOCSABS(ABS_Z), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_RZ), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_RX), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_BRAKE), &axisInfo);
+        axisInfo = {
+            .value = 0,
+            .minimum = -0x7fff,
+            .maximum = 0x7fff,
+            .fuzz = 0xff,
+            .flat = 0xff,
+            .resolution = 1,
+        };
+        ioctl(fd, EVIOCSABS(ABS_RY), &axisInfo);
+        ioctl(fd, EVIOCSABS(ABS_GAS), &axisInfo);
+    }
+
+    return new NativeConnection(fd, maxPointers, ConnectionType::kRemoteDevice);
+}
+
 NativeConnection* NativeConnection::openGamepad(const char* name, const char* uniqueId) {
     ALOGI("Registering uinput device %s: gamepad", name);
 
@@ -367,6 +459,18 @@ static jlong nativeOpen(JNIEnv* env, jclass clazz,
 
     NativeConnection* connection = NativeConnection::open(name.c_str(), uniqueId.c_str(),
             width, height, maxPointers);
+    return reinterpret_cast<jlong>(connection);
+}
+
+static jlong nativeNvOpen(JNIEnv* env, jclass clazz, jstring nameStr, jstring uniqueIdStr,
+                          jint width, jint height, jint maxPointers, jint axisMin, jint axisMax,
+                          jint fuzz, jint flat) {
+    ScopedUtfChars name(env, nameStr);
+    ScopedUtfChars uniqueId(env, uniqueIdStr);
+
+    NativeConnection* connection =
+            NativeConnection::nvOpen(name.c_str(), uniqueId.c_str(), width, height, maxPointers,
+                                     axisMin, axisMax, fuzz, flat);
     return reinterpret_cast<jlong>(connection);
 }
 
