@@ -16,6 +16,24 @@
       "message": "08-14 15:16:16.693  4685  9587 E Beyonder_VIS: Failed : sendKeyDown(). mProvider or token is null. mProvider : isInitialized\u003dfalse\n08-14 15:16:16.693  4685  9587 E m       : run: packetReceived failed: Result{ Status\u003dFAILURE Tag\u003dBeyonder_VIS_Client_0 Reason\u003dKey injection failed. Keycode: 108 state: 1 Exception\u003dnull }\n08-14 15:16:16.772  4685  9587 E Beyonder_VIS: Failed : sendKeyUp(). mProvider or token is null. mProvider : isInitialized\u003dfalse\n08-14 15:16:16.773  4685  9587 E m       : run: packetReceived failed: Result{ Status\u003dFAILURE Tag\u003dBeyonder_VIS_Client_0 Reason\u003dKey injection failed. Keycode: 108 state: 0 Exception\u003dnull }\n",
       "revId": "f2e7e285ee5181bd7ec9e91f36b6ecaf19f1ff2a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3b588fa_449d5d2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29654
+      },
+      "writtenOn": "2022-08-14T18:19:31Z",
+      "side": 1,
+      "message": "Connects to the app properly, but can\u0027t perform the inputs.",
+      "parentUuid": "e35f9ce0_5f72fb36",
+      "revId": "f2e7e285ee5181bd7ec9e91f36b6ecaf19f1ff2a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
