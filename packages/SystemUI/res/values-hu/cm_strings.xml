@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Kurzor balra</string>
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
+    <string name="clock">Óra</string>
     <string name="global_action_restart_more">Újraindítás\u2026</string>
     <string name="global_action_restart_system">Rendszer</string>
     <string name="global_action_restart_recovery">Recovery</string>
