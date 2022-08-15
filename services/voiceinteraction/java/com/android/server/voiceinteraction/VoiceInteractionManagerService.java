@@ -902,6 +902,9 @@ public class VoiceInteractionManagerService extends SystemService {
 
         @Override
         public ModuleProperties getDspModuleProperties(IVoiceInteractionService service) {
+            // Allow the call if it is granted CAPTURE_AUDIO_HOTWORD.
+            enforceCallingPermission(Manifest.permission.CAPTURE_AUDIO_HOTWORD);
+
             // Allow the call if this is the current voice interaction service.
             synchronized (this) {
                 if (mImpl == null || mImpl.mService == null
@@ -923,6 +926,9 @@ public class VoiceInteractionManagerService extends SystemService {
         public int startRecognition(IVoiceInteractionService service, int keyphraseId,
                 String bcp47Locale, IRecognitionStatusCallback callback,
                 RecognitionConfig recognitionConfig) {
+            // Allow the call if it is granted RECORD_AUDIO and CAPTURE_AUDIO_HOTWORD.
+            enforceAlwaysOnHotwordPermissions();
+
             // Allow the call if this is the current voice interaction service.
             synchronized (this) {
                 if (mImpl == null || mImpl.mService == null
@@ -963,6 +969,9 @@ public class VoiceInteractionManagerService extends SystemService {
         @Override
         public int stopRecognition(IVoiceInteractionService service, int keyphraseId,
                 IRecognitionStatusCallback callback) {
+            // Allow the call if it is granted RECORD_AUDIO and CAPTURE_AUDIO_HOTWORD.
+            enforceAlwaysOnHotwordPermissions();
+
             // Allow the call if this is the current voice interaction service.
             synchronized (this) {
                 if (mImpl == null || mImpl.mService == null
@@ -1170,6 +1179,11 @@ public class VoiceInteractionManagerService extends SystemService {
                 mImpl.dumpLocked(fd, pw, args);
             }
             mSoundTriggerInternal.dump(fd, pw, args);
+        }
+
+        private void enforceAlwaysOnHotwordPermissions() {
+            enforceCallingPermission(Manifest.permission.RECORD_AUDIO);
+            enforceCallingPermission(Manifest.permission.CAPTURE_AUDIO_HOTWORD);
         }
 
         private void enforceCallingPermission(String permission) {
