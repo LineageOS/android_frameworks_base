@@ -52,6 +52,23 @@
       "parentUuid": "f3b588fa_449d5d2a",
       "revId": "f2e7e285ee5181bd7ec9e91f36b6ecaf19f1ff2a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8812b9e7_79932b88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29654
+      },
+      "writtenOn": "2022-08-16T02:37:37Z",
+      "side": 1,
+      "message": "Crashed once with\n\nFATAL EXCEPTION: main\nProcess: com.nvidia.shield.remote.server\njava.lang.NullPointerException: Attempt to invoke virtual method \u0027void android.bluetooth.le.BluetoothLeAdvertiser.startAdvertising(android.bluetooth.le.AdvertiseSettings, android.bluetooth.le.AdvertiseData, android.bluetooth.le.AdvertiseData, android.bluetooth.le.AdvertiseCallback)\u0027 on a null object reference\n\nbut it\u0027s otherwise generally working.",
+      "revId": "f2e7e285ee5181bd7ec9e91f36b6ecaf19f1ff2a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
