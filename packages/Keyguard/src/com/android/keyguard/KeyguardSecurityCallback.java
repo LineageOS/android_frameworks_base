@@ -15,13 +15,16 @@
  */
 package com.android.keyguard;
 
+import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
+
 public interface KeyguardSecurityCallback {
 
     /**
      * Dismiss the given security screen.
      * @param securityVerified true if the user correctly entered credentials for the given screen.
+     * @param expectedSecurityMode The security mode that is invoking this dismiss.
      */
-    void dismiss(boolean securityVerified);
+    void dismiss(boolean securityVerified, SecurityMode expectedSecurityMode);
 
     /**
      * Manually report user activity to keep the device awake.
