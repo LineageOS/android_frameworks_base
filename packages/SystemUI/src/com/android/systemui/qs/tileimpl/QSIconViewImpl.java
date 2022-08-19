@@ -248,7 +248,7 @@ public class QSIconViewImpl extends QSIconView {
                 return Utils.getColorAttrDefaultColor(context, android.R.attr.textColorPrimary);
             case Tile.STATE_ACTIVE:
                 return Utils.getColorAttrDefaultColor(context,
-                        com.android.internal.R.attr.textColorOnAccent);
+                        com.android.internal.R.attr.textColorPrimaryInverse);
             default:
                 Log.e("QSIconView", "Invalid state " + state);
                 return 0;
