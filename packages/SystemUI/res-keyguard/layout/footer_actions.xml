@@ -94,7 +94,7 @@
             android:padding="@dimen/qs_footer_icon_padding"
             android:src="@*android:drawable/ic_lock_power_off"
             android:contentDescription="@string/accessibility_quick_settings_power_menu"
-            android:tint="?androidprv:attr/textColorOnAccent" />
+            android:tint="?androidprv:attr/textColorPrimaryInverse" />
 
     </LinearLayout>
 </com.android.systemui.qs.FooterActionsView>
