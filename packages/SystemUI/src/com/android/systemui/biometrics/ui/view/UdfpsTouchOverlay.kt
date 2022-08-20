@@ -16,11 +16,65 @@
 package com.android.systemui.biometrics.ui.view
 
 import android.content.Context
+import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
+import android.view.Surface
 import android.widget.FrameLayout
+
+import com.android.systemui.biometrics.UdfpsDisplayModeProvider
+import com.android.systemui.biometrics.UdfpsSurfaceView
+import com.android.systemui.res.R
 
 /**
  * A translucent (not visible to the user) view that receives touches to send to FingerprintManager
  * for fingerprint authentication.
  */
-class UdfpsTouchOverlay(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs)
+class UdfpsTouchOverlay(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
+    private var ghbmView: UdfpsSurfaceView? = null
+    private var udfpsDisplayMode: UdfpsDisplayModeProvider? = null
+
+    // sensorRect may be bigger than the sensor. True sensor dimensions are defined in
+    // overlayParams.sensorBounds
+    var sensorRect = Rect()
+
+    /** True after the call to [configureDisplay] and before the call to [unconfigureDisplay]. */
+    var isDisplayConfigured: Boolean = false
+        private set
+
+    override fun onFinishInflate() {
+        ghbmView = findViewById(R.id.hbm_view)
+    }
+
+   fun setUdfpsDisplayModeProvider(udfpsDisplayModeProvider: UdfpsDisplayModeProvider?) {
+        udfpsDisplayMode = udfpsDisplayModeProvider
+    }
+
+    fun configureDisplay(onDisplayConfigured: Runnable) {
+        isDisplayConfigured = true
+        val gView = ghbmView
+        if (gView != null) {
+            gView.setGhbmIlluminationListener(this::doIlluminate)
+            gView.visibility = VISIBLE
+            gView.startGhbmIllumination(onDisplayConfigured)
+        } else {
+            doIlluminate(null /* surface */, onDisplayConfigured)
+        }
+    }
+
+    private fun doIlluminate(surface: Surface?, onDisplayConfigured: Runnable?) {
+        udfpsDisplayMode?.enable {
+            onDisplayConfigured?.run()
+            ghbmView?.drawIlluminationDot(RectF(sensorRect))
+        }
+    }
+
+    fun unconfigureDisplay() {
+        isDisplayConfigured = false
+        ghbmView?.let { view ->
+            view.setGhbmIlluminationListener(null)
+            view.visibility = INVISIBLE
+        }
+        udfpsDisplayMode?.disable(null /* onDisabled */)
+    }
+}
