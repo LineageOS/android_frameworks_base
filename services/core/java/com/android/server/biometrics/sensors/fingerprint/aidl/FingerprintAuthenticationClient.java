@@ -142,7 +142,7 @@ class FingerprintAuthenticationClient extends AuthenticationClient<AidlSession> 
     public void onAcquired(@FingerprintAcquired int acquiredInfo, int vendorCode) {
         // For UDFPS, notify SysUI with acquiredInfo, so that the illumination can be turned off
         // for most ACQUIRED messages. See BiometricFingerprintConstants#FingerprintAcquired
-        mSensorOverlays.ifUdfps(controller -> controller.onAcquired(getSensorId(), acquiredInfo));
+        mSensorOverlays.ifUdfps(controller -> controller.onAcquired(getSensorId(), acquiredInfo, vendorCode));
         super.onAcquired(acquiredInfo, vendorCode);
     }
 

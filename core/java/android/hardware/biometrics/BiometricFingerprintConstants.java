@@ -319,9 +319,6 @@ public interface BiometricFingerprintConstants {
             case FINGERPRINT_ACQUIRED_IMMOBILE:
             case FINGERPRINT_ACQUIRED_TOO_BRIGHT:
             case FINGERPRINT_ACQUIRED_VENDOR:
-                // Bad image captured. Turn off HBM. Matcher will not run, so there's no need to
-                // keep HBM on.
-                return true;
             case FINGERPRINT_ACQUIRED_UNKNOWN:
             default:
                 return false;
