@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99073e65_41785e68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-08-23T17:51:25Z",
+      "side": 1,
+      "message": "It looks like almost every conflict resolution was resolved wrongly in this commit. I left some comments but there might be more issues, I haven\u0027t reviewed all the files.",
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b875ee6d_ec3c62a5",
@@ -20,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "107d8a4f_9a2ad486",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-08-23T17:51:25Z",
+      "side": 1,
+      "message": "Unrelated",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 41
+      },
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de46c6f0_20116d55",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
         "patchSetId": 1
@@ -31,6 +71,92 @@
       "writtenOn": "2022-08-23T17:33:21Z",
       "side": 1,
       "message": "this still doesn\u0027t look correct at all",
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae57413_10bf39a1",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-08-23T17:51:25Z",
+      "side": 1,
+      "message": "Unrelated and duplicate (see operatorNameViewOptional above)",
+      "range": {
+        "startLine": 140,
+        "startChar": 12,
+        "endLine": 140,
+        "endChar": 34
+      },
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74600a7f_68618be8",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-08-23T17:51:25Z",
+      "side": 1,
+      "message": "Unrelated",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 71
+      },
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a5bb56c_c744473b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-08-23T17:51:25Z",
+      "side": 1,
+      "message": "This doesn\u0027t look like a correct conflict resolution",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0024bd_731f676c",
+        "filename": "packages/SystemUI/tests/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-08-23T17:51:25Z",
+      "side": 1,
+      "message": "Useless?",
       "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
