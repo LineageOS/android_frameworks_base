@@ -28,9 +28,11 @@ import java.util.Arrays;
 public final class AttestationHooks {
     private static final String TAG = "GmsCompat/Attestation";
     private static final String PACKAGE_GMS = "com.google.android.gms";
+    private static final String PACKAGE_FINSKY = "com.android.vending";
     private static final String PROCESS_UNSTABLE = "com.google.android.gms.unstable";
 
     private static volatile boolean sIsGms = false;
+    private static volatile boolean sIsFinsky = false;
 
     private AttestationHooks() { }
 
@@ -80,6 +82,11 @@ public final class AttestationHooks {
             sIsGms = true;
             spoofBuildGms();
         }
+
+        if (PACKAGE_FINSKY.equals(app.getPackageName())) {
+            sIsFinsky = true;
+            spoofBuildGms();
+        }
     }
 
     private static boolean isCallerSafetyNet() {
@@ -90,6 +97,11 @@ public final class AttestationHooks {
     public static void onEngineGetCertificateChain() {
         // Check stack for SafetyNet
         if (sIsGms && isCallerSafetyNet()) {
+            throw new UnsupportedOperationException();
+        }
+
+        // Check stack for PlayIntegrity
+        if (sIsFinsky) {
             throw new UnsupportedOperationException();
         }
     }
