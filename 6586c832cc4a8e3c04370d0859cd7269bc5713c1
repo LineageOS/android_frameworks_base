@@ -16,6 +16,24 @@
       "message": "try to keep under \u003c100 colums",
       "revId": "6586c832cc4a8e3c04370d0859cd7269bc5713c1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd158556_18d83ccc",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 23782
+      },
+      "writtenOn": "2022-08-23T16:16:38Z",
+      "side": 1,
+      "message": "Thanks for pointing out, Fixed it.",
+      "parentUuid": "0ef142da_713f8887",
+      "revId": "6586c832cc4a8e3c04370d0859cd7269bc5713c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
