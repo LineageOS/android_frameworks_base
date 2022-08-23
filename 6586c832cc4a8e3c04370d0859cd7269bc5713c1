@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ef142da_713f8887",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-08-23T15:46:35Z",
+      "side": 1,
+      "message": "try to keep under \u003c100 colums",
+      "revId": "6586c832cc4a8e3c04370d0859cd7269bc5713c1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
