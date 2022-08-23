@@ -50,6 +50,24 @@
       "message": "This is a wrong conflict resolution",
       "revId": "d14d027ac6884aa3c6c25b45978350cbdd863a14",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "074498a3_4d0748fe",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 23782
+      },
+      "writtenOn": "2022-08-23T16:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569d4e7d_bb656782",
+      "revId": "d14d027ac6884aa3c6c25b45978350cbdd863a14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
