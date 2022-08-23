@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b875ee6d_ec3c62a5",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-08-23T17:33:21Z",
+      "side": 1,
+      "message": "nope",
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de46c6f0_20116d55",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-08-23T17:33:21Z",
+      "side": 1,
+      "message": "this still doesn\u0027t look correct at all",
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
