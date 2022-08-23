@@ -35,6 +35,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "349ec686_d66735b6",
+        "filename": "packages/SystemUI/res/values/cm_strings.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 23782
+      },
+      "writtenOn": "2022-08-23T19:13:11Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "b875ee6d_ec3c62a5",
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "107d8a4f_9a2ad486",
