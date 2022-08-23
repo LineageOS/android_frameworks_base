@@ -16,6 +16,40 @@
       "message": "Add reviewers",
       "revId": "d14d027ac6884aa3c6c25b45978350cbdd863a14",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d27c10_9f174364",
+        "filename": "packages/SystemUI/res/xml/status_bar_prefs.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-08-23T15:49:36Z",
+      "side": 1,
+      "message": "that\u0027s unrelated.",
+      "revId": "d14d027ac6884aa3c6c25b45978350cbdd863a14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "569d4e7d_bb656782",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-08-23T15:49:36Z",
+      "side": 1,
+      "message": "This is a wrong conflict resolution",
+      "revId": "d14d027ac6884aa3c6c25b45978350cbdd863a14",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
