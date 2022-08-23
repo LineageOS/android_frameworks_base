@@ -254,6 +254,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b27d0eb_139c1c39",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 23782
+      },
+      "writtenOn": "2022-08-23T19:50:19Z",
+      "side": 1,
+      "message": "I have modified the code to make it use the correct variable names. Is this what you meant, or did you mean something else?\n\nThis is my first time cherry picking AOSP into Lineage so sorry if I got it wrong.",
+      "parentUuid": "7a5bb56c_c744473b",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "a78fa401f7eca05a8f5ee334a4819e7fa781f82d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b0024bd_731f676c",
         "filename": "packages/SystemUI/tests/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceControllerTest.java",
         "patchSetId": 1
