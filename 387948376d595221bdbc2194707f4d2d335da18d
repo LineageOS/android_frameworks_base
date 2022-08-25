@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d852da28_1fe9ed4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3917
+      },
+      "writtenOn": "2022-08-25T18:09:35Z",
+      "side": 1,
+      "message": "FAILED: /work/chris/android/lineage-out-20.0/lineage-20.0/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/manifest_fixer/AndroidManifest.xml\n/work/chris/android/lineage-out-20.0/lineage-20.0/host/linux-x86/bin/manifest_fixer --library --targetSdkVersion  33 --minSdkVersion  33 --raise-min-sdk-version frameworks/base/packages/SystemUI/AndroidManif\nest.xml /work/chris/android/lineage-out-20.0/lineage-20.0/soong/.intermediates/frameworks/base/packages/SystemUI/SystemUI-core/android_common/manifest_fixer/AndroidManifest.xml\nerror: duplicate attribute: line 380, column 12\n",
+      "revId": "387948376d595221bdbc2194707f4d2d335da18d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
