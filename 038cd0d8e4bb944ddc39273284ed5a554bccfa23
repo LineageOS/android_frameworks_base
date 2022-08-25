@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9e32a96_051feb0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 23782
+      },
+      "writtenOn": "2022-08-25T22:37:11Z",
+      "side": 1,
+      "message": "As a fair warning, I do not presently own a Moto Mods-capable phone. I previously owned nash/Z2 Force (Sprint version, ran Lineage), but no longer own one when I upgraded to a Pixel 3 in 2019.",
+      "revId": "038cd0d8e4bb944ddc39273284ed5a554bccfa23",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
