@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c767dfcf_c006158a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20178
+      },
+      "writtenOn": "2022-08-25T20:32:32Z",
+      "side": 1,
+      "message": "removed android.permission.INTERACT_ACROSS_USERS_FULL because it gets duplicated with com.android.systemui.permission.SELF.",
+      "revId": "2128aefe2bf07e87e8763cc541b2cf35816f76a7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
