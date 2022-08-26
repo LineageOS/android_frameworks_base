@@ -16,6 +16,29 @@
       "message": "Does this look better? The previous patchset was using clang-format.",
       "revId": "aae8d485e4d1316d0dedb39c00ea646d0fa02671",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f07b0f4_7fdc551d",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-08-26T12:55:50Z",
+      "side": 1,
+      "message": "4 spaces more.",
+      "range": {
+        "startLine": 1252,
+        "startChar": 20,
+        "endLine": 1252,
+        "endChar": 24
+      },
+      "revId": "aae8d485e4d1316d0dedb39c00ea646d0fa02671",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
