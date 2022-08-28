@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea0a79db_387077f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31662
+      },
+      "writtenOn": "2022-08-28T03:46:47Z",
+      "side": 1,
+      "message": "https://github.com/VoltageOS-staging/frameworks_base/commit/698d4d4272031ec6cb836e878972224c813e163f",
+      "revId": "8ccd26de26a25ce2b92bfd47b581cfafce420a34",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
