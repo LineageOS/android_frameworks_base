@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f16f590_8a1176c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-08-29T01:10:32Z",
+      "side": 1,
+      "message": "fixes clock color being set to white in light mode while using a live wallpaper",
+      "revId": "d0a43f3468f959426c750d0421e5307280936678",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
