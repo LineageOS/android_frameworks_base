@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91592311_da39ad75",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-08-30T12:00:01Z",
+      "side": 1,
+      "message": "you add the label to the app ctor",
+      "range": {
+        "startLine": 1024,
+        "startChar": 28,
+        "endLine": 1024,
+        "endChar": 53
+      },
+      "revId": "9567d00ebdc8865affe132799e669603fb8fe70b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
