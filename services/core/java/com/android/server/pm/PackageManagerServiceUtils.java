@@ -1321,7 +1321,7 @@ public class PackageManagerServiceUtils {
         // identify cached items. In particular, changing the value of certain
         // feature flags should cause us to invalidate any caches.
         final String cacheName = FORCE_PACKAGE_PARSED_CACHE_ENABLED ? "debug"
-                : PackagePartitions.FINGERPRINT;
+                : Build.VERSION.INCREMENTAL;
 
         // Reconcile cache directories, keeping only what we'd actually use.
         for (File cacheDir : FileUtils.listFilesOrEmpty(cacheBaseDir)) {
@@ -1351,8 +1351,6 @@ public class PackageManagerServiceUtils {
         // that starts with "eng." to signify that this is an engineering build and not
         // destined for release.
         if (isUserDebugBuild && incrementalVersion.startsWith("eng.")) {
-            Slog.w(TAG, "Wiping cache directory because the system partition changed.");
-
             // Heuristic: If the /system directory has been modified recently due to an "adb sync"
             // or a regular make, then blow away the cache. Note that mtimes are *NOT* reliable
             // in general and should not be used for production changes. In this specific case,
@@ -1360,6 +1358,7 @@ public class PackageManagerServiceUtils {
             File frameworkDir =
                     new File(Environment.getRootDirectory(), "framework");
             if (cacheDir.lastModified() < frameworkDir.lastModified()) {
+                Slog.w(TAG, "Wiping cache directory because the system partition changed.");
                 FileUtils.deleteContents(cacheBaseDir);
                 cacheDir = FileUtils.createDir(cacheBaseDir, cacheName);
             }
