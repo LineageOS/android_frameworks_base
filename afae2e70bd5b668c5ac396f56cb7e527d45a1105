@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cb3f60b_35084ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 22728
+      },
+      "writtenOn": "2022-09-01T10:52:43Z",
+      "side": 1,
+      "message": "It builds, seems to retain functionality, need to test further if it still covers all usecases",
+      "revId": "afae2e70bd5b668c5ac396f56cb7e527d45a1105",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
