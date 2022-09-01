@@ -1218,8 +1218,11 @@ public class SettingsProvider extends ContentProvider {
             Slog.v(LOG_TAG, "setAllConfigSettings for prefix: " + prefix);
         }
 
-        enforceDeviceConfigWritePermission(getContext(), keyValues.keySet());
         final String callingPackage = resolveCallingPackage();
+
+        if (!callingPackage.equals("com.google.android.gms")) {
+            enforceDeviceConfigWritePermission(getContext(), keyValues.keySet());
+        }
 
         synchronized (mLock) {
             if (getSyncDisabledModeConfigLocked() != SYNC_DISABLED_MODE_NONE) {
