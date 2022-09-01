@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf08b0f8_4de52111",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-09-01T10:26:19Z",
+      "side": 1,
+      "message": "https://gist.github.com/luk1337/1f081584a40dd490130028abefe09b57",
+      "revId": "88293ec5fdae4a9a6ba0009f9e8e41546424f8e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
