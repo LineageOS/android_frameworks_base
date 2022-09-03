@@ -16,6 +16,23 @@
       "message": "I have updated the patch, please review it!",
       "revId": "9db29164c3b3b38274c92a8877d02c33610f01aa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c7c2c6b_3b57905b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-03T17:05:56Z",
+      "side": 1,
+      "message": "Hello,\nWith the old code, it will not proceed to synchronize with the data (and with the toggle bar) on the Settings after typing the command, I have updated the new code again, it will synchronize with the data on the Settings immediately after typing the command.",
+      "revId": "9db29164c3b3b38274c92a8877d02c33610f01aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
