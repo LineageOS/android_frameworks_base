@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ab33c82_4e170731",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-09-04T15:47:31Z",
+      "side": 1,
+      "message": "I don\u0027t exactly get that\nChanging the battery style shouldn\u0027t trigger theme re-layout?",
+      "revId": "8facddc500c5f3cc33592a653391db2ab7f352ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
