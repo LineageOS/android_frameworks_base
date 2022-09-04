@@ -22,6 +22,30 @@
       },
       "revId": "3b5791af64a3a203a262bf67f3c3d1b6f5f94b0b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8faee0df_c675295c",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/fragment/CollapsedStatusBarFragment.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-09-04T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8ff15c7_3a62d595",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 41
+      },
+      "revId": "3b5791af64a3a203a262bf67f3c3d1b6f5f94b0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
