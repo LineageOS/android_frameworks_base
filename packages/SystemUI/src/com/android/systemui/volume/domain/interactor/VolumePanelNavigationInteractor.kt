@@ -41,4 +41,8 @@ constructor(
             else -> VolumePanelRoute.SETTINGS_VOLUME_PANEL
         }
     }
+
+    fun getAppVolumeRoute(): VolumePanelRoute {
+        return VolumePanelRoute.ACTION_APP_VOLUME
+    }
 }
