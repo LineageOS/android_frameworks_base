@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "031586c0_8d866c38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-09-06T21:45:02Z",
+      "side": 1,
+      "message": "alright, lot of these resolutions were wrong or for other commit sets - fixed them all - we are now even perfectly with the 19.1 patchset - Jef, please retry this patch, it worked fine before, but only due to the luck of having the rest of the chain for fw/b picked.",
+      "revId": "46fc2ff669e5be8c19fc6c3f4dc45a5473cbc8a1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
