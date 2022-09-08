@@ -16,6 +16,23 @@
       "message": "Fine on sunfish",
       "revId": "a9adeecc1b0f4ff42e91f4dc340f02fab890c80f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f83feb56_52aaa826",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-09-08T20:34:24Z",
+      "side": 1,
+      "message": "I don\u0027t think there are a lot of usb restrictor users, but this should work fine, a test there is welcome",
+      "revId": "a9adeecc1b0f4ff42e91f4dc340f02fab890c80f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
