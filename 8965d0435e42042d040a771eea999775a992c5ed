@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a100c3a5_4435fbef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-08T21:25:09Z",
+      "side": 1,
+      "message": "Squashed https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/338151",
+      "revId": "8965d0435e42042d040a771eea999775a992c5ed",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
