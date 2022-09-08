@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2c9c569_f0402b11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-08T21:38:58Z",
+      "side": 1,
+      "message": "Make the subject shorter. Someting like:\n\n\u003e  Fix \"restrict network usage\" command\n\u003e  \n\u003e   * It doesn\u0027t sync with settings and doesn\u0027t restrict other types of data",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 109
+      },
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "40c8bb6a_6b308c2c",
@@ -14,6 +37,75 @@
       "writtenOn": "2022-09-05T16:26:04Z",
       "side": 1,
       "message": "I have solved the problem of line length.",
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d36139fc_a6021642",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-08T21:38:58Z",
+      "side": 1,
+      "message": "There is not need to create this class memeber variable since it is not used outside of this method.",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 16
+      },
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77eef4c5_6d329a29",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-08T21:38:58Z",
+      "side": 1,
+      "message": "Add a space after \"if\"",
+      "range": {
+        "startLine": 362,
+        "startChar": 8,
+        "endLine": 362,
+        "endChar": 11
+      },
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bca70c85_7223cf64",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-08T21:38:58Z",
+      "side": 1,
+      "message": "Add a space after \"if\"",
+      "range": {
+        "startLine": 385,
+        "startChar": 8,
+        "endLine": 385,
+        "endChar": 11
+      },
       "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
