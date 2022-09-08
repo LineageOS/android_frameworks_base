@@ -69,7 +69,8 @@ public final class AttestationHooks {
     }
 
     private static void spoofBuildGms() {
-        // Alter model name to avoid hardware attestation enforcement
+        // Alter model name and fingerprint to avoid hardware attestation enforcement
+        setBuildField("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
         setBuildField("MODEL", Build.MODEL + " ");
         if (Build.VERSION.DEVICE_INITIAL_SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.S_V2);
@@ -85,7 +86,6 @@ public final class AttestationHooks {
 
         if (PACKAGE_FINSKY.equals(app.getPackageName())) {
             sIsFinsky = true;
-            spoofBuildGms();
         }
     }
 
