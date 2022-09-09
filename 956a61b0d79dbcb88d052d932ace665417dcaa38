@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6d7e764_f6c7cef3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2022-09-09T12:56:27Z",
+      "side": 1,
+      "message": "This fixes an issue with SystemUI restarting at boot\n\n --------- beginning of crash\n 09-02 15:22:50.808  1502  1626 E AndroidRuntime: *** FATAL EXCEPTION IN SYSTEM PROCESS: PowerManagerService\n 09-02 15:22:50.808  1502  1626 E AndroidRuntime: java.lang.IllegalArgumentException: Invalid value: NaN for setting: screen_auto_brightness_adj\n 09-02 15:22:50.808  1502  1626 E AndroidRuntime:        at com.android.providers.settings.SettingsProvider.validateSystemSettingValue(SettingsProvider.java:1950)\n\nIt\u0027s a backport from Android T",
+      "revId": "956a61b0d79dbcb88d052d932ace665417dcaa38",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
