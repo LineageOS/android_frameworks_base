@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "41e82789_359882be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-09T15:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c9c569_f0402b11",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 109
+      },
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "40c8bb6a_6b308c2c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -64,6 +88,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c0dcb4e_0034791d",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-09T15:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d36139fc_a6021642",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 16
+      },
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77eef4c5_6d329a29",
@@ -87,6 +135,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4786a51e_6113ed0f",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-09T15:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77eef4c5_6d329a29",
+      "range": {
+        "startLine": 362,
+        "startChar": 8,
+        "endLine": 362,
+        "endChar": 11
+      },
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bca70c85_7223cf64",
@@ -100,6 +172,30 @@
       "writtenOn": "2022-09-08T21:38:58Z",
       "side": 1,
       "message": "Add a space after \"if\"",
+      "range": {
+        "startLine": 385,
+        "startChar": 8,
+        "endLine": 385,
+        "endChar": 11
+      },
+      "revId": "7a6cd099a01fb114166f158ddefa035ef988b1cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9296ad7_80110405",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-09T15:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bca70c85_7223cf64",
       "range": {
         "startLine": 385,
         "startChar": 8,
