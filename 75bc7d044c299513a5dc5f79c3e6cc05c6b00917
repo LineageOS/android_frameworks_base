@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4400229c_ea573248",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 3075
+      },
+      "writtenOn": "2022-09-09T17:24:03Z",
+      "side": 1,
+      "message": "shouldn\u0027t this continue to be \"not blacklisted\" ?",
+      "revId": "75bc7d044c299513a5dc5f79c3e6cc05c6b00917",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
