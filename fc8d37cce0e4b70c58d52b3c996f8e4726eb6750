@@ -16,6 +16,52 @@
       "message": "thanks, looks nicer alphabetized.",
       "revId": "fc8d37cce0e4b70c58d52b3c996f8e4726eb6750",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eedae0be_a3171cf0",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-09-10T09:10:31Z",
+      "side": 1,
+      "message": "BATTERY_PLUGGED_AC",
+      "range": {
+        "startLine": 923,
+        "startChar": 19,
+        "endLine": 923,
+        "endChar": 20
+      },
+      "revId": "fc8d37cce0e4b70c58d52b3c996f8e4726eb6750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84975254_8cd6a252",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-09-10T09:10:31Z",
+      "side": 1,
+      "message": "BATTERY_PLUGGED_NONE",
+      "range": {
+        "startLine": 925,
+        "startChar": 15,
+        "endLine": 925,
+        "endChar": 16
+      },
+      "revId": "fc8d37cce0e4b70c58d52b3c996f8e4726eb6750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
