@@ -16,6 +16,24 @@
       "message": "Is this to allow user root to change non-root user policies ?",
       "revId": "391f017fb11db8f5c53d2f4a4f2e6da1d94a1044",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7fa9c05_335d87ff",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 2659,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-10T09:13:06Z",
+      "side": 0,
+      "message": "This allows executing commands on applications with UID 1000 \u003c\u003d UID \u003c\u003d 2000.",
+      "parentUuid": "e99b2b1a_9f734916",
+      "revId": "391f017fb11db8f5c53d2f4a4f2e6da1d94a1044",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

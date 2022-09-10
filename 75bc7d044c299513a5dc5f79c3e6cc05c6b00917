@@ -16,6 +16,24 @@
       "message": "shouldn\u0027t this continue to be \"not blacklisted\" ?",
       "revId": "75bc7d044c299513a5dc5f79c3e6cc05c6b00917",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f663a9_73aeb6fe",
+        "filename": "services/core/java/com/android/server/net/NetworkPolicyManagerShellCommand.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-10T09:13:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4400229c_ea573248",
+      "revId": "75bc7d044c299513a5dc5f79c3e6cc05c6b00917",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

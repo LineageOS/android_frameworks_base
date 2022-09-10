@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da682c1_b5838f80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2022-09-10T09:13:06Z",
+      "side": 1,
+      "message": "This allows executing commands on applications with UID 1000 \u003c\u003d UID \u003c\u003d 2000.",
+      "revId": "42d64d38b0914c6e84242b024548082329535f43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
