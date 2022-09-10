@@ -16,6 +16,24 @@
       "message": "frameworks/base/services/core/java/com/android/server/pm/PackageManagerService.java:2286: error: cannot find symbol\n            if (pkgSetting \u003d\u003d null || pkgSetting.pkg \u003d\u003d null\n",
       "revId": "559f30e41b1f3f0a723fb18e52d891a543a4c873",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d045824_b5b753a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2022-09-10T19:26:17Z",
+      "side": 1,
+      "message": "symbol:   variable pkg\n  location: variable pkgSetting of type PackageSetting",
+      "parentUuid": "b6a09ae3_3a0d0c69",
+      "revId": "559f30e41b1f3f0a723fb18e52d891a543a4c873",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
