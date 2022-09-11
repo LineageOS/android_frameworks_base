@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ecbd978_f42bf291",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2022-09-11T09:03:36Z",
+      "side": 1,
+      "message": "frameworks/base/packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotController.java:377: error: cannot find symbol\n        mWindow.requestFeature(Window.FEATURE_NO_TITLE);\n                               ^\n  symbol:   variable Window\n  location: class ScreenshotController\nframeworks/base/packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotController.java:378: error: cannot find symbol\n        mWindow.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);\n                               ^\n  symbol:   variable Window\n  location: class ScreenshotController\n2 errors\n",
+      "revId": "5bc00c2669dae0c0c60e8fe84350ba9c10f77f28",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
