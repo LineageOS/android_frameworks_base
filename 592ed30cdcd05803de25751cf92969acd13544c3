@@ -16,6 +16,24 @@
       "message": "Topic builds fine and runs on Moto G5 Cedric. Thank you for the continued effort!",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "415f3c2c_060b6e4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2022-09-11T09:24:05Z",
+      "side": 1,
+      "message": "There are 3 additional commits for this month cve here https://github.com/syphyr/android_external_expat.",
+      "parentUuid": "ff55d369_201b9b5d",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
