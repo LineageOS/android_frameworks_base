@@ -34,6 +34,24 @@
       "parentUuid": "8b526de6_a8cf7733",
       "revId": "152217b012de227e32e38db34a08684d05247e19",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ec9c684_eebd9b9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-11T12:27:46Z",
+      "side": 1,
+      "message": "qs clock position doesn\u0027t change",
+      "parentUuid": "139ce5c9_7694118e",
+      "revId": "152217b012de227e32e38db34a08684d05247e19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
