@@ -41,6 +41,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "715afb80_0dbf1d5d",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-09-12T10:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eedae0be_a3171cf0",
+      "range": {
+        "startLine": 923,
+        "startChar": 19,
+        "endLine": 923,
+        "endChar": 20
+      },
+      "revId": "fc8d37cce0e4b70c58d52b3c996f8e4726eb6750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84975254_8cd6a252",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-09-10T09:10:31Z",
       "side": 1,
       "message": "BATTERY_PLUGGED_NONE",
+      "range": {
+        "startLine": 925,
+        "startChar": 15,
+        "endLine": 925,
+        "endChar": 16
+      },
+      "revId": "fc8d37cce0e4b70c58d52b3c996f8e4726eb6750",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5282bc0c_ae021487",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-09-12T10:25:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84975254_8cd6a252",
       "range": {
         "startLine": 925,
         "startChar": 15,
