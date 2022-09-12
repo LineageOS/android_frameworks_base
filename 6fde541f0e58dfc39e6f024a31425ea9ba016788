@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54bc5196_1fdeb00c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-12T12:07:36Z",
+      "side": 1,
+      "message": "Just removed this from the Moto additions chain.",
+      "revId": "6fde541f0e58dfc39e6f024a31425ea9ba016788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
