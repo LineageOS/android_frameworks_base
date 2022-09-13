@@ -68,6 +68,24 @@
       "message": "When trying to repopick patchset 1, the command fails with the following error message:\n\n~/android/lineage$ repopick_topic n-asb-2022-09\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100   798  100   798    0     0   5824      0 --:--:-- --:--:-- --:--:--  5824\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100    13  100    13    0     0    173      0 --:--:-- --:--:-- --:--:--   175\nbase64: ungültige Eingabe (illegal input)\nPatch is empty.\nWhen you have resolved this problem, run \"git am --continue\".\nIf you prefer to skip this patch, run \"git am --skip\" instead.\nTo restore the original branch and stop patching, run \"git am --abort\".\nError: can not apply change 2 to .repo/manifests\nexit\n",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07c335d5_06a1245f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2022-09-13T15:59:14Z",
+      "side": 1,
+      "message": "Make sure the new manifest changes for expat are also applied to .repo/manifest",
+      "parentUuid": "e79f55a7_2dbac896",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
