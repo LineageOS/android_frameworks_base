@@ -104,6 +104,24 @@
       "parentUuid": "07c335d5_06a1245f",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7649a71a_433f50f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2022-09-13T18:52:50Z",
+      "side": 1,
+      "message": "After applying the expat manifest change to .repo/manifest and android repos, do a \"repo sync --force-sync external/expat\".  Then you should be able to pick the latest topic",
+      "parentUuid": "f0063d54_be1edcc6",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
