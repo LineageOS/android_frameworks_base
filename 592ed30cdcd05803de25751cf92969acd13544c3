@@ -122,6 +122,24 @@
       "parentUuid": "f0063d54_be1edcc6",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd164d7_01c635dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2022-09-13T20:38:35Z",
+      "side": 1,
+      "message": "the force-sync external/expat was succesful, and so was a repo sync and picks up to 2022-08. 2022-09 still fails with the same message in the second patch it tries to apply:\n\nekkehard@ektus-mini-pc:~/android/lineage$ repopick_topic n-asb-2022-09\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100   798  100   798    0     0  11400      0 --:--:-- --:--:-- --:--:-- 11400\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100    13  100    13    0     0    183      0 --:--:-- --:--:-- --:--:--   183\nbase64: ungültige Eingabe\nPatch is empty.\nWhen you have resolved this problem, run \"git am --continue\".\nIf you prefer to skip this patch, run \"git am --skip\" instead.\nTo restore the original branch and stop patching, run \"git am --abort\".\nError: can not apply change 2 to .repo/manifests\nexit\n\nIt closes the current bash session with the \"exit\", so I\u0027ve got to start a new bash prior to executing the sync and pick commands, otherwise the command window is gone.",
+      "parentUuid": "7649a71a_433f50f8",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
