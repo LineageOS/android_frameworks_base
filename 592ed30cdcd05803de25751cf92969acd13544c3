@@ -86,6 +86,24 @@
       "parentUuid": "e79f55a7_2dbac896",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0063d54_be1edcc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2022-09-13T18:40:34Z",
+      "side": 1,
+      "message": ".repo/manifest.xml is a link pointing to .repo/manifests/default.xml\nhow do I apply that change? All I normally do is invoke repopick once for each month with unmerged patches.\nEdit 20:03 UTC +2\nApplying the change in the manifest manually didn\u0027t change anything. I\u0027m at a loss here :-(\n\nRepo Sync after editing manifest results in:\nerror: hooks is different in /home/ekkehard/android/lineage/.repo/projects/external/expat.git vs /home/ekkehard/android/lineage/.repo/project-objects/LineageOS/android_external_expat.git",
+      "parentUuid": "07c335d5_06a1245f",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
