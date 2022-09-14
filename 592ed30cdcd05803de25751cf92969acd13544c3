@@ -176,6 +176,24 @@
       "parentUuid": "13115d7f_f5d78ae0",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26baf5af_840fd169",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2022-09-14T20:20:02Z",
+      "side": 1,
+      "message": "Im not aware of any public POC tests for expat exploit.  Just make sure all patches are applied.",
+      "parentUuid": "964e0b33_328db7df",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
