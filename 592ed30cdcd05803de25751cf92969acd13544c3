@@ -158,6 +158,24 @@
       "parentUuid": "8bd164d7_01c635dd",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "964e0b33_328db7df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2022-09-14T19:33:21Z",
+      "side": 1,
+      "message": "I was able to single-pick all the patches in this set, but picking the entire topic at once keeps failing. Bug in repopick?\nAnyway, compile went through. Are there tests to see if expat is the improved version?",
+      "parentUuid": "13115d7f_f5d78ae0",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
