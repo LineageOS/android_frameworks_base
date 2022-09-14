@@ -30,6 +30,7 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.PixelFormat;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.SystemProperties;
@@ -280,6 +281,16 @@ public class NotificationShadeWindowController implements Callback, Dumpable,
             }
             Trace.setCounter("display_mode_id", mLpChanged.preferredDisplayModeId);
         }
+
+        if (state.mBouncerShowing && !isDebuggable()) {
+            mLpChanged.flags |= LayoutParams.FLAG_SECURE;
+        } else {
+            mLpChanged.flags &= ~LayoutParams.FLAG_SECURE;
+        }
+    }
+
+    protected boolean isDebuggable() {
+        return Build.IS_DEBUGGABLE;
     }
 
     private void adjustScreenOrientation(State state) {
