@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a364e58_39987085",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2022-09-16T09:18:39Z",
+      "side": 1,
+      "message": "This should be topped on \nhttps://review.lineageos.org/q/topic:13-clock-customizations",
+      "revId": "95dc1a4a816d9b08e8f8d6d6716e2f8b927e7f34",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
