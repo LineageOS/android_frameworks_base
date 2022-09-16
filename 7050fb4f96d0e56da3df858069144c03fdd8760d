@@ -33,6 +33,24 @@
       "message": "1) I turn on the night lights with my hands.\n2) Lock screen\n3) Unlock with a fingerprint.\nThe night light turns off, but does not turn back on after unlocking.",
       "revId": "7050fb4f96d0e56da3df858069144c03fdd8760d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d48595_90105e17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25276
+      },
+      "writtenOn": "2022-09-16T21:27:18Z",
+      "side": 1,
+      "message": "I checked again here and it works as intended",
+      "parentUuid": "f54ff073_199b15ad",
+      "revId": "7050fb4f96d0e56da3df858069144c03fdd8760d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
