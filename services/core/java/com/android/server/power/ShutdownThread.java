@@ -31,6 +31,7 @@ import android.content.IIntentReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManagerInternal;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.FileUtils;
 import android.os.Handler;
@@ -198,6 +199,11 @@ public final class ShutdownThread extends Thread {
                         ? com.android.internal.R.string.shutdown_confirm_question
                         : com.android.internal.R.string.shutdown_confirm);
 
+        boolean isNightMode = (context.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
+        int themeResId = isNightMode ? android.R.style.Theme_DeviceDefault_Dialog_Alert :
+                android.R.style.Theme_DeviceDefault_Light_Dialog_Alert;
+
         if (DEBUG) {
             Log.d(TAG, "Notifying thread to start shutdown longPressBehavior=" + longPressBehavior);
         }
@@ -207,7 +213,7 @@ public final class ShutdownThread extends Thread {
             if (sConfirmDialog != null) {
                 sConfirmDialog.dismiss();
             }
-            sConfirmDialog = new AlertDialog.Builder(context)
+            sConfirmDialog = new AlertDialog.Builder(context, themeResId)
                     .setTitle(mRebootSafeMode
                             ? com.android.internal.R.string.reboot_safemode_title
                             : com.android.internal.R.string.power_off)
