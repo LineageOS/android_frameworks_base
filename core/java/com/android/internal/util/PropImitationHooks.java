@@ -63,13 +63,13 @@ public class PropImitationHooks {
     private static final String FEATURE_NEXUS_PRELOAD =
             "com.google.android.apps.photos.NEXUS_PRELOAD";
 
-    private static final Map<String, String> sPixelFiveProps = Map.of(
-        "PRODUCT", "redfin",
-        "DEVICE", "redfin",
+    private static final Map<String, String> sPixelEightProps = Map.of(
+        "PRODUCT", "husky",
+        "DEVICE", "husky",
         "MANUFACTURER", "Google",
         "BRAND", "google",
-        "MODEL", "Pixel 5",
-        "FINGERPRINT", "google/redfin/redfin:13/TQ3A.230901.001/10750268:user/release-keys"
+        "MODEL", "Pixel 8 Pro",
+        "FINGERPRINT", "google/husky/husky:14/UQ1A.231205.015/11084887:user/release-keys"
     );
 
     private static final Map<String, String> sPixelOneProps = Map.of(
@@ -124,7 +124,7 @@ public class PropImitationHooks {
 
         /* Set certified properties for GMSCore
          * Set stock fingerprint for ARCore
-         * Set Pixel 5 for Google, ASI and GMS device configurator
+         * Set Pixel 8 Pro for Google, ASI and GMS device configurator
          * Set Pixel XL for Google Photos
          * Set custom model for Netflix
          */
@@ -137,8 +137,8 @@ public class PropImitationHooks {
                 || packageName.equals(PACKAGE_ASI)
                 || (packageName.equals(PACKAGE_GMS)
                     && processName.equals(PROCESS_GMS_PERSISTENT)))) {
-            dlog("Spoofing Pixel 5 for: " + packageName + " process: " + processName);
-            sPixelFiveProps.forEach(PropImitationHooks::setPropValue);
+            dlog("Spoofing Pixel 8 Pro for: " + packageName + " process: " + processName);
+            sPixelEightProps.forEach(PropImitationHooks::setPropValue);
         } else if (sIsPhotos) {
             dlog("Spoofing Pixel 1 for Google Photos");
             sPixelOneProps.forEach((PropImitationHooks::setPropValue));
