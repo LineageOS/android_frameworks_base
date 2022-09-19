@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c42e35_9726f4c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8752
+      },
+      "writtenOn": "2022-09-19T16:51:51Z",
+      "side": 1,
+      "message": "Moved config elements from lineage sdk to fwb to match other config entries\nwhich points to com.android.internal.R .",
+      "revId": "ce77cf37884795a85f66d514f3226702b42b022a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
