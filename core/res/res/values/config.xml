@@ -5317,4 +5317,7 @@
     <string-array name="config_serviceStateLocationAllowedPackages">
         <item>"com.android.phone"</item>
     </string-array>
+
+    <!-- Wether to handle audio direction changes between major call states -->
+    <bool name="config_handleAudioDirectionChangesBetweenCallStateChanges">true</bool>
 </resources>
