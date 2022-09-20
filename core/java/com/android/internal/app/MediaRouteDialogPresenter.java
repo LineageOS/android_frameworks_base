@@ -101,6 +101,7 @@ public abstract class MediaRouteDialogPresenter {
     public static boolean shouldShowChooserDialog(Context context, int routeTypes) {
         final MediaRouter router = context.getSystemService(MediaRouter.class);
         MediaRouter.RouteInfo route = router.getSelectedRoute();
-        return route.isDefault() || !route.matchesTypes(routeTypes);
+        return route.isDefault() || !route.matchesTypes(routeTypes)
+                || route.getStatusCode() == MediaRouter.RouteInfo.STATUS_NOT_AVAILABLE;
     }
 }
