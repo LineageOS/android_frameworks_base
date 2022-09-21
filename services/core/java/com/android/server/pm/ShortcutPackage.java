@@ -1363,11 +1363,15 @@ class ShortcutPackage extends ShortcutPackageItem {
                         ret.getPackageInfo().loadFromXml(parser, fromBackup);
                         continue;
                     case TAG_SHORTCUT:
-                        final ShortcutInfo si = parseShortcut(parser, packageName,
-                                shortcutUser.getUserId());
-
-                        // Don't use addShortcut(), we don't need to save the icon.
-                        ret.mShortcuts.put(si.getId(), si);
+                        try {
+                            final ShortcutInfo si = parseShortcut(parser, packageName,
+                                    shortcutUser.getUserId());
+                            // Don't use addShortcut(), we don't need to save the icon.
+                            ret.mShortcuts.put(si.getId(), si);
+                        } catch (Exception e) {
+                            // b/246540168 malformed shortcuts should be ignored
+                            Slog.e(TAG, "Failed parsing shortcut.", e);
+                        }
                         continue;
                 }
             }
