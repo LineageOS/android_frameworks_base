@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "091d8af5_01713574",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-09-21T20:58:44Z",
+      "side": 1,
+      "message": "Still valid on msm8953 which still lives, as well as sdm632",
+      "revId": "324660fd3bb7b2feaf3a67d6dacb2316fcfd492f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
