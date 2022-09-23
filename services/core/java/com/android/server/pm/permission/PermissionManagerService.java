@@ -393,6 +393,46 @@ public class PermissionManagerService {
     }
 
     /**
+     * If the package was below api 23, got the SYSTEM_ALERT_WINDOW permission automatically, and
+     * then updated past api 23, and the app does not satisfy any of the other SAW permission flags,
+     * the permission should be revoked.
+     *
+     * @param newPackage The new package that was installed
+     * @param oldPackage The old package that was updated
+     */
+    private void revokeSystemAlertWindowIfUpgradedPast23(
+            @NonNull PackageParser.Package newPackage,
+            @NonNull PackageParser.Package oldPackage,
+            @NonNull PermissionCallback permissionCallback) {
+        if (oldPackage.applicationInfo.targetSdkVersion >= Build.VERSION_CODES.M
+                || newPackage.applicationInfo.targetSdkVersion < Build.VERSION_CODES.M
+                || !newPackage.requestedPermissions
+                .contains(Manifest.permission.SYSTEM_ALERT_WINDOW)) {
+            return;
+        }
+
+        BasePermission saw;
+        final int callingUid = Binder.getCallingUid();
+        synchronized (mLock) {
+            saw = mSettings.getPermissionLocked(Manifest.permission.SYSTEM_ALERT_WINDOW);
+        }
+        final PackageSetting ps = (PackageSetting) newPackage.mExtras;
+        if (grantSignaturePermission(Manifest.permission.SYSTEM_ALERT_WINDOW, newPackage, saw,
+                ps.getPermissionsState())) {
+            return;
+        }
+        for (int userId: mUserManagerInt.getUserIds()) {
+            try {
+                revokeRuntimePermission(Manifest.permission.SYSTEM_ALERT_WINDOW,
+                        newPackage.packageName, false, callingUid, userId, permissionCallback);
+            } catch (IllegalStateException | SecurityException e) {
+                Log.e(TAG, "unable to revoke SYSTEM_ALERT_WINDOW for "
+                        + newPackage.packageName + " user " + userId, e);
+            }
+        }
+    }
+
+    /**
      * We might auto-grant permissions if any permission of the group is already granted. Hence if
      * the group of a granted permission changes we need to revoke it to avoid having permissions of
      * the new group auto-granted.
@@ -2127,11 +2167,13 @@ public class PermissionManagerService {
             return PermissionManagerService.this.isPermissionsReviewRequired(pkg, userId);
         }
         @Override
-        public void revokeRuntimePermissionsIfGroupChanged(
+        public void onPackageUpdated(
                 @NonNull PackageParser.Package newPackage,
                 @NonNull PackageParser.Package oldPackage,
                 @NonNull ArrayList<String> allPackageNames,
                 @NonNull PermissionCallback permissionCallback) {
+            PermissionManagerService.this.revokeSystemAlertWindowIfUpgradedPast23(newPackage,
+                    oldPackage, permissionCallback);
             PermissionManagerService.this.revokeRuntimePermissionsIfGroupChanged(newPackage,
                     oldPackage, allPackageNames, permissionCallback);
         }

@@ -91,17 +91,15 @@ public abstract class PermissionManagerInternal {
     public abstract void updateAllPermissions(@Nullable String volumeUuid, boolean sdkUpdated,
             @NonNull Collection<PackageParser.Package> allPacakges, PermissionCallback callback);
 
-    /**
-     * We might auto-grant permissions if any permission of the group is already granted. Hence if
-     * the group of a granted permission changes we need to revoke it to avoid having permissions of
-     * the new group auto-granted.
-     *
-     * @param newPackage The new package that was installed
-     * @param oldPackage The old package that was updated
-     * @param allPackageNames All packages
-     * @param permissionCallback Callback for permission changed
-     */
-    public abstract void revokeRuntimePermissionsIfGroupChanged(
+     /**
+      * If the app is updated, then some checks need to be performed to ensure the package is not 
+      * attempting to expoit permission changes across API boundaries.
+      * @param newPackage The new package that was installed
+      * @param oldPackage The old package that was updated
+      * @param allPackageNames The current packages in the system
+      * @param permissionCallback Callback for permission changed
+      */
+    public abstract void onPackageUpdated(
             @NonNull PackageParser.Package newPackage,
             @NonNull PackageParser.Package oldPackage,
             @NonNull ArrayList<String> allPackageNames,
