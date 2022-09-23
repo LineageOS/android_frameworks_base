@@ -194,6 +194,41 @@
       "parentUuid": "964e0b33_328db7df",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faea0105_1da4ee62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31595
+      },
+      "writtenOn": "2022-09-23T12:11:59Z",
+      "side": 1,
+      "message": "ERROR: For 338384, could not determine the project path for project LineageOS/android_external_expat\n\nrepopick error",
+      "parentUuid": "26baf5af_840fd169",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bff67d5_a7da1dfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31595
+      },
+      "writtenOn": "2022-09-23T12:11:59Z",
+      "side": 1,
+      "message": "repopick error\n\nERROR: For 338384, could not determine the project path for project LineageOS/android_external_expat\n",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
