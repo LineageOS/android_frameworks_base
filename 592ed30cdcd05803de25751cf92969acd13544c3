@@ -229,6 +229,24 @@
       "message": "repopick error\n\nERROR: For 338384, could not determine the project path for project LineageOS/android_external_expat\n",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28d1aaf2_896c6d67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31595
+      },
+      "writtenOn": "2022-09-23T12:13:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bff67d5_a7da1dfb",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
