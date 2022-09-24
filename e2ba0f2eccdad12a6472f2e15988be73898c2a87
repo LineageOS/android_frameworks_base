@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32183c9d_0e448842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-24T10:02:33Z",
+      "side": 1,
+      "message": "Test: on boot, usb plugged in, debugging works; unplug, replug - make sure it still works\n\nVerified on gts4lv running QTI USB 1.3 HAL and on mi845 running Trust HAL.",
+      "revId": "e2ba0f2eccdad12a6472f2e15988be73898c2a87",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
