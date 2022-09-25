@@ -52,6 +52,24 @@
       "parentUuid": "3e38b209_2a991a2a",
       "revId": "387ba0e199e55febaf7cc18fd52e02197ee4ad50",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c5778b1_5650c775",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-25T21:20:32Z",
+      "side": 1,
+      "message": "i would suggest to follow aosp way for QS, light mode still isn\u0027t perfect for QS. Power menu light mode change are fine.",
+      "parentUuid": "57e1e4d7_9192a9f0",
+      "revId": "387ba0e199e55febaf7cc18fd52e02197ee4ad50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
