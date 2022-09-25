@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ebd3b3_7a12cb9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-09-25T16:56:13Z",
+      "side": 1,
+      "message": "Some xiaomi devices using elliptic proximity sensor don\u0027t support deep sleep while the sensor is active. I have verified that the sensor is not registered with the overlay set and deep sleep works on a device with an elliptic proxmity sensor.",
+      "revId": "3792f09dcbd496d6c30558d7b26ceff2a6e742d2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
