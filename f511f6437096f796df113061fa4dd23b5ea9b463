@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a41993d9_718d5716",
+        "filename": "services/core/java/com/android/server/power/PowerManagerService.java",
+        "patchSetId": 30
+      },
+      "lineNbr": 2665,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-25T22:40:52Z",
+      "side": 1,
+      "message": "13 bringup sidenote: mForceNavbar handling will be skipped and added once navbar tunning is ported.",
+      "range": {
+        "startLine": 2654,
+        "startChar": 0,
+        "endLine": 2665,
+        "endChar": 33
+      },
+      "revId": "f511f6437096f796df113061fa4dd23b5ea9b463",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
