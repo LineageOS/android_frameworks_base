@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16a17a00_3ee1e28b",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/brightness/BrightnessSliderView.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-25T17:36:49Z",
+      "side": 1,
+      "message": "This becomes unused import.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "40b71ae45f4778dd22f5eafddd5e8f9219683685",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0180955e_46deacd2",
+        "filename": "packages/SystemUI/src/com/android/systemui/settings/brightness/BrightnessSliderView.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-25T17:36:49Z",
+      "side": 1,
+      "message": "Nit: should be renamed as well to LinearLayout",
+      "range": {
+        "startLine": 40,
+        "startChar": 10,
+        "endLine": 40,
+        "endChar": 21
+      },
+      "revId": "40b71ae45f4778dd22f5eafddd5e8f9219683685",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
