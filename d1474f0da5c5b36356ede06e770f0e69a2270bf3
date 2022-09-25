@@ -16,6 +16,24 @@
       "message": "Removing style parameter from ColorScheme constructor call here breaks ThemePicker wallpaper color style selection",
       "revId": "d1474f0da5c5b36356ede06e770f0e69a2270bf3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffe584cb_34a18059",
+        "filename": "packages/SystemUI/src/com/android/systemui/theme/ThemeOverlayController.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-25T06:47:42Z",
+      "side": 0,
+      "message": "done. I think it missed in pick",
+      "parentUuid": "48087701_76e67406",
+      "revId": "d1474f0da5c5b36356ede06e770f0e69a2270bf3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
