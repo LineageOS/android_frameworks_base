@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e53bbcd1_3876a138",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-09-26T17:44:06Z",
+      "side": 1,
+      "message": "works on nash for both gestures and 3 button to toggle navbar for fp nav",
+      "revId": "afda99f2261217a67af9e7c815198b0f76cbee66",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
