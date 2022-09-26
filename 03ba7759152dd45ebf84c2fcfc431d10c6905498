@@ -16,6 +16,24 @@
       "message": "We can squash these two into this too:\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/332891\n\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/334527",
       "revId": "03ba7759152dd45ebf84c2fcfc431d10c6905498",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb17044_b4d1803d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-26T10:47:13Z",
+      "side": 1,
+      "message": "Sure, will do that.",
+      "parentUuid": "c148b19e_0d4a6420",
+      "revId": "03ba7759152dd45ebf84c2fcfc431d10c6905498",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
