@@ -88,6 +88,24 @@
       "parentUuid": "7c5778b1_5650c775",
       "revId": "387ba0e199e55febaf7cc18fd52e02197ee4ad50",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a27e9ea_532a9b39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-26T03:55:13Z",
+      "side": 1,
+      "message": "Qs tile reset text color is wrong, and also circle battery needs to revaluate theme to show correct tint in light mode. I will try to clean it up after i bought an hdd for my pc.",
+      "parentUuid": "cc7996c4_d08c34ef",
+      "revId": "387ba0e199e55febaf7cc18fd52e02197ee4ad50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
