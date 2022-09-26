@@ -21244,6 +21244,9 @@ Slog.v(TAG, ":: stepped forward, applying functor at tag " + parser.getName());
                     } else {
                         Slog.w(TAG, "Failed setComponentEnabledSetting: component class "
                                 + className + " does not exist in " + packageName);
+                        // Safetynet logging for b/240936919
+                        EventLog.writeEvent(0x534e4554, "240936919", callingUid);
+                        return;
                     }
                 }
                 switch (newState) {
