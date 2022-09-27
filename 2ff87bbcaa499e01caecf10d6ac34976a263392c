@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4ca4d31_fe90f8f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-09-27T17:18:32Z",
+      "side": 1,
+      "message": "Sorry, I got only on/off control it seems.",
+      "revId": "2ff87bbcaa499e01caecf10d6ac34976a263392c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
