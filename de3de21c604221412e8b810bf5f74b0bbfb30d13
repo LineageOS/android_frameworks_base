@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0621bb83_9bf3e414",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2022-09-27T00:52:01Z",
+      "side": 1,
+      "message": "Can I suggest to use\nswitch(key) \ncase FORCE_SHOW_NAVBAR\n\nin onTuningChanged?\n\nThis helps to easily add new tunables rather using if ... else setup.",
+      "revId": "de3de21c604221412e8b810bf5f74b0bbfb30d13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
