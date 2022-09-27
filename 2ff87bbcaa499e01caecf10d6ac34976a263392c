@@ -16,6 +16,24 @@
       "message": "Sorry, I got only on/off control it seems.",
       "revId": "2ff87bbcaa499e01caecf10d6ac34976a263392c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f749e1_543405cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-27T17:24:10Z",
+      "side": 1,
+      "message": "Okay, that\u0027s still partially valid here.",
+      "parentUuid": "f4ca4d31_fe90f8f3",
+      "revId": "2ff87bbcaa499e01caecf10d6ac34976a263392c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
