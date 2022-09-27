@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5297662a_599ba648",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-27T15:34:28Z",
+      "side": 1,
+      "message": "It is working:\n\n\u003e lemonadep / # pm dump com.android.vending | grep disabledComponents: -A25\n\u003e       disabledComponents:\n\u003e         com.google.android.finsky.wear.WearChangeListenerService\n\u003e         \u003e com.google.android.finsky.permissionrevocation.UnusedAppRestrictionsBackportService\n\u003e         \u003e com.google.android.finsky.systemcomponentupdateui.SystemComponentUpdateActivity\n\u003e         com.google.android.finsky.wear.WearSupportService\n\u003e        com.google.android.finsky.systemupdateactivity.SystemUpdateActivity\n\u003e        com.google.android.finsky.systemupdate.SystemUpdateSettingsContentProvider\n\u003e        com.google.android.finsky.systemupdateactivity.SettingsSecurityEntryPoint\n\u003e        com.google.android.finsky.setupui.VpaSelectionOptionalStepActivity\n\u003e        com.google.android.finsky.slice.PhoneskyContextualCardProvider\n\u003e        com.google.android.finsky.activities.DebugActivity\n\u003e        com.google.android.finsky.protect.PermissionAutoRevocationSettingsPage\n\u003e        \u003e com.google.android.finsky.permissionrevocation.UnusedAppRestrictionsPublicService\n\u003e        \u003e com.google.android.finsky.systemcomponentupdate.SystemComponentUpdateActivity\n\u003e       enabledComponents:\n\u003e        com.google.android.finsky.protect.impl.PlayProtectHomeDeepLinkActivity\n\u003e        com.google.android.finsky.protect.ExternalPlayProtectHomeEntryPoint\n\u003e        \u003ecom.google.android.finsky.systemcomponentupdateui.common.SystemComponentUpdateActivity\n\u003e        com.google.android.finsky.instantapps.ContentFilterUpdatedReceiver\n\u003e        com.google.android.finsky.prewarmservice.PrewarmService\n\u003e        \u003e com.google.android.finsky.instantapps.appmanagement.InstantAppRemoveMonitor\n\u003e        com.google.android.finsky.instantapps.InstantAppsConfigChangeListener\n\u003e        com.google.android.finsky.instantapps.EphemeralInstallerActivity\n\u003e        com.android.vending.AssetBrowserActivity\n\u003e        com.google.android.finsky.instantapps.dna.ArchiveDownloadBroadcastReceiver\n",
+      "revId": "a087776e2c32dfc2edadbacf98087689bb81bd00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
