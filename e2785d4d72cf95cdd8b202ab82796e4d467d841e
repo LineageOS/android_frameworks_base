@@ -70,6 +70,24 @@
       "parentUuid": "7cf25afe_a98c557e",
       "revId": "e2785d4d72cf95cdd8b202ab82796e4d467d841e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88538082_2f3e044c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-09-28T15:58:45Z",
+      "side": 1,
+      "message": "HW-keys, and this crash happens right at boot, so I didn\u0027t even get to change the option.",
+      "parentUuid": "52cfe111_2437f197",
+      "revId": "e2785d4d72cf95cdd8b202ab82796e4d467d841e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
