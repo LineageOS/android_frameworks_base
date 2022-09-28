@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fa8b685_ef7967be",
+        "filename": "packages/SystemUI/res-keyguard/layout/footer_actions.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-28T19:00:51Z",
+      "side": 1,
+      "message": "newline",
+      "revId": "5ef9c32d0e3d30f7e98173a1e14b0b7b6b85c792",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
