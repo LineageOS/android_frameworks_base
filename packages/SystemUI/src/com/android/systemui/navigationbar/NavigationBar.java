@@ -632,7 +632,6 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
                 }, mainExecutor, bgExecutor);
 
         mView.setEdgeBackGestureHandler(mEdgeBackGestureHandler);
-        mNavBarMode = mNavigationModeController.addListener(mModeChangedListener);
     }
 
     public NavigationBarView getView() {
@@ -641,6 +640,10 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
 
     @Override
     public void onInit() {
+        // Only register mode change listener if initialization actually starts,
+        // which is not the case if devices disable the navigation bar
+        mNavBarMode = mNavigationModeController.addListener(mModeChangedListener);
+
         // TODO: A great deal of this code should probably live in onViewAttached.
         // It should also has corresponding cleanup in onViewDetached.
         mView.setBarTransitions(mNavigationBarTransitions);
