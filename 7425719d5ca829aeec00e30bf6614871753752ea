@@ -16,6 +16,24 @@
       "message": "This import is not needed.",
       "revId": "7425719d5ca829aeec00e30bf6614871753752ea",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "687b65ad_33785270",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/gestural/EdgeBackGestureHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-28T11:03:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37009e9b_b85aaa9e",
+      "revId": "7425719d5ca829aeec00e30bf6614871753752ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
