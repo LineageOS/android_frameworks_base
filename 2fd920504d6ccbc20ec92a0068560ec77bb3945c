@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b5686e5_b88a71e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-28T23:14:59Z",
+      "side": 1,
+      "message": "Maybe this is it. I\u0027ve seen no regression with navbar enabled.",
+      "revId": "2fd920504d6ccbc20ec92a0068560ec77bb3945c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
