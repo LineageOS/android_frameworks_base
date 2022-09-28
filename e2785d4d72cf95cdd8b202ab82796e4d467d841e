@@ -16,6 +16,24 @@
       "message": "Fixed one of seemingly many issues: \n\n E AndroidRuntime: FATAL EXCEPTION: main\n E AndroidRuntime: Process: com.android.systemui, PID: 5101\n E AndroidRuntime: java.lang.NullPointerException: Attempt to invoke virtual method \u0027void com.android.systemui.navigationbar.NavigationBarTransitions.reapplyDarkIntensity()\u0027 on a null object reference\n E AndroidRuntime: \tat com.android.systemui.navigationbar.NavigationBarView.updateRecentsIcon(NavigationBarView.java:954)\n E AndroidRuntime: \tat com.android.systemui.navigationbar.NavigationBarView.updateNavButtonIcons(NavigationBarView.java:636)\n E AndroidRuntime: \tat com.android.systemui.navigationbar.NavigationBarView.updateStates(NavigationBarView.java:808)\n E AndroidRuntime: \tat com.android.systemui.navigationbar.NavigationBarView.setShouldShowSwipeUpUi(NavigationBarView.java:796)\n E AndroidRuntime: \tat com.android.systemui.navigationbar.NavigationBar$10.onNavigationModeChanged(NavigationBar.java:1886)\n E AndroidRuntime: \tat com.android.systemui.navigationbar.NavigationModeController.updateCurrentInteractionMode(NavigationModeController.java:144)\n E AndroidRuntime: \tat com.android.systemui.navigationbar.NavigationModeController$3.onThemeChanged(NavigationModeController.java:124)\n E AndroidRuntime: \tat com.android.systemui.statusbar.phone.ConfigurationControllerImpl.onConfigurationChanged(ConfigurationControllerImpl.kt:129)\n E AndroidRuntime: \tat com.android.systemui.SystemUIApplication.onConfigurationChanged(SystemUIApplication.java:359)\n E AndroidRuntime: \tat android.app.ConfigurationController.performConfigurationChanged(ConfigurationController.java:248)\n E AndroidRuntime: \tat android.app.ConfigurationController.handleConfigurationChanged(ConfigurationController.java:222)\n E AndroidRuntime: \tat android.app.ConfigurationController.handleConfigurationChanged(ConfigurationController.java:134)\n E AndroidRuntime: \tat android.app.ActivityThread.handleConfigurationChanged(ActivityThread.java:5996)\n E AndroidRuntime: \tat android.app.servertransaction.ConfigurationChangeItem.execute(ConfigurationChangeItem.java:43)\n E AndroidRuntime: \tat android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:135)\n E AndroidRuntime: \tat android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:95)\n E AndroidRuntime: \tat android.app.ActivityThread$H.handleMessage(ActivityThread.java:2308)\n E AndroidRuntime: \tat android.os.Handler.dispatchMessage(Handler.java:106)\n E AndroidRuntime: \tat android.os.Looper.loopOnce(Looper.java:201)\n E AndroidRuntime: \tat android.os.Looper.loop(Looper.java:288)\n E AndroidRuntime: \tat android.app.ActivityThread.main(ActivityThread.java:7898)\n E AndroidRuntime: \tat java.lang.reflect.Method.invoke(Native Method)\n E AndroidRuntime: \tat com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:548)\n E AndroidRuntime: \tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)",
       "revId": "e2785d4d72cf95cdd8b202ab82796e4d467d841e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b878cb6d_6f517686",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-09-28T14:54:08Z",
+      "side": 1,
+      "message": "Did this result in any user facing crash? On nash the feature itself worked fine to hide the bar and enable FP Nav.",
+      "parentUuid": "27699db9_2a5ed05b",
+      "revId": "e2785d4d72cf95cdd8b202ab82796e4d467d841e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
