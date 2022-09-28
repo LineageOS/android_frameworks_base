@@ -52,6 +52,24 @@
       "parentUuid": "b878cb6d_6f517686",
       "revId": "e2785d4d72cf95cdd8b202ab82796e4d467d841e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52cfe111_2437f197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-09-28T15:39:36Z",
+      "side": 1,
+      "message": "what navigation mode were you in before you toggled to hw keys?",
+      "parentUuid": "7cf25afe_a98c557e",
+      "revId": "e2785d4d72cf95cdd8b202ab82796e4d467d841e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
