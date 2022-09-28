@@ -124,6 +124,24 @@
       "parentUuid": "7a27e9ea_532a9b39",
       "revId": "387ba0e199e55febaf7cc18fd52e02197ee4ad50",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d0a3f9_7186c449",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-28T16:55:05Z",
+      "side": 1,
+      "message": "Fix for reset text https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/339055",
+      "parentUuid": "8cf9e7d3_ce782ce0",
+      "revId": "387ba0e199e55febaf7cc18fd52e02197ee4ad50",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
