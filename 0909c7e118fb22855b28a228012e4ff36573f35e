@@ -16,6 +16,24 @@
       "message": "what about https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/334388",
       "revId": "0909c7e118fb22855b28a228012e4ff36573f35e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "679a950e_c402807f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-28T17:15:20Z",
+      "side": 1,
+      "message": "That might be needed as well. I just noticed it after using live wallpaper.",
+      "parentUuid": "27897ae3_5efa18ff",
+      "revId": "0909c7e118fb22855b28a228012e4ff36573f35e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
