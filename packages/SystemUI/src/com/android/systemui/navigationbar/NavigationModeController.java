@@ -38,6 +38,7 @@ import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.qualifiers.UiBackground;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
+import com.android.systemui.shared.system.WindowManagerWrapper;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 
@@ -137,6 +138,12 @@ public class NavigationModeController implements Dumpable {
         if (DEBUG) {
             Log.d(TAG, "updateCurrentInteractionMode: mode=" + mode);
             dumpAssetPaths(mCurrentUserContext);
+        }
+
+        final WindowManagerWrapper wm = WindowManagerWrapper.getInstance();
+        if (!wm.hasSoftNavigationBar(mContext, mContext.getDisplayId())) {
+            // Do not notify for changes if there is no soft navbar
+            notify = false;
         }
 
         if (notify) {
