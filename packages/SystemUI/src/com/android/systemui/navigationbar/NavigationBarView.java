@@ -846,6 +846,11 @@ public class NavigationBarView extends FrameLayout implements TunerService.Tunab
     }
 
     void setNavBarMode(int mode, boolean imeDrawsImeNavBar) {
+        final WindowManagerWrapper wm = WindowManagerWrapper.getInstance();
+        if (!wm.hasSoftNavigationBar(mContext, mContext.getDisplayId())) {
+            return;
+        }
+
         mNavBarMode = mode;
         mImeDrawsImeNavBar = imeDrawsImeNavBar;
         mBarTransitions.onNavigationModeChanged(mNavBarMode);
