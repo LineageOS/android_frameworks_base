@@ -52,6 +52,24 @@
       "parentUuid": "93102420_05cbff45",
       "revId": "4209259a949cfafd73e85941e49807337dd80f65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e914872_fc8924c8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/customize/QSCustomizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-09-29T10:04:30Z",
+      "side": 1,
+      "message": "I seen its used in other places. That\u0027s why i choose to hardcode. \nlike here\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-20.0/libs/WindowManager/Shell/src/com/android/wm/shell/bubbles/BubbleOverflowContainerView.java#L223",
+      "parentUuid": "76a9df6f_7815ccf8",
+      "revId": "4209259a949cfafd73e85941e49807337dd80f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
