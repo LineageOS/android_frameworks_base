@@ -34,6 +34,24 @@
       "parentUuid": "7d466000_b3ad2d4f",
       "revId": "4209259a949cfafd73e85941e49807337dd80f65",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a9df6f_7815ccf8",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/customize/QSCustomizer.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2022-09-29T09:34:32Z",
+      "side": 1,
+      "message": "I was not referring to using a span (although that also feels somewhat hacky), but rather to hardcoding Color.WHITE/Color.BLACK instead of using some (text color) theme attribute for coloring the span.",
+      "parentUuid": "93102420_05cbff45",
+      "revId": "4209259a949cfafd73e85941e49807337dd80f65",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
