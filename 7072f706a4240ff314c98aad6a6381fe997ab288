@@ -88,6 +88,24 @@
       "parentUuid": "7d00f4ac_4c051195",
       "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e7c6834_a8ef4192",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-09-30T10:06:06Z",
+      "side": 1,
+      "message": "I am referring to the lag/delay when updating overlays (switching between gestural/2-button/3-button mode - any combo).\n\nTimi, is this the lag you are talking about or is there something else?",
+      "parentUuid": "cef08055_f929fbe7",
+      "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
