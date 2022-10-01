@@ -19,17 +19,12 @@ package com.android.systemui.biometrics
 
 import android.content.Context
 import android.hardware.display.DisplayManager
-import android.os.Handler
 import android.os.IBinder
 import android.os.ServiceManager
-import android.view.Surface
+
 import com.android.systemui.biometrics.AuthController
-import com.android.systemui.dagger.qualifiers.DisplayId
-import com.android.systemui.dagger.qualifiers.Main
-import com.android.systemui.dagger.qualifiers.UiBackground
 import com.android.systemui.Dependency
 import com.google.hardware.pixel.display.IDisplay
-import java.util.concurrent.Executor
 
 class PixelUdfpsHbmProvider constructor(
     private val context: Context
