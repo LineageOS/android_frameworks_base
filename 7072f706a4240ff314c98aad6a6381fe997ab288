@@ -106,6 +106,24 @@
       "parentUuid": "cef08055_f929fbe7",
       "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a7910a7_20a36f5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-10-02T14:24:41Z",
+      "side": 1,
+      "message": "Timi, waiting for your feedback.",
+      "parentUuid": "8e7c6834_a8ef4192",
+      "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
