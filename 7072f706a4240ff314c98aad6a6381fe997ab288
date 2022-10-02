@@ -124,6 +124,24 @@
       "parentUuid": "8e7c6834_a8ef4192",
       "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3df486b_f9e771f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-10-02T15:16:18Z",
+      "side": 1,
+      "message": "Sorry for the dealay. Yes this is different lag, not just the few seconds.\nWith PS7 of the earlier squashed change, it crashes SystemUI and then works fine (with NPE on onNavigationModeChanged at com.android.systemui.navigationbar.NavigationBarView.setNavBarMode(NavigationBarView.java:851)\n), but PS8 (current state) causes some loop not to finish, and it keeps lagging for at least 20 seconds. Sorry I didn\u0027t notice it earlier as it seems to only happen when going from 3 button directly to gestures.",
+      "parentUuid": "9a7910a7_20a36f5c",
+      "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
