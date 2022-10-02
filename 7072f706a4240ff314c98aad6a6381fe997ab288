@@ -142,6 +142,24 @@
       "parentUuid": "9a7910a7_20a36f5c",
       "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ee3e32a_1e1425d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-10-02T15:24:30Z",
+      "side": 1,
+      "message": "I can\u0027t reproduce that, from 3-button directly to gestures is exactly the same (small delay) when switching between any other modes.",
+      "parentUuid": "c3df486b_f9e771f0",
+      "revId": "7072f706a4240ff314c98aad6a6381fe997ab288",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
