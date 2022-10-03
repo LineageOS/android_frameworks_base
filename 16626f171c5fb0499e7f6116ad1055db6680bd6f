@@ -22,6 +22,53 @@
       },
       "revId": "16626f171c5fb0499e7f6116ad1055db6680bd6f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26665da4_48860573",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBar.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-10-03T18:42:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b154492c_93d58fea",
+      "range": {
+        "startLine": 645,
+        "startChar": 8,
+        "endLine": 645,
+        "endChar": 82
+      },
+      "revId": "16626f171c5fb0499e7f6116ad1055db6680bd6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a382e3_02ddb7d7",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarController.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-10-03T18:42:09Z",
+      "side": 1,
+      "message": "This needs to be above the navbar creation:\n NavigationBarComponent component \u003d mNavigationBarComponentFactory.create(\n                context, savedState);\n                \nThen the newly added change can be dropped.",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 9
+      },
+      "revId": "16626f171c5fb0499e7f6116ad1055db6680bd6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
