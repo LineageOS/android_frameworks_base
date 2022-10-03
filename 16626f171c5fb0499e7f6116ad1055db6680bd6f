@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b154492c_93d58fea",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBar.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2022-10-03T17:45:04Z",
+      "side": 1,
+      "message": "Issue now is that this #onInit keeps running multiple times adding multiple listeners. I\u0027m trying to make it work.",
+      "range": {
+        "startLine": 645,
+        "startChar": 8,
+        "endLine": 645,
+        "endChar": 82
+      },
+      "revId": "16626f171c5fb0499e7f6116ad1055db6680bd6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
