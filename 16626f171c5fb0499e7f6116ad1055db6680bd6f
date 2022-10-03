@@ -69,6 +69,30 @@
       },
       "revId": "16626f171c5fb0499e7f6116ad1055db6680bd6f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3a3885c_2bb18984",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarController.java",
+        "patchSetId": 19
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-10-03T20:30:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a382e3_02ddb7d7",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 9
+      },
+      "revId": "16626f171c5fb0499e7f6116ad1055db6680bd6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
