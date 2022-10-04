@@ -43,6 +43,7 @@ public class SystemNotificationChannels {
     public static final String SECURITY = "SECURITY";
     public static final String CAR_MODE = "CAR_MODE";
     public static final String ACCOUNT = "ACCOUNT";
+    public static final String MISSING_PERMISSION = "MISSING_PERMISSION";
     public static final String DEVELOPER = "DEVELOPER";
     public static final String DEVELOPER_IMPORTANT = "DEVELOPER_IMPORTANT";
     public static final String UPDATES = "UPDATES";
@@ -231,6 +232,14 @@ public class SystemNotificationChannels {
                 context.getString(R.string.notification_channel_abusive_bg_apps),
                 NotificationManager.IMPORTANCE_LOW);
         channelsList.add(abusiveBackgroundAppsChannel);
+
+        final NotificationChannel missingPermission = new NotificationChannel(
+                MISSING_PERMISSION,
+                context.getString(R.string.notification_channel_missing_permission),
+                NotificationManager.IMPORTANCE_HIGH);
+        missingPermission.setSound(null, null);
+        missingPermission.enableVibration(false);
+        channelsList.add(missingPermission);
 
         if (enableSupervisionManagerPolicyApis()) {
             final NotificationChannel parentalControlsChannel =

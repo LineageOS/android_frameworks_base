@@ -6626,4 +6626,11 @@
   <java-symbol type="drawable" name="ic_cross_device_sync_airplane" />
   <!-- Disable the Video Capability over IWLAN when Wi-Fi Calling is turned off  -->
   <java-symbol type="bool" name="config_disable_video_capability_when_wfc_off" />
+
+  <!-- OTHER_SENSORS permission -->
+  <java-symbol type="string" name="notification_action_dont_show_again" />
+  <java-symbol type="string" name="notification_channel_missing_permission" />
+  <java-symbol type="string" name="missing_sensors_permission_title" />
+  <java-symbol type="string" name="missing_sensors_permission_message" />
+
   </resources>
