@@ -16,6 +16,24 @@
       "message": "Any reason for not merging this?",
       "revId": "80dece5696f78d0d99379d42a3f00459d251f65a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06bedb00_5482fea5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-10-04T15:26:00Z",
+      "side": 1,
+      "message": "I think it has something to do with some follow-up commits still pending on previous branch. And eventually we can squash them all.",
+      "parentUuid": "d2de2ead_860fd8f8",
+      "revId": "80dece5696f78d0d99379d42a3f00459d251f65a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
