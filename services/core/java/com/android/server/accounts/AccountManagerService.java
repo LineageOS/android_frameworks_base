@@ -89,6 +89,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.storage.StorageManager;
 import android.text.TextUtils;
+import android.util.EventLog;
 import android.util.Log;
 import android.util.Pair;
 import android.util.Slog;
@@ -2533,7 +2534,7 @@ public class AccountManagerService
                              */
                             if (!checkKeyIntent(
                                     Binder.getCallingUid(),
-                                    intent)) {
+                                    result)) {
                                 onError(AccountManager.ERROR_CODE_INVALID_RESPONSE,
                                         "invalid intent in bundle returned");
                                 return;
@@ -2939,7 +2940,7 @@ public class AccountManagerService
                     && (intent = result.getParcelable(AccountManager.KEY_INTENT)) != null) {
                 if (!checkKeyIntent(
                         Binder.getCallingUid(),
-                        intent)) {
+                        result)) {
                     onError(AccountManager.ERROR_CODE_INVALID_RESPONSE,
                             "invalid intent in bundle returned");
                     return;
@@ -4209,7 +4210,13 @@ public class AccountManagerService
          * into launching aribtrary intents on the device via by tricking to click authenticator
          * supplied entries in the system Settings app.
          */
-        protected boolean checkKeyIntent(int authUid, Intent intent) {
+        protected boolean checkKeyIntent(int authUid, Bundle bundle) {
+            if (!checkKeyIntentParceledCorrectly(bundle)) {
+                EventLog.writeEvent(0x534e4554, "250588548", authUid, "");
+                return false;
+            }
+
+            Intent intent = bundle.getParcelable(AccountManager.KEY_INTENT);
             // Explicitly set an empty ClipData to ensure that we don't offer to
             // promote any Uris contained inside for granting purposes
             if (intent.getClipData() == null) {
@@ -4240,6 +4247,25 @@ public class AccountManagerService
             } finally {
                 Binder.restoreCallingIdentity(bid);
             }
+        }
+
+        /**
+         * Simulate the client side's deserialization of KEY_INTENT value, to make sure they don't
+         * violate our security policy.
+         *
+         * In particular we want to make sure the Authenticator doesn't trick users
+         * into launching arbitrary intents on the device via exploiting any other Parcel read/write
+         * mismatch problems.
+         */
+        private boolean checkKeyIntentParceledCorrectly(Bundle bundle) {
+            Parcel p = Parcel.obtain();
+            p.writeBundle(bundle);
+            p.setDataPosition(0);
+            Bundle simulateBundle = p.readBundle();
+            p.recycle();
+            Intent intent = bundle.getParcelable(AccountManager.KEY_INTENT);
+            Intent simulateIntent = simulateBundle.getParcelable(AccountManager.KEY_INTENT);
+            return (intent.filterEquals(simulateIntent));
         }
 
         private void close() {
@@ -4387,7 +4413,7 @@ public class AccountManagerService
                     && (intent = result.getParcelable(AccountManager.KEY_INTENT)) != null) {
                 if (!checkKeyIntent(
                         Binder.getCallingUid(),
-                        intent)) {
+                        result)) {
                     onError(AccountManager.ERROR_CODE_INVALID_RESPONSE,
                             "invalid intent in bundle returned");
                     return;
