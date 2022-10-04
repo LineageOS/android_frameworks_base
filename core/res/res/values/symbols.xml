@@ -6347,4 +6347,11 @@
 
   <!-- Action for opening trusted location settings page -->
   <java-symbol type="string" name="trusted_location_settings_action" />
+
+  <!-- OTHER_SENSORS permission -->
+  <java-symbol type="string" name="notification_action_dont_show_again" />
+  <java-symbol type="string" name="notification_channel_missing_permission" />
+  <java-symbol type="string" name="missing_sensors_permission_title" />
+  <java-symbol type="string" name="missing_sensors_permission_message" />
+
 </resources>
