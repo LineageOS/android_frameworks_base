@@ -6736,4 +6736,10 @@ ul.</string>
 
     <!-- Fingerprint loe notification string -->
     <string name="fingerprint_loe_notification_msg">Your fingerprints can no longer be recognized. Set up Fingerprint Unlock again.</string>
+    <!-- OTHER_SENSORS permission: notification shown when an app was denied access to sensors -->
+    <string name="notification_action_dont_show_again">Don’t show again</string>
+    <string name="notification_channel_missing_permission">Missing permission</string>
+    <string name="missing_sensors_permission_title"><xliff:g id="app_name" example="Maps">%1$s</xliff:g> tried to access sensors</string>
+    <string name="missing_sensors_permission_message">Tap to ask for permission.</string>
+
 </resources>
