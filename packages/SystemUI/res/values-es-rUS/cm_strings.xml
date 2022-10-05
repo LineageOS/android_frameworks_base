@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Modo de recuperación (Recovery)</string>
+    <string name="global_action_restart_bootloader">Gestor de arranque (Bootloader)</string>
+    <string name="global_action_restart_download">Descarga</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Reiniciando\u2026</string>
+    <string name="global_action_restart_recovery_progress">Reiniciando en modo de recuperación\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Reiniciando en modo del gestor de arranque\u2026</string>
+    <string name="global_action_restart_download_progress">Reiniciando en modo «descarga»\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Reiniciando en modo fastbootd\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente activada.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD apagado\nAhorro de batería</string>
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Desactivar Cafeína.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Activar Cafeína.</string>
+    <string name="quick_settings_heads_up_label">Notificaciones emergentes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Desactivar notificaciones emergentes.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Activar notificaciones emergentes.</string>
+    <string name="quick_settings_powershare_label">Transferencia de energía inalámbrica</string>
+    <string name="quick_settings_powershare_off_powersave_label">Transferencia de energía inalámbrica apagada\nAhorro de batería</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Transferencia de energía inalámbrica apagada\nBatería demasiado baja</string>
+    <string name="quick_settings_powershare_enabled_label">Transferencia de energía inalámbrica activada</string>
+    <string name="quick_settings_reading_mode">Modo de lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo de lectura activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo de lectura desactivado.</string>
+    <string name="quick_settings_sync_label">Sincronizar</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
+    <string name="quick_settings_profiles_label">Perfiles del sistema</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfiles desactivados.</string>
+    <string name="accessibility_quick_settings_profiles">Perfil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Anclaje USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectarse a\u2026</string>
+    <string name="vpn_credentials_hint">Por favor, ingrese las credenciales para conectarse a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Usuario</string>
+    <string name="vpn_credentials_password">Contraseña</string>
+    <string name="vpn_credentials_dialog_connect">Conectar</string>
+    <string name="accessibility_dpad_left">Cursor izquierda</string>
+    <string name="accessibility_dpad_right">Cursor derecha</string>
+</resources>

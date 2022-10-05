@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_ambient_display_label">পৰিপাৰ্শ্বিক ডিচপ্লে</string>
+    <string name="accessibility_quick_settings_ambient_display_off">পাৰিপাৰ্শ্বিক প্রদর্শন অফ।</string>
+    <string name="accessibility_quick_settings_ambient_display_on">পাৰিপাৰ্শ্বিক প্রদর্শন অন।</string>
+    <string name="quick_settings_caffeine_label">কেফেইন</string>
+    <string name="accessibility_quick_settings_caffeine_off">কেফেইন অফ.</string>
+    <string name="accessibility_quick_settings_caffeine_on">কেফেইন অন.</string>
+    <string name="quick_settings_heads_up_label">হেডচ আপ</string>
+    <string name="accessibility_quick_settings_heads_up_off">হেডচ আপ অফ।</string>
+    <string name="accessibility_quick_settings_heads_up_on">হেডচ আপ অন।</string>
+    <string name="quick_settings_sync_label">সংযোজন</string>
+    <string name="accessibility_quick_settings_sync_off">সকালীকৄত অফ কৰক।</string>
+    <string name="accessibility_quick_settings_sync_on">সকালীকৄত অন কৰক।</string>
+    <string name="quick_settings_profiles_label">ছিষ্টেম প্ৰ\'ফাইল</string>
+    <string name="accessibility_quick_settings_profiles_off">প্ৰ\'ফাইল অফ।</string>
+    <string name="accessibility_quick_settings_profiles">প্ৰ\'ফাইল: <xliff:g id="profile" example="Default">%s</xliff:g>।</string>
+    <string name="quick_settings_usb_tether_label">USB টেথাৰিং</string>
+    <string name="accessibility_dpad_left">কাৰ্ছৰ বাওঁফালে</string>
+    <string name="accessibility_dpad_right">কাৰ্ছৰ সোঁফালে</string>
+</resources>

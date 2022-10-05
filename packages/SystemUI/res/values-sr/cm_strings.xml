@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_system">Систем</string>
+    <string name="global_action_restart_recovery">Режим опоравка</string>
+    <string name="global_action_restart_bootloader">Покретач система</string>
+    <string name="global_action_restart_download">Преузимање</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Поново покрећем\u2026</string>
+    <string name="global_action_restart_recovery_progress">Поново покретање у режим за опоравак\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Поновно покретање система\u2026</string>
+    <string name="global_action_restart_download_progress">Поновно покретање у режим преузимања\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Поново покретање у режим fastbootd\u2026</string>
+    <string name="global_action_current_user">Тренутни</string>
+    <string name="quick_settings_ambient_display_label">Амбијент приказ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Амбијент приказ искључен.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Амбијент приказ укључен.</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин је искључен.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин је укључен.</string>
+    <string name="quick_settings_heads_up_label">Искачуће поруке</string>
+    <string name="accessibility_quick_settings_heads_up_off">Искачуће поруке искључене.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Искачуће поруке укључене.</string>
+    <string name="quick_settings_reading_mode">Режим читања</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Режим читања укључен.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Режим читања искључен.</string>
+    <string name="quick_settings_sync_label">Синхрон</string>
+    <string name="accessibility_quick_settings_sync_off">Синхрон. искључено.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхрон. укључено.</string>
+    <string name="quick_settings_profiles_label">Профили система</string>
+    <string name="accessibility_quick_settings_profiles_off">Профили искључени.</string>
+    <string name="accessibility_quick_settings_profiles">Профил: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB повезивање</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Повезивање са\u2026</string>
+    <string name="vpn_credentials_hint">Молимо унесите ваше идентификационе податке за повезивање са <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Корисничко име</string>
+    <string name="vpn_credentials_password">Лозинка</string>
+    <string name="vpn_credentials_dialog_connect">Повежи се</string>
+    <string name="accessibility_dpad_left">Курсор улево</string>
+    <string name="accessibility_dpad_right">Курсор удесно</string>
+</resources>

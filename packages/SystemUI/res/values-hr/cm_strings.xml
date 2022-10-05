@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_more">Ponovno pokretanje\u2026</string>
+    <string name="global_action_restart_system">Sustav</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Preuzmi</string>
+    <string name="global_action_restart_progress">Ponovno pokretanje\u2026</string>
+    <string name="global_action_restart_recovery_progress">Ponovno pokretanje u Recovery\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Ponovno pokretanje u bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">Ponovno pokretanje u način preuzimanja\u2026</string>
+    <string name="global_action_current_user">Trenutni</string>
+    <string name="global_action_users">Korisnici</string>
+    <string name="quick_settings_ambient_display_label">Ambijentalni zaslon</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambijentalni zaslon isključen.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambijentalni zaslon uključen.</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein isključen.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein uključen.</string>
+    <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
+    <string name="quick_settings_sync_label">Sinkronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena.</string>
+    <string name="quick_settings_profiles_label">Profili sustava</string>
+    <string name="accessibility_quick_settings_profiles_off">Profili isklučeni.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s </xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Dijeljenje veze preko USB-a</string>
+    <string name="accessibility_dpad_left">Kursor lijevo</string>
+    <string name="accessibility_dpad_right">Kursor desno</string>
+</resources>
