@@ -98,6 +98,7 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
 
     private boolean mLowQuality;
     private boolean mLongerDuration;
+    private boolean mHEVC;
 
     private Context mContext;
     ScreenMediaRecorderListener mListener;
@@ -124,6 +125,10 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
 
     public void setLongerDuration(boolean longer) {
         mLongerDuration = longer;
+    }
+
+    public void setHEVC(boolean hevc) {
+        mHEVC = hevc;
     }
 
     private void prepare() throws IOException, RemoteException, RuntimeException {
@@ -174,11 +179,19 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
         long maxFilesize = mLongerDuration ? MAX_FILESIZE_BYTES_LONGER : MAX_FILESIZE_BYTES;
         /* PS: HEVC can be set too, to reduce file size without quality loss (h265 is more efficient than h264),
         but at the same time the cpu load is 8-10 times higher and some devices don't support it yet */
-        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-        mMediaRecorder.setVideoEncodingProfileLevel(
-                MediaCodecInfo.CodecProfileLevel.AVCProfileMain,
-                mLowQuality ? MediaCodecInfo.CodecProfileLevel.AVCLevel32/*level 3.2*/
-                : getAvcProfileLevelCodeByName(mAvcProfileLevel));
+        if (!mHEVC) {
+            mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+            mMediaRecorder.setVideoEncodingProfileLevel(
+                    MediaCodecInfo.CodecProfileLevel.AVCProfileMain,
+                    mLowQuality ? MediaCodecInfo.CodecProfileLevel.AVCLevel32/*level 3.2*/
+                    : getAvcProfileLevelCodeByName(mAvcProfileLevel));
+        } else {
+            mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.HEVC);
+            mMediaRecorder.setVideoEncodingProfileLevel(
+                    MediaCodecInfo.CodecProfileLevel.HEVCProfileMain,
+                    mLowQuality ? MediaCodecInfo.CodecProfileLevel.HEVCHighTierLevel31/*level 3.1*/
+                    : MediaCodecInfo.CodecProfileLevel.HEVCHighTierLevel41/*level 4.1*/);
+        }
         mMediaRecorder.setVideoSize(width, height);
         mMediaRecorder.setVideoFrameRate(refreshRate);
         mMediaRecorder.setVideoEncodingBitRate(vidBitRate);
