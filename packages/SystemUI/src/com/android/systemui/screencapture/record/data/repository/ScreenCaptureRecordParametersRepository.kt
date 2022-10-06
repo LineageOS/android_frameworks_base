@@ -31,4 +31,5 @@ class ScreenCaptureRecordParametersRepository @Inject constructor() {
     var shouldShowFrontCamera: Boolean by mutableStateOf(false)
     var lowQuality: Boolean by mutableStateOf(false)
     var longerDuration: Boolean by mutableStateOf(false)
+    var hevc: Boolean by mutableStateOf(false)
 }
