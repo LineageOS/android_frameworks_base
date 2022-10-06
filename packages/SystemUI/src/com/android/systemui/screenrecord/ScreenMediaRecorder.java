@@ -98,6 +98,7 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
 
     private boolean mLowQuality;
     private boolean mLongerDuration;
+    private boolean mHEVC;
 
     private Context mContext;
     ScreenMediaRecorderListener mListener;
@@ -124,6 +125,10 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
 
     public void setLongerDuration(boolean longer) {
         mLongerDuration = longer;
+    }
+
+    public void setHEVC(boolean hevc) {
+        mHEVC = hevc;
     }
 
     private void prepare() throws IOException, RemoteException, RuntimeException {
@@ -172,11 +177,19 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
                 : VIDEO_FRAME_RATE_TO_RESOLUTION_RATIO;
         int vidBitRate = width * height * refreshRate / VIDEO_FRAME_RATE * resRatio;
         long maxFilesize = mLongerDuration ? MAX_FILESIZE_BYTES_LONGER : MAX_FILESIZE_BYTES;
-        mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-        mMediaRecorder.setVideoEncodingProfileLevel(
-                MediaCodecInfo.CodecProfileLevel.AVCProfileMain,
-                mLowQuality ? MediaCodecInfo.CodecProfileLevel.AVCLevel32
-                : getAvcProfileLevelCodeByName(mAvcProfileLevel));
+        if (!mHEVC) {
+            mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+            mMediaRecorder.setVideoEncodingProfileLevel(
+                    MediaCodecInfo.CodecProfileLevel.AVCProfileMain,
+                    mLowQuality ? MediaCodecInfo.CodecProfileLevel.AVCLevel32
+                    : getAvcProfileLevelCodeByName(mAvcProfileLevel));
+        } else {
+            mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.HEVC);
+            mMediaRecorder.setVideoEncodingProfileLevel(
+                    MediaCodecInfo.CodecProfileLevel.HEVCProfileMain,
+                    mLowQuality ? MediaCodecInfo.CodecProfileLevel.HEVCHighTierLevel31
+                    : MediaCodecInfo.CodecProfileLevel.HEVCHighTierLevel41);
+        }
         mMediaRecorder.setVideoSize(width, height);
         mMediaRecorder.setVideoFrameRate(refreshRate);
         mMediaRecorder.setVideoEncodingBitRate(vidBitRate);
