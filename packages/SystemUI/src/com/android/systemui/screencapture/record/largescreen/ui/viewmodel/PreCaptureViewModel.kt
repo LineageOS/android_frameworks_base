@@ -378,6 +378,7 @@ constructor(
                     shouldShowTaps = toolbarViewModel.recordParametersViewModel.shouldShowTaps,
                     lowQuality = toolbarViewModel.recordParametersViewModel.lowQuality,
                     longerDuration = toolbarViewModel.recordParametersViewModel.longerDuration,
+                    hevc = toolbarViewModel.recordParametersViewModel.hevc,
                 )
             )
         }

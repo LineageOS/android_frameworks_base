@@ -193,6 +193,19 @@ fun RecordDetailsSettings(
                 onCheckedChange = { parametersViewModel.setLongerDuration(it) },
                 modifier = Modifier,
             )
+            RichSwitch(
+                visible = true,
+                icon =
+                    loadIcon(
+                        viewModel = drawableLoaderViewModel,
+                        resId = R.drawable.ic_hevc,
+                        contentDescription = null,
+                    ),
+                label = stringResource(R.string.screenrecord_hevc_switch_label),
+                checked = parametersViewModel.hevc,
+                onCheckedChange = { parametersViewModel.setHevc(it) },
+                modifier = Modifier,
+            )
             SettingsRow(visible = true, modifier = Modifier.padding(top = 4.dp)) {
                 Crossfade(
                     targetState = targetViewModel.warningMessageRes,
