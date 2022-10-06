@@ -138,7 +138,7 @@ public class RecordingServiceTest extends SysuiTestCase {
 
     @Test
     public void testLogStartFullScreenRecording() {
-        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false, false, false);
+        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false, false, false, false);
         mRecordingService.onStartCommand(startIntent, 0, 0);
 
         verify(mUiEventLogger, times(1)).log(Events.ScreenRecordEvent.SCREEN_RECORD_START);
@@ -147,7 +147,7 @@ public class RecordingServiceTest extends SysuiTestCase {
     @Test
     public void testLogStartPartialRecording() {
         MediaProjectionCaptureTarget target = new MediaProjectionCaptureTarget(new Binder());
-        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, target, false, false, false);
+        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, target, false, false, false, false);
         mRecordingService.onStartCommand(startIntent, 0, 0);
 
         verify(mUiEventLogger, times(1)).log(Events.ScreenRecordEvent.SCREEN_RECORD_START);
@@ -180,7 +180,7 @@ public class RecordingServiceTest extends SysuiTestCase {
         // When the screen recording does not start properly
         doThrow(new RuntimeException("fail")).when(mScreenMediaRecorder).start();
 
-        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false, false, false);
+        Intent startIntent = RecordingService.getStartIntent(mContext, 0, 0, false, null, false, false, false, false);
         mRecordingService.onStartCommand(startIntent, 0, 0);
 
         assertUpdateState(false);
