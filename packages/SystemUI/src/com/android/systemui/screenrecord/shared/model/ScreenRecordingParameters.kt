@@ -32,6 +32,7 @@ constructor(
     val notificationId: Int = 0,
     val lowQuality: Boolean = false,
     val longerDuration: Boolean = false,
+    val hevc: Boolean = false,
 ) : Parcelable {
 
     constructor(
@@ -66,6 +67,7 @@ constructor(
             writeInt(notificationId)
             writeBoolean(lowQuality)
             writeBoolean(longerDuration)
+            writeBoolean(hevc)
         }
 
     companion object CREATOR : Parcelable.Creator<ScreenRecordingParameters> {
