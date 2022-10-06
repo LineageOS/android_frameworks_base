@@ -179,6 +179,21 @@ fun CaptureSettingsMenu(viewModel: PreCaptureToolbarViewModel, screenRecordingSe
                 enabled = screenRecordingSelected,
             )
 
+            val hevcIcon by
+                loadIcon(
+                    viewModel = viewModel,
+                    resId = R.drawable.ic_hevc,
+                    contentDescription = null,
+                )
+
+            SettingsMenuItem(
+                text = stringResource(R.string.screenrecord_hevc_switch_label),
+                leadingIcon = hevcIcon,
+                checked = recordParameters.hevc,
+                onCheckedChange = { recordParameters.setHevc(it) },
+                enabled = screenRecordingSelected,
+            )
+
             if (viewModel.customSaveLocationSupported) {
                 SaveLocationDropdown(
                     viewModel = viewModel,
