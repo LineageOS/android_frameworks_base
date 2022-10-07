@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "286e1a12_72ce5d13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30475
+      },
+      "writtenOn": "2022-10-07T14:23:42Z",
+      "side": 1,
+      "message": "I have just corrected misplaced check for privileged app in checkInputConfiguration().\n\nSee 21cdef883cc8 (\"Merge SP1A.210329.001\") in CodeLinaro",
+      "revId": "3b173fe4dccfd64957d37fa7cd74d22a6845e357",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
