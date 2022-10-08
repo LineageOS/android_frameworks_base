@@ -264,6 +264,23 @@
       "message": "I\u0027ve still got trouble with repopick and this patch set. I made a repo sync and applied the patches from September 2021 through August 2022, but for September 2022 I get this:\nekkehard@ektus-mini-pc:~/android/lineage$ repopick_topic n-asb-2022-09\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100   798  100   798    0     0   9851      0 --:--:-- --:--:-- --:--:--  9851\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100    13  100    13    0     0    173      0 --:--:-- --:--:-- --:--:--   173\nbase64: ungültige Eingabe (illegal input)\nPatch is empty.\nWhen you have resolved this problem, run \"git am --continue\".\nIf you prefer to skip this patch, run \"git am --skip\" instead.\nTo restore the original branch and stop patching, run \"git am --abort\".\nError: can not apply change 2 to .repo/manifests\nexit\n\nLuckily I\u0027ve had a new instance of bash running, otherwise the \"exit\" at the end would have erased the error messages (again) by closing the terminal window.\n",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a128575_f3f92416",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2022-10-08T13:07:04Z",
+      "side": 1,
+      "message": "Single-picking the patches did work, seems to be a problem with the order the patches are applied. I did 338000, 338382, 338384, 338385, 338386 and 338003 (in that order) and none failed.",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
