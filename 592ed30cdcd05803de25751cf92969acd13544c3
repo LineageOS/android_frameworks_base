@@ -247,6 +247,23 @@
       "parentUuid": "5bff67d5_a7da1dfb",
       "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b3b3315_aee993e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2022-10-08T12:58:03Z",
+      "side": 1,
+      "message": "I\u0027ve still got trouble with repopick and this patch set. I made a repo sync and applied the patches from September 2021 through August 2022, but for September 2022 I get this:\nekkehard@ektus-mini-pc:~/android/lineage$ repopick_topic n-asb-2022-09\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100   798  100   798    0     0   9851      0 --:--:-- --:--:-- --:--:--  9851\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n100    13  100    13    0     0    173      0 --:--:-- --:--:-- --:--:--   173\nbase64: ungültige Eingabe (illegal input)\nPatch is empty.\nWhen you have resolved this problem, run \"git am --continue\".\nIf you prefer to skip this patch, run \"git am --skip\" instead.\nTo restore the original branch and stop patching, run \"git am --abort\".\nError: can not apply change 2 to .repo/manifests\nexit\n\nLuckily I\u0027ve had a new instance of bash running, otherwise the \"exit\" at the end would have erased the error messages (again) by closing the terminal window.\n",
+      "revId": "592ed30cdcd05803de25751cf92969acd13544c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
