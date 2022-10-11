@@ -50,6 +50,7 @@ class PixelUdfpsHbmProvider constructor(
     // Used by both main and UI background threads
     @Volatile private var pendingEnable = false
     @Volatile private var pendingEnableCallback: Runnable? = null
+    @Volatile private var alreadyDisabled = true
 
     init {
         // Listen for refresh rate changes
@@ -82,6 +83,7 @@ class PixelUdfpsHbmProvider constructor(
     }
 
     private fun doPendingEnable(callback: Runnable? = null) {
+        alreadyDisabled = false
         displayHal?.setLhbmState(true)
         // Make sure callback runs on main thread
         (callback ?: pendingEnableCallback)?.let { handler.post(it) }
@@ -102,9 +104,11 @@ class PixelUdfpsHbmProvider constructor(
 
         // Also bail out if HBM is already disabled *and* no enable is pending.
         // This can happen sometimes if the user spams taps on the UDFPS icon.
-        if (!displayHal.getLhbmState()) {
+        if (!displayHal.getLhbmState() && alreadyDisabled) {
             return
         }
+
+        alreadyDisabled = true
 
         // Takes 10-20 ms, so switch to background
         bgExecutor.execute {
