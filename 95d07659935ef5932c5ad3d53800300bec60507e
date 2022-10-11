@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e70daff3_c1790d26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-10-11T06:52:49Z",
+      "side": 1,
+      "message": "From https://android-review.googlesource.com/c/2234609.\n\nFixes android.hardware.input.cts.tests.VirtualTouchscreenTest#sendTouchEvent which was modified in https://android-review.googlesource.com/c/2233206.",
+      "revId": "95d07659935ef5932c5ad3d53800300bec60507e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
