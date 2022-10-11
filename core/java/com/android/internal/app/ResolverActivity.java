@@ -1514,6 +1514,7 @@ public class ResolverActivity extends Activity {
             if (mEnableChooserDelegate) {
                 return activity.startAsCallerImpl(mResolvedIntent, options, false, userId);
             } else {
+                TargetInfo.prepareIntentForCrossProfileLaunch(mResolvedIntent, userId);
                 activity.startActivityAsCaller(mResolvedIntent, options, null, false, userId);
                 return true;
             }
@@ -1521,6 +1522,7 @@ public class ResolverActivity extends Activity {
 
         @Override
         public boolean startAsUser(Activity activity, Bundle options, UserHandle user) {
+            TargetInfo.prepareIntentForCrossProfileLaunch(mResolvedIntent, user.getIdentifier());
             activity.startActivityAsUser(mResolvedIntent, options, user);
             return false;
         }
@@ -1642,6 +1644,17 @@ public class ResolverActivity extends Activity {
          * @return true if this target should be pinned to the front by the request of the user
          */
         boolean isPinned();
+
+        /**
+         * Fix the URIs in {@code intent} if cross-profile sharing is required. This should be called
+         * before launching the intent as another user.
+         */
+        static void prepareIntentForCrossProfileLaunch(Intent intent, int targetUserId) {
+            final int currentUserId = UserHandle.myUserId();
+            if (targetUserId != currentUserId) {
+                intent.fixUris(currentUserId);
+            }
+        }
     }
 
     public class ResolveListAdapter extends BaseAdapter {
