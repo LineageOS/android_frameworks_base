@@ -30,6 +30,7 @@ import android.util.Slog;
 import android.util.TimeUtils;
 import android.util.Xml;
 import com.android.internal.annotations.GuardedBy;
+import com.android.internal.annotations.VisibleForTesting;
 import libcore.io.IoUtils;
 import libcore.util.Objects;
 import org.xmlpull.v1.XmlPullParser;
@@ -258,7 +259,9 @@ final class SettingsState {
         Setting oldState = mSettings.get(name);
         String oldValue = (oldState != null) ? oldState.value : null;
 
-        int newSize = getNewMemoryUsagePerPackageLocked(packageName, oldValue, value);
+        int newSize = getNewMemoryUsagePerPackageLocked(packageName,
+                oldValue == null ? name.length() : 0 /* deltaKeySize */,
+                oldValue, value);
         checkNewMemoryUsagePerPackageLocked(packageName, newSize);
 
         Setting newState;
@@ -295,8 +298,12 @@ final class SettingsState {
         }
 
         Setting oldState = mSettings.remove(name);
+        if (oldState == null) {
+            return false;
+        }
         int newSize = getNewMemoryUsagePerPackageLocked(oldState.packageName,
-                           oldState.value, null);
+                -name.length() /* deltaKeySize */,
+                oldState.value, null);
 
         updateMemoryUsagePerPackageLocked(oldState.packageName, newSize);
 
@@ -385,15 +392,15 @@ final class SettingsState {
     }
 
     @GuardedBy("mLock")
-    private int getNewMemoryUsagePerPackageLocked(String packageName, String oldValue,
-            String newValue) {
+    private int getNewMemoryUsagePerPackageLocked(String packageName, int deltaKeySize,
+            String oldValue, String newValue) {
         if (isExemptFromMemoryUsageCap(packageName)) {
             return 0;
         }
         final Integer currentSize = mPackageToMemoryUsage.get(packageName);
         final int oldValueSize = (oldValue != null) ? oldValue.length() : 0;
         final int newValueSize = (newValue != null) ? newValue.length() : 0;
-        final int deltaSize = newValueSize - oldValueSize;
+        final int deltaSize = deltaKeySize + newValueSize - oldValueSize;
         return Math.max((currentSize != null) ? currentSize + deltaSize : deltaSize, 0);
     }
 
@@ -796,5 +803,12 @@ final class SettingsState {
             sb.append(ch);
         }
         return sb.toString();
+    }
+
+    @VisibleForTesting
+    public int getMemoryUsage(String packageName) {
+        synchronized (mLock) {
+            return mPackageToMemoryUsage.getOrDefault(packageName, 0);
+        }
     }
 }
