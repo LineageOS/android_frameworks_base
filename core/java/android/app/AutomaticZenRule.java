@@ -80,7 +80,7 @@ public final class AutomaticZenRule implements Parcelable {
             name = getTrimmedString(source.readString());
         }
         interruptionFilter = source.readInt();
-        conditionId = source.readParcelable(null);
+        conditionId = getTrimmedUri(source.readParcelable(null));
         owner = getTrimmedComponentName(source.readParcelable(null));
         creationTime = source.readLong();
     }
