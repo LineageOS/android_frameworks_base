@@ -56,9 +56,13 @@ public class PropImitationHooks {
         sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
         sIsFinsky = packageName.equals(PACKAGE_FINSKY);
 
-        if (!sCertifiedFp.isEmpty() && (sIsGms || sIsFinsky)) {
-            dlog("Setting certified fingerprint for: " + packageName);
+        /* Set Certified Fingerprint for GMSCore or Finsky
+         * Set Stock Fingerprint for ARCore
+         */
+        if (!sCertifiedFp.isEmpty() && sIsGms) {
+            dlog("Spoofing build for GMS");
             setPropValue("FINGERPRINT", sCertifiedFp);
+            setPropValue("MODEL", Build.MODEL + "\u200b");
         } else if (!sStockFp.isEmpty() && packageName.equals(PACKAGE_ARCORE)) {
             dlog("Setting stock fingerprint for: " + packageName);
             setPropValue("FINGERPRINT", sStockFp);
