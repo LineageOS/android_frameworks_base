@@ -635,13 +635,13 @@ public class KeyguardViewMediator extends CoreStartable implements Dumpable,
                 case TelephonyManager.SIM_STATE_PUK_REQUIRED:
                     synchronized (KeyguardViewMediator.this) {
                         mSimWasLocked.append(slotId, true);
+                        mPendingPinLock = true;
                         if (!mShowing) {
                             if (DEBUG_SIM_STATES) Log.d(TAG,
                                     "INTENT_VALUE_ICC_LOCKED and keygaurd isn't "
                                     + "showing; need to show keyguard so user can enter sim pin");
                             doKeyguardLocked(null);
                         } else {
-                            mPendingPinLock = true;
                             resetStateLocked();
                         }
                     }
@@ -2419,7 +2419,7 @@ public class KeyguardViewMediator extends CoreStartable implements Dumpable,
             RemoteAnimationTarget[] apps, RemoteAnimationTarget[] wallpapers,
             RemoteAnimationTarget[] nonApps, IRemoteAnimationFinishedCallback finishedCallback) {
         Trace.beginSection("KeyguardViewMediator#handleStartKeyguardExitAnimation");
-        if (DEBUG) Log.d(TAG, "handleStartKeyguardExitAnimation startTime=" + startTime
+        Log.d(TAG, "handleStartKeyguardExitAnimation startTime=" + startTime
                 + " fadeoutDuration=" + fadeoutDuration);
         synchronized (KeyguardViewMediator.this) {
 
@@ -2617,7 +2617,11 @@ public class KeyguardViewMediator extends CoreStartable implements Dumpable,
      * @param cancelled {@code true} if the animation was cancelled before it finishes.
      */
     public void onKeyguardExitRemoteAnimationFinished(boolean cancelled) {
+        Log.d(TAG, "onKeyguardExitRemoteAnimationFinished");
         if (!mSurfaceBehindRemoteAnimationRunning && !mSurfaceBehindRemoteAnimationRequested) {
+            Log.d(TAG, "skip onKeyguardExitRemoteAnimationFinished cancelled=" + cancelled
+                    + " surfaceAnimationRunning=" + mSurfaceBehindRemoteAnimationRunning
+                    + " surfaceAnimationRequested=" + mSurfaceBehindRemoteAnimationRequested);
             return;
         }
 
@@ -2631,7 +2635,13 @@ public class KeyguardViewMediator extends CoreStartable implements Dumpable,
             onKeyguardExitFinished();
 
             if (mKeyguardStateController.isDismissingFromSwipe() || wasShowing) {
+                Log.d(TAG, "onKeyguardExitRemoteAnimationFinished"
+                        + "#hideKeyguardViewAfterRemoteAnimation");
                 mKeyguardUnlockAnimationControllerLazy.get().hideKeyguardViewAfterRemoteAnimation();
+            } else {
+                Log.d(TAG, "skip hideKeyguardViewAfterRemoteAnimation"
+                        + " dismissFromSwipe=" + mKeyguardStateController.isDismissingFromSwipe()
+                        + " wasShowing=" + wasShowing);
             }
 
             finishSurfaceBehindRemoteAnimation(cancelled);
@@ -2679,7 +2689,7 @@ public class KeyguardViewMediator extends CoreStartable implements Dumpable,
     /** Hides the surface behind the keyguard by re-showing the keyguard/activity lock screen. */
     public void hideSurfaceBehindKeyguard() {
         mSurfaceBehindRemoteAnimationRequested = false;
-
+        mKeyguardStateController.notifyKeyguardGoingAway(false);
         if (mShowing) {
             setShowingLocked(true, true);
         }
@@ -2971,6 +2981,7 @@ public class KeyguardViewMediator extends CoreStartable implements Dumpable,
         pw.print("  mPendingReset: "); pw.println(mPendingReset);
         pw.print("  mPendingLock: "); pw.println(mPendingLock);
         pw.print("  wakeAndUnlocking: "); pw.println(mWakeAndUnlocking);
+        pw.print("  mPendingPinLock: "); pw.println(mPendingPinLock);
     }
 
     /**

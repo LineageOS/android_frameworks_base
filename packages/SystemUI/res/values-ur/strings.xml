@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"تصدیق شدہ"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"مکمل کرنے کیلئے \'تصدیق کریں\' تھپتھپائیں"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"چہرے سے انلاک کیا گیا۔ جاری رکھنے کیلئے انلاک آئیکن دبائیں۔"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"چہرے سے انلاک کیا گیا۔ جاری رکھنے کے لیے دبائیں۔"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"چہرے کی شناخت ہو گئی۔ جاری رکھنے کے لیے دبائیں۔"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"چہرے کی شناخت ہو گئی۔ جاری رکھنے کیلئے انلاک آئیکن دبائیں۔"</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"تصدیق کردہ"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"‏PIN استعمال کریں"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"پیٹرن کا استعمال کریں"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"کھولنے کے لیے اوپر سوائپ کريں"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"کھولنے کیلئے انلاک آئیکن دبائیں"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"چہرے سے انلاک کیا گیا۔ کھولنے کیلئے انلاک آئیکن دبائیں۔"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"چہرے سے انلاک کیا گیا۔ کھولنے کے لیے دبائیں۔"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"چہرے کی شناخت ہو گئی۔ کھولنے کے لیے دبائیں۔"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"چہرے کی شناخت ہو گئی۔ کھولنے کیلئے انلاک آئیکن دبائیں۔"</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"دائیں منتقل کریں"</item>
     <item msgid="5558598599408514296">"نیچے منتقل کریں"</item>

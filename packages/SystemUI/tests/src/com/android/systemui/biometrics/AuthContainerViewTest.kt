@@ -16,13 +16,11 @@
 package com.android.systemui.biometrics
 
 import android.app.admin.DevicePolicyManager
+import android.hardware.biometrics.BiometricAuthenticator
 import android.hardware.biometrics.BiometricConstants
 import android.hardware.biometrics.BiometricManager
-import android.hardware.biometrics.ComponentInfoInternal
 import android.hardware.biometrics.PromptInfo
-import android.hardware.biometrics.SensorProperties
 import android.hardware.face.FaceSensorPropertiesInternal
-import android.hardware.fingerprint.FingerprintSensorProperties
 import android.hardware.fingerprint.FingerprintSensorPropertiesInternal
 import android.os.Handler
 import android.os.IBinder
@@ -36,11 +34,11 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.ScrollView
 import androidx.test.filters.SmallTest
+import com.android.internal.jank.InteractionJankMonitor
 import com.android.internal.widget.LockPatternUtils
 import com.android.systemui.R
 import com.android.systemui.SysuiTestCase
 import com.android.systemui.keyguard.WakefulnessLifecycle
-import com.android.systemui.util.concurrency.DelayableExecutor
 import com.android.systemui.util.concurrency.FakeExecutor
 import com.android.systemui.util.time.FakeSystemClock
 import com.google.common.truth.Truth.assertThat
@@ -57,12 +55,12 @@ import org.mockito.junit.MockitoJUnit
 import org.mockito.Mockito.`when` as whenever
 
 @RunWith(AndroidTestingRunner::class)
-@RunWithLooper
+@RunWithLooper(setAsMainLooper = true)
 @SmallTest
 class AuthContainerViewTest : SysuiTestCase() {
 
     @JvmField @Rule
-    var rule = MockitoJUnit.rule()
+    var mockitoRule = MockitoJUnit.rule()
 
     @Mock
     lateinit var callback: AuthDialogCallback
@@ -74,6 +72,8 @@ class AuthContainerViewTest : SysuiTestCase() {
     lateinit var wakefulnessLifecycle: WakefulnessLifecycle
     @Mock
     lateinit var windowToken: IBinder
+    @Mock
+    lateinit var interactionJankMonitor: InteractionJankMonitor
 
     private var authContainer: TestAuthContainerView? = null
 
@@ -86,13 +86,13 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testNotifiesAnimatedIn() {
-        initializeContainer()
+        initializeFingerprintContainer()
         verify(callback).onDialogAnimatedIn()
     }
 
     @Test
     fun testIgnoresAnimatedInWhenDismissed() {
-        val container = initializeContainer(addToView = false)
+        val container = initializeFingerprintContainer(addToView = false)
         container.dismissFromSystemServer()
         waitForIdleSync()
 
@@ -107,7 +107,7 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testDismissesOnFocusLoss() {
-        val container = initializeContainer()
+        val container = initializeFingerprintContainer()
         waitForIdleSync()
 
         verify(callback).onDialogAnimatedIn()
@@ -124,7 +124,7 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testActionAuthenticated_sendsDismissedAuthenticated() {
-        val container = initializeContainer()
+        val container = initializeFingerprintContainer()
         container.mBiometricCallback.onAction(
             AuthBiometricView.Callback.ACTION_AUTHENTICATED
         )
@@ -139,7 +139,7 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testActionUserCanceled_sendsDismissedUserCanceled() {
-        val container = initializeContainer()
+        val container = initializeFingerprintContainer()
         container.mBiometricCallback.onAction(
             AuthBiometricView.Callback.ACTION_USER_CANCELED
         )
@@ -157,7 +157,7 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testActionButtonNegative_sendsDismissedButtonNegative() {
-        val container = initializeContainer()
+        val container = initializeFingerprintContainer()
         container.mBiometricCallback.onAction(
             AuthBiometricView.Callback.ACTION_BUTTON_NEGATIVE
         )
@@ -172,7 +172,9 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testActionTryAgain_sendsTryAgain() {
-        val container = initializeContainer(BiometricManager.Authenticators.BIOMETRIC_WEAK)
+        val container = initializeFingerprintContainer(
+            authenticators = BiometricManager.Authenticators.BIOMETRIC_WEAK
+        )
         container.mBiometricCallback.onAction(
             AuthBiometricView.Callback.ACTION_BUTTON_TRY_AGAIN
         )
@@ -183,8 +185,8 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testActionError_sendsDismissedError() {
-        val container = initializeContainer()
-        authContainer!!.mBiometricCallback.onAction(
+        val container = initializeFingerprintContainer()
+        container.mBiometricCallback.onAction(
             AuthBiometricView.Callback.ACTION_ERROR
         )
         waitForIdleSync()
@@ -198,8 +200,8 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testActionUseDeviceCredential_sendsOnDeviceCredentialPressed() {
-        val container = initializeContainer(
-            BiometricManager.Authenticators.BIOMETRIC_WEAK or
+        val container = initializeFingerprintContainer(
+            authenticators = BiometricManager.Authenticators.BIOMETRIC_WEAK or
                     BiometricManager.Authenticators.DEVICE_CREDENTIAL
         )
         container.mBiometricCallback.onAction(
@@ -213,8 +215,8 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testAnimateToCredentialUI_invokesStartTransitionToCredentialUI() {
-        val container = initializeContainer(
-            BiometricManager.Authenticators.BIOMETRIC_WEAK or
+        val container = initializeFingerprintContainer(
+            authenticators = BiometricManager.Authenticators.BIOMETRIC_WEAK or
                     BiometricManager.Authenticators.DEVICE_CREDENTIAL
         )
         container.animateToCredentialUI()
@@ -225,7 +227,7 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testShowBiometricUI() {
-        val container = initializeContainer()
+        val container = initializeFingerprintContainer()
 
         waitForIdleSync()
 
@@ -235,7 +237,9 @@ class AuthContainerViewTest : SysuiTestCase() {
 
     @Test
     fun testShowCredentialUI() {
-        val container = initializeContainer(BiometricManager.Authenticators.DEVICE_CREDENTIAL)
+        val container = initializeFingerprintContainer(
+            authenticators = BiometricManager.Authenticators.DEVICE_CREDENTIAL
+        )
         waitForIdleSync()
 
         assertThat(container.hasCredentialView()).isTrue()
@@ -249,7 +253,9 @@ class AuthContainerViewTest : SysuiTestCase() {
             DevicePolicyManager.PASSWORD_QUALITY_SOMETHING
         )
 
-        val container = initializeContainer(BiometricManager.Authenticators.DEVICE_CREDENTIAL)
+        val container = initializeFingerprintContainer(
+            authenticators = BiometricManager.Authenticators.DEVICE_CREDENTIAL
+        )
         waitForIdleSync()
 
         assertThat(container.hasCredentialPatternView()).isTrue()
@@ -266,7 +272,9 @@ class AuthContainerViewTest : SysuiTestCase() {
         // In the credential view, clicking on the background (to cancel authentication) is not
         // valid. Thus, the listener should be null, and it should not be in the accessibility
         // hierarchy.
-        val container = initializeContainer(BiometricManager.Authenticators.DEVICE_CREDENTIAL)
+        val container = initializeFingerprintContainer(
+            authenticators = BiometricManager.Authenticators.DEVICE_CREDENTIAL
+        )
         waitForIdleSync()
 
         assertThat(container.hasCredentialPasswordView()).isTrue()
@@ -294,49 +302,52 @@ class AuthContainerViewTest : SysuiTestCase() {
         assertThat((layoutParams.fitInsetsTypes and WindowInsets.Type.ime()) == 0).isTrue()
     }
 
-    private fun initializeContainer(
+    @Test
+    fun coexFaceRestartsOnTouch() {
+        val container = initializeCoexContainer()
+
+        container.onPointerDown()
+        waitForIdleSync()
+
+        container.onAuthenticationFailed(BiometricAuthenticator.TYPE_FACE, "failed")
+        waitForIdleSync()
+
+        verify(callback, never()).onTryAgainPressed()
+
+        container.onPointerDown()
+        waitForIdleSync()
+
+        verify(callback).onTryAgainPressed()
+    }
+
+    private fun initializeFingerprintContainer(
         authenticators: Int = BiometricManager.Authenticators.BIOMETRIC_WEAK,
         addToView: Boolean = true
+    ) = initializeContainer(
+        TestAuthContainerView(
+            authenticators = authenticators,
+            fingerprintProps = fingerprintSensorPropertiesInternal()
+        ),
+        addToView
+    )
+
+    private fun initializeCoexContainer(
+        authenticators: Int = BiometricManager.Authenticators.BIOMETRIC_WEAK,
+        addToView: Boolean = true
+    ) = initializeContainer(
+        TestAuthContainerView(
+            authenticators = authenticators,
+            fingerprintProps = fingerprintSensorPropertiesInternal(),
+            faceProps = faceSensorPropertiesInternal()
+        ),
+        addToView
+    )
+
+    private fun initializeContainer(
+        view: TestAuthContainerView,
+        addToView: Boolean
     ): TestAuthContainerView {
-        val config = AuthContainerView.Config()
-        config.mContext = mContext
-        config.mCallback = callback
-        config.mSensorIds = intArrayOf(0)
-        config.mSkipAnimation = true
-        config.mPromptInfo = PromptInfo()
-        config.mPromptInfo.authenticators = authenticators
-        val componentInfo = listOf(
-            ComponentInfoInternal(
-                "faceSensor" /* componentId */,
-                "vendor/model/revision" /* hardwareVersion */, "1.01" /* firmwareVersion */,
-                "00000001" /* serialNumber */, "" /* softwareVersion */
-            ),
-            ComponentInfoInternal(
-                "matchingAlgorithm" /* componentId */,
-                "" /* hardwareVersion */, "" /* firmwareVersion */, "" /* serialNumber */,
-                "vendor/version/revision" /* softwareVersion */
-            )
-        )
-        val fpProps = listOf(
-            FingerprintSensorPropertiesInternal(
-                0,
-                SensorProperties.STRENGTH_STRONG,
-                5 /* maxEnrollmentsPerUser */,
-                componentInfo,
-                FingerprintSensorProperties.TYPE_REAR,
-                false /* resetLockoutRequiresHardwareAuthToken */
-            )
-        )
-        authContainer = TestAuthContainerView(
-            config,
-            fpProps,
-            listOf(),
-            wakefulnessLifecycle,
-            userManager,
-            lockPatternUtils,
-            Handler(TestableLooper.get(this).looper),
-            FakeExecutor(FakeSystemClock())
-        )
+        authContainer = view
 
         if (addToView) {
             authContainer!!.addToView()
@@ -346,27 +357,35 @@ class AuthContainerViewTest : SysuiTestCase() {
     }
 
     private inner class TestAuthContainerView(
-        config: Config,
-        fpProps: List<FingerprintSensorPropertiesInternal>,
-        faceProps: List<FaceSensorPropertiesInternal>,
-        wakefulnessLifecycle: WakefulnessLifecycle,
-        userManager: UserManager,
-        lockPatternUtils: LockPatternUtils,
-        mainHandler: Handler,
-        bgExecutor: DelayableExecutor
+        authenticators: Int = BiometricManager.Authenticators.BIOMETRIC_WEAK,
+        fingerprintProps: List<FingerprintSensorPropertiesInternal> = listOf(),
+        faceProps: List<FaceSensorPropertiesInternal> = listOf()
     ) : AuthContainerView(
-        config, fpProps, faceProps,
-        wakefulnessLifecycle, userManager, lockPatternUtils, mainHandler, bgExecutor
+        Config().apply {
+            mContext = this@AuthContainerViewTest.context
+            mCallback = callback
+            mSensorIds = (fingerprintProps.map { it.sensorId } +
+                faceProps.map { it.sensorId }).toIntArray()
+            mSkipAnimation = true
+            mPromptInfo = PromptInfo().apply {
+                this.authenticators = authenticators
+            }
+        },
+        fingerprintProps,
+        faceProps,
+        wakefulnessLifecycle,
+        userManager,
+        lockPatternUtils,
+        interactionJankMonitor,
+        Handler(TestableLooper.get(this).looper),
+        FakeExecutor(FakeSystemClock())
     ) {
         override fun postOnAnimation(runnable: Runnable) {
             runnable.run()
         }
     }
 
-    override fun waitForIdleSync() {
-        TestableLooper.get(this).processAllMessages()
-        super.waitForIdleSync()
-    }
+    override fun waitForIdleSync() = TestableLooper.get(this).processAllMessages()
 
     private fun AuthContainerView.addToView() {
         ViewUtils.attachView(this)

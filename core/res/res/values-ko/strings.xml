@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"지문 잠금 해제"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"지문 센서를 사용할 수 없음"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"수리업체에 방문하세요."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"정확한 얼굴 데이터를 캡처하지 못했습니다. 다시 시도하세요."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"얼굴 모델을 만들 수 없습니다. 다시 시도해 주세요."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"너무 밝습니다. 조명 밝기를 조금 낮춰보세요."</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"너무 어둡습니다. 조명을 밝게 해 보세요."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"휴대전화를 더 멀리 위치시키세요."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"휴대전화를 더 가깝게 위치시키세요."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"휴대전화를 위쪽으로 이동하세요."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"휴대전화를 아래로 이동하세요"</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"휴대전화를 왼쪽으로 이동하세요."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"휴대전화를 오른쪽으로 이동하세요."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"조명을 밝게 해 보세요."</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"휴대전화를 얼굴에서 더 멀리 떨어뜨려 주세요."</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"휴대전화를 얼굴에 더 가까이 가져와 주세요."</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"휴대전화를 위로 이동하세요"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"휴대전화를 아래로 이동하세요"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"휴대전화를 왼쪽으로 이동하세요"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"휴대전화를 오른쪽으로 이동하세요"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"기기에서 더 똑바로 바라보세요."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"휴대전화가 얼굴 정면을 향하도록 두세요."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"얼굴이 보이지 않습니다. 눈높이에 맞춰 휴대전화를 들어 주세요."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"너무 많이 움직였습니다. 휴대전화를 흔들리지 않게 잡으세요."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"얼굴을 다시 등록해 주세요."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"더 이상 얼굴을 인식할 수 없습니다. 다시 시도하세요."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"너무 비슷합니다. 다른 포즈를 취해 보세요."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"고개를 조금 덜 돌려 보세요."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"고개를 조금 덜 기울여 보세요."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"고개를 조금 덜 돌려 보세요."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"얼굴을 인식할 수 없습니다. 다시 시도해 주세요."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"얼굴의 위치를 조금 변경해 주세요."</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"휴대전화를 좀 더 똑바로 바라봐 주세요."</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"휴대전화를 좀 더 똑바로 바라봐 주세요."</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"휴대전화를 좀 더 똑바로 바라봐 주세요."</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"얼굴이 가려지지 않도록 해 주세요."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"검은색 바를 포함한 화면 상단을 청소하세요."</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"전체 얼굴이 보여야 합니다."</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"전체 얼굴이 보여야 합니다."</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"얼굴 모델을 만들 수 없습니다. 다시 시도해 주세요."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"선글라스가 감지되었습니다. 전체 얼굴이 보여야 합니다."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"마스크가 감지되었습니다. 전체 얼굴이 보여야 합니다."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"얼굴을 확인할 수 없습니다. 하드웨어를 사용할 수 없습니다."</string>

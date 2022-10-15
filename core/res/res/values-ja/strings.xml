@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"指紋認証"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"指紋認証センサーを使用できません"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"修理業者に調整を依頼してください。"</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"顔を認識できませんでした。もう一度お試しください。"</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"顔モデルを作成できません。もう一度お試しください。"</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"明るすぎます。もっと暗い場所でお試しください。"</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"暗すぎます。もっと明るい場所でお試しください。"</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"スマートフォンをもっと離してください。"</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"スマートフォンをもっと近づけてください。"</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"スマートフォンを上に動かしてください。"</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"スマートフォンを下に動かしてください。"</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"スマートフォンを左に動かしてください。"</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"スマートフォンを右に動かしてください。"</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"もっと明るい場所でお試しください"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"スマートフォンをもっと離してください"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"スマートフォンをもっと近づけてください"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"スマートフォンをもっと上げてください"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"スマートフォンをもっと下げてください"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"スマートフォンを左に動かしてください"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"スマートフォンを右に動かしてください"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"もっとまっすぐデバイスに顔を向けてください。"</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"顔をスマートフォンの真正面に向けてください。"</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"顔を確認できません。スマートフォンを目の高さに合わせて持ってください。"</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"あまり動かさないでください。安定させてください。"</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"顔を登録し直してください。"</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"顔を認識できなくなりました。もう一度お試しください。"</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"似すぎています。ポーズを変えてください。"</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"顔の向きを少し戻してください。"</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"顔を少し傾けてください。"</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"顔の向きを少し戻してください。"</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"顔を認識できません。もう一度お試しください。"</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"顔の位置を少し変えてください"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"もっとまっすぐスマートフォンに顔を向けてください"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"もっとまっすぐスマートフォンに顔を向けてください"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"もっとまっすぐスマートフォンに顔を向けてください"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"顔を隠しているものをすべて外してください"</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"黒いバーを含め、画面の上部をきれいにしてください"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"顔が完全に写るようにしてください"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"顔が完全に写るようにしてください"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"顔モデルを作成できません。もう一度お試しください。"</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"サングラスが検出されました。顔が完全に写るようにしてください。"</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"マスクが検出されました。顔が完全に写るようにしてください。"</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"顔を確認できません。ハードウェアを利用できません。"</string>
@@ -1443,7 +1448,7 @@
     <string name="permdesc_route_media_output" msgid="1759683269387729675">"メディア出力を他の外部デバイスにルーティングすることをアプリに許可します。"</string>
     <string name="permlab_readInstallSessions" msgid="7279049337895583621">"インストールセッションの読み取り"</string>
     <string name="permdesc_readInstallSessions" msgid="4012608316610763473">"インストールセッションの読み取りをアプリに許可します。これにより、アプリはアクティブパッケージのインストールに関する詳細情報を参照できるようになります。"</string>
-    <string name="permlab_requestInstallPackages" msgid="7600020863445351154">"インストールパッケージのリクエスト"</string>
+    <string name="permlab_requestInstallPackages" msgid="7600020863445351154">"request install packages"</string>
     <string name="permdesc_requestInstallPackages" msgid="3969369278325313067">"パッケージのインストールをリクエストすることをアプリケーションに許可します。"</string>
     <string name="permlab_requestDeletePackages" msgid="2541172829260106795">"パッケージの削除のリクエスト"</string>
     <string name="permdesc_requestDeletePackages" msgid="6133633516423860381">"パッケージの削除をリクエストすることをアプリに許可します。"</string>

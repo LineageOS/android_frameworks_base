@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"Επιβεβαιώθηκε"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"Πατήστε Επιβεβαίωση για ολοκλήρωση"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"Ξεκλείδωμα με πρόσωπο. Πατήστε το εικονίδιο ξεκλειδώματος."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"Ξεκλείδωμα με αναγνώριση προσώπου. Πατήστε για συνέχεια."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Το πρόσωπο αναγνωρίστηκε. Πατήστε για συνέχεια."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Το πρόσωπο αναγνωρ. Πατήστε το εικον. ξεκλειδ. για συνέχεια."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Ολοκληρώθηκε ο έλεγχος ταυτότητας"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Χρήση PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Χρήση μοτίβου"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"Σύρετε προς τα επάνω για άνοιγμα"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"Πατήστε το εικονίδιο ξεκλειδώματος για άνοιγμα"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"Ξεκλείδωμα με πρόσωπο. Πατήστε το εικονίδιο ξεκλειδώματος."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"Ξεκλείδωμα με αναγνώριση προσώπου. Πατήστε για άνοιγμα."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"Το πρόσωπο αναγνωρίστηκε. Πατήστε για άνοιγμα."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"Το πρόσωπο αναγνωρ. Πατήστ. το εικον. ξεκλειδ. για άνοιγμα."</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"Μετακίνηση αριστερά"</item>
     <item msgid="5558598599408514296">"Μετακίνηση κάτω"</item>
@@ -373,7 +379,7 @@
     <string name="quick_settings_disclosure_named_management_monitoring" msgid="2831423806103479812">"Ο οργανισμός <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> κατέχει αυτήν τη συσκευή και μπορεί να παρακολουθεί την επισκεψιμότητα δικτύου."</string>
     <string name="quick_settings_financed_disclosure_named_management" msgid="2307703784594859524">"Αυτή η συσκευή παρέχεται από τον οργανισμό <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
     <string name="quick_settings_disclosure_management_named_vpn" msgid="4137564460025113168">"Αυτή η συσκευή ανήκει στον οργανισμό σας και συνδέεται στο διαδίκτυο μέσω της εφαρμογής <xliff:g id="VPN_APP">%1$s</xliff:g>"</string>
-    <string name="quick_settings_disclosure_named_management_named_vpn" msgid="2169227918166358741">"Αυτή η συσκευή ανήκει στον οργανισμό <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> και συνδέεται στο διαδίκτυο μέσω της εφαρμογής <xliff:g id="VPN_APP">%2$s</xliff:g>"</string>
+    <string name="quick_settings_disclosure_named_management_named_vpn" msgid="2169227918166358741">"Αυτή η συσκευή ανήκει σε <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> και συνδέεται στο διαδίκτυο μέσω  <xliff:g id="VPN_APP">%2$s</xliff:g>"</string>
     <string name="quick_settings_disclosure_management" msgid="5515296598440684962">"Αυτή η συσκευή ανήκει στον οργανισμό σας."</string>
     <string name="quick_settings_disclosure_named_management" msgid="3476472755775165827">"Αυτή η συσκευή ανήκει στον οργανισμό <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g>"</string>
     <string name="quick_settings_disclosure_management_vpns" msgid="929181757984262902">"Αυτή η συσκευή ανήκει στον οργανισμό σας και συνδέεται στο διαδίκτυο μέσω VPN"</string>

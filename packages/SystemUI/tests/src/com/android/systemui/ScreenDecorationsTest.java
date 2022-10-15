@@ -50,6 +50,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Insets;
+import android.graphics.Path;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -75,14 +76,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.test.filters.SmallTest;
 
+import com.android.keyguard.KeyguardUpdateMonitor;
+import com.android.systemui.biometrics.AuthController;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.decor.CornerDecorProvider;
 import com.android.systemui.decor.DecorProvider;
 import com.android.systemui.decor.DecorProviderFactory;
+import com.android.systemui.decor.FaceScanningOverlayProviderImpl;
+import com.android.systemui.decor.FaceScanningProviderFactory;
 import com.android.systemui.decor.OverlayWindow;
 import com.android.systemui.decor.PrivacyDotCornerDecorProviderImpl;
 import com.android.systemui.decor.PrivacyDotDecorProviderFactory;
 import com.android.systemui.decor.RoundedCornerResDelegate;
+import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.events.PrivacyDotViewController;
 import com.android.systemui.tuner.TunerService;
@@ -113,6 +119,13 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     private final FakeExecutor mExecutor = new FakeExecutor(new FakeSystemClock());
     private FakeThreadFactory mThreadFactory;
     private ArrayList<DecorProvider> mPrivacyDecorProviders;
+    private ArrayList<DecorProvider> mFaceScanningProviders;
+    @Mock
+    private KeyguardUpdateMonitor mKeyguardUpdateMonitor;
+    @Mock
+    private StatusBarStateController mStatusBarStateController;
+    @Mock
+    private AuthController mAuthController;
     @Mock
     private Display mDisplay;
     @Mock
@@ -127,6 +140,10 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     private TypedArray mMockTypedArray;
     @Mock
     private PrivacyDotDecorProviderFactory mPrivacyDotDecorProviderFactory;
+    @Mock
+    private FaceScanningProviderFactory mFaceScanningProviderFactory;
+    @Mock
+    private FaceScanningOverlayProviderImpl mFaceScanningDecorProvider;
     @Mock
     private CornerDecorProvider mPrivacyDotTopLeftDecorProvider;
     @Mock
@@ -189,9 +206,16 @@ public class ScreenDecorationsTest extends SysuiTestCase {
                 DisplayCutout.BOUNDS_POSITION_RIGHT,
                 R.layout.privacy_dot_bottom_right));
 
+        mFaceScanningDecorProvider = spy(new FaceScanningOverlayProviderImpl(
+                BOUNDS_POSITION_TOP,
+                mAuthController,
+                mStatusBarStateController,
+                mKeyguardUpdateMonitor,
+                mExecutor));
+
         mScreenDecorations = spy(new ScreenDecorations(mContext, mExecutor, mSecureSettings,
                 mBroadcastDispatcher, mTunerService, mUserTracker, mDotViewController,
-                mThreadFactory, mPrivacyDotDecorProviderFactory) {
+                mThreadFactory, mPrivacyDotDecorProviderFactory, mFaceScanningProviderFactory) {
             @Override
             public void start() {
                 super.start();
@@ -211,9 +235,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
             }
 
             @Override
-            protected void setOverlayWindowVisibilityIfViewExist(@Nullable View view,
-                    @View.Visibility int visibility) {
-                super.setOverlayWindowVisibilityIfViewExist(view, visibility);
+            protected void updateOverlayWindowVisibilityIfViewExists(@Nullable View view) {
+                super.updateOverlayWindowVisibilityIfViewExists(view);
                 mExecutor.runAllReady();
             }
         });
@@ -266,6 +289,16 @@ public class ScreenDecorationsTest extends SysuiTestCase {
             } else {
                 assertNull(view);
             }
+        }
+    }
+
+    private void verifyFaceScanningViewExists(final boolean exists) {
+        final View overlay = mScreenDecorations.mOverlays[BOUNDS_POSITION_TOP].getRootView();
+        final View view = overlay.findViewById(mFaceScanningDecorProvider.getViewId());
+        if (exists) {
+            assertNotNull(view);
+        } else {
+            assertNull(view);
         }
     }
 
@@ -393,10 +426,11 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     }
 
     @Test
-    public void testNoRounding_NoCutout_NoPrivacyDot() {
+    public void testNoRounding_NoCutout_NoPrivacyDot_NoFaceScanning() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // no cutout
         doReturn(null).when(mScreenDecorations).getCutout();
@@ -411,10 +445,11 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     }
 
     @Test
-    public void testNoRounding_NoCutout_PrivacyDot() {
+    public void testNoRounding_NoCutout_PrivacyDot_NoFaceScanning() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // no cutout
         doReturn(null).when(mScreenDecorations).getCutout();
@@ -435,6 +470,9 @@ public class ScreenDecorationsTest extends SysuiTestCase {
         // Privacy dots shall exist but invisible
         verifyDotViewsVisibility(View.INVISIBLE);
 
+        // Face scanning doesn't exist
+        verifyFaceScanningViewExists(false);
+
         // One tunable.
         verify(mTunerService, times(1)).addTunable(any(), any());
         // Dot controller init
@@ -443,10 +481,11 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     }
 
     @Test
-    public void testRounding_NoCutout_NoPrivacyDot() {
+    public void testRounding_NoCutout_NoPrivacyDot_NoFaceScanning() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */);
+                20 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // no cutout
         doReturn(null).when(mScreenDecorations).getCutout();
@@ -464,6 +503,9 @@ public class ScreenDecorationsTest extends SysuiTestCase {
         // Privacy dots shall not exist
         verifyDotViewsNullable(true);
 
+        // Face scanning doesn't exist
+        verifyFaceScanningViewExists(false);
+
         // One tunable.
         verify(mTunerService, times(1)).addTunable(any(), any());
         // No dot controller init
@@ -471,10 +513,11 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     }
 
     @Test
-    public void testRounding_NoCutout_PrivacyDot() {
+    public void testRounding_NoCutout_PrivacyDot_NoFaceScanning() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                20 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // no cutout
         doReturn(null).when(mScreenDecorations).getCutout();
@@ -494,6 +537,9 @@ public class ScreenDecorationsTest extends SysuiTestCase {
         // Privacy dots shall exist but invisible
         verifyDotViewsVisibility(View.INVISIBLE);
 
+        // Face scanning doesn't exist
+        verifyFaceScanningViewExists(false);
+
         // One tunable.
         verify(mTunerService, times(1)).addTunable(any(), any());
         // Dot controller init
@@ -509,7 +555,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
                 /* roundedTopDrawable */,
                 getTestsDrawable(com.android.systemui.tests.R.drawable.rounded3px)
                 /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
         // no cutout
         doReturn(null).when(mScreenDecorations).getCutout();
 
@@ -527,7 +574,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
                 /* roundedTopDrawable */,
                 getTestsDrawable(com.android.systemui.tests.R.drawable.rounded3px)
                 /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // no cutout
         doReturn(null).when(mScreenDecorations).getCutout();
@@ -563,7 +611,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
                 /* roundedTopDrawable */,
                 getTestsDrawable(com.android.systemui.tests.R.drawable.rounded5px)
                 /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // left cutout
         final Rect[] bounds = {new Rect(0, 50, 1, 60), null, null, null};
@@ -598,7 +647,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testNoRounding_CutoutShortEdge_NoPrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -621,7 +671,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testNoRounding_CutoutShortEdge_PrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -655,7 +706,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testNoRounding_CutoutLongEdge_NoPrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // left cutout
         final Rect[] bounds = {new Rect(0, 50, 1, 60), null, null, null};
@@ -682,7 +734,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testNoRounding_CutoutLongEdge_PrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // left cutout
         final Rect[] bounds = {new Rect(0, 50, 1, 60), null, null, null};
@@ -709,7 +762,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testRounding_CutoutShortEdge_NoPrivacyDot() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                20 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -737,7 +791,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testRounding_CutoutShortEdge_PrivacyDot() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                20 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -768,7 +823,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testRounding_CutoutLongEdge_NoPrivacyDot() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                20 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // left cutout
         final Rect[] bounds = {new Rect(0, 50, 1, 60), null, null, null};
@@ -786,7 +842,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testRounding_CutoutLongEdge_PrivacyDot() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                20 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // left cutout
         final Rect[] bounds = {new Rect(0, 50, 1, 60), null, null, null};
@@ -806,7 +863,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testRounding_CutoutShortAndLongEdge_NoPrivacyDot() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                20 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // top and left cutout
         final Rect[] bounds = {new Rect(0, 50, 1, 60), new Rect(9, 0, 10, 1), null, null};
@@ -825,7 +883,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testRounding_CutoutShortAndLongEdge_PrivacyDot() {
         setupResources(20 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                20 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                20 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // top and left cutout
         final Rect[] bounds = {new Rect(0, 50, 1, 60), new Rect(9, 0, 10, 1), null, null};
@@ -846,7 +905,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testNoRounding_SwitchFrom_ShortEdgeCutout_To_LongCutout_NoPrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // Set to short edge cutout(top).
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -869,7 +929,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testNoRounding_SwitchFrom_ShortEdgeCutout_To_LongCutout_PrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // Set to short edge cutout(top).
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -912,7 +973,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testDelayedCutout_NoPrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -935,7 +997,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testDelayedCutout_PrivacyDot() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -980,7 +1043,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
                 /* roundedTopDrawable */,
                 getTestsDrawable(com.android.systemui.tests.R.drawable.rounded4px)
                 /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning*/);
         mDisplayInfo.rotation = Surface.ROTATION_0;
 
         mScreenDecorations.start();
@@ -994,7 +1058,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
                 /* roundedTopDrawable */,
                 getTestsDrawable(com.android.systemui.tests.R.drawable.rounded5px)
                 /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning*/);
         mDisplayInfo.rotation = Surface.ROTATION_270;
 
         mScreenDecorations.onConfigurationChanged(null);
@@ -1007,7 +1072,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testOnlyRoundedCornerRadiusTop() {
         setupResources(0 /* radius */, 10 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         mScreenDecorations.start();
 
@@ -1028,7 +1094,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testOnlyRoundedCornerRadiusBottom() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 20 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         mScreenDecorations.start();
 
@@ -1099,7 +1166,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testSupportHwcLayer_SwitchFrom_NotSupport() {
         setupResources(0 /* radius */, 10 /* radiusTop */, 20 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -1127,7 +1195,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testNotSupportHwcLayer_SwitchFrom_Support() {
         setupResources(0 /* radius */, 10 /* radiusTop */, 20 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
         final DisplayDecorationSupport decorationSupport = new DisplayDecorationSupport();
         decorationSupport.format = PixelFormat.R_8;
         doReturn(decorationSupport).when(mDisplay).getDisplayDecorationSupport();
@@ -1165,7 +1234,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
                 /* roundedTopDrawable */,
                 getTestsDrawable(com.android.systemui.tests.R.drawable.rounded4px)
                 /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                true /* faceScanning */);
         final DisplayDecorationSupport decorationSupport = new DisplayDecorationSupport();
         decorationSupport.format = PixelFormat.R_8;
         doReturn(decorationSupport).when(mDisplay).getDisplayDecorationSupport();
@@ -1182,19 +1252,33 @@ public class ScreenDecorationsTest extends SysuiTestCase {
         // Make sure view found and window visibility changed as well
         final View view = mScreenDecorations.mOverlays[BOUNDS_POSITION_BOTTOM].getRootView()
                 .findViewById(R.id.privacy_dot_bottom_right_container);
+        view.setVisibility(View.VISIBLE);
         mPrivacyDotShowingListener.onPrivacyDotShown(view);
         assertEquals(View.VISIBLE,
                 mScreenDecorations.mOverlays[BOUNDS_POSITION_BOTTOM].getRootView().getVisibility());
+        view.setVisibility(View.INVISIBLE);
         mPrivacyDotShowingListener.onPrivacyDotHidden(view);
         assertEquals(View.INVISIBLE,
                 mScreenDecorations.mOverlays[BOUNDS_POSITION_BOTTOM].getRootView().getVisibility());
+
+        // Make sure face scanning view found and window visibility updates on camera protection
+        // update
+        final View faceScanView = mScreenDecorations.mOverlays[BOUNDS_POSITION_TOP].getRootView()
+                .findViewById(mFaceScanningDecorProvider.getViewId());
+        when(mFaceScanningProviderFactory.shouldShowFaceScanningAnim()).thenReturn(true);
+        faceScanView.setVisibility(View.VISIBLE);
+        mScreenDecorations.showCameraProtection(new Path(), new Rect());
+        mExecutor.runAllReady();
+        assertEquals(View.VISIBLE,
+                mScreenDecorations.mOverlays[BOUNDS_POSITION_TOP].getRootView().getVisibility());
     }
 
     @Test
     public void testAutoShowHideOverlayWindowWhenNoRoundedAndNoCutout() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, true /* privacyDot */,
+                true /* faceScanning */);
 
         // no cutout
         doReturn(null).when(mScreenDecorations).getCutout();
@@ -1206,19 +1290,33 @@ public class ScreenDecorationsTest extends SysuiTestCase {
         // Make sure view found and window visibility changed as well
         final View view = mScreenDecorations.mOverlays[BOUNDS_POSITION_BOTTOM].getRootView()
                 .findViewById(R.id.privacy_dot_bottom_right_container);
+        view.setVisibility(View.VISIBLE);
         mPrivacyDotShowingListener.onPrivacyDotShown(view);
         assertEquals(View.VISIBLE,
                 mScreenDecorations.mOverlays[BOUNDS_POSITION_BOTTOM].getRootView().getVisibility());
+        view.setVisibility(View.INVISIBLE);
         mPrivacyDotShowingListener.onPrivacyDotHidden(view);
         assertEquals(View.INVISIBLE,
                 mScreenDecorations.mOverlays[BOUNDS_POSITION_BOTTOM].getRootView().getVisibility());
+
+        // Make sure face scanning view found and window visibility updates on camera protection
+        // update
+        final View faceScanView = mScreenDecorations.mOverlays[BOUNDS_POSITION_TOP].getRootView()
+                .findViewById(mFaceScanningDecorProvider.getViewId());
+        faceScanView.setVisibility(View.VISIBLE);
+        when(mFaceScanningProviderFactory.shouldShowFaceScanningAnim()).thenReturn(true);
+        mScreenDecorations.showCameraProtection(new Path(), new Rect());
+        mExecutor.runAllReady();
+        assertEquals(View.VISIBLE,
+                mScreenDecorations.mOverlays[BOUNDS_POSITION_TOP].getRootView().getVisibility());
     }
 
     @Test
-    public void testHwcLayer_noPrivacyDot() {
+    public void testHwcLayer_noPrivacyDot_noFaceScanning() {
         setupResources(0 /* radius */, 10 /* radiusTop */, 20 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
         final DisplayDecorationSupport decorationSupport = new DisplayDecorationSupport();
         decorationSupport.format = PixelFormat.R_8;
         doReturn(decorationSupport).when(mDisplay).getDisplayDecorationSupport();
@@ -1236,10 +1334,11 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     }
 
     @Test
-    public void testHwcLayer_PrivacyDot() {
+    public void testHwcLayer_PrivacyDot_FaceScanning() {
         setupResources(0 /* radius */, 10 /* radiusTop */, 20 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                true /* faceScanning */);
         final DisplayDecorationSupport decorationSupport = new DisplayDecorationSupport();
         decorationSupport.format = PixelFormat.R_8;
         doReturn(decorationSupport).when(mDisplay).getDisplayDecorationSupport();
@@ -1257,13 +1356,16 @@ public class ScreenDecorationsTest extends SysuiTestCase {
         verify(mDotViewController, times(1)).initialize(any(), any(), any(), any());
         verify(mDotViewController, times(1)).setShowingListener(
                 mScreenDecorations.mPrivacyDotShowingListener);
+
+        verifyFaceScanningViewExists(true);
     }
 
     @Test
     public void testOnDisplayChanged_hwcLayer() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
         final DisplayDecorationSupport decorationSupport = new DisplayDecorationSupport();
         decorationSupport.format = PixelFormat.R_8;
         doReturn(decorationSupport).when(mDisplay).getDisplayDecorationSupport();
@@ -1288,7 +1390,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testOnDisplayChanged_nonHwcLayer() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         // top cutout
         final Rect[] bounds = {null, new Rect(9, 0, 10, 1), null, null};
@@ -1311,7 +1414,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testHasSameProvidersWithNullOverlays() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */);
+                0 /* roundedPadding */, false /* fillCutout */, false /* privacyDot */,
+                false /* faceScanning */);
 
         mScreenDecorations.start();
 
@@ -1329,7 +1433,8 @@ public class ScreenDecorationsTest extends SysuiTestCase {
     public void testHasSameProvidersWithPrivacyDots() {
         setupResources(0 /* radius */, 0 /* radiusTop */, 0 /* radiusBottom */,
                 null /* roundedTopDrawable */, null /* roundedBottomDrawable */,
-                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */);
+                0 /* roundedPadding */, true /* fillCutout */, true /* privacyDot */,
+                false /* faceScanning */);
 
         mScreenDecorations.start();
 
@@ -1366,7 +1471,7 @@ public class ScreenDecorationsTest extends SysuiTestCase {
 
     private void setupResources(int radius, int radiusTop, int radiusBottom,
             @Nullable Drawable roundedTopDrawable, @Nullable Drawable roundedBottomDrawable,
-            int roundedPadding, boolean fillCutout, boolean privacyDot) {
+            int roundedPadding, boolean fillCutout, boolean privacyDot, boolean faceScanning) {
         mContext.getOrCreateTestableResources().addOverride(
                 com.android.internal.R.array.config_displayUniqueIdArray,
                 new String[]{});
@@ -1418,6 +1523,13 @@ public class ScreenDecorationsTest extends SysuiTestCase {
         }
         when(mPrivacyDotDecorProviderFactory.getProviders()).thenReturn(mPrivacyDecorProviders);
         when(mPrivacyDotDecorProviderFactory.getHasProviders()).thenReturn(privacyDot);
+
+        mFaceScanningProviders = new ArrayList<>();
+        if (faceScanning) {
+            mFaceScanningProviders.add(mFaceScanningDecorProvider);
+        }
+        when(mFaceScanningProviderFactory.getProviders()).thenReturn(mFaceScanningProviders);
+        when(mFaceScanningProviderFactory.getHasProviders()).thenReturn(faceScanning);
     }
 
     private DisplayCutout getDisplayCutoutForRotation(Insets safeInsets, Rect[] cutoutBounds) {

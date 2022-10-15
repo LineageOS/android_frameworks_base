@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"Confirmé"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"Appuyez sur \"Confirmer\" pour terminer"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"Déverrouillage par visage. Appuyez sur l\'icône de déverrouillage pour continuer."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"Déverrouillé par visage. Appuyez pour continuer."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Visage reconnu. Appuyez pour continuer."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Visage reconnu. Appuyez sur l\'icône de déverrouillage pour continuer."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Authentifié"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Utiliser un code PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Utiliser un schéma"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"Balayer vers le haut pour ouvrir"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"Appuyez sur l\'icône de déverrouillage pour ouvrir"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"Déverrouillé par visage. Appuyez sur icône déverrouillage pour ouvrir."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"Déverrouillé par visage. Appuyez pour ouvrir."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"Visage reconnu. Appuyez pour ouvrir."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"Visage reconnu. Appuyez sur l\'icône de déverrouillage pour ouvrir."</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"Déplacer vers la gauche"</item>
     <item msgid="5558598599408514296">"Déplacer vers le bas"</item>

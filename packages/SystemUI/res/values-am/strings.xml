@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"ተረጋግጧል"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"ለማጠናቀቅ አረጋግጥን መታ ያድርጉ"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"በመልክ ተከፍቷል። ለመቀጠል የመክፈቻ አዶውን ይጫኑ።"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"በመልክ ተከፍቷል። ለመቀጠል ይጫኑ።"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"መልክ ተለይቶ ታውቋል። ለመቀጠል ይጫኑ።"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"መልክ ተለይቶ ታውቋል። ለመቀጠል የመክፈቻ አዶውን ይጫኑ።"</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"የተረጋገጠ"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"ፒን ይጠቀሙ"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"ሥርዓተ ጥለትን ተጠቀም"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"ለመክፈት በጣት ወደ ላይ ጠረግ ያድርጉ"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"ለመክፈት የመክፈቻ አዶውን ይጫኑ"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"በመልክ ተከፍቷል። ለመክፈት የመክፈቻ አዶውን ይጫኑ።"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"በመልክ ተከፍቷል። ለመክፈት ይጫኑ።"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"መልክ ተለይቶ ታውቋል። ለመክፈት ይጫኑ።"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"መልክ ተለይቶ ታውቋል። ለመክፈት የመክፈቻ አዶውን ይጫኑ።"</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"ወደ ግራ ውሰድ"</item>
     <item msgid="5558598599408514296">"ወደ ታች ውሰድ"</item>
@@ -552,7 +558,7 @@
     <string name="keyboard_key_dpad_left" msgid="8329738048908755640">"ግራ"</string>
     <string name="keyboard_key_dpad_right" msgid="6282105433822321767">"ቀኝ"</string>
     <string name="keyboard_key_dpad_center" msgid="4079412840715672825">"መሃል"</string>
-    <string name="keyboard_key_tab" msgid="4592772350906496730">"ትር"</string>
+    <string name="keyboard_key_tab" msgid="4592772350906496730">"Tab"</string>
     <string name="keyboard_key_space" msgid="6980847564173394012">"ክፍተት"</string>
     <string name="keyboard_key_enter" msgid="8633362970109751646">"አስገባ"</string>
     <string name="keyboard_key_backspace" msgid="4095278312039628074">"የኋሊት መደምሰሻ"</string>

@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Entsperrung per Fingerabdruck"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Der Fingerabdrucksensor kann nicht verwendet werden"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Suche einen Reparaturdienstleister auf."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"Gesichtsdaten nicht gut erfasst. Erneut versuchen."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"Kein Gesichtsmodell möglich. Versuche es erneut."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"Zu hell. Schwächere Beleuchtung ausprobieren."</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"Zu dunkel. Probier eine hellere Beleuchtung aus."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"Beweg das Telefon weiter weg."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"Beweg das Telefon näher heran."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"Halte das Smartphone höher."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"Beweg das Smartphone nach unten."</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"Beweg das Smartphone nach links."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"Beweg das Smartphone nach rechts."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"Probiere es mit einer helleren Beleuchtung"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"Bewege das Smartphone weiter weg"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"Bewege das Smartphone näher heran"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"Bewege das Smartphone nach oben"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"Bewege das Smartphone nach unten"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"Bewege das Smartphone nach links"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"Bewege das Smartphone nach rechts"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"Bitte sieh direkt auf dein Gerät."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"Halte dein Gesicht direkt vor dein Smartphone."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"Dein Gesicht wurde nicht erkannt. Halte dein Smartphone auf Augenhöhe."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"Zu viel Unruhe. Halte das Smartphone ruhig."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"Bitte registriere dein Gesicht noch einmal."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"Gesicht wird nicht mehr erkannt. Erneut versuchen."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"Zu ähnlich. Bitte dreh deinen Kopf etwas."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"Dreh den Kopf etwas weniger zur Seite."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"Neig den Kopf etwas weniger stark."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"Neig den Kopf etwas weniger stark."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"Gesicht nicht erkannt. Versuche es noch einmal."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"Ändere die Position deines Kopfes leicht"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"Sieh direkt auf dein Smartphone"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"Sieh direkt auf dein Smartphone"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"Sieh direkt auf dein Smartphone"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"Entferne alles, was dein Gesicht verdeckt."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"Reinige den oberen Teil deines Bildschirms, einschließlich der schwarzen Leiste"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"Dein Gesicht muss vollständig sichtbar sein"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"Dein Gesicht muss vollständig sichtbar sein"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"Dein Gesichtsmodell kann nicht erstellt werden. Versuche es noch einmal."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"Dunkle Brille erkannt. Dein Gesicht muss vollständig sichtbar sein."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"Dein Gesicht ist bedeckt. Es muss vollständig sichtbar sein."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"Gesicht nicht erkannt. Hardware nicht verfügbar."</string>
@@ -1625,7 +1630,7 @@
     <string name="display_manager_built_in_display_name" msgid="1015775198829722440">"Integrierter Bildschirm"</string>
     <string name="display_manager_hdmi_display_name" msgid="1022758026251534975">"HDMI-Bildschirm"</string>
     <string name="display_manager_overlay_display_name" msgid="5306088205181005861">"Overlay-Nr. <xliff:g id="ID">%1$d</xliff:g>"</string>
-    <string name="display_manager_overlay_display_title" msgid="1480158037150469170">"<xliff:g id="NAME">%1$s</xliff:g>: <xliff:g id="WIDTH">%2$d</xliff:g> x <xliff:g id="HEIGHT">%3$d</xliff:g>, <xliff:g id="DPI">%4$d</xliff:g> dpi"</string>
+    <string name="display_manager_overlay_display_title" msgid="1480158037150469170">"<xliff:g id="NAME">%1$s</xliff:g>: <xliff:g id="WIDTH">%2$d</xliff:g> × <xliff:g id="HEIGHT">%3$d</xliff:g>, <xliff:g id="DPI">%4$d</xliff:g> dpi"</string>
     <string name="display_manager_overlay_display_secure_suffix" msgid="2810034719482834679">", sicher"</string>
     <string name="kg_forgot_pattern_button_text" msgid="406145459223122537">"Muster vergessen"</string>
     <string name="kg_wrong_pattern" msgid="1342812634464179931">"Falsches Muster"</string>

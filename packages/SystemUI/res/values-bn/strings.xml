@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"কনফার্ম করা হয়েছে"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"সম্পূর্ণ করতে \'কনফার্ম করুন\' বোতামে ট্যাপ করুন"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"ফেসের সাহায্যে আনলক করা হয়েছে। চালিয়ে যাওয়ার জন্য আনলক আইকনে প্রেস করুন।"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"ফেসের সাহায্যে আনলক করা হয়েছে। চালিয়ে যেতে প্রেস করুন।"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"ফেস শনাক্ত করা হয়েছে। চালিয়ে যেতে প্রেস করুন।"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"ফেস শনাক্ত করা হয়েছে। চালিয়ে যেতে আনলক আইকন প্রেস করুন।"</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"প্রমাণীকৃত"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"পিন ব্যবহার করুন"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"প্যাটার্ন ব্যবহার করুন"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"খোলার জন্য উপরে সোয়াইপ করুন"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"খোলার জন্য আনলক আইকন প্রেস করুন"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"ফেসের সাহায্যে আনলক করা হয়েছে। খোলার জন্য আনলক আইকন প্রেস করুন।"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"ফেসের সাহায্যে আনলক করা হয়েছে। খোলার জন্য প্রেস করুন।"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"ফেস শনাক্ত করা হয়েছে। খোলার জন্য প্রেস করুন।"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"ফেস শনাক্ত করা হয়েছে। খোলার জন্য আনলক আইকন প্রেস করুন।"</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"বাঁদিকে সরান"</item>
     <item msgid="5558598599408514296">"নিচে নামান"</item>

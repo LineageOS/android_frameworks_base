@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"Confirmada"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"Toca Confirmar para completar la acción"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"Desbloqueado con la cara. Toca el icono de desbloquear para continuar."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"Desbloqueado con la cara. Pulsa para continuar."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Cara reconocida. Pulsa para continuar."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Cara reconocida. Pulsa el icono de desbloquear para continuar."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Se ha autenticado"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Usar PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Usar patrón"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"Desliza el dedo hacia arriba para abrir"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"Pulsa el icono desbloquear para abrir"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"Desbloqueado con la cara. Toca el icono de desbloquear para abrir."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"Desbloqueado con la cara. Pulsa para abrir."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"Cara reconocida. Pulsa para abrir."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"Cara reconocida. Pulsa el icono de desbloquear para abrir."</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"Mover hacia la izquierda"</item>
     <item msgid="5558598599408514296">"Mover hacia abajo"</item>
@@ -401,7 +407,7 @@
     <string name="monitoring_description_ca_certificate" msgid="448923057059097497">"Se ha instalado una entidad de certificación en este dispositivo. Es posible que se supervise o se modifique tu tráfico de red seguro."</string>
     <string name="monitoring_description_management_network_logging" msgid="216983105036994771">"El administrador ha activado el registro de la red para supervisar el tráfico en tu dispositivo."</string>
     <string name="monitoring_description_managed_profile_network_logging" msgid="6932303843097006037">"Tu administrador ha activado el registro de la red, por lo que se monitorizará el tráfico de tu perfil de trabajo, aunque no el de tu perfil personal."</string>
-    <string name="monitoring_description_named_vpn" msgid="7502657784155456414">"Este dispositivo está conectado a Internet a través de <xliff:g id="VPN_APP">%1$s</xliff:g>. Tu actividad de red, como los correos electrónicos y los datos de navegación, es visible para tu administrador de TI."</string>
+    <string name="monitoring_description_named_vpn" msgid="7502657784155456414">"Este dispositivo está conectado a Internet a través de <xliff:g id="VPN_APP">%1$s</xliff:g>. Tu actividad en esta red, como tus correos electrónicos y tus datos de navegación, es visible para tu administrador de TI."</string>
     <string name="monitoring_description_two_named_vpns" msgid="6726394451199620634">"Este dispositivo está conectado a Internet a través de <xliff:g id="VPN_APP_0">%1$s</xliff:g> y <xliff:g id="VPN_APP_1">%2$s</xliff:g>. Tu actividad de red, como los correos electrónicos y los datos de navegación, es visible para tu administrador de TI."</string>
     <string name="monitoring_description_managed_profile_named_vpn" msgid="7254359257263069766">"Tus aplicaciones de trabajo están conectadas a Internet a través de <xliff:g id="VPN_APP">%1$s</xliff:g>. Tu actividad de red en las aplicaciones de trabajo, incluidos los correos electrónicos y los datos de navegación, es visible para tu administrador de TI y tu proveedor de VPN."</string>
     <string name="monitoring_description_personal_profile_named_vpn" msgid="5083909710727365452">"Tus aplicaciones personales están conectadas a Internet a través de <xliff:g id="VPN_APP">%1$s</xliff:g>. Tu actividad de red, como los correos electrónicos y los datos de navegación, es visible para tu proveedor de VPN."</string>

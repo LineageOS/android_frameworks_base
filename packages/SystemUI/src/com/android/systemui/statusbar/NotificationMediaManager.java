@@ -758,12 +758,10 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                 }
                 boolean cannotAnimateDoze = mStatusBarStateController.isDozing()
                         && !ScrimState.AOD.getAnimateChange();
-                boolean needsBypassFading = mKeyguardStateController.isBypassFadingAnimation();
                 if (((mBiometricUnlockController != null && mBiometricUnlockController.getMode()
                         == BiometricUnlockController.MODE_WAKE_AND_UNLOCK_PULSING
-                                || cannotAnimateDoze) && !needsBypassFading)
+                                || cannotAnimateDoze))
                         || hideBecauseOccluded) {
-
                     // We are unlocking directly - no animation!
                     mBackdrop.setVisibility(View.GONE);
                     mBackdropBack.setImageDrawable(null);

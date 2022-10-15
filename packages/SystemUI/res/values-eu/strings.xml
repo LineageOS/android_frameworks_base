@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"Berretsita"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"Amaitzeko, sakatu \"Berretsi\""</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"Aurpegiaren bidez desblokeatu da. Aurrera egiteko, sakatu desblokeatzeko ikonoa."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"Aurpegiaren bidez desblokeatu da. Sakatu aurrera egiteko."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Ezagutu da aurpegia. Sakatu aurrera egiteko."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Ezagutu da aurpegia. Aurrera egiteko, sakatu desblokeatzeko ikonoa."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Autentifikatuta"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Erabili PINa"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Erabili eredua"</string>
@@ -158,7 +161,7 @@
     <string name="biometric_dialog_last_password_attempt_before_wipe_profile" msgid="8538032972389729253">"Hurrengo saiakeran pasahitza oker idazten baduzu, laneko profila eta bertako datuak ezabatuko dira."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Sakatu hatz-marken sentsorea"</string>
     <string name="accessibility_fingerprint_dialog_fingerprint_icon" msgid="4465698996175640549">"Hatz-markaren ikonoa"</string>
-    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Ez da hauteman aurpegia. Erabili hatz-marka."</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Ezin da hauteman aurpegia. Erabili hatz-marka."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
     <string name="accessibility_bluetooth_connected" msgid="4745196874551115205">"Bluetooth-a konektatuta."</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"Pasatu hatza gora irekitzeko"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"Irekitzeko, sakatu desblokeatzeko ikonoa"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"Aurpegiaren bidez desblokeatu da. Irekitzeko, sakatu desblokeatzeko ikonoa."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"Aurpegiaren bidez desblokeatu da. Sakatu irekitzeko."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"Ezagutu da aurpegia. Sakatu irekitzeko."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"Ezagutu da aurpegia. Irekitzeko, sakatu desblokeatzeko ikonoa."</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"Eraman ezkerrera"</item>
     <item msgid="5558598599408514296">"Eraman behera"</item>

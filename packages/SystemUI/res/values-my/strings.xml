@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"အတည်ပြုပြီးပြီ"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"အပြီးသတ်ရန်အတွက် \'အတည်ပြုရန်\' ကို တို့ပါ"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"မျက်နှာပြ လော့ခ်ဖွင့်ထားသည်။ လော့ခ်ဖွင့်သင်္ကေတနှိပ်၍ ရှေ့ဆက်ပါ။"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"မျက်နှာဖြင့် ဖွင့်ထားသည်။ ရှေ့ဆက်ရန် နှိပ်ပါ။"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"မျက်နှာ မှတ်မိသည်။ ရှေ့ဆက်ရန် နှိပ်ပါ။"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"မျက်နှာ မှတ်မိသည်။ ရှေ့ဆက်ရန် လော့ခ်ဖွင့်သင်္ကေတကို နှိပ်ပါ။"</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"အထောက်အထားစိစစ်ပြီးပြီ"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"ပင်နံပါတ်သုံးရန်"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"ပုံစံကို သုံးရန်"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"ဖွင့်ရန် အပေါ်သို့ပွတ်ဆွဲပါ"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"ဖွင့်ရန် လော့ခ်ဖွင့်သင်္ကေတကို နှိပ်ပါ"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"မျက်နှာပြ လော့ခ်ဖွင့်ထားသည်။ လော့ခ်ဖွင့်သင်္ကေတ နှိပ်၍ဝင်ပါ။"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"မျက်နှာဖြင့် ဖွင့်ထားသည်။ ဖွင့်ရန် နှိပ်ပါ။"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"မျက်နှာ မှတ်မိသည်။ ဖွင့်ရန် နှိပ်ပါ။"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"မျက်နှာ မှတ်မိသည်။ ဖွင့်ရန် လော့ခ်ဖွင့်သင်္ကေတကို နှိပ်ပါ။"</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"ဘယ်ဘက်သို့ရွှေ့ရန်"</item>
     <item msgid="5558598599408514296">"အောက်သို့ရွှေ့ရန်"</item>

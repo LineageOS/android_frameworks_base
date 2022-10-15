@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"فنگر پرنٹ اَن لاک"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"فنگر پرنٹ سینسر کا استعمال نہیں کر سکتے"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"ایک مرمت فراہم کنندہ کو ملاحظہ کریں۔"</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"چہرے کا درست ڈيٹا کیپچر نہیں ہو سکا۔ پھر آزمائيں۔"</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"آپکے چہرے کا ماڈل تخلیق نہیں ہو سکا۔ پھر کوشش کریں۔"</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"کافی روشنی ہے۔ ہلکی روشنی میں آزمائیں۔"</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"کافی اندھیرا ہے۔ تیز روشنی میں آزمائیں۔"</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"فون کو تھوڑا دور کریں۔"</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"فون کو تھوڑا قریب کریں۔"</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"فون کو تھوڑا اوپر لے جائیں۔"</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"فون تھوڑا نیچے کریں۔"</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"فون کو بائیں جانب لے جائيں۔"</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"فون کو دائیں جانب لے جائیں۔"</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"تیز روشنی میں آزمائیں"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"فون کو تھوڑا دور کریں"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"فون کو تھوڑا قریب کریں"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"فون کو تھوڑا اوپر لے جائیں"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"فون تھوڑا نیچے کریں"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"فون کو اپنی بائیں جانب لے جائیں"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"فون کو اپنی دائیں جانب لے جائیں"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"براہ کرم اپنے آلہ کی طرف چہرے کو سیدھا رکھیں۔"</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"اپنے چہرے کو براہ راست فون کے سامنے رکھیں۔"</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"آپ کا چہرہ دکھائی نہیں دے رہا۔ اپنے فون کو آنکھ کی سطح پر پکڑیں۔"</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"کافی حرکت ہو رہی ہے۔ فون کو مضبوطی سے پکڑیں۔"</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"براہ کرم اپنے چہرے کو دوبارہ مندرج کریں۔"</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"اب چہرے کی شناخت نہیں کر سکتے۔ پھر آزمائيں۔"</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"کافی ملتا جلتا ہے، براہ کرم اپنا پوز بدلیں۔"</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"اپنا سر تھوڑا کم کریں۔"</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"اپنا سر تھوڑا کم جھکائیں۔"</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"اپنا سر تھوڑا کم کریں۔"</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"چہرے کی شناخت نہیں ہو سکی۔ پھر کوشش کریں۔"</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"اپنے سر کی پوزیشن کو تھوڑا تبدیل کریں"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"اپنے فون کی طرف چہرے کو سیدھا رکھیں"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"اپنے فون کی طرف چہرے کو سیدھا رکھیں"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"اپنے فون کی طرف چہرے کو سیدھا رکھیں"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"آپ کے چہرہ کو چھپانے والی ہر چیز کو ہٹائیں۔"</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"سیاہ بار سمیت، اپنی اسکرین کے اوپری حصے کو صاف کریں"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"آپ کا چہرہ مکمل طور پر دکھائی دینا ضروری ہے"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"آپ کا چہرہ مکمل طور پر دکھائی دینا ضروری ہے"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"آپکے چہرے کا ماڈل تخلیق نہیں ہو سکا۔ پھر کوشش کریں۔"</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"گہرے چشمے کا پتہ چلا۔ آپ کا چہرہ مکمل طور پر دکھائی دینا ضروری ہے۔"</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"چہرے کو ڈھانپنے کا پتہ چلا۔ آپ کا چہرہ مکمل طور پر دکھائی دینا ضروری ہے۔"</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"چہرے کی توثیق نہیں کی جا سکی۔ ہارڈ ویئر دستیاب نہیں ہے۔"</string>

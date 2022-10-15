@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಅನ್‌ಲಾಕ್"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೆನ್ಸರ್ ಅನ್ನು ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"ರಿಪೇರಿ ಮಾಡುವವರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"ಸರಿಯಾಗಿ ಮುಖ ಕ್ಯಾಪ್ಚರ್ ಮಾಡಲಾಗಲಿಲ್ಲ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"ಫೇಸ್ ಮಾಡೆಲ್ ರಚಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"ತುಂಬಾ ಪ್ರಕಾಶಮಾನವಾಗಿದೆ ಮಂದ ಪ್ರಕಾಶಮಾನವಿರುವ ಲೈಟ್ ಬಳಸಿ"</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"ತುಂಬಾ ಕಪ್ಪು ಛಾಯೆಯಿದೆ. ಪ್ರಕಾಶಮಾನವಾದ ಲೈಟಿಂಗ್ ಬಳಸಿ."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"ಫೋನ್ ಅನ್ನು ದೂರಕ್ಕೆ ಸರಿಸಿ."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"ಫೋನ್ ಅನ್ನು ಸಮೀಪಕ್ಕೆ ತನ್ನಿ."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"ಫೋನ್ ಅನ್ನು ಎತ್ತರಕ್ಕೆ ಹಿಡಿಯಿರಿ."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"ಫೋನ್ ಅನ್ನು ಕೆಳಗೆ ಸರಿಸಿ."</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"ಫೋನ್ ಅನ್ನು ಎಡಕ್ಕೆ ಸರಿಸಿ."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"ಫೋನ್ ಅನ್ನು ಬಲಕ್ಕೆ ಸರಿಸಿ."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"ಪ್ರಕಾಶಮಾನವಾದ ಲೈಟಿಂಗ್ ಬಳಸಿ"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"ಫೋನ್ ಅನ್ನು ದೂರಕ್ಕೆ ಸರಿಸಿ"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"ಫೋನ್ ಅನ್ನು ಸಮೀಪಕ್ಕೆ ತನ್ನಿ"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"ಫೋನ್ ಅನ್ನು ಮೇಲಕ್ಕೆ ಎತ್ತಿ ಹಿಡಿಯಿರಿ."</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"ಫೋನ್ ಅನ್ನು ಕೆಳಗೆ ಸರಿಸಿ"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"ಫೋನ್ ಅನ್ನು ನಿಮ್ಮ ಎಡಕ್ಕೆ ಸರಿಸಿ"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"ಫೋನ್ ಅನ್ನು ನಿಮ್ಮ ಬಲಕ್ಕೆ ಸರಿಸಿ"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಹೆಚ್ಚಿನದ್ದನ್ನು ನೇರವಾಗಿ ನೋಡಿ."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"ನಿಮ್ಮ ಮುಖವನ್ನು ಫೋನ್‌ಗೆ ನೇರವಾಗಿ ಇರಿಸಿ."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"ನಿಮ್ಮ ಮುಖ ಕಾಣಿಸುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಕಣ್ಣಿನ ನೇರಕ್ಕೆ ಹಿಡಿದುಕೊಳ್ಳಿ."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"ತುಂಬಾ ಅಲುಗಾಡುತ್ತಿದೆ ಫೋನ್ ಅನ್ನು ಸ್ಥಿರವಾಗಿ ಹಿಡಿಯಿರಿ."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"ನಿಮ್ಮ ಮುಖವನ್ನು ಮರುನೋಂದಣಿ ಮಾಡಿ."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"ಮುಖ ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ. ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"ತುಂಬಾ ಸಮಾನ, ನಿಮ್ಮ ಪೋಸ್ ಬದಲಾಯಿಸಿ."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"ನಿಮ್ಮ ತಲೆಯನ್ನು ಹೆಚ್ಚು ತಿರುಗಿಸಬೇಡಿ."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"ನಿಮ್ಮ ತಲೆಯನ್ನು ಸ್ವಲ್ಪ ಓರೆಯಾಗಿಸಿ."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"ನಿಮ್ಮ ತಲೆಯನ್ನು ಸ್ವಲ್ಪ ಕಡಿಮೆ ತಿರುಗಿಸಿ."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"ಮುಖ ಗುರುತಿಸಲಾಗುತ್ತಿಲ್ಲ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"ನಿಮ್ಮ ತಲೆಯ ಸ್ಥಾನವನ್ನು ಸ್ವಲ್ಪ ಬದಲಾಯಿಸಿ"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ನೇರವಾಗಿ ನೋಡಿ"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ನೇರವಾಗಿ ನೋಡಿ"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ನೇರವಾಗಿ ನೋಡಿ"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"ನಿಮ್ಮ ಮುಖವನ್ನು ಮರೆಮಾಡುವ ಯಾವುದನ್ನಾದರೂ ತೆಗೆದುಹಾಕಿ."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"ಬ್ಲ್ಯಾಕ್ ಬಾರ್ ಸೇರಿದಂತೆ ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಮೇಲ್ಭಾಗವನ್ನು ತೆರವುಗೊಳಿಸಿ"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"ನಿಮ್ಮ ಮುಖವು ಸಂಪೂರ್ಣವಾಗಿ ಗೋಚರಿಸಬೇಕು"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"ನಿಮ್ಮ ಮುಖವು ಸಂಪೂರ್ಣವಾಗಿ ಗೋಚರಿಸಬೇಕು"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"ಫೇಸ್ ಮಾಡೆಲ್ ರಚಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಪುನಃ ಪ್ರಯತ್ನಿಸಿ."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"ಕಪ್ಪು ಕನ್ನಡಕ ಪತ್ತೆಯಾಗಿದೆ. ನಿಮ್ಮ ಮುಖವು ಸಂಪೂರ್ಣವಾಗಿ ಗೋಚರಿಸಬೇಕು."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"ಮುಖವಾಡ ಪತ್ತೆಯಾಗಿದೆ. ನಿಮ್ಮ ಮುಖವು ಸಂಪೂರ್ಣವಾಗಿ ಗೋಚರಿಸಬೇಕು."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"ಮುಖ ದೃಢೀಕರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಹಾರ್ಡ್‌ವೇರ್ ಲಭ್ಯವಿಲ್ಲ."</string>
@@ -1355,8 +1360,8 @@
     <string name="usb_power_notification_message" msgid="7284765627437897702">"ಸಂಪರ್ಕಗೊಂಡಿರುವ ಸಾಧನವನ್ನು ಚಾರ್ಜ್ ಮಾಡಲಾಗುತ್ತಿದೆ. ಹೆಚ್ಚಿನ ಆಯ್ಕೆಗಳಿಗಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
     <string name="usb_unsupported_audio_accessory_title" msgid="2335775548086533065">"ಅನ್‌ಲಾಗ್ ಆಡಿಯೋ ಪರಿಕರ ಪತ್ತೆಯಾಗಿದೆ"</string>
     <string name="usb_unsupported_audio_accessory_message" msgid="1300168007129796621">"ಲಗತ್ತಿಸಲಾದ ಸಾಧನವು ಈ ಫೋನಿನೊಂದಿಗೆ ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ. ಇನ್ನಷ್ಟು ತಿಳಿಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ."</string>
-    <string name="adb_active_notification_title" msgid="408390247354560331">"USB ಡೀಬಗಿಂಗ್‌ ಕನೆಕ್ಟ್‌ ಆಗಿದೆ"</string>
-    <string name="adb_active_notification_message" msgid="5617264033476778211">"USB ಡೀಬಗಿಂಗ್ ಆಫ್‌ ಮಾಡಲು ಟ್ಯಾಪ್‌ ಮಾಡಿ"</string>
+    <string name="adb_active_notification_title" msgid="408390247354560331">"USB ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಕನೆಕ್ಟ್‌ ಆಗಿದೆ"</string>
+    <string name="adb_active_notification_message" msgid="5617264033476778211">"USB ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಆಫ್‌ ಮಾಡಲು ಟ್ಯಾಪ್‌ ಮಾಡಿ"</string>
     <string name="adb_active_notification_message" product="tv" msgid="6624498401272780855">"USB ಡೀಬಗ್‌ ಮಾಡುವಿಕೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಆಯ್ಕೆ ಮಾಡಿ."</string>
     <string name="adbwifi_active_notification_title" msgid="6147343659168302473">"ವೈರ್‌ಲೆಸ್ ಡೀಬಗ್‌ ಮಾಡುವಿಕೆಯನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಲಾಗಿದೆ"</string>
     <string name="adbwifi_active_notification_message" msgid="930987922852867972">"ವೈರ್‌ಲೆಸ್ ಡೀಬಗ್‌ ಮಾಡುವಿಕೆಯನ್ನು ಆಫ್‌ ಮಾಡಲು ಟ್ಯಾಪ್‌ ಮಾಡಿ"</string>

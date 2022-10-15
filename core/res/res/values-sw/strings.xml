@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Kufungua kwa Alama ya Kidole"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Imeshindwa kutumia kitambua alama ya kidole"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Tembelea mtoa huduma za urekebishaji."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"Imeshindwa kunasa data sahihi ya uso. Jaribu tena."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"Imeshindwa kuunda muundo wa uso wako. Jaribu tena."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"Inang\'aa mno. Jaribu mwangaza hafifu"</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"Hakuna mwangaza wa kutosha. Jaribu kuongeza mwangaza."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"Sogeza simu mbali kiasi."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"Sogeza simu karibu."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"Sogeza simu juu zaidi."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"Sogeza simu chini."</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"Sogeza simu upande wa kushoto."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"Sogeza simu upande wa kulia."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"Jaribu kuongeza mwangaza"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"Sogeza simu mbali kiasi"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"Sogeza simu karibu"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"Sogeza simu juu zaidi"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"Sogeza simu chini"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"Sogeza simu upande wako wa kushoto"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"Sogeza simu upande wako wa kulia"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"Tafadhali angalia kifaa chako moja kwa moja."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"Weka uso wako moja kwa moja mbele ya simu."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"Imeshindwa kuona uso wako. Shikilia simu yako ikilingana na macho."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"Inatikisika sana. Ishike simu iwe thabiti."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"Tafadhali sajili uso wako tena."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"Haiwezi tena kutambua uso. Jaribu tena."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"Inafanana sana, tafadhali badilisha mkao wako."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"Geuza kichwa chako kidogo."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"Inamisha kichwa chako kiasi."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"Geuza kichwa chako kidogo."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"Imeshindwa kutambua uso. Jaribu tena."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"Badilisha nafasi ya kichwa chako kidogo"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"Angalia simu yako moja kwa moja"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"Angalia simu yako moja kwa moja"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"Angalia simu yako moja kwa moja"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"Ondoa kitu chochote kinachoficha uso wako."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"Safisha sehemu ya juu ya skrini yako, ikiwa ni pamoja na upau mweusi"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"Ni lazima uso wako wote uonekane"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"Ni lazima uso wako wote uonekane"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"Imeshindwa kuunda muundo wa uso wako. Jaribu tena."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"Vioo vyeusi vimetambuliwa. Ni lazima uso wako wote uonekane."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"Kifuniko cha uso kimetambuliwa. Ni lazima uso wako wote uonekane."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"Imeshindwa kuthibitisha uso. Maunzi hayapatikani."</string>
