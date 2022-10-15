@@ -1058,7 +1058,6 @@ public class AuthController extends CoreStartable implements CommandQueue.Callba
     @Override
     public void dump(@NonNull PrintWriter pw, @NonNull String[] args) {
         final AuthDialog dialog = mCurrentDialog;
-        pw.println("  stableDisplaySize=" + mStableDisplaySize);
         pw.println("  faceAuthSensorLocation=" + mFaceAuthSensorLocation);
         pw.println("  fingerprintLocation=" + mFingerprintLocation);
         pw.println("  udfpsBounds=" + mUdfpsBounds);
