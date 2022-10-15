@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Desbloqueio por impressão digital"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Não foi possível usar o sensor de impressão digital"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Entre em contato com uma assistência técnica."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"Dados precisos não capturados. Tente novamente."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"Falha ao criar o modelo de rosto. Tente de novo."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"Muito iluminado. Diminua a iluminação."</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"Muito escuro. Use uma iluminação mais clara."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"Afaste o smartphone."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"Aproxime o smartphone."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"Mova o smartphone para cima."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"Mova o smartphone para baixo."</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"Mova o smartphone para a esquerda."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"Mova o smartphone para a direita."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"Use uma iluminação mais intensa"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"Afaste o smartphone"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"Aproxime o smartphone do seu rosto"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"Mova o smartphone para cima"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"Mova o smartphone para baixo"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"Mova o smartphone para a esquerda"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"Mova o smartphone para a direita"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"Olhe mais diretamente para o dispositivo."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"Deixe o rosto diretamente na frente do smartphone."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"Rosto não detectado. Segure o smartphone na altura dos olhos."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"Muito movimento. Não mova o smartphone."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"Registre seu rosto novamente."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"O rosto não é mais reconhecido. Tente novamente."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"Muito parecido, mude de posição."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"Incline a cabeça um pouco menos."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"Incline a cabeça um pouco menos."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"Incline a cabeça um pouco menos."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"Não foi possível reconhecer o rosto. Tente de novo."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"Mude a posição da cabeça ligeiramente"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"Olhe diretamente para o smartphone"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"Olhe diretamente para o smartphone"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"Olhe diretamente para o smartphone"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"Remova tudo que esteja ocultando seu rosto."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"Limpe a parte superior da tela, inclusive a barra preta"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"Seu rosto precisa estar completamente visível"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"Seu rosto precisa estar completamente visível"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"Falha ao criar o modelo de rosto. Tente de novo."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"Óculos escuros detectados. Seu rosto precisa estar completamente visível."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"Máscara detectada. Seu rosto precisa estar completamente visível."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"Impossível verificar rosto. Hardware indisponível."</string>

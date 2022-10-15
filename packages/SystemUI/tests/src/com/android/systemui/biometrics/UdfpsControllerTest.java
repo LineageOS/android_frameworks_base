@@ -586,6 +586,7 @@ public class UdfpsControllerTest extends SysuiTestCase {
         // Configure UdfpsView to accept the ACTION_DOWN event
         when(mUdfpsView.isIlluminationRequested()).thenReturn(false);
         when(mUdfpsView.isWithinSensorArea(anyFloat(), anyFloat())).thenReturn(true);
+        when(mKeyguardUpdateMonitor.isFingerprintDetectionRunning()).thenReturn(true);
 
         // GIVEN that the overlay is showing
         mOverlayController.showUdfpsOverlay(TEST_REQUEST_ID, TEST_UDFPS_SENSOR_ID,
@@ -603,6 +604,7 @@ public class UdfpsControllerTest extends SysuiTestCase {
         mTouchListenerCaptor.getValue().onTouch(mUdfpsView, moveEvent);
         mBiometricsExecutor.runAllReady();
         moveEvent.recycle();
+        mFgExecutor.runAllReady();
         // THEN FingerprintManager is notified about onPointerDown
         verify(mAlternateTouchProvider).onPointerDown(eq(TEST_REQUEST_ID), eq(0), eq(0), eq(0f),
                 eq(0f));
@@ -612,6 +614,7 @@ public class UdfpsControllerTest extends SysuiTestCase {
         // AND illumination begins
         verify(mUdfpsView).startIllumination(mOnIlluminatedRunnableCaptor.capture());
         verify(mLatencyTracker, never()).onActionEnd(eq(LatencyTracker.ACTION_UDFPS_ILLUMINATE));
+        verify(mKeyguardUpdateMonitor).onUdfpsPointerDown(eq((int) TEST_REQUEST_ID));
         // AND onIlluminatedRunnable notifies FingerprintManager about onUiReady
         mOnIlluminatedRunnableCaptor.getValue().run();
         mBiometricsExecutor.runAllReady();
@@ -630,6 +633,7 @@ public class UdfpsControllerTest extends SysuiTestCase {
         when(mKeyguardUpdateMonitor.isFingerprintDetectionRunning()).thenReturn(true);
         // WHEN fingerprint is requested because of AOD interrupt
         mUdfpsController.onAodInterrupt(0, 0, 2f, 3f);
+        mFgExecutor.runAllReady();
         // THEN illumination begins
         // AND onIlluminatedRunnable that notifies FingerprintManager is set
         verify(mUdfpsView).startIllumination(mOnIlluminatedRunnableCaptor.capture());
@@ -639,6 +643,7 @@ public class UdfpsControllerTest extends SysuiTestCase {
                 eq(0), eq(0), eq(3f) /* minor */, eq(2f) /* major */);
         verify(mFingerprintManager, never()).onPointerDown(anyLong(), anyInt(), anyInt(), anyInt(),
                 anyFloat(), anyFloat());
+        verify(mKeyguardUpdateMonitor).onUdfpsPointerDown(eq((int) TEST_REQUEST_ID));
     }
 
     @Test
@@ -666,6 +671,7 @@ public class UdfpsControllerTest extends SysuiTestCase {
         mFgExecutor.runAllReady();
         when(mKeyguardUpdateMonitor.isFingerprintDetectionRunning()).thenReturn(true);
         mUdfpsController.onAodInterrupt(0, 0, 0f, 0f);
+        mFgExecutor.runAllReady();
         when(mUdfpsView.isIlluminationRequested()).thenReturn(true);
         // WHEN it times out
         mFgExecutor.advanceClockToNext();
@@ -734,12 +740,12 @@ public class UdfpsControllerTest extends SysuiTestCase {
                 anyString(),
                 any(),
                 eq("udfps-onStart-click"),
-                eq(UdfpsController.VIBRATION_ATTRIBUTES));
+                eq(UdfpsController.UDFPS_VIBRATION_ATTRIBUTES));
 
         // THEN make sure vibration attributes has so that it always will play the haptic,
         // even in battery saver mode
         assertEquals(VibrationAttributes.USAGE_COMMUNICATION_REQUEST,
-                UdfpsController.VIBRATION_ATTRIBUTES.getUsage());
+                UdfpsController.UDFPS_VIBRATION_ATTRIBUTES.getUsage());
     }
 
     @Test

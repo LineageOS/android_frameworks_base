@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"Confirmat"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"Atingeți Confirmați pentru a finaliza"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"S-a deblocat cu ajutorul feței. Apăsați pictograma de deblocare pentru a continua"</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"S-a deblocat cu ajutorul feței. Apăsați pentru a continua."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Chipul a fost recunoscut. Apăsați pentru a continua."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Chip recunoscut. Apăsați pictograma de deblocare să continuați."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Autentificat"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Folosiți PIN-ul"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Folosiți modelul"</string>
@@ -315,6 +318,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"Glisați în sus pentru a deschide"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"Apăsați pictograma de deblocare pentru a deschide"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"S-a deblocat cu ajutorul feței. Apăsați pictograma de deblocare pentru a deschide"</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"S-a deblocat cu ajutorul feței. Apăsați pentru a deschide."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"Chipul a fost recunoscut. Apăsați pentru a deschide."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"Chip recunoscut. Apăsați pictograma de deblocare pentru a deschide"</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"Deplasați spre stânga"</item>
     <item msgid="5558598599408514296">"Deplasați în jos"</item>
@@ -376,7 +382,7 @@
     <string name="quick_settings_disclosure_named_management_monitoring" msgid="2831423806103479812">"<xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> deține acest dispozitiv și poate monitoriza traficul din rețea"</string>
     <string name="quick_settings_financed_disclosure_named_management" msgid="2307703784594859524">"Acest dispozitiv este oferit de <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
     <string name="quick_settings_disclosure_management_named_vpn" msgid="4137564460025113168">"Acest dispozitiv aparține organizației dvs. și este conectat la internet prin aplicația <xliff:g id="VPN_APP">%1$s</xliff:g>."</string>
-    <string name="quick_settings_disclosure_named_management_named_vpn" msgid="2169227918166358741">"Acest dispozitiv aparține organizației <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> și este conectat la internet prin aplicația <xliff:g id="VPN_APP">%2$s</xliff:g>."</string>
+    <string name="quick_settings_disclosure_named_management_named_vpn" msgid="2169227918166358741">"Acest dispozitiv aparține organizației <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> și e conectat la internet prin <xliff:g id="VPN_APP">%2$s</xliff:g>."</string>
     <string name="quick_settings_disclosure_management" msgid="5515296598440684962">"Dispozitivul aparține organizației dvs."</string>
     <string name="quick_settings_disclosure_named_management" msgid="3476472755775165827">"Acest dispozitiv aparține organizației <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g>"</string>
     <string name="quick_settings_disclosure_management_vpns" msgid="929181757984262902">"Acest dispozitiv aparține organizației dvs. și este conectat la internet prin rețele VPN."</string>

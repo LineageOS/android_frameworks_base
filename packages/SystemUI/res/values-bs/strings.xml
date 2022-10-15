@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"Potvrđeno"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"Dodirnite Potvrdi da završite"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"Otključano licem. Pritisnite ikonu za otklj. da nastavite."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"Otključano licem. Pritisnite da nastavite."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Lice prepoznato. Pritisnite da nastavite."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Lice prepoznato. Pritisnite ikonu za otklj. da nastavite."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Autentificirano"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Koristi PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Koristi uzorak"</string>
@@ -315,6 +318,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"Prevucite da otvorite"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"Pritisnite ikonu za otključavanje da otvorite."</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"Otključano licem. Pritisnite ikonu za otklj. da otvorite."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"Otključano licem. Pritisnite da otvorite."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"Lice prepoznato. Pritisnite da otvorite."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"Lice prepoznato. Pritisnite ikonu za otklj. da otvorite."</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"Pomjeranje ulijevo"</item>
     <item msgid="5558598599408514296">"Pomjeranje nadolje"</item>
@@ -376,11 +382,11 @@
     <string name="quick_settings_disclosure_named_management_monitoring" msgid="2831423806103479812">"<xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> upravlja ovim uređajem i može nadzirati mrežni saobraćaj"</string>
     <string name="quick_settings_financed_disclosure_named_management" msgid="2307703784594859524">"Ovaj uređaj pruža <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
     <string name="quick_settings_disclosure_management_named_vpn" msgid="4137564460025113168">"Ovaj uređaj pripada vašoj organizaciji i povezan je s internetom putem aplikacije <xliff:g id="VPN_APP">%1$s</xliff:g>"</string>
-    <string name="quick_settings_disclosure_named_management_named_vpn" msgid="2169227918166358741">"Ovaj uređaj pripada organizaciji <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> i povezan je na internet putem aplikacije <xliff:g id="VPN_APP">%2$s</xliff:g>"</string>
+    <string name="quick_settings_disclosure_named_management_named_vpn" msgid="2169227918166358741">"Ovaj uređaj pripada organizaciji <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> i povezan je s internetom putem aplikacije <xliff:g id="VPN_APP">%2$s</xliff:g>"</string>
     <string name="quick_settings_disclosure_management" msgid="5515296598440684962">"Ovaj uređaj pripada vašoj organizaciji"</string>
     <string name="quick_settings_disclosure_named_management" msgid="3476472755775165827">"Ovaj uređaj pripada organizaciji <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g>"</string>
-    <string name="quick_settings_disclosure_management_vpns" msgid="929181757984262902">"Ovaj uređaj pripada vašoj organizaciji i povezan je na internet putem VPN-ova"</string>
-    <string name="quick_settings_disclosure_named_management_vpns" msgid="3312645578322079185">"Ovaj uređaj pripada organizaciji <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> i povezan je na internet putem VPN-ova"</string>
+    <string name="quick_settings_disclosure_management_vpns" msgid="929181757984262902">"Ovaj uređaj pripada vašoj organizaciji i povezan je s internetom putem VPN-ova"</string>
+    <string name="quick_settings_disclosure_named_management_vpns" msgid="3312645578322079185">"Ovaj uređaj pripada organizaciji <xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> i povezan je s internetom putem VPN-ova"</string>
     <string name="quick_settings_disclosure_managed_profile_monitoring" msgid="1423899084754272514">"Vaša organizacija može pratiti mrežni saobraćaj na vašem profilu."</string>
     <string name="quick_settings_disclosure_named_managed_profile_monitoring" msgid="8321469176706219860">"<xliff:g id="ORGANIZATION_NAME">%1$s</xliff:g> može pratiti mrežni saobraćaj na vašem radnom profilu"</string>
     <string name="quick_settings_disclosure_managed_profile_network_activity" msgid="2636594621387832827">"Mrežna aktivnost radnog profila je vidljiva vašem IT administratoru"</string>

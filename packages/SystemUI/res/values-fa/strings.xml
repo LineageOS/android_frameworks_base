@@ -137,6 +137,9 @@
     <string name="biometric_dialog_face_icon_description_confirmed" msgid="7918067993953940778">"تأیید شد"</string>
     <string name="biometric_dialog_tap_confirm" msgid="9166350738859143358">"برای تکمیل، روی تأیید ضربه بزنید"</string>
     <string name="biometric_dialog_tap_confirm_with_face" msgid="1092050545851021991">"قفلْ با چهره باز شد. برای ادامه، نماد قفل‌گشایی را فشار دهید."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_1" msgid="439152621640507113">"قفلْ با چهره باز شد. برای ادامه، فشار دهید."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"چهره شناسایی شد. برای ادامه، فشار دهید."</string>
+    <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"چهره شناسایی شد. برای ادامه، نماد قفل‌گشایی را فشار دهید."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"راستی‌آزمایی‌شده"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"استفاده از پین"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"استفاده از الگو"</string>
@@ -295,9 +298,9 @@
     <string name="sensor_privacy_start_use_mic_blocked_dialog_title" msgid="2640140287496469689">"میکروفن مسدود شده است"</string>
     <string name="sensor_privacy_start_use_camera_blocked_dialog_title" msgid="7398084286822440384">"دوربین مسدود شده است"</string>
     <string name="sensor_privacy_start_use_mic_camera_blocked_dialog_title" msgid="195236134743281973">"میکروفون و دوربین مسدود شده‌اند"</string>
-    <string name="sensor_privacy_start_use_mic_blocked_dialog_content" msgid="2138318880682877747">"برای لغو انسداد، کلید حریم‌خصوصی روی دستگاه را به موقعیت میکروفون روشن ببرید تا دسترسی به میکروفون مجاز شود. برای پیدا کردن کلید حریم‌خصوصی روی دستگاه، به دفترچه راهنمای دستگاه مراجعه کنید."</string>
-    <string name="sensor_privacy_start_use_camera_blocked_dialog_content" msgid="7216015168047965948">"برای لغو انسداد، کلید حریم‌خصوصی روی دستگاه را به موقعیت دوربین روشن ببرید تا دسترسی به دوربین مجاز شود. برای پیدا کردن کلید حریم‌خصوصی روی دستگاه، به دفترچه راهنمای دستگاه مراجعه کنید."</string>
-    <string name="sensor_privacy_start_use_mic_camera_blocked_dialog_content" msgid="3960837827570483762">"برای لغو انسداد آن، کلید حریم‌خصوصی روی دستگاه را به موقعیت لغو انسداد ببرید تا دسترسی مجاز شود. برای پیدا کردن کلید حریم‌خصوصی روی دستگاه، به دفترچه راهنمای دستگاه مراجعه کنید."</string>
+    <string name="sensor_privacy_start_use_mic_blocked_dialog_content" msgid="2138318880682877747">"برای لغو انسداد، کلید حریم خصوصی روی دستگاه را به موقعیت میکروفون روشن ببرید تا دسترسی به میکروفون مجاز شود. برای پیدا کردن کلید حریم خصوصی روی دستگاه، به دفترچه راهنمای دستگاه مراجعه کنید."</string>
+    <string name="sensor_privacy_start_use_camera_blocked_dialog_content" msgid="7216015168047965948">"برای لغو انسداد، کلید حریم خصوصی روی دستگاه را به موقعیت دوربین روشن ببرید تا دسترسی به دوربین مجاز شود. برای پیدا کردن کلید حریم خصوصی روی دستگاه، به دفترچه راهنمای دستگاه مراجعه کنید."</string>
+    <string name="sensor_privacy_start_use_mic_camera_blocked_dialog_content" msgid="3960837827570483762">"برای لغو انسداد آن، کلید حریم خصوصی روی دستگاه را به موقعیت لغو انسداد ببرید تا دسترسی مجاز شود. برای پیدا کردن کلید حریم خصوصی روی دستگاه، به دفترچه راهنمای دستگاه مراجعه کنید."</string>
     <string name="sensor_privacy_mic_unblocked_toast_content" msgid="306555320557065068">"میکروفون دردسترس است"</string>
     <string name="sensor_privacy_camera_unblocked_toast_content" msgid="7843105715964332311">"دوربین دردسترس است"</string>
     <string name="sensor_privacy_mic_camera_unblocked_toast_content" msgid="7339355093282661115">"میکروفون و دوربین دردسترس‌اند"</string>
@@ -313,6 +316,9 @@
     <string name="keyguard_unlock" msgid="8031975796351361601">"برای باز کردن، انگشتتان را تند به‌بالا بکشید"</string>
     <string name="keyguard_unlock_press" msgid="9140109453735019209">"برای باز کردن، نماد قفل‌گشایی را فشار دهید"</string>
     <string name="keyguard_face_successful_unlock_press" msgid="25520941264602588">"قفلْ با چهره باز شد. برای باز کردن، نماد قفل‌گشایی را فشار دهید."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_1" msgid="5715461103913071474">"قفلْ با چهره باز شد. برای باز کردن، فشار دهید."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_2" msgid="8310787946357120406">"چهره شناسایی شد. برای باز کردن، فشار دهید."</string>
+    <string name="keyguard_face_successful_unlock_press_alt_3" msgid="7219030481255573962">"چهره شناسایی شد. برای باز کردن، نماد قفل‌گشایی را فشار دهید."</string>
   <string-array name="udfps_accessibility_touch_hints">
     <item msgid="1901953991150295169">"انتقال به‌چپ"</item>
     <item msgid="5558598599408514296">"انتقال به‌پایین"</item>

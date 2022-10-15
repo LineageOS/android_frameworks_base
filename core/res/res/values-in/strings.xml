@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Fingerprint Unlock"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Tidak dapat menggunakan sensor sidik jari"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Kunjungi penyedia reparasi."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"Tidak bisa mengambil data wajah akurat. Coba lagi."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"Tidak dapat membuat model wajah Anda. Coba lagi."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"Terlalu terang. Coba cahaya yang lebih lembut."</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"Terlalu gelap. Coba pencahayaan yang lebih cerah."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"Gerakkan ponsel menjauh."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"Gerakkan ponsel mendekat."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"Geser ponsel ke atas."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"Geser ponsel ke bawah."</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"Gerakkan ponsel ke kiri."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"Gerakkan ponsel ke kanan."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"Coba pencahayaan yang lebih cerah"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"Jauhkan ponsel"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"Dekatkan ponsel"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"Gerakkan ponsel ke atas"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"Gerakkan ponsel ke bawah"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"Gerakkan ponsel ke kiri Anda"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"Gerakkan ponsel ke kanan Anda"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"Lihat langsung ke perangkat."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"Posisikan wajah Anda tepat di depan ponsel."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"Tidak dapat melihat wajah Anda. Pegang ponsel sejajar dengan mata."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"Terlalu banyak gerakan. Stabilkan ponsel."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"Daftarkan ulang wajah Anda."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"Tidak lagi dapat mengenali wajah. Coba lagi."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"Terlalu mirip, ubah pose Anda."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"Putar sedikit kepala Anda."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"Miringkan sedikit kepala Anda."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"Putar sedikit kepala Anda."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"Tidak dapat mengenali wajah. Coba lagi."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"Ubah sedikit posisi kepala"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"Lihat lebih lurus ke arah ponsel"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"Lihat lebih lurus ke arah ponsel"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"Lihat lebih lurus ke arah ponsel"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"Singkirkan apa saja yang menutupi wajah Anda."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"Bersihkan bagian atas layar, termasuk kotak hitam"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"Wajah Anda harus terlihat sepenuhnya"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"Wajah Anda harus terlihat sepenuhnya"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"Tidak dapat membuat model wajah Anda. Coba lagi."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"Kacamata hitam terdeteksi. Wajah Anda harus terlihat sepenuhnya."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"Penutup wajah terdeteksi. Wajah Anda harus terlihat sepenuhnya."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"Tidak dapat memverifikasi wajah. Hardware tidak tersedia."</string>
@@ -745,7 +750,7 @@
     <string name="permdesc_startReviewPermissionDecisions" msgid="2775556853503004236">"Mengizinkan pemegang memulai layar untuk meninjau keputusan izin. Tidak pernah dibutuhkan untuk aplikasi normal."</string>
     <string name="permlab_startViewAppFeatures" msgid="7955084203185903001">"mulai lihat fitur aplikasi"</string>
     <string name="permdesc_startViewAppFeatures" msgid="7207240860165206107">"Memungkinkan pemegang mulai melihat info fitur untuk aplikasi."</string>
-    <string name="permlab_highSamplingRateSensors" msgid="3941068435726317070">"mengakses data sensor pada frekuensi pengambilan sampel yang tinggi"</string>
+    <string name="permlab_highSamplingRateSensors" msgid="3941068435726317070">"mengakses data sensor pada frekuensi sampling yang tinggi"</string>
     <string name="permdesc_highSamplingRateSensors" msgid="8430061978931155995">"Mengizinkan aplikasi mengambil sampel data sensor pada frekuensi yang lebih besar dari 200 Hz"</string>
     <string name="policylab_limitPassword" msgid="4851829918814422199">"Setel aturan sandi"</string>
     <string name="policydesc_limitPassword" msgid="4105491021115793793">"Mengontrol panjang dan karakter yang diizinkan dalam sandi dan PIN kunci layar."</string>
@@ -1554,7 +1559,7 @@
     <string name="content_description_sliding_handle" msgid="982510275422590757">"Gagang geser. Sentuh lama."</string>
     <string name="description_target_unlock_tablet" msgid="7431571180065859551">"Geser untuk membuka kunci."</string>
     <string name="action_bar_home_description" msgid="1501655419158631974">"Navigasi ke beranda"</string>
-    <string name="action_bar_up_description" msgid="6611579697195026932">"Navigasi naik"</string>
+    <string name="action_bar_up_description" msgid="6611579697195026932">"Navigasi ke atas"</string>
     <string name="action_menu_overflow_description" msgid="4579536843510088170">"Opsi lainnya"</string>
     <string name="action_bar_home_description_format" msgid="5087107531331621803">"%1$s, %2$s"</string>
     <string name="action_bar_home_subtitle_description_format" msgid="4346835454749569826">"%1$s, %2$s, %3$s"</string>

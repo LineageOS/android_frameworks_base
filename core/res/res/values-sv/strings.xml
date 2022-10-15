@@ -634,26 +634,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Fingeravtryckslås"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Det går inte att använda fingeravtryckssensorn"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Besök ett reparationsställe."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"Det gick inte att fånga ansiktsdata. Försök igen."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"Ansiktsmodellen kunde inte skapas. Försök igen."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"Det är för ljust. Testa lägre belysning."</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"Det är för mörkt. Testa med bättre belysning."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"Flytta mobilen längre bort."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"För mobilen närmare."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"Höj mobilen."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"Sänk mobilen."</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"Flytta mobilen åt vänster."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"Flytta mobilen åt höger."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"Testa med bättre belysning"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"Flytta telefonen längre bort"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"För telefonen närmare"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"Höj telefonen"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"Sänk telefonen"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"Flytta telefonen åt vänster"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"Flytta telefonen åt höger"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"Titta rakt på enheten."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"Ha ansiktet direkt framför telefonen."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"Ansiktet syns inte. Håll telefonen i ögonhöjd."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"För mycket rörelse. Håll mobilen stilla."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"Registrera ansiktet på nytt."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"Ansiktet kan inte längre kännas igen. Försök igen."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"För likt. Ändra ansiktsposition."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"Vrid mindre på huvudet."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"Vinkla huvudet mindre."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"Vrid mindre på huvudet."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"Ansiktet kändes inte igen. Försök igen."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"Rör lite på huvudet"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"Titta rakt på telefonen"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"Titta rakt på telefonen"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"Titta rakt på telefonen"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"Ta bort allt som täcker ansiktet."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"Rengör skärmens överkant, inklusive det svarta fältet"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"Hela ansiktet måste synas"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"Hela ansiktet måste synas"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"Ansiktsmodellen kunde inte skapas. Försök igen."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"Mörka glasögon identifierades. Hela ansiktet måste synas."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"Något som täcker ansiktet identifierades. Hela ansiktet måste synas."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"Ansiktsverifiering går ej. Otillgänglig maskinvara."</string>
@@ -2265,7 +2270,7 @@
     <string name="sensor_privacy_start_use_mic_notification_content_title" msgid="2420858361276370367">"Återaktivera enhetens mikrofon"</string>
     <string name="sensor_privacy_start_use_camera_notification_content_title" msgid="7287720213963466672">"Återaktivera enhetens kamera"</string>
     <string name="sensor_privacy_start_use_notification_content_text" msgid="7595608891015777346">"För &lt;b&gt;<xliff:g id="APP">%s</xliff:g>&lt;/b&gt; och alla appar och tjänster"</string>
-    <string name="sensor_privacy_start_use_dialog_turn_on_button" msgid="7089318886628390827">"Återaktivera"</string>
+    <string name="sensor_privacy_start_use_dialog_turn_on_button" msgid="7089318886628390827">"Avblockera"</string>
     <string name="sensor_privacy_notification_channel_label" msgid="936036783155261349">"Sensorintegritet"</string>
     <string name="splash_screen_view_icon_description" msgid="180638751260598187">"Appikon"</string>
     <string name="splash_screen_view_branding_description" msgid="7911129347402728216">"Appens varumärkesbild"</string>

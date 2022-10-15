@@ -636,26 +636,31 @@
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Odblokowywanie odciskiem palca"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Nie można użyć czytnika linii papilarnych"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Odwiedź serwis."</string>
-    <string name="face_acquired_insufficient" msgid="2150805835949162453">"Nie udało się zarejestrować danych twarzy. Spróbuj ponownie."</string>
+    <string name="face_acquired_insufficient" msgid="6889245852748492218">"Nie można utworzyć modelu twarzy. Spróbuj ponownie."</string>
     <string name="face_acquired_too_bright" msgid="8070756048978079164">"Zbyt jasno. Spróbuj przy słabszym świetle."</string>
-    <string name="face_acquired_too_dark" msgid="252573548464426546">"Zbyt ciemno. Spróbuj w jaśniejszym świetle."</string>
-    <string name="face_acquired_too_close" msgid="1628767882971469833">"Odsuń telefon."</string>
-    <string name="face_acquired_too_far" msgid="5098567726427173896">"Przybliż telefon."</string>
-    <string name="face_acquired_too_high" msgid="4868033653626081839">"Przesuń telefon wyżej."</string>
-    <string name="face_acquired_too_low" msgid="1512237819632165945">"Przesuń telefon niżej."</string>
-    <string name="face_acquired_too_right" msgid="2513391513020932655">"Przesuń telefon w lewo."</string>
-    <string name="face_acquired_too_left" msgid="8882499346502714350">"Przesuń telefon w prawo."</string>
+    <string name="face_acquired_too_dark" msgid="7919016380747701228">"Spróbuj w jaśniejszym świetle"</string>
+    <string name="face_acquired_too_close" msgid="4453646176196302462">"Odsuń telefon"</string>
+    <string name="face_acquired_too_far" msgid="2922278214231064859">"Przybliż telefon"</string>
+    <string name="face_acquired_too_high" msgid="8278815780046368576">"Przesuń telefon wyżej"</string>
+    <string name="face_acquired_too_low" msgid="4075391872960840081">"Przesuń telefon niżej"</string>
+    <string name="face_acquired_too_right" msgid="6245286514593540859">"Przesuń telefon w lewo"</string>
+    <string name="face_acquired_too_left" msgid="9201762240918405486">"Przesuń telefon w prawo"</string>
     <string name="face_acquired_poor_gaze" msgid="4427153558773628020">"Patrz prosto na urządzenie."</string>
-    <string name="face_acquired_not_detected" msgid="2945945257956443257">"Ustaw twarz dokładnie na wprost telefonu."</string>
+    <string name="face_acquired_not_detected" msgid="1057966913397548150">"Nie widzę twarzy. Trzymaj telefon na wysokości oczu."</string>
     <string name="face_acquired_too_much_motion" msgid="8199691445085189528">"Telefon się porusza. Trzymaj go nieruchomo."</string>
     <string name="face_acquired_recalibrate" msgid="8724013080976469746">"Zarejestruj swoją twarz ponownie."</string>
-    <string name="face_acquired_too_different" msgid="4699657338753282542">"Nie można już rozpoznać twarzy. Spróbuj ponownie."</string>
-    <string name="face_acquired_too_similar" msgid="7684650785108399370">"Za mała różnica. Zmień pozycję."</string>
-    <string name="face_acquired_pan_too_extreme" msgid="7822191262299152527">"Trochę mniej obróć głowę."</string>
-    <string name="face_acquired_tilt_too_extreme" msgid="8618210742620248049">"Trochę mniej pochyl głowę."</string>
-    <string name="face_acquired_roll_too_extreme" msgid="1442830503572636825">"Trochę mniej obróć głowę."</string>
+    <string name="face_acquired_too_different" msgid="2520389515612972889">"Nie rozpoznaję twarzy. Spróbuj ponownie."</string>
+    <string name="face_acquired_too_similar" msgid="8882920552674125694">"Lekko zmień położenie głowy"</string>
+    <string name="face_acquired_pan_too_extreme" msgid="5417928604710621088">"Patrz prosto na telefon"</string>
+    <string name="face_acquired_tilt_too_extreme" msgid="5715715666540716620">"Patrz prosto na telefon"</string>
+    <string name="face_acquired_roll_too_extreme" msgid="8261939882838881194">"Patrz prosto na telefon"</string>
     <string name="face_acquired_obscured" msgid="4917643294953326639">"Usuń wszystko, co zasłania Ci twarz."</string>
     <string name="face_acquired_sensor_dirty" msgid="8968391891086721678">"Wyczyść górną krawędź ekranu, w tym czarny pasek"</string>
+    <string name="face_acquired_dark_glasses_detected" msgid="7263638432128692048">"Twarz musi być widoczna w całości"</string>
+    <string name="face_acquired_mouth_covering_detected" msgid="615991670821926847">"Twarz musi być widoczna w całości"</string>
+    <string name="face_acquired_recalibrate_alt" msgid="5702674220280332115">"Nie można utworzyć modelu twarzy. Spróbuj ponownie."</string>
+    <string name="face_acquired_dark_glasses_detected_alt" msgid="4052123776406041972">"Wykryto ciemne okulary. Twarz musi być widoczna w całości."</string>
+    <string name="face_acquired_mouth_covering_detected_alt" msgid="1122294982850589766">"Wykryto zasłonę twarzy. Twarz musi być widoczna w całości."</string>
   <string-array name="face_acquired_vendor">
   </string-array>
     <string name="face_error_hw_not_available" msgid="5085202213036026288">"Nie można zweryfikować twarzy. Sprzęt niedostępny."</string>
