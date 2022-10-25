@@ -5746,12 +5746,14 @@ public final class ActivityManagerService extends ActivityManagerNative
                         finishForceStopPackageLocked(packageName, pkgUidF);
                     }
 
-                    final Intent intent = new Intent(Intent.ACTION_PACKAGE_DATA_CLEARED,
-                            Uri.fromParts("package", packageName, null));
-                    intent.putExtra(Intent.EXTRA_UID, pkgUidF);
-                    intent.putExtra(Intent.EXTRA_USER_HANDLE, UserHandle.getUserId(pkgUidF));
-                    broadcastIntentInPackage("android", Process.SYSTEM_UID, intent,
-                            null, null, 0, null, null, null, null, false, false, userIdF);
+                    if (succeeded) {
+                        final Intent intent = new Intent(Intent.ACTION_PACKAGE_DATA_CLEARED,
+                                Uri.fromParts("package", packageName, null));
+                        intent.putExtra(Intent.EXTRA_UID, pkgUidF);
+                        intent.putExtra(Intent.EXTRA_USER_HANDLE, UserHandle.getUserId(pkgUidF));
+                        broadcastIntentInPackage("android", Process.SYSTEM_UID, intent,
+                                null, null, 0, null, null, null, null, false, false, userIdF);
+                    }
 
                     if (observer != null) {
                         observer.onRemoveCompleted(packageName, succeeded);
