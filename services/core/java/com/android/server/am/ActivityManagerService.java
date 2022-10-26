@@ -5794,8 +5794,20 @@ public final class ActivityManagerService extends ActivityManagerNative
             Slog.w(TAG, msg);
             throw new SecurityException(msg);
         }
+        final int callingUid = Binder.getCallingUid();
+        final int callingPid = Binder.getCallingPid();
+        final int callingAppId = UserHandle.getAppId(callingUid);
 
-        userId = mUserController.handleIncomingUser(Binder.getCallingPid(), Binder.getCallingUid(),
+        ProcessRecord proc;
+        synchronized (mPidsSelfLocked) {
+            proc = mPidsSelfLocked.get(callingPid);
+        }
+        final boolean hasKillAllPermission = PERMISSION_GRANTED == checkPermission(
+                android.Manifest.permission.FORCE_STOP_PACKAGES, callingPid, callingUid)
+                || (UserHandle.getAppId(callingUid) > 0 && UserHandle.getAppId(callingUid) < Process.FIRST_APPLICATION_UID)
+                || (proc != null && proc.info.isSystemApp());
+
+        userId = mUserController.handleIncomingUser(callingPid, callingUid,
                 userId, true, ALLOW_FULL_ONLY, "killBackgroundProcesses", null);
         long callingId = Binder.clearCallingIdentity();
         try {
@@ -5807,7 +5819,7 @@ public final class ActivityManagerService extends ActivityManagerNative
                             pm.getPackageUid(packageName, MATCH_DEBUG_TRIAGED_MISSING, userId));
                 } catch (RemoteException e) {
                 }
-                if (appId == -1) {
+                if (appId == -1 || (!hasKillAllPermission && appId != callingAppId)) {
                     Slog.w(TAG, "Invalid packageName: " + packageName);
                     return;
                 }
@@ -5885,6 +5897,22 @@ public final class ActivityManagerService extends ActivityManagerNative
                     + " requires " + android.Manifest.permission.KILL_BACKGROUND_PROCESSES;
             Slog.w(TAG, msg);
             throw new SecurityException(msg);
+        }
+
+        final int callingUid = Binder.getCallingUid();
+        final int callingPid = Binder.getCallingPid();
+
+        ProcessRecord proc;
+        synchronized (mPidsSelfLocked) {
+            proc = mPidsSelfLocked.get(callingPid);
+        }
+        if (callingUid >= Process.FIRST_APPLICATION_UID
+                && (proc == null || !proc.info.isSystemApp())) {
+            final String msg = "Permission Denial: killAllBackgroundProcesses() from pid="
+                    + callingPid + ", uid=" + callingUid + " is not allowed";
+            Slog.w(TAG, msg);
+            // Silently return to avoid existing apps from crashing.
+            return;
         }
 
         final long callingId = Binder.clearCallingIdentity();

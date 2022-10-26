@@ -3160,6 +3160,9 @@ public class ActivityManager {
      * processes to reclaim memory; the system will take care of restarting
      * these processes in the future as needed.
      *
+     * <p class="note">Third party applications can only use this API to kill their own processes.
+     * </p>
+     *
      * <p>You must hold the permission
      * {@link android.Manifest.permission#KILL_BACKGROUND_PROCESSES} to be able to
      * call this method.
