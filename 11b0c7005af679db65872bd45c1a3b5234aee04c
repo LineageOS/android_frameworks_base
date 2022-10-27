@@ -16,6 +16,24 @@
       "message": "Is this to remediate issue mentioned in https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/337400 ? ",
       "revId": "11b0c7005af679db65872bd45c1a3b5234aee04c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a4cfd46_fc81e2fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13559
+      },
+      "writtenOn": "2022-10-27T11:00:58Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "7f67d8b1_fd5c0ee6",
+      "revId": "11b0c7005af679db65872bd45c1a3b5234aee04c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
