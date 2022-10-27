@@ -34,6 +34,23 @@
       "parentUuid": "7f67d8b1_fd5c0ee6",
       "revId": "11b0c7005af679db65872bd45c1a3b5234aee04c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b84a4103_e72d407a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11571
+      },
+      "writtenOn": "2022-10-27T18:27:02Z",
+      "side": 1,
+      "message": "Click on battery opens battery settings and click on location indicator opens list of apps using location.\nResolves https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/337400 ",
+      "revId": "11b0c7005af679db65872bd45c1a3b5234aee04c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
