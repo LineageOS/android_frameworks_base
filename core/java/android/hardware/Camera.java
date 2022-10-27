@@ -276,6 +276,8 @@ public class Camera {
          * if the package name does not falls in this bucket
          */
         String packageName = ActivityThread.currentOpPackageName();
+        if (packageName == null)
+            return true;
         List<String> packageList = new ArrayList<>(Arrays.asList(
                 SystemProperties.get("vendor.camera.aux.packagelist", ",").split(",")));
         List<String> packageExcludelist = new ArrayList<>(Arrays.asList(
