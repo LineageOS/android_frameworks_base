@@ -39,6 +39,30 @@
       },
       "revId": "3c96fa50cc63039db725782f4b57e0d9f7745547",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d78850f0_a673314e",
+        "filename": "services/core/java/com/android/server/power/ThermalManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-10-28T11:13:46Z",
+      "side": 1,
+      "message": "Or simply move it after this line",
+      "parentUuid": "76920f8c_55e16297",
+      "range": {
+        "startLine": 158,
+        "startChar": 12,
+        "endLine": 158,
+        "endChar": 13
+      },
+      "revId": "3c96fa50cc63039db725782f4b57e0d9f7745547",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
