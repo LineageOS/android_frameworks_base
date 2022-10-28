@@ -139,17 +139,19 @@ public class ThermalManagerService extends SystemService {
             boolean halConnected = (mHalWrapper != null);
             if (!halConnected) {
                 mHalWrapper = new ThermalHal20Wrapper();
+                mHalWrapper.setCallback(this::onTemperatureChangedCallback);
                 halConnected = mHalWrapper.connectToHal();
             }
             if (!halConnected) {
                 mHalWrapper = new ThermalHal11Wrapper();
+                mHalWrapper.setCallback(this::onTemperatureChangedCallback);
                 halConnected = mHalWrapper.connectToHal();
             }
             if (!halConnected) {
                 mHalWrapper = new ThermalHal10Wrapper();
+                mHalWrapper.setCallback(this::onTemperatureChangedCallback);
                 halConnected = mHalWrapper.connectToHal();
             }
-            mHalWrapper.setCallback(this::onTemperatureChangedCallback);
             if (!halConnected) {
                 Slog.w(TAG, "No Thermal HAL service on this device");
                 return;
