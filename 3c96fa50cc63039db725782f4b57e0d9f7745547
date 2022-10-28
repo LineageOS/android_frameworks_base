@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "297aeafd_e09dcb22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3917
+      },
+      "writtenOn": "2022-10-28T06:50:28Z",
+      "side": 1,
+      "message": "Attempt to fix the following NPE\n\n10-23 22:13:21.995  1581  1581 I ThermalHalWrapper: Thermal HAL 2.0 service connected.\n10-23 22:13:21.995  1581  1812 W System.err: java.lang.NullPointerException: Attempt to invoke interface method \u0027void com.android.server.power.ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback.onValues(android.os.Temperature)\u0027 on a null object reference\n10-23 22:13:21.995  1581  1812 W System.err:     at com.android.server.power.ThermalManagerService$ThermalHal20Wrapper$1.notifyThrottling(ThermalManagerService.java:941)\n10-23 22:13:21.995  1581  1812 W System.err:     at android.hardware.thermal.V2_0.IThermalChangedCallback$Stub.onTransact(IThermalChangedCallback.java:533)\n10-23 22:13:21.995  1581  1812 E JavaBinder: Uncaught error or exception in hwbinder!\n10-23 22:13:21.995  1581  1812 E JavaBinder: java.lang.NullPointerException: Attempt to invoke interface method \u0027void com.android.server.power.ThermalManagerService$ThermalHalWrapper$TemperatureChangedCallback.onValues(android.os.Temperature)\u0027 on a null object reference\n10-23 22:13:21.995  1581  1812 E JavaBinder:     at com.android.server.power.ThermalManagerService$ThermalHal20Wrapper$1.notifyThrottling(ThermalManagerService.java:941)\n10-23 22:13:21.995  1581  1812 E JavaBinder:     at android.hardware.thermal.V2_0.IThermalChangedCallback$Stub.onTransact(IThermalChangedCallback.java:533)",
+      "revId": "3c96fa50cc63039db725782f4b57e0d9f7745547",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
