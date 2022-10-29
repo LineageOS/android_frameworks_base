@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb774c08_5ac2b572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25485
+      },
+      "writtenOn": "2022-10-29T16:24:49Z",
+      "side": 1,
+      "message": "VPNTetheringTile.java is based on ambient display tile",
+      "revId": "9892506e5dcba689b10f0d3ccac9150ce06bcd92",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
