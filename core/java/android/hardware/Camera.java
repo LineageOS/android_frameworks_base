@@ -277,10 +277,13 @@ public class Camera {
         String packageName = ActivityThread.currentOpPackageName();
         List<String> packageList = Arrays.asList(
                 SystemProperties.get("vendor.camera.aux.packagelist", packageName).split(","));
+        List<String> packageList2 = Arrays.asList(
+                SystemProperties.get("vendor.camera.aux.packagelist2", packageName).split(","));
         List<String> packageExcludelist = Arrays.asList(
                 SystemProperties.get("vendor.camera.aux.packageexcludelist", "").split(","));
 
-        return packageList.contains(packageName) && !packageExcludelist.contains(packageName);
+        return packageList.contains(packageName) || packageList2.contains(packageName) &&
+        !packageExcludelist.contains(packageName);
     }
 
     /**
