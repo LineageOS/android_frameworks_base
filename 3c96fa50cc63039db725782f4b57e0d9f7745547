@@ -63,6 +63,30 @@
       },
       "revId": "3c96fa50cc63039db725782f4b57e0d9f7745547",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6719623_42adc305",
+        "filename": "services/core/java/com/android/server/power/ThermalManagerService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-11-01T17:58:10Z",
+      "side": 1,
+      "message": "see chrm\u0027s comment - poked in discord.",
+      "parentUuid": "d78850f0_a673314e",
+      "range": {
+        "startLine": 158,
+        "startChar": 12,
+        "endLine": 158,
+        "endChar": 13
+      },
+      "revId": "3c96fa50cc63039db725782f4b57e0d9f7745547",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
