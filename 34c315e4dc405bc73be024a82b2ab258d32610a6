@@ -16,6 +16,23 @@
       "message": "337400: Revert \"SystemUI: Make battery \u0026 clock clickable again in QuickStatusBarHeader\" | https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/337400",
       "revId": "34c315e4dc405bc73be024a82b2ab258d32610a6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c5f4cc_168d6ab4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26332
+      },
+      "writtenOn": "2022-11-01T10:10:11Z",
+      "side": 1,
+      "message": "Please restore this, issue was fixed in I944b1122739754cc704f65039319fb260fcdbf1d",
+      "revId": "34c315e4dc405bc73be024a82b2ab258d32610a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
