@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0fc81d_5ee48a00",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-11-01T21:14:49Z",
+      "side": 1,
+      "message": "If a device has vendor.camera.aux.packagelist set but not vendor.camera.aux.packagelist2, then this is going to result in packageList2 containing the current package name. The check down below will result in the current package being allowed access to the aux cameras even though it isn\u0027t in vendor.camera.aux.packagelist.",
+      "revId": "f21b11a5bcaaf5dd87df4a36f5573642f2f52d22",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
