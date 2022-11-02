@@ -24,6 +24,7 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.provider.Settings.ACTION_MANAGE_APP_OVERLAY_PERMISSION;
 
+import android.annotation.UserIdInt;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -37,6 +38,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.UserHandle;
 
 import com.android.internal.R;
 import com.android.internal.util.ImageUtils;
@@ -53,11 +55,14 @@ class AlertWindowNotification {
     private String mNotificationTag;
     private final NotificationManager mNotificationManager;
     private final String mPackageName;
+    private final @UserIdInt int mUserId;
     private boolean mPosted;
 
-    AlertWindowNotification(WindowManagerService service, String packageName) {
+    AlertWindowNotification(WindowManagerService service, String packageName,
+            @UserIdInt int userId) {
         mService = service;
         mPackageName = packageName;
+        mUserId = userId;
         mNotificationManager =
                 (NotificationManager) mService.mContext.getSystemService(NOTIFICATION_SERVICE);
         mNotificationTag = CHANNEL_PREFIX + mPackageName;
@@ -100,7 +105,7 @@ class AlertWindowNotification {
 
         final Context context = mService.mContext;
         final PackageManager pm = context.getPackageManager();
-        final ApplicationInfo aInfo = getApplicationInfo(pm, mPackageName);
+        final ApplicationInfo aInfo = getApplicationInfoAsUser(pm, mPackageName, mUserId);
         final String appName = (aInfo != null)
                 ? pm.getApplicationLabel(aInfo).toString() : mPackageName;
 
@@ -138,6 +143,7 @@ class AlertWindowNotification {
         final Intent intent = new Intent(ACTION_MANAGE_APP_OVERLAY_PERMISSION,
                 Uri.fromParts("package", packageName, null));
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra(Intent.EXTRA_USER_HANDLE, UserHandle.of(mUserId));
         // Calls into activity manager...
         return PendingIntent.getActivity(context, mRequestCode, intent,
                 FLAG_CANCEL_CURRENT | FLAG_IMMUTABLE);
@@ -168,9 +174,10 @@ class AlertWindowNotification {
     }
 
 
-    private ApplicationInfo getApplicationInfo(PackageManager pm, String packageName) {
+    private ApplicationInfo getApplicationInfoAsUser(PackageManager pm, String packageName,
+            @UserIdInt int userId) {
         try {
-            return pm.getApplicationInfo(packageName, 0);
+            return pm.getApplicationInfoAsUser(packageName, 0, userId);
         } catch (PackageManager.NameNotFoundException e) {
             return null;
         }
