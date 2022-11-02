@@ -344,6 +344,7 @@ java_library {
     // For backwards compatibility.
     stem: "framework",
     apex_available: ["//apex_available:platform"],
+    static_libs: ["org.lineageos.platform.resources"],
     visibility: [
         "//frameworks/base",
         // TODO(b/147128803) remove the below lines
