@@ -222,6 +222,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd179da9_f5daf2f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32017
+      },
+      "writtenOn": "2022-11-02T18:33:40Z",
+      "side": 1,
+      "message": "So should I resend these changes to AOSP Gerrit too?\n\nAfter all it\u0027s me who submitted these changes then deleted them. 😋",
+      "parentUuid": "1099422c_4eb08a4e",
+      "revId": "02ec3d482d873d120450f2a7b4affe20ccf46468",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fff77576_53a60471",
         "filename": "services/core/java/com/android/server/wm/AlertWindowNotification.java",
         "patchSetId": 1
