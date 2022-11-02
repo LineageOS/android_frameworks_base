@@ -52,6 +52,24 @@
       "parentUuid": "3441cbe0_109305ba",
       "revId": "02ec3d482d873d120450f2a7b4affe20ccf46468",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3ade271_95a8e4a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32017
+      },
+      "writtenOn": "2022-11-02T15:09:34Z",
+      "side": 1,
+      "message": "Abandoned and removed :(",
+      "parentUuid": "df40da39_5113b6a4",
+      "revId": "02ec3d482d873d120450f2a7b4affe20ccf46468",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
