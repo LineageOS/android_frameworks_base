@@ -414,6 +414,7 @@ java_defaults {
         "audiopolicy-aidl-java",
         "sounddose-aidl-java",
         "modules-utils-expresslog",
+        "org.lineageos.platform.resources"
     ],
 }
 
