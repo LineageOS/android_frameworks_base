@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bda0976_44c5f04b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2022-11-02T13:02:06Z",
+      "side": 1,
+      "message": "This is missing a case for if the allowlist prop is not set but there are elements in the respective resource array, right? Otherwise, the prop fallback will always add the current package name to the list, making the resource list useless.",
+      "revId": "380ee8d85d5358399bd9e52a42a7c5cb53480eae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
