@@ -34,6 +34,24 @@
       "parentUuid": "0bda0976_44c5f04b",
       "revId": "380ee8d85d5358399bd9e52a42a7c5cb53480eae",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46682082_a732a7eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15734
+      },
+      "writtenOn": "2022-11-02T13:07:10Z",
+      "side": 1,
+      "message": "Maybe the fallback should just be \"\" for the first part and then we add packageName to the list at the very end if the size is still 0. That\u0027s probably the cleanest solution.",
+      "parentUuid": "3b5494f9_cd478f80",
+      "revId": "380ee8d85d5358399bd9e52a42a7c5cb53480eae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
