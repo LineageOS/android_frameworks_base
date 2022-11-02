@@ -53,11 +53,13 @@ class AlertWindowNotification {
     private String mNotificationTag;
     private final NotificationManager mNotificationManager;
     private final String mPackageName;
+    private final int mUserId;
     private boolean mPosted;
 
-    AlertWindowNotification(WindowManagerService service, String packageName) {
+    AlertWindowNotification(WindowManagerService service, String packageName, int userId) {
         mService = service;
         mPackageName = packageName;
+        mUserId = userId;
         mNotificationManager =
                 (NotificationManager) mService.mContext.getSystemService(NOTIFICATION_SERVICE);
         mNotificationTag = CHANNEL_PREFIX + mPackageName;
@@ -100,7 +102,7 @@ class AlertWindowNotification {
 
         final Context context = mService.mContext;
         final PackageManager pm = context.getPackageManager();
-        final ApplicationInfo aInfo = getApplicationInfo(pm, mPackageName);
+        final ApplicationInfo aInfo = getApplicationInfoAsUser(pm, mPackageName, mUserId);
         final String appName = (aInfo != null)
                 ? pm.getApplicationLabel(aInfo).toString() : mPackageName;
 
@@ -168,9 +170,10 @@ class AlertWindowNotification {
     }
 
 
-    private ApplicationInfo getApplicationInfo(PackageManager pm, String packageName) {
+    private ApplicationInfo getApplicationInfoAsUser(PackageManager pm, String packageName,
+            int userId) {
         try {
-            return pm.getApplicationInfo(packageName, 0);
+            return pm.getApplicationInfoAsUser(packageName, 0, userId);
         } catch (PackageManager.NameNotFoundException e) {
             return null;
         }
