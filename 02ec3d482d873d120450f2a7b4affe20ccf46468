@@ -274,6 +274,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ab2ff69_636adbcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32017
+      },
+      "writtenOn": "2022-11-03T03:41:46Z",
+      "side": 1,
+      "message": "Sent to AOSP.",
+      "parentUuid": "84951486_e4902ad3",
+      "revId": "02ec3d482d873d120450f2a7b4affe20ccf46468",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fff77576_53a60471",
