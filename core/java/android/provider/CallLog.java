@@ -992,26 +992,7 @@ public class CallLog {
                     Log.w(LOG_TAG, "Failed to insert into call log; null result uri.");
                 }
 
-                if (values.containsKey(PHONE_ACCOUNT_ID)
-                        && !TextUtils.isEmpty(values.getAsString(PHONE_ACCOUNT_ID))
-                        && values.containsKey(PHONE_ACCOUNT_COMPONENT_NAME)
-                        && !TextUtils.isEmpty(values.getAsString(PHONE_ACCOUNT_COMPONENT_NAME))) {
-                    // Only purge entries for the same phone account.
-                    resolver.delete(uri, "_id IN " +
-                            "(SELECT _id FROM calls"
-                            + " WHERE " + PHONE_ACCOUNT_COMPONENT_NAME + " = ?"
-                            + " AND " + PHONE_ACCOUNT_ID + " = ?"
-                            + " ORDER BY " + DEFAULT_SORT_ORDER
-                            + " LIMIT -1 OFFSET 500)", new String[] {
-                            values.getAsString(PHONE_ACCOUNT_COMPONENT_NAME),
-                            values.getAsString(PHONE_ACCOUNT_ID)
-                    });
-                } else {
-                    // No valid phone account specified, so default to the old behavior.
-                    resolver.delete(uri, "_id IN " +
-                            "(SELECT _id FROM calls ORDER BY " + DEFAULT_SORT_ORDER
-                            + " LIMIT -1 OFFSET 500)", null);
-                }
+
 
                 return result;
             } catch (IllegalArgumentException e) {
