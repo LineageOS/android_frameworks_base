@@ -33,6 +33,42 @@
       "message": "On a quick glance: shouldn\u0027t it be possible to keep the check completely in the SecureQsTile impl. instead of adding the check there for each of them individually?",
       "revId": "3c673243ad297a60ed916b4562024caecf7bb23a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edb5d61d_64c9271d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20364
+      },
+      "writtenOn": "2022-11-05T16:38:50Z",
+      "side": 1,
+      "message": "\u003e On a quick glance: shouldn\u0027t it be possible to keep the check completely in the SecureQsTile impl. instead of adding the check there for each of them individually?\n\nNot sure if this is possible.",
+      "parentUuid": "7ac17e0b_aed2d95d",
+      "revId": "3c673243ad297a60ed916b4562024caecf7bb23a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df0e5fb_51e37d94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20364
+      },
+      "writtenOn": "2022-11-05T16:38:50Z",
+      "side": 1,
+      "message": "\u003e Generally like the idea. Not sure if this should be toggleable with a setting, though\n\nWorking on making this toggleable.",
+      "parentUuid": "e9b88d22_62ffe15b",
+      "revId": "3c673243ad297a60ed916b4562024caecf7bb23a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3900e0aa_60845946",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20364
+      },
+      "writtenOn": "2022-11-05T16:38:50Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e Yeah, a setting for this might be a good idea.\n\u003e \n\u003e Also, why is rotation lock considered sensitive?\n\nWorking on making this toggleable. Rotation lock check removed, DND check added.",
+      "revId": "5ef55e30b696f250daf57cf34d42840f58dd0a21",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
