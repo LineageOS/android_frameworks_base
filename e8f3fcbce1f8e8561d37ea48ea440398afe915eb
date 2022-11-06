@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c56641_4ad8a2da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-11-06T06:08:28Z",
+      "side": 1,
+      "message": "One thing I should note is that in the only other place that actually sets USB data signaling (DevicePolicyManagerService), the service actually checks to see if the USB HAL version is v1.3 or greater first before trying to set USB data signaling. Not sure whether we should continue with having the callee expect undefined behavior if they call this function w/ a USB HAL older than v1.3.",
+      "revId": "e8f3fcbce1f8e8561d37ea48ea440398afe915eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
