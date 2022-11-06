@@ -1201,6 +1201,15 @@ public class UsbManager {
      */
     @RequiresPermission(Manifest.permission.MANAGE_USB)
     public boolean enableUsbDataSignal(boolean enable) {
+        try {
+            // Don't proceed if unsupported in USB HAL.
+            if (getUsbHalVersion() < USB_HAL_V1_3) {
+                return false;
+            }
+        } catch (RuntimeException ignore) {
+            // Can't get USB Hal version. Assume it's an unsupported version.
+            return false;
+        }
         return setUsbDataSignal(getPorts(), !enable, /* revertOnFailure= */ true);
     }
 
