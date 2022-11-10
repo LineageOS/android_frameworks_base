@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b785922_b8106997",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/deviceinfo/AbstractBatteryStatusPreferenceController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 27741
+      },
+      "writtenOn": "2022-11-10T18:55:01Z",
+      "side": 1,
+      "message": "Nitpicky, but can we call this BatteryStatusHandler or something?",
+      "range": {
+        "startLine": 132,
+        "startChar": 25,
+        "endLine": 132,
+        "endChar": 34
+      },
+      "revId": "8def7e4ea9c051bdfee2ce4d714e1c287b8f9ed4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
