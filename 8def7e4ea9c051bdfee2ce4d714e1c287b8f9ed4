@@ -94,6 +94,30 @@
       },
       "revId": "8def7e4ea9c051bdfee2ce4d714e1c287b8f9ed4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5c94fc1_e253f9c8",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/deviceinfo/AbstractBatteryStatusPreferenceController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-11-10T19:26:39Z",
+      "side": 1,
+      "message": "That\u0027s from AOSP, isn\u0027t it? Leave it be.",
+      "parentUuid": "df7f798e_c42c1533",
+      "range": {
+        "startLine": 132,
+        "startChar": 25,
+        "endLine": 132,
+        "endChar": 34
+      },
+      "revId": "8def7e4ea9c051bdfee2ce4d714e1c287b8f9ed4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
