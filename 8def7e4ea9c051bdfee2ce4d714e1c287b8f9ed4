@@ -22,6 +22,30 @@
       },
       "revId": "8def7e4ea9c051bdfee2ce4d714e1c287b8f9ed4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fde6baf_30a09649",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/deviceinfo/AbstractBatteryStatusPreferenceController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-11-10T18:56:55Z",
+      "side": 1,
+      "message": "Can and should.",
+      "parentUuid": "8b785922_b8106997",
+      "range": {
+        "startLine": 132,
+        "startChar": 25,
+        "endLine": 132,
+        "endChar": 34
+      },
+      "revId": "8def7e4ea9c051bdfee2ce4d714e1c287b8f9ed4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
