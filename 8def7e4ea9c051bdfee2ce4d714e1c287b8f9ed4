@@ -70,6 +70,30 @@
       },
       "revId": "8def7e4ea9c051bdfee2ce4d714e1c287b8f9ed4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df7f798e_c42c1533",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/deviceinfo/AbstractBatteryStatusPreferenceController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 27741
+      },
+      "writtenOn": "2022-11-10T19:24:32Z",
+      "side": 1,
+      "message": "fixed. note we should do something about AbstractUptimePreferenceController, where this was clearly stolen from, that uses the same generic name.",
+      "parentUuid": "a2db67f8_68017768",
+      "range": {
+        "startLine": 132,
+        "startChar": 25,
+        "endLine": 132,
+        "endChar": 34
+      },
+      "revId": "8def7e4ea9c051bdfee2ce4d714e1c287b8f9ed4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
