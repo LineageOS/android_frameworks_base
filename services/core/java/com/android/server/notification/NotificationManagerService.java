@@ -3714,7 +3714,16 @@ public class NotificationManagerService extends SystemService {
             }
             enforcePolicyAccess(Binder.getCallingUid(), "addAutomaticZenRule");
 
-            return mZenModeHelper.addAutomaticZenRule(pkg, automaticZenRule,
+            // If the caller is system, take the package name from the rule's owner rather than
+            // from the caller's package.
+            String rulePkg = pkg;
+            if (isCallingUidSystem()) {
+                if (automaticZenRule.getOwner() != null) {
+                    rulePkg = automaticZenRule.getOwner().getPackageName();
+                }
+            }
+
+            return mZenModeHelper.addAutomaticZenRule(rulePkg, automaticZenRule,
                     "addAutomaticZenRule");
         }
 
@@ -6106,7 +6115,8 @@ public class NotificationManagerService extends SystemService {
         boolean sentAccessibilityEvent = false;
         // If the notification will appear in the status bar, it should send an accessibility
         // event
-        if (!record.isUpdate && record.getImportance() > IMPORTANCE_MIN) {
+        if (!record.isUpdate && record.getImportance() > IMPORTANCE_MIN
+                && isNotificationForCurrentUser(record)) {
             sendAccessibilityEvent(record);
             sentAccessibilityEvent = true;
         }
