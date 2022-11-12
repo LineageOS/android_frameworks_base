@@ -23,6 +23,7 @@ import androidx.test.filters.SmallTest
 import com.android.systemui.R
 import com.android.systemui.SysuiTestCase
 import com.android.systemui.battery.BatteryMeterViewController
+import com.android.systemui.colorextraction.SysuiColorExtractor
 import com.android.systemui.demomode.DemoModeController
 import com.android.systemui.flags.FeatureFlags
 import com.android.systemui.flags.Flags
@@ -70,6 +71,8 @@ class QuickStatusBarHeaderControllerTest : SysuiTestCase() {
     @Mock
     private lateinit var qsCarrierGroupController: QSCarrierGroupController
     @Mock
+    private lateinit var colorExtractor: SysuiColorExtractor
+    @Mock
     private lateinit var iconContainer: StatusIconContainer
     @Mock
     private lateinit var qsCarrierGroup: QSCarrierGroup
@@ -115,6 +118,7 @@ class QuickStatusBarHeaderControllerTest : SysuiTestCase() {
                 demoModeController,
                 quickQSPanelController,
                 qsCarrierGroupControllerBuilder,
+                colorExtractor,
                 qsExpansionPathInterpolator,
                 featureFlags,
                 variableDateViewControllerFactory,
