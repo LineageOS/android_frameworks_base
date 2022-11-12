@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e253fab2_d4df0b63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2022-11-12T13:55:40Z",
+      "side": 1,
+      "message": "Fix is to revert this, not sure if its a good choice. https://github.com/LineageOS/android_frameworks_base/commit/4e90170d22f964d9b67e87a814ca0d26d86480f7",
+      "revId": "51f24594ce17b189522dda8376b39d6adbfad9d0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
