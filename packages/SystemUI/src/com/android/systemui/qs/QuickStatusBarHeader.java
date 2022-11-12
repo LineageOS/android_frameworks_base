@@ -200,9 +200,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
     void setIsSingleCarrier(boolean isSingleCarrier) {
         mIsSingleCarrier = isSingleCarrier;
-        if (mIsSingleCarrier) {
-            mIconContainer.removeIgnoredSlots(mRssiIgnoredSlots);
-        }
         updateAlphaAnimator();
     }
 
@@ -215,7 +212,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (mDatePrivacyView.getMeasuredHeight() != mTopViewMeasureHeight) {
             mTopViewMeasureHeight = mDatePrivacyView.getMeasuredHeight();
-            updateAnimators();
+            post(this::updateAnimators);
         }
     }
 
