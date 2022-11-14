@@ -34,6 +34,24 @@
       "parentUuid": "b6c56641_4ad8a2da",
       "revId": "e8f3fcbce1f8e8561d37ea48ea440398afe915eb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8912375_45a0cc66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-11-14T16:56:33Z",
+      "side": 1,
+      "message": "I guess we could just change our caller to check for USB HAL version before calling `enableUsbDataSignal()`, to keep consistency with how DevicePolicyManagerService does it. However, later on, if we have other places that want to call that function, then they will need to copy over the same boilerplate code for checking HAL compatibility...\n\nI might want others to also take a look and decide if it\u0027s acceptable to modify `enableUsbDataSignal()` like this, I suppose. Obviously, I\u0027d prefer to do it this way, but I don\u0027t know if others might want to maintain consistency in how callers use this function.",
+      "parentUuid": "baee7fd7_b878af77",
+      "revId": "e8f3fcbce1f8e8561d37ea48ea440398afe915eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
