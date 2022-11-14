@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6561f88d_1bc5716a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2022-11-14T14:02:41Z",
+      "side": 1,
+      "message": "Topic builds and installs fine on peregrine (Moto G LTE).\n\nAs discussed, I have specifically tested the \"PUK unlock vulnerability\":\n1. I could not exploit and \u0027bypass-unlock\u0027 the peregrine device with the previous build (before updating to Nov. ASB backport) . This does not mean, that Nougat would not be vulnerable in general, but the Moto G LTE, which I used for the test, isn\u0027t.\n2. Same after the update: PIN unlock, PIN reset, PUNK unlock and screen unlock work w/o issue - no regression, hence good to go from my perspective",
+      "revId": "deb6482dc98e8ebdb81acf47477a20e58ff4383a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
