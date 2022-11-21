@@ -34,6 +34,23 @@
       "parentUuid": "2f487362_57ff3c9a",
       "revId": "7b3852a132b8cb8a75733cbebb00ec279b40106f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "998be204_a2143b35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-11-21T11:42:09Z",
+      "side": 1,
+      "message": "We have an alternative implementation up at https://review.lineageos.org/q/topic:tiles-keyguard-lock\nYou are welcome to join our discord or irc to discuss on this matter: https://lineageos.org/community/ - feel free to give me a ping @BadDaemon\n",
+      "revId": "7b3852a132b8cb8a75733cbebb00ec279b40106f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
