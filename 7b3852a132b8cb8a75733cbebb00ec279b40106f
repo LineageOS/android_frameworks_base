@@ -16,6 +16,24 @@
       "message": "Seems like location tile requires unlocking by default on AOSP. Should we make this also toggleable or leave the default AOSP behaviour?",
       "revId": "7b3852a132b8cb8a75733cbebb00ec279b40106f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435e3bc0_d1aba0ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2022-11-21T10:55:50Z",
+      "side": 1,
+      "message": "In that case I would personally be in favor of leaving the default AOSP behavior for that tile.",
+      "parentUuid": "2f487362_57ff3c9a",
+      "revId": "7b3852a132b8cb8a75733cbebb00ec279b40106f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
