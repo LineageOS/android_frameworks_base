@@ -28,6 +28,8 @@ import com.android.systemui.qs.logging.QSLogger
 import com.android.systemui.statusbar.policy.KeyguardStateController
 import com.android.systemui.qs.tileimpl.QSTileImpl
 
+import lineageos.providers.LineageSettings;
+
 internal abstract class SecureQSTile<TState : QSTile.State> protected constructor(
     host: QSHost, backgroundLooper: Looper, mainHandler: Handler, falsingManager: FalsingManager,
     metricsLogger: MetricsLogger, statusBarStateController: StatusBarStateController,
@@ -42,7 +44,9 @@ internal abstract class SecureQSTile<TState : QSTile.State> protected constructo
     protected abstract fun handleClick(view: View?, keyguardShowing: Boolean)
 
     override fun handleClick(view: View?) {
-        handleClick(view, mKeyguard.isMethodSecure && mKeyguard.isShowing)
+        val enabled: Boolean = LineageSettings.Secure.getInt(mContext.getContentResolver(),
+            LineageSettings.Secure.QS_TILES_REQUIRES_UNLOCKING, 1) == 1
+        handleClick(view, mKeyguard.isMethodSecure && mKeyguard.isShowing && enabled)
     }
 
     protected fun checkKeyguard(view: View?, keyguardShowing: Boolean): Boolean {
