@@ -73,6 +73,7 @@ import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.util.DisplayUtils;
 import android.util.EventLog;
 import android.util.Log;
 import android.util.Slog;
@@ -1169,8 +1170,11 @@ public class KeyguardViewMediator extends CoreStartable implements Dumpable,
 
         mActivityLaunchAnimator = activityLaunchAnimator;
 
-        mPowerButtonY = context.getResources().getDimensionPixelSize(
-                R.dimen.physical_power_button_center_screen_location_y);
+        final float scaleFactor = DisplayUtils.getScaleFactor(mContext);
+        int positionY = (int) (scaleFactor * mContext.getResources().getDimensionPixelSize(
+                R.dimen.physical_power_button_center_screen_location_y));
+
+        mPowerButtonY = positionY;
         mWindowCornerRadius = ScreenDecorationsUtils.getWindowCornerRadius(context);
     }
 
