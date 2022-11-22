@@ -26,6 +26,7 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.Trace;
 import android.util.DisplayMetrics;
+import android.util.DisplayUtils;
 
 import androidx.annotation.Nullable;
 
@@ -225,19 +226,17 @@ public class WakefulnessLifecycle extends Lifecycle<WakefulnessLifecycle.Observe
      * Returns the point on the screen closest to the physical power button.
      */
     private Point getPowerButtonOrigin() {
+        final float scaleFactor = DisplayUtils.getScaleFactor(mContext);
+        int positionY = (int) (scaleFactor * mContext.getResources().getDimensionPixelSize(
+                R.dimen.physical_power_button_center_screen_location_y));
+
         final boolean isPortrait = mContext.getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_PORTRAIT;
 
         if (isPortrait) {
-            return new Point(
-                    mDisplayMetrics.widthPixels,
-                    mContext.getResources().getDimensionPixelSize(
-                            R.dimen.physical_power_button_center_screen_location_y));
+            return new Point(mDisplayMetrics.widthPixels, positionY);
         } else {
-            return new Point(
-                    mContext.getResources().getDimensionPixelSize(
-                            R.dimen.physical_power_button_center_screen_location_y),
-                    mDisplayMetrics.heightPixels);
+            return new Point(positionY, mDisplayMetrics.heightPixels);
         }
     }
 
