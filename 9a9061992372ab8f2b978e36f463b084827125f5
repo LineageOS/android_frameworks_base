@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17528e20_d4158de4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2022-11-25T23:19:37Z",
+      "side": 1,
+      "message": "Keep in mind it is not something we have merged in lineage before. We have always allowed apps to continue creating sockets when restricted and it is Sam\u0027s preference to keep it this way (reason why I did not port it here before).",
+      "revId": "9a9061992372ab8f2b978e36f463b084827125f5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
