@@ -102,6 +102,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.RuntimeException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -1543,8 +1544,20 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
             final boolean usbConnected = mConnected || mHostConnected;
             final boolean shouldRestrict = (restrictUsb == 1 && mIsKeyguardShowing && !usbConnected)
                     || restrictUsb == 2;
+
             UsbManager usbManager = mContext.getSystemService(UsbManager.class);
-            if (usbManager == null || !usbManager.enableUsbDataSignal(!shouldRestrict)) {
+            boolean useUsbManager = false;
+            try {
+                if (usbManager != null &&
+                        usbManager.getUsbHalVersion() >= UsbManager.USB_HAL_V1_3) {
+                    useUsbManager = true;
+                }
+            } catch (RuntimeException ignore) {
+                // Can't get USB Hal version. Assume it's an unsupported version and
+                // don't try using UsbManager to toggle USB data.
+            }
+
+            if (!useUsbManager || !usbManager.enableUsbDataSignal(!shouldRestrict)) {
                 try {
                     if (mUsbRestrictor != null) {
                         mUsbRestrictor.setEnabled(shouldRestrict);
