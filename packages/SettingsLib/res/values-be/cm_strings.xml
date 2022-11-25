@@ -18,6 +18,6 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="screen_zoom_summary_smaller">Меньш</string>
-    <string name="screen_zoom_summary_smallest">Самы малы</string>
+    <string name="screen_zoom_summary_smaller">Менш</string>
+    <string name="screen_zoom_summary_smallest">Самы маленькі</string>
 </resources>

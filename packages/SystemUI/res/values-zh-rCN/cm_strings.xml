@@ -32,7 +32,7 @@
     <string name="global_action_restart_fastboot_progress">正在重启到 fastbootd 模式\u2026</string>
     <string name="global_action_current_user">当前</string>
     <string name="global_action_users">用户</string>
-    <string name="quick_settings_ambient_display_label">环境显示</string>
+    <string name="quick_settings_ambient_display_label">主动显示</string>
     <string name="accessibility_quick_settings_ambient_display_off">关闭环境显示。</string>
     <string name="accessibility_quick_settings_ambient_display_on">开启环境显示。</string>
     <string name="quick_settings_aod_label">息屏常亮</string>
