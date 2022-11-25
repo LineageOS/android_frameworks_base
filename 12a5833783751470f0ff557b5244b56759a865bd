@@ -53,6 +53,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc479c7f_a7bc5bee",
+        "filename": "core/java/android/hardware/camera2/utils/SurfaceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-11-25T20:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e4a2a83_ec85ce90",
+      "revId": "12a5833783751470f0ff557b5244b56759a865bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee1990b8_2da1842a",
@@ -66,6 +84,24 @@
       "writtenOn": "2022-11-20T01:30:59Z",
       "side": 1,
       "message": "unnecessary new line split?",
+      "revId": "12a5833783751470f0ff557b5244b56759a865bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0572ca6e_3553b138",
+        "filename": "core/java/android/hardware/camera2/utils/SurfaceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-11-25T20:05:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee1990b8_2da1842a",
       "revId": "12a5833783751470f0ff557b5244b56759a865bd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
