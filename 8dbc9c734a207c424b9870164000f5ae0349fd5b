@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e64538b_23268ab8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29242
+      },
+      "writtenOn": "2022-11-29T07:23:47Z",
+      "side": 1,
+      "message": "This change is currently being reviewed on AOSP Gerrit. As a result more patchsets may be uploaded in the coming days.",
+      "revId": "8dbc9c734a207c424b9870164000f5ae0349fd5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
