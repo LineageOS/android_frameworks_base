@@ -33,6 +33,24 @@
       "message": "Reminder to myself to test with my own work GSuite account before end of week.",
       "revId": "bdbf4ad5a6d71fc0d9743706134759ac906c0a24",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1d90130_ef3a39e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-11-29T10:36:56Z",
+      "side": 1,
+      "message": "Thanks, in that case I don\u0027t have to test myself (I would have to unenroll and re-enroll my device).",
+      "parentUuid": "10886b8b_890ed2cc",
+      "revId": "bdbf4ad5a6d71fc0d9743706134759ac906c0a24",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
