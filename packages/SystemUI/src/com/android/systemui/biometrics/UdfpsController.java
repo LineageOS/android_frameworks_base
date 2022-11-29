@@ -453,9 +453,14 @@ public class UdfpsController implements DozeReceiver {
                     final int idx = mActivePointerId == -1
                             ? event.getPointerId(0)
                             : event.findPointerIndex(mActivePointerId);
+                    // Map the touch to portrait mode if the device is in landscape mode.
+                    final Point scaledTouch = getTouchInNativeCoordinates(event, idx);
                     mVelocityTracker.addMovement(event);
-                    onFingerDown(requestId, (int) event.getRawX(), (int) event.getRawY(),
-                            (int) event.getTouchMinor(idx), (int) event.getTouchMajor(idx));
+                    // Scale the coordinates to native resolution.
+                    final float scale = mOverlayParams.getScaleFactor();
+                    float scaledMinor = event.getTouchMinor(idx) / scale;
+                    float scaledMajor = event.getTouchMajor(idx) / scale;
+                    onFingerDown(requestId, scaledTouch.x, scaledTouch.y, scaledMinor, scaledMajor);
                     handled = true;
                     mAcquiredReceived = false;
                 }
