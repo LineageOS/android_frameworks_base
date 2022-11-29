@@ -34,6 +34,24 @@
       "parentUuid": "a3352bb7_932278d6",
       "revId": "288094bceb61af40d201ede64fe8ce242eed3988",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72da14ac_8ab2493d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-11-29T16:46:52Z",
+      "side": 1,
+      "message": "Did your testing include like any global HBM devices?\nWithout the reverted commit fod wouldn\u0027t light up unless you slide over the fod area instead of just tapping it; this video shows the behaviour https://imgur.com/a/WXUjuJv",
+      "parentUuid": "00ae2edb_2f0dd90f",
+      "revId": "288094bceb61af40d201ede64fe8ce242eed3988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
