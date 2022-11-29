@@ -454,8 +454,13 @@ public class UdfpsController implements DozeReceiver {
                             ? event.getPointerId(0)
                             : event.findPointerIndex(mActivePointerId);
                     mVelocityTracker.addMovement(event);
-                    onFingerDown(requestId, (int) event.getRawX(), (int) event.getRawY(),
-                            (int) event.getTouchMinor(idx), (int) event.getTouchMajor(idx));
+                    // Scale the coordinates to native resolution.
+                    final float scale = mOverlayParams.getScaleFactor();
+                    int scaledX = (int) (event.getRawX() / scale);
+                    int scaledY = (int) (event.getRawY() / scale);
+                    float scaledMinor = event.getTouchMinor(idx) / scale;
+                    float scaledMajor = event.getTouchMajor(idx) / scale;
+                    onFingerDown(requestId, scaledX, scaledY, scaledMinor, scaledMajor);
                     handled = true;
                     mAcquiredReceived = false;
                 }
