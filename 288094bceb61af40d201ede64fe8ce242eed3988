@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3352bb7_932278d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-11-29T16:37:56Z",
+      "side": 1,
+      "message": "Did AOSP change the behaviour on fod tap or what is the reason for this? Should be in commit message.",
+      "revId": "288094bceb61af40d201ede64fe8ce242eed3988",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
