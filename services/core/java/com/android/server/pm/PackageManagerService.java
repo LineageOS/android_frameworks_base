@@ -10573,8 +10573,8 @@ public class PackageManagerService extends IPackageManager.Stub {
                 // Any pre-installed system app is allowed to get this permission.
                 allowed = true;
             }
-            if (!allowed && (bp.protectionLevel
-                    & PermissionInfo.PROTECTION_FLAG_DEVELOPMENT) != 0) {
+            if (!allowed && (bp.protectionLevel & PermissionInfo.PROTECTION_FLAG_DEVELOPMENT) != 0
+                && (bp.protectionLevel & PermissionInfo.PROTECTION_FLAG_PRE23) == 0) {
                 // For development permissions, a development permission
                 // is granted only if it was already granted.
                 allowed = origPermissions.hasInstallPermission(perm);
