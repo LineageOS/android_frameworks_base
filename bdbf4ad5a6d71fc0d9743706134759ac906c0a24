@@ -51,6 +51,23 @@
       "parentUuid": "10886b8b_890ed2cc",
       "revId": "bdbf4ad5a6d71fc0d9743706134759ac906c0a24",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f60b0846_d48e4004",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-12-02T11:22:12Z",
+      "side": 1,
+      "message": "I have decided to test the fix myself by enrolling a new device using Intune. Work profile successfully created without having to manually toggle \"Allow network access\".",
+      "revId": "bdbf4ad5a6d71fc0d9743706134759ac906c0a24",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
