@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a1a8b55_4f87b1f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2022-12-04T19:18:21Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be in a commit message imo.\nAlso git blame helps:\n\n19.1: https://github.com/LineageOS/android_frameworks_base/commit/2168ac6889854e6be034670cb1e2e5a82d493c54#diff-40120afa571012f515f1f3447f863da0f6daa30b29f58e34fc70cc90b86f5dc9R169\n\n18.1:\nhttps://github.com/LineageOS/android_frameworks_base/commit/0c93eee6e62389ae9b42101111315bede4b88b2b#diff-40120afa571012f515f1f3447f863da0f6daa30b29f58e34fc70cc90b86f5dc9R180\n\nObviously a misapply on a slightly changed codebase",
+      "range": {
+        "startLine": 9,
+        "startChar": 119,
+        "endLine": 9,
+        "endChar": 143
+      },
+      "revId": "f03ffdb012e3ca8094d638ac1aed5cd143472f52",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
