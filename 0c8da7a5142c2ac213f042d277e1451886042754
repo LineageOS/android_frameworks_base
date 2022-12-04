@@ -16,6 +16,23 @@
       "message": "Applying the changes from https://github.com/LineageOS/android_frameworks_base/commit/84438ca22be67fb7dc672cb77f704f7927053b98#diff-3e4dc7287bbd0bff2cc5de596e8ed0fdc999233036fde3c193d9e1a683ddebc6 here could fix the issue with 1080p on p7 pro instead",
       "revId": "0c8da7a5142c2ac213f042d277e1451886042754",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f539d5da_51e3640a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-12-04T01:20:25Z",
+      "side": 1,
+      "message": "The issue shown in the video is not present on the same device (which used to be affected) with this revert on 20, so the original intention behind the patch to be reverted was solved in another way supposedly.",
+      "revId": "0c8da7a5142c2ac213f042d277e1451886042754",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
