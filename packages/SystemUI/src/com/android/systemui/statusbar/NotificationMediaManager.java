@@ -166,7 +166,7 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                 }
                 findAndUpdateMediaNotifications();
                 mStatusBarOptionalLazy.get().map(StatusBar::getVisualizerView).ifPresent(
-                        v -> v.setOccluded(state.getState() == PlaybackState.STATE_PLAYING));
+                        v -> v.setPlaying(state.getState() == PlaybackState.STATE_PLAYING));
             }
         }
 
