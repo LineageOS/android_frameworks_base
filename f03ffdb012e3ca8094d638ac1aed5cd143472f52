@@ -70,6 +70,30 @@
       },
       "revId": "f03ffdb012e3ca8094d638ac1aed5cd143472f52",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9da41c31_19aa466f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 17890
+      },
+      "writtenOn": "2022-12-05T16:26:54Z",
+      "side": 1,
+      "message": "I guess a bit unprofessional. I did blame but couldn\u0027t find one specific commit that caused it. The mass merge there didn\u0027t really answer any questions. Surely it should be mostly automated and mostly a copy job for the conflicts. Speculation aside it\u0027s fixed now, Comment has already been amended.",
+      "parentUuid": "7b6092a6_8aebbe65",
+      "range": {
+        "startLine": 9,
+        "startChar": 119,
+        "endLine": 9,
+        "endChar": 143
+      },
+      "revId": "f03ffdb012e3ca8094d638ac1aed5cd143472f52",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
