@@ -68,6 +68,23 @@
       "message": "I have decided to test the fix myself by enrolling a new device using Intune. Work profile successfully created without having to manually toggle \"Allow network access\".",
       "revId": "bdbf4ad5a6d71fc0d9743706134759ac906c0a24",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2affcae_e818586c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-12-05T15:30:01Z",
+      "side": 1,
+      "message": "Ideally this should be backported to 19.1 in order to close https://gitlab.com/LineageOS/issues/android/-/issues/4983.",
+      "revId": "bdbf4ad5a6d71fc0d9743706134759ac906c0a24",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
