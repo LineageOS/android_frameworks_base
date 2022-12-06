@@ -24,7 +24,6 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
-import android.view.Surface
 import android.widget.FrameLayout
 import com.android.systemui.R
 import com.android.systemui.doze.DozeReceiver
@@ -61,9 +60,6 @@ class UdfpsView(
         com.android.internal.R.integer.config_udfps_illumination_transition_ms
     ).toLong()
 
-    // Only used for UdfpsHbmTypes.GLOBAL_HBM.
-    private var ghbmView: UdfpsSurfaceView? = null
-
     /** View controller (can be different for enrollment, BiometricPrompt, Keyguard, etc.). */
     var animationViewController: UdfpsAnimationViewController<*>? = null
 
@@ -91,10 +87,6 @@ class UdfpsView(
     // Don't propagate any touch events to the child views.
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         return (animationViewController == null || !animationViewController!!.shouldPauseAuth())
-    }
-
-    override fun onFinishInflate() {
-        ghbmView = findViewById(R.id.hbm_view)
     }
 
     override fun dozeTimeTick() {
@@ -161,25 +153,13 @@ class UdfpsView(
     override fun startIllumination(onIlluminatedRunnable: Runnable?) {
         isIlluminationRequested = true
         animationViewController?.onIlluminationStarting()
-        val gView = ghbmView
-        if (gView != null) {
-            gView.setGhbmIlluminationListener(this::doIlluminate)
-            gView.visibility = VISIBLE
-            gView.startGhbmIllumination(onIlluminatedRunnable)
-        } else {
-            doIlluminate(null /* surface */, onIlluminatedRunnable)
-        }
+        doIlluminate(onIlluminatedRunnable)
     }
 
-    private fun doIlluminate(surface: Surface?, onIlluminatedRunnable: Runnable?) {
-        if (ghbmView != null && surface == null) {
-            Log.e(TAG, "doIlluminate | surface must be non-null for GHBM")
-        }
-
+    private fun doIlluminate(onIlluminatedRunnable: Runnable?) {
         // TODO(b/231335067): enableHbm with halControlsIllumination=true shouldn't make sense.
         // This only makes sense now because vendor code may rely on the side effects of enableHbm.
         hbmProvider?.enableHbm(halControlsIllumination) {
-            ghbmView?.drawIlluminationDot(sensorRect)
             if (onIlluminatedRunnable != null) {
                 if (halControlsIllumination) {
                     onIlluminatedRunnable.run()
@@ -197,10 +177,6 @@ class UdfpsView(
     override fun stopIllumination() {
         isIlluminationRequested = false
         animationViewController?.onIlluminationStopped()
-        ghbmView?.let { view ->
-            view.setGhbmIlluminationListener(null)
-            view.visibility = INVISIBLE
-        }
         hbmProvider?.disableHbm(null /* onHbmDisabled */)
     }
 }
