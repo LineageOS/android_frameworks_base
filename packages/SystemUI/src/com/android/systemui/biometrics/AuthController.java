@@ -54,10 +54,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserManager;
-import android.util.DisplayUtils;
 import android.util.Log;
 import android.util.SparseBooleanArray;
-import android.view.Display;
 import android.view.DisplayInfo;
 import android.view.MotionEvent;
 import android.view.WindowManager;
@@ -115,6 +113,8 @@ public class AuthController extends CoreStartable implements CommandQueue.Callba
     @Nullable private final FaceManager mFaceManager;
     private final Provider<UdfpsController> mUdfpsControllerFactory;
     private final Provider<SidefpsController> mSidefpsControllerFactory;
+
+    @NonNull private Point mStableDisplaySize = new Point();
 
     @Nullable private final PointF mFaceAuthSensorLocation;
     @Nullable private PointF mFingerprintLocation;
@@ -489,11 +489,9 @@ public class AuthController extends CoreStartable implements CommandQueue.Callba
         }
         DisplayInfo displayInfo = new DisplayInfo();
         mContext.getDisplay().getDisplayInfo(displayInfo);
-        final Display.Mode maxDisplayMode =
-                DisplayUtils.getMaximumResolutionDisplayMode(displayInfo.supportedModes);
-        final float scaleFactor = DisplayUtils.getPhysicalPixelDisplaySizeRatio(
-                maxDisplayMode.getPhysicalWidth(), maxDisplayMode.getPhysicalHeight(),
-                displayInfo.getNaturalWidth(), displayInfo.getNaturalHeight());
+        final float scaleFactor = android.util.DisplayUtils.getPhysicalPixelDisplaySizeRatio(
+                mStableDisplaySize.x, mStableDisplaySize.y, displayInfo.getNaturalWidth(),
+                displayInfo.getNaturalHeight());
         if (scaleFactor == Float.POSITIVE_INFINITY) {
             return new PointF(mFaceAuthSensorLocation.x, mFaceAuthSensorLocation.y);
         }
@@ -646,11 +644,9 @@ public class AuthController extends CoreStartable implements CommandQueue.Callba
         if (mUdfpsController != null) {
             final DisplayInfo displayInfo = new DisplayInfo();
             mContext.getDisplay().getDisplayInfo(displayInfo);
-            final Display.Mode maxDisplayMode =
-                    DisplayUtils.getMaximumResolutionDisplayMode(displayInfo.supportedModes);
-            final float scaleFactor = DisplayUtils.getPhysicalPixelDisplaySizeRatio(
-                    maxDisplayMode.getPhysicalWidth(), maxDisplayMode.getPhysicalHeight(),
-                    displayInfo.getNaturalWidth(), displayInfo.getNaturalHeight());
+            final float scaleFactor = android.util.DisplayUtils.getPhysicalPixelDisplaySizeRatio(
+                    mStableDisplaySize.x, mStableDisplaySize.y, displayInfo.getNaturalWidth(),
+                    displayInfo.getNaturalHeight());
 
             final FingerprintSensorPropertiesInternal udfpsProp = mUdfpsProps.get(0);
             final Rect previousUdfpsBounds = mUdfpsBounds;
@@ -677,6 +673,7 @@ public class AuthController extends CoreStartable implements CommandQueue.Callba
                     mFingerprintAuthenticatorsRegisteredCallback);
         }
 
+        mStableDisplaySize = mDisplayManager.getStableDisplaySize();
         mActivityTaskManager.registerTaskStackListener(mTaskStackListener);
     }
 
