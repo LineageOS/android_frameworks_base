@@ -46,7 +46,7 @@ public interface NavigationEdgeBackPlugin extends Plugin {
     void setBackCallback(BackCallback callback);
 
     /** Specifies if the long swipe should be enabled or not. */
-    void setLongSwipeEnabled(boolean enabled);
+    default void setLongSwipeEnabled(boolean enabled) {}
 
     /** Sets the base LayoutParams for the UI. */
     void setLayoutParams(WindowManager.LayoutParams layoutParams);
@@ -72,5 +72,13 @@ public interface NavigationEdgeBackPlugin extends Plugin {
          */
         // TODO(b/247883311): Remove default impl once SwipeBackGestureHandler overrides this.
         default void setTriggerBack(boolean triggerBack) {}
+
+        /**
+         * Indicates if long swipe will be triggered if committed in current state.
+         *
+         * @param triggerLongSwipe if long swipe will be triggered in current state.
+         */
+        // TODO(b/247883311): Remove default impl once SwipeBackGestureHandler overrides this.
+        default void setTriggerLongSwipe(boolean triggerLongSwipe) {}
     }
 }
