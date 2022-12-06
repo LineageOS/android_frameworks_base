@@ -4246,7 +4246,7 @@ public class NotificationPanelViewController extends PanelViewController {
                     return false;
                 }
 
-                if (mDoubleTapToSleepEnabled && !mPulsing && !mDozing) {
+                if (mDoubleTapToSleepEnabled && mBarState == StatusBarState.KEYGUARD) {
                     mDoubleTapGesture.onTouchEvent(event);
                 }
 
