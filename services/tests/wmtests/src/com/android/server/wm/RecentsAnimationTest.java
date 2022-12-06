@@ -95,7 +95,7 @@ public class RecentsAnimationTest extends WindowTestsBase {
                 mRecentsComponent.getPackageName(), mRecentsComponent.getPackageName(),
                 // Use real pid/uid of the test so the corresponding process can be mapped by
                 // Binder.getCallingPid/Uid.
-                android.os.Process.myPid(), android.os.Process.myUid());
+                WindowManagerService.MY_PID, WindowManagerService.MY_UID);
         ActivityRecord recentActivity = new ActivityBuilder(mAtm)
                 .setComponent(mRecentsComponent)
                 .setTask(recentsStack)

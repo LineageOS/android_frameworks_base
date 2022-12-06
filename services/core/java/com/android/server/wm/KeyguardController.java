@@ -73,6 +73,8 @@ class KeyguardController {
 
     static final String KEYGUARD_SLEEP_TOKEN_TAG = "keyguard";
 
+    private static final int DEFER_WAKE_TRANSITION_TIMEOUT_MS = 5000;
+
     private final ActivityTaskSupervisor mTaskSupervisor;
     private WindowManagerService mWindowManager;
 
@@ -80,7 +82,7 @@ class KeyguardController {
     private final ActivityTaskManagerService mService;
     private RootWindowContainer mRootWindowContainer;
     private final ActivityTaskManagerInternal.SleepTokenAcquirer mSleepTokenAcquirer;
-
+    private boolean mWaitingForWakeTransition;
 
     KeyguardController(ActivityTaskManagerService service,
             ActivityTaskSupervisor taskSupervisor) {
@@ -168,10 +170,14 @@ class KeyguardController {
 
         final KeyguardDisplayState state = getDisplayState(displayId);
         final boolean aodChanged = aodShowing != state.mAodShowing;
+        final boolean aodRemoved = state.mAodShowing && !aodShowing;
         // If keyguard is going away, but SystemUI aborted the transition, need to reset state.
-        // Do not reset keyguardChanged status if this is aodChanged.
+        // Do not reset keyguardChanged status when only AOD is removed.
         final boolean keyguardChanged = (keyguardShowing != state.mKeyguardShowing)
-                || (state.mKeyguardGoingAway && keyguardShowing && !aodChanged);
+                || (state.mKeyguardGoingAway && keyguardShowing && !aodRemoved);
+        if (aodRemoved) {
+            updateDeferWakeTransition(false /* waiting */);
+        }
         if (!keyguardChanged && !aodChanged) {
             setWakeTransitionReady();
             return;
@@ -200,10 +206,6 @@ class KeyguardController {
 
         state.mKeyguardShowing = keyguardShowing;
         state.mAodShowing = aodShowing;
-        if (aodChanged) {
-            // Ensure the new state takes effect.
-            mWindowManager.mWindowPlacerLocked.performSurfacePlacement();
-        }
 
         if (keyguardChanged) {
             // Irrelevant to AOD.
@@ -221,6 +223,10 @@ class KeyguardController {
         mRootWindowContainer.ensureActivitiesVisible(null, 0, !PRESERVE_WINDOWS);
         InputMethodManagerInternal.get().updateImeWindowStatus(false /* disableImeIcon */);
         setWakeTransitionReady();
+        if (aodChanged) {
+            // Ensure the new state takes effect.
+            mWindowManager.mWindowPlacerLocked.performSurfacePlacement();
+        }
     }
 
     private void setWakeTransitionReady() {
@@ -526,6 +532,33 @@ class KeyguardController {
             mDisplayStates.remove(displayId);
         }
     }
+
+    private final Runnable mResetWaitTransition = () -> {
+        synchronized (mWindowManager.mGlobalLock) {
+            updateDeferWakeTransition(false /* waiting */);
+        }
+    };
+
+    void updateDeferWakeTransition(boolean waiting) {
+        if (waiting == mWaitingForWakeTransition) {
+            return;
+        }
+        if (!mWindowManager.mAtmService.getTransitionController().isShellTransitionsEnabled()) {
+            return;
+        }
+        // if aod is showing, defer the wake transition until aod state changed.
+        if (waiting && isAodShowing(DEFAULT_DISPLAY)) {
+            mWaitingForWakeTransition = true;
+            mWindowManager.mAtmService.getTransitionController().deferTransitionReady();
+            mWindowManager.mH.postDelayed(mResetWaitTransition, DEFER_WAKE_TRANSITION_TIMEOUT_MS);
+        } else if (!waiting) {
+            // dismiss the deferring if the aod state change or cancel awake.
+            mWaitingForWakeTransition = false;
+            mWindowManager.mAtmService.getTransitionController().continueTransitionReady();
+            mWindowManager.mH.removeCallbacks(mResetWaitTransition);
+        }
+    }
+
 
     /** Represents Keyguard state per individual display. */
     private static class KeyguardDisplayState {

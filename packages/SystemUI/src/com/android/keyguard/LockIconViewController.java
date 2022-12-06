@@ -23,11 +23,10 @@ import static com.android.keyguard.LockIconView.ICON_LOCK;
 import static com.android.keyguard.LockIconView.ICON_UNLOCK;
 import static com.android.systemui.classifier.Classifier.LOCK_ICON;
 import static com.android.systemui.doze.util.BurnInHelperKt.getBurnInOffset;
-import static com.android.systemui.doze.util.BurnInHelperKt.getBurnInProgressOffset;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.PointF;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimatedStateListDrawable;
 import android.hardware.biometrics.BiometricSourceType;
@@ -358,8 +357,9 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
                     mAuthController.getUdfpsRadius(), scaledPadding);
         } else {
             mView.setCenterLocation(
-                    new PointF(mWidthPixels / 2,
-                        mHeightPixels - ((mBottomPaddingPx + sLockIconRadiusPx) * scaleFactor)),
+                    new Point((int) mWidthPixels / 2,
+                            (int) (mHeightPixels
+                                    - ((mBottomPaddingPx + sLockIconRadiusPx) * scaleFactor))),
                         sLockIconRadiusPx * scaleFactor, scaledPadding);
         }
     }
@@ -403,7 +403,6 @@ public class LockIconViewController extends ViewController<LockIconView> impleme
         float offsetY = MathUtils.lerp(0f,
                 getBurnInOffset(mMaxBurnInOffsetY * 2, false /* xAxis */)
                         - mMaxBurnInOffsetY, mInterpolatedDarkAmount);
-        float progress = MathUtils.lerp(0f, getBurnInProgressOffset(), mInterpolatedDarkAmount);
 
         mView.setTranslationX(offsetX);
         mView.setTranslationY(offsetY);

@@ -109,7 +109,7 @@ public class ActionProxyReceiver extends BroadcastReceiver {
                 actionType = ACTION_TYPE_SHARE;
             }
             mScreenshotSmartActions.notifyScreenshotAction(
-                    context, intent.getStringExtra(EXTRA_ID), actionType, false, null);
+                    intent.getStringExtra(EXTRA_ID), actionType, false, null);
         }
     }
 }
