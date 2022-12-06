@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27cb9578_b3e73b0a",
+        "filename": "packages/SystemUI/plugin/src/com/android/systemui/plugins/NavigationEdgeBackPlugin.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-12-06T22:31:56Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 94
+      },
+      "revId": "be17fd1d76955395d7b7bb0935403a68ccd66369",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
