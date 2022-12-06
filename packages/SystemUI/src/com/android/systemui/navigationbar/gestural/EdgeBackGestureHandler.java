@@ -324,6 +324,13 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                         mBackAnimation.setTriggerBack(triggerBack);
                     }
                 }
+
+                @Override
+                public void setTriggerLongSwipe(boolean triggerLongSwipe) {
+                    if (mBackAnimation != null) {
+                        mBackAnimation.setTriggerLongSwipe(triggerLongSwipe);
+                    }
+                }
             };
 
     private final SysUiState.SysUiStateCallback mSysUiStateCallback =

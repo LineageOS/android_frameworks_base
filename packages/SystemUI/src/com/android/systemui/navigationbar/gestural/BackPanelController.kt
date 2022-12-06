@@ -519,7 +519,7 @@ class BackPanelController private constructor(
         }
         // Dispatch the actual back trigger
         if (DEBUG) Log.d(TAG, "playCommitBackAnimation() invoked triggerBack() on backCallback")
-        backCallback.triggerBack()
+        backCallback.triggerBack(false)
 
         playAnimation(setGoneEndListener)
     }
