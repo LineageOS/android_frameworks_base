@@ -647,10 +647,10 @@ public class RingtoneManager {
                 setting, context.getUserId());
         return uriString != null ? Uri.parse(uriString) : null;
     }
-    
+
     /**
      * Sets the {@link Uri} of the default sound for a given sound type.
-     * 
+     *
      * @param context A context used for querying.
      * @param type The type whose default sound should be set. One of
      *            {@link #TYPE_RINGTONE}, {@link #TYPE_NOTIFICATION}, or
@@ -663,6 +663,21 @@ public class RingtoneManager {
 
         String setting = getSettingForType(type);
         if (setting == null) return;
+
+        if (ringtoneUri != null) {
+            final String mimeType = resolver.getType(ringtoneUri);
+            if (mimeType == null) {
+                Log.e(TAG, "setActualDefaultRingtoneUri for URI:" + ringtoneUri
+                        + " ignored: failure to find mimeType (no access from this context?)");
+                return;
+            }
+            if (!(mimeType.startsWith("audio/") || mimeType.equals("application/ogg"))) {
+                Log.e(TAG, "setActualDefaultRingtoneUri for URI:" + ringtoneUri
+                        + " ignored: associated mimeType:" + mimeType + " is not an audio type");
+                return;
+            }
+        }
+
         Settings.System.putStringForUser(resolver, setting,
                 ringtoneUri != null ? ringtoneUri.toString() : null, context.getUserId());
 
