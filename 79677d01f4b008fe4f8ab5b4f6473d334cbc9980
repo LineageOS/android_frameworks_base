@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dd0268e_3043f175",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/NotificationMediaManager.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2022-12-07T01:58:38Z",
+      "side": 1,
+      "message": "On few apps like Spotify, this gets called multiple times while playing a single track, causing stutters in the UI.\nIt is especially noticeable on lower end devices when trying to switch the track while on lockscreen.\n\nI suppose there may be a way to improve this by setting a flag the first time playback state is `STATE_PLAYING`,\nThen, Resetting the same flag if the track is paused or changed.\nSo, only When the track is paused or changed the function gets called.",
+      "revId": "79677d01f4b008fe4f8ab5b4f6473d334cbc9980",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
