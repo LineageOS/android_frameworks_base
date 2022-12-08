@@ -32,9 +32,9 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.settings.brightness.ToggleSlider;
+import com.android.systemui.shade.NotificationPanelViewController;
+import com.android.systemui.shade.NotificationShadeWindowView;
 import com.android.systemui.statusbar.NotificationShadeDepthController;
-import com.android.systemui.statusbar.phone.NotificationPanelViewController;
-import com.android.systemui.statusbar.phone.NotificationShadeWindowView;
 import com.android.systemui.tuner.TunerService;
 
 import lineageos.providers.LineageSettings;
@@ -81,6 +81,7 @@ public class BrightnessMirrorController
             mBrightnessMirror.setVisibility(View.INVISIBLE);
         });
         mVisibilityCallback = visibilityCallback;
+        updateResources();
 
         TunerService.Tunable tunable = (key, newValue) -> {
             if (QS_SHOW_AUTO_BRIGHTNESS.equals(key)) {
@@ -180,6 +181,7 @@ public class BrightnessMirrorController
                 .inflate(R.layout.brightness_mirror_container, mStatusBarWindow, false);
         mToggleSliderController = setMirrorLayout();
         mStatusBarWindow.addView(mBrightnessMirror, index);
+        updateResources();
 
         for (int i = 0; i < mBrightnessMirrorListeners.size(); i++) {
             mBrightnessMirrorListeners.valueAt(i).onBrightnessMirrorReinflated(mBrightnessMirror);

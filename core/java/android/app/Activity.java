@@ -980,7 +980,8 @@ public class Activity extends ContextThemeWrapper
     boolean mEnterAnimationComplete;
 
     private boolean mIsInMultiWindowMode;
-    private boolean mIsInPictureInPictureMode;
+    /** @hide */
+    boolean mIsInPictureInPictureMode;
 
     private boolean mShouldDockBigOverlays;
 
@@ -6430,6 +6431,20 @@ public class Activity extends ContextThemeWrapper
             mResultCode = resultCode;
             mResultData = null;
         }
+    }
+
+    /**
+     * Ensures the activity's result is immediately returned to the caller when {@link #finish()}
+     * is invoked
+     *
+     * <p>Should be invoked alongside {@link #setResult(int, Intent)}, so the provided results are
+     * in place before finishing. Must only be invoked during MediaProjection setup.
+     *
+     * @hide
+     */
+    @RequiresPermission(android.Manifest.permission.MANAGE_MEDIA_PROJECTION)
+    public final void setForceSendResultForMediaProjection() {
+        ActivityClient.getInstance().setForceSendResultForMediaProjection(mToken);
     }
 
     /**

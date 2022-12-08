@@ -49,10 +49,11 @@ import com.android.systemui.Dumpable;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
+import com.android.systemui.flags.FeatureFlags;
+import com.android.systemui.flags.Flags;
 import com.android.systemui.model.SysUiState;
 import com.android.systemui.recents.OverviewProxyService;
 import com.android.systemui.shared.system.QuickStepContract;
-import com.android.systemui.shared.system.WindowManagerWrapper;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.statusbar.phone.AutoHideController;
@@ -63,11 +64,12 @@ import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.wm.shell.back.BackAnimation;
 import com.android.wm.shell.pip.Pip;
 
+import lineageos.providers.LineageSettings;
+
 import java.io.PrintWriter;
 import java.util.Optional;
 
 import javax.inject.Inject;
-
 
 /** A controller to handle navigation bars. */
 @SysUISingleton
@@ -83,6 +85,7 @@ public class NavigationBarController implements
     private final Context mContext;
     private final Handler mHandler;
     private final NavigationBarComponent.Factory mNavigationBarComponentFactory;
+    private FeatureFlags mFeatureFlags;
     private final DisplayManager mDisplayManager;
     private final TaskbarDelegate mTaskbarDelegate;
     private final StatusBarKeyguardViewManager mStatusBarKeyguardViewManager;
@@ -114,10 +117,12 @@ public class NavigationBarController implements
             AutoHideController autoHideController,
             LightBarController lightBarController,
             Optional<Pip> pipOptional,
-            Optional<BackAnimation> backAnimation) {
+            Optional<BackAnimation> backAnimation,
+            FeatureFlags featureFlags) {
         mContext = context;
         mHandler = mainHandler;
         mNavigationBarComponentFactory = navigationBarComponentFactory;
+        mFeatureFlags = featureFlags;
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
         commandQueue.addCallback(this);
         configurationController.addCallback(this);
@@ -312,17 +317,16 @@ public class NavigationBarController implements
 
         // We may show TaskBar on the default display for large screen device. Don't need to create
         // navigation bar for this case.
-        if (shouldShowTaskbar() && isOnDefaultDisplay) {
+        if (isOnDefaultDisplay && initializeTaskbarIfNecessary()) {
             return;
         }
 
-        final WindowManagerWrapper wm = WindowManagerWrapper.getInstance();
         final IWindowManager wms = WindowManagerGlobal.getWindowManagerService();
 
         final Context context = isOnDefaultDisplay
                 ? mContext
                 : mContext.createDisplayContext(display);
-        if (!wm.hasSoftNavigationBar(context, displayId)) {
+        if (!hasSoftNavigationBar(context, displayId)) {
             return;
         }
         NavigationBarComponent component = mNavigationBarComponentFactory.create(
@@ -450,6 +454,26 @@ public class NavigationBarController implements
 
     private boolean shouldShowTaskbar() {
         return mTaskbarShowing;
+    }
+
+    /**
+     * @param displayId the id of display to check if there is a software navigation bar.
+     *
+     * @return whether there is a soft nav bar on specific display.
+     */
+    private boolean hasSoftNavigationBar(Context context, int displayId) {
+        if (displayId == DEFAULT_DISPLAY &&
+                LineageSettings.System.getIntForUser(context.getContentResolver(),
+                        LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+                        UserHandle.USER_CURRENT) == 1) {
+            return true;
+        }
+        try {
+            return WindowManagerGlobal.getWindowManagerService().hasNavigationBar(displayId);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to check soft navigation bar", e);
+            return false;
+        }
     }
 
     /** @return {@link NavigationBar} on the default display. */

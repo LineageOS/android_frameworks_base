@@ -39,7 +39,10 @@ import com.android.systemui.R;
 
 import lineageos.providers.LineageSettings;
 
-public class NumPadKey extends ViewGroup {
+/**
+ * Viewgroup for the bouncer numpad button, specifically for digits.
+ */
+public class NumPadKey extends ViewGroup implements NumPadAnimationListener {
     // list of "ABC", etc per digit, starting with '0'
     static String sKlondike[];
 
@@ -233,5 +236,12 @@ public class NumPadKey extends ViewGroup {
     public void doHapticKeyClick() {
         performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY,
                 HapticFeedbackConstants.FLAG_IGNORE_VIEW_SETTING);
+    }
+
+    @Override
+    public void setProgress(float progress) {
+        if (mAnimator != null) {
+            mAnimator.setProgress(progress);
+        }
     }
 }

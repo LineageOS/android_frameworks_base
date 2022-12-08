@@ -31,6 +31,7 @@ import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 import com.android.systemui.volume.VolumeDialogComponent;
 import com.android.systemui.volume.VolumeDialogImpl;
+import com.android.systemui.volume.VolumePanelFactory;
 
 import dagger.Binds;
 import dagger.Module;
@@ -53,6 +54,7 @@ public interface VolumeModule {
             DeviceProvisionedController deviceProvisionedController,
             ConfigurationController configurationController,
             MediaOutputDialogFactory mediaOutputDialogFactory,
+            VolumePanelFactory volumePanelFactory,
             ActivityStarter activityStarter,
             TunerService tunerService,
             InteractionJankMonitor interactionJankMonitor) {
@@ -63,6 +65,7 @@ public interface VolumeModule {
                 deviceProvisionedController,
                 configurationController,
                 mediaOutputDialogFactory,
+                volumePanelFactory,
                 activityStarter,
                 tunerService,
                 interactionJankMonitor);

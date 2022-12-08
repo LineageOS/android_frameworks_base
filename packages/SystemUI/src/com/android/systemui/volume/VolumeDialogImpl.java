@@ -82,6 +82,7 @@ import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.text.InputFilter;
+import android.util.FeatureFlagUtils;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Slog;
@@ -265,6 +266,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private final ConfigurationController mConfigurationController;
     private final MediaOutputDialogFactory mMediaOutputDialogFactory;
+    private final VolumePanelFactory mVolumePanelFactory;
     private final ActivityStarter mActivityStarter;
 
     private boolean mShowing;
@@ -309,6 +311,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             DeviceProvisionedController deviceProvisionedController,
             ConfigurationController configurationController,
             MediaOutputDialogFactory mediaOutputDialogFactory,
+            VolumePanelFactory volumePanelFactory,
             ActivityStarter activityStarter,
             TunerService tunerService,
             InteractionJankMonitor interactionJankMonitor) {
@@ -321,6 +324,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDeviceProvisionedController = deviceProvisionedController;
         mConfigurationController = configurationController;
         mMediaOutputDialogFactory = mediaOutputDialogFactory;
+        mVolumePanelFactory = volumePanelFactory;
         mActivityStarter = activityStarter;
         mTunerService = tunerService;
         mShowActiveStreamOnly = showActiveStreamOnly();
