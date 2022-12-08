@@ -59,6 +59,7 @@ class UdfpsView(
 
     // Only used for UdfpsHbmTypes.GLOBAL_HBM.
     private var ghbmView: UdfpsSurfaceView? = null
+    private val ghbm = context.getResources().getBoolean(R.bool.config_udfpsGhbm)
 
     /** View controller (can be different for enrollment, BiometricPrompt, Keyguard, etc.). */
     var animationViewController: UdfpsAnimationViewController<*>? = null
@@ -87,7 +88,9 @@ class UdfpsView(
     }
 
     override fun onFinishInflate() {
-        ghbmView = findViewById(R.id.hbm_view)
+        if (ghbm) {
+            ghbmView = findViewById(R.id.hbm_view)
+        }
     }
 
     override fun dozeTimeTick() {
