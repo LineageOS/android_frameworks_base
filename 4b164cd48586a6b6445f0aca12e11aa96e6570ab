@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2fa0fdc_76456b09",
+        "filename": "packages/SystemUI/res/values/lineage_config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2022-12-08T21:38:48Z",
+      "side": 1,
+      "message": "If we want to make this configurable again we could reuse config_udfpsHbmType from 19.1",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "4b164cd48586a6b6445f0aca12e11aa96e6570ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
