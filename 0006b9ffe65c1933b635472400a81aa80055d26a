@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2acd2ef_196f687d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18590
+      },
+      "writtenOn": "2022-12-09T04:41:14Z",
+      "side": 1,
+      "message": "ghbm view doesn\u0027t really do anything on lhbm devices, lhbm will display what kernel says to regardless of framework (at least on pixel)",
+      "revId": "0006b9ffe65c1933b635472400a81aa80055d26a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
