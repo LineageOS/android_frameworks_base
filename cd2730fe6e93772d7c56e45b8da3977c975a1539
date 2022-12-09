@@ -22,6 +22,30 @@
       },
       "revId": "cd2730fe6e93772d7c56e45b8da3977c975a1539",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cdae6ad_75b57ba0",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsView.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-12-09T23:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0d257d2_1931e867",
+      "range": {
+        "startLine": 60,
+        "startChar": 21,
+        "endLine": 60,
+        "endChar": 45
+      },
+      "revId": "cd2730fe6e93772d7c56e45b8da3977c975a1539",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
