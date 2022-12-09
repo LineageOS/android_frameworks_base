@@ -22,6 +22,30 @@
       },
       "revId": "be17fd1d76955395d7b7bb0935403a68ccd66369",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d598c9a7_7382b125",
+        "filename": "packages/SystemUI/plugin/src/com/android/systemui/plugins/NavigationEdgeBackPlugin.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2022-12-09T09:58:27Z",
+      "side": 1,
+      "message": "same todo still applies here.",
+      "parentUuid": "27cb9578_b3e73b0a",
+      "range": {
+        "startLine": 81,
+        "startChar": 8,
+        "endLine": 81,
+        "endChar": 94
+      },
+      "revId": "be17fd1d76955395d7b7bb0935403a68ccd66369",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
