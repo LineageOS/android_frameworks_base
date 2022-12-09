@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0d257d2_1931e867",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsView.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-12-09T13:24:59Z",
+      "side": 1,
+      "message": "This no longer exists, need to reword",
+      "range": {
+        "startLine": 60,
+        "startChar": 21,
+        "endLine": 60,
+        "endChar": 45
+      },
+      "revId": "cd2730fe6e93772d7c56e45b8da3977c975a1539",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
