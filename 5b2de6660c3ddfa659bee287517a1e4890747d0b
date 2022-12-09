@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69e5c466_0ba2d865",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/gestural/NavigationBarEdgePanel.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-12-09T12:54:12Z",
+      "side": 1,
+      "message": "Maybe make this mTriggerLongSwipe to fully match line 910?",
+      "range": {
+        "startLine": 923,
+        "startChar": 46,
+        "endLine": 923,
+        "endChar": 62
+      },
+      "revId": "5b2de6660c3ddfa659bee287517a1e4890747d0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
