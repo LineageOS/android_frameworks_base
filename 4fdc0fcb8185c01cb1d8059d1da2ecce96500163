@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f74b841_5dbc9389",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-12-10T20:08:15Z",
+      "side": 1,
+      "message": "Fixes toast notifications from older apps while in dark mode so that the text is no longer being displayed on a light background. Tested with Termux from F-Droid.",
+      "revId": "4fdc0fcb8185c01cb1d8059d1da2ecce96500163",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
