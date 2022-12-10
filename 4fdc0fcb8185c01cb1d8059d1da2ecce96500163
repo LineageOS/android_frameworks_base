@@ -33,6 +33,24 @@
       "message": "Did you test with light mode toasts or are those are still dark?",
       "revId": "4fdc0fcb8185c01cb1d8059d1da2ecce96500163",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee033233_4e802b4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19665
+      },
+      "writtenOn": "2022-12-10T20:52:10Z",
+      "side": 1,
+      "message": "I checked light mode too, and the background color was changed back to light (which matches with the text color changing to dark). As such, it remains readable still.",
+      "parentUuid": "3ebb2576_82ccadbc",
+      "revId": "4fdc0fcb8185c01cb1d8059d1da2ecce96500163",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
