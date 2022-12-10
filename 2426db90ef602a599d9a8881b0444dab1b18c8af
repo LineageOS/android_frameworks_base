@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06ee531d_a65a0ab5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-12-10T10:53:03Z",
+      "side": 1,
+      "message": "This would solve Michael comment, and IMO this solution is better.\nTo hook the lineage setting all you have to do is adding one extra check before starting the keyguards runnable.\n\nI\u0027d it as follows;\nMake SecureQSTile implement a ContentObserver and register for URI changes to the LineageSetting you care about, store the result boolean value in a protected variable and add that in the (mKeyguard.isMethodSecure \u0026\u0026 mKeyguard.isShowing) check.\nTo make all Tiles register it you\u0027d have to override the parent ctor in your SecureQSTile class and then have that one call the original ctor via super.\n\nOtherwise, query the setting each time you get handleClick() ;)",
+      "revId": "2426db90ef602a599d9a8881b0444dab1b18c8af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b160c16d_c1afc8ca",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SecureQSTile.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-12-10T10:53:03Z",
+      "side": 1,
+      "message": "protected abstract fun handleClickSecure(view: View?)",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 77
+      },
+      "revId": "2426db90ef602a599d9a8881b0444dab1b18c8af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fdd15bc_c8894342",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/SecureQSTile.kt",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2022-12-10T10:53:03Z",
+      "side": 1,
+      "message": "instead of having every children class implement the check ( prone to error )\nI\u0027d move it here in the parent class\n\n    override fun handleClick(view: View?) {\n        if (mKeyguard.isMethodSecure \u0026\u0026 mKeyguard.isShowing) {\n            mActivityStarter.postQSRunnableDismissingKeyguard {\n                handleClick(view, false)\n            }\n        } else {\n            handleClick(view, false)\n        }\n    }\n\nWith that done handleClick can likely be named something more suitable like:\n    handleClickSecure(view: View?)\n\n    override fun handleClick(view: View?) {\n        if (mKeyguard.isMethodSecure \u0026\u0026 mKeyguard.isShowing) {\n            mActivityStarter.postQSRunnableDismissingKeyguard {\n                handleClickSecure(view)\n            }\n        } else {\n            handleClickSecure(view)\n        }\n    }\n    \nYou can now also remove checkKeyguard() and remove the calls from every tile 😊",
+      "revId": "2426db90ef602a599d9a8881b0444dab1b18c8af",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
