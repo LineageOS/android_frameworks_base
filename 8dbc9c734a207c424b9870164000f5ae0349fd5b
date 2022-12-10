@@ -67,6 +67,24 @@
       "message": "For side fingerprint sensor whose property is defined in `config_sfps_sensor_props` overlay, the location of the fingerprint overlay does not change when resolution changes. Maybe also need to change this file? \n\u003e packages/SystemUI/src/com/android/systemui/biometrics/SidefpsController.kt\nfor example:\n```\n--- a/packages/SystemUI/src/com/android/systemui/biometrics/SidefpsController.kt\n+++ b/packages/SystemUI/src/com/android/systemui/biometrics/SidefpsController.kt\n@@ -32,6 +32,7 @@ import android.hardware.fingerprint.FingerprintManager\n import android.hardware.fingerprint.FingerprintSensorPropertiesInternal\n import android.hardware.fingerprint.ISidefpsController\n import android.os.Handler\n+import android.util.DisplayUtils\n import android.util.Log\n import android.util.RotationUtils\n import android.view.Display\n@@ -220,12 +221,14 @@ class SidefpsController @Inject constructor(\n         val displayHeight \u003d if (isNaturalOrientation) size.height() else size.width()\n         val boundsWidth \u003d if (isNaturalOrientation) bounds.width() else bounds.height()\n         val boundsHeight \u003d if (isNaturalOrientation) bounds.height() else bounds.width()\n+        val scaleFactor \u003d DisplayUtils.getScaleFactor(context)\n+        val locationY \u003d (scaleFactor * overlayOffsets.sensorLocationY).toInt()\n         val sensorBounds \u003d if (overlayOffsets.isYAligned()) {\n             Rect(\n                 displayWidth - boundsWidth,\n-                overlayOffsets.sensorLocationY,\n+                locationY,\n                 displayWidth,\n-                overlayOffsets.sensorLocationY + boundsHeight\n+                locationY + boundsHeight\n             )\n         } else {\n             Rect(\n```",
       "revId": "8dbc9c734a207c424b9870164000f5ae0349fd5b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08a38aef_08d6f3ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29242
+      },
+      "writtenOn": "2022-12-10T22:14:14Z",
+      "side": 1,
+      "message": "Have you tested this? I don\u0027t own a device that uses a side fps \u0026 supports multiple resolutions.",
+      "parentUuid": "38a39d30_6caff0dd",
+      "revId": "8dbc9c734a207c424b9870164000f5ae0349fd5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
