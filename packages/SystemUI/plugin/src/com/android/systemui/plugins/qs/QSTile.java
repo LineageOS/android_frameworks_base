@@ -345,4 +345,31 @@ public interface QSTile {
             return state;
         }
     }
+
+    @ProvidesInterface(version = DisplayModeState.VERSION)
+    public static class DisplayModeState extends State {
+        public static final int VERSION = 1;
+        public int mode;
+
+        @Override
+        public boolean copyTo(State other) {
+            final DisplayModeState o = (DisplayModeState) other;
+            final boolean changed = mode != o.mode;
+            return super.copyTo(other) || changed;
+        }
+
+        @Override
+        protected StringBuilder toStringBuilder() {
+            final StringBuilder rt = super.toStringBuilder();
+            rt.insert(rt.length() - 1, ",mode=" + mode);
+            return rt;
+        }
+
+        @Override
+        public State copy() {
+            DisplayModeState state = new DisplayModeState();
+            copyTo(state);
+            return state;
+        }
+    }
 }

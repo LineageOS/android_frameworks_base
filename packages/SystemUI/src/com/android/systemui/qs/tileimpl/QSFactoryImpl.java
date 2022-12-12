@@ -40,6 +40,7 @@ import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
+import com.android.systemui.qs.tiles.DisplayModeTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
@@ -113,6 +114,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<VpnTile> mVpnTileProvider;
     private final Provider<AntiFlickerTile> mAntiFlickerTileProvider;
+    private final Provider<DisplayModeTile> mDisplayModeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -158,7 +160,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SyncTile> syncTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<VpnTile> vpnTileProvider,
-            Provider<AntiFlickerTile> antiFlickerTileProvider) {
+            Provider<AntiFlickerTile> antiFlickerTileProvider,
+            Provider<DisplayModeTile> displayModeTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -200,6 +203,7 @@ public class QSFactoryImpl implements QSFactory {
         mUsbTetherTileProvider = usbTetherTileProvider;
         mVpnTileProvider = vpnTileProvider;
         mAntiFlickerTileProvider = antiFlickerTileProvider;
+        mDisplayModeTileProvider = displayModeTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -289,6 +293,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mVpnTileProvider.get();
             case "anti_flicker":
                 return mAntiFlickerTileProvider.get();
+            case "display_mode":
+                return mDisplayModeTileProvider.get();
         }
 
         // Custom tiles
