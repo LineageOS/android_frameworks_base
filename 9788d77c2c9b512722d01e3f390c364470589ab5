@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dece0024_e16847cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19165
+      },
+      "writtenOn": "2022-12-13T18:46:45Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1: Code-Review-2\n\u003e \n\u003e this needs to be ported to lineage sdk resources\n\nbetter as a follow up commit like its been done for the camera aux commits, or change this one?",
+      "revId": "9788d77c2c9b512722d01e3f390c364470589ab5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
