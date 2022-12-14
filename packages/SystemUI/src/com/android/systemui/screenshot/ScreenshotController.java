@@ -491,6 +491,7 @@ public class ScreenshotController {
         removeWindow();
         releaseMediaPlayer();
         releaseContext();
+        releaseTaskStackListener();
         mBgExecutor.shutdownNow();
     }
 
@@ -512,6 +513,11 @@ public class ScreenshotController {
             }
         } catch (InterruptedException | ExecutionException e) {
         }
+    }
+
+    // Unregister task listener.
+    private void releaseTaskStackListener() {
+        TaskStackChangeListeners.getInstance().unregisterTaskStackListener(mTaskListener);
     }
 
     /**
