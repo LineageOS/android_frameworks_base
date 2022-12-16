@@ -18,6 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Hodiny</string>
     <string name="global_action_restart_more">Restartovat\u2026</string>
     <string name="global_action_restart_system">Systém</string>
     <string name="global_action_restart_recovery">Recovery</string>
