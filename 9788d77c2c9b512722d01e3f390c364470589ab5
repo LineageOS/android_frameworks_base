@@ -33,6 +33,46 @@
       "message": "\u003e Patch Set 1:\n\u003e \n\u003e ehh, there\u0027s fw/av change too... that sucks\n\nThe other fw/base + fw/av changes are only for taking pics at high resolutions (in Moto Camera its called Ultra-Res, 64-200 MP instead of binned to 12.x MP like in normal camera mode or other camera apps).\nThis commit alone is enough to allow SlowMotion to work at 240+ fps though (tested on  erlin with 240 and 960 fps SlowMotion in MotCamera3).",
       "revId": "9788d77c2c9b512722d01e3f390c364470589ab5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8137029f_1f1cbf7e",
+        "filename": "core/java/android/hardware/camera2/utils/SurfaceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-12-26T23:07:24Z",
+      "side": 1,
+      "message": "Move to the correct section and fix alphabetical order",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "9788d77c2c9b512722d01e3f390c364470589ab5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24173d13_da61d602",
+        "filename": "core/java/android/hardware/camera2/utils/SurfaceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-12-26T23:07:24Z",
+      "side": 1,
+      "message": "Unneeded newline",
+      "revId": "9788d77c2c9b512722d01e3f390c364470589ab5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
