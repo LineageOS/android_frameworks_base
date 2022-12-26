@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8ffaad_5d8010e6",
+        "filename": "core/java/android/hardware/camera2/impl/CameraDeviceImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2022-12-26T23:05:17Z",
+      "side": 1,
+      "message": "Alphabetical order",
+      "revId": "961d17ffc675ef4ecc56eaff2cdbffc556fdd040",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
