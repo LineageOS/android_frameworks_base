@@ -767,6 +767,10 @@ class ActivityStarter {
         abort |= !mService.getPermissionPolicyInternal().checkStartActivity(intent, callingUid,
                 callingPackage);
 
+        // Merge the two options bundles, while realCallerOptions takes precedence.
+        ActivityOptions checkedOptions = options != null
+                ? options.getOptions(intent, aInfo, callerApp, mSupervisor) : null;
+
         boolean restrictedBgActivity = false;
         if (!abort) {
             try {
@@ -774,15 +778,12 @@ class ActivityStarter {
                         "shouldAbortBackgroundActivityStart");
                 restrictedBgActivity = shouldAbortBackgroundActivityStart(callingUid,
                         callingPid, callingPackage, realCallingUid, realCallingPid, callerApp,
-                        originatingPendingIntent, allowBackgroundActivityStart, intent);
+                        originatingPendingIntent, allowBackgroundActivityStart, intent, checkedOptions);
             } finally {
                 Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
             }
         }
 
-        // Merge the two options bundles, while realCallerOptions takes precedence.
-        ActivityOptions checkedOptions = options != null
-                ? options.getOptions(intent, aInfo, callerApp, mSupervisor) : null;
         if (allowPendingRemoteAnimationRegistryLookup) {
             checkedOptions = mService.getActivityStartController()
                     .getPendingRemoteAnimationRegistry()
@@ -941,7 +942,7 @@ class ActivityStarter {
     boolean shouldAbortBackgroundActivityStart(int callingUid, int callingPid,
             final String callingPackage, int realCallingUid, int realCallingPid,
             WindowProcessController callerApp, PendingIntentRecord originatingPendingIntent,
-            boolean allowBackgroundActivityStart, Intent intent) {
+            boolean allowBackgroundActivityStart, Intent intent, ActivityOptions checkedOptions) {
         // don't abort for the most important UIDs
         final int callingAppId = UserHandle.getAppId(callingUid);
         if (callingUid == Process.ROOT_UID || callingAppId == Process.SYSTEM_UID
@@ -976,7 +977,11 @@ class ActivityStarter {
                 ? isCallingUidPersistentSystemProcess
                 : (realCallingAppId == Process.SYSTEM_UID)
                         || realCallingUidProcState <= ActivityManager.PROCESS_STATE_PERSISTENT_UI;
-        if (realCallingUid != callingUid) {
+        // Legacy behavior allows to use caller foreground state to bypass BAL restriction.
+        final boolean balAllowedByPiSender =
+                PendingIntentRecord.isPendingIntentBalAllowedByCaller(checkedOptions);
+
+        if (balAllowedByPiSender && realCallingUid != callingUid) {
             // don't abort if the realCallingUid has a visible window
             if (realCallingUidHasAnyVisibleWindow) {
                 return false;
@@ -1013,9 +1018,10 @@ class ActivityStarter {
         // If we don't have callerApp at this point, no caller was provided to startActivity().
         // That's the case for PendingIntent-based starts, since the creator's process might not be
         // up and alive. If that's the case, we retrieve the WindowProcessController for the send()
-        // caller, so that we can make the decision based on its foreground/whitelisted state.
+        // caller if caller allows, so that we can make the decision
+        // based on its foreground/whitelisted state.
         int callerAppUid = callingUid;
-        if (callerApp == null) {
+        if (callerApp == null && balAllowedByPiSender) {
             callerApp = mService.getProcessController(realCallingPid, realCallingUid);
             callerAppUid = realCallingUid;
         }
