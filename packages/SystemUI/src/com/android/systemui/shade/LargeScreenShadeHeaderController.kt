@@ -291,13 +291,6 @@ class LargeScreenShadeHeaderController @Inject constructor(
             .setQSCarrierGroup(qsCarrierGroup)
             .build()
 
-        if (!combinedHeaders) {
-            // In the new header, we display alarm icon but we ignore it when not using the new
-            // headers.
-            iconContainer.addIgnoredSlot(
-                    context.getString(com.android.internal.R.string.status_bar_alarm_clock)
-            )
-        }
         if (combinedHeaders) {
             privacyIconsController.onParentVisible()
         }
