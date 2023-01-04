@@ -49,9 +49,28 @@ public final class AttestationHooks {
         }
     }
 
+    private static void setVersionField(String key, Integer value) {
+        try {
+            // Unlock
+            Field field = Build.VERSION.class.getDeclaredField(key);
+            field.setAccessible(true);
+
+            // Edit
+            field.set(null, value);
+
+            // Lock
+            field.setAccessible(false);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Log.e(TAG, "Failed to spoof Build.VERSION." + key, e);
+        }
+    }
+
     private static void spoofBuildGms() {
         // Alter model name to avoid hardware attestation enforcement
         setBuildField("MODEL", Build.MODEL + " ");
+        if (Build.VERSION.DEVICE_INITIAL_SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.S_V2);
+        }
     }
 
     public static void initApplicationBeforeOnCreate(Application app) {
