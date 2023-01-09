@@ -21,6 +21,7 @@ import android.app.ContentProviderHolder;
 import android.content.AttributionSource;
 import android.content.IContentProvider;
 import android.content.pm.PackageManager;
+import android.content.pm.UserInfo;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -39,6 +40,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -92,6 +94,34 @@ final public class SettingsService extends Binder {
                 mProvider.dumpProto(fd);
             } else {
                 mProvider.dumpInternal(fd, pw, args);
+
+                // Dump LineageSettings per user, as they would appear if listed via shell.
+                final UserManager userManager = UserManager.get(mProvider.getContext());
+                for (UserInfo user : userManager.getAliveUsers()) {
+                    final String[] tables = new String[] { "GLOBAL", "SECURE", "SYSTEM" };
+                    for (String table : Arrays.asList(tables)) {
+                        pw.println("LINEAGE " + table + " SETTINGS (user " + user.id + ")");
+
+                        // shellCmd will create its own buffered writer for the same fd,
+                        // so we must flush.
+                        pw.flush();
+
+                        // Prepare and execute the shell command.
+                        final MyShellCommand shellCmd = new MyShellCommand(mProvider,
+                                true /* dumping */);
+                        final String[] cmdArgs = new String[] {
+                                "list",
+                                "--lineage",
+                                "--user",
+                                String.valueOf(user.id),
+                                table.toLowerCase()
+                        };
+                        shellCmd.exec(this, null /* in */, fd /* out */, fd /* err */,
+                                cmdArgs, null /* callback */, null /* resultReceiver */);
+
+                        pw.println();
+                    }
+                }
             }
         } finally {
             Binder.restoreCallingIdentity(ident);
