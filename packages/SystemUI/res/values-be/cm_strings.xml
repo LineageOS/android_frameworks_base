@@ -21,15 +21,17 @@
     <string name="global_action_restart_system">Сістэма</string>
     <string name="global_action_restart_recovery">Аднаўленне</string>
     <string name="global_action_restart_bootloader">Загрузчык</string>
+    <string name="global_action_restart_download">Спампоўванне</string>
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Перазапуск\u2026</string>
     <string name="global_action_restart_recovery_progress">Перазапуск у рэжым аднаўлення\u2026</string>
     <string name="global_action_restart_bootloader_progress">Перазапуск у рэжым загрузчыка\u2026</string>
+    <string name="global_action_restart_download_progress">Перазапуск у рэжым пампавання\u2026</string>
     <string name="global_action_restart_fastboot_progress">Перазапуск у рэжым fastbootd\u2026</string>
     <string name="global_action_current_user">Бягучы</string>
-    <string name="quick_settings_ambient_display_label">Актыўны дысплэй</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Актыўны дысплэй выключаны</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Актыўны дысплэй уключаны.</string>
+    <string name="quick_settings_ambient_display_label">Актыўны экран</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Актыўны экран выключаны</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Актыўны экран уключаны.</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD выключаны\nЭканомія акумулятара</string>
     <string name="quick_settings_caffeine_label">Кафеін</string>
@@ -53,7 +55,7 @@
     <string name="accessibility_quick_settings_profiles">Профіль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB-мадэм</string>
     <string name="quick_settings_vpn_label">VPN</string>
-    <string name="quick_settings_vpn_connect_dialog_title">Падлучэнне да\u2026</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Падлучыцца да\u2026</string>
     <string name="vpn_credentials_hint">Калі ласка, увядзіце вашы ўліковыя даныя для падлучэння да <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Імя карыстальніка</string>
     <string name="vpn_credentials_password">Пароль</string>

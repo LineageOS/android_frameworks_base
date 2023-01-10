@@ -24,12 +24,12 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Download-mód</string>
-    <string name="global_action_restart_fastboot">Fastboot-mód</string>
+    <string name="global_action_restart_fastboot">Fastboot Deamon-mód</string>
     <string name="global_action_restart_progress">Újraindítás\u2026</string>
     <string name="global_action_restart_recovery_progress">Újraindítás recovery-módba\u2026</string>
     <string name="global_action_restart_bootloader_progress">Újraindítás bootloader-módba\u2026</string>
     <string name="global_action_restart_download_progress">Újraindítás download-módba\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Újraindítás Fastboot-módba\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Újraindítás Fastboot Daemon-módba\u2026</string>
     <string name="global_action_current_user">Jelenlegi</string>
     <string name="global_action_users">Felhasználók</string>
     <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
