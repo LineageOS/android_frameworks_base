@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f85db6f_8e2cdcb2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2023-01-11T13:35:36Z",
+      "side": 1,
+      "message": "The goal of this change is to provide additional information in bug reports that could be useful in tracking down problems.\n\nCurrently, the layout of LineageSettings and LineageSettingsProvider, combined with the lack of dump methods, makes it difficult to do this in a similar fashion to AOSP\u0027s own settings dumps. For users experiencing obscure but serious problems, I think having these settings be dumped now is preferable to waiting on larger class changes which can happen later.",
+      "revId": "f5c93e67ef1c0288bba04fc5455216407237e3b7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
