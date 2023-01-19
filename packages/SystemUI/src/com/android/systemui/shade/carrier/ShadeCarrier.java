@@ -152,11 +152,8 @@ public class ShadeCarrier extends LinearLayout {
     }
 
     public void updateColors(ColorStateList colorStateList) {
-        final boolean visible = !mIsSingleCarrier;
-        if (visible) {
-            mMobileRoaming.setImageTintList(colorStateList);
-            mMobileSignal.setImageTintList(colorStateList);
-        }
+        mMobileRoaming.setImageTintList(colorStateList);
+        mMobileSignal.setImageTintList(colorStateList);
     }
 
     @VisibleForTesting
