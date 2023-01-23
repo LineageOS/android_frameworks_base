@@ -24,6 +24,8 @@ import android.view.View;
 
 import com.android.systemui.R;
 
+import org.lineageos.internal.statusbar.NetworkTraffic;
+
 public final class PhoneStatusBarTransitions extends BarTransitions {
     private static final float ICON_ALPHA_WHEN_NOT_OPAQUE = 1;
     private static final float ICON_ALPHA_WHEN_LIGHTS_OUT_BATTERY_CLOCK = 0.5f;
@@ -31,7 +33,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
 
     private final float mIconAlphaWhenOpaque;
 
-    private View mStartSide, mStatusIcons, mNetworkTraffic, mBattery;
+    private View mStartSide, mStatusIcons, mBattery;
+    private NetworkTraffic mNetworkTraffic, mNetworkTrafficLeft, mNetworkTrafficRight;
     private Animator mCurrentAnimation;
 
     /**
@@ -44,7 +47,12 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
         mStartSide = statusBarView.findViewById(R.id.status_bar_start_side_except_heads_up);
         mStatusIcons = statusBarView.findViewById(R.id.statusIcons);
         mNetworkTraffic = statusBarView.findViewById(R.id.network_traffic);
+        mNetworkTrafficRight = statusBarView.findViewById(R.id.network_traffic_right);
+        mNetworkTrafficLeft = statusBarView.findViewById(R.id.network_traffic_left);
         mBattery = statusBarView.findViewById(R.id.battery);
+        mNetworkTraffic.setViewPosition(1);         /* centered display */
+        mNetworkTrafficRight.setViewPosition(2);    /* right display */
+        mNetworkTrafficLeft.setViewPosition(0);     /* left display */
         applyModeBackground(-1, getMode(), false /*animate*/);
         applyMode(getMode(), false /*animate*/);
     }
@@ -88,6 +96,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
                     animateTransitionTo(mStartSide, newAlpha),
                     animateTransitionTo(mStatusIcons, newAlpha),
                     animateTransitionTo(mNetworkTraffic, newAlpha),
+                    animateTransitionTo(mNetworkTrafficRight, newAlpha),
+                    animateTransitionTo(mNetworkTrafficLeft, newAlpha),
                     animateTransitionTo(mBattery, newAlphaBC)
                     );
             if (isLightsOut(mode)) {
@@ -99,6 +109,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
             mStartSide.setAlpha(newAlpha);
             mStatusIcons.setAlpha(newAlpha);
             mNetworkTraffic.setAlpha(newAlpha);
+            mNetworkTrafficRight.setAlpha(newAlpha);
+            mNetworkTrafficLeft.setAlpha(newAlpha);
             mBattery.setAlpha(newAlphaBC);
         }
     }
