@@ -118,6 +118,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private View mOngoingCallChip;
     private View mNotificationIconAreaInner;
     private View mNetworkTrafficHolder;
+    private View mNetworkTrafficHolderLeft;
+    private View mNetworkTrafficHolderRight;
     private int mDisabled1;
     private int mDisabled2;
     private DarkIconManager mDarkIconManager;
@@ -263,6 +265,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mStatusBarIconController.addIconGroup(mDarkIconManager);
         mEndSideContent = mStatusBar.findViewById(R.id.status_bar_end_side_content);
         mNetworkTrafficHolder = mStatusBar.findViewById(R.id.network_traffic_holder);
+        mNetworkTrafficHolderRight = mStatusBar.findViewById(R.id.network_traffic_holder_right);
+        mNetworkTrafficHolderLeft = mStatusBar.findViewById(R.id.network_traffic_holder_left);
         mClockController = mStatusBar.getClockController();
         mOngoingCallChip = mStatusBar.findViewById(R.id.ongoing_call_chip);
         showEndSideContent(false);
@@ -523,6 +527,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private void hideEndSideContent(boolean animate) {
         animateHide(mEndSideContent, animate);
         animateHide(mNetworkTrafficHolder, animate);
+        animateHide(mNetworkTrafficHolderRight, animate);
+        animateHide(mNetworkTrafficHolderLeft, animate);
     }
 
     private void showEndSideContent(boolean animate) {
@@ -531,11 +537,15 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (state == IDLE || state == SHOWING_PERSISTENT_DOT) {
             animateShow(mEndSideContent, animate);
             animateShow(mNetworkTrafficHolder, animate);
+            animateShow(mNetworkTrafficHolderRight, animate);
+            animateShow(mNetworkTrafficHolderLeft, animate);
         } else {
             // We are in the middle of a system status event animation, which will animate the
             // alpha (but not the visibility). Allow the view to become visible again
             mEndSideContent.setVisibility(View.VISIBLE);
             mNetworkTrafficHolder.setVisibility(View.VISIBLE);
+            mNetworkTrafficHolderRight.setVisibility(View.VISIBLE);
+            mNetworkTrafficHolderLeft.setVisibility(View.VISIBLE);
         }
     }
 
