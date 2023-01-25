@@ -680,7 +680,7 @@ class ContextImpl extends Context {
                             + "if UserManager is not available. "
                             + "(e.g. from inside an isolated process)");
                 }
-                if (!um.isUserUnlockingOrUnlocked(UserHandle.myUserId())) {
+                if (!um.isUserUnlockingOrUnlocked(getUserId())) {
                     throw new IllegalStateException("SharedPreferences in "
                             + "credential encrypted storage are not available until after "
                             + "user (id " + UserHandle.myUserId() + ") is unlocked");
