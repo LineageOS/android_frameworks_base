@@ -619,7 +619,7 @@ public class UserBackupManagerService {
                 backupManagerMonitorDumpsysUtils::deleteExpiredBMMEvents,
                 INITIALIZATION_DELAY_MILLIS);
 
-        mBackupPreferences = new UserBackupPreferences(mContext, mBaseStateDir);
+        mBackupPreferences = new UserBackupPreferences(userContext, mBaseStateDir);
 
         // Power management
         mWakelock =
