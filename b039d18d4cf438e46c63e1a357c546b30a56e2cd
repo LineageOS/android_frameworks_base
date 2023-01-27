@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e5679b8_4c8813e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-01-27T17:28:40Z",
+      "side": 1,
+      "message": "The visible network traffic follows the settings.\nThe positioning is center (as was before), or on the innermost position of the left or right icon sequence of the status bar.\nSwitching to RTL does no harm. The network traffic remains at the respective start/end side according to LTR/RTL.\nDifferent configurations with centered notch, or notch on one side are handled as expected.",
+      "revId": "b039d18d4cf438e46c63e1a357c546b30a56e2cd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
