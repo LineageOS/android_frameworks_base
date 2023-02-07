@@ -65,6 +65,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UserIdInt;
 import android.app.ActivityManager;
+import android.app.ActivityManagerInternal;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -594,9 +595,24 @@ public class ComputerEngine implements Computer {
                     list, false, originalIntent, resolvedType, filterCallingUid);
         }
 
-        return skipPostResolution ? list : applyPostResolutionFilter(
+        if (!skipPostResolution)
+            list = applyPostResolutionFilter(
                 list, instantAppPkgName, allowDynamicSplits, filterCallingUid,
                 resolveForStart, userId, intent);
+
+        for (int i = list.size() - 1; i >= 0; i--) {
+            boolean shouldRemove = false;
+            ResolveInfo ri = list.get(i);
+            ActivityInfo info = ri.activityInfo;
+
+            shouldRemove = !mInjector.getLocalService(ActivityManagerInternal.class)
+                .queryActivityAllowed(new ComponentName(info.packageName, info.name), intent, Binder.getCallingUid(),
+                Binder.getCallingPid(), resolvedType, info.applicationInfo);
+
+            if (shouldRemove)
+                list.remove(i++);
+        }
+        return list;
     }
 
     @NonNull
@@ -687,6 +703,19 @@ public class ComputerEngine implements Computer {
             PackageManagerServiceUtils.applyEnforceIntentFilterMatching(
                     mInjector.getCompatibility(), mComponentResolver,
                     list, false, originalIntent, resolvedType, callingUid);
+        }
+
+        for (int i = list.size() - 1; i >= 0; i--) {
+            boolean shouldRemove = false;
+            ResolveInfo ri = list.get(i);
+            ServiceInfo info = ri.serviceInfo;
+
+            shouldRemove = !mInjector.getLocalService(ActivityManagerInternal.class)
+                .queryServiceAllowed(new ComponentName(info.packageName, info.name), intent, Binder.getCallingUid(),
+                Binder.getCallingPid(), resolvedType, ri.serviceInfo.applicationInfo);
+
+            if (shouldRemove)
+                list.remove(i++);
         }
 
         return list;

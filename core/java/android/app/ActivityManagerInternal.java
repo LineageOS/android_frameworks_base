@@ -860,4 +860,9 @@ public abstract class ActivityManagerInternal {
      */
     public abstract void registerNetworkPolicyUidObserver(@NonNull IUidObserver observer,
             int which, int cutpoint, @NonNull String callingPackage);
+
+    public abstract boolean queryActivityAllowed(ComponentName resolvedActivity, Intent intent, int callerUid,
+        int callerPid, String resolvedType, ApplicationInfo resolvedApp);
+    public abstract boolean queryServiceAllowed(ComponentName resolvedService, Intent intent, int callerUid,
+        int callerPid, String resolvedType, ApplicationInfo resolvedApp);
 }

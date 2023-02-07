@@ -16638,6 +16638,20 @@ public class ActivityManagerService extends IActivityManager.Stub
         }
 
         @Override
+        public boolean queryActivityAllowed(ComponentName resolvedActivity, Intent intent, int callerUid,
+            int callerPid, String resolvedType, ApplicationInfo resolvedApp) {
+            return mIntentFirewall.checkQueryActivity(resolvedActivity, intent, callerUid, callerPid,
+                resolvedType, resolvedApp);
+        }
+
+        @Override
+        public boolean queryServiceAllowed(ComponentName resolvedService, Intent intent, int callerUid,
+            int callerPid, String resolvedType, ApplicationInfo resolvedApp) {
+            return mIntentFirewall.checkQueryService(resolvedService, intent, callerUid, callerPid,
+                resolvedType, resolvedApp);
+        }
+
+        @Override
         public boolean isSystemReady() {
             // no need to synchronize(this) just to read & return the value
             return mSystemReady;
