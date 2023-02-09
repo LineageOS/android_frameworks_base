@@ -8570,6 +8570,19 @@ public final class Settings {
                 "managed_provisioning_dpc_downloaded";
 
         /**
+         * Whether the OTHER_SENSORS ("Sensors") permission is granted by default to newly
+         * installed apps.
+         * <p>
+         * Type: int (0 for false, 1 for true). Default: 1
+         * <p>
+         * Not annotated with {@link Readable} on purpose: only the system should read it.
+         *
+         * @hide
+         */
+        public static final String AUTO_GRANT_OTHER_SENSORS_PERMISSION =
+                "auto_grant_OTHER_SENSORS_perm";
+
+        /**
          * Indicates whether the device is under restricted secure FRP mode.
          * Secure FRP mode is enabled when the device is under FRP. On solving of FRP challenge,
          * device is removed from this mode.
