@@ -1067,6 +1067,12 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
             AccessibilityServiceInfo accessibilityServiceInfo;
             try {
                 accessibilityServiceInfo = new AccessibilityServiceInfo(resolveInfo, mContext);
+                if (!accessibilityServiceInfo.isWithinParcelableSize()) {
+                    Slog.e(LOG_TAG, "Skipping service "
+                            + accessibilityServiceInfo.getResolveInfo().getComponentInfo()
+                            + " because service info size is larger than safe parcelable limits.");
+                    continue;
+                }
                 mTempAccessibilityServiceInfoList.add(accessibilityServiceInfo);
             } catch (XmlPullParserException | IOException xppe) {
                 Slog.e(LOG_TAG, "Error while initializing AccessibilityServiceInfo", xppe);
