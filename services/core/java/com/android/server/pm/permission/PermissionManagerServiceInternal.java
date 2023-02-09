@@ -24,6 +24,7 @@ import android.content.pm.PackageInstaller.SessionParams;
 import android.content.pm.PermissionInfo;
 import android.permission.PermissionManagerInternal;
 import android.util.ArrayMap;
+import android.util.SparseBooleanArray;
 
 import com.android.internal.util.function.QuadFunction;
 import com.android.internal.util.function.TriFunction;
@@ -346,13 +347,17 @@ public interface PermissionManagerServiceInternal extends PermissionManagerInter
         private final List<String> mAllowlistedRestrictedPermissions;
         @NonNull
         private final int mAutoRevokePermissionsMode;
+        @NonNull
+        private final SparseBooleanArray mNewlyInstalledInUserIds;
 
         private PackageInstalledParams(@NonNull ArrayMap<String, Integer> permissionStates,
                 @NonNull List<String> allowlistedRestrictedPermissions,
-                int autoRevokePermissionsMode) {
+                int autoRevokePermissionsMode,
+                @NonNull SparseBooleanArray newlyInstalledInUserIds) {
             mPermissionStates = permissionStates;
             mAllowlistedRestrictedPermissions = allowlistedRestrictedPermissions;
             mAutoRevokePermissionsMode = autoRevokePermissionsMode;
+            mNewlyInstalledInUserIds = newlyInstalledInUserIds;
         }
 
         /**
@@ -384,6 +389,10 @@ public interface PermissionManagerServiceInternal extends PermissionManagerInter
             return mAutoRevokePermissionsMode;
         }
 
+        public boolean isNewlyInstalledInUserId(int userId) {
+            return mNewlyInstalledInUserIds.get(userId, false);
+        }
+
         /**
          * Builder class for {@link PackageInstalledParams}.
          */
@@ -394,6 +403,8 @@ public interface PermissionManagerServiceInternal extends PermissionManagerInter
             private List<String> mAllowlistedRestrictedPermissions = Collections.emptyList();
             @NonNull
             private int mAutoRevokePermissionsMode = AppOpsManager.MODE_DEFAULT;
+            @NonNull
+            private final SparseBooleanArray mNewlyInstalledInUserIds = new SparseBooleanArray();
 
             /**
              * Set the permissions states requested by the installer.
@@ -441,6 +452,10 @@ public interface PermissionManagerServiceInternal extends PermissionManagerInter
                 mAutoRevokePermissionsMode = autoRevokePermissionsMode;
             }
 
+            public void setNewlyInstalledInUserId(int userId) {
+                mNewlyInstalledInUserIds.put(userId, true);
+            }
+
             /**
              * Build a new instance of {@link PackageInstalledParams}.
              *
@@ -450,7 +465,7 @@ public interface PermissionManagerServiceInternal extends PermissionManagerInter
             public PackageInstalledParams build() {
                 return new PackageInstalledParams(
                         mPermissionStates == null ? new ArrayMap<>() : mPermissionStates,
-                        mAllowlistedRestrictedPermissions, mAutoRevokePermissionsMode);
+                        mAllowlistedRestrictedPermissions, mAutoRevokePermissionsMode, mNewlyInstalledInUserIds);
             }
         }
     }
