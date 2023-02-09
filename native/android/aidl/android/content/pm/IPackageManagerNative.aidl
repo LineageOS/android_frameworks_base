@@ -173,4 +173,10 @@ interface IPackageManagerNative {
      * Get information of staged APEXes.
      */
     StagedApexInfo[] getStagedApexInfos();
+
+    /**
+     * App attempted to perform an operation that is protected with a a special runtime permission
+     * and failed due to that permission being denied.
+     */
+    oneway void onDeniedSpecialRuntimePermissionOp(in String permissionName, int uid, in String packageName);
 }

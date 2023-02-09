@@ -160,6 +160,7 @@ import android.util.Log;
 import android.util.Pair;
 import android.util.Slog;
 import android.util.SparseArray;
+import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
 
 import com.android.internal.annotations.GuardedBy;
@@ -815,6 +816,7 @@ final class InstallPackageHelper {
                         permissionParamsBuilder.setAllowlistedRestrictedPermissions(
                                 new ArrayList<>(pkgSetting.getPkg().getRequestedPermissions()));
                     }
+                    permissionParamsBuilder.setNewlyInstalledInUserId(userId);
                     mPm.mPermissionManager.onPackageInstalled(pkgSetting.getPkg(),
                             Process.INVALID_UID /* previousAppId */,
                             permissionParamsBuilder.build(), userId);
@@ -2764,7 +2766,13 @@ final class InstallPackageHelper {
                     }
                 }
 
+                final SparseBooleanArray archivedInUserIds = new SparseBooleanArray();
+
                 if (userId != UserHandle.USER_ALL) {
+                    if (PackageArchiver.isArchived(ps.getUserStateOrDefault(userId))) {
+                        archivedInUserIds.put(userId, true);
+                    }
+
                     // It's implied that when a user requests installation, they want the app to
                     // be installed and enabled. The caller, however, can explicitly specify to
                     // keep the existing enabled state.
@@ -2796,6 +2804,10 @@ final class InstallPackageHelper {
                     // Thus, updating the settings to install the app for all users.
                     final boolean isPackageExisted = installRequest.getOriginUsers() != null;
                     for (int currentUserId : allUsers) {
+                        if (PackageArchiver.isArchived(ps.getUserStateOrDefault(currentUserId))) {
+                            archivedInUserIds.put(currentUserId, true);
+                        }
+
                         // If the app is already installed for the currentUser,
                         // keep it as installed as we might be updating the app at this place.
                         // If not currently installed, check if the currentUser is restricted by
@@ -2864,16 +2876,26 @@ final class InstallPackageHelper {
                     }
                 }
 
+                final PermissionManagerServiceInternal.PackageInstalledParams.Builder
+                        permissionParamsBuilder =
+                        new PermissionManagerServiceInternal.PackageInstalledParams.Builder();
+
                 // Set install reason for users that are having the package newly installed.
                 if (userId == UserHandle.USER_ALL) {
                     for (int currentUserId : allUsers) {
                         if (!previousUserIds.contains(currentUserId)
                                 && ps.getInstalled(currentUserId)) {
                             ps.setInstallReason(installReason, currentUserId);
+                            if (!archivedInUserIds.get(currentUserId, false)) {
+                                permissionParamsBuilder.setNewlyInstalledInUserId(currentUserId);
+                            }
                         }
                     }
                 } else if (!previousUserIds.contains(userId)) {
                     ps.setInstallReason(installReason, userId);
+                    if (!archivedInUserIds.get(userId, false)) {
+                        permissionParamsBuilder.setNewlyInstalledInUserId(userId);
+                    }
                 }
 
                 // TODO(b/169721400): generalize Incremental States and create a Callback object
@@ -2894,9 +2916,6 @@ final class InstallPackageHelper {
 
                 mPm.mSettings.writeKernelMappingLPr(ps);
 
-                final PermissionManagerServiceInternal.PackageInstalledParams.Builder
-                        permissionParamsBuilder =
-                        new PermissionManagerServiceInternal.PackageInstalledParams.Builder();
                 final boolean grantRequestedPermissions = (installRequest.getInstallFlags()
                         & PackageManager.INSTALL_GRANT_ALL_REQUESTED_PERMISSIONS) != 0;
                 if (grantRequestedPermissions) {
