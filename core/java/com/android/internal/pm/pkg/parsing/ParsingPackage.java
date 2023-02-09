@@ -584,4 +584,6 @@ public interface ParsingPackage {
      * Returns the intent matching flags.
      */
     int getIntentMatchingFlags();
+
+    boolean isDeclaredHavingCode();
 }
