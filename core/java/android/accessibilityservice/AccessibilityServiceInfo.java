@@ -26,6 +26,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.os.Build;
+import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -700,6 +701,15 @@ public class AccessibilityServiceInfo implements Parcelable {
      */
     public int describeContents() {
         return 0;
+    }
+
+    /** @hide */
+    public final boolean isWithinParcelableSize() {
+        final Parcel parcel = Parcel.obtain();
+        writeToParcel(parcel, 0);
+        final boolean result = parcel.dataSize() <= IBinder.MAX_IPC_SIZE;
+        parcel.recycle();
+        return result;
     }
 
     public void writeToParcel(Parcel parcel, int flagz) {
