@@ -1796,9 +1796,17 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
                 mContext.getSystemService(Context.TELEPHONY_SERVICE);
         int type = AGPS_SETID_TYPE_NONE;
         String setId = null;
+        final Boolean isEmergency = mNIHandler.getInEmergency();
+
+        // Unless we are in an emergency, do not provide sensitive subscriber information
+        // to SUPL servers.
+        if (!isEmergency) {
+            mGnssNative.setAgpsSetId(type, "");
+            return;
+        }
 
         int subId = SubscriptionManager.getDefaultDataSubscriptionId();
-        if (mGnssConfiguration.isActiveSimEmergencySuplEnabled() && mNIHandler.getInEmergency()
+        if (mGnssConfiguration.isActiveSimEmergencySuplEnabled() && isEmergency
                 && mNetworkConnectivityHandler.getActiveSubId() >= 0) {
             subId = mNetworkConnectivityHandler.getActiveSubId();
         }
