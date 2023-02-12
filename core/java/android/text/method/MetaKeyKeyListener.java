@@ -348,8 +348,6 @@ public abstract class MetaKeyKeyListener {
 
         if (state == PRESSED)
             ; // repeat before use
-        else if (state == RELEASED)
-            content.setSpan(what, 0, 0, LOCKED);
         else if (state == USED)
             ; // repeat after use
         else if (state == LOCKED)
