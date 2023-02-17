@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9664748b_c115a13b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16914
+      },
+      "writtenOn": "2023-02-17T03:36:20Z",
+      "side": 1,
+      "message": "Cherry-picked to 19.1 and built for crosshatch as a test. The patch has no effect, as expected, since the virtual keyboard is type \u0027FULL\u0027 rather than \u0027ALPHA\u0027",
+      "revId": "9e2ba4a157da0ef6492cdb577c235a110e2b9e7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
