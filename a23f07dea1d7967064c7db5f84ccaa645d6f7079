@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0da165f7_87850adb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2023-02-18T06:14:17Z",
+      "side": 1,
+      "message": "Currently, only press action of assistant key works. With this patch, wakeup and log-press actions work. Veirfied on pdx206.",
+      "revId": "a23f07dea1d7967064c7db5f84ccaa645d6f7079",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
