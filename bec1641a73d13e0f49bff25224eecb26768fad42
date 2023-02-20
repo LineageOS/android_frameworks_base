@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da1c75f4_1afa801e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-02-20T20:49:32Z",
+      "side": 1,
+      "message": "A bit more space between nw traffic on the left and clock or icons on the left.",
+      "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
