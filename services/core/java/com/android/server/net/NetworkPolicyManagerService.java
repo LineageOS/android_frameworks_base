@@ -92,6 +92,8 @@ import static android.net.NetworkPolicyManager.ALLOWED_REASON_TOP;
 import static android.net.NetworkPolicyManager.EXTRA_NETWORK_TEMPLATE;
 import static android.net.NetworkPolicyManager.FIREWALL_RULE_DEFAULT;
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
+import static android.net.NetworkPolicyManager.POLICY_LOCKDOWN_VPN;
+import static android.net.NetworkPolicyManager.POLICY_LOCKDOWN_VPN_MASK;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
@@ -1118,6 +1120,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             // listen for meteredness changes
             mConnManager.registerNetworkCallback(
                     new NetworkRequest.Builder().build(), mNetworkCallback);
+
+            // Set up the firewall for any persistent VPN lockdown UIDs.
+            try {
+                mConnManager.setRequireVpnForUids(true, getUidsWithLockdownPolicy());
+            } catch (RuntimeException e) {
+                Slog.wtf(TAG, "initService: setRequireVpnForUids failed", e);
+            }
 
             mAppStandby.addListener(new NetPolicyAppIdleStateChangeListener());
             synchronized (mUidRulesFirstLock) {
@@ -3172,9 +3181,38 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
+    private static boolean isLockdownPolicy(final int policy) {
+        return (policy & POLICY_LOCKDOWN_VPN_MASK) == POLICY_LOCKDOWN_VPN;
+    }
+
+    @NonNull
+    private List<Range<Integer>> getUidsWithLockdownPolicy() {
+        var ranges = new ArrayList<Range<Integer>>();
+        synchronized (mUidRulesFirstLock) {
+            for (int i = 0; i < mUidPolicy.size(); i++) {
+                final int uid = mUidPolicy.keyAt(i);
+                final int uidPolicy = mUidPolicy.valueAt(i);
+                if (isLockdownPolicy(uidPolicy)) {
+                    ranges.add(new Range<>(uid, uid));
+                }
+            }
+        }
+        return ranges;
+    }
+
     @GuardedBy("mUidRulesFirstLock")
     private void setUidPolicyUncheckedUL(int uid, int oldPolicy, int policy, boolean persist) {
         setUidPolicyUncheckedUL(uid, policy, false);
+        final boolean wasLockdown = isLockdownPolicy(oldPolicy);
+        final boolean isLockdown = isLockdownPolicy(policy);
+        if (wasLockdown != isLockdown) {
+            try {
+                mConnManager.setRequireVpnForUids(isLockdown, List.of(new Range<>(uid, uid)));
+            } catch (RuntimeException e) {
+                Slog.wtf(TAG, "setUidPolicyUncheckedUL: Setting VPN " + (isLockdown ? "required "
+                        : "not required") + " failed for uid " + uid, e);
+            }
+        }
 
         final long lastAllowedTransportsPacked = getAllowedTransportsPackedForUidPolicy(oldPolicy);
         final long allowedTransportsPacked = getAllowedTransportsPackedForUidPolicy(policy);
