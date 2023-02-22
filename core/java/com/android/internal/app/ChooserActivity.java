@@ -16,6 +16,8 @@
 
 package com.android.internal.app;
 
+import static android.content.ContentProvider.getUserIdFromUri;
+
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.animation.Animator;
@@ -140,6 +142,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * The Chooser Activity handles intent resolution specifically for sharing intents -
@@ -1082,7 +1085,7 @@ public class ChooserActivity extends ResolverActivity {
 
             ImageView previewThumbnailView = contentPreviewLayout.findViewById(
                     R.id.content_preview_thumbnail);
-            if (previewThumbnail == null) {
+            if (!validForContentPreview(previewThumbnail)) {
                 previewThumbnailView.setVisibility(View.GONE);
             } else {
                 mPreviewCoord = new ContentPreviewCoordinator(contentPreviewLayout, false);
@@ -1109,6 +1112,10 @@ public class ChooserActivity extends ResolverActivity {
         String action = targetIntent.getAction();
         if (Intent.ACTION_SEND.equals(action)) {
             Uri uri = targetIntent.getParcelableExtra(Intent.EXTRA_STREAM);
+            if (!validForContentPreview(uri)) {
+                contentPreviewLayout.setVisibility(View.GONE);
+                return contentPreviewLayout;
+            }
             mPreviewCoord.loadUriIntoView(R.id.content_preview_image_1_large, uri, 0);
         } else {
             ContentResolver resolver = getContentResolver();
@@ -1116,7 +1123,7 @@ public class ChooserActivity extends ResolverActivity {
             List<Uri> uris = targetIntent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
             List<Uri> imageUris = new ArrayList<>();
             for (Uri uri : uris) {
-                if (isImageType(resolver.getType(uri))) {
+                if (validForContentPreview(uri) && isImageType(resolver.getType(uri))) {
                     imageUris.add(uri);
                 }
             }
@@ -1222,9 +1229,16 @@ public class ChooserActivity extends ResolverActivity {
         String action = targetIntent.getAction();
         if (Intent.ACTION_SEND.equals(action)) {
             Uri uri = targetIntent.getParcelableExtra(Intent.EXTRA_STREAM);
+            if (!validForContentPreview(uri)) {
+                contentPreviewLayout.setVisibility(View.GONE);
+                return contentPreviewLayout;
+            }
             loadFileUriIntoView(uri, contentPreviewLayout);
         } else {
             List<Uri> uris = targetIntent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
+            uris = uris.stream()
+                    .filter(ChooserActivity::validForContentPreview)
+                    .collect(Collectors.toList());
             int uriCount = uris.size();
 
             if (uriCount == 0) {
@@ -1276,6 +1290,24 @@ public class ChooserActivity extends ResolverActivity {
             fileIconView.setVisibility(View.VISIBLE);
             fileIconView.setImageResource(R.drawable.chooser_file_generic);
         }
+    }
+
+    /**
+     * Indicate if the incoming content URI should be allowed.
+     *
+     * @param uri the uri to test
+     * @return true if the URI is allowed for content preview
+     */
+    private static boolean validForContentPreview(Uri uri) throws SecurityException {
+        if (uri == null) {
+            return false;
+        }
+        int userId = getUserIdFromUri(uri, UserHandle.USER_CURRENT);
+        if (userId != UserHandle.USER_CURRENT && userId != UserHandle.myUserId()) {
+            Log.e(TAG, "dropped invalid content URI belonging to user " + userId);
+            return false;
+        }
+        return true;
     }
 
     @VisibleForTesting
