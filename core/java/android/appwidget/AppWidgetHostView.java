@@ -248,17 +248,24 @@ public class AppWidgetHostView extends FrameLayout {
             super.onLayout(changed, left, top, right, bottom);
         } catch (final RuntimeException e) {
             Log.e(TAG, "Remote provider threw runtime exception, using error view instead.", e);
-            removeViewInLayout(mView);
-            View child = getErrorView();
-            prepareView(child);
-            addViewInLayout(child, 0, child.getLayoutParams());
-            measureChild(child, MeasureSpec.makeMeasureSpec(getMeasuredWidth(), MeasureSpec.EXACTLY),
-                    MeasureSpec.makeMeasureSpec(getMeasuredHeight(), MeasureSpec.EXACTLY));
-            child.layout(0, 0, child.getMeasuredWidth() + mPaddingLeft + mPaddingRight,
-                    child.getMeasuredHeight() + mPaddingTop + mPaddingBottom);
-            mView = child;
-            mViewMode = VIEW_MODE_ERROR;
+            handleViewError();
         }
+    }
+
+    /**
+     * Remove bad view and replace with error message view
+     */
+    private void handleViewError() {
+        removeViewInLayout(mView);
+        View child = getErrorView();
+        prepareView(child);
+        addViewInLayout(child, 0, child.getLayoutParams());
+        measureChild(child, MeasureSpec.makeMeasureSpec(getMeasuredWidth(), MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(getMeasuredHeight(), MeasureSpec.EXACTLY));
+        child.layout(0, 0, child.getMeasuredWidth() + mPaddingLeft + mPaddingRight,
+                child.getMeasuredHeight() + mPaddingTop + mPaddingBottom);
+        mView = child;
+        mViewMode = VIEW_MODE_ERROR;
     }
 
     /**
@@ -766,5 +773,16 @@ public class AppWidgetHostView extends FrameLayout {
                         return new ParcelableSparseArray[size];
                     }
                 };
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        try {
+            super.dispatchDraw(canvas);
+        } catch (Exception e) {
+            // Catch draw exceptions that may be caused by RemoteViews
+            Log.e(TAG, "Drawing view failed: " + e);
+            post(this::handleViewError);
+        }
     }
 }
