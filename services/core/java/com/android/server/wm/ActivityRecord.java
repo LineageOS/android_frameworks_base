@@ -781,6 +781,12 @@ final class ActivityRecord extends ConfigurationContainer {
             }
             schedulePictureInPictureModeChanged(newConfig);
             scheduleMultiWindowModeChanged(newConfig);
+            if (inPictureInPictureMode && mAppWindowToken != null && mAppWindowToken.findMainWindow() == null) {
+                // Prevent malicious app entering PiP without valid WindowState, which can in turn
+                // result a non-touchable PiP window since the InputConsumer for PiP requires it.
+                EventLog.writeEvent(0x534e4554, "265293293", -1, "");
+                mAppWindowToken.removeImmediately();
+            }
         }
     }
 
