@@ -21,7 +21,7 @@
         android:id="@+id/dpad_left"
         android:layout_width="@dimen/navigation_side_padding"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity="left"
         systemui:keyCode="21"
         android:scaleType="center"
         android:contentDescription="@string/accessibility_dpad_left" />
@@ -30,7 +30,7 @@
         android:id="@+id/dpad_right"
         android:layout_width="@dimen/navigation_side_padding"
         android:layout_height="match_parent"
-        android:layout_gravity="end"
+        android:layout_gravity="right"
         systemui:keyCode="22"
         android:scaleType="center"
         android:contentDescription="@string/accessibility_dpad_right" />
