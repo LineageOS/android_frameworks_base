@@ -301,9 +301,9 @@ public class NavigationBarView extends FrameLayout implements TunerService.Tunab
                 new ContextualButton(R.id.accessibility_button, mLightContext,
                         R.drawable.ic_sysbar_accessibility_button);
         final ContextualButton cursorLeftButton = new ContextualButton(R.id.dpad_left,
-                mLightContext, R.drawable.ic_chevron_start);
+                mLightContext, R.drawable.ic_chevron_left);
         final ContextualButton cursorRightButton = new ContextualButton(R.id.dpad_right,
-                mLightContext, R.drawable.ic_chevron_end);
+                mLightContext, R.drawable.ic_chevron_right);
         mContextualButtonGroup.addButton(imeSwitcherButton);
         mContextualButtonGroup.addButton(accessibilityButton);
         mRotationContextButton = new RotationContextButton(R.id.rotate_suggestion,
@@ -493,8 +493,8 @@ public class NavigationBarView extends FrameLayout implements TunerService.Tunab
         }
         if (densityChange || dirChange) {
             mRecentIcon = getDrawable(R.drawable.ic_sysbar_recent);
-            mCursorLeftIcon = getDrawable(R.drawable.ic_chevron_start);
-            mCursorRightIcon = getDrawable(R.drawable.ic_chevron_end);
+            mCursorLeftIcon = getDrawable(R.drawable.ic_chevron_left);
+            mCursorRightIcon = getDrawable(R.drawable.ic_chevron_right);
             mContextualButtonGroup.updateIcons(mLightIconColor, mDarkIconColor);
         }
         if (orientationChange || densityChange || dirChange) {
