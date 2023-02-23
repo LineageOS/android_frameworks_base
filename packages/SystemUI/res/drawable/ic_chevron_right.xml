@@ -19,8 +19,8 @@
         android:viewportWidth="24"
         android:viewportHeight="24"
         android:tint="?attr/colorControlNormal"
-        android:autoMirrored="true">
+        android:autoMirrored="false">
     <path
         android:fillColor="?attr/singleToneColor"
-        android:pathData="M15.41 7.41L14 6l-6 6 6 6 1.41,-1.41L10.83 12z"/>
+        android:pathData="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6,-6z"/>
 </vector>
