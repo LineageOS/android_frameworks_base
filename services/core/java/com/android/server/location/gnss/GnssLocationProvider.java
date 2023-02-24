@@ -1217,6 +1217,7 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
     private void startNavigating() {
         if (!mStarted) {
             if (DEBUG) Log.d(TAG, "startNavigating");
+            final Boolean isEmergency = mNIHandler.getInEmergency();
             mTimeToFirstFix = 0;
             mLastFixTime = 0;
             setStarted(true);
@@ -1224,7 +1225,7 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
 
             boolean agpsEnabled =
                     (Settings.Global.getInt(mContext.getContentResolver(),
-                            Settings.Global.ASSISTED_GPS_ENABLED, 1) != 0);
+                            Settings.Global.ASSISTED_GPS_ENABLED, 1) != 0) || isEmergency;
             mPositionMode = getSuplMode(agpsEnabled);
 
             if (DEBUG) {
