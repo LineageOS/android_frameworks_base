@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42964449_fb8bf9ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-02-25T13:05:12Z",
+      "side": 1,
+      "message": "Tested with normal and inverted navbar and also in LTR and RTL. On the left is always a left-pointing arrow and it moves the cursor to the left in Latin and Arabic script. And correspondingly on the right side.\nWorks in portrait and landscape on a phone (navbar always on the short edge).\nCould someone test on a tablet where the navbar is always on the bottom?",
+      "revId": "4a56c673f5c78a580e1c1456eb9d8fc262eb760b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
