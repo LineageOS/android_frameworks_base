@@ -16,6 +16,23 @@
       "message": "A bit more space between nw traffic on the left and clock or icons on the left.",
       "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c450c580_2f72b355",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-02-28T22:54:00Z",
+      "side": 1,
+      "message": "Network traffic partially goes behind cutout on Pixel 3 when the icon is on the right side and the overflow dot is shown, it looks like the dot adds some extra unnecessary padding that causes this",
+      "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
