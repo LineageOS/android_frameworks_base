@@ -69,6 +69,24 @@
       "parentUuid": "b19a5e70_3ebad697",
       "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db8736a_58201486",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-03-01T17:51:50Z",
+      "side": 1,
+      "message": "It might not be something caused by this change, but I see tons of padding added and likely an invisible icon on my devices when I enable \"show layout bounds\" in developer options.",
+      "parentUuid": "0246ead0_bc58b85a",
+      "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
