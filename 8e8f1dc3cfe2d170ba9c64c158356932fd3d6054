@@ -16,6 +16,23 @@
       "message": "encountered a bug where old application did not have the internet permission, but permission was added after the update, after the update internet was not working on the app as toggles for it were off",
       "revId": "8e8f1dc3cfe2d170ba9c64c158356932fd3d6054",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "335fc5f7_1778ae3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2023-03-01T20:01:00Z",
+      "side": 1,
+      "message": "Thanks for checking this out. Sorry for the confusion... We consider this a security feature that is working as intended, because users don\u0027t expect apps to suddenly be granted permission to access networks. The firewall toggles don\u0027t allow users to turn off network access for an app that doesn\u0027t even request it, so access for apps can\u0027t be turned off preemptively in anticipation of situations like this. There\u0027s also not currently a facility to prompt users when this happens, so it\u0027s better to fail closed, but I can see how this would be confusing if there\u0027s no indication of what\u0027s happening. CalyxOS has a status bar icon to indicate when the firewall is blocking an app... Maybe that would be useful in LineageOS, if not already present?",
+      "revId": "8e8f1dc3cfe2d170ba9c64c158356932fd3d6054",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
