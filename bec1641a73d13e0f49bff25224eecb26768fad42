@@ -51,6 +51,24 @@
       "parentUuid": "c450c580_2f72b355",
       "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0246ead0_bc58b85a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-03-01T17:09:30Z",
+      "side": 1,
+      "message": "Sorry, you have been right!\nAfter a reboot with the \"double cutout\" enabled it looked differentl, the nw traffic vanished behind the cutout.\nI will investigate it.",
+      "parentUuid": "b19a5e70_3ebad697",
+      "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
