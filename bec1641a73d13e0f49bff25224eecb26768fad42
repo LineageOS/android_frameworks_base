@@ -87,6 +87,24 @@
       "parentUuid": "0246ead0_bc58b85a",
       "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6746223_d9fc452b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-03-01T22:07:44Z",
+      "side": 1,
+      "message": "This can be easily reproduced by enabling \"show layout bounds\", enabling right network traffic, putting the phone in silent mode and toggling some alarm. That makes the overflow dot show up for me and some invisible icon is rendered between network traffic and the overflow dot.",
+      "parentUuid": "4db8736a_58201486",
+      "revId": "bec1641a73d13e0f49bff25224eecb26768fad42",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
