@@ -34,6 +34,24 @@
       "parentUuid": "f76c072a_98c0e883",
       "revId": "f581693805884cf4f6b4b46d3f70434b06250a18",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "218f8a63_a43b6415",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-03-01T17:44:57Z",
+      "side": 1,
+      "message": "If you notice there\u0027s *android:, which means it\u0027s using framework-res resource",
+      "parentUuid": "96045102_b9cdd464",
+      "revId": "f581693805884cf4f6b4b46d3f70434b06250a18",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
