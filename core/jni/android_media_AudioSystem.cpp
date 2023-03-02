@@ -630,7 +630,8 @@ static jint android_media_AudioSystem_setDeviceConnectionState(JNIEnv *env, jobj
                     AudioSystem::setDeviceConnectionState(static_cast<audio_policy_dev_state_t>(
                                                                   state),
                                                           port,
-                                                          static_cast<audio_format_t>(codec)));
+                                                          static_cast<audio_format_t>(codec)),
+                                               {INVALID_OPERATION});
         } else {
             ALOGE("Failed to read from parcel: %s", statusToString(statusOfParcel).c_str());
             status = kAudioStatusError;
