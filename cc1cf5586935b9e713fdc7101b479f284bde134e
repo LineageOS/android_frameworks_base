@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3b943b5_13775faf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-03-03T19:05:13Z",
+      "side": 1,
+      "message": "After adding a tiny padding in front of the nw traffic number (\"end\" position) I never observed, that the nw traffic would be cut or hidden behind the large center cutout.\nI tested with all cutout varieties of the developer options, flipped the clock and the nw traffic, added seconds and RTL. The nw traffic was always visible if required (in auto-hide mode). In case of lack of space the overflow dot appears.\nIn the overflow situation there is really often a strange arrangement of paddings where the icons have been removed. But I think that\u0027s a general statusbar problem outside the scope of this patch.",
+      "revId": "cc1cf5586935b9e713fdc7101b479f284bde134e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
