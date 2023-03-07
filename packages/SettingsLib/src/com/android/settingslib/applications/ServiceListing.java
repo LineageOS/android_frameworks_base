@@ -37,6 +37,7 @@ import com.android.settingslib.wrapper.PackageManagerWrapper;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * Class for managing services matching a given intent and requesting a given permission.
@@ -52,11 +53,13 @@ public class ServiceListing {
     private final HashSet<ComponentName> mEnabledServices = new HashSet<>();
     private final List<ServiceInfo> mServices = new ArrayList<>();
     private final List<Callback> mCallbacks = new ArrayList<>();
+    private final Predicate mValidator;
 
     private boolean mListening;
 
     private ServiceListing(Context context, String tag,
-            String setting, String intentAction, String permission, String noun) {
+            String setting, String intentAction, String permission, String noun,
+            Predicate validator) {
         mContentResolver = context.getContentResolver();
         mContext = context;
         mTag = tag;
@@ -64,6 +67,7 @@ public class ServiceListing {
         mIntentAction = intentAction;
         mPermission = permission;
         mNoun = noun;
+        mValidator = validator;
     }
 
     public void addCallback(Callback callback) {
@@ -133,7 +137,6 @@ public class ServiceListing {
                 new Intent(mIntentAction),
                 PackageManager.GET_SERVICES | PackageManager.GET_META_DATA,
                 user);
-
         for (ResolveInfo resolveInfo : installedServices) {
             ServiceInfo info = resolveInfo.serviceInfo;
 
@@ -142,6 +145,9 @@ public class ServiceListing {
                         + info.packageName + "/" + info.name
                         + ": it does not require the permission "
                         + mPermission);
+                continue;
+            }
+            if (mValidator != null && !mValidator.test(info)) {
                 continue;
             }
             mServices.add(info);
@@ -189,6 +195,7 @@ public class ServiceListing {
         private String mIntentAction;
         private String mPermission;
         private String mNoun;
+        private Predicate mValidator;
 
         public Builder(Context context) {
             mContext = context;
@@ -219,8 +226,14 @@ public class ServiceListing {
             return this;
         }
 
+        public Builder setValidator(Predicate<ServiceInfo> validator) {
+            mValidator = validator;
+            return this;
+        }
+
         public ServiceListing build() {
-            return new ServiceListing(mContext, mTag, mSetting, mIntentAction, mPermission, mNoun);
+            return new ServiceListing(mContext, mTag, mSetting, mIntentAction, mPermission, mNoun,
+                    mValidator);
         }
     }
 }
