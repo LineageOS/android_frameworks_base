@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc5cf36_5c287e90",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/customize/TileAdapter.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-03-11T21:27:17Z",
+      "side": 1,
+      "message": "Couldn\u0027t this also be\n\nif (position \u003e\u003d mEditIndex || canRemoveTiles()) {\n    move(position, mEditIndex, true);\n}",
+      "range": {
+        "startLine": 422,
+        "startChar": 20,
+        "endLine": 428,
+        "endChar": 21
+      },
+      "revId": "2a6d82581441e105e01f9d054a230865c6219397",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
