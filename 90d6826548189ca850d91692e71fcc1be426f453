@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdff4752_a3a219db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-03-12T15:09:33Z",
+      "side": 1,
+      "message": "No effect on MediaTek devices, because mtk_agpsd mostly bypasses Android\u0027s AGPS system. /vendor/etc/{,gnns/}agps_profiles_conf2.xml needs to be edited (imsi_enable -\u003e false), though that doesn\u0027t send IMSI on emergency either.",
+      "revId": "90d6826548189ca850d91692e71fcc1be426f453",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
