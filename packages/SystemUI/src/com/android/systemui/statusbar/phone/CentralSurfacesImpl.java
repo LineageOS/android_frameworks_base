@@ -30,6 +30,7 @@ import static androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_AUTO;
 import static androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS;
 import static androidx.lifecycle.Lifecycle.State.RESUMED;
 
+import static com.android.settingslib.display.BrightnessUtils.convertGammaToLinearFloat;
 import static com.android.systemui.Dependency.TIME_TICK_HANDLER_NAME;
 import static com.android.systemui.charging.WirelessChargingAnimation.UNKNOWN_BATTERY_LEVEL;
 import static com.android.systemui.keyguard.WakefulnessLifecycle.WAKEFULNESS_ASLEEP;
@@ -69,6 +70,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.hardware.devicestate.DeviceStateManager;
+import android.hardware.display.BrightnessInfo;
 import android.hardware.display.DisplayManager;
 import android.metrics.LogMaker;
 import android.net.Uri;
@@ -550,7 +552,8 @@ public class CentralSurfacesImpl extends CoreStartable implements
 
     private DisplayManager mDisplayManager;
 
-    private int mMinBrightness;
+    private float mBrightnessMax;
+    private float mBrightnessMin;
     private int mInitialTouchX;
     private int mInitialTouchY;
     private int mLinger;
@@ -1188,9 +1191,6 @@ public class CentralSurfacesImpl extends CoreStartable implements
         inflateStatusBarWindow();
         mNotificationShadeWindowView.setOnTouchListener(getStatusBarWindowTouchListener());
         mWallpaperController.setRootView(mNotificationShadeWindowView);
-
-        mMinBrightness = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_screenBrightnessDim);
 
         // TODO: Deal with the ugliness that comes from having some of the status bar broken out
         // into fragments, but the rest here, it leaves some awkward lifecycle and whatnot.
@@ -2143,40 +2143,30 @@ public class CentralSurfacesImpl extends CoreStartable implements
         }
     }
 
-    private void adjustBrightness(int x) {
+    private void adjustBrightness(int x, Boolean tracking) {
         mBrightnessChanged = true;
         float raw = ((float) x) / getDisplayWidth();
 
         // Add a padding to the brightness control on both sides to
-        // make it easier to reach min/max brightness
+        // make it easier to reach min/max brightness and scale
+        // to an int 0..65535
         float padded = Math.min(1.0f - BRIGHTNESS_CONTROL_PADDING,
                 Math.max(BRIGHTNESS_CONTROL_PADDING, raw));
-        float value = (padded - BRIGHTNESS_CONTROL_PADDING) /
-                (1 - (2.0f * BRIGHTNESS_CONTROL_PADDING));
-        if (mAutomaticBrightness) {
-            float adj = (2 * value) - 1;
-            adj = Math.max(adj, -1);
-            adj = Math.min(adj, 1);
-            final float val = adj;
-            mDisplayManager.setTemporaryAutoBrightnessAdjustment(val);
+        int value = (int) (65535.0f * (padded - BRIGHTNESS_CONTROL_PADDING) /
+                (1.0f - (2.0f * BRIGHTNESS_CONTROL_PADDING)));
+        final float minBacklight = mBrightnessMin;
+        final float maxBacklight = mBrightnessMax;
+        final float valFloat = MathUtils.min(
+            convertGammaToLinearFloat(value, minBacklight, maxBacklight),
+            maxBacklight);
+
+        mDisplayManager.setTemporaryBrightness(mDisplayId, valFloat);
+        if (!tracking) {
             AsyncTask.execute(() -> {
-                Settings.System.putFloatForUser(mContext.getContentResolver(),
-                        Settings.System.SCREEN_AUTO_BRIGHTNESS_ADJ, val,
-                        UserHandle.USER_CURRENT);
-            });
-        } else {
-            int newBrightness = mMinBrightness + (int) Math.round(value *
-                    (PowerManager.BRIGHTNESS_ON - mMinBrightness));
-            newBrightness = Math.min(newBrightness, PowerManager.BRIGHTNESS_ON);
-            newBrightness = Math.max(newBrightness, mMinBrightness);
-            final int val = newBrightness;
-            mDisplayManager.setTemporaryBrightness(mDisplayId, val);
-            AsyncTask.execute(() -> {
-                Settings.System.putIntForUser(mContext.getContentResolver(),
-                        Settings.System.SCREEN_BRIGHTNESS, val,
-                        UserHandle.USER_CURRENT);
+                mDisplayManager.setBrightness(mDisplayId, valFloat);
             });
         }
+        Log.d(TAG, "ADJUST_BRIGHTNESS brightness=" + valFloat + " tracking=" + tracking);
     }
 
     private void brightnessControl(MotionEvent event) {
@@ -2191,6 +2181,16 @@ public class CentralSurfacesImpl extends CoreStartable implements
                 mInitialTouchX = x;
                 mInitialTouchY = y;
                 mJustPeeked = true;
+                final BrightnessInfo info = mContext.getDisplay().getBrightnessInfo();
+                if (info == null) {
+                    Log.d(TAG, "ACTION_DOWN No BrightnessInfo available!");
+                    mBrightnessMax = 1.0f;
+                    mBrightnessMin = 0.0f;
+                } else {
+                    mBrightnessMax = info.brightnessMaximum;
+                    mBrightnessMin = info.brightnessMinimum;
+                    Log.d(TAG, "ACTION_DOWN BrightnessInfo(): brightnessMinimum=" + mBrightnessMin + " brightnessMaximum=" + mBrightnessMax);
+                }
                 mMessageRouter.cancelMessages(MSG_LONG_PRESS_BRIGHTNESS_CHANGE);
                 mMessageRouter.sendMessageDelayed(MSG_LONG_PRESS_BRIGHTNESS_CHANGE,
                         BRIGHTNESS_CONTROL_LONG_PRESS_TIMEOUT);
@@ -2198,7 +2198,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
         } else if (action == MotionEvent.ACTION_MOVE) {
             if (y < mQuickQsOffsetHeight && mJustPeeked) {
                 if (mLinger > BRIGHTNESS_CONTROL_LINGER_THRESHOLD) {
-                    adjustBrightness(x);
+                    adjustBrightness(x, true);
                 } else {
                     final int xDiff = Math.abs(x - mInitialTouchX);
                     final int yDiff = Math.abs(y - mInitialTouchY);
@@ -2209,6 +2209,7 @@ public class CentralSurfacesImpl extends CoreStartable implements
                     if (xDiff > touchSlop || yDiff > touchSlop) {
                         mMessageRouter.cancelMessages(MSG_LONG_PRESS_BRIGHTNESS_CHANGE);
                     }
+                    Log.d(TAG, "ACTION_MOVE x=" + x + " y=" + y + " mLinger=" + mLinger);
                 }
             } else {
                 if (y > mQuickQsOffsetHeight) {
@@ -2217,14 +2218,20 @@ public class CentralSurfacesImpl extends CoreStartable implements
                 mMessageRouter.cancelMessages(MSG_LONG_PRESS_BRIGHTNESS_CHANGE);
             }
         } else if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
+            Log.d(TAG, "ACTION_UP / ACTION_CANCEL mJustPeeked=" + mJustPeeked + " x=" + x);
             mMessageRouter.cancelMessages(MSG_LONG_PRESS_BRIGHTNESS_CHANGE);
+            if (action == MotionEvent.ACTION_UP && mJustPeeked) {
+                adjustBrightness(x, false);
+            }
+            mJustPeeked = false;
         }
     }
 
     void onLongPressBrightnessChange() {
         mStatusBarView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
-        adjustBrightness(mInitialTouchX);
+        adjustBrightness(mInitialTouchX, mJustPeeked);
         mLinger = BRIGHTNESS_CONTROL_LINGER_THRESHOLD + 1;
+        Log.d(TAG, "LONG_PRESS x=" + mInitialTouchX);
     }
 
     /** Called when a touch event occurred on {@link PhoneStatusBarView}. */
