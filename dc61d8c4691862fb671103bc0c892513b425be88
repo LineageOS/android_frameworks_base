@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b697ba77_e8c7d816",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-03-12T13:33:52Z",
+      "side": 1,
+      "message": "I have marked the green dot on my display without the patch and then with it and see no difference. No clue what the patch is actually supposed to do",
+      "revId": "dc61d8c4691862fb671103bc0c892513b425be88",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
