@@ -680,7 +680,7 @@ public class AppStateTrackerTest {
                 new String[] {PACKAGE_1, PACKAGE_1, PACKAGE_2, PACKAGE_2, PACKAGE_SYSTEM},
                 new boolean[] {false, false, false, false, false});
 
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_1}, new int[] {},
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_1}, new int[] {},
                 new int[] {UID_2});
 
         areJobsRestricted(instance,
@@ -730,8 +730,8 @@ public class AppStateTrackerTest {
     @Test
     public void testPowerSaveUserExemptionList() throws Exception {
         final AppStateTrackerTestable instance = newInstance();
-        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_1, UID_2},
-                new int[] {});
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {},
+                new int[] {UID_1, UID_2}, new int[] {});
         assertTrue(instance.isUidPowerSaveUserExempt(UID_1));
         assertTrue(instance.isUidPowerSaveUserExempt(UID_2));
         assertFalse(instance.isUidPowerSaveUserExempt(UID_3));
@@ -1190,8 +1190,8 @@ public class AppStateTrackerTest {
         // -------------------------------------------------------------------------
         // Tests with system/user/temp exemption list.
 
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_1, UID_2}, new int[] {},
-                new int[] {});
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_1, UID_2},
+                new int[] {}, new int[] {});
 
         waitUntilMainHandlerDrain();
         verify(l, times(1)).updateAllJobs();
@@ -1207,7 +1207,8 @@ public class AppStateTrackerTest {
         verify(l, times(0)).unblockAlarmsForUidPackage(anyInt(), anyString());
         reset(l);
 
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_2}, new int[] {}, new int[] {});
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_2}, new int[] {},
+                new int[] {});
 
         waitUntilMainHandlerDrain();
         verify(l, times(1)).updateAllJobs();
@@ -1224,7 +1225,7 @@ public class AppStateTrackerTest {
         reset(l);
 
         // Update temp exemption list.
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_2}, new int[] {},
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_2}, new int[] {},
                 new int[] {UID_1, UID_3});
 
         waitUntilMainHandlerDrain();
@@ -1241,7 +1242,7 @@ public class AppStateTrackerTest {
         verify(l, times(0)).unblockAlarmsForUidPackage(anyInt(), anyString());
         reset(l);
 
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_2}, new int[] {},
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_2}, new int[] {},
                 new int[] {UID_3});
 
         waitUntilMainHandlerDrain();
@@ -1276,8 +1277,8 @@ public class AppStateTrackerTest {
         verify(l, times(0)).unblockAlarmsForUidPackage(anyInt(), anyString());
         reset(l);
 
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_1, UID_2}, new int[] {},
-                new int[] {});
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_1, UID_2},
+                new int[] {}, new int[] {});
 
         waitUntilMainHandlerDrain();
         // Called once for updating all exemption list and once for updating temp exemption list
@@ -1294,7 +1295,8 @@ public class AppStateTrackerTest {
         verify(l, times(0)).unblockAlarmsForUidPackage(anyInt(), anyString());
         reset(l);
 
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_2}, new int[] {}, new int[] {});
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_2}, new int[] {},
+                new int[] {});
 
         waitUntilMainHandlerDrain();
         verify(l, times(1)).updateAllJobs();
@@ -1311,7 +1313,7 @@ public class AppStateTrackerTest {
         reset(l);
 
         // Update temp exemption list.
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_2}, new int[] {},
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_2}, new int[] {},
                 new int[] {UID_1, UID_3});
 
         waitUntilMainHandlerDrain();
@@ -1328,7 +1330,7 @@ public class AppStateTrackerTest {
         verify(l, times(0)).unblockAlarmsForUidPackage(anyInt(), anyString());
         reset(l);
 
-        instance.setPowerSaveExemptionListAppIds(new int[] {UID_2}, new int[] {},
+        instance.setPowerSaveExemptionListAppIds(new int[] {}, new int[] {UID_2}, new int[] {},
                 new int[] {UID_3});
 
         waitUntilMainHandlerDrain();
