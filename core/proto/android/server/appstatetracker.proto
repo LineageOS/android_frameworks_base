@@ -25,7 +25,7 @@ option java_multiple_files = true;
 
 // Dump from com.android.server.AppStateTracker.
 //
-// Next ID: 14
+// Next ID: 15
 message AppStateTrackerProto {
     option (.android.msg_privacy).dest = DEST_AUTOMATIC;
 
@@ -40,6 +40,9 @@ message AppStateTrackerProto {
 
     // UIDs currently in the foreground.
     repeated int32 foreground_uids = 11;
+
+    // App ids that are in power-save system exemption list.
+    repeated int32 power_save_system_exempt_app_ids = 14;
 
     // App ids that are in power-save exemption list.
     repeated int32 power_save_exempt_app_ids = 3;
