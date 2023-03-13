@@ -10,9 +10,6 @@
 }
 -keep class * extends com.android.systemui.CoreStartable
 -keep class * implements com.android.systemui.CoreStartable$Injector
--keep class * implements com.android.systemui.biometrics.UdfpsDisplayModeProvider {
-    public <init>(...);
-}
 
 # Needed for builds to properly initialize KeyFrames from xml scene
 -keepclassmembers class * extends androidx.constraintlayout.motion.widget.Key {
