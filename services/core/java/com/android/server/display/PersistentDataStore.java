@@ -115,11 +115,6 @@ final class PersistentDataStore {
     private static final String TAG_STABLE_DISPLAY_HEIGHT = "stable-display-height";
     private static final String TAG_STABLE_DISPLAY_WIDTH = "stable-display-width";
 
-    private static final String TAG_USER_PREFERRED_RESOLUTION_HEIGHT =
-            "user-preferred-resolution-height";
-    private static final String TAG_USER_PREFERRED_RESOLUTION_WIDTH =
-            "user-preferred-resolution-width";
-
     private static final String TAG_BRIGHTNESS_CONFIGURATIONS = "brightness-configurations";
     private static final String TAG_BRIGHTNESS_CONFIGURATION = "brightness-configuration";
     private static final String ATTR_USER_SERIAL = "user-serial";
@@ -701,14 +696,6 @@ final class PersistentDataStore {
                     case TAG_BRIGHTNESS_CONFIGURATIONS:
                         mDisplayBrightnessConfigurations.loadFromXml(parser);
                         break;
-                    case TAG_USER_PREFERRED_RESOLUTION_HEIGHT:
-                        String height = parser.nextText();
-                        mHeight = Integer.parseInt(height);
-                        break;
-                    case TAG_USER_PREFERRED_RESOLUTION_WIDTH:
-                        String width = parser.nextText();
-                        mWidth = Integer.parseInt(width);
-                        break;
                 }
             }
         }
@@ -725,14 +712,6 @@ final class PersistentDataStore {
             serializer.startTag(null, TAG_BRIGHTNESS_CONFIGURATIONS);
             mDisplayBrightnessConfigurations.saveToXml(serializer);
             serializer.endTag(null, TAG_BRIGHTNESS_CONFIGURATIONS);
-
-            serializer.startTag(null, TAG_USER_PREFERRED_RESOLUTION_HEIGHT);
-            serializer.text(Integer.toString(mHeight));
-            serializer.endTag(null, TAG_USER_PREFERRED_RESOLUTION_HEIGHT);
-
-            serializer.startTag(null, TAG_USER_PREFERRED_RESOLUTION_WIDTH);
-            serializer.text(Integer.toString(mWidth));
-            serializer.endTag(null, TAG_USER_PREFERRED_RESOLUTION_WIDTH);
         }
 
         public void dump(final PrintWriter pw, final String prefix) {
