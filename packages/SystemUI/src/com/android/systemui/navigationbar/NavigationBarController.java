@@ -21,6 +21,8 @@ import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_GESTURE
 import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR;
 import static android.view.Display.DEFAULT_DISPLAY;
 
+import static com.android.systemui.navigationbar.gestural.EdgeBackGestureHandler.DEBUG_MISSING_GESTURE_TAG;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -141,13 +143,22 @@ public class NavigationBarController implements
     @Override
     public void onConfigChanged(Configuration newConfig) {
         boolean oldShouldShowTaskbar = shouldShowTaskbar();
+        boolean willApplyConfig = mConfigChanges.applyNewConfig(mContext.getResources());
         boolean largeScreenChanged = shouldShowTaskbar() != oldShouldShowTaskbar;
+        // TODO(b/243765256): Disable this logging once b/243765256 is fixed.
+        Log.i(DEBUG_MISSING_GESTURE_TAG, "NavbarController: newConfig=" + newConfig
+                + " mTaskbarDelegate initialized=" + mTaskbarDelegate.isInitialized()
+                + " willApplyConfigToNavbars=" + willApplyConfig
+                + " navBarCount=" + mNavigationBars.size());
+        if (mTaskbarDelegate.isInitialized()) {
+            mTaskbarDelegate.onConfigurationChanged(newConfig);
+        }
         // If we folded/unfolded while in 3 button, show navbar in folded state, hide in unfolded
         if (largeScreenChanged && updateNavbarForTaskbar()) {
             return;
         }
 
-        if (mConfigChanges.applyNewConfig(mContext.getResources())) {
+        if (willApplyConfig) {
             for (int i = 0; i < mNavigationBars.size(); i++) {
                 recreateNavigationBar(mNavigationBars.keyAt(i));
             }
@@ -484,6 +495,8 @@ public class NavigationBarController implements
 
     @Override
     public void dump(@NonNull PrintWriter pw, @NonNull String[] args) {
+        pw.println("mIsTablet=" + mIsTablet);
+        pw.println("mNavMode=" + mNavMode);
         for (int i = 0; i < mNavigationBars.size(); i++) {
             if (i > 0) {
                 pw.println();

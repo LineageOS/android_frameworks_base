@@ -27,6 +27,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toolbar;
@@ -81,13 +82,16 @@ public class QSCustomizer extends LinearLayout {
                 mContext.getString(com.android.internal.R.string.reset));
         resetText.setSpan(new ForegroundColorSpan(isNightMode() ?
                 Color.WHITE : Color.BLACK), 0, resetText.length(), 0);
-        toolbar.getMenu().add(Menu.NONE, MENU_RESET, 0, resetText);
+        toolbar.getMenu().add(Menu.NONE, MENU_RESET, 0, resetText)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         toolbar.setTitle(R.string.qs_edit);
         mRecyclerView = findViewById(android.R.id.list);
         mTransparentView = findViewById(R.id.customizer_transparent_view);
         DefaultItemAnimator animator = new DefaultItemAnimator();
         animator.setMoveDuration(TileAdapter.MOVE_DURATION);
         mRecyclerView.setItemAnimator(animator);
+
+        updateTransparentViewHeight();
     }
 
     private boolean isNightMode() {
@@ -96,9 +100,7 @@ public class QSCustomizer extends LinearLayout {
     }
 
     void updateResources() {
-        LayoutParams lp = (LayoutParams) mTransparentView.getLayoutParams();
-        lp.height = QSUtils.getQsHeaderSystemIconsAreaHeight(mContext);
-        mTransparentView.setLayoutParams(lp);
+        updateTransparentViewHeight();
         mRecyclerView.getAdapter().notifyItemChanged(0);
     }
 
@@ -242,5 +244,11 @@ public class QSCustomizer extends LinearLayout {
 
     public boolean isOpening() {
         return mOpening;
+    }
+
+    private void updateTransparentViewHeight() {
+        LayoutParams lp = (LayoutParams) mTransparentView.getLayoutParams();
+        lp.height = QSUtils.getQsHeaderSystemIconsAreaHeight(mContext);
+        mTransparentView.setLayoutParams(lp);
     }
 }

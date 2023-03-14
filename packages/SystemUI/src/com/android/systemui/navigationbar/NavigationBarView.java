@@ -157,6 +157,7 @@ public class NavigationBarView extends FrameLayout implements TunerService.Tunab
 
     private NavigationBarInflaterView mNavigationInflaterView;
     private Optional<Recents> mRecentsOptional = Optional.empty();
+    @Nullable
     private NotificationPanelViewController mPanelView;
     private RotationContextButton mRotationContextButton;
     private FloatingRotationButton mFloatingRotationButton;

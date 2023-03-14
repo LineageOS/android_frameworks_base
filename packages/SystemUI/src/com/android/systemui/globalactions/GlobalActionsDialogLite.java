@@ -127,6 +127,7 @@ import com.android.systemui.MultiListLayout;
 import com.android.systemui.MultiListLayout.MultiListAdapter;
 import com.android.systemui.animation.DialogCuj;
 import com.android.systemui.animation.DialogLaunchAnimator;
+import com.android.systemui.animation.Expandable;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
@@ -139,6 +140,7 @@ import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.GlobalActions.GlobalActionsManager;
 import com.android.systemui.plugins.GlobalActionsPanelPlugin;
 import com.android.systemui.scrim.ScrimDrawable;
+import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.NotificationShadeWindowController;
 import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.phone.CentralSurfaces;
@@ -213,6 +215,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     protected final SecureSettings mSecureSettings;
     protected final Resources mResources;
     private final ConfigurationController mConfigurationController;
+    private final UserTracker mUserTracker;
     private final UserManager mUserManager;
     private final TrustManager mTrustManager;
     private final IActivityManager mIActivityManager;
@@ -361,6 +364,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             @NonNull VibratorHelper vibrator,
             @Main Resources resources,
             ConfigurationController configurationController,
+            UserTracker userTracker,
             KeyguardStateController keyguardStateController,
             UserManager userManager,
             TrustManager trustManager,
@@ -392,6 +396,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         mSecureSettings = secureSettings;
         mResources = resources;
         mConfigurationController = configurationController;
+        mUserTracker = userTracker;
         mUserManager = userManager;
         mTrustManager = trustManager;
         mIActivityManager = iActivityManager;
@@ -475,10 +480,11 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
      *
      * @param keyguardShowing     True if keyguard is showing
      * @param isDeviceProvisioned True if device is provisioned
-     * @param view                The view from which we should animate the dialog when showing it
+     * @param expandable          The expandable from which we should animate the dialog when
+     *                            showing it
      */
     public void showOrHideDialog(boolean keyguardShowing, boolean isDeviceProvisioned,
-            @Nullable View view) {
+            @Nullable Expandable expandable) {
         mKeyguardShowing = keyguardShowing;
         mDeviceProvisioned = isDeviceProvisioned;
         if (mDialog != null && mDialog.isShowing()) {
@@ -490,7 +496,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             mDialog.dismiss();
             mDialog = null;
         } else {
-            handleShow(view);
+            handleShow(expandable);
         }
     }
 
@@ -522,7 +528,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         }
     }
 
-    protected void handleShow(@Nullable View view) {
+    protected void handleShow(@Nullable Expandable expandable) {
         awakenIfNecessary();
         mDialog = createDialog();
         prepareDialog();
@@ -534,10 +540,12 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         // Don't acquire soft keyboard focus, to avoid destroying state when capturing bugreports
         mDialog.getWindow().addFlags(FLAG_ALT_FOCUSABLE_IM);
 
-        if (view != null) {
-            mDialogLaunchAnimator.showFromView(mDialog, view,
-                    new DialogCuj(InteractionJankMonitor.CUJ_SHADE_DIALOG_OPEN,
-                            INTERACTION_JANK_TAG));
+        DialogLaunchAnimator.Controller controller =
+                expandable != null ? expandable.dialogLaunchController(
+                        new DialogCuj(InteractionJankMonitor.CUJ_SHADE_DIALOG_OPEN,
+                                INTERACTION_JANK_TAG)) : null;
+        if (controller != null) {
+            mDialogLaunchAnimator.show(mDialog, controller);
         } else {
             mDialog.show();
         }
@@ -1226,8 +1234,9 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                             Log.w(TAG, "Bugreport handler could not be launched");
                             mIActivityManager.requestInteractiveBugReport();
                         }
-                        // Close shade so user sees the activity
-                        mCentralSurfacesOptional.ifPresent(CentralSurfaces::collapseShade);
+                        // Maybe close shade (depends on a flag) so user sees the activity
+                        mCentralSurfacesOptional.ifPresent(
+                                CentralSurfaces::collapseShadeForBugreport);
                     } catch (RemoteException e) {
                     }
                 }
@@ -1246,8 +1255,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 mMetricsLogger.action(MetricsEvent.ACTION_BUGREPORT_FROM_POWER_MENU_FULL);
                 mUiEventLogger.log(GlobalActionsEvent.GA_BUGREPORT_LONG_PRESS);
                 mIActivityManager.requestFullBugReport();
-                // Close shade so user sees the activity
-                mCentralSurfacesOptional.ifPresent(CentralSurfaces::collapseShade);
+                // Maybe close shade (depends on a flag) so user sees the activity
+                mCentralSurfacesOptional.ifPresent(CentralSurfaces::collapseShadeForBugreport);
             } catch (RemoteException e) {
             }
             return false;
@@ -1403,11 +1412,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     }
 
     protected UserInfo getCurrentUser() {
-        try {
-            return mIActivityManager.getCurrentUser();
-        } catch (RemoteException re) {
-            return null;
-        }
+        return mUserTracker.getUserInfo();
     }
 
     @VisibleForTesting
