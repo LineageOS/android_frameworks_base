@@ -40,6 +40,7 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.SettingObserver;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.util.settings.SecureSettings;
 
@@ -64,12 +65,14 @@ public class AODTile extends QSTileImpl<BooleanState> implements
             ActivityStarter activityStarter,
             QSLogger qsLogger,
             SecureSettings secureSettings,
-            BatteryController batteryController
+            BatteryController batteryController,
+            UserTracker userTracker
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
 
-        mSetting = new SettingObserver(secureSettings, mHandler, Settings.Secure.DOZE_ALWAYS_ON) {
+        mSetting = new SettingObserver(secureSettings, mHandler, Settings.Secure.DOZE_ALWAYS_ON,
+                userTracker.getUserId()) {
             @Override
             protected void handleValueChanged(int value, boolean observedChange) {
                 handleRefreshState(value);
