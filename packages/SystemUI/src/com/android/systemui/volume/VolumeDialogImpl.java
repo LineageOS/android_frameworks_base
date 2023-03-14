@@ -120,9 +120,11 @@ import com.android.internal.graphics.drawable.BackgroundBlurDrawable;
 import com.android.internal.jank.InteractionJankMonitor;
 import com.android.internal.view.RotationPolicy;
 import com.android.settingslib.Utils;
+import com.android.systemui.Dumpable;
 import com.android.systemui.Prefs;
 import com.android.systemui.R;
 import com.android.systemui.animation.Interpolators;
+import com.android.systemui.dump.DumpManager;
 import com.android.systemui.media.dialog.MediaOutputDialogFactory;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.VolumeDialog;
@@ -151,7 +153,7 @@ import java.util.function.Consumer;
  *
  * Methods ending in "H" must be called on the (ui) handler.
  */
-public class VolumeDialogImpl implements VolumeDialog,
+public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         ConfigurationController.ConfigurationListener,
         ViewTreeObserver.OnComputeInternalInsetsListener {
     private static final String TAG = Util.logTag(VolumeDialogImpl.class);
@@ -313,8 +315,9 @@ public class VolumeDialogImpl implements VolumeDialog,
             MediaOutputDialogFactory mediaOutputDialogFactory,
             VolumePanelFactory volumePanelFactory,
             ActivityStarter activityStarter,
-            TunerService tunerService,
-            InteractionJankMonitor interactionJankMonitor) {
+            InteractionJankMonitor interactionJankMonitor,
+            DumpManager dumpManager,
+            TunerService tunerService) {
         mContext =
                 new ContextThemeWrapper(context, R.style.volume_dialog_theme);
         mController = volumeDialogController;
@@ -341,6 +344,8 @@ public class VolumeDialogImpl implements VolumeDialog,
         mUseBackgroundBlur =
             mContext.getResources().getBoolean(R.bool.config_volumeDialogUseBackgroundBlur);
         mInteractionJankMonitor = interactionJankMonitor;
+
+        dumpManager.registerDumpable("VolumeDialogImpl", this);
 
         if (mUseBackgroundBlur) {
             final int dialogRowsViewColorAboveBlur = mContext.getColor(
@@ -843,7 +848,10 @@ public class VolumeDialogImpl implements VolumeDialog,
         return null;
     }
 
-    public void dump(PrintWriter writer) {
+    /**
+     * Print dump info for debugging.
+     */
+    public void dump(PrintWriter writer, String[] unusedArgs) {
         writer.println(VolumeDialogImpl.class.getSimpleName() + " state:");
         writer.print("  mShowing: "); writer.println(mShowing);
         writer.print("  mActiveStream: "); writer.println(mActiveStream);
@@ -1460,6 +1468,9 @@ public class VolumeDialogImpl implements VolumeDialog,
                 effect = VibrationEffect.get(VibrationEffect.EFFECT_CLICK);
                 break;
             case RINGER_MODE_VIBRATE:
+                // Feedback handled by onStateChange, for feedback both when user toggles
+                // directly in volume dialog, or drags slider to a value of 0 in settings.
+                break;
             default:
                 effect = VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK);
         }
@@ -1538,7 +1549,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private void showH(int reason, boolean keyguardLocked, int lockTaskModeState) {
         Trace.beginSection("VolumeDialogImpl#showH");
-        if (D.BUG) Log.d(TAG, "showH r=" + Events.SHOW_REASONS[reason]);
+        Log.i(TAG, "showH r=" + Events.SHOW_REASONS[reason]);
         mHandler.removeMessages(H.SHOW);
         mHandler.removeMessages(H.DISMISS);
         rescheduleTimeoutH();
@@ -1570,7 +1581,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         final int timeout = computeTimeoutH();
         mHandler.sendMessageDelayed(mHandler
                 .obtainMessage(H.DISMISS, Events.DISMISS_REASON_TIMEOUT, 0), timeout);
-        if (D.BUG) Log.d(TAG, "rescheduleTimeout " + timeout + " " + Debug.getCaller());
+        Log.i(TAG, "rescheduleTimeout " + timeout + " " + Debug.getCaller());
         mController.userActivity();
     }
 
@@ -1597,10 +1608,10 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     protected void dismissH(int reason) {
         Trace.beginSection("VolumeDialogImpl#dismissH");
-        if (D.BUG) {
-            Log.d(TAG, "mDialog.dismiss() reason: " + Events.DISMISS_REASONS[reason]
-                    + " from: " + Debug.getCaller());
-        }
+
+        Log.i(TAG, "mDialog.dismiss() reason: " + Events.DISMISS_REASONS[reason]
+                + " from: " + Debug.getCaller());
+
         mHandler.removeMessages(H.DISMISS);
         mHandler.removeMessages(H.SHOW);
         if (mIsAnimatingDismiss) {
@@ -1996,9 +2007,8 @@ public class VolumeDialogImpl implements VolumeDialog,
                 && mState.ringerModeInternal != -1
                 && mState.ringerModeInternal != state.ringerModeInternal
                 && state.ringerModeInternal == AudioManager.RINGER_MODE_VIBRATE) {
-            mController.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK));
+            mController.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK));
         }
-
         mState = state;
         mDynamic.clear();
         // add any new dynamic rows
@@ -2043,6 +2053,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (ss.level == row.requestedLevel) {
             row.requestedLevel = -1;
         }
+        final boolean isVoiceCallStream = row.stream == AudioManager.STREAM_VOICE_CALL;
         final boolean isA11yStream = row.stream == STREAM_ACCESSIBILITY;
         final boolean isRingStream = row.stream == AudioManager.STREAM_RING;
         final boolean isSystemStream = row.stream == AudioManager.STREAM_SYSTEM;
@@ -2087,8 +2098,12 @@ public class VolumeDialogImpl implements VolumeDialog,
         } else if (isRingSilent || zenMuted) {
             iconRes = row.iconMuteRes;
         } else if (ss.routedToBluetooth) {
-            iconRes = isStreamMuted(ss) ? R.drawable.ic_volume_media_bt_mute
-                                        : R.drawable.ic_volume_media_bt;
+            if (isVoiceCallStream) {
+                iconRes = R.drawable.ic_volume_bt_sco;
+            } else {
+                iconRes = isStreamMuted(ss) ? R.drawable.ic_volume_media_bt_mute
+                                            : R.drawable.ic_volume_media_bt;
+            }
         } else if (isStreamMuted(ss)) {
             iconRes = ss.muted ? R.drawable.ic_volume_media_off : row.iconMuteRes;
         } else {

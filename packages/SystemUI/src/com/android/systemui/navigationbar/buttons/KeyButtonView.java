@@ -427,10 +427,6 @@ public class KeyButtonView extends ImageView implements ButtonInterface {
         logSomePresses(action, flags);
         if (mCode == KeyEvent.KEYCODE_BACK && flags != KeyEvent.FLAG_LONG_PRESS) {
             Log.i(TAG, "Back button event: " + KeyEvent.actionToString(action));
-            if (action == MotionEvent.ACTION_UP) {
-                mOverviewProxyService.notifyBackAction((flags & KeyEvent.FLAG_CANCELED) == 0,
-                        -1, -1, true /* isButton */, false /* gestureSwipeLeft */);
-            }
         }
         final int repeatCount = (flags & KeyEvent.FLAG_LONG_PRESS) != 0 ? 1 : 0;
         if (applyDefaultFlags) {
