@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar.policy;
 
+import android.annotation.NonNull;
 import android.app.ActivityManager;
 import android.app.StatusBarManager;
 import android.app.WindowConfiguration;
@@ -49,7 +50,7 @@ import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.demomode.DemoModeCommandReceiver;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
-import com.android.systemui.settings.CurrentUserTracker;
+import com.android.systemui.settings.UserTracker;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.android.systemui.shared.system.TaskStackChangeListener;
 import com.android.systemui.shared.system.TaskStackChangeListeners;
@@ -87,7 +88,7 @@ public class Clock extends TextView implements
     private static final String SHOW_SECONDS = "show_seconds";
     private static final String VISIBILITY = "visibility";
 
-    private final CurrentUserTracker mCurrentUserTracker;
+    private final UserTracker mUserTracker;
     private final CommandQueue mCommandQueue;
     private int mCurrentUserId;
 
@@ -126,6 +127,15 @@ public class Clock extends TextView implements
 
     private final BroadcastDispatcher mBroadcastDispatcher;
 
+    private final UserTracker.Callback mUserChangedCallback =
+            new UserTracker.Callback() {
+                @Override
+                public void onUserChanged(int newUser, @NonNull Context userContext) {
+                    mCurrentUserId = newUser;
+                    updateClock();
+                }
+            };
+
     public Clock(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
@@ -145,12 +155,7 @@ public class Clock extends TextView implements
             a.recycle();
         }
         mBroadcastDispatcher = Dependency.get(BroadcastDispatcher.class);
-        mCurrentUserTracker = new CurrentUserTracker(mBroadcastDispatcher) {
-            @Override
-            public void onUserSwitched(int newUserId) {
-                mCurrentUserId = newUserId;
-            }
-        };
+        mUserTracker = Dependency.get(UserTracker.class);
     }
 
     @Override
@@ -199,7 +204,6 @@ public class Clock extends TextView implements
             filter.addAction(Intent.ACTION_TIME_CHANGED);
             filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
             filter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
-            filter.addAction(Intent.ACTION_USER_SWITCHED);
 
             // NOTE: This receiver could run before this method returns, as it's not dispatching
             // on the main thread and BroadcastDispatcher may not need to register with Context.
@@ -209,8 +213,8 @@ public class Clock extends TextView implements
             Dependency.get(TunerService.class).addTunable(this,
                     CLOCK_AUTO_HIDE, CLOCK_SECONDS, CLOCK_STYLE);
             mCommandQueue.addCallback(this);
-            mCurrentUserTracker.startTracking();
-            mCurrentUserId = mCurrentUserTracker.getCurrentUserId();
+            mUserTracker.addCallback(mUserChangedCallback, mContext.getMainExecutor());
+            mCurrentUserId = mUserTracker.getUserId();
         }
 
         // The time zone may have changed while the receiver wasn't registered, so update the Time
@@ -240,7 +244,7 @@ public class Clock extends TextView implements
             mAttached = false;
             Dependency.get(TunerService.class).removeTunable(this);
             mCommandQueue.removeCallback(this);
-            mCurrentUserTracker.stopTracking();
+            mUserTracker.removeCallback(mUserChangedCallback);
             handleTaskStackListener(false);
         }
     }

@@ -64,6 +64,7 @@ import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.controls.dagger.ControlsComponent;
 import com.android.systemui.plugins.GlobalActions;
 import com.android.systemui.settings.UserContextProvider;
+import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.NotificationShadeWindowController;
 import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.phone.CentralSurfaces;
@@ -102,6 +103,7 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
     @Mock private SecureSettings mSecureSettings;
     @Mock private Resources mResources;
     @Mock private ConfigurationController mConfigurationController;
+    @Mock private UserTracker mUserTracker;
     @Mock private KeyguardStateController mKeyguardStateController;
     @Mock private UserManager mUserManager;
     @Mock private TrustManager mTrustManager;
@@ -151,6 +153,7 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
                 mVibratorHelper,
                 mResources,
                 mConfigurationController,
+                mUserTracker,
                 mKeyguardStateController,
                 mUserManager,
                 mTrustManager,

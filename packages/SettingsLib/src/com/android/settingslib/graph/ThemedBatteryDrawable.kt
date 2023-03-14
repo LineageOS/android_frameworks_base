@@ -25,7 +25,6 @@ import android.graphics.Path
 import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.graphics.RectF
-import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.util.PathParser
 import android.util.TypedValue
@@ -107,12 +106,6 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
             postInvalidate()
         }
 
-    var showPercent = false
-        set(value) {
-            field = value
-            postInvalidate()
-        }
-
     private val fillColorStrokePaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
         p.color = frameColor
         p.alpha = 255
@@ -157,11 +150,6 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
         p.isDither = true
         p.strokeWidth = 0f
         p.style = Paint.Style.FILL_AND_STROKE
-    }
-
-    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
-        p.typeface = Typeface.create("sans-serif-condensed", Typeface.BOLD)
-        p.textAlign = Paint.Align.CENTER
     }
 
     init {
@@ -262,25 +250,6 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
             c.drawPath(scaledPlus, errorPaint)
         }
         c.restore()
-
-        if (!charging && batteryLevel < 100 && showPercent) {
-            textPaint.textSize = bounds.height() * 0.38f
-            val textHeight = -textPaint.fontMetrics.ascent
-            val pctX = bounds.width() * 0.5f
-            val pctY = (bounds.height() + textHeight) * 0.5f
-
-            textPaint.color = fillColor
-            c.drawText(batteryLevel.toString(), pctX, pctY, textPaint)
-
-            textPaint.color = fillColor.toInt().inv() or 0xFF000000.toInt()
-            c.save()
-            c.clipRect(fillRect.left,
-                    fillRect.top + (fillRect.height() * (1 - fillFraction)),
-                    fillRect.right,
-                    fillRect.bottom)
-            c.drawText(batteryLevel.toString(), pctX, pctY, textPaint)
-            c.restore()
-        }
     }
 
     private fun batteryColorForLevel(level: Int): Int {
@@ -443,14 +412,13 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
     }
 
     companion object {
-        private const val TAG = "ThemedBatteryDrawable"
-        private const val WIDTH = 12f
-        private const val HEIGHT = 20f
+        const val WIDTH = 12f
+        const val HEIGHT = 20f
         private const val CRITICAL_LEVEL = 15
         // On a 12x20 grid, how wide to make the fill protection stroke.
         // Scales when our size changes
         private const val PROTECTION_STROKE_WIDTH = 3f
         // Arbitrarily chosen for visibility at small sizes
-        private const val PROTECTION_MIN_STROKE_WIDTH = 6f
+        const val PROTECTION_MIN_STROKE_WIDTH = 6f
     }
 }

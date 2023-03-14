@@ -33,6 +33,7 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.demomode.DemoModeController;
 import com.android.systemui.fragments.FragmentService;
+import com.android.systemui.util.settings.GlobalSettings;
 
 import javax.inject.Inject;
 
@@ -44,12 +45,18 @@ public class TunerActivity extends Activity implements
 
     private final DemoModeController mDemoModeController;
     private final TunerService mTunerService;
+    private final GlobalSettings mGlobalSettings;
 
     @Inject
-    TunerActivity(DemoModeController demoModeController, TunerService tunerService) {
+    TunerActivity(
+            DemoModeController demoModeController,
+            TunerService tunerService,
+            GlobalSettings globalSettings
+    ) {
         super();
         mDemoModeController = demoModeController;
         mTunerService = tunerService;
+        mGlobalSettings = globalSettings;
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +75,7 @@ public class TunerActivity extends Activity implements
             final String action = getIntent().getAction();
             final Fragment fragment;
             if ("com.android.settings.action.DEMO_MODE".equals(action)) {
-                fragment = new DemoModeFragment(mDemoModeController);
+                fragment = new DemoModeFragment(mDemoModeController, mGlobalSettings);
             } else if ("com.android.settings.action.STATUS_BAR_TUNER".equals(action)) {
                 fragment = new StatusBarTuner();
             } else {

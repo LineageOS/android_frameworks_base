@@ -23,11 +23,11 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.os.UserHandle;
 import android.provider.AlarmClock;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.DisplayCutout;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
@@ -52,8 +52,6 @@ import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.VariableDateView;
 import com.android.systemui.util.LargeScreenUtils;
 import com.android.systemui.tuner.TunerService;
-
-import lineageos.providers.LineageSettings;
 
 import java.util.List;
 
@@ -253,6 +251,16 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         }
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // If using combined headers, only react to touches inside QuickQSPanel
+        if (!mUseCombinedQSHeader || event.getY() > mHeaderQsPanel.getTop()) {
+            return super.onTouchEvent(event);
+        } else {
+            return false;
+        }
+    }
+
     void updateResources() {
         Resources resources = mContext.getResources();
         boolean largeScreenHeaderActive =
@@ -288,11 +296,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
         int textColor = Utils.getColorAttrDefaultColor(mContext, android.R.attr.textColorPrimary);
         if (textColor != mTextColorPrimary) {
-            boolean isCircleBattery = LineageSettings.System.getIntForUser(
-                    mContext.getContentResolver(), LineageSettings.System.STATUS_BAR_BATTERY_STYLE,
-                    0, UserHandle.USER_CURRENT) == 1;
             int textColorSecondary = Utils.getColorAttrDefaultColor(mContext,
-                    isCircleBattery ? android.R.attr.textColorHint :
                     android.R.attr.textColorSecondary);
             mTextColorPrimary = textColor;
             mClockView.setTextColor(textColor);
@@ -304,9 +308,15 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         }
 
         MarginLayoutParams qqsLP = (MarginLayoutParams) mHeaderQsPanel.getLayoutParams();
-        qqsLP.topMargin = largeScreenHeaderActive || !mUseCombinedQSHeader
-                ? mContext.getResources().getDimensionPixelSize(R.dimen.qqs_layout_margin_top)
-                : SystemBarUtils.getQuickQsOffsetHeight(mContext);
+        if (largeScreenHeaderActive) {
+            qqsLP.topMargin = mContext.getResources()
+                    .getDimensionPixelSize(R.dimen.qqs_layout_margin_top);
+        } else if (!mUseCombinedQSHeader) {
+            qqsLP.topMargin = SystemBarUtils.getQuickQsOffsetHeight(mContext);
+        } else {
+            qqsLP.topMargin = mContext.getResources()
+                    .getDimensionPixelSize(R.dimen.large_screen_shade_header_min_height);
+        }
         mHeaderQsPanel.setLayoutParams(qqsLP);
 
         updateBatteryMode();
@@ -440,9 +450,9 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         // If forceExpanded (we are opening QS from lockscreen), the animators have been set to
         // position = 1f.
         if (forceExpanded) {
-            setTranslationY(panelTranslationY);
+            setAlpha(expansionFraction);
         } else {
-            setTranslationY(0);
+            setAlpha(1);
         }
 
         mKeyguardExpansionFraction = keyguardExpansionFraction;

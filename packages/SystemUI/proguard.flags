@@ -10,9 +10,6 @@
 }
 -keep class * extends com.android.systemui.CoreStartable
 -keep class * implements com.android.systemui.CoreStartable$Injector
--keep class * implements com.android.systemui.biometrics.UdfpsDisplayModeProvider {
-    public <init>(...);
-}
 
 # Needed for builds to properly initialize KeyFrames from xml scene
 -keepclassmembers class * extends androidx.constraintlayout.motion.widget.Key {
@@ -25,6 +22,9 @@
 
 -keep class ** extends androidx.preference.PreferenceFragment
 -keep class com.android.systemui.tuner.*
+
+# The plugins subpackage acts as a shared library that might be referenced in
+# dynamically-loaded plugin APKs.
 -keep class com.android.systemui.plugins.** {
     *;
 }

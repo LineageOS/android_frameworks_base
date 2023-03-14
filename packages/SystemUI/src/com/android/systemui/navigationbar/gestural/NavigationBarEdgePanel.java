@@ -52,15 +52,17 @@ import androidx.dynamicanimation.animation.SpringForce;
 
 import com.android.internal.util.LatencyTracker;
 import com.android.settingslib.Utils;
-import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.animation.Interpolators;
+import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.plugins.NavigationEdgeBackPlugin;
 import com.android.systemui.shared.navigationbar.RegionSamplingHelper;
 import com.android.systemui.statusbar.VibratorHelper;
 
 import java.io.PrintWriter;
 import java.util.concurrent.Executor;
+
+import javax.inject.Inject;
 
 public class NavigationBarEdgePanel extends View implements NavigationEdgeBackPlugin {
 
@@ -286,11 +288,16 @@ public class NavigationBarEdgePanel extends View implements NavigationEdgeBackPl
             };
     private BackCallback mBackCallback;
 
-    public NavigationBarEdgePanel(Context context, LatencyTracker latencyTracker) {
+    @Inject
+    public NavigationBarEdgePanel(
+            Context context,
+            LatencyTracker latencyTracker,
+            VibratorHelper vibratorHelper,
+            @Background Executor backgroundExecutor) {
         super(context);
 
         mWindowManager = context.getSystemService(WindowManager.class);
-        mVibratorHelper = Dependency.get(VibratorHelper.class);
+        mVibratorHelper = vibratorHelper;
 
         mDensity = context.getResources().getDisplayMetrics().density;
 
@@ -362,7 +369,6 @@ public class NavigationBarEdgePanel extends View implements NavigationEdgeBackPl
 
         setVisibility(GONE);
 
-        Executor backgroundExecutor = Dependency.get(Dependency.BACKGROUND_EXECUTOR);
         boolean isPrimaryDisplay = mContext.getDisplayId() == DEFAULT_DISPLAY;
         mRegionSamplingHelper = new RegionSamplingHelper(this,
                 new RegionSamplingHelper.SamplingCallback() {

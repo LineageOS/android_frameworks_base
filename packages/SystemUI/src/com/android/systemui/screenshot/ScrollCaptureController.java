@@ -79,6 +79,7 @@ public class ScrollCaptureController {
     static class LongScreenshot {
         private final ImageTileSet mImageTileSet;
         private final Session mSession;
+        // TODO: Add UserHandle so LongScreenshots can adhere to work profile screenshot policy
 
         LongScreenshot(Session session, ImageTileSet imageTileSet) {
             mSession = session;

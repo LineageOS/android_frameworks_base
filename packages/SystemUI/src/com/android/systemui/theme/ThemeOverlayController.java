@@ -76,7 +76,6 @@ import com.android.systemui.statusbar.policy.ConfigurationController.Configurati
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.util.settings.SecureSettings;
-import com.android.systemui.util.settings.SystemSettings;
 
 import lineageos.providers.LineageSettings;
 
@@ -84,6 +83,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -105,7 +105,7 @@ import javax.inject.Inject;
  * associated work profiles
  */
 @SysUISingleton
-public class ThemeOverlayController extends CoreStartable implements Dumpable {
+public class ThemeOverlayController implements CoreStartable, Dumpable {
     protected static final String TAG = "ThemeOverlayController";
     protected static final String OVERLAY_BERRY_BLACK_THEME =
             "org.lineageos.overlay.customization.blacktheme";
@@ -119,9 +119,10 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
     private final BroadcastDispatcher mBroadcastDispatcher;
     private final Executor mBgExecutor;
     private final SecureSettings mSecureSettings;
-    private final SystemSettings mSystemSettings;
     private final Executor mMainExecutor;
     private final Handler mBgHandler;
+    private final boolean mIsMonochromaticEnabled;
+    private final Context mContext;
     private final boolean mIsMonetEnabled;
     private final UserTracker mUserTracker;
     private final ConfigurationController mConfigurationController;
@@ -189,6 +190,10 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
 
         @Override
         public void onColorsChanged(WallpaperColors wallpaperColors, int which, int userId) {
+            WallpaperColors currentColors = mCurrentColors.get(userId);
+            if (wallpaperColors != null && wallpaperColors.equals(currentColors)) {
+                return;
+            }
             boolean currentUser = userId == mUserTracker.getUserId();
             if (currentUser && !mAcceptColorEvents
                     && mWakefulnessLifecycle.getWakefulness() != WAKEFULNESS_ASLEEP) {
@@ -380,9 +385,9 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
             UserManager userManager, DeviceProvisionedController deviceProvisionedController,
             UserTracker userTracker, DumpManager dumpManager, FeatureFlags featureFlags,
             @Main Resources resources, WakefulnessLifecycle wakefulnessLifecycle,
-            SystemSettings systemSettings, ConfigurationController configurationController) {
-        super(context);
-
+            ConfigurationController configurationController) {
+        mContext = context;
+        mIsMonochromaticEnabled = featureFlags.isEnabled(Flags.MONOCHROMATIC_THEMES);
         mIsMonetEnabled = featureFlags.isEnabled(Flags.MONET);
         mConfigurationController = configurationController;
         mDeviceProvisionedController = deviceProvisionedController;
@@ -393,7 +398,6 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
         mBgHandler = bgHandler;
         mThemeManager = themeOverlayApplier;
         mSecureSettings = secureSettings;
-        mSystemSettings = systemSettings;
         mWallpaperManager = wallpaperManager;
         mUserTracker = userTracker;
         mResources = resources;
@@ -452,33 +456,6 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
                             return;
                         }
                         reevaluateSystemTheme(true /* forceReload */);
-                    }
-                },
-                UserHandle.USER_ALL);
-
-        mSystemSettings.registerContentObserverForUser(
-                LineageSettings.System.getUriFor(LineageSettings.System.STATUS_BAR_BATTERY_STYLE),
-                false,
-                new ContentObserver(mBgHandler) {
-                    @Override
-                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
-                            int userId) {
-                        if (DEBUG) Log.d(TAG, "Overlay changed for user: " + userId);
-                        if (mUserTracker.getUserId() != userId) {
-                            return;
-                        }
-                        if (!mDeviceProvisionedController.isUserSetup(userId)) {
-                            Log.i(TAG, "Theme application deferred when setting changed.");
-                            mDeferredThemeEvaluation = true;
-                            return;
-                        }
-                        boolean isCircleBattery = LineageSettings.System.getIntForUser(
-                                mContext.getContentResolver(),
-                                LineageSettings.System.STATUS_BAR_BATTERY_STYLE,
-                                0, UserHandle.USER_CURRENT) == 1;
-                        if (isCircleBattery) {
-                            reevaluateSystemTheme(true /* forceReload */);
-                        }
                     }
                 },
                 UserHandle.USER_ALL);
@@ -736,8 +713,13 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
         // Allow-list of Style objects that can be created from a setting string, i.e. can be
         // used as a system-wide theme.
         // - Content intentionally excluded, intended for media player, not system-wide
-        List<Style> validStyles = Arrays.asList(Style.EXPRESSIVE, Style.SPRITZ, Style.TONAL_SPOT,
-                Style.FRUIT_SALAD, Style.RAINBOW, Style.VIBRANT);
+        List<Style> validStyles = new ArrayList<>(Arrays.asList(Style.EXPRESSIVE, Style.SPRITZ,
+                Style.TONAL_SPOT, Style.FRUIT_SALAD, Style.RAINBOW, Style.VIBRANT));
+
+        if (mIsMonochromaticEnabled) {
+            validStyles.add(Style.MONOCHROMATIC);
+        }
+
         Style style = mThemeStyle;
         final String overlayPackageJson = mSecureSettings.getStringForUser(
                 Settings.Secure.THEME_CUSTOMIZATION_OVERLAY_PACKAGES,

@@ -65,6 +65,7 @@ import com.android.systemui.Dumpable;
 import com.android.systemui.R;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.SysUISingleton;
+import com.android.systemui.dump.DumpManager;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
 import com.android.systemui.plugins.VolumeDialogController;
 import com.android.systemui.qs.tiles.DndTile;
@@ -178,7 +179,8 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
             WakefulnessLifecycle wakefulnessLifecycle,
             CaptioningManager captioningManager,
             KeyguardManager keyguardManager,
-            ActivityManager activityManager
+            ActivityManager activityManager,
+            DumpManager dumpManager
     ) {
         mContext = context.getApplicationContext();
         mPackageManager = packageManager;
@@ -207,7 +209,7 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
         mCaptioningManager = captioningManager;
         mKeyguardManager = keyguardManager;
         mActivityManager = activityManager;
-
+        dumpManager.registerDumpable("VolumeDialogControllerImpl", this);
 
         boolean accessibilityVolumeStreamActive = accessibilityManager
                 .isAccessibilityVolumeStreamActive();
@@ -429,6 +431,11 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
                             AudioManager.DEVICE_OUT_BLUETOOTH_A2DP_SPEAKER |
                             AudioManager.DEVICE_OUT_BLE_HEADSET)) != 0;
             changed |= updateStreamRoutedToBluetoothW(stream, routedToBluetooth);
+        } else if (stream == AudioManager.STREAM_VOICE_CALL) {
+            final boolean routedToBluetooth =
+                    (mAudio.getDevicesForStream(AudioManager.STREAM_VOICE_CALL)
+                            & AudioManager.DEVICE_OUT_BLE_HEADSET) != 0;
+            changed |= updateStreamRoutedToBluetoothW(stream, routedToBluetooth);
         }
         return changed;
     }
@@ -557,16 +564,6 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
 
     private static boolean isRinger(int stream) {
         return stream == AudioManager.STREAM_RING || stream == AudioManager.STREAM_NOTIFICATION;
-    }
-
-    private boolean updateLinkNotificationConfigW() {
-        boolean linkNotificationWithVolume = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
-        if (mState.linkedNotification == linkNotificationWithVolume) {
-            return false;
-        }
-        mState.linkedNotification = linkNotificationWithVolume;
-        return true;
     }
 
     private boolean updateEffectsSuppressorW(ComponentName effectsSuppressor) {
@@ -1030,8 +1027,6 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
                 Settings.Global.getUriFor(Settings.Global.ZEN_MODE);
         private final Uri ZEN_MODE_CONFIG_URI =
                 Settings.Global.getUriFor(Settings.Global.ZEN_MODE_CONFIG_ETAG);
-        private final Uri VOLUME_LINK_NOTIFICATION_URI =
-                Settings.Secure.getUriFor(Settings.Secure.VOLUME_LINK_NOTIFICATION);
 
         public SettingObserver(Handler handler) {
             super(handler);
@@ -1040,8 +1035,6 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
         public void init() {
             mContext.getContentResolver().registerContentObserver(ZEN_MODE_URI, false, this);
             mContext.getContentResolver().registerContentObserver(ZEN_MODE_CONFIG_URI, false, this);
-            mContext.getContentResolver().registerContentObserver(VOLUME_LINK_NOTIFICATION_URI,
-                    false, this);
         }
 
         public void destroy() {
@@ -1056,9 +1049,6 @@ public class VolumeDialogControllerImpl implements VolumeDialogController, Dumpa
             }
             if (ZEN_MODE_CONFIG_URI.equals(uri)) {
                 changed |= updateZenConfig();
-            }
-            if (VOLUME_LINK_NOTIFICATION_URI.equals(uri)) {
-                changed = updateLinkNotificationConfigW();
             }
 
             if (changed) {
