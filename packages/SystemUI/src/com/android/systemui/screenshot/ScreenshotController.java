@@ -474,6 +474,17 @@ public class ScreenshotController {
     }
 
     /**
+     * Displays a screenshot selector
+     */
+    @MainThread
+    void takeScreenshotPartial(ComponentName topComponent,
+            final Consumer<Uri> finisher, RequestCallback requestCallback) {
+        Assert.isMainThread();
+        startPartialScreenshotActivity(Process.myUserHandle());
+        finisher.accept(null);
+    }
+
+    /**
      * Clears current screenshot
      */
     void dismissScreenshot(ScreenshotEvent event) {
@@ -773,7 +784,8 @@ public class ScreenshotController {
                 onScrollCaptureResponseReady(future, owner), mMainExecutor);
     }
 
-    public void startLongScreenshotActivity(ScrollCaptureController.LongScreenshot longScreenshot) {
+    public void startLongScreenshotActivity(ScrollCaptureController.LongScreenshot longScreenshot,
+            UserHandle owner) {
         mLongScreenshotHolder.setLongScreenshot(longScreenshot);
         mLongScreenshotHolder.setTransitionDestinationCallback(
                 (transitionDestination, onTransitionEnd) -> {
@@ -811,14 +823,14 @@ public class ScreenshotController {
         }
     }
 
-    private void startPartialScreenshotActivity() {
+    private void startPartialScreenshotActivity(UserHandle owner) {
         Bitmap newScreenshot = captureScreenshot();
 
         ScrollCaptureController.BitmapScreenshot bitmapScreenshot =
             new ScrollCaptureController.BitmapScreenshot(mContext, newScreenshot);
 
         mLongScreenshotHolder.setNeedsMagnification(false);
-        startLongScreenshotActivity(bitmapScreenshot);
+        startLongScreenshotActivity(bitmapScreenshot, owner);
     }
 
     private void onScrollCaptureResponseReady(Future<ScrollCaptureResponse> responseFuture,
@@ -889,7 +901,7 @@ public class ScreenshotController {
 
             mLongScreenshotHolder.setForegroundAppName(getForegroundAppLabel());
             mLongScreenshotHolder.setNeedsMagnification(true);
-            startLongScreenshotActivity(longScreenshot);
+            startLongScreenshotActivity(longScreenshot, owner);
         }, mMainExecutor);
     }
 
