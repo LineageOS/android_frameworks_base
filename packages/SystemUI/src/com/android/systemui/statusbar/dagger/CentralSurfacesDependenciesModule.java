@@ -70,6 +70,7 @@ import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.RemoteInputUriController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
 import com.android.systemui.tracing.ProtoTracer;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.time.SystemClock;
 
@@ -103,7 +104,8 @@ public interface CentralSurfacesDependenciesModule {
             RemoteInputUriController remoteInputUriController,
             NotificationClickNotifier clickNotifier,
             ActionClickLogger actionClickLogger,
-            DumpManager dumpManager) {
+            DumpManager dumpManager,
+            TunerService tunerService) {
         return new NotificationRemoteInputManager(
                 context,
                 notifPipelineFlags,
@@ -135,7 +137,8 @@ public interface CentralSurfacesDependenciesModule {
             StatusBarStateController statusBarStateController,
             SysuiColorExtractor colorExtractor,
             KeyguardStateController keyguardStateController,
-            DumpManager dumpManager) {
+            DumpManager dumpManager,
+            TunerService tunerService) {
         return new NotificationMediaManager(
                 context,
                 centralSurfacesOptionalLazy,
@@ -150,7 +153,8 @@ public interface CentralSurfacesDependenciesModule {
                 statusBarStateController,
                 colorExtractor,
                 keyguardStateController,
-                dumpManager);
+                dumpManager,
+                tunerService);
     }
 
     /** */
