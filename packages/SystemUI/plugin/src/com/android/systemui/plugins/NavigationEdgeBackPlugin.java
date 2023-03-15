@@ -77,7 +77,6 @@ public interface NavigationEdgeBackPlugin extends Plugin {
          *
          * @param triggerLongSwipe if long swipe will be triggered in current state.
          */
-        // TODO(b/247883311): Remove default impl once SwipeBackGestureHandler overrides this.
-        default void setTriggerLongSwipe(boolean triggerLongSwipe) {}
+        void setTriggerLongSwipe(boolean triggerLongSwipe);
     }
 }
