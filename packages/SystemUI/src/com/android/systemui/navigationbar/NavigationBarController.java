@@ -495,7 +495,7 @@ public class NavigationBarController implements
 
     @Override
     public void dump(@NonNull PrintWriter pw, @NonNull String[] args) {
-        pw.println("mIsTablet=" + mIsTablet);
+        pw.println("mTaskbarShowing=" + mTaskbarShowing);
         pw.println("mNavMode=" + mNavMode);
         for (int i = 0; i < mNavigationBars.size(); i++) {
             if (i > 0) {
