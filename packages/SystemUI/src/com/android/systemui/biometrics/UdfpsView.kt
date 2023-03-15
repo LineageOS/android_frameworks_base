@@ -177,7 +177,7 @@ class UdfpsView(
 
         mUdfpsDisplayMode?.enable {
             onDisplayConfigured?.run()
-            ghbmView?.drawIlluminationDot(sensorRect)
+            ghbmView?.drawIlluminationDot(RectF(sensorRect))
         }
     }
 
