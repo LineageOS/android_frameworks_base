@@ -248,6 +248,12 @@ public class TakeScreenshotService extends Service {
                 }
                 mScreenshot.takeScreenshotFullscreen(topComponent, uriConsumer, callback);
                 break;
+            case WindowManager.TAKE_SCREENSHOT_SELECTED_REGION:
+                if (DEBUG_SERVICE) {
+                    Log.d(TAG, "handleMessage: TAKE_SCREENSHOT_SELECTED_REGION");
+                }
+                mScreenshot.takeScreenshotPartial(topComponent, uriConsumer, callback);
+                break;
             case WindowManager.TAKE_SCREENSHOT_PROVIDED_IMAGE:
                 if (DEBUG_SERVICE) {
                     Log.d(TAG, "handleMessage: TAKE_SCREENSHOT_PROVIDED_IMAGE");
