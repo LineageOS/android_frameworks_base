@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89a307e7_7f9f1b95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-03-15T21:44:33Z",
+      "side": 1,
+      "message": "Works smoothly with manual and automatic brightness.",
+      "revId": "8b74b8b6f8c2b68053263a84b499e5ed27997cc8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
