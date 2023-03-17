@@ -16,6 +16,23 @@
       "message": "Works smoothly with manual and automatic brightness.",
       "revId": "8b74b8b6f8c2b68053263a84b499e5ed27997cc8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83b76382_8e673f7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-03-17T13:37:05Z",
+      "side": 1,
+      "message": "This will likely have to be redone after QPR2 merge",
+      "revId": "8b74b8b6f8c2b68053263a84b499e5ed27997cc8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
