@@ -4856,7 +4856,7 @@
 
     <!-- The type of the light sensor to be used by the display framework for things like
          auto-brightness. If unset, then it just gets the default sensor of type TYPE_LIGHT. -->
-    <string name="config_displayLightSensorType" translatable="false" />
+    <string name="config_displayLightSensorType" translatable="false">android.sensor.light</string>
 
     <!-- Whether or not to enable automatic heap dumps for the system server on debuggable builds. -->
     <bool name="config_debugEnableAutomaticSystemServerHeapDumps">false</bool>
