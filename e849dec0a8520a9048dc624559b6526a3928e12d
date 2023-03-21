@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8056cc_5a850c3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2023-03-21T02:18:47Z",
+      "side": 1,
+      "message": "maybe add a comment about why we can\u0027t fix this in vendor/lineage?",
+      "revId": "e849dec0a8520a9048dc624559b6526a3928e12d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
