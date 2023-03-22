@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfa8a5ac_ba945d07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 23518
+      },
+      "writtenOn": "2023-03-22T16:39:40Z",
+      "side": 1,
+      "message": "Getting following error: Applying change number 351912...\n--\u003e Subject:       \"b\u0027RESTRICT AUTOMERGE Revoke dev perm if app is upgrading to post 23 and perm has pre23 flag\u0027\"\n--\u003e Project path:  frameworks/base\n--\u003e Change number: 351912 (Patch Set 1)\n[\u0027git fetch github\u0027, \u0027refs/changes/12/351912/1\u0027]\nFrom https://github.com/LineageOS/android_frameworks_base\n * branch                    refs/changes/12/351912/1 -\u003e FETCH_HEAD\nAuto-merging services/core/java/com/android/server/pm/permission/PermissionManagerService.java\nCONFLICT (content): Merge conflict in services/core/java/com/android/server/pm/permission/PermissionManagerService.java\nerror: could not apply d6401e37da9... RESTRICT AUTOMERGE Revoke dev perm if app is upgrading to post 23 and perm has pre23 flag\nhint: After resolving the conflicts, mark them with\nhint: \"git add/rm \u003cpathspec\u003e\", then run\nhint: \"git cherry-pick --continue\".\nhint: You can instead skip this commit with \"git cherry-pick --skip\".\nhint: To abort and get back to the state before \"git cherry-pick\",\nhint: run \"git cherry-pick --abort\".\nRecorded preimage for \u0027services/core/java/com/android/server/pm/permission/PermissionManagerService.java\u0027\nERROR: git command failed",
+      "revId": "d6401e37da9afb99f647b09fd3ce9aa38bb84016",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
