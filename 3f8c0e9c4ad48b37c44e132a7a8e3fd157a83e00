@@ -16,6 +16,24 @@
       "message": "Getting the following error: Applying change number 351910...\n--\u003e Subject:       \"b\u0027Move service initialization\u0027\"\n--\u003e Project path:  frameworks/base\n--\u003e Change number: 351910 (Patch Set 1)\n[\u0027git fetch github\u0027, \u0027refs/changes/10/351910/1\u0027]\nremote: Enumerating objects: 663, done.\nremote: Counting objects: 100% (371/371), done.\nremote: Compressing objects: 100% (94/94), done.\nremote: Total 663 (delta 316), reused 279 (delta 274), pack-reused 292\nReceiving objects: 100% (663/663), 1.10 MiB | 2.83 MiB/s, done.\nResolving deltas: 100% (348/348), completed with 105 local objects.\nFrom https://github.com/LineageOS/android_frameworks_base\n * branch                    refs/changes/10/351910/1 -\u003e FETCH_HEAD\nAuto-merging services/core/java/com/android/server/notification/NotificationManagerService.java\nCONFLICT (content): Merge conflict in services/core/java/com/android/server/notification/NotificationManagerService.java\nerror: could not apply 3f8c0e9c4ad... Move service initialization\nhint: After resolving the conflicts, mark them with\nhint: \"git add/rm \u003cpathspec\u003e\", then run\nhint: \"git cherry-pick --continue\".\nhint: You can instead skip this commit with \"git cherry-pick --skip\".\nhint: To abort and get back to the state before \"git cherry-pick\",\nhint: run \"git cherry-pick --abort\".\nRecorded preimage for \u0027services/core/java/com/android/server/notification/NotificationManagerService.java\u0027\nERROR: git command failed",
       "revId": "3f8c0e9c4ad48b37c44e132a7a8e3fd157a83e00",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4826a534_342a18ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2023-03-22T20:18:33Z",
+      "side": 1,
+      "message": "Thanks for reporting this, however - I am pretty sure, that something must be wrong specifically with your build-tree or the sequence, in which you apply the picks (in case you manually pick each commit instead of picking the entire topic).\nDo you have any uncommited changes or further commits in fr/base? or maybe on a test branch?\nTo be on the safe side, I have even freshly initialized a brand-new lineage-16.0 tree from scratch and applied all topics from P_asb_2022-05 until P_asb_2023-03 - it went fine without ANY issue, so it\u0027s definitely not my regular build tree, which is faulty.\nTip: Exclude the empty commits for build, as this can also cause issues - example for the February topic: \u0027repopick -it P_asb_2023-02 -e 349337\u0027",
+      "parentUuid": "b6586e83_4444d9de",
+      "revId": "3f8c0e9c4ad48b37c44e132a7a8e3fd157a83e00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
