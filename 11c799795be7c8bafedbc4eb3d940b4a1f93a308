@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6dc145a_a9c5af87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 23518
+      },
+      "writtenOn": "2023-03-22T16:45:48Z",
+      "side": 1,
+      "message": "Getting following error\" Applying change number 351911...\n--\u003e Subject:       \"b\u0027Enable user graularity for lockdown mode\u0027\"\n--\u003e Project path:  frameworks/base\n--\u003e Change number: 351911 (Patch Set 1)\n[\u0027git fetch github\u0027, \u0027refs/changes/11/351911/1\u0027]\nFrom https://github.com/LineageOS/android_frameworks_base\n * branch                    refs/changes/11/351911/1 -\u003e FETCH_HEAD\nAuto-merging services/core/java/com/android/server/notification/NotificationManagerService.java\nCONFLICT (content): Merge conflict in services/core/java/com/android/server/notification/NotificationManagerService.java\nerror: could not apply 11c799795be... Enable user graularity for lockdown mode\nhint: After resolving the conflicts, mark them with\nhint: \"git add/rm \u003cpathspec\u003e\", then run\nhint: \"git cherry-pick --continue\".\nhint: You can instead skip this commit with \"git cherry-pick --skip\".\nhint: To abort and get back to the state before \"git cherry-pick\",\nhint: run \"git cherry-pick --abort\".\nerror: could not parse conflict hunks in \u0027services/core/java/com/android/server/notification/NotificationManagerService.java\u0027\nERROR: git command failed",
+      "revId": "11c799795be7c8bafedbc4eb3d940b4a1f93a308",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
