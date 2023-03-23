@@ -64,4 +64,5 @@
     <string name="vpn_credentials_dialog_connect">Yhdistä</string>
     <string name="accessibility_dpad_left">Kohdistin vasemmalle</string>
     <string name="accessibility_dpad_right">Kohdistin oikealle</string>
+    <string name="status_bar_firewall">Palomuuri</string>
 </resources>

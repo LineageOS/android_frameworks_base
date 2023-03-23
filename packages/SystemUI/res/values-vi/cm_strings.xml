@@ -18,6 +18,8 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="status_bar_icons_title">Biểu tượng thanh trạng thái</string>
+    <string name="clock">Đồng hồ</string>
     <string name="global_action_restart_more">Khởi động lại\u2026</string>
     <string name="global_action_restart_system">Hệ thống</string>
     <string name="global_action_restart_recovery">Chế độ phục hồi</string>
@@ -31,6 +33,7 @@
     <string name="global_action_restart_fastboot_progress">Đang khởi động lại vào chế độ fastboot\u2026</string>
     <string name="global_action_current_user">Hiện tại</string>
     <string name="global_action_users">Người dùng</string>
+    <string name="drag_or_tap_to_add_tiles">Giữ &amp;  kéo hoặc nhấn để thêm ô</string>
     <string name="quick_settings_ambient_display_label">Hiển thị môi trường xung quanh</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tắt hiển thị môi trường xung quanh.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Hiển thị môi trường xung quanh bật.</string>
@@ -64,4 +67,5 @@
     <string name="vpn_credentials_dialog_connect">Kết nối</string>
     <string name="accessibility_dpad_left">Trỏ trái</string>
     <string name="accessibility_dpad_right">Trỏ phải</string>
+    <string name="status_bar_firewall">Tường lửa</string>
 </resources>
