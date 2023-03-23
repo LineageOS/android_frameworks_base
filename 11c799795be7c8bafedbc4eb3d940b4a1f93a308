@@ -34,6 +34,23 @@
       "parentUuid": "a6dc145a_a9c5af87",
       "revId": "11c799795be7c8bafedbc4eb3d940b4a1f93a308",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8dbaed2_f382086e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 23518
+      },
+      "writtenOn": "2023-03-23T20:22:37Z",
+      "side": 1,
+      "message": "Thanks - I repo synced again and repopicked all the topics again from 2022-05. As this has been required before and now again on two different phone builds, I believe it is to do with all the empty commits with regards to the security patch dates. The easiest solution from my perspective would be for you as the owner to remove all of those empty commits from 2022-05 on, if possible. Then the repo sync with all the repopicks should only have to be done once more and be good to go from there.\nThanks for your continuing support.",
+      "revId": "11c799795be7c8bafedbc4eb3d940b4a1f93a308",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
