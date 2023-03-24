@@ -461,6 +461,20 @@ public class NotificationInterruptionStateProvider {
             return false;
         }
 
+        // If the notification has suppressive BubbleMetadata, block FSI and warn.
+        Notification.BubbleMetadata bubbleMetadata = sbn.getNotification().getBubbleMetadata();
+        if (bubbleMetadata != null && bubbleMetadata.isNotificationSuppressed()) {
+            // b/274759612: Detect and report an event when a notification has both an FSI and a
+            // suppressive BubbleMetadata, and now correctly block the FSI from firing.
+            final int uid = entry.notification.getUid();
+            android.util.EventLog.writeEvent(0x534e4554, "274759612", uid, "bubbleMetadata");
+            if (DEBUG) {
+                Log.w(TAG, "No FullScreenIntent: WARNING: BubbleMetadata may prevent HUN: "
+                        + entry.key);
+            }
+            return false;
+        }
+
         // If the screen is off, then launch the FullScreenIntent
         if (!mPowerManager.isInteractive()) {
             if (DEBUG) {
