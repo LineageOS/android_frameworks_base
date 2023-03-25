@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa0a4e75_a7dbe847",
+        "filename": "apex/jobscheduler/service/java/com/android/server/DeviceIdleController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2302,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-03-25T20:18:16Z",
+      "side": 1,
+      "message": "if keys are sorted it might work, but I don\u0027t think a sparse array is sorted?",
+      "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b46a449_6651bf2c",
+        "filename": "apex/jobscheduler/service/java/com/android/server/job/controllers/DeviceIdleJobsController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-03-25T20:18:16Z",
+      "side": 1,
+      "message": "binary search?\nare we sure the array is sorted?",
+      "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
