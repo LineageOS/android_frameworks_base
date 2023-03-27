@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5670be26_68ac8106",
+        "filename": "apex/jobscheduler/service/java/com/android/server/DeviceIdleController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2302,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2023-03-27T15:36:55Z",
+      "side": 1,
+      "message": "Appears to work. Doc for `keyAt` says:\n\n```\n     * \u003cp\u003eThe keys corresponding to indices in ascending order are guaranteed to\n     * be in ascending order, e.g., \u003ccode\u003ekeyAt(0)\u003c/code\u003e will return the\n     * smallest key and \u003ccode\u003ekeyAt(size()-1)\u003c/code\u003e will return the largest\n     * key.\u003c/p\u003e\n     *\n```\n\nThe `put` method of `SparseBooleanArray` ensures keys are inserted in the proper order, and `append` ensures that `put` is used when the index falls within the current sparse array.",
+      "parentUuid": "aa0a4e75_a7dbe847",
+      "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b46a449_6651bf2c",
         "filename": "apex/jobscheduler/service/java/com/android/server/job/controllers/DeviceIdleJobsController.java",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2023-03-25T20:18:16Z",
       "side": 1,
       "message": "binary search?\nare we sure the array is sorted?",
+      "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "408812ff_7d007302",
+        "filename": "apex/jobscheduler/service/java/com/android/server/job/controllers/DeviceIdleJobsController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2023-03-27T15:36:55Z",
+      "side": 1,
+      "message": "Should be, see previous comment.",
+      "parentUuid": "1b46a449_6651bf2c",
       "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
