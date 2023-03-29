@@ -36,6 +36,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5876bfd6_1175ce60",
+        "filename": "apex/jobscheduler/service/java/com/android/server/DeviceIdleController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2302,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-03-29T16:33:54Z",
+      "side": 1,
+      "message": "Oh well, didn\u0027t know it worked like that.\nFor myself:\nGrowingArrayUtils is able to grow primitive-type with same perf as ArrayList\nSparseBooleanArray insert new keys only after searching the new placing using bin-search",
+      "parentUuid": "5670be26_68ac8106",
+      "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b46a449_6651bf2c",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Should be, see previous comment.",
       "parentUuid": "1b46a449_6651bf2c",
+      "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b63e041b_0903158c",
+        "filename": "apex/jobscheduler/service/java/com/android/server/job/controllers/DeviceIdleJobsController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-03-29T16:33:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "408812ff_7d007302",
       "revId": "9f57e1c2d49904349219dbb185ff54d1f3f595c7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
