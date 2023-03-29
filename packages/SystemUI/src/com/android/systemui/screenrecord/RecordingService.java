@@ -238,6 +238,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                 // we want to post the notifications for that user, which is NOT current user
                 int userId = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, USER_ID_NOT_SPECIFIED);
                 stopService(userId);
+                stopForeground(true);
                 break;
 
             case ACTION_SHARE:
