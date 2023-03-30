@@ -35,6 +35,8 @@ import static android.content.Intent.ACTION_PACKAGE_ADDED;
 import static android.content.Intent.ACTION_UID_REMOVED;
 import static android.content.Intent.ACTION_USER_ADDED;
 import static android.content.Intent.ACTION_USER_REMOVED;
+import static android.content.Intent.ACTION_USER_STARTING;
+import static android.content.Intent.ACTION_USER_STOPPED;
 import static android.content.Intent.EXTRA_REPLACING;
 import static android.content.Intent.EXTRA_UID;
 import static android.content.pm.ApplicationInfo.FLAG_INSTALLED;
@@ -1086,6 +1088,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             final IntentFilter userFilter = new IntentFilter();
             userFilter.addAction(ACTION_USER_ADDED);
             userFilter.addAction(ACTION_USER_REMOVED);
+            userFilter.addAction(ACTION_USER_STARTING);
+            userFilter.addAction(ACTION_USER_STOPPED);
             mContext.registerReceiver(mUserReceiver, userFilter, null, mHandler);
 
             // listen for stats updated callbacks for interested network types.
@@ -1347,12 +1351,12 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                                 }
                             }
                         }
-                        // Update global restrict for that user
-                        synchronized (mNetworkPoliciesSecondLock) {
-                            updateRulesForGlobalChangeAL(true);
-                        }
                     }
                     break;
+            }
+            // Update global restrict for that user
+            synchronized (mNetworkPoliciesSecondLock) {
+                updateRulesForGlobalChangeAL(true);
             }
         }
     };
@@ -4977,6 +4981,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 final int usersSize = users.size();
                 for (int i = 0; i < usersSize; ++i) {
                     final int userId = users.get(i).id;
+                    if (!mUserManager.isUserRunningOrStopping(UserHandle.of(userId))) {
+                        // Save space in mUidOwnerMap by skipping users that are not running.
+                        continue;
+                    }
                     final SparseBooleanArray sharedAppIdsHandled = new SparseBooleanArray();
                     packageManagerInternal.forEachInstalledPackage(androidPackage -> {
                         final int appId = androidPackage.getUid();
