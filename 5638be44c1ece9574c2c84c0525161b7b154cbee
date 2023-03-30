@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e757fad0_b7fecfba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-03-30T15:06:50Z",
+      "side": 1,
+      "message": "This is a backport from the Android 11 / LOS 18 commit to LOS 17 which especially doesn\u0027t have the separate `TargetInfo.java` file and also some other file renaming/refactoring. Besides that the backport is straight forward.",
+      "revId": "5638be44c1ece9574c2c84c0525161b7b154cbee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
