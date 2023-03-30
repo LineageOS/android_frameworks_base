@@ -107,6 +107,10 @@ public class KeyguardIndicationRotateTextViewController extends
         cancelScheduledIndication();
     }
 
+    public void detach() {
+        onViewDetached();
+    }
+
     /**
      * Update the indication type with the given String.
      * @param type of indication

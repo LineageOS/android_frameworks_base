@@ -304,6 +304,10 @@ public class KeyguardIndicationController {
             R.id.keyguard_indication_text_bottom);
         mInitialTextColorState = mTopIndicationView != null
                 ? mTopIndicationView.getTextColors() : ColorStateList.valueOf(Color.WHITE);
+        if (mRotateTextViewController != null) {
+            // Detach previous controller to prevent it from constantly running in the background.
+            mRotateTextViewController.detach();
+        }
         mRotateTextViewController = new KeyguardIndicationRotateTextViewController(
             mLockScreenIndicationView,
             mExecutor,
