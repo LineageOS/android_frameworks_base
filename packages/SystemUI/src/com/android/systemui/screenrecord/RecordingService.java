@@ -48,6 +48,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.systemui.Prefs;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.UiEventLogger;
 import com.android.systemui.dagger.qualifiers.LongRunning;
@@ -88,6 +89,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
             "com.android.systemui.screenrecord.STOP_FROM_NOTIF";
     private static final String ACTION_SHARE = "com.android.systemui.screenrecord.SHARE";
     private static final String PERMISSION_SELF = "com.android.systemui.permission.SELF";
+    private static final String PREF_DOT_RIGHT = "screenrecord_dot_right";
 
     private final RecordingController mController;
     private final KeyguardDismissUtil mKeyguardDismissUtil;
@@ -513,7 +515,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
 
     private void showDot() {
         mDotShowing = true;
-        mIsDotAtRight = true;
+        mIsDotAtRight = Prefs.getInt(this, PREF_DOT_RIGHT, 1) == 1;
         final int size = (int) (this.getResources()
                 .getDimensionPixelSize(R.dimen.screenrecord_dot_size));
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
@@ -523,7 +525,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE // don't get softkey inputs
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, // allow outside inputs
                 PixelFormat.TRANSLUCENT);
-        params.gravity = Gravity.TOP | Gravity.RIGHT;
+        params.gravity = Gravity.TOP | (mIsDotAtRight ? Gravity.RIGHT : Gravity.LEFT);
         params.width = size;
         params.height = size;
 
@@ -572,6 +574,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
             dot.setAnimation(null);
             mWindowManager.removeView(mFrameLayout);
         }
+        Prefs.putInt(this, PREF_DOT_RIGHT, mIsDotAtRight ? 1 : 0);
     }
 
     private Animation getDotAnimation() {
