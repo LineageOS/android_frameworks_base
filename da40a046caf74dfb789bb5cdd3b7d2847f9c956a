@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c604323_a7d5499c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-03-31T16:27:00Z",
+      "side": 1,
+      "message": "Picked from 13, fixes first boot SystemUI bootloop when you have other things broken. Doesn\u0027t really affect working devices, it just makes debugging during device bringup easier",
+      "revId": "da40a046caf74dfb789bb5cdd3b7d2847f9c956a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
