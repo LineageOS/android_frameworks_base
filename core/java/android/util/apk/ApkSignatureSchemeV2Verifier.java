@@ -80,6 +80,11 @@ public class ApkSignatureSchemeV2Verifier {
     public static final int SF_ATTRIBUTE_ANDROID_APK_SIGNED_ID = 2;
 
     /**
+     * The maximum number of signers supported by the v2 APK signature scheme.
+     */
+    private static final int MAX_V2_SIGNERS = 10;
+
+    /**
      * Returns {@code true} if the provided APK contains an APK Signature Scheme V2 signature.
      *
      * <p><b>NOTE: This method does not verify the signature.</b>
@@ -219,6 +224,11 @@ public class ApkSignatureSchemeV2Verifier {
         }
         while (signers.hasRemaining()) {
             signerCount++;
+            if (signerCount > MAX_V2_SIGNERS) {
+                throw new SecurityException(
+                        "APK Signature Scheme v2 only supports a maximum of " + MAX_V2_SIGNERS
+                                + " signers");
+            }
             try {
                 ByteBuffer signer = getLengthPrefixedSlice(signers);
                 X509Certificate[] certs = verifySigner(signer, contentDigests, certFactory);
