@@ -28,10 +28,12 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.UserHandle;
+import android.provider.AlarmClock;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.util.ArrayMap;
@@ -52,6 +54,7 @@ import com.android.systemui.animation.Interpolators;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.flags.FeatureFlags;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.shade.NotificationPanelViewController;
 import com.android.systemui.shade.ShadeExpansionStateManager;
@@ -140,6 +143,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final DumpManager mDumpManager;
     private ClockController mClockController;
     private boolean mIsClockBlacklisted;
+
+    private ActivityStarter mActivityStarter;
 
     private List<String> mBlockedIcons = new ArrayList<>();
     private Map<Startable, Startable.State> mStartableStates = new ArrayMap<>();
@@ -276,6 +281,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 new StatusBarSystemEventAnimator(mEndSideContent, getResources());
         mCarrierConfigTracker.addCallback(mCarrierConfigCallback);
         mCarrierConfigTracker.addDefaultDataSubscriptionChangedListener(mDefaultDataListener);
+
+        mActivityStarter = Dependency.get(ActivityStarter.class);
     }
 
     @VisibleForTesting
@@ -545,6 +552,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     private void showClock(boolean animate) {
         animateShow(mClockController.getClock(), animate);
+        mClockController.getClock().setOnClickListener(v ->
+                mActivityStarter.postStartActivityDismissingKeyguard(
+                        new Intent(AlarmClock.ACTION_SHOW_ALARMS), 0));
     }
 
     /** Hides the ongoing call chip. */

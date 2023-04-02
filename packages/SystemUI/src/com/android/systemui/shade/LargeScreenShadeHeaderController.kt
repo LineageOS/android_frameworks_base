@@ -19,12 +19,14 @@ package com.android.systemui.shade
 import android.annotation.IdRes
 import android.app.StatusBarManager
 import android.content.Context
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Trace
 import android.os.Trace.TRACE_TAG_APP
+import android.provider.AlarmClock
 import android.util.Pair
 import android.view.View
 import android.view.WindowInsets
@@ -43,6 +45,7 @@ import com.android.systemui.demomode.DemoModeController
 import com.android.systemui.dump.DumpManager
 import com.android.systemui.flags.FeatureFlags
 import com.android.systemui.flags.Flags
+import com.android.systemui.plugins.ActivityStarter
 import com.android.systemui.qs.ChipVisibilityListener
 import com.android.systemui.qs.HeaderPrivacyIconsController
 import com.android.systemui.qs.carrier.QSCarrierGroup
@@ -95,7 +98,8 @@ class LargeScreenShadeHeaderController @Inject constructor(
     private val featureFlags: FeatureFlags,
     private val qsCarrierGroupControllerBuilder: QSCarrierGroupController.Builder,
     private val combinedShadeHeadersConstraintManager: CombinedShadeHeadersConstraintManager,
-    private val demoModeController: DemoModeController
+    private val demoModeController: DemoModeController,
+    private val activityStarter: ActivityStarter
 ) : ViewController<View>(header), Dumpable {
 
     companion object {
@@ -293,6 +297,18 @@ class LargeScreenShadeHeaderController @Inject constructor(
 
         if (combinedHeaders) {
             privacyIconsController.onParentVisible()
+        }
+
+        clock.setOnClickListener {
+            activityStarter.postStartActivityDismissingKeyguard(
+                Intent(AlarmClock.ACTION_SHOW_ALARMS), 0
+            )
+        }
+
+        batteryIcon.setOnClickListener {
+            activityStarter.postStartActivityDismissingKeyguard(
+                Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0
+            )
         }
     }
 
