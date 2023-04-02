@@ -152,7 +152,7 @@ public class FakeSecurityController extends BaseLeakChecker<SecurityControllerCa
         return null;
     }
 
-    @Overrride
+    @Override
     public List<VpnProfile> getConfiguredLegacyVpns() {
         return new ArrayList<>();
     }
