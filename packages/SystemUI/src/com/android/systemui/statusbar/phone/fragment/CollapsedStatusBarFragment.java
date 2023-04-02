@@ -28,10 +28,12 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Intent;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.UserHandle;
+import android.provider.AlarmClock;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.util.ArrayMap;
@@ -52,6 +54,7 @@ import com.android.systemui.animation.Interpolators;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.flags.FeatureFlags;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.shade.NotificationPanelViewController;
 import com.android.systemui.shade.ShadeExpansionStateManager;
@@ -138,6 +141,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final SecureSettings mSecureSettings;
     private final Executor mMainExecutor;
     private final DumpManager mDumpManager;
+    private final ActivityStarter mActivityStarter;
     private ClockController mClockController;
     private boolean mIsClockBlacklisted;
 
@@ -204,7 +208,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             OperatorNameViewController.Factory operatorNameViewControllerFactory,
             SecureSettings secureSettings,
             @Main Executor mainExecutor,
-            DumpManager dumpManager
+            DumpManager dumpManager,
+            ActivityStarter activityStarter
     ) {
         mStatusBarFragmentComponentFactory = statusBarFragmentComponentFactory;
         mOngoingCallController = ongoingCallController;
@@ -227,6 +232,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mSecureSettings = secureSettings;
         mMainExecutor = mainExecutor;
         mDumpManager = dumpManager;
+        mActivityStarter = activityStarter;
     }
 
     @Override
@@ -545,6 +551,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     private void showClock(boolean animate) {
         animateShow(mClockController.getClock(), animate);
+        mClockController.getClock().setOnClickListener(v ->
+                mActivityStarter.postStartActivityDismissingKeyguard(
+                        new Intent(AlarmClock.ACTION_SHOW_ALARMS), 0));
     }
 
     /** Hides the ongoing call chip. */
