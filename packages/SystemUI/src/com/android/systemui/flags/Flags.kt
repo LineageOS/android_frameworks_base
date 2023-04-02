@@ -166,7 +166,7 @@ object Flags {
     // TODO(b/255618149): Tracking Bug
     @JvmField
     val CUSTOMIZABLE_LOCK_SCREEN_QUICK_AFFORDANCES =
-        unreleasedFlag(216, "customizable_lock_screen_quick_affordances", teamfood = true)
+        releasedFlag(216, "customizable_lock_screen_quick_affordances", teamfood = true)
 
     /**
      * Migrates control of the LightRevealScrim's reveal effect and amount from legacy code to the
