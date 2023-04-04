@@ -19,6 +19,7 @@ import com.android.systemui.demomode.DemoModeController
 import com.android.systemui.dump.DumpManager
 import com.android.systemui.flags.FeatureFlags
 import com.android.systemui.flags.Flags
+import com.android.systemui.plugins.ActivityStarter
 import com.android.systemui.qs.HeaderPrivacyIconsController
 import com.android.systemui.qs.carrier.QSCarrierGroup
 import com.android.systemui.qs.carrier.QSCarrierGroupController
@@ -75,6 +76,7 @@ class LargeScreenShadeHeaderControllerTest : SysuiTestCase() {
 
     @Mock private lateinit var mockedContext: Context
     @Mock private lateinit var demoModeController: DemoModeController
+    @Mock private lateinit var activityStarter: ActivityStarter
 
     @JvmField @Rule val mockitoRule = MockitoJUnit.rule()
     var viewVisibility = View.GONE
@@ -129,7 +131,8 @@ class LargeScreenShadeHeaderControllerTest : SysuiTestCase() {
                 featureFlags,
                 qsCarrierGroupControllerBuilder,
                 combinedShadeHeadersConstraintManager,
-                demoModeController
+                demoModeController,
+                activityStarter
                 )
         whenever(view.isAttachedToWindow).thenReturn(true)
         mLargeScreenShadeHeaderController.init()
