@@ -49,7 +49,6 @@ import com.android.systemui.R;
 import com.android.systemui.SysuiBaseFragmentTest;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.flags.FeatureFlags;
-import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.log.LogBuffer;
 import com.android.systemui.plugins.log.LogcatEchoTracker;
@@ -121,8 +120,6 @@ public class CollapsedStatusBarFragmentTest extends SysuiBaseFragmentTest {
     private StatusBarHideIconsForBouncerManager mStatusBarHideIconsForBouncerManager;
     @Mock
     private DumpManager mDumpManager;
-    @Mock
-    private ActivityStarter mActivityStarter;
 
     public CollapsedStatusBarFragmentTest() {
         super(CollapsedStatusBarFragment.class);
@@ -462,8 +459,7 @@ public class CollapsedStatusBarFragmentTest extends SysuiBaseFragmentTest {
                 mOperatorNameViewControllerFactory,
                 mSecureSettings,
                 mExecutor,
-                mDumpManager,
-                mActivityStarter);
+                mDumpManager);
     }
 
     private void setUpDaggerComponent() {
