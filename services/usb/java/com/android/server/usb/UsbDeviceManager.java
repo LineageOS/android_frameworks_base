@@ -623,12 +623,15 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
 
         sEventLogger = new EventLogger(DUMPSYS_LOG_BUFFER, "UsbDeviceManager activity");
 
+        mHandler.updateTrustRestrictUsbProperty();
+
         mContentResolver.registerContentObserver(
                 LineageSettings.Global.getUriFor(LineageSettings.Global.TRUST_RESTRICT_USB),
                 false,
                 new ContentObserver(null) {
                     @Override
                     public void onChange(boolean selfChange) {
+                        mHandler.updateTrustRestrictUsbProperty();
                         mHandler.setTrustRestrictUsb();
                     }
                 }
@@ -874,6 +877,14 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
 
         protected static final String MTP_PACKAGE_NAME = "com.android.mtp";
         protected static final String MTP_SERVICE_CLASS_NAME = "com.android.mtp.MtpService";
+
+        /**
+         * The persistent property which stores the current Restrict USB setting. One-way mirrored
+         * from LineageSettings so that vendor init files can fully reactivate USB connectivity
+         * when Restrict USB is turned off, without requiring the user to unplug and re-plug.
+         */
+        protected static final String TRUST_RESTRICT_USB_PROPERTY =
+                "persist.init.trust_restrict_usb";
 
         private boolean mIsMtpServiceBound = false;
 
@@ -2110,9 +2121,26 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
 
         public abstract void resetCb(int status);
 
-        public void setTrustRestrictUsb() {
-            final int restrictUsb = LineageSettings.Global.getInt(mContentResolver,
+        public int getTrustRestrictUsb() {
+            return LineageSettings.Global.getInt(mContentResolver,
                     LineageSettings.Global.TRUST_RESTRICT_USB, 0);
+        }
+
+        public void updateTrustRestrictUsbProperty() {
+            final int restrictUsb = getTrustRestrictUsb();
+            try {
+                // Vendor init files should react to this change right away when restrictUsb is 0.
+                setSystemProperty(TRUST_RESTRICT_USB_PROPERTY, Integer.toString(restrictUsb));
+                if (DEBUG) Slog.d(TAG, "Successfully updated " + TRUST_RESTRICT_USB_PROPERTY
+                        + " to " + restrictUsb);
+            } catch (Exception e) {
+                Slog.e(TAG, "Failed to set " + TRUST_RESTRICT_USB_PROPERTY
+                        + " to " + restrictUsb, e);
+            }
+        }
+
+        public void setTrustRestrictUsb() {
+            final int restrictUsb = getTrustRestrictUsb();
             // Effective immediately, ejects any connected USB devices.
             // If the restriction is set to "allow when unlocked", only execute once USB is
             // disconnected and keyguard is showing, to avoid ejecting connected devices on lock,
