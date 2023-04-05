@@ -171,12 +171,14 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -213,6 +215,15 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
     private static final String TAG_INITIALIZATION_BUNDLE = "initialization-bundle";
 
     private static final int REQUEST_EXPIRE_PASSWORD = 5571;
+
+    // Binary XML serializer doesn't support longer strings
+    private static final int MAX_POLICY_STRING_LENGTH = 65535;
+    // FrameworkParsingPackageUtils#MAX_FILE_NAME_SIZE, Android packages are used in dir names.
+    private static final int MAX_PACKAGE_NAME_LENGTH = 223;
+
+    private static final int MAX_LONG_SUPPORT_MESSAGE_LENGTH = 20000;
+    private static final int MAX_SHORT_SUPPORT_MESSAGE_LENGTH = 200;
+    private static final int MAX_ORG_NAME_LENGTH = 200;
 
     private static final long MS_PER_DAY = 86400 * 1000;
 
@@ -6890,6 +6901,12 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         }
         Preconditions.checkNotNull(admin, "admin is null");
         Preconditions.checkNotNull(agent, "agent is null");
+        enforceMaxPackageNameLength(agent.getPackageName());
+        final String agentAsString = agent.flattenToString();
+        enforceMaxStringLength(agentAsString, "agent name");
+        if (args != null) {
+            enforceMaxStringLength(args, "args");
+        }
         final int userHandle = UserHandle.getCallingUserId();
         synchronized (this) {
             ActiveAdmin ap = getActiveAdminForCallerLocked(admin,
@@ -7091,6 +7108,10 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         Preconditions.checkNotNull(who, "ComponentName is null");
 
         if (packageList != null) {
+            for (String pkg : (List<String>) packageList) {
+                enforceMaxPackageNameLength(pkg);
+            }
+
             int userId = UserHandle.getCallingUserId();
             List<AccessibilityServiceInfo> enabledServices = null;
             long id = mInjector.binderClearCallingIdentity();
@@ -7272,6 +7293,10 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         }
 
         if (packageList != null) {
+            for (String pkg : (List<String>) packageList) {
+                enforceMaxPackageNameLength(pkg);
+            }
+
             // InputMethodManager fetches input methods for current user.
             // So this can only be set when calling user is the current user
             // or parent is current user in case of managed profiles.
@@ -7820,6 +7845,7 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
             return;
         }
         Preconditions.checkNotNull(who, "ComponentName is null");
+        enforceMaxStringLength(accountType, "account type");
         synchronized (this) {
             ActiveAdmin ap = getActiveAdminForCallerLocked(who,
                     DeviceAdminInfo.USES_POLICY_PROFILE_OWNER);
@@ -8089,6 +8115,9 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
     public void setLockTaskPackages(ComponentName who, String[] packages)
             throws SecurityException {
         Preconditions.checkNotNull(who, "ComponentName is null");
+        for (String pkg : packages) {
+            enforceMaxPackageNameLength(pkg);
+        }
         synchronized (this) {
             ActiveAdmin deviceOwner = getActiveAdminWithPolicyForUidLocked(
                 who, DeviceAdminInfo.USES_POLICY_DEVICE_OWNER, mInjector.binderGetCallingUid());
@@ -8957,6 +8986,8 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
             return;
         }
         Preconditions.checkNotNull(who, "ComponentName is null");
+        message = truncateIfLonger(message, MAX_SHORT_SUPPORT_MESSAGE_LENGTH);
+
         final int userHandle = mInjector.userHandleGetCallingUserId();
         synchronized (this) {
             ActiveAdmin admin = getActiveAdminForUidLocked(who,
@@ -8986,6 +9017,9 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         if (!mHasFeature) {
             return;
         }
+
+        message = truncateIfLonger(message, MAX_LONG_SUPPORT_MESSAGE_LENGTH);
+
         Preconditions.checkNotNull(who, "ComponentName is null");
         final int userHandle = mInjector.userHandleGetCallingUserId();
         synchronized (this) {
@@ -9114,6 +9148,9 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         }
         Preconditions.checkNotNull(who, "ComponentName is null");
         final int userHandle = mInjector.userHandleGetCallingUserId();
+
+        text = truncateIfLonger(text, MAX_ORG_NAME_LENGTH);
+
         enforceManagedProfile(userHandle, "set organization name");
         synchronized (this) {
             ActiveAdmin admin = getActiveAdminForCallerLocked(who,
@@ -9696,5 +9733,52 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
                 .build();
         mInjector.getNotificationManager().notify(NETWORK_LOGGING_NOTIFICATION_ID, notification);
         saveSettingsLocked(mOwners.getDeviceOwnerUserId());
+    }
+
+    /**
+     * Truncates char sequence to maximum length, nulls are ignored.
+     */
+    private static CharSequence truncateIfLonger(CharSequence input, int maxLength) {
+        return input == null || input.length() <= maxLength
+                ? input
+                : input.subSequence(0, maxLength);
+    }
+
+    /**
+     * Throw if string argument is too long to be serialized.
+     */
+    private static void enforceMaxStringLength(String str, String argName) {
+        Preconditions.checkArgument(
+                str.length() <= MAX_POLICY_STRING_LENGTH, argName + " loo long");
+    }
+
+    private static void enforceMaxPackageNameLength(String pkg) {
+        Preconditions.checkArgument(
+                pkg.length() <= MAX_PACKAGE_NAME_LENGTH, "Package name too long");
+    }
+
+    /**
+     * Throw if persistable bundle contains any string that we can't serialize.
+     */
+    private static void enforceMaxStringLength(PersistableBundle bundle, String argName) {
+        // Persistable bundles can have other persistable bundles as values, traverse with a queue.
+        Queue<PersistableBundle> queue = new ArrayDeque<>();
+        queue.add(bundle);
+        while (!queue.isEmpty()) {
+            PersistableBundle current = queue.remove();
+            for (String key : current.keySet()) {
+                enforceMaxStringLength(key, "key in " + argName);
+                Object value = current.get(key);
+                if (value instanceof String) {
+                    enforceMaxStringLength((String) value, "string value in " + argName);
+                } else if (value instanceof String[]) {
+                    for (String str : (String[]) value) {
+                        enforceMaxStringLength(str, "string value in " + argName);
+                    }
+                } else if (value instanceof PersistableBundle) {
+                    queue.add((PersistableBundle) value);
+                }
+            }
+        }
     }
 }
