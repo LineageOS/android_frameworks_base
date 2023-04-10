@@ -33,6 +33,23 @@
       "message": "Question: Is it on purpose that nw traffic gets precedence over other status bar icons? If I have it on the right, it\u0027s visible next to the center noth here and the wifi and vibration icon to the right are visible as a dot now. I thought the dot was supposed to be the leftmost (for right side) or rightmost (for left side) icon when space runs out?",
       "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b30d9201_736a9ee7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-04-10T23:48:51Z",
+      "side": 1,
+      "message": "FYI half of the network traffic still goes behind the notch on crosshatch, so it\u0027s unlikely to be merged until that is fixed.",
+      "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
