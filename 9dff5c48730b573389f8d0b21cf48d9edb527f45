@@ -50,6 +50,42 @@
       "message": "FYI half of the network traffic still goes behind the notch on crosshatch, so it\u0027s unlikely to be merged until that is fixed.",
       "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8c434e9_72168d38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-04-11T20:37:55Z",
+      "side": 1,
+      "message": "I cannot try with crosshatch but I use the \"double cutout\" of the dev. options which is very large. Here I cannot reproduce the behavior that you see with crosshatch. Are the definitions of config_mainBuiltInDisplayCutout and config_mainBuiltInDisplayCutoutRectApproximation perhaps too small? I.e. smaller than the physical cutout?\nI never saw nw traffic (on the end side with large center cutout) be cut or limited \nby the center cutout.",
+      "parentUuid": "b30d9201_736a9ee7",
+      "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f94a1a98_596d0e3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-04-11T20:37:55Z",
+      "side": 1,
+      "message": "At the moment the nw traffic is not included in the layout/system_icons group (containing WiFi, cell etc.) which collapses to a dot in case there is not enough space. Instead nw traffic is placed between the center position and the system_icon group (as well as the user switcher container).\nIn case nw traffic is configured to hide if there is no traffic, then nw traffic flashes only a short time to show the traffic while causng WiFi / cell to vanish. Without traffic the system icons are visible as before.\nAnd this happens only, if there is a broad cutout in the center of the status bar.\nOn the left (start) side it\u0027s the same situation. Here the nw traffic is between then center and the notification icons. The latter will also collapse into a dot if necessary.",
+      "parentUuid": "714d8759_d18e43cc",
+      "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
