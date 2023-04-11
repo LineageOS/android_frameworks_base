@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d710d829_83d8a7d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12604
+      },
+      "writtenOn": "2023-04-11T21:40:53Z",
+      "side": 1,
+      "message": "This requires the following previous unmerged asb commits:\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/322452\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/322453\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/345522",
+      "revId": "c7267fd43b5a9aa80f218fb5c09385269925b073",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
