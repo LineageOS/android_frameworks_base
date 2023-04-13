@@ -83,6 +83,7 @@ import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.IndentingPrintWriter;
 import android.util.Log;
+import android.util.Pair;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
@@ -148,6 +149,8 @@ public class InputManagerService extends IInputManager.Stub
     private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
 
     private static final String EXCLUDED_DEVICES_PATH = "etc/excluded-input-devices.xml";
+    private static final String EXCLUDED_DEVICES_VID_PID_PATH =
+            "etc/excluded-input-devices-vid-pid.xml";
     private static final String PORT_ASSOCIATIONS_PATH = "etc/input-port-associations.xml";
 
     // Feature flag name for the strategy to be used in VelocityTracker
@@ -2602,6 +2605,43 @@ public class InputManagerService extends IInputManager.Stub
     @SuppressWarnings("unused")
     private void notifyStylusGestureStarted(int deviceId, long eventTime) {
         mBatteryController.notifyStylusGestureStarted(deviceId, eventTime);
+    }
+
+    /**
+     * Flatten a list of string pairs into a string list,
+     * with value positioned directly next to each other.
+     * @return Flattened list
+     */
+    private static String[] flatten(@NonNull List<Pair<String, String>> pairs) {
+        final List<String> list = new ArrayList<>(pairs.size() * 2);
+        for (Pair<String, String> pair : pairs) {
+            list.add(pair.first);
+            list.add(pair.second);
+        }
+        return list.toArray(new String[0]);
+    }
+
+    // Native callback.
+    @SuppressWarnings("unused")
+    private static String[] getExcludedDevicesPidVid() {
+        List<Pair<String, String>> list = new ArrayList<>();
+        // Read partner-provided list of excluded input devices
+        // Environment.getRootDirectory() is a fancy way of saying ANDROID_ROOT or "/system".
+        final File[] baseDirs = {
+            Environment.getRootDirectory(),
+            Environment.getVendorDirectory()
+        };
+        for (File baseDir: baseDirs) {
+            File confFile = new File(baseDir, EXCLUDED_DEVICES_VID_PID_PATH);
+            try (InputStream stream = new FileInputStream(confFile)) {
+                list.addAll(ConfigurationProcessor.processExcludedDevicesVidPid(stream));
+            } catch (FileNotFoundException e) {
+                // It's ok if the file does not exist.
+            } catch (Exception e) {
+                Slog.e(TAG, "Could not parse '" + confFile.getAbsolutePath() + "'", e);
+            }
+        }
+        return list.toArray(new String[0]);
     }
 
     /**

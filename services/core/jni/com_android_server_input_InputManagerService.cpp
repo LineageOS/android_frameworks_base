@@ -128,6 +128,7 @@ static struct {
     jmethodID onPointerDownOutsideFocus;
     jmethodID getVirtualKeyQuietTimeMillis;
     jmethodID getExcludedDeviceNames;
+    jmethodID getExcludedDevicesPidVid;
     jmethodID getInputPortAssociations;
     jmethodID getInputUniqueIdAssociations;
     jmethodID getDeviceTypeAssociations;
@@ -605,6 +606,30 @@ void NativeInputManager::getReaderConfiguration(InputReaderConfiguration* outCon
             outConfig->excludedDeviceNames.push_back(deviceName);
         }
         env->DeleteLocalRef(excludedDeviceNames);
+    }
+
+    outConfig->excludedDevicesVidPid.clear();
+    jobjectArray excludedDevicesVidPid =
+            jobjectArray(env->CallStaticObjectMethod(gServiceClassInfo.clazz,
+                                                     gServiceClassInfo.getExcludedDevicesPidVid));
+    if (!checkAndClearExceptionFromCallback(env, "getExcludedDevicesPidVid") &&
+        excludedDevicesVidPid) {
+        jsize length = env->GetArrayLength(excludedDevicesVidPid);
+        for (jsize i = 0; i < length / 2; i++) {
+            std::string vidStr = getStringElementFromJavaArray(env, excludedDevicesVidPid, 2 * i);
+            std::string pidStr =
+                    getStringElementFromJavaArray(env, excludedDevicesVidPid, 2 * i + 1);
+            uint16_t vid, pid;
+            // Should already have been validated earlier, but do it here for safety.
+            bool success = ParseUint(vidStr, &vid) && ParseUint(pidStr, &pid);
+            if (!success) {
+                ALOGE("Could not parse entry in port configuration file, received: %s:%s",
+                      vidStr.c_str(), pidStr.c_str());
+                continue;
+            }
+            outConfig->excludedDevicesVidPid.push_back({vid, pid});
+        }
+        env->DeleteLocalRef(excludedDevicesVidPid);
     }
 
     // Associations between input ports and display ports
@@ -3086,6 +3111,9 @@ int register_android_server_InputManager(JNIEnv* env) {
 
     GET_STATIC_METHOD_ID(gServiceClassInfo.getExcludedDeviceNames, clazz,
             "getExcludedDeviceNames", "()[Ljava/lang/String;");
+
+    GET_STATIC_METHOD_ID(gServiceClassInfo.getExcludedDevicesPidVid, clazz,
+                         "getExcludedDevicesPidVid", "()[Ljava/lang/String;");
 
     GET_METHOD_ID(gServiceClassInfo.getInputPortAssociations, clazz,
             "getInputPortAssociations", "()[Ljava/lang/String;");

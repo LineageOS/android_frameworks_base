@@ -17,6 +17,7 @@
 package com.android.server.input;
 
 import android.text.TextUtils;
+import android.util.Pair;
 import android.util.Slog;
 import android.util.Xml;
 
@@ -29,7 +30,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 class ConfigurationProcessor {
     private static final String TAG = "ConfigurationProcessor";
@@ -51,6 +51,38 @@ class ConfigurationProcessor {
             }
         }
         return names;
+    }
+
+    static List<Pair<String, String>> processExcludedDevicesVidPid(InputStream xml)
+            throws Exception {
+        List<Pair<String, String>> list = new ArrayList<>();
+        {
+            TypedXmlPullParser parser = Xml.resolvePullParser(xml);
+            XmlUtils.beginDocument(parser, "devices");
+            while (true) {
+                XmlUtils.nextElement(parser);
+                if (!"device".equals(parser.getName())) {
+                    break;
+                }
+                String vidStr = parser.getAttributeValue(null, "vid");
+                String pidStr = parser.getAttributeValue(null, "pid");
+
+                if (TextUtils.isEmpty(vidStr) || TextUtils.isEmpty(pidStr)) {
+                    // This is likely an error by an OEM during device configuration
+                    Slog.wtf(TAG, "Ignoring incomplete entry");
+                    continue;
+                }
+
+                try {
+                    int vid = Integer.parseUnsignedInt(vidStr);
+                    int pid = Integer.parseUnsignedInt(pidStr);
+                    list.add(new Pair<>(vidStr, pidStr));
+                } catch (NumberFormatException e) {
+                    Slog.wtf(TAG, "VID and PID should be an integers");
+                }
+            }
+        }
+        return list;
     }
 
     /**
