@@ -16,6 +16,23 @@
       "message": "This requires the following previous unmerged asb commits:\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/322452\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/322453\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/345522",
       "revId": "c7267fd43b5a9aa80f218fb5c09385269925b073",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37c5c5f9_5f531f15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2023-04-18T03:40:23Z",
+      "side": 1,
+      "message": "Entire topic builds fine, installs and runs on Moto G5 Cedric. THANK YOU!\nI did perform a \"repo sync\" and perform repopick_topic for everything since September of 2021, for which I hat to insert the \"-f\" switch inside the repopick_topic script.",
+      "revId": "c7267fd43b5a9aa80f218fb5c09385269925b073",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
