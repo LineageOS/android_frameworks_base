@@ -154,8 +154,6 @@ cc_defaults {
     // TODO: Non-arm?
     cflags: [
         "-fno-omit-frame-pointer",
-        "-marm",
-        "-mapcs",
     ],
 }
 
