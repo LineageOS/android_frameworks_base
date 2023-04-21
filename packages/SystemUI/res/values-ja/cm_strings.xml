@@ -25,7 +25,6 @@
     <string name="global_action_restart_recovery">リカバリー</string>
     <string name="global_action_restart_bootloader">ブートローダー</string>
     <string name="global_action_restart_download">ダウンロード</string>
-    <string name="global_action_restart_fastboot">fastbootd</string>
     <string name="global_action_restart_progress">再起動中\u2026</string>
     <string name="global_action_restart_recovery_progress">リカバリーモードで再起動中\u2026</string>
     <string name="global_action_restart_bootloader_progress">ブートローダーモードで再起動中\u2026</string>
