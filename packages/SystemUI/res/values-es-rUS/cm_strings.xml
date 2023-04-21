@@ -22,7 +22,6 @@
     <string name="global_action_restart_recovery">Modo de recuperación (Recovery)</string>
     <string name="global_action_restart_bootloader">Gestor de arranque (Bootloader)</string>
     <string name="global_action_restart_download">Descarga</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Reiniciando\u2026</string>
     <string name="global_action_restart_recovery_progress">Reiniciando en modo de recuperación\u2026</string>
     <string name="global_action_restart_bootloader_progress">Reiniciando en modo del gestor de arranque\u2026</string>

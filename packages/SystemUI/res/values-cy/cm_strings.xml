@@ -24,7 +24,6 @@
     <string name="global_action_restart_recovery">Modd adfer</string>
     <string name="global_action_restart_bootloader">Cychwynnydd</string>
     <string name="global_action_restart_download">Modd lawrlwytho</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Yn ailgychwyn\u2026</string>
     <string name="global_action_restart_recovery_progress">Yn ailgychwyn i\'r modd adfer\u2026</string>
     <string name="global_action_restart_bootloader_progress">Yn ailgychwyn i\'r modd llwytho\'r system\u2026</string>
