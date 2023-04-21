@@ -24,7 +24,6 @@
     <string name="global_action_restart_recovery">Tiririt</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Sider</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Tulsa n tnekra\u2026</string>
     <string name="global_action_current_user">Amiran</string>
     <string name="global_action_users">Iseqdacen</string>
