@@ -24,7 +24,6 @@
     <string name="global_action_restart_recovery">Відновлення</string>
     <string name="global_action_restart_bootloader">Завантажувач</string>
     <string name="global_action_restart_download">Режим оновлення</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Перезавантаження\u2026</string>
     <string name="global_action_restart_recovery_progress">Перезапуск до режиму відновлення\u2026</string>
     <string name="global_action_restart_bootloader_progress">Перезапуск до завантажувача\u2026</string>

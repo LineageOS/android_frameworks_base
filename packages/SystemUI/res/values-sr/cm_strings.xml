@@ -22,7 +22,6 @@
     <string name="global_action_restart_recovery">Режим опоравка</string>
     <string name="global_action_restart_bootloader">Покретач система</string>
     <string name="global_action_restart_download">Преузимање</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Поново покрећем\u2026</string>
     <string name="global_action_restart_recovery_progress">Поново покретање у режим за опоравак\u2026</string>
     <string name="global_action_restart_bootloader_progress">Поновно покретање система\u2026</string>
