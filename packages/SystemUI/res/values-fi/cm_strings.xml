@@ -23,7 +23,6 @@
     <string name="global_action_restart_recovery">Recovery-tila</string>
     <string name="global_action_restart_bootloader">Bootloader-tila</string>
     <string name="global_action_restart_download">Lataa</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Käynnistetään uudelleen\u2026</string>
     <string name="global_action_restart_recovery_progress">Uudelleenkäynnistetään Recovery-tilaan\u2026</string>
     <string name="global_action_restart_bootloader_progress">Uudelleenkäynnistetään Bootloader-tilaan\u2026</string>
