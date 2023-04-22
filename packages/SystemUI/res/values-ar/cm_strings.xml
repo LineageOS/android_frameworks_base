@@ -23,7 +23,6 @@
     <string name="global_action_restart_recovery">الاسترداد</string>
     <string name="global_action_restart_bootloader">محمل الاقلاع</string>
     <string name="global_action_restart_download">التنزيل</string>
-    <string name="global_action_restart_fastboot">إعادة التشغيل إلى وضع الإقلاع السريع</string>
     <string name="global_action_restart_progress">جارٍ إعادة التشغيل\u2026</string>
     <string name="global_action_restart_recovery_progress">إعادة التشغيل في وضع الاسترداد\u2026</string>
     <string name="global_action_restart_bootloader_progress">إعادة التشغيل في وضع مُحمّل الإقلاع\u2026</string>

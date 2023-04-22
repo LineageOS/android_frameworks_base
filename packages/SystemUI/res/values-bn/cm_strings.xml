@@ -24,7 +24,6 @@
     <string name="global_action_restart_recovery">রিকভারি</string>
     <string name="global_action_restart_bootloader">বুটলোডার</string>
     <string name="global_action_restart_download">ডাউনলোড</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">রিস্টার্টিং\u2026</string>
     <string name="global_action_restart_recovery_progress">রিকভারি মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
     <string name="global_action_restart_bootloader_progress">বুটলোডার মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
