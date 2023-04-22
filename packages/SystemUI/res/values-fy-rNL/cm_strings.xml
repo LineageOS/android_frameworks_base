@@ -22,7 +22,6 @@
     <string name="global_action_restart_recovery">Werstel</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Downloade</string>
-    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Opnij opstarte\u2026</string>
     <string name="global_action_restart_recovery_progress">Opnij opstarte nei werstelmodus\u2026</string>
     <string name="global_action_restart_bootloader_progress">Opnij opstarte nei bootloadermodus\u2026</string>
