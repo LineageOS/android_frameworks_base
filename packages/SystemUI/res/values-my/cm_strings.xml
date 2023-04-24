@@ -19,4 +19,19 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="clock">နာရီ</string>
+    <string name="quick_settings_ambient_display_label">ဝန်းကျင်ပြသချက်</string>
+    <string name="accessibility_quick_settings_ambient_display_off">အလင်းရောင်ရရှိမှုအပေါ်မူတည်၍ အလင်းအမှောင်ချိန်ညှိပေးခြင်းကို ပိတ်မည်</string>
+    <string name="accessibility_quick_settings_ambient_display_on">အလင်းရောင်ရရှိမှုအပေါ်မူတည်၍ အလင်းအမှောင်ချိန်ညှိပေးခြင်းကို ဖွင့်မည်။</string>
+    <string name="quick_settings_caffeine_label">ကဖင်းမုဒ်</string>
+    <string name="accessibility_quick_settings_caffeine_off">ကဖင်းစနစ်ပိတ်မည်</string>
+    <string name="accessibility_quick_settings_caffeine_on">ကဖင်းစနစ်ဖွင့်မည်။</string>
+    <string name="quick_settings_heads_up_label">ကြိုတင်အသိပေးချက်</string>
+    <string name="accessibility_quick_settings_heads_up_off">ကြိုတင်အသိပေးချက်ပိတ်မည်။</string>
+    <string name="accessibility_quick_settings_heads_up_on">ကြိုတင်အသိပေးချက်ဖွင့်မည်။</string>
+    <string name="quick_settings_sync_label">ဆင့်ခ်</string>
+    <string name="accessibility_quick_settings_sync_off">ဆင့်ခ်ပိတ်ထားသည်</string>
+    <string name="accessibility_quick_settings_sync_on">ဆင့်ခ် ဖွင့်မည်။</string>
+    <string name="quick_settings_usb_tether_label">USBမှတဆင့်ချိတ်ဆက်ခြင်း</string>
+    <string name="accessibility_dpad_left">Cursor ဘယ်ဖက်</string>
+    <string name="accessibility_dpad_right">Coursor ညာဖက်</string>
 </resources>
