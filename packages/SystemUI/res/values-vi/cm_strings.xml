@@ -25,7 +25,7 @@
     <string name="global_action_restart_recovery">Chế độ phục hồi</string>
     <string name="global_action_restart_bootloader">Trình nạp khởi động</string>
     <string name="global_action_restart_download">Tải xuống</string>
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Đang khởi động lại\u2026</string>
     <string name="global_action_restart_recovery_progress">Đang khởi động lại vào chế độ phục hồi\u2026</string>
     <string name="global_action_restart_bootloader_progress">Đang khởi động lại vào chế độ trình nạp khởi động\u2026</string>
