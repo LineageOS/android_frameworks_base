@@ -4577,7 +4577,7 @@ public final class NotificationPanelViewController implements Dumpable {
         mDisplayTopInset = combinedInsets.top;
         mDisplayRightInset = combinedInsets.right;
         mDisplayLeftInset = combinedInsets.left;
-        mQsController.setDisplayInsets(mDisplayRightInset, mDisplayLeftInset);
+        mQsController.setDisplayInsets(mDisplayLeftInset, mDisplayRightInset);
 
         mNavigationBarBottomHeight = insets.getStableInsetBottom();
         updateMaxHeadsUpTranslation();
