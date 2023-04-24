@@ -26,12 +26,12 @@
     <string name="global_action_restart_recovery">Gendannelse</string>
     <string name="global_action_restart_bootloader">Opstartslæser</string>
     <string name="global_action_restart_download">Download</string>
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Genstarter\u2026</string>
     <string name="global_action_restart_recovery_progress">Genstarter i gendannelses tilstand\u2026</string>
     <string name="global_action_restart_bootloader_progress">Genstarter i opstartslæser tilstand\u2026</string>
     <string name="global_action_restart_download_progress">Genstarter i download tilstand\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Genstarter i fastboot mode\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Genstarter i fastbootd mode\u2026</string>
     <string name="global_action_current_user">Aktuel</string>
     <string name="global_action_users">Brugere</string>
     <string name="quick_settings_ambient_display_label">Aktiv låseskærm</string>
