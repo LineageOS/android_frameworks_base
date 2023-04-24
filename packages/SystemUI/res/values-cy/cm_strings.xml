@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Pwyntydd chwith</string>
     <string name="accessibility_dpad_right">Pwyntydd de</string>
+    <string name="clock">Cloc</string>
     <string name="global_action_restart_more">Ailgychwyn\u2026</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Modd adfer</string>

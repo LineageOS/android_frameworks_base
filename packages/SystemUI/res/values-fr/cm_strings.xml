@@ -20,6 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_dpad_left">Curseur gauche</string>
     <string name="accessibility_dpad_right">Curseur droit</string>
+    <string name="clock">Horloge</string>
     <string name="global_action_restart_more">Redémarrer\u2026 </string>
     <string name="global_action_restart_system">Système</string>
     <string name="global_action_restart_recovery">Récupération</string>
@@ -30,7 +31,7 @@
     <string name="global_action_restart_recovery_progress">Redémarrage en mode recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Redémarrage en mode bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Redémarrage en mode download\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Redémarrage en mode fastboot\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Redémarrage en mode fastbootd\u2026</string>
     <string name="global_action_current_user">Utilisateur actuel</string>
     <string name="global_action_users">Utilisateurs</string>
     <string name="quick_settings_ambient_display_label">Affichage en mode veille</string>
