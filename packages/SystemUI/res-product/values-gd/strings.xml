@@ -24,6 +24,58 @@
     <string name="keyguard_missing_sim_message" product="tablet">Chan eil cairt SIM san tablaid.</string>
     <string name="keyguard_missing_sim_message" product="default">Chan eil cairt SIM san fhòn.</string>
     <string name="kg_invalid_confirm_pin_hint" product="default">Chan eil an dà chòd PIN co-ionnann</string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid an tablaid seo ath-shuidheachadh ’s a h-uile dàta a th’ oirre a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid am fòn seo ath-shuidheachadh ’s a h-uile dàta a th’ air a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid an tablaid seo ath-shuidheachadh ’s a h-uile dàta a th’ oirre a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid am fòn seo ath-shuidheachadh ’s a h-uile dàta a th’ oirre a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid an cleachdaiche seo a thoirt air falbh ’s a h-uile dàta aige-san a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g> oidhirp(ean) neo-shoirbheachail eile,
+       thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="tablet">       Dh’fhàillig leat a’ ghlas a thoirt far na tablaid <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="default">       Dh’fhàillig leat a’ ghlas a thoirt far an fhòn <xliff:g id="number">%d</xliff:g> tura(i)s.
+       Thèid a’ phròifil obrach seo a thoirt air falbh ’s a h-uile dàta aice-se a sguabadh às.
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="tablet">        Tharraing thu am pàtran neo-ghlasaidh gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g>oidhirp(ean) neo-shoirbheachail eile,
+       thèid iarraidh ort gun doir thu a’ ghlas far na tablaid agad le cunntas puist-d.\n\n
+       Feuch ris a-rithist an ceann <xliff:g id="number">%3$d</xliff:g> diog(an).
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="default">        Tharraing thu am pàtran neo-ghlasaidh gu ceàrr <xliff:g id="number">%1$d</xliff:g> tura(i)s.
+       Às dèidh <xliff:g id="number">%2$d</xliff:g>oidhirp(ean) neo-shoirbheachail eile,
+       thèid iarraidh ort gun doir thu a’ ghlas far am fòn agad le cunntas puist-d.\n\n
+       Feuch ris a-rithist an ceann <xliff:g id="number">%3$d</xliff:g> diog(an).
+    </string>
     <string name="global_action_lock_message" product="default">Thoir a’ ghlas far an fhòn agad airson barrachd roghainnean</string>
     <string name="global_action_lock_message" product="tablet">Thoir a’ ghlas far na tablaid agad airson barrachd roghainnean</string>
     <string name="global_action_lock_message" product="device">Thoir a’ ghlas far an uidheim agad airson barrachd roghainnean</string>

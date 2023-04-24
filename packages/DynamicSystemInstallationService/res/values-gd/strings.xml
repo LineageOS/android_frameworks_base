@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Dynamic System Updates</string>
+    <string name="notification_channel_name">Dynamic System Updates</string>
+    <string name="keyguard_title">Dynamic System Updates</string>
     <string name="keyguard_description">Cuir a-steach am facal-faire agad is lean air adhart gu ùrachaidhean innsgineach an t-siostaim</string>
     <string name="notification_install_completed">Tha an siostam innsgineach deiseil. Ath-thòisich an t-uidheam agad gus a chleachdadh.</string>
     <string name="notification_install_inprogress">’Ga stàladh</string>

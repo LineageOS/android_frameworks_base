@@ -118,9 +118,9 @@
     <string name="keyguard_carrier_default">Dim gwasanaeth.</string>
     <string name="accessibility_ime_switch_button" msgid="5032926134740456424">Newid dull mewnbwn</string>
     <string name="airplane_mode">Modd awyren</string>
-    <string name="kg_prompt_reason_restart_pattern">Rhaid rhoi\'r patrwm ar ôl ail-ddechrau\'r ddyfais</string>
-    <string name="kg_prompt_reason_restart_pin">Rhaid rhoi\'r PIN ar ôl ail-ddechrau\'r ddyfais</string>
-    <string name="kg_prompt_reason_restart_password">Rhaid rhoi\'r cyfrinair ar ôl ail-ddechrau\'r ddyfais</string>
+    <string name="kg_prompt_reason_restart_pattern">Rhaid rhoi\'r patrwm ar ôl ailgychwyn y ddyfais</string>
+    <string name="kg_prompt_reason_restart_pin">Rhaid rhoi\'r PIN ar ôl ailgychwyn y ddyfais</string>
+    <string name="kg_prompt_reason_restart_password">Rhaid rhoi\'r cyfrinair ar ôl ailgychwyn y ddyfais</string>
     <string name="kg_prompt_reason_timeout_pattern">Rhaid rhoi\'r patrwm fel cam diogelwch ychwanegol</string>
     <string name="kg_prompt_reason_timeout_pin">Rhaid rhoi\'r PIN fel cam diogelwch ychwanegol</string>
     <string name="kg_prompt_reason_timeout_password">Rhaid rhoi\'r cyfrinair fel cam diogelwch ychwanegol</string>

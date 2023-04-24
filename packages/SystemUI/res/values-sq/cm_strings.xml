@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Mikrofoni</string>
     <string name="screen_pinning_description_no_navbar">Kjo e mban në ekran derisa ta shqitësh. Shtyp &amp; mbaj shtypur butonin Prapa për ta shqitur.</string>
     <string name="screen_pinning_toast_no_navbar">Për ta shqitur këtë ekran, prek &amp; mbaj shtypur butonin Prapa</string>
+    <string name="battery_notification_channel_tv">Paralajmërim për baterinë</string>
 </resources>

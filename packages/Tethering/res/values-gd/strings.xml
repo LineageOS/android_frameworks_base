@@ -18,4 +18,5 @@
     <string name="tethered_notification_message">Thoir gnogag gus a shuidheachadh.</string>
     <string name="disable_tether_notification_title">Tha an teadhrachadh à comas</string>
     <string name="disable_tether_notification_message">Cuir fios gun rianaire agad airson fiosrachaidh</string>
+    <string name="notification_channel_tethering_status">Staid a’ hotspot ⁊ an teadhrachaidh</string>
 </resources>

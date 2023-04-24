@@ -70,7 +70,7 @@
     <string name="global_action_restart_recovery">Kurtarma</string>
     <string name="global_action_restart_bootloader">Ön yükleyici</string>
     <string name="global_action_restart_download">İndirme</string>
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Yeniden başlatılıyor\u2026</string>
     <string name="global_action_restart_recovery_progress">Kurtarma modunda başlatılıyor\u2026</string>
     <string name="global_action_restart_bootloader_progress">Ön yükleyici modunda başlatılıyor\u2026</string>
@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Mikrofon</string>
     <string name="screen_pinning_description_no_navbar">Bu işlem, siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için Geri\'ye dokunun ve basılı tutun.</string>
     <string name="screen_pinning_toast_no_navbar">Bu ekran görünümünü kaldırmak için, Geri tuşuna dokunun ve basılı tutun</string>
+    <string name="battery_notification_channel_tv">Pil uyarısı</string>
 </resources>

@@ -70,12 +70,12 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Download</string>
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Opnieuw opstarten\u2026</string>
     <string name="global_action_restart_recovery_progress">Opnieuw opstarten naar recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Opnieuw opstarten naar bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Opnieuw opstarten naar download-modus\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Herstarten naar fastboot modus\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Herstarten naar fastbootd modus\u2026</string>
     <string name="global_action_current_user">Huidige</string>
     <string name="global_action_users">Gebruikers</string>
     <string name="status_bar_camera">Camera</string>
@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Microfoon</string>
     <string name="screen_pinning_description_no_navbar">Met scherm vastzetten wordt het beeldscherm vergrendeld op één weergave.\n\nBlijf de Terug-knop aanraken om het scherm los te maken.</string>
     <string name="screen_pinning_toast_no_navbar">Houd de Terug-knop ingedrukt om dit scherm te ontgrendelen</string>
+    <string name="battery_notification_channel_tv">Batterij waarschuwing</string>
 </resources>

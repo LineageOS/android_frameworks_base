@@ -70,12 +70,12 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Sťahovanie</string>
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Reštartovanie\u2026</string>
     <string name="global_action_restart_recovery_progress">Reštartovanie do režimu Recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Reštartovanie do režimu Bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Reštartovanie do režimu sťahovania\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Reštartovanie do režimu fastboot\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Reštartovanie do režimu fastbootd\u2026</string>
     <string name="global_action_current_user">Aktuálny</string>
     <string name="global_action_users">Používatelia</string>
     <string name="status_bar_camera">Fotoaparát</string>

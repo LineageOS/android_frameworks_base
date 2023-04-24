@@ -258,9 +258,9 @@
         <item>4 proses ar y mwyaf</item>
     </string-array>
     <string-array name="usb_configuration_titles">
-        <item>Yn gwefru</item>
+        <item>Gwefru</item>
         <item>MTP (Protocol Trosglwyddo Cyfryngau)</item>
-        <item>PTP (Protocol Trosglwyddo Lluniaul)</item>
+        <item>PTP (Protocol Trosglwyddo Lluniau)</item>
         <item>RNDIS (Ether-rwyd USB)</item>
         <item>Ffynhonnell Sain</item>
         <item>MIDI</item>
