@@ -26,7 +26,7 @@
     <string name="bugreport_finished_pending_screenshot_text" product="tv">Esbilla pa compartir l\'informe de fallos ensin captura de pantalla o espera a que se faiga una</string>
     <string name="bugreport_finished_pending_screenshot_text" product="watch">Toca pa compartir l\'informe de fallos ensin captura de pantalla o espera a que se faiga una</string>
     <string name="bugreport_finished_pending_screenshot_text" product="default">Toca pa compartir l\'informe de fallos ensin captura de pantalla o espera a que se faiga una</string>
-    <string name="bugreport_confirm">Los informes de fallos contienen datos de los ficheros de rexistru del sistema, que puen incluyir datos que consideres confidenciales (como l\'usu d\'aplicaciones y los datos d\'allugamientu). Comparti estos informes namás coles aplicaciones y persones nes que t\'enfotes.</string>
+    <string name="bugreport_confirm">Los informes de fallos contienen datos de los ficheros de rexistru del sistema, que puen incluyir datos que consideres confidenciales (como l\'usu d\'aplicaciones y los datos de llocalización). Comparti estos informes namás coles aplicaciones y persones nes que t\'enfotes.</string>
     <string name="bugreport_confirm_dont_repeat">Nun volver amosar</string>
     <string name="bugreport_storage_title">Informes de fallos</string>
     <string name="bugreport_unreadable_text">Nun se pudo lleer el ficheru del informe de fallos</string>

@@ -75,7 +75,7 @@
     <string name="global_action_restart_recovery_progress">Redémarrage en mode recovery\u2026</string>
     <string name="global_action_restart_bootloader_progress">Redémarrage en mode bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Redémarrage en mode download\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Redémarrage en mode fastboot\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Redémarrage en mode fastbootd\u2026</string>
     <string name="global_action_current_user">Utilisateur actuel</string>
     <string name="global_action_users">Utilisateurs</string>
     <string name="status_bar_camera">Appareil photo</string>
@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Microphone</string>
     <string name="screen_pinning_description_no_navbar">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, appuyez de manière prolongée sur \"Retour\".</string>
     <string name="screen_pinning_toast_no_navbar">Pour annuler l\'épinglage de l\'écran, appuyez de manière prolongée sur le bouton \"Retour\"</string>
+    <string name="battery_notification_channel_tv">Alerte batterie</string>
 </resources>

@@ -1024,4 +1024,5 @@
     <string name="notification_appops_microphone_active">مىكروفون</string>
     <string name="accessibility_system_action_home_label">ئۆي</string>
     <string name="accessibility_system_action_back_label">قايت</string>
+    <string name="resolver_work_tab">ئىش</string>
 </resources>

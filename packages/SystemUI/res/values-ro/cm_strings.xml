@@ -70,12 +70,12 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Download</string>
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Se repornește\u2026</string>
     <string name="global_action_restart_recovery_progress">Repornire în modul recuperare\u2026</string>
     <string name="global_action_restart_bootloader_progress">Repornire în modul bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Repornire în modul descărcare\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Repornire în modul fastboot\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Repornire în modul fastbootd\u2026</string>
     <string name="global_action_current_user">Actual</string>
     <string name="global_action_users">Utilizatori</string>
     <string name="status_bar_camera">Cameră</string>
@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Microfon</string>
     <string name="screen_pinning_description_no_navbar">Aceasta îl ține în vedere până când anulați fixarea. Atingeți &amp; țineți apăsat Înapoi pentru a anula fixarea.</string>
     <string name="screen_pinning_toast_no_navbar">Pentru a anula fixarea acestui ecran, atingeți &amp; și țineți apăsat butonul Înapoi</string>
+    <string name="battery_notification_channel_tv">Avertizare baterie</string>
 </resources>

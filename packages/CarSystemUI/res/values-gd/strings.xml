@@ -25,4 +25,5 @@
     <string name="user_add_user_message_setup">Nuair a chuireas tu cleachdaiche ùr ris, feumaidh an neach sin an rùm aca a shuidheachadh.</string>
     <string name="user_add_user_message_update">’S urrainn do chleachdaiche sam bith na h-aplacaidean ùrachadh airson a h-uile cleachdaiche eile.</string>
     <string name="car_loading_profile">’Ga luchdadh</string>
+    <string name="car_loading_profile_developer_message">Luchdaich an cleachdaiche (o <xliff:g id="from_user" example="10">%1$d</xliff:g> gu <xliff:g id="to_user" example="12">%2$d</xliff:g>)</string>
 </resources>

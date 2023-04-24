@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Microfono</string>
     <string name="screen_pinning_description_no_navbar">La schermata rimane in primo piano finché non la sblocchi. Tocca e tieni premuto il tasto Indietro per sbloccarla.</string>
     <string name="screen_pinning_toast_no_navbar">Per sbloccare questo schermo, tocca e tieni premuto il tasto Indietro</string>
+    <string name="battery_notification_channel_tv">Avviso batteria</string>
 </resources>

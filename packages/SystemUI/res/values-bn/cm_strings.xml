@@ -73,6 +73,7 @@
     <string name="global_action_restart_bootloader_progress">বুটলোডার মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
     <string name="global_action_restart_download_progress">ডাউনলোড মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
     <string name="global_action_restart_fastboot_progress">Fastbootd মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
+    <string name="global_action_current_user">বর্তমান</string>
     <string name="global_action_users">ব্যবহারকারী</string>
     <string name="status_bar_camera">ক্যামেরা</string>
     <string name="status_bar_location">অবস্থান</string>

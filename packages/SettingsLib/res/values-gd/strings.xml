@@ -194,9 +194,21 @@
         <item>Ro luath</item>
         <item>As luaithe</item>
     </string-array>
+    <string-array name="tts_rate_values">
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
+    </string-array>
     <string name="choose_profile">Tagh pròifil</string>
     <string name="category_personal">Pearsanta</string>
     <string name="category_work">Obair</string>
+    <string name="development_settings_title">Developer options</string>
     <string name="development_settings_enable">Cuir an comas roghainnean luchd-leasachaidh</string>
     <string name="development_settings_summary">Suidhich na roghainnean airson leasachadh aplacaidean</string>
     <string name="development_settings_not_available">Chan eil roghainnean luchd-leasachaidh ri fhaighinn airson a’ cleachdaiche seo</string>

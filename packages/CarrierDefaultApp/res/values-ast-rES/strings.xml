@@ -9,7 +9,7 @@
     <string name="no_mobile_data_connection_title">Nun hai conexón de datos móviles</string>
     <string name="no_mobile_data_connection">Amiesta un plan de datos o de roaming pente «%s»</string>
     <string name="mobile_data_status_notification_channel_name">Estáu de los datos móviles</string>
-    <string name="action_bar_label">Aniciar sesión na rede móvil</string>
+    <string name="action_bar_label">Aniciar la sesión na rede móvil</string>
     <string name="ssl_error_warning">La rede a la que tentes de xunite tien problemes de seguranza.</string>
     <string name="ssl_error_example">Por exemplu, ye posible que la páxina d\'aniciu de sesión nun perteneza a la organización amosada.</string>
     <string name="ssl_error_continue">Siguir de toes toes pel restolador</string>

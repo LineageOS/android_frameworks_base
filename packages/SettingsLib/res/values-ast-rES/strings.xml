@@ -146,7 +146,7 @@
     <string name="tether_settings_title_bluetooth">Tethering per Bluetooth</string>
     <string name="tether_settings_title_usb_bluetooth">Tethering</string>
     <string name="tether_settings_title_all">Tethering y puntu Wi-Fi</string>
-    <string name="managed_user_title">Toles aplic. llaborables</string>
+    <string name="managed_user_title">Toles aplic. llaborales</string>
     <string name="user_guest">Convidáu</string>
     <string name="unknown">Desconozse</string>
     <string name="running_process_item_user_label">Usuariu: <xliff:g id="user_name">%1$s</xliff:g></string>
@@ -208,7 +208,7 @@
     <string name="choose_profile">Escoyeta d\'un perfil</string>
     <string name="category_personal">Personal</string>
     <string name="category_work">Llaboral</string>
-    <string name="development_settings_title">Opciones de desendolcador</string>
+    <string name="development_settings_title">Opciones pa desendolcadores</string>
     <string name="development_settings_enable">Activar les opciones pa desendolcadores</string>
     <string name="development_settings_summary">Afita les opciones pal desendolcu d\'aplicaciones</string>
     <string name="development_settings_not_available">Les opciones pa desendolcadores nun tán disponibles pa esti usuariu</string>
@@ -256,9 +256,9 @@
     <string name="oem_unlock_enable_summary">Permite desbloquiar el cargador d\'arrinque</string>
     <string name="confirm_enable_oem_unlock_title">¿Quies permitir el desbloquéu d\'OEM?</string>
     <string name="confirm_enable_oem_unlock_text">ALVERTENCIA: les carauterístiques de proteición del preséu nun van funcionar mentanto esti axuste tea activáu.</string>
-    <string name="mock_location_app">Esbillar l\'aplicación d\'allugamientu ficticiu</string>
-    <string name="mock_location_app_not_set">Nun s\'afitó l\'aplicación d\'allugamientu ficticiu</string>
-    <string name="mock_location_app_set">Aplicación d\'allugamientu ficticiu: <xliff:g id="app_name">%1$s</xliff:g></string>
+    <string name="mock_location_app">Esbillar l\'aplicación de llocalización ficticia</string>
+    <string name="mock_location_app_not_set">Nun s\'afitó l\'aplicación de llocalización ficticia</string>
+    <string name="mock_location_app_set">Aplicación de llocalización ficticia: <xliff:g id="app_name">%1$s</xliff:g></string>
     <string name="debug_networking_category">Redes</string>
     <string name="wifi_display_certification">Certificación de visualización ensin filos</string>
     <string name="wifi_verbose_logging">Activar el rexistru detalláu de la Wi\u2011Fi</string>
@@ -307,8 +307,8 @@
     <string name="select_logpersist_dialog_title">Esbilla los búferes de rexistru p\'atroxalos permanentemente nel preséu</string>
     <string name="select_usb_configuration_title">Configuración del USB</string>
     <string name="select_usb_configuration_dialog_title">Configuración del USB</string>
-    <string name="allow_mock_location">Permitir l\'allugamientu ficticiu</string>
-    <string name="allow_mock_location_summary">Permite l\'allugamientu ficticiu</string>
+    <string name="allow_mock_location">Permitir la llocalización ficticia</string>
+    <string name="allow_mock_location_summary">Permite la llocalización ficticia</string>
     <string name="debug_view_attributes">Inspeición d\'atributos de visualización</string>
     <string name="mobile_data_always_on_summary">Caltién los datos móviles siempres activos, magar que la Wi\u2011Fi tea activada (pa cambiar rápido de rede).</string>
     <string name="tethering_hardware_offload_summary">Si ta disponible, usa l\'aceleración per hardware pal tethering</string>
@@ -316,7 +316,7 @@
     <string name="adb_warning_message">La depuración per USB ta diseñada namás p\'actividaes de desendolcu. Úsala pa copiar datos ente un ordenador y esti preséu, pa instalar aplicaciones nel preséu ensin avisar y pa lleer los datos del rexistru.</string>
     <string name="adbwifi_warning_title">¿Quies permitir la depuración ensin filos?</string>
     <string name="adbwifi_warning_message">La depuración ensin filos ta diseñada namás p\'actividaes de desendolcu. Úsala pa copiar datos ente un ordenador y esti preséu, pa instalar aplicaciones nel preséu ensin avisar y pa lleer los datos del rexistru.</string>
-    <string name="adb_keys_warning_message">¿Quies revocar l\'accesu a la depuración per USB de tolos ordeandores qu\'autoricesti anteriormente?</string>
+    <string name="adb_keys_warning_message">¿Quies revocar l\'accesu a la depuración per USB de tolos ordenadores qu\'autoricesti anteriormente?</string>
     <string name="dev_settings_warning_title">¿Quies permitir los axustes de desendolcu?</string>
     <string name="dev_settings_warning_message">Estos axustes tán diseñaos namás pa programar.  Puen causar que\'l preséu y les aplicaciones que contenga s\'estropien o funcionen mal.</string>
     <string name="verify_apps_over_usb_title">Verificar aplicaciones per USB</string>
@@ -439,7 +439,7 @@
     <string name="daltonizer_mode_protanomaly">Protanomalía (coloráu-verde)</string>
     <string name="daltonizer_mode_tritanomaly">Tritanomalía (azul-mariellu)</string>
     <string name="accessibility_display_daltonizer_preference_title">Correición del color</string>
-    <string name="accessibility_display_daltonizer_preference_subtitle"><![CDATA[La correición de color permítete axustar cómo apaecen los colores na pantalla del preséu]]></string>
+    <string name="accessibility_display_daltonizer_preference_subtitle"><![CDATA[La correición del color permítete axustar cómo apaecen los colores na pantalla del preséu]]></string>
     <string name="daltonizer_type_overridden">«<xliff:g id="title" example="Simulate color space">%1$s</xliff:g>» anula la opción</string>
     <string name="power_remaining_settings_home_page"><xliff:g id="percentage" example="10%">%1$s</xliff:g> - <xliff:g id="time_string" example="1 hour left based on your usage">%2$s</xliff:g></string>
     <string name="power_remaining_duration_only">Tiempu que queda aproximadamente: <xliff:g id="time_remaining">%1$s</xliff:g></string>

@@ -623,7 +623,9 @@
     <string name="quick_settings_reset_confirmation_message">Nochdaidh e a-rithist an ath-thuras a chuireas tu air e sna roghainnean.</string>
     <string name="quick_settings_reset_confirmation_button">Cuir am falach</string>
     <string name="stream_voice_call">Gairm</string>
+    <string name="stream_system">An siostam</string>
     <string name="stream_ring">Seirm</string>
+    <string name="stream_music">Meadhanan</string>
     <string name="stream_alarm">Caismeachd</string>
     <string name="stream_notification">Brath</string>
     <string name="stream_bluetooth_sco">Bluetooth</string>
@@ -833,6 +835,7 @@ Leibheil 0</b>
     <string name="keyboard_key_insert">Insert</string>
     <string name="keyboard_key_num_lock">Num Lock</string>
     <string name="keyboard_key_numpad_template"><xliff:g id="name">%1$s</xliff:g> air pada nan àireamh</string>
+    <string name="keyboard_shortcut_group_system">An siostam</string>
     <string name="keyboard_shortcut_group_system_home">Dachaigh</string>
     <string name="keyboard_shortcut_group_system_recents">O chionn goirid</string>
     <string name="keyboard_shortcut_group_system_back">Air ais</string>
@@ -1113,6 +1116,7 @@ Leibheil 0</b>
     <string name="controls_confirmation_message">Dearbh an t-atharrachadh air <xliff:g id="device" example="Backdoor lock">%s</xliff:g></string>
     <string name="controls_structure_tooltip">Grad-shlaighd barrachd fhaicinn</string>
     <string name="controls_seeding_in_progress">A’ luchdadh nam molaidhean</string>
+    <string name="controls_media_title">Meadhanan</string>
     <string name="controls_media_close_session">Falaich an seisean làithreach.</string>
     <string name="controls_media_active_session">Cha ghabh an seisean làithreach fhalach.</string>
     <string name="controls_media_dismiss_button">Leig seachad</string>

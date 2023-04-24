@@ -79,6 +79,17 @@
     <string name="unknown">Disconnotu</string>
     <string name="running_process_item_user_label">Utente: <xliff:g id="user_name">%1$s</xliff:g></string>
     <string name="tts_status_title">Istadu de limba predefinidu</string>
+    <string-array name="tts_rate_entries">
+        <item>Very slow</item>
+        <item>Lentu</item>
+        <item>Normal</item>
+        <item>Fast</item>
+        <item>Faster</item>
+        <item>Very fast</item>
+        <item>Rapid</item>
+        <item>Very rapid</item>
+        <item>Fastest</item>
+    </string-array>
     <string name="enable_adb_wireless">Curretzione de sa lìnia sena filos</string>
     <string name="enable_adb_wireless_summary">Modalidade curretzione de errores cando su Wi\u2011Fi est connètidu</string>
     <string name="adb_wireless_error">Errore</string>
@@ -123,6 +134,7 @@
     <string name="user_setup_dialog_message">Assegura·ti chi sa persone siat disponìbile a pigare su dispositivu e a cunfigurare s\'ispàtziu suo</string>
     <string name="user_setup_button_setup_now">Cunfigura immoe</string>
     <string name="user_add_user_type_title">Agiunghe</string>
+    <string name="user_new_user_name">Utèntzia noa</string>
     <string name="user_new_profile_name">Profilu nou</string>
     <string name="user_info_settings_title">Informatziones de s\'utente</string>
     <string name="profile_info_settings_title">Informatziones de su profilu</string>

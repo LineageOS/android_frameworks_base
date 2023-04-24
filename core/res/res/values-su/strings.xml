@@ -211,5 +211,4 @@
     <string name="notification_appops_camera_active">Kaméra</string>
     <string name="notification_appops_microphone_active">Mikrofon</string>
     <string name="resolver_personal_tab">Pribadi</string>
-    <string name="resolver_work_tab">Gawé</string>
 </resources>

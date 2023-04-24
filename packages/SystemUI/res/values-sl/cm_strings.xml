@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Mikrofon</string>
     <string name="screen_pinning_description_no_navbar">To ga ohrani prikazanega, dokler ga ne odpnete. Dotaknite se in pridržite gumb Nazaj, da ga odpnete.</string>
     <string name="screen_pinning_toast_no_navbar">Da odpnete ta zaslon, se dotaknite in pridržite gumb Nazaj</string>
+    <string name="battery_notification_channel_tv">Opozorilo baterije</string>
 </resources>
