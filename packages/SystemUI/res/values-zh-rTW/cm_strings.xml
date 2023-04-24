@@ -70,12 +70,12 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">下載</string>
-    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">重新啟動中\u2026</string>
     <string name="global_action_restart_recovery_progress">正在重新啟動至 Recovery 模式\u2026</string>
     <string name="global_action_restart_bootloader_progress">正在重新啟動至 Bootloader 模式\u2026</string>
     <string name="global_action_restart_download_progress">正在重新啟動至下載模式\u2026</string>
-    <string name="global_action_restart_fastboot_progress">正在重新啟動至 Fastboot 模式\u2026</string>
+    <string name="global_action_restart_fastboot_progress">正在重新啟動至 Fastbootd 模式\u2026</string>
     <string name="global_action_current_user">目前</string>
     <string name="global_action_users">使用者</string>
     <string name="status_bar_camera">相機</string>

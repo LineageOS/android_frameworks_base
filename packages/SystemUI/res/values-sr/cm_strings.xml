@@ -54,8 +54,8 @@
     <string name="vpn_credentials_username">Корисничко име</string>
     <string name="vpn_credentials_password">Лозинка</string>
     <string name="vpn_credentials_dialog_connect">Повежи се</string>
-    <string name="accessibility_dpad_left">Курсор лево</string>
-    <string name="accessibility_dpad_right">Курсор десно</string>
+    <string name="accessibility_dpad_left">Курсор улево</string>
+    <string name="accessibility_dpad_right">Курсор удесно</string>
     <string name="global_action_restart_system">Систем</string>
     <string name="global_action_restart_recovery">Режим опоравка</string>
     <string name="global_action_restart_bootloader">Покретач система</string>

@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Μικρόφωνο</string>
     <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε παρατεταμένα το στοιχείο \"Επιστροφή\" για ξεκαρφίτσωμα.</string>
     <string name="screen_pinning_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε πατημένο το πλήκτρο Πίσω</string>
+    <string name="battery_notification_channel_tv">Προειδοποίηση μπαταρίας</string>
 </resources>

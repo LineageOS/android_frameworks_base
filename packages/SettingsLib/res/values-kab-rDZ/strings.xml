@@ -23,12 +23,22 @@
     <string name="wifi_disconnected">Ur yeqqin ara</string>
     <string name="wifi_disabled_generic">Insa</string>
     <string name="saved_network">Yeskels-it <xliff:g id="name">%1$s</xliff:g></string>
+    <string name="speed_label_slow">Amaẓay</string>
+    <string name="speed_label_okay">Γas</string>
+    <string name="speed_label_medium">Alemmas</string>
+    <string name="speed_label_fast">Arurad</string>
+    <string name="speed_label_very_fast">D arurad aṭas</string>
+    <string name="wifi_passpoint_expired">Yemmut</string>
     <string name="bluetooth_disconnected">Ur yeqqin ara</string>
     <string name="bluetooth_connecting">Tuqna\u2026</string>
+    <string name="bluetooth_active_no_battery_level">Urmid</string>
     <string name="bluetooth_profile_opp">Asiweḍ n ifuyla</string>
     <string name="bluetooth_profile_hid">Ibenk n tuffɣa</string>
     <string name="bluetooth_profile_pan">Anekcum ɣer Internet</string>
     <string name="bluetooth_pairing_decline">Sefsex</string>
+    <string name="bluetooth_talkback_computer">Aselkim</string>
+    <string name="bluetooth_talkback_headset">Amsegdal n timesliwt</string>
+    <string name="bluetooth_talkback_phone">Tiliɣri</string>
     <string name="process_kernel_label">Anagraw n wammud Android</string>
     <string name="data_usage_uninstalled_apps">Isnasen ittwakksen</string>
     <string name="data_usage_uninstalled_apps_users">Isnasen d iseqdacen ittwakksen</string>
@@ -36,10 +46,88 @@
     <string name="user_guest">Inebgi</string>
     <string name="unknown">Arussin</string>
     <string name="running_process_item_user_label">Aseqdac:<xliff:g id="document_name">%1$s</xliff:g></string>
+    <string name="tts_default_pitch_title">Pas</string>
+    <string name="tts_default_lang_title">Tutlayt</string>
+    <string name="tts_general_section_title">Amatu</string>
+    <string-array name="tts_rate_entries">
+        <item>Amaẓay aṭas</item>
+        <item>Amaẓay</item>
+        <item>Amagnu</item>
+        <item>Arurad</item>
+        <item>Accélérer</item>
+        <item>Rured aṭas</item>
+        <item>Rapid</item>
+        <item>Very rapid</item>
+        <item>Fastest</item>
+    </string-array>
+    <string-array name="tts_rate_values">
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
+    </string-array>
+    <string name="category_personal">Udmawan</string>
+    <string name="category_work">Axeddim</string>
+    <string name="development_settings_title">Tixtiṛiyin s uneflay</string>
+    <string name="adb_wireless_error">Tuccḍa</string>
+    <string name="adb_device_forget">Ttu</string>
+    <string name="adb_wireless_qrcode_pairing_title">Semḍen tangalt QR</string>
+    <string name="debug_networking_category">Aẓeṭṭa</string>
+    <string name="private_dns_mode_off">Insa</string>
+    <string name="private_dns_mode_opportunistic">Awurman</string>
+    <string name="debug_debugging_category">&amp;Débogage</string>
+    <string name="select_application">Fren asnas</string>
+    <string name="no_application">Ulac</string>
+    <string name="debug_input_category">Anekcum</string>
+    <string name="media_category">Amidya</string>
+    <string name="debug_applications_category">Isnasen</string>
+    <string name="loading_injected_setting_summary">Asali\u2026</string>
+    <string-array name="color_mode_names">
+        <item>Vibrant (default)</item>
+        <item>Agaman</item>
+        <item>Alugen</item>
+    </string-array>
     <string name="daltonizer_mode_disabled">Insa</string>
     <string name="battery_info_status_unknown">Arussin</string>
+    <string name="battery_info_status_charging">Ittɛemmiṛ</string>
+    <string name="battery_info_status_full">Yeččur</string>
     <string name="disabled">Insa</string>
+    <string name="external_source_trusted">Ittwasireg</string>
+    <string name="external_source_untrusted">Ur ittwasireg ara</string>
+    <string-array name="battery_labels">
+        <item>0%</item>
+        <item>50%</item>
+        <item>100%</item>
+    </string-array>
+    <string name="screen_zoom_summary_small">Meẓẓi</string>
+    <string name="screen_zoom_summary_default">Akk-a kan</string>
+    <string name="screen_zoom_summary_large">Ameqran</string>
+    <string name="screen_zoom_summary_very_large">Plus grand</string>
+    <string name="screen_zoom_summary_extremely_large">Ahrawan maḍi</string>
+    <string name="content_description_menu_button">Umuɣ</string>
+    <string name="retail_demo_reset_next">Γer zdat</string>
+    <string name="ims_reg_status_registered">"Aklas"</string>
+    <string name="status_unavailable">Ulac-it</string>
+    <string name="accessibility_manual_zen_more_time">Ugar n wakud.</string>
     <string name="cancel">Sefsex</string>
+    <string name="okay">Γas</string>
+    <string name="zen_mode_enable_dialog_turn_on">Rmed</string>
+    <string name="zen_mode_settings_summary_off">Weṛǧin</string>
+    <string name="zen_interruption_level_priority">Tazwart kan</string>
+    <string name="zen_mode_duration_settings_title">Tanzagt</string>
+    <string name="time_unit_just_now">Tura kan</string>
+    <string name="help_label">Tallelt &amp; tiktiwin</string>
+    <string name="storage_category">Asekles</string>
+    <string name="user_add_user_item_title">Aseqdac</string>
+    <string name="user_setup_button_setup_later">Mačči tura</string>
+    <string name="user_add_user_type_title">Rnu</string>
+    <string name="user_new_profile_name">Amaɣnu amaynut</string>
     <string name="guest_nickname">Inebgi</string>
     <string name="cached_apps_freezer_disabled">Insa</string>
+    <string name="cached_apps_freezer_enabled">Irmed</string>
 </resources>

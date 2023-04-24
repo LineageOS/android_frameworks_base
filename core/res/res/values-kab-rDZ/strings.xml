@@ -19,6 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="byteShort">AṬ</string>
+    <string name="kilobyteShort">kaṭ</string>
     <string name="megabyteShort">MAṬ</string>
     <string name="gigabyteShort">GAṬ</string>
     <string name="terabyteShort">TAṬ</string>
@@ -66,7 +67,9 @@
     <string name="CndMmi">Aceyyeɛ n wuṭṭun n usiwel</string>
     <string name="DndMmi">Ur yettcebbil ara</string>
     <string name="CLIRPermanent">Ur tezmireḍ ara ad tbeddleḍ iɣewwaṛen i d-yskanayen amsiwel</string>
+    <string name="notification_channel_network_alert">Ilɣuten</string>
     <string name="notification_channel_call_forward">Awelleh n usiwel</string>
+    <string name="notification_channel_sms">Iznan SMS</string>
     <string name="serviceClassVoice">Taɣect</string>
     <string name="serviceClassData">Isefka</string>
     <string name="serviceClassFAX">FAX</string>
@@ -75,6 +78,7 @@
     <string name="serviceClassPacket">Taquciḍt</string>
     <string name="roamingTextSearching">Anadi n yimeẓla</string>
     <string name="wfcSpnFormat_wifi_calling">Asiwel s Wi-Fi</string>
+    <string name="wfcSpnFormat_wifi">Wi-Fi</string>
     <string name="wifi_calling_off_summary">Insa</string>
     <string name="wfc_mode_wifi_only_summary">Wi-Fi kan</string>
     <string name="cfTemplateNotForwarded"><xliff:g id="bearer_service_code">{0}</xliff:g>: Ur yettuwelleh ara</string>
@@ -96,6 +100,8 @@
     <string name="httpErrorFailedSslHandshake">Ur izmir ara ad yeqqen s wudem aɣelsan.</string>
     <string name="contentServiceSync">Amtawi</string>
     <string name="work_profile_deleted">Amaɣnu n umahil yettwakkes</string>
+    <string name="location_service">Ameẓlu n wadig</string>
+    <string name="personal_apps_suspended_turn_profile_on">Rmed</string>
     <string name="me">Nekki</string>
     <string name="power_dialog" product="tablet">Iɣerwwaṛen n tfelwit n uselkem</string>
     <string name="power_dialog" product="default">Iɣewwaṛen n tiliɣri</string>
@@ -108,16 +114,20 @@
     <string name="reboot_to_reset_message">Tulsa n tnekra\u2026</string>
     <string name="shutdown_confirm" product="tablet">Tafelwit-ik·im n uselkem ad tens.</string>
     <string name="shutdown_confirm" product="default">Tiliɣri-ik·im n uselkem ad tens.</string>
+    <string name="shutdown_confirm_question">Tebɣiḍ ad tsenseḍ?</string>
     <string name="recent_tasks_title">Melmi kan</string>
     <string name="no_recent_tasks">Ulac isnasen ineggura.</string>
     <string name="global_actions" product="tablet">Iɣerwwaṛen n tfelwit n uselkem</string>
     <string name="global_actions" product="default">Iɣewwaṛen n tiliɣri</string>
     <string name="global_action_lock">Asewḥel n ugdil</string>
     <string name="global_action_power_off">Sens</string>
+    <string name="global_action_power_options">Tazmert</string>
     <string name="global_action_restart">Ales tanekra</string>
     <string name="global_action_emergency">Amerwas</string>
     <string name="global_action_bug_report">Aneqqis n ubug</string>
+    <string name="global_action_screenshot">Tuṭṭfa n wegdil</string>
     <string name="bugreport_title">Aneqqis n ubug</string>
+    <string name="bugreport_option_full_title">Azen</string>
     <string name="global_action_toggle_silent_mode">Askar n tsusmi</string>
     <string name="global_action_silent_mode_on_status">Tella tmesliwt</string>
     <string name="global_action_silent_mode_off_status">Ulac timesliwt</string>
@@ -125,8 +135,14 @@
     <string name="global_actions_airplane_mode_on_status">Atan s uskar n tesrafegt</string>
     <string name="global_actions_airplane_mode_off_status">Yettwakkes uskar n tesrafegt</string>
     <string name="global_action_settings">Iɣewwaṛen</string>
+    <string name="global_action_assist">Amallal</string>
     <string name="global_action_voice_assist">Amarag aɣectan</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="notification_channel_virtual_keyboard">Anasiw aḥlis</string>
+    <string name="notification_channel_security">Taγellist</string>
+    <string name="notification_channel_account">Addad n umiḍan</string>
+    <string name="notification_channel_updates">Ileqman</string>
+    <string name="notification_channel_alerts">Ilɣuten</string>
     <string name="safeMode">Askar aɣelsan</string>
     <string name="android_system_label">Anagraw Android</string>
     <string name="permgrouplab_contacts">Inermisen</string>
@@ -146,12 +162,16 @@
     <string name="capability_title_canRequestFilterKeyEvents">Wali aḍris i turiḍ</string>
     <string name="capability_desc_canRequestFilterKeyEvents">Rnu isefka yeffren am uṭṭun n tkerḍa n lbanka akked wawalen uffiren</string>
     <string name="permlab_processOutgoingCalls">Ur d-ssekcam ara isiwal</string>
+    <string name="permlab_answerPhoneCalls">err ɣef usawal n tiliɣri</string>
     <string name="permlab_receiveMms">Ṭtef-d tibratin yuran (MMS)</string>
     <string name="permlab_sendSms">Azen, tsekneḍ-d tibratin SMS</string>
     <string name="permlab_receiveWapPush">Ṭtef-d tibratin yuran (WAP)</string>
+    <string name="permlab_killBackgroundProcesses">Mdel isnasen nniḍen</string>
     <string name="permlab_readContacts">Wali inermisen</string>
     <string name="permlab_readCallLog">ɣer aɣmis n isawalen</string>
     <string name="permlab_recordAudio">asekles n imesla</string>
+    <string name="permlab_readPhoneNumbers">ɣeṛ uṭṭunen n tiliɣri</string>
+    <string name="permlab_setWallpaper">sbadu tugna n ugilal</string>
     <string-array name="fingerprint_acquired_vendor"/>
     <string name="fingerprint_error_unable_to_process">Ɛṛeḍ tikelt nniḍen.</string>
     <string-array name="fingerprint_error_vendor"/>
@@ -211,9 +231,12 @@
     <string name="phoneTypeOther">Wayeḍ</string>
     <string name="phoneTypeCallback">Ales asiwel</string>
     <string name="phoneTypeCar">Takeṛṛust</string>
+    <string name="phoneTypeIsdn">ISDN</string>
     <string name="phoneTypeMain">AGEJDAN</string>
     <string name="phoneTypeRadio">Ṛṛadyu</string>
+    <string name="phoneTypeTelex">Telex</string>
     <string name="phoneTypeAssistant">Tallalt</string>
+    <string name="phoneTypeMms">MMS</string>
     <string name="eventTypeCustom">Udmawan</string>
     <string name="eventTypeBirthday">Azemz n tlalit</string>
     <string name="eventTypeAnniversary">Amulli</string>
@@ -255,6 +278,8 @@
     <string name="sipAddressTypeHome">Asebter agejdan</string>
     <string name="sipAddressTypeWork">Axeddim</string>
     <string name="sipAddressTypeOther">Wayeḍ</string>
+    <string name="lockscreen_carrier_default">Ulac ameẓlu</string>
+    <string name="lockscreen_emergency_call">Isawalen uɛjilen</string>
     <string name="lockscreen_return_to_call">Uɣal ɣer usiwel</string>
     <string name="lockscreen_pattern_wrong">Ɛṛeḍ tikelt nniḍen</string>
     <string name="lockscreen_password_wrong">Ɛṛeḍ tikelt nniḍen</string>
@@ -301,7 +326,9 @@
     <string name="save_password_remember">Cfu</string>
     <string name="save_password_never">Weṛǧin</string>
     <string name="text_copied">Aḍris yettwanɣel ɣef afus.</string>
+    <string name="copied">Yenɣel</string>
     <string name="more_item_label">Ugar</string>
+    <string name="menu_meta_shortcut_label">Méta+</string>
     <string name="menu_space_shortcut_label">tallunt</string>
     <string name="menu_delete_shortcut_label">kkes</string>
     <string name="search_go">Nadi</string>
@@ -321,6 +348,7 @@
     <string name="weeks">imalasen</string>
     <string name="year">assegas</string>
     <string name="years">iseggasen</string>
+    <string name="now_string_shortest">tura</string>
     <string name="VideoView_error_button">IH</string>
     <string name="noon">"ttnaṣfa n uzal"</string>
     <string name="Noon">"Ttnaṣfa n uzal"</string>
@@ -332,6 +360,8 @@
     <string name="paste">Senṭeḍ</string>
     <string name="delete">Kkes</string>
     <string name="copyUrl">Nɣel URL</string>
+    <string name="undo">Err-d</string>
+    <string name="redo">Err-d</string>
     <string name="autofill">Taččart tawurmant</string>
     <string name="addToDictionary">Rnu ar umawal</string>
     <string name="deleteText">Kkes</string>
@@ -343,14 +373,20 @@
     <string name="capital_off">INSA</string>
     <string name="whichViewApplication">Ldi s</string>
     <string name="whichViewApplicationNamed">Ldi s %1$s</string>
+    <string name="whichViewApplicationLabel">Ldi</string>
+    <string name="whichGiveAccessToApplicationLabel">Mudd anekcum</string>
+    <string name="whichEditApplicationLabel">Ẓreg</string>
     <string name="whichSendApplication">Bḍu</string>
     <string name="whichSendApplicationLabel">Bḍu</string>
     <string name="whichSendToApplicationLabel">Azen</string>
+    <string name="aerr_report">Azen-d tikti i:</string>
+    <string name="aerr_close">Mdel</string>
     <string name="aerr_wait">Rǧu</string>
     <string name="force_close">IH</string>
     <string name="report">Aneqqis</string>
     <string name="wait">Rǧu</string>
     <string name="screen_compat_mode_scale">Sellum</string>
+    <string name="unsupported_compile_sdk_check_update">Nadi lqem</string>
     <string name="sendText">Fren tigawt i uḍris</string>
     <string name="volume_music">Imesli n umidya</string>
     <string name="volume_alarm">Imesli n tsusliyin</string>
@@ -375,6 +411,7 @@
     <string name="date_time_set">Sbadu</string>
     <string name="date_time_done">Immed</string>
     <string name="dlg_ok">IH</string>
+    <string name="alert_windows_notification_turn_off_action">Sens</string>
     <string name="ext_media_init_action">Sebded</string>
     <string name="ext_media_unmount_action">Ḍeqqer-d</string>
     <string name="ext_media_browse_action">Snirem</string>
@@ -427,6 +464,7 @@
     <string name="action_bar_home_description_format">%1$s, %2$s </string>
     <string name="storage_sd_card">Takarḍa SD</string>
     <string name="storage_usb">Asekles n USB</string>
+    <string name="extract_edit_menu_button">Ẓreg</string>
     <string name="ssl_certificate">Aselkin n tɣellist</string>
     <string name="ssl_certificate_is_valid">Aselkin agi d ameɣtu.</string>
     <string name="activity_chooser_view_see_all">Wali akk</string>
@@ -435,6 +473,7 @@
     <string name="default_audio_route_name" product="tablet">Tafelwit n uselken</string>
     <string name="default_audio_route_name" product="tv">Tiliẓri</string>
     <string name="default_audio_route_name" product="default">Tiliɣri</string>
+    <string name="default_audio_route_name_headphones">Isawaḍen n uqerru</string>
     <string name="default_audio_route_category_name">Anagraw</string>
     <string name="media_route_button_content_description">Snewzi</string>
     <string name="media_route_chooser_extended_settings">Iɣewwaṛen</string>
@@ -450,10 +489,13 @@
     <string name="kg_login_submit_button">Kcem</string>
     <string name="kg_login_checking_password">Asenqed n umiḍan\u2026</string>
     <string name="kg_reordering_delete_drop_target_text">Kkes</string>
+    <string name="accessibility_shortcut_on">Rmed</string>
     <string name="accessibility_shortcut_menu_item_status_off">INSA</string>
     <string name="accessibility_dialog_button_allow">Sireg</string>
     <string name="accessibility_dialog_button_deny">Aggi</string>
     <string name="done_accessibility_shortcut_menu_button">Immed</string>
+    <string name="color_correction_feature_name">Aseɣti n yini</string>
+    <string name="accessibility_magnification_chooser_text">Asemɣer</string>
     <string name="owner_name" msgid="3879126011135546571">Bab</string>
     <string name="error_message_title">Erreur</string>
     <string name="revoke">Ḥwi</string>
@@ -473,21 +515,89 @@
     <string name="select_year">Fren aseggas</string>
     <string name="deleted_key"><xliff:g id="key" example="4">%1$s</xliff:g> yettwakkes</string>
     <string name="confirm_battery_saver">IH</string>
+    <string name="data_saver_enable_button">Rmed</string>
     <string name="toolbar_collapse_description">Ḍfes</string>
     <string name="zen_mode_feature_name">Ur yettcebbil ara</string>
     <string name="zen_mode_default_events_name">Tadyant</string>
+    <string name="expand_button_content_description_collapsed">Snefli</string>
     <string name="expand_button_content_description_expanded">Ḍfes</string>
     <string name="floating_toolbar_open_overflow_description">Ugar n iɣewwaṛen</string>
+    <string name="maximize_button_text">Semɣer</string>
+    <string name="close_button_text">Mdel</string>
+    <string name="default_notification_channel_label">War-taggayt</string>
+    <string name="language_selection_title">Rnu tutlayt</string>
+    <string name="language_picker_section_suggested">Asumer</string>
+    <string name="language_picker_section_all">Akk tutlayin</string>
     <string name="locale_search_menu">Nadi</string>
+    <string name="app_suspended_more_details">Issin ugar</string>
+    <string name="work_mode_turn_on">Rmed</string>
+    <string name="deprecated_target_sdk_app_store">Nadi lqem</string>
+    <string name="pin_target">Senteḍ</string>
+    <string name="app_info">Talγut n usnas</string>
+    <string name="app_category_game">Uraren</string>
     <string name="time_picker_hour_label">asrag</string>
+    <string name="time_picker_minute_label">tasdat</string>
+    <string name="autofill_save_yes">Sekles</string>
+    <string name="autofill_save_no">Uhu tannemmit</string>
     <string name="autofill_save_notnow">Mačči tura</string>
     <string name="autofill_save_never">Weṛǧin</string>
+    <string name="autofill_update_yes">Leqqem</string>
+    <string name="autofill_continue_yes">Kemmel</string>
+    <string name="autofill_save_type_password">awal uffir</string>
+    <string name="autofill_save_type_username">isem n useqdac</string>
+    <string name="autofill_save_type_email_address">tansa imayl</string>
+    <string name="notification_reply_button_accessibility">Err</string>
+    <string name="screenshot_edit">Ẓreg</string>
     <string name="notification_app_name_system">Anagraw</string>
     <string name="notification_app_name_settings">Iɣewwaṛen</string>
     <string name="notification_appops_camera_active">Takamiṛat</string>
     <string name="notification_appops_microphone_active">Asawaḍ</string>
+    <string name="battery_saver_notification_channel_name">Aḥraz n uẓru</string>
+    <string name="mime_type_folder">Akaram</string>
+    <string name="mime_type_apk">Asnas Android</string>
+    <string name="mime_type_generic">Afaylu</string>
+    <string name="mime_type_audio">Imesli</string>
+    <string name="mime_type_video">Tavidyut</string>
+    <string name="mime_type_image">Tugna</string>
+    <string name="mime_type_compressed">Tarcivt</string>
+    <string name="mime_type_document">isemli</string>
+    <string name="mime_type_spreadsheet">Tiferkit n usiḍen</string>
+    <string name="mime_type_presentation">PrÃ©sentation</string>
+    <string name="car_loading_profile">Asali</string>
+    <string name="chooser_all_apps_button_label">Tabdert n isnasen</string>
     <string name="accessibility_system_action_home_label">Asebter agejdan</string>
     <string name="accessibility_system_action_back_label">Tuɣalin</string>
+    <string name="accessibility_system_action_notifications_label">Ilɣa</string>
+    <string name="accessibility_system_action_lock_screen_label">Sekkeṛ agdil</string>
+    <string name="accessibility_system_action_screenshot_label">Tuṭṭfa n wegdil</string>
+    <string name="conversation_title_fallback_one_to_one">Asqerdec</string>
     <string name="resolver_personal_tab">Udmawan</string>
     <string name="resolver_work_tab">Axeddim</string>
+    <string name="resolver_switch_on_work">Rmed</string>
+    <string name="PERSOSUBSTATE_SIM_NETWORK_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_SIM_CORPORATE_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_SIM_SIM_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_RUIM_HRPD_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_ENTRY">Sekcem tangalt PUK</string>
+    <string name="PERSOSUBSTATE_SIM_NETWORK_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_SIM_NETWORK_SUBSET_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_SIM_CORPORATE_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_SIM_SERVICE_PROVIDER_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_SIM_SIM_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_SIM_SIM_IN_PROGRESS">Asuter n userreḥ n SIM\u2026</string>
+    <string name="PERSOSUBSTATE_RUIM_RUIM_IN_PROGRESS">Asuter n userreḥ n RUIM\u2026</string>
+    <string name="PERSOSUBSTATE_RUIM_NETWORK1_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_RUIM_NETWORK2_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_RUIM_HRPD_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_RUIM_CORPORATE_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_RUIM_SERVICE_PROVIDER_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_RUIM_RUIM_PUK_IN_PROGRESS">Asuter n userreḥ n PUK\u2026</string>
+    <string name="PERSOSUBSTATE_SIM_SIM_ERROR">Asuter n userreḥ n SIM ur yeddi ara.</string>
+    <string name="PERSOSUBSTATE_RUIM_RUIM_ERROR">Asuter n userreḥ n RUIM ur yeddi ara.</string>
 </resources>

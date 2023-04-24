@@ -170,7 +170,7 @@
     <string name="accessibility_fingerprint_dialog_fingerprint_icon">Eicon ôl bys</string>
     <string name="face_dialog_looking_for_face">Yn edrych amdanat\u2026</string>
     <string name="accessibility_face_dialog_face_icon">Eicon wyneb</string>
-    <string name="accessibility_compatibility_zoom_button">Botwm cytunedd chwyddo.</string>
+    <string name="accessibility_compatibility_zoom_button">Botwm chwyddo cytunedd</string>
     <string name="accessibility_compatibility_zoom_example">Chwyddo sgrin lai i fwy.</string>
     <string name="accessibility_bluetooth_connected">Bluetooth wedi cysylltu.</string>
     <string name="accessibility_bluetooth_disconnected">Bluetooth wedi datgysylltu.</string>
@@ -317,7 +317,7 @@
     <string name="data_usage_disabled_dialog_enable">Parhau</string>
     <string name="gps_notification_searching_text">Yn chwilio am GPS</string>
     <string name="gps_notification_found_text">Pennwyd lleoliad gan GPS</string>
-    <string name="accessibility_location_active">Ceisiadau lleoliad yn weithredol</string>
+    <string name="accessibility_location_active">Ceisiadau am leoliad yn weithredol</string>
     <string name="accessibility_sensors_off_active">Synhwyryddion i ffwrdd ar waith</string>
     <string name="accessibility_clear_all">Clirio pob hysbysiad.</string>
     <string name="notification_group_overflow_indicator">+ <xliff:g id="number" example="3">%s</xliff:g></string>
@@ -618,7 +618,9 @@
     <string name="quick_settings_reset_confirmation_message">Mi fydd yn ymddangos y tro nesaf rwyt yn ei droi ymlaen yn Gosodiadau.</string>
     <string name="quick_settings_reset_confirmation_button">Cuddio</string>
     <string name="stream_voice_call">Galw</string>
+    <string name="stream_system">System</string>
     <string name="stream_ring">Canu</string>
+    <string name="stream_music">Cyfryngau</string>
     <string name="stream_alarm">Larwm</string>
     <string name="stream_notification">Hysbysiad</string>
     <string name="stream_bluetooth_sco">Bluetooth</string>
@@ -654,8 +656,8 @@
     <string name="status_bar">Bar statws</string>
     <string name="overview">Trosolwg</string>
     <string name="demo_mode">Modd arddangos y system mewn siopau</string>
-    <string name="enable_demo_mode">Galluogi modd arddangos mewn siopau</string>
-    <string name="show_demo_mode">Dangos modd arddangos mewn siopau</string>
+    <string name="enable_demo_mode">Galluogi modd arddangos ar gyfer siopau</string>
+    <string name="show_demo_mode">Dangos modd arddangos ar gyfer siopau</string>
     <string name="status_bar_ethernet">Ether-rwyd</string>
     <string name="status_bar_alarm">Larwm</string>
     <string name="status_bar_work">Proffil gwaith</string>
@@ -672,8 +674,8 @@
     <string name="accessibility_status_bar_hotspot">Llecyn Wi-Fi</string>
     <string name="accessibility_managed_profile">Proffil gwaith</string>
     <string name="tuner_warning_title">Yn hwyl i rai ond nid i bawb</string>
-    <string name="tuner_warning">Mae Tiwniwr Rhyngwyneb y System yn rhoi dulliau ychwanegol i addasu rhyngwyneb defnyddiwr Android. Gall rhai nodweddion arbrofol cael eu haddasu, torri neu ddiflannu mewn fersiynau yn y dyfodol. Defnyddia â gofal.</string>
-    <string name="tuner_persistent_warning">Gall rhai nodweddion arbrofol cael eu haddasu, torri neu ddiflannu mewn fersiynau yn y dyfodol. Defnyddia â gofal.</string>
+    <string name="tuner_warning">Mae Tiwniwr Rhyngwyneb y System yn rhoi dulliau ychwanegol i addasu rhyngwyneb defnyddiwr Android. Gall rhai nodweddion arbrofol cael eu haddasu, torri neu diflannu mewn fersiynau yn y dyfodol. Defnyddia â gofal.</string>
+    <string name="tuner_persistent_warning">Gall rhai nodweddion arbrofol cael eu haddasu, torri neu diflannu mewn fersiynau yn y dyfodol. Defnyddia â gofal.</string>
     <string name="got_it">Deall yn iawn</string>
     <string name="tuner_toast">Llongyfarchiadau! Mae Tiwniwr Rhyngwyneb y System wedi ei ychwanegu i\'r Gosodiadau.</string>
     <string name="remove_from_settings">Tynnu o\'r Gosodiadau</string>
@@ -785,7 +787,7 @@
     <string name="notification_menu_snooze_action">Atgoffa fi</string>
     <string name="notification_menu_settings_action">Gosodiadau</string>
     <string name="snooze_undo">DADWNEUD</string>
-    <string name="snoozed_for_time">Wedi\'i oedi a <xliff:g id="time_amount" example="15 minutes">%1$s</xliff:g></string>
+    <string name="snoozed_for_time">Ar oediad am <xliff:g id="time_amount" example="15 minutes">%1$s</xliff:g></string>
     <plurals name="snoozeHourOptions">
         <item quantity="zero">%d oriau</item>
         <item quantity="one">%d awr</item>
@@ -832,6 +834,7 @@
     <string name="keyboard_key_insert">Bysell \'Insert\'</string>
     <string name="keyboard_key_num_lock">Bysell \'Num Lock\'</string>
     <string name="keyboard_key_numpad_template">Pad Rhifau <xliff:g id="name">%1$s</xliff:g></string>
+    <string name="keyboard_shortcut_group_system">System</string>
     <string name="keyboard_shortcut_group_system_home">Cartref</string>
     <string name="keyboard_shortcut_group_system_recents">Diweddar</string>
     <string name="keyboard_shortcut_group_system_back">Nôl</string>
@@ -1097,7 +1100,7 @@
     <string name="controls_favorite_toast_no_changes">Newidiadau heb eu cadw</string>
     <string name="controls_favorite_see_other_apps">Gweld apiau eraill</string>
     <string name="controls_favorite_load_error">Methwyd llwytho rheolyddion. Gwiria\'r ap <xliff:g id="app" example="System UI">%s</xliff:g> i sicrhau nad yw gosodiadau\'r ap wedi newid.</string>
-    <string name="controls_favorite_load_none">Nid oes rheolyddion cydnaws ar gael</string>
+    <string name="controls_favorite_load_none">Nid oes rheolyddion sy\'n gytûn ar gael</string>
     <string name="controls_favorite_other_zone_header">Arall</string>
     <string name="controls_dialog_title">Ychwanegu at reolyddion dyfais</string>
     <string name="controls_dialog_ok">Ychwanegu</string>
@@ -1113,6 +1116,7 @@
     <string name="controls_confirmation_message">Cadarnhau newid <xliff:g id="device" example="Backdoor lock">%s</xliff:g></string>
     <string name="controls_structure_tooltip">Llusgo i weld mwy</string>
     <string name="controls_seeding_in_progress">Argymhellion llwytho</string>
+    <string name="controls_media_title">Cyfryngau</string>
     <string name="controls_media_close_session">Cuddio\'r sesiwn gyfredol.</string>
     <string name="controls_media_active_session">Nid oes modd cuddio\'r sesiwn gyfredol.</string>
     <string name="controls_media_dismiss_button">Diystyru</string>

@@ -33,8 +33,11 @@
     <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dimatikan.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang dihidupkan.</string>
+    <string name="global_screenshot_selector_capture_description">Mengambil tangkapan layar sebagian</string>
+    <string name="global_screenshot_selector_cancel_description">Batal menangkap layar sebagian</string>
     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare nonaktif\nPenghemat baterai</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare nonaktif\nBaterai terlalu lemah</string>
     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare diaktifkan</string>
     <string name="quick_settings_reading_mode">Modus membaca</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modus membaca hidup.</string>
@@ -80,4 +83,5 @@
     <string name="status_bar_microphone">Mikrofon</string>
     <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
     <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
+    <string name="battery_notification_channel_tv">Peringatan baterai</string>
 </resources>

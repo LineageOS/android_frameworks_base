@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">Micròfon</string>
     <string name="screen_pinning_description_no_navbar">Aquest element es continuarà mostrant fins que deixis de fixar-lo. Per des-fixar-lo, toca i mantén premut el botó Enrera.</string>
     <string name="screen_pinning_toast_no_navbar">Toca i mantén premut el botó Enrere per deixar de fixar aquesta pantalla</string>
+    <string name="battery_notification_channel_tv">Avís de bateria</string>
 </resources>

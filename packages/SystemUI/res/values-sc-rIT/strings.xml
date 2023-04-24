@@ -428,6 +428,7 @@
     <string name="enable_bluetooth_confirmation_ok">Ativa</string>
     <string name="notification_header_default_channel">Notìficas</string>
     <string name="inline_done_button">Fatu</string>
+    <string name="inline_ok_button">Àplica</string>
     <string name="notification_bubble_title">Abbajolu</string>
     <string name="notification_channel_summary_low">Perunu sonu o vibratzione</string>
     <string name="notification_conversation_channel_settings">Impostatziones</string>
