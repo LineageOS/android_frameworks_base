@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa63e99d_0e67d5a9",
+        "filename": "packages/SystemUI/res/values/lineage_config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2023-04-25T16:07:50Z",
+      "side": 1,
+      "message": "config_dozeProximitySensorSupported",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
