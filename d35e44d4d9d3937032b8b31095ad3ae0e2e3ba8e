@@ -46,6 +46,30 @@
       },
       "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a883236_ad64cd2a",
+        "filename": "packages/SystemUI/res/values/lineage_config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2023-04-25T16:23:06Z",
+      "side": 1,
+      "message": "It would mean chasing all the device trees setting that and edit them, we can just use config_* for new overlays, we did the same thing for other overlays in other repos",
+      "parentUuid": "082b0707_5b326ead",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
