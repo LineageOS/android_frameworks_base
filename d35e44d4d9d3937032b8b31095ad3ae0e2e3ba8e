@@ -111,6 +111,29 @@
       },
       "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36eaaaac_a2dec03a",
+        "filename": "packages/SystemUI/src/com/android/systemui/doze/DozeSensors.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-04-26T08:13:28Z",
+      "side": 1,
+      "message": "Just \"R\"",
+      "range": {
+        "startLine": 271,
+        "startChar": 33,
+        "endLine": 271,
+        "endChar": 55
+      },
+      "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
