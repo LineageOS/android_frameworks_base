@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58555d4a_e0641998",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2023-04-26T08:04:59Z",
+      "side": 1,
+      "message": "works on renoir - the elliptic proximity sensor isn\u0027t used on AOD anymore and deep sleep works again",
+      "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa63e99d_0e67d5a9",
