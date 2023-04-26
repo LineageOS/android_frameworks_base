@@ -113,6 +113,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7970f4b_63228359",
+        "filename": "packages/SystemUI/res/values/lineage_config.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-04-26T08:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b405e053_ffb5592d",
+      "range": {
+        "startLine": 32,
+        "startChar": 16,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36eaaaac_a2dec03a",
@@ -150,6 +174,30 @@
       "side": 1,
       "message": "AOSP imports com.android.internal.R here now, but our overlay lies in SystemUI",
       "parentUuid": "36eaaaac_a2dec03a",
+      "range": {
+        "startLine": 271,
+        "startChar": 33,
+        "endLine": 271,
+        "endChar": 55
+      },
+      "revId": "d35e44d4d9d3937032b8b31095ad3ae0e2e3ba8e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8fb9e6c_705dfefb",
+        "filename": "packages/SystemUI/src/com/android/systemui/doze/DozeSensors.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-04-26T08:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "547bc52c_892f35c1",
       "range": {
         "startLine": 271,
         "startChar": 33,
