@@ -17,6 +17,7 @@
 package android.app;
 
 import static com.android.internal.util.NotificationColorUtil.satisfiesTextContrast;
+import static android.graphics.drawable.Icon.TYPE_URI;
 
 import android.annotation.ColorInt;
 import android.annotation.DrawableRes;
@@ -2329,6 +2330,14 @@ public class Notification implements Parcelable
         }
     }
 
+    private static void visitIconUri(@NonNull Consumer<Uri> visitor, @Nullable Icon icon) {
+        if (icon == null) return;
+        final int iconType = icon.getType();
+        if (iconType == TYPE_URI /*|| iconType == TYPE_URI_ADAPTIVE_BITMAP*/) {
+            visitor.accept(icon.getUri());
+        }
+    }
+
     /**
      * Note all {@link Uri} that are referenced internally, with the expectation
      * that Uri permission grants will need to be issued to ensure the recipient
@@ -2344,7 +2353,18 @@ public class Notification implements Parcelable
         if (bigContentView != null) bigContentView.visitUris(visitor);
         if (headsUpContentView != null) headsUpContentView.visitUris(visitor);
 
+        visitIconUri(visitor, mSmallIcon);
+        visitIconUri(visitor, mLargeIcon);
+
+        if (actions != null) {
+            for (Action action : actions) {
+                visitIconUri(visitor, action.getIcon());
+            }
+        }
+
         if (extras != null) {
+            visitIconUri(visitor, extras.getParcelable(EXTRA_LARGE_ICON_BIG));
+
             visitor.accept(extras.getParcelable(EXTRA_AUDIO_CONTENTS_URI));
             visitor.accept(extras.getParcelable(EXTRA_BACKGROUND_IMAGE_URI));
         }
