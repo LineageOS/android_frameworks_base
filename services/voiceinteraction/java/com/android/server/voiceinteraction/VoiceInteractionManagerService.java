@@ -1174,18 +1174,13 @@ public class VoiceInteractionManagerService extends SystemService {
                     }
                 }
                 if (hit && doit) {
-                    // The user is force stopping our current interactor/recognizer.
-                    // Clear the current settings and restore default state.
+                    // The user is force stopping our current interactor/recognizer, restart the service.
                     synchronized (VoiceInteractionManagerServiceStub.this) {
                         unloadAllKeyphraseModels();
                         if (mImpl != null) {
                             mImpl.shutdownLocked();
                             mImpl = null;
                         }
-                        setCurInteractor(null, userHandle);
-                        setCurRecognizer(null, userHandle);
-                        resetCurAssistant(userHandle);
-                        initForUser(userHandle);
                         switchImplementationIfNeededLocked(true);
                     }
                 }
