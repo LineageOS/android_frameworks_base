@@ -62,6 +62,7 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -88,6 +89,7 @@ import android.widget.Toast;
 import android.window.WindowContext;
 
 import com.android.internal.app.ChooserActivity;
+import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.logging.UiEventLogger;
 import com.android.internal.policy.PhoneWindow;
 import com.android.internal.statusbar.IStatusBarService;
@@ -237,6 +239,7 @@ public class ScreenshotController {
     static final String EXTRA_SMART_ACTIONS_ENABLED = "android:smart_actions_enabled";
     static final String EXTRA_OVERRIDE_TRANSITION = "android:screenshot_override_transition";
     static final String EXTRA_ACTION_INTENT = "android:screenshot_action_intent";
+    static final String EXTRA_ACTION_INTENT_FILLIN = "android:screenshot_action_intent_fillin";
 
     static final String SCREENSHOT_URI_ID = "android:screenshot_uri_id";
     static final String EXTRA_CANCEL_NOTIFICATION = "android:screenshot_cancel_notification";
@@ -961,8 +964,11 @@ public class ScreenshotController {
             mSaveInBgTask.setActionsReadyListener(this::logSuccessOnActionsReady);
         }
 
+        boolean smartActionsEnabled = DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_SYSTEMUI,
+                SystemUiDeviceConfigFlags.ENABLE_SCREENSHOT_NOTIFICATION_SMART_ACTIONS, true);
+
         mSaveInBgTask = new SaveImageInBackgroundTask(mContext, mImageExporter,
-                mScreenshotSmartActions, data, getActionTransitionSupplier());
+                mScreenshotSmartActions, data, getActionTransitionSupplier(), smartActionsEnabled);
         mSaveInBgTask.execute(getForegroundAppLabel());
     }
 
