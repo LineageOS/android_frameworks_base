@@ -89,7 +89,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
     private final TileJavaAdapter mJavaAdapter;
     private final FeatureFlags mFeatureFlags;
     private boolean mCastTransportAllowed;
-    private boolean mHotspotConnected;
+    private boolean mHotspotEnabled;
 
     @Inject
     public CastTile(
@@ -320,23 +320,23 @@ public class CastTile extends QSTileImpl<BooleanState> {
     }
 
     private boolean canCastToNetwork() {
-        return mCastTransportAllowed || mHotspotConnected;
+        return mCastTransportAllowed || mHotspotEnabled;
     }
 
-    private void setCastTransportAllowed(boolean connected) {
-        if (connected != mCastTransportAllowed) {
-            mCastTransportAllowed = connected;
-            // Hotspot is not connected, so changes here should update
-            if (!mHotspotConnected) {
+    private void setCastTransportAllowed(boolean enabled) {
+        if (enabled != mCastTransportAllowed) {
+            mCastTransportAllowed = enabled;
+            // Hotspot is not enabled, so changes here should update
+            if (!mHotspotEnabled) {
                 refreshState();
             }
         }
     }
 
-    private void setHotspotConnected(boolean connected) {
-        if (connected != mHotspotConnected) {
-            mHotspotConnected = connected;
-            // Wifi is not connected, so changes here should update
+    private void setHotspotEnabled(boolean enabled) {
+        if (enabled != mHotspotEnabled) {
+            mHotspotEnabled = enabled;
+            // Wifi is not enabled, so changes here should update
             if (!mCastTransportAllowed) {
                 refreshState();
             }
@@ -353,10 +353,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
     private final SignalCallback mSignalCallback = new SignalCallback() {
         @Override
         public void setWifiIndicators(@NonNull WifiIndicators indicators) {
-            // statusIcon.visible has the connected status information
-            boolean enabledAndConnected = indicators.enabled
-                    && (indicators.qsIcon != null && indicators.qsIcon.visible);
-            setCastTransportAllowed(enabledAndConnected);
+            setCastTransportAllowed(indicators.enabled);
         }
     };
 
@@ -364,8 +361,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
             new HotspotController.Callback() {
                 @Override
                 public void onHotspotChanged(boolean enabled, int numDevices) {
-                    boolean enabledAndConnected = enabled && numDevices > 0;
-                    setHotspotConnected(enabledAndConnected);
+                    setHotspotEnabled(enabled);
                 }
             };
 
