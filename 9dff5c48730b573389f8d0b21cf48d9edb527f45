@@ -86,6 +86,41 @@
       "parentUuid": "714d8759_d18e43cc",
       "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab171e9e_73605a24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-05-01T15:16:08Z",
+      "side": 1,
+      "message": "I think, nw traffic patches are correct, see reply to comment.",
+      "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d9dea47_7579b360",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2023-05-01T15:16:08Z",
+      "side": 1,
+      "message": "I got a crosshatch meanwhile and analyzed the situation:\nThe (functional) size and position of the notch (in crosshatch) is defined as \"M -258,0 v 171 h 516 v -171 q\", i.e. a rectangle with X\u003d462...978, Y\u003d0...171.\nThe statusbar should reflect these dimensions, however, it does not.\n\nThe statusbar places the center field at the position X\u003d440...956, i.e. shifted left by 22 pixels (center at X\u003d698 instead of 720), therefore eating 22 pixels of nw traffic. The Home-button in the navbar however is in the correct center position.\n\nI made screenshots with the layout borders visible:\nhttps://filebin.net/q05pxc6vlm5m47ic\n\nIn \"0°\" the (left shifted) cutout zone is visible, and the \"180°\" screenshot shows, that even here the center-line is located at X\u003d700 (instead of 720). And the behavior is the same with and without nw traffic patches.\n\nAnother screenshot is made during network traffic. It shows, that everything is displayed correctly within the statusbar\u0027s (wrong!) bounds.\n\nMy surya test unit (width\u003d1080) shows a \"normal\" behavior, i.e. the cutout region (0°) X\u003d503...575 or center-line (180°) respect the center of X\u003d540.\n\nTherefor I postulate:\n\"The problem with the ill presentation on crosshatch is a problem of crosshatch not of this patch.\"\nI have been looking around in crosshatch\u0027s device part but do not see an obvious reason for this asymmetry in the statusbar.",
+      "parentUuid": "c8c434e9_72168d38",
+      "revId": "9dff5c48730b573389f8d0b21cf48d9edb527f45",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
