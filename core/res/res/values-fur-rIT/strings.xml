@@ -18,8 +18,328 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="byteShort">B</string>
+    <string name="kilobyteShort">kB</string>
+    <string name="megabyteShort">MB</string>
+    <string name="gigabyteShort">GB</string>
+    <string name="terabyteShort">TB</string>
+    <string name="petabyteShort">PB</string>
+    <string name="fileSizeSuffix"><xliff:g id="number" example="123">%1$s</xliff:g> <xliff:g id="unit" example="MB">%2$s</xliff:g></string>
+    <string name="untitled">&lt;Cence non&gt;</string>
+    <string name="emptyPhoneNumber">(Nissun numar di telefon)</string>
+    <string name="unknownName">No cognossût</string>
+    <string name="defaultVoiceMailAlphaTag">Segretarie telefoniche</string>
+    <string name="defaultMsisdnAlphaTag">MSISDN1</string>
+    <string name="mmiError">Probleme di conession o codiç MMI no valit.</string>
+    <string name="mmiFdnError">La operazion e je limitade ai sôi numars di composizion prefissâts.</string>
+    <string name="mmiErrorWhileRoaming">Se tu sês in roaming, dal to telefon nol è pussibil cambiâ la impostazion par deviâ lis clamadis.</string>
+    <string name="serviceEnabled">Il servizi al è stât ativât.</string>
+    <string name="serviceEnabledFor">Il servizi al è stât ativât par:</string>
+    <string name="serviceDisabled">Il servizi al è stât disativât.</string>
+    <string name="serviceRegistered">Regjistrazion lade a bon fin.</string>
+    <string name="serviceErased">La scanceladure e je lade a bon fin.</string>
+    <string name="passwordIncorrect">Password sbaliade.</string>
+    <string name="mmiComplete">MMI complet.</string>
+    <string name="badPin">Il PIN vieri inserît nol è just.</string>
+    <string name="badPuk">Il PUK inserît nol è just.</string>
+    <string name="mismatchPin">I PINs inserîts no corispuindin.</string>
+    <string name="invalidPin">Scrîf un PIN che al vedi di 4 a 8 numars.</string>
+    <string name="invalidPuk">Scrîf un PUK che al sedi di almancul 8 cifris.</string>
+    <string name="needPuk">La tô SIM e je blocade cul PUK. Inserìs il codiç PUK par sblocâle.</string>
+    <string name="needPuk2">Inserìs il PUK2 par sblocâ la SIM.</string>
+    <string name="enablePin">Operazion lade strucje, ative il Bloc SIM/RUIM.</string>
+    <plurals name="pinpuk_attempts">
+        <item quantity="one">Tu âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîf prime che la SIM si blochi.</item>
+        <item quantity="other">Tu âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîfs prime che la SIM si blochi.</item>
+    </plurals>
+    <string name="imei">IMEI</string>
+    <string name="meid">MEID</string>
+    <string name="ClipMmi">ID di chel che al clame in jentrade</string>
+    <string name="ClirMmi">ID di chel che al clame in jessude</string>
+    <string name="ColpMmi">ID linie conetude</string>
+    <string name="ColrMmi">Limitazion ID linie conetude</string>
+    <string name="CfMmi">Deviazion clamadis</string>
+    <string name="CwMmi">Clamadis in spiete</string>
+    <string name="BaMmi">Bloc des clamadis</string>
+    <string name="PwdMmi">Cambi de password</string>
+    <string name="PinMmi">Cambi dal PIN</string>
+    <string name="CnipMmi">Numar che al clame presint</string>
+    <string name="CnirMmi">Numar che al clame cun limitazions</string>
+    <string name="ThreeWCMmi">Clamade a trê</string>
+    <string name="RuacMmi">Refudament di clamadis fastidiosis malvoludis</string>
+    <string name="CndMmi">Consegne dal numar che al clame</string>
+    <string name="DndMmi">No sta disturbâ</string>
+    <string name="CLIRDefaultOnNextCallOn">ID di chel che al clame metût come predefinît a limitât. Prossime clamade: limitât</string>
+    <string name="CLIRDefaultOnNextCallOff">ID di chel che al clame metût come predefinît a limitât. Prossime clamade: no limitât</string>
+    <string name="CLIRDefaultOffNextCallOn">ID di chel che al clame metût come predefinît a no limitât. Prossime clamade: limitât</string>
+    <string name="CLIRDefaultOffNextCallOff">ID di chel che al clame metût come predefinît a no limitât. Prossime clamade: no limitât</string>
+    <string name="serviceNotProvisioned">Servizi no furnît.</string>
+    <string name="CLIRPermanent">No tu puedis cambiâ la impostazion dal ID di chel che al clame.</string>
+    <string name="RestrictedOnDataTitle">Nissun servizi di dâts mobii</string>
+    <string name="RestrictedOnEmergencyTitle">Clamadis di emergjence no disponibilis</string>
+    <string name="RestrictedOnNormalTitle">Nissun servizi vôs</string>
+    <string name="RestrictedOnAllVoiceTitle">Nissun servizi vôs o clamadis di emergjence</string>
+    <string name="RestrictedStateContent">Disativât in mût temporani dal to operadôr</string>
+    <string name="RestrictedStateContentMsimTemplate">Disativât in mût temporani dal to operadôr pe SIM <xliff:g id="simNumber" example="1">%d</xliff:g></string>
+    <string name="NetworkPreferenceSwitchTitle">Impussibil cjapâ la rêt mobile</string>
+    <string name="NetworkPreferenceSwitchSummary">Prove a cambiâ la rêt preferide. Tocje par cambiâ.</string>
+    <string name="EmergencyCallWarningTitle">Clamadis di emergjence no disponibilis</string>
+    <string name="EmergencyCallWarningSummary">Impussibil fâ clamadis di emergjence vie Wi\u2011Fi</string>
+    <string name="notification_channel_network_alert">Alertis</string>
+    <string name="notification_channel_call_forward">Deviazion clamadis</string>
+    <string name="notification_channel_emergency_callback">Modalitât de clamade di rispueste pe emergjence</string>
+    <string name="notification_channel_mobile_data_status">Stât dai dâts mobii</string>
+    <string name="notification_channel_sms">Messaçs SMS</string>
+    <string name="notification_channel_voice_mail">Messaçs vocâi</string>
+    <string name="notification_channel_wfc">Clamadis Wi-Fi</string>
+    <string name="notification_channel_sim">Stât de SIM</string>
+    <string name="notification_channel_sim_high_prio">Stât SIM cun prioritât elevade</string>
+    <string name="peerTtyModeFull">La cuintripart e à domandât la modalitât TTY FULL</string>
+    <string name="peerTtyModeHco">La cuintripart e à domandât la modalitât TTY HCO</string>
+    <string name="peerTtyModeVco">La cuintripart e à domandât la modalitât TTY VCO</string>
+    <string name="peerTtyModeOff">La cuintripart e à domandât la modalitât TTY OFF</string>
+    <string name="serviceClassVoice">Vôs</string>
+    <string name="serviceClassData">Dâts</string>
+    <string name="serviceClassFAX">FAX</string>
+    <string name="serviceClassSMS">SMS</string>
+    <string name="serviceClassDataAsync">Asincroni</string>
+    <string name="serviceClassDataSync">Sincroni</string>
+    <string name="serviceClassPacket">Pachet</string>
+    <string name="serviceClassPAD">PAD</string>
+    <string name="roamingText0">Indicadôr roaming ativât</string>
+    <string name="roamingText1">Indicadôr roaming disativât</string>
+    <string name="roamingText2">Indicadôr roaming che al lampe</string>
+    <string name="roamingText3">Fûr dai contors</string>
+    <string name="roamingText4">Fûr dal edifici</string>
+    <string name="roamingText5">Roaming - sisteme preferît</string>
+    <string name="roamingText6">Roaming - sisteme disponibil</string>
+    <string name="roamingText7">Roaming - soci de aleance</string>
+    <string name="roamingText8">Roaming - soci premium</string>
+    <string name="roamingText9">Roaming - funzionalitât complete dal servizi</string>
+    <string name="roamingText10">Roaming - funzionalitât parziâl dal servizi</string>
+    <string name="roamingText11">Strisson pal roaming atîf</string>
+    <string name="roamingText12">Strisson pal roaming disativât</string>
+    <string name="roamingTextSearching">Ricercje servizi</string>
+    <string name="wfcRegErrorTitle">Impussibil configurâ lis clamadis Wi\u2011Fi</string>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>Par fâ clamadis e inviâ messaçs vie Wi-Fi, prime domande al to operadôr telefonic di configurâ chest servizi. Dopo torne ative la clamade vie Wi-Fi da lis Impostazions. (Codiç di erôr: <xliff:g id="code" example="REG09 - No 911 Address">%1$s</xliff:g>)</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorNotificationMessages">
+        <item>Probleme tal regjistrâ la clamade vie Wi\u2011Fi cul to operadôr telefonic: <xliff:g id="code" example="REG09 - No 911 Address">%1$s</xliff:g></item>
+    </string-array>
+    <string name="wfcSpnFormat_spn"><xliff:g id="spn" example="Operator">%s</xliff:g></string>
+    <string name="wfcSpnFormat_spn_wifi_calling">Clamadis vie Wi-Fi <xliff:g id="spn" example="Operator">%s</xliff:g></string>
+    <string name="wfcSpnFormat_spn_wifi_calling_vo_hyphen">Clamadis WiFi <xliff:g id="spn" example="Operator">%s</xliff:g></string>
+    <string name="wfcSpnFormat_wlan_call">Clamade WLAN</string>
+    <string name="wfcSpnFormat_spn_wlan_call">Clamade WLAN <xliff:g id="spn" example="Operator">%s</xliff:g></string>
+    <string name="wfcSpnFormat_spn_wifi">Wi-Fi <xliff:g id="spn" example="Operator">%s</xliff:g></string>
+    <string name="wfcSpnFormat_wifi_calling_bar_spn">Clamadis WiFi | <xliff:g id="spn" example="Operator">%s</xliff:g></string>
+    <string name="wfcSpnFormat_spn_vowifi">VoWifi <xliff:g id="spn" example="Operator">%s</xliff:g></string>
+    <string name="wfcSpnFormat_wifi_calling">Clamadis Wi-Fi</string>
+    <string name="wfcSpnFormat_wifi">Wi-Fi</string>
+    <string name="wfcSpnFormat_wifi_calling_wo_hyphen">Clamadis Wi-Fi</string>
+    <string name="wfcSpnFormat_vowifi">VoWifi</string>
+    <string name="wifi_calling_off_summary">Off</string>
+    <string name="wfc_mode_wifi_preferred_summary">Clamade midiant Wi-Fi</string>
+    <string name="wfc_mode_cellular_preferred_summary">Clamade midiant rêt mobile</string>
+    <string name="wfc_mode_wifi_only_summary">Dome Wi-Fi</string>
+    <string name="cfTemplateNotForwarded"><xliff:g id="bearer_service_code">{0}</xliff:g>: no mandât indevant</string>
+    <string name="cfTemplateForwarded"><xliff:g id="bearer_service_code">{0}</xliff:g>: <xliff:g id="dialing_number">{1}</xliff:g></string>
+    <string name="cfTemplateForwardedTime"><xliff:g id="bearer_service_code">{0}</xliff:g>: <xliff:g id="dialing_number">{1}</xliff:g> dopo <xliff:g id="time_delay">{2}</xliff:g> seconts</string>
+    <string name="cfTemplateRegistered"><xliff:g id="bearer_service_code">{0}</xliff:g>: no mandât indevant</string>
+    <string name="cfTemplateRegisteredTime"><xliff:g id="bearer_service_code">{0}</xliff:g>: no mandât indevant</string>
+    <string name="fcComplete">Codiç di funzion complet.</string>
+    <string name="fcError">Probleme di conession o codiç di funzion no valit.</string>
+    <string name="httpErrorOk">Va ben</string>
+    <string name="httpError">Al è capitât un erôr di rêt.</string>
+    <string name="httpErrorLookup">Impussibil cjatâ l\'URL.</string>
+    <string name="httpErrorUnsupportedAuthScheme">Il scheme di autenticazion dal sît nol è supuartât.</string>
+    <string name="httpErrorAuth">Impussibil autenticâ.</string>
+    <string name="httpErrorProxyAuth">La autenticazion vie servidôr proxy no je lade ben.</string>
+    <string name="httpErrorConnect">Impussibil conetisi al servidôr.</string>
+    <string name="httpErrorIO">Impussibil comunicâ cul servidôr. Torne prove plui tart.</string>
+    <string name="httpErrorTimeout">Timp esaurît pe conession al servidôr.</string>
+    <string name="httpErrorRedirectLoop">La pagjine e conten masse gnûfs indreçaments al servidôr.</string>
+    <string name="httpErrorUnsupportedScheme">Il protocol nol è supuartât.</string>
+    <string name="httpErrorFailedSslHandshake">Nol è stât pussibil stabilî une conession sigure.</string>
+    <string name="httpErrorBadUrl">Nol è stât pussibil vierzi la pagjine parcè che l\'URL nol è valit.</string>
+    <string name="httpErrorFile">Nol è stât pussibil acedi al file.</string>
+    <string name="httpErrorFileNotFound">Nol è stât pussibil cjatâ il file domandât.</string>
+    <string name="httpErrorTooManyRequests">Masse richiestis in elaborazion. Torne prove plui indenant.</string>
+    <string name="notification_title">Erôr di acès par <xliff:g id="account" example="foo@gmail.com">%1$s</xliff:g></string>
+    <string name="contentServiceSync">Sincronizazion</string>
+    <string name="contentServiceSyncNotificationTitle">Impussibil sincronizâ</string>
+    <string name="contentServiceTooManyDeletesNotificationDesc">Masse tentatîfs di eliminazion di <xliff:g id="content_type">%s</xliff:g></string>
+    <string name="low_memory" product="tablet">La memorie di archiviazion dal tablet e je plene. Elimine cualchi file par liberâ spazi.</string>
+    <string name="low_memory" product="watch">La memorie di archiviazion dal orloi e je plene. Elimine cualchi file par liberâ spazi.</string>
+    <string name="low_memory" product="default">La memorie di archiviazion dal telefon e je plene. Elimine cualchi file par liberâ spazi.</string>
+    <plurals name="ssl_ca_cert_warning">
+        <item quantity="one">Autoritât di certificazion instalade</item>
+        <item quantity="other">Autoritâts di certificazion instaladis</item>
+    </plurals>
+    <string name="ssl_ca_cert_noti_by_unknown">Par une tierce part no cognossude</string>
+    <string name="ssl_ca_cert_noti_by_administrator">Dal aministradôr dal tô profîl di lavôr</string>
+    <string name="ssl_ca_cert_noti_managed">Di <xliff:g id="managing_domain">%s</xliff:g></string>
+    <string name="work_profile_deleted">Profîl di lavôr eliminât</string>
+    <string name="work_profile_deleted_details">La aplicazion di aministrazion dai profîi di lavôr e mancje opûr e je ruvinade.
+         In reson di chel il to profîl di lavôr e i relatîfs dâts a son stâts eliminâts. Contate il to aministradôr pe assistence.</string>
+    <string name="work_profile_deleted_description_dpm_wipe">Il to profîl di lavôr nol è plui disponibil su chest dispositîf</string>
+    <string name="work_profile_deleted_reason_maximum_password_failure">Masse tentatîfs pe password</string>
+    <string name="network_logging_notification_title">Il dispositîf al è gjestît</string>
+    <string name="network_logging_notification_text">La tô organizazion e gjestìs chest dispositîf e e podarès controlâ il trafic di rêt. Tocje pai detais.</string>
+    <string name="factory_reset_warning">Il to dispositîf al vignarà scancelât</string>
+    <string name="factory_reset_message">Nol è pussibil doprâ la aplicazion di aministrazion. Cumò il to dispositîf al vignarà
+        scancelât.\n\nSe tu âs domandis, contate l\'aministradôr de to organizazion.</string>
+    <string name="printing_disabled_by">Stampe disabilitade di <xliff:g id="owner_app">%s</xliff:g>.</string>
+    <string name="me">Jo</string>
+    <string name="power_dialog" product="tablet">Opzions tablet</string>
+    <string name="power_dialog" product="default">Opzions telefon</string>
+    <string name="silent_mode">Modalitât cidine</string>
+    <string name="turn_on_radio">Ative conessions cence fîi</string>
+    <string name="turn_off_radio">Disative conessions cence fîi</string>
+    <string name="screen_lock">Bloc dal schermi</string>
+    <string name="power_off">Distude</string>
+    <string name="silent_mode_silent">Sunarie disativade</string>
+    <string name="silent_mode_vibrate">Sunarie vibrazion</string>
+    <string name="silent_mode_ring">Sunarie ative</string>
+    <string name="reboot_to_update_title">Inzornament di sisteme Android</string>
+    <string name="reboot_to_update_prepare">Daûr a prontâ l\'inzornament\u2026</string>
+    <string name="reboot_to_update_package">Elaborazion dal pachet di inzornament\u2026</string>
+    <string name="reboot_to_update_reboot">Daûr a tornâ a inviâ\u2026</string>
+    <string name="reboot_to_reset_title">Ripristinament dai dâts di fabriche</string>
+    <string name="reboot_to_reset_message">Daûr a tornâ a inviâ\u2026</string>
+    <string name="shutdown_progress">Daûr a distudâ\u2026</string>
+    <string name="shutdown_confirm" product="tablet">Il to tablet si distudarà.</string>
+    <string name="shutdown_confirm" product="watch">Il to orloi si distudarà.</string>
+    <string name="shutdown_confirm" product="default">Il to telefon si distudarà.</string>
+    <string name="shutdown_confirm_question">Desideristu distudâ?</string>
+    <string name="reboot_safemode_title">Torne invie in modalitât sigure</string>
+    <string name="reboot_safemode_confirm">Desideristu tornâ a inviâ in modalitât sigure?
+         Chest al disabilitarà dutis lis aplicazions di tiercis parts instaladis.
+         A vignaran ripristinadis al sucessîf inviament.</string>
+    <string name="recent_tasks_title">Resints</string>
+    <string name="no_recent_tasks">Nissune aplicazion resinte.</string>
+    <string name="global_actions" product="tablet">Opzions tablet</string>
+    <string name="global_actions" product="default">Opzions telefon</string>
+    <string name="global_action_lock">Bloc dal schermi</string>
+    <string name="global_action_power_off">Distude</string>
+    <string name="global_action_emergency">Emergjence</string>
+    <string name="global_action_bug_report">Segnalazion erôrs</string>
+    <string name="global_action_logout">Termine la session</string>
+    <string name="global_action_screenshot">Schermade</string>
+    <string name="bugreport_title">Segnalazion erôrs</string>
+    <string name="bugreport_message">Chest al tirarà dongje infomazions sul stât
+        dal to dispositîf corint, che a vignaran mandadis vie messaç e-mail. La
+        preparazion de segnalazion dal erôr e puartarà vie un pôc di timp prime
+        che e sedi pronte; puarte pazience.</string>
+    <string name="bugreport_option_interactive_title">Rapuart interatîf</string>
+    <string name="bugreport_option_interactive_summary">Dopre chest te plui part des circostancis.
+        Ti permet di sta daûr al avanzament de segnalazion, inserìs plui detais sul probleme e fâs acuisizion di schermadis.
+        Al podarès lassâ fûr cualchi sezion doprade pôc che e puarte vie tant timp pe segnalazion.</string>
+    <string name="bugreport_option_full_title">Rapuart complet</string>
+    <string name="bugreport_option_full_summary">Dopre cheste opzion par ridusi al minim la interference dal sisteme cuant
+        che il to dispositîf al è masse lent o nol rispuint, opûr cuant che tu âs bisugne di dutis
+        lis sezions di rapuart. Nol permet di inserî altris detais o tirâ sù altris schermadis.</string>
+    <plurals name="bugreport_countdown">
+        <item quantity="one">Daûr a caturâ une schermade pe segnalazion di erôr ca di <xliff:g id="number">%d</xliff:g> secont.</item>
+        <item quantity="other">Daûr a caturâ une schermade pe segnalazion di erôr ca di <xliff:g id="number">%d</xliff:g> seconts.</item>
+    </plurals>
+    <string name="global_action_toggle_silent_mode">Modalitât cidine</string>
+    <string name="global_action_silent_mode_on_status">Il sun al è disativât</string>
+    <string name="global_action_silent_mode_off_status">Il sun al è ativât</string>
+    <string name="global_actions_toggle_airplane_mode">Modalitât avion</string>
+    <string name="global_actions_airplane_mode_on_status">Modalitât avion ative</string>
+    <string name="global_actions_airplane_mode_off_status">Modalitât avion disativade</string>
+    <string name="global_action_settings">Impostazions</string>
+    <string name="global_action_assist">Assistence</string>
+    <string name="global_action_voice_assist">Assistence vocâl</string>
+    <string name="global_action_lockdown">Bloche</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="notification_hidden_text">Gnove notifiche</string>
+    <string name="notification_channel_virtual_keyboard">Tastiere virtuâl</string>
+    <string name="notification_channel_physical_keyboard">Tastiere fisiche</string>
+    <string name="notification_channel_security">Sigurece</string>
+    <string name="notification_channel_car_mode">Modalitât machine</string>
+    <string name="notification_channel_account">Stât dal account</string>
+    <string name="notification_channel_developer">Messaçs dal disvilupadôr</string>
+    <string name="notification_channel_updates">Inzornaments</string>
+    <string name="notification_channel_network_status">Stât de rêt</string>
+    <string name="notification_channel_network_alerts">Alertis di rêt</string>
+    <string name="notification_channel_network_available">Rêt disponibile</string>
+    <string name="notification_channel_vpn">Stât de VPN</string>
+    <string name="notification_channel_device_admin">Avîs dal to aministradôr IT</string>
+    <string name="notification_channel_alerts">Alertis</string>
+    <string name="notification_channel_retail_mode">Dimostrazion comerciâl</string>
+    <string name="notification_channel_usb">Conession USB</string>
+    <string name="notification_channel_heavy_weight_app">Aplicazion in esecuzion</string>
+    <string name="notification_channel_foreground_service">Aplicazions che a consumin batarie</string>
+    <string name="foreground_service_app_in_background"><xliff:g id="app_name">%1$s</xliff:g> e sta
+        consumant batarie</string>
+    <string name="foreground_service_apps_in_background"><xliff:g id="number">%1$d</xliff:g> aplicazions
+        a stan consumant batarie</string>
+    <string name="foreground_service_tap_for_details">Tocje pai detais su la batarie e su
+        la utilizazion dai dâts</string>
+    <string name="foreground_service_multiple_separator"><xliff:g id="left_side">%1$s</xliff:g>,
+        <xliff:g id="right_side">%2$s</xliff:g></string>
+    <string name="safeMode">Modalitât sigure</string>
+    <string name="android_system_label">Sisteme Android</string>
+    <string name="user_owner_label">Passe al profîl personâl</string>
+    <string name="managed_profile_label">Passe al profîl di lavôr</string>
+    <string name="permgrouplab_contacts">Contats</string>
+    <string name="permgroupdesc_contacts">acedi ai tiei contats</string>
+    <string name="permgrouplab_location">Posizion</string>
+    <string name="permgroupdesc_location">acedi ae posizion di chest dispositîf</string>
+    <string name="capability_title_canPerformGestures">Fâ mots</string>
+    <string name="capability_desc_canPerformGestures">Al pues tocjâ, scori, piçâ e eseguî altris
+        mots.</string>
+    <string name="capability_title_canCaptureFingerprintGestures">Mots cun sensôr di impronts</string>
+    <string name="capability_desc_canCaptureFingerprintGestures">Al pues caturâ i mots eseguîts sore dal
+        sensôr di impronts digjitâi dal dispositîf.</string>
+    <string name="permlab_statusBar">disativâ o modificâ la sbare di stât</string>
+    <string name="permdesc_statusBar">Al permet ae aplicazion di disativâ la sbare di stât o zontâ e gjavâ iconis di sisteme.</string>
+    <string name="permlab_statusBarService">jessi la sbare di stât</string>
+    <string name="permdesc_statusBarService">Al permet ae aplicazion di jessi la sbare di stât.</string>
+    <string name="permlab_expandStatusBar">slargjâ/strenzi la sbare di stât</string>
+    <string name="permdesc_expandStatusBar">Al permet ae aplicazion di espandi o strenzi la sbare di stât.</string>
+    <string name="permlab_install_shortcut">instalâ scurtis</string>
+    <string name="permdesc_subscribedFeedsRead">Al permet ae aplicazion di otignî i detais sui feeds sincronizâts in chest moment.</string>
+    <string name="permlab_sendSms">mandâ e viodi messaçs SMS</string>
+    <string name="permdesc_sendSms">Al permet ae aplicazion di mandâ messaçs SMS.
+     Chest al pues puartâ a spesis inspietadis. Aplicazions malevulis a puedin fâti spindi bêçs
+     inviant messaçs cence il to consens.</string>
+    <string name="permlab_readSms">lei i tiei messaçs di test (SMS o MMS)</string>
+    <string name="permdesc_readSms" product="tablet">Cheste aplicazion e pues lei ducj i messaçs (di test) SMS memorizâts sul to tablet.</string>
+    <string name="permdesc_readSms" product="default">Cheste aplicazion e pues lei ducj i messaçs (di test) SMS memorizâts sul to telefon.</string>
+    <string name="permlab_receiveWapPush">ricevi messaçs di test (WAP)</string>
+    <string name="permdesc_receiveWapPush">Al permet ae aplicazion di ricevi e elaborâ
+     messaçs WAP. Chest permès al inclût la pussibilitât di monitorâ o eliminâ
+     messaçs inviâts a te cence mostrâtai.</string>
+    <string name="permlab_getTasks">recuperâ aplicazions in esecuzion</string>
+    <string name="permdesc_getTasks">Al permet ae aplicazion di recuperâ informazions
+       su lis ativitâts in esecuzion in chest moment o di resint. Chest al podarès permeti
+       ae aplicazion di scuvierzi informazions su cualis aplicazions che tu dopris sul dispositîf.</string>
+    <string name="permlab_manageProfileAndDeviceOwners">gjestî i proprietaris dai profîi e dal dispositîf</string>
+    <string name="permdesc_manageProfileAndDeviceOwners">Al permet ae aplicazion di stabilî i proprietaris dai profîi e il proprietari dal dispositîf.</string>
+    <string name="permlab_reorderTasks">rangjâ aplicazions in esecuzion</string>
+    <string name="permdesc_reorderTasks">Al permet ae aplicazion di movi lis ativitâts al
+      prin plan o in sotfont.  La aplicazion e pues fâlu cence il to intervent.</string>
+    <string name="permlab_enableCarMode">abilitâ modalitât machine</string>
+    <string name="permdesc_enableCarMode">Al permet ae aplicazion di
+        abilitâ la modalitât par automobil.</string>
+    <string name="permlab_killBackgroundProcesses">sierâ altris aplicazions</string>
+    <string name="permdesc_killBackgroundProcesses">Al permet ae aplicazion di terminâ
+      procès in sotfont o altris aplicazions. Chest al pues puartâ al fer de
+      esecuzion di altris aplicazions.</string>
+    <string name="permlab_systemAlertWindow">Cheste aplicazion e pues parâsi denant di altris aplicazions</string>
+    <string name="permdesc_systemAlertWindow">Cheste aplicazion e pues parâsi parsore di altris aplicazions o altris parts dal schermi. Chest al pues interferî cu la normâl utilizazion di aplicazions e cambiâ l\'aspiet di altris aplicazions.</string>
+    <string name="permlab_runInBackground">esecuzion in sotfont</string>
+    <string name="permdesc_runInBackground">Cheste aplicazion e pues zirâ in sotfont. Chest al pues consumâ di plui la batarie.</string>
+    <string name="permlab_useDataInBackground">doprâ dâts in sotfont</string>
+    <string name="permdesc_useDataInBackground">Cheste aplicazion e pues doprâ dâts in sotfont. Chest al pues aumentâ il consum di dâts.</string>
+    <string name="permlab_persistentActivity">esecuzion continue de aplicazion</string>
     <string-array name="fingerprint_acquired_vendor"/>
     <string-array name="fingerprint_error_vendor"/>
     <string-array name="face_acquired_vendor"/>
     <string-array name="face_error_vendor"/>
+    <string name="accessibility_system_action_screenshot_label">Schermade</string>
 </resources>
