@@ -1104,7 +1104,7 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
 
             boolean agpsEnabled =
                     (Settings.Global.getInt(mContext.getContentResolver(),
-                            Settings.Global.ASSISTED_GPS_ENABLED, 1) != 0) || isEmergency;
+                            Settings.Global.ASSISTED_GPS_ENABLED, 0) != 0) || isEmergency;
             mPositionMode = getSuplMode(agpsEnabled);
 
             if (DEBUG) {
