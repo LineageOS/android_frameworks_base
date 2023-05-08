@@ -29,7 +29,6 @@ import com.android.systemui.util.annotations.WeaklyReferencedCallback
 import com.android.systemui.util.concurrency.DelayableExecutor
 import com.android.systemui.util.withIncreasedIndent
 import java.io.PrintWriter
-import java.lang.ref.WeakReference
 import javax.inject.Inject
 
 @SysUISingleton
@@ -51,7 +50,7 @@ class PrivacyConfig @Inject constructor(
         private const val DEFAULT_MEDIA_PROJECTION = true
     }
 
-    private val callbacks = mutableListOf<WeakReference<Callback>>()
+    private val callbacks = mutableListOf<Callback>()
 
     var micCameraAvailable = isMicCameraEnabled()
         private set
@@ -66,19 +65,19 @@ class PrivacyConfig @Inject constructor(
                     // Running on the ui executor so can iterate on callbacks
                     if (properties.keyset.contains(MIC_CAMERA)) {
                         micCameraAvailable = properties.getBoolean(MIC_CAMERA, DEFAULT_MIC_CAMERA)
-                        callbacks.forEach { it.get()?.onFlagMicCameraChanged(micCameraAvailable) }
+                        callbacks.forEach { it.onFlagMicCameraChanged(micCameraAvailable) }
                     }
 
                     if (properties.keyset.contains(LOCATION)) {
                         locationAvailable = properties.getBoolean(LOCATION, DEFAULT_LOCATION)
-                        callbacks.forEach { it.get()?.onFlagLocationChanged(locationAvailable) }
+                        callbacks.forEach { it.onFlagLocationChanged(locationAvailable) }
                     }
 
                     if (properties.keyset.contains(MEDIA_PROJECTION)) {
                         mediaProjectionAvailable =
                                 properties.getBoolean(MEDIA_PROJECTION, DEFAULT_MEDIA_PROJECTION)
                         callbacks.forEach {
-                            it.get()?.onFlagMediaProjectionChanged(mediaProjectionAvailable)
+                            it.onFlagMediaProjectionChanged(mediaProjectionAvailable)
                         }
                     }
                 }
@@ -108,23 +107,14 @@ class PrivacyConfig @Inject constructor(
     }
 
     fun addCallback(callback: Callback) {
-        addCallback(WeakReference(callback))
-    }
-
-    fun removeCallback(callback: Callback) {
-        removeCallback(WeakReference(callback))
-    }
-
-    private fun addCallback(callback: WeakReference<Callback>) {
         uiExecutor.execute {
             callbacks.add(callback)
         }
     }
 
-    private fun removeCallback(callback: WeakReference<Callback>) {
+    fun removeCallback(callback: Callback) {
         uiExecutor.execute {
-            // Removes also if the callback is null
-            callbacks.removeIf { it.get()?.equals(callback.get()) ?: true }
+            callbacks.remove(callback)
         }
     }
 
@@ -137,9 +127,7 @@ class PrivacyConfig @Inject constructor(
             ipw.println("mediaProjectionAvailable: $mediaProjectionAvailable")
             ipw.println("Callbacks:")
             ipw.withIncreasedIndent {
-                callbacks.forEach { callback ->
-                    callback.get()?.let { ipw.println(it) }
-                }
+                callbacks.forEach { ipw.println(it) }
             }
         }
         ipw.flush()
