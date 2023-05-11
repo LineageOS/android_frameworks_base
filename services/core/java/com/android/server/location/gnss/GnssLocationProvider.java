@@ -392,6 +392,7 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
         if (mGnssVisibilityControl != null) {
             mGnssVisibilityControl.onConfigurationUpdated(mGnssConfiguration);
         }
+        toggleXtraDaemon();
     }
 
     public GnssLocationProvider(Context context, Injector injector, GnssNative gnssNative,
@@ -502,6 +503,16 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
                     @Override
                     public void onChange(boolean selfChange) {
                         updateEnabled();
+                    }
+                }, UserHandle.USER_ALL);
+
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Global.getUriFor(Settings.Global.ASSISTED_GPS_ENABLED),
+                false,
+                new ContentObserver(mHandler) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        toggleXtraDaemon();
                     }
                 }, UserHandle.USER_ALL);
 
@@ -1795,5 +1806,11 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
         }
         return (Settings.Global.getInt(mContext.getContentResolver(),
                         Settings.Global.ASSISTED_GPS_ENABLED, 0) != 0) || isEmergency;
+    }
+
+    private void toggleXtraDaemon() {
+        Log.i(TAG, "Toggling xtra-daemon via property");
+        SystemProperties.set("persist.sys.xtra-daemon.enabled",
+                Boolean.toString(isAssistedGpsEnabled()));
     }
 }
