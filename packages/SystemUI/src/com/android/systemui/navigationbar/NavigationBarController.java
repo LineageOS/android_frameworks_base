@@ -36,6 +36,7 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.ContextThemeWrapper;
 import android.view.Display;
 import android.view.IWindowManager;
 import android.view.View;
@@ -47,6 +48,7 @@ import androidx.annotation.Nullable;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.statusbar.RegisterStatusBarResult;
 import com.android.settingslib.applications.InterestingConfigChanges;
+import com.android.systemui.R;
 import com.android.systemui.Dumpable;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.qualifiers.Main;
@@ -334,9 +336,8 @@ public class NavigationBarController implements
 
         final IWindowManager wms = WindowManagerGlobal.getWindowManagerService();
 
-        final Context context = isOnDefaultDisplay
-                ? mContext
-                : mContext.createDisplayContext(display);
+        final Context rawContext = mContext.createDisplayContext(display);
+        final Context context = new ContextThemeWrapper(rawContext, R.style.Theme_SystemUI);
         if (!hasSoftNavigationBar(context, displayId)) {
             return;
         }
