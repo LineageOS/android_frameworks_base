@@ -41,9 +41,9 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">ურთიერთქმედი ეკრანი ჩართულია.</string>
     <string name="quick_settings_aod_label">მუდმივმოქმედი ეკრანი</string>
     <string name="quick_settings_aod_off_powersave_label">მუდმივი ეკრანი გამორთ.\nბატარეის დამზოგი</string>
-    <string name="quick_settings_caffeine_label">კოფეინი</string>
-    <string name="accessibility_quick_settings_caffeine_off">კოფეინი გამორთ.</string>
-    <string name="accessibility_quick_settings_caffeine_on">კოფეინი ჩართ.</string>
+    <string name="quick_settings_caffeine_label">სიფხიზლე</string>
+    <string name="accessibility_quick_settings_caffeine_off">სიფხიზლე გამორთ.</string>
+    <string name="accessibility_quick_settings_caffeine_on">სიფხიზლე ჩართ.</string>
     <string name="quick_settings_heads_up_label">ამომხტომი</string>
     <string name="accessibility_quick_settings_heads_up_off">ამომხტომები გამორთ.</string>
     <string name="accessibility_quick_settings_heads_up_on">ამომხტომები ჩართ.</string>
