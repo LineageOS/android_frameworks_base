@@ -39,6 +39,7 @@ public final class RegisterStatusBarResult implements Parcelable {
     public final int mDisabledFlags2;                   // switch[6]
     public final IBinder mImeToken;
     public final boolean mNavbarColorManagedByIme;
+    public final boolean mNeedsMenu;
     public final int mBehavior;
     public final InsetsVisibilities mRequestedVisibilities;
     public final String mPackageName;
@@ -50,7 +51,7 @@ public final class RegisterStatusBarResult implements Parcelable {
             int imeBackDisposition, boolean showImeSwitcher, int disabledFlags2, IBinder imeToken,
             boolean navbarColorManagedByIme, int behavior, InsetsVisibilities requestedVisibilities,
             String packageName, @NonNull int[] transientBarTypes,
-            LetterboxDetails[] letterboxDetails) {
+            LetterboxDetails[] letterboxDetails, boolean needsMenu) {
         mIcons = new ArrayMap<>(icons);
         mDisabledFlags1 = disabledFlags1;
         mAppearance = appearance;
@@ -66,6 +67,7 @@ public final class RegisterStatusBarResult implements Parcelable {
         mPackageName = packageName;
         mTransientBarTypes = transientBarTypes;
         mLetterboxDetails = letterboxDetails;
+        mNeedsMenu = needsMenu;
     }
 
     @Override
@@ -85,6 +87,7 @@ public final class RegisterStatusBarResult implements Parcelable {
         dest.writeInt(mDisabledFlags2);
         dest.writeStrongBinder(mImeToken);
         dest.writeBoolean(mNavbarColorManagedByIme);
+        dest.writeBoolean(mNeedsMenu);
         dest.writeInt(mBehavior);
         dest.writeTypedObject(mRequestedVisibilities, 0);
         dest.writeString(mPackageName);
@@ -111,6 +114,7 @@ public final class RegisterStatusBarResult implements Parcelable {
                     final int disabledFlags2 = source.readInt();
                     final IBinder imeToken = source.readStrongBinder();
                     final boolean navbarColorManagedByIme = source.readBoolean();
+                    final boolean needsMenu = source.readBoolean();
                     final int behavior = source.readInt();
                     final InsetsVisibilities requestedVisibilities =
                             source.readTypedObject(InsetsVisibilities.CREATOR);
@@ -122,7 +126,7 @@ public final class RegisterStatusBarResult implements Parcelable {
                             appearanceRegions, imeWindowVis, imeBackDisposition, showImeSwitcher,
                             disabledFlags2, imeToken, navbarColorManagedByIme, behavior,
                             requestedVisibilities, packageName, transientBarTypes,
-                            letterboxDetails);
+                            letterboxDetails, needsMenu);
                 }
 
                 @Override

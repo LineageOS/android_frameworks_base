@@ -189,6 +189,14 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
         String getOwningPackage();
 
         /**
+         * Return whether this window needs the menu key shown.  Must be called
+         * with window lock held, because it may need to traverse down through
+         * window list to determine the result.
+         * @param bottom The bottom-most window to consider when determining this.
+         */
+        public boolean getNeedsMenuLw(WindowState bottom);
+
+        /**
          * Retrieve the type of the top-level window.
          *
          * @return the base type of the parent window if attached or its own type otherwise

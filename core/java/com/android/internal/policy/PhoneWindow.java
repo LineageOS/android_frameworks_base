@@ -24,6 +24,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS;
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR;
+import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN;
 import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER;
 import static android.view.WindowManager.LayoutParams.FLAG_SPLIT_TOUCH;
@@ -2517,8 +2518,18 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
 
         final Context context = getContext();
         final int targetSdk = context.getApplicationInfo().targetSdkVersion;
+        final boolean targetPreHoneycomb = targetSdk < android.os.Build.VERSION_CODES.HONEYCOMB;
+        final boolean targetPreIcs = targetSdk < android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH;
         final boolean targetPreL = targetSdk < android.os.Build.VERSION_CODES.LOLLIPOP;
         final boolean targetPreQ = targetSdk < Build.VERSION_CODES.Q;
+        final boolean targetHcNeedsOptions = true; // nift4: we always need menu key
+        final boolean noActionBar = !hasFeature(FEATURE_ACTION_BAR) || hasFeature(FEATURE_NO_TITLE);
+
+        if (targetPreHoneycomb || (targetPreIcs && targetHcNeedsOptions && noActionBar)) {
+            setNeedsMenuKey(WindowManager.LayoutParams.NEEDS_MENU_SET_TRUE);
+        } else {
+            setNeedsMenuKey(WindowManager.LayoutParams.NEEDS_MENU_SET_FALSE);
+        }
 
         if (!mForcedStatusBarColor) {
             mStatusBarColor = a.getColor(R.styleable.Window_statusBarColor, 0xFF000000);

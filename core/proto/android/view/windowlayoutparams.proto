@@ -57,6 +57,13 @@ message WindowLayoutParamsProto {
     optional uint32 input_feature_flags = 19 [(.android.typedef) = "android.view.WindowManager.LayoutParams.InputFeatureFlags"];
     optional int64 user_activity_timeout = 20;
 
+    enum NeedsMenuState {
+        NEEDS_MENU_UNSET = 0;
+        NEEDS_MENU_SET_TRUE = 1;
+        NEEDS_MENU_SET_FALSE = 2;
+    }
+    optional NeedsMenuState needs_menu_key = 22;
+
     optional DisplayProto.ColorMode color_mode = 23;
     optional uint32 flags = 24 [(.android.typedef) = "android.view.WindowManager.LayoutParams.Flags"];
     optional uint32 private_flags = 26 [(.android.typedef) = "android.view.WindowManager.LayoutParams.PrivateFlags"];

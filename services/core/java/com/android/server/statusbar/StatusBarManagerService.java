@@ -608,15 +608,15 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
         public void onSystemBarAttributesChanged(int displayId, @Appearance int appearance,
                 AppearanceRegion[] appearanceRegions, boolean navbarColorManagedByIme,
                 @Behavior int behavior, InsetsVisibilities requestedVisibilities,
-                String packageName, LetterboxDetails[] letterboxDetails) {
+                String packageName, LetterboxDetails[] letterboxDetails, boolean needsMenu) {
             getUiState(displayId).setBarAttributes(appearance, appearanceRegions,
                     navbarColorManagedByIme, behavior, requestedVisibilities, packageName,
-                    letterboxDetails);
+                    letterboxDetails, needsMenu);
             if (mBar != null) {
                 try {
                     mBar.onSystemBarAttributesChanged(displayId, appearance, appearanceRegions,
                             navbarColorManagedByIme, behavior, requestedVisibilities, packageName,
-                            letterboxDetails);
+                            letterboxDetails, needsMenu);
                 } catch (RemoteException ex) { }
             }
         }
@@ -1245,6 +1245,7 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
         private int mImeWindowVis = 0;
         private int mImeBackDisposition = 0;
         private boolean mShowImeSwitcher = false;
+        private boolean mNeedsMenu = false;
         private IBinder mImeToken = null;
         private LetterboxDetails[] mLetterboxDetails = new LetterboxDetails[0];
 
@@ -1252,7 +1253,7 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
                 AppearanceRegion[] appearanceRegions, boolean navbarColorManagedByIme,
                 @Behavior int behavior, InsetsVisibilities requestedVisibilities,
                 String packageName,
-                LetterboxDetails[] letterboxDetails) {
+                LetterboxDetails[] letterboxDetails, boolean needsMenu) {
             mAppearance = appearance;
             mAppearanceRegions = appearanceRegions;
             mNavbarColorManagedByIme = navbarColorManagedByIme;
@@ -1260,6 +1261,7 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
             mRequestedVisibilities = requestedVisibilities;
             mPackageName = packageName;
             mLetterboxDetails = letterboxDetails;
+            mNeedsMenu = needsMenu;
         }
 
         private void showTransient(@InternalInsetsType int[] types) {
@@ -1396,7 +1398,7 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
                     state.mImeBackDisposition, state.mShowImeSwitcher,
                     gatherDisableActionsLocked(mCurrentUserId, 2), state.mImeToken,
                     state.mNavbarColorManagedByIme, state.mBehavior, state.mRequestedVisibilities,
-                    state.mPackageName, transientBarTypes, state.mLetterboxDetails);
+                    state.mPackageName, transientBarTypes, state.mLetterboxDetails, state.mNeedsMenu);
         }
     }
 
