@@ -346,6 +346,8 @@ public class DisplayPolicy {
 
     // What we last reported to input dispatcher about whether the focused window is fullscreen.
     private boolean mLastFocusIsFullscreen = false;
+    private boolean mLastFocusNeedsMenu = false;
+    private boolean mForceMenu = false;
 
     // If nonzero, a panic gesture was performed at that time in uptime millis and is still pending.
     private long mPendingPanicGestureUptime;
@@ -2311,10 +2313,12 @@ public class DisplayPolicy {
             // the intermediate state to system UI. Otherwise, it might trigger redundant effects.
             return;
         }
+        final boolean forceMenu = false; // TODO user setting?
         final WindowState navColorWin = chooseNavigationColorWindowLw(mNavBarColorWindowCandidate,
                 mDisplayContent.mInputMethodWindow, mNavigationBarPosition);
         final boolean isNavbarColorManagedByIme =
                 navColorWin != null && navColorWin == mDisplayContent.mInputMethodWindow;
+        final boolean needsMenu = win.getNeedsMenuLw(mTopFullscreenOpaqueWindowState);
         final int appearance = updateLightNavigationBarLw(win.mAttrs.insetsFlags.appearance,
                 navColorWin) | opaqueAppearance;
         final int behavior = win.mAttrs.insetsFlags.behavior;
@@ -2337,14 +2341,17 @@ public class DisplayPolicy {
                 && mRequestedVisibilities.equals(win.getRequestedVisibilities())
                 && Objects.equals(mFocusedApp, focusedApp)
                 && mLastFocusIsFullscreen == isFullscreen
+                && mLastFocusNeedsMenu == needsMenu
+                && mForceMenu == forceMenu
                 && Arrays.equals(mLastStatusBarAppearanceRegions, statusBarAppearanceRegions)
                 && Arrays.equals(mLastLetterboxDetails, letterboxDetails)) {
             return;
         }
         if (mDisplayContent.isDefaultDisplay && (mLastFocusIsFullscreen != isFullscreen
-                || ((mLastAppearance ^ appearance) & APPEARANCE_LOW_PROFILE_BARS) != 0)) {
+                || ((mLastAppearance ^ appearance) & APPEARANCE_LOW_PROFILE_BARS) != 0
+                || mLastFocusNeedsMenu != needsMenu)) {
             mService.mInputManager.setSystemUiLightsOut(
-                    isFullscreen || (appearance & APPEARANCE_LOW_PROFILE_BARS) != 0);
+                    needsMenu || isFullscreen || (appearance & APPEARANCE_LOW_PROFILE_BARS) != 0);
         }
         final InsetsVisibilities requestedVisibilities =
                 new InsetsVisibilities(win.getRequestedVisibilities());
@@ -2353,11 +2360,13 @@ public class DisplayPolicy {
         mRequestedVisibilities = requestedVisibilities;
         mFocusedApp = focusedApp;
         mLastFocusIsFullscreen = isFullscreen;
+        mLastFocusNeedsMenu = needsMenu;
+        mForceMenu = forceMenu;
         mLastStatusBarAppearanceRegions = statusBarAppearanceRegions;
         mLastLetterboxDetails = letterboxDetails;
         callStatusBarSafely(statusBar -> statusBar.onSystemBarAttributesChanged(displayId,
                 appearance, statusBarAppearanceRegions, isNavbarColorManagedByIme, behavior,
-                requestedVisibilities, focusedApp, letterboxDetails));
+                requestedVisibilities, focusedApp, letterboxDetails, needsMenu || forceMenu));
     }
 
     private void callStatusBarSafely(Consumer<StatusBarManagerInternal> consumer) {
