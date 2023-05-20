@@ -16,6 +16,24 @@
       "message": "I would recommend submitting this entire chain to AOSP and not just the first commit",
       "revId": "99fdbec32e6ec672c1acda3cdfea63428d48d9e7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fc57b60_94098cfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-20T11:27:58Z",
+      "side": 1,
+      "message": "They won\u0027t merge freeform window change animation or the other visual issue fixes because they are rewriting it to use shell transitions; cast tile is chromecast for them, which needs a wifi connection AFAIK, so only navbar key patch would be left, I will submit it.\n\nMenu for legacy apps and this patch are already on AOSP (this patch had been rejected due to Captions-in-Shell, but CR+1\u0027ed)",
+      "parentUuid": "23331a19_dd6de8ca",
+      "revId": "99fdbec32e6ec672c1acda3cdfea63428d48d9e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
