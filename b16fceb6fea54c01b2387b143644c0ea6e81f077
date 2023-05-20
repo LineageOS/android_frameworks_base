@@ -48,6 +48,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e71171cd_23b07c60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-20T15:19:31Z",
+      "side": 1,
+      "message": "Removed from the commit message to avoid confusion",
+      "parentUuid": "c08cd420_ca01dff5",
+      "range": {
+        "startLine": 12,
+        "startChar": 37,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "b16fceb6fea54c01b2387b143644c0ea6e81f077",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67e36ae7_24807661",
