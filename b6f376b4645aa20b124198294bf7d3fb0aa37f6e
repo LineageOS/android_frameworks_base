@@ -34,6 +34,24 @@
       "parentUuid": "cc273228_c658483c",
       "revId": "b6f376b4645aa20b124198294bf7d3fb0aa37f6e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f3e7d5b_3cf0cdb9",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-20T15:22:14Z",
+      "side": 1,
+      "message": "Also note that the navbar creation really doesn\u0027t happen that often, as this is not the View but the view controller (NavigationBar.java) which is being created",
+      "parentUuid": "6fc6fe04_b130d48b",
+      "revId": "b6f376b4645aa20b124198294bf7d3fb0aa37f6e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
