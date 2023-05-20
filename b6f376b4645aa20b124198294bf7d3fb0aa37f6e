@@ -16,6 +16,24 @@
       "message": "Isn\u0027t the original logic checking for default display because it\u0027s cheaper to use the already existing one than to create a new context?\nI think you might want to keep it that way: only create a new context if not Default Display and in that case apply your change: apply the Theme again?",
       "revId": "b6f376b4645aa20b124198294bf7d3fb0aa37f6e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fc6fe04_b130d48b",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-20T15:14:24Z",
+      "side": 1,
+      "message": "This was done to avoid these bugs happening ever again, by simply not diverging these codepaths. Do you recommend me to change it back?",
+      "parentUuid": "cc273228_c658483c",
+      "revId": "b6f376b4645aa20b124198294bf7d3fb0aa37f6e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
