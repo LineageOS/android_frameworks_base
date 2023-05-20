@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c08cd420_ca01dff5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-20T15:13:21Z",
+      "side": 1,
+      "message": "it\u0027s very minor so it would not make sense, see the other comment",
+      "parentUuid": "dd7e9e21_0d170630",
+      "range": {
+        "startLine": 12,
+        "startChar": 37,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "b16fceb6fea54c01b2387b143644c0ea6e81f077",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67e36ae7_24807661",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-20T14:19:18Z",
       "side": 1,
       "message": "this should be the \"clean up a little\" part?\nAs it\u0027s unrelated to the actual change (fixing the animation), it shouldn\u0027t be in here.",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 5
+      },
+      "revId": "b16fceb6fea54c01b2387b143644c0ea6e81f077",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7e105c1_332a2a01",
+        "filename": "services/core/java/com/android/server/wm/WindowChangeAnimationSpec.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-20T15:13:21Z",
+      "side": 1,
+      "message": "No, this is needed to allow the thumbnail codepath to use ClipRectAnimation. The cleanup I meant is really just\n```mAnimation \u003d animSet;\nmAnimation.initialize(mStartBounds.width(), mStartBounds.height(),\n        mEndBounds.width(), mEndBounds.height());```\nmoved outside of the if block. it originally was more, but that kind of disappeared while I worked on the animation",
+      "parentUuid": "67e36ae7_24807661",
       "range": {
         "startLine": 167,
         "startChar": 0,
