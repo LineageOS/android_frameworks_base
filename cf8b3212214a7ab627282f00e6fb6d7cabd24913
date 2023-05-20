@@ -22,6 +22,30 @@
       },
       "revId": "cf8b3212214a7ab627282f00e6fb6d7cabd24913",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a16983_62a20adf",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/NavigationBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-05-20T15:17:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47706953_77642659",
+      "range": {
+        "startLine": 653,
+        "startChar": 16,
+        "endLine": 653,
+        "endChar": 119
+      },
+      "revId": "cf8b3212214a7ab627282f00e6fb6d7cabd24913",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
