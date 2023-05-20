@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23331a19_dd6de8ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2023-05-20T11:21:02Z",
+      "side": 1,
+      "message": "I would recommend submitting this entire chain to AOSP and not just the first commit",
+      "revId": "99fdbec32e6ec672c1acda3cdfea63428d48d9e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
