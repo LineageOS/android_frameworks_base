@@ -33,6 +33,11 @@ import static android.os.UserHandle.USER_NULL;
 import static android.view.SurfaceControl.Transaction;
 import static android.view.WindowManager.LayoutParams.INVALID_WINDOW_TYPE;
 import static android.view.WindowManager.TRANSIT_CHANGE;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_CHANGE_WINDOWING_MODE;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_CLOSE;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_OPEN;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_TO_BACK;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_TO_FRONT;
 
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_ANIM;
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_APP_TRANSITIONS;
@@ -139,6 +144,7 @@ class WindowContainer<E extends WindowContainer> extends ConfigurationContainer<
         InsetsControlTarget {
 
     private static final String TAG = TAG_WITH_CLASS_NAME ? "WindowContainer" : TAG_WM;
+    private static final boolean WHITELIST_ALL_IN_FREEFORM = false;
 
     static final int POSITION_TOP = Integer.MAX_VALUE;
     static final int POSITION_BOTTOM = Integer.MIN_VALUE;
@@ -3109,6 +3115,20 @@ class WindowContainer<E extends WindowContainer> extends ConfigurationContainer<
                 mDisplayContent.showImeScreenshot();
             }
         }
+
+        boolean inFreeform = getWindowingMode() == WINDOWING_MODE_FREEFORM;
+        // Task transitions create visually broken effects in freeform.
+        boolean unsupportedInFreeform = (transit == TRANSIT_OLD_TASK_CLOSE)
+                                    || (transit == TRANSIT_OLD_TASK_OPEN)
+                                    || (transit == TRANSIT_OLD_TASK_TO_BACK)
+                                    || (transit == TRANSIT_OLD_TASK_TO_FRONT);
+        // always play TRANSIT_OLD_TASK_CHANGE_WINDOWING_MODE no matter what, because
+        // freeform maximize collapses if this animation is skipped. it also was
+        // fixed in an earlier commit, so it can be enabled without harm.
+        if (!(!inFreeform || !unsupportedInFreeform || WHITELIST_ALL_IN_FREEFORM
+                || transit == TRANSIT_OLD_TASK_CHANGE_WINDOWING_MODE))
+        return;
+
         final Pair<AnimationAdapter, AnimationAdapter> adapters = getAnimationAdapter(lp,
                 transit, enter, isVoiceInteraction);
         AnimationAdapter adapter = adapters.first;
