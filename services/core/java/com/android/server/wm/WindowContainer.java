@@ -33,6 +33,10 @@ import static android.os.UserHandle.USER_NULL;
 import static android.view.SurfaceControl.Transaction;
 import static android.view.WindowManager.LayoutParams.INVALID_WINDOW_TYPE;
 import static android.view.WindowManager.TRANSIT_CHANGE;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_CLOSE;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_OPEN;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_TO_BACK;
+import static android.view.WindowManager.TRANSIT_OLD_TASK_TO_FRONT;
 import static android.window.TaskFragmentAnimationParams.DEFAULT_ANIMATION_BACKGROUND_COLOR;
 
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_ANIM;
@@ -3155,6 +3159,16 @@ class WindowContainer<E extends WindowContainer> extends ConfigurationContainer<
                 mDisplayContent.showImeScreenshot();
             }
         }
+
+        boolean inFreeform = getWindowingMode() == WINDOWING_MODE_FREEFORM;
+        // Task transitions create visually broken effects in freeform.
+        boolean unsupportedInFreeform = (transit == TRANSIT_OLD_TASK_CLOSE)
+                                    || (transit == TRANSIT_OLD_TASK_OPEN)
+                                    || (transit == TRANSIT_OLD_TASK_TO_BACK)
+                                    || (transit == TRANSIT_OLD_TASK_TO_FRONT);
+        if (inFreeform && unsupportedInFreeform)
+            return;
+
         final Pair<AnimationAdapter, AnimationAdapter> adapters = getAnimationAdapter(lp,
                 transit, enter, isVoiceInteraction);
         AnimationAdapter adapter = adapters.first;
