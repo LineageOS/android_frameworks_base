@@ -20,16 +20,14 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
-import android.hardware.configstore.V1_1.DisplayOrientation;
-import android.hardware.configstore.V1_1.ISurfaceFlingerConfigs;
-import android.hardware.configstore.V1_1.OptionalDisplayOrientation;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.RemoteException;
-import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.sysprop.SurfaceFlingerProperties;
+import android.sysprop.SurfaceFlingerProperties.primary_display_orientation_values;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.IWindowManager;
@@ -38,7 +36,7 @@ import android.view.WindowManagerGlobal;
 
 import com.android.internal.R;
 
-import java.util.NoSuchElementException;
+import java.util.Optional;
 
 /**
  * Provides helper functions for configuring the display rotation policy.
@@ -234,33 +232,22 @@ public final class RotationPolicy {
     }
 
     private static int getNaturalRotationConfig() {
-        String primaryDisplayOrientation =
-                SystemProperties.get("ro.surface_flinger.primary_display_orientation");
-        if (primaryDisplayOrientation == "ORIENTATION_90") {
+        primary_display_orientation_values orientation =
+                primary_display_orientation_values.ORIENTATION_0;
+        Optional<primary_display_orientation_values> primaryDisplayOrientation =
+                SurfaceFlingerProperties.primary_display_orientation();
+        if (primaryDisplayOrientation.isPresent()) {
+            orientation = primaryDisplayOrientation.get();
+        }
+
+        if (orientation == primary_display_orientation_values.ORIENTATION_90) {
             return Surface.ROTATION_90;
         }
-        if (primaryDisplayOrientation == "ORIENTATION_180") {
+        if (orientation == primary_display_orientation_values.ORIENTATION_180) {
             return Surface.ROTATION_180;
         }
-        if (primaryDisplayOrientation == "ORIENTATION_270") {
+        if (orientation == primary_display_orientation_values.ORIENTATION_270) {
             return Surface.ROTATION_270;
-        }
-
-        OptionalDisplayOrientation orientation;
-
-        try {
-            orientation =
-                    ISurfaceFlingerConfigs.getService().primaryDisplayOrientation();
-            switch (orientation.value) {
-                case DisplayOrientation.ORIENTATION_90:
-                    return Surface.ROTATION_90;
-                case DisplayOrientation.ORIENTATION_180:
-                    return Surface.ROTATION_180;
-                case DisplayOrientation.ORIENTATION_270:
-                    return Surface.ROTATION_270;
-            }
-        } catch (RemoteException | NoSuchElementException e) {
-            // do nothing
         }
 
         return Surface.ROTATION_0;
