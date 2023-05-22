@@ -16,6 +16,24 @@
       "message": "How about just **.lineageos.**",
       "revId": "379f62880aba34e02f55cdf1c554dab7b7032fd6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c4693de_92520f9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19282
+      },
+      "writtenOn": "2023-05-22T10:12:09Z",
+      "side": 1,
+      "message": "This may also need to be reworked in future anyways, as currently `atest CtsStrictJavaPackagesTestCases` fails because of duplicate classes in boot and system server class paths.",
+      "parentUuid": "05177fe1_ab35ea85",
+      "revId": "379f62880aba34e02f55cdf1c554dab7b7032fd6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
