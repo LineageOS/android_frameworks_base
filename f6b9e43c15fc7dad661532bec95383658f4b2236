@@ -34,6 +34,24 @@
       "parentUuid": "ee6d7934_ded56b81",
       "revId": "f6b9e43c15fc7dad661532bec95383658f4b2236",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa7c8ab_e282a941",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32683
+      },
+      "writtenOn": "2023-05-23T10:36:42Z",
+      "side": 1,
+      "message": "It doesn\u0027t build but it is probably not caused by this patch.\n\nframeworks/base/packages/SystemUI/res/layout/status_bar.xml:86: error: attribute com.android.systemui:isStatusBar not found.\nframeworks/base/packages/SystemUI/res/layout/status_bar.xml:177: error: attribute com.android.systemui:isStatusBar not found.\nerror: failed linking file resources.",
+      "parentUuid": "f0499dcb_faef1151",
+      "revId": "f6b9e43c15fc7dad661532bec95383658f4b2236",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
