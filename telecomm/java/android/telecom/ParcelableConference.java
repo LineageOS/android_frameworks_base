@@ -21,10 +21,10 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.android.internal.telecom.IVideoProvider;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.android.internal.telecom.IVideoProvider;
 
 /**
  * A parcelable representation of a conference connection.
@@ -153,6 +153,14 @@ public final class ParcelableConference implements Parcelable {
 
     public int getHandlePresentation() {
         return mAddressPresentation;
+    }
+
+    public String getCallerDisplayName() {
+        return mCallerDisplayName;
+    }
+
+    public int getCallerDisplayNamePresentation() {
+        return mCallerDisplayNamePresentation;
     }
 
     public static final @android.annotation.NonNull Parcelable.Creator<ParcelableConference> CREATOR =
