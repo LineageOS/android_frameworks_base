@@ -29,6 +29,8 @@ public final class AttestationHooks {
     private static final String TAG = "GmsCompat/Attestation";
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
+    private static final String PACKAGE_SAMSUNG = "com.samsung";
+    private static final String PACKAGE_SEC = "com.sec";
     private static final String PROCESS_UNSTABLE = "com.google.android.gms.unstable";
 
     private static volatile boolean sIsGms = false;
@@ -86,6 +88,16 @@ public final class AttestationHooks {
 
         if (PACKAGE_FINSKY.equals(app.getPackageName())) {
             sIsFinsky = true;
+        }
+
+        if (app.getPackageName().startsWith(PACKAGE_SAMSUNG)) {
+          setBuildField("BRAND", "google");
+          setBuildField("MANUFACTURER", "google");
+        }
+
+        if (app.getPackageName().startsWith(PACKAGE_SEC)) {
+          setBuildField("BRAND", "google");
+          setBuildField("MANUFACTURER", "google");
         }
     }
 
