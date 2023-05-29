@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "940fdf69_be1d0f62",
+        "filename": "services/core/java/com/android/server/wm/AppTransition.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-05-29T15:43:10Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "0403ab7928177387797810f83c87ee008c07ca76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
