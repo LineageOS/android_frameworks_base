@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71fbe639_099a5bf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2023-05-29T19:19:15Z",
+      "side": 1,
+      "message": "Some GAPPs replace LOS SUW and doesnt provide SUW option to enable AGPS by default. This creates bad user experience. Advance users should disable if really require.",
+      "revId": "42ea24392931093580b56b1f871dab34b32b8b51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
