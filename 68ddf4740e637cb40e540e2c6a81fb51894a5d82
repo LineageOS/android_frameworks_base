@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d742930_31f4823b",
+        "filename": "core/java/com/android/internal/policy/TransitionAnimation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-05-29T15:51:28Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "68ddf4740e637cb40e540e2c6a81fb51894a5d82",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f445b733_262f2e07",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/transition/DefaultTransitionHandler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-05-29T15:51:28Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "68ddf4740e637cb40e540e2c6a81fb51894a5d82",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d851a6e0_43055949",
+        "filename": "services/core/java/com/android/server/wm/WindowStateAnimator.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-05-29T15:51:28Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "68ddf4740e637cb40e540e2c6a81fb51894a5d82",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
