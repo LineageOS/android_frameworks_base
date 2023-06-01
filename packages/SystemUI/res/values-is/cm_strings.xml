@@ -18,5 +18,66 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_ambient_display_label">Tilkynningar á læsiskjá (Ambient display)</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Slökkt á tilkynningum á læsiskjá.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Kveikt á tilkynningum á læsiskjá.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Slökkt er á tilkynningum á læsiskjá.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Kveikt er á tilkynningum á læsiskjá.</string>
+    <string name="quick_settings_aod_label">AOD (alltaf á skjá)</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD (alltaf á skjá) af\nRafhlöðusparnaður</string>
+    <string name="quick_settings_caffeine_label">Lengri skjátími (Caffeine)</string>
+    <string name="accessibility_quick_settings_caffeine_off">Slökkt á Caffeine.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kveikt á Caffeine.</string>
+    <string name="quick_settings_heads_up_label">Skjáupplýsingar</string>
+    <string name="accessibility_quick_settings_heads_up_off">Slökkt á skjáupplýsingum.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Kveikt á skjáupplýsingum.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Slökkt er á skjáupplýsingum.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Kveikt er á skjáupplýsingum.</string>
+    <string name="global_screenshot_selector_capture_description">Taka skjámynd af hluta</string>
+    <string name="global_screenshot_selector_cancel_description">Hætta við að taka skjámynd af hluta</string>
+    <string name="quick_settings_reading_mode">Leshamur</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Leshamur á.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Leshamur af.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Kveikt er á lesham.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Slökkt er á lesham.</string>
+    <string name="quick_settings_sync_label">Samstilling</string>
+    <string name="accessibility_quick_settings_sync_off">Slökkt á samstillingu.</string>
+    <string name="accessibility_quick_settings_sync_on">Kveikt á samstillingu.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Slökkt er á samstillingu.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Kveikt er á samstillingu.</string>
+    <string name="quick_settings_profiles_label">Kerfissnið</string>
+    <string name="accessibility_quick_settings_profiles_off">Slökkt á notandasniðum.</string>
+    <string name="accessibility_quick_settings_profiles">Notandasnið: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="accessibility_quick_settings_profiles_changed_off">Slökkt er á notandasniðum.</string>
+    <string name="accessibility_quick_settings_profiles_changed">Notandasniði breytt í <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB-tjóðrun</string>
+    <string name="quick_settings_volume_panel_label">Hljóðstyrksstjórnun</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Tengjast við\u2026</string>
+    <string name="vpn_credentials_hint">Settu inn auðkennin þín til að tengjast <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Notandanafn</string>
+    <string name="vpn_credentials_password">Lykilorð</string>
+    <string name="vpn_credentials_dialog_connect">Tengjast</string>
+    <string name="quick_settings_anti_flicker">Flöktsíun</string>
+    <string name="accessibility_dpad_left">Bendill til vinstri</string>
+    <string name="accessibility_dpad_right">Bendill til hægri</string>
+    <string name="global_action_restart_more">Endurræsa\u2026</string>
+    <string name="global_action_restart_system">Kerfi</string>
+    <string name="global_action_restart_recovery">Endurheimting</string>
+    <string name="global_action_restart_bootloader">Ræsistjóri</string>
+    <string name="global_action_restart_download">Niðurhal</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Endurræsi…\u2026</string>
+    <string name="global_action_restart_recovery_progress">Endurræsi í endurheimtuham\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Endurræsi í ræsistjóraham\u2026</string>
+    <string name="global_action_restart_download_progress">Endurræsi í niðurhalsham\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Endurræsi í fastbootd-ham\u2026</string>
+    <string name="global_action_current_user">Núverandi</string>
+    <string name="global_action_users">Notendur</string>
+    <string name="status_bar_camera">Myndavél</string>
+    <string name="status_bar_location">Staðsetning</string>
+    <string name="status_bar_microphone">Hljóðnemi</string>
+    <string name="screen_pinning_description_no_navbar">Þetta heldur því sýnilegu þar til þú losar það. Ýttu og haltu niðri \'Til baka\' hnapp til að losa.</string>
     <string name="screen_pinning_toast_no_navbar">Til að losa þennan skjá, ýttu á og haltu niðri \'Til baka\' hnappnum</string>
+    <string name="battery_notification_channel_tv">Rafhlöðuaðvörun</string>
 </resources>
