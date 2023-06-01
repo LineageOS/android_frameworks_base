@@ -18,6 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Гадзіннік</string>
     <string name="global_action_restart_system">Сістэма</string>
     <string name="global_action_restart_recovery">Аднаўленне</string>
     <string name="global_action_restart_bootloader">Загрузчык</string>
