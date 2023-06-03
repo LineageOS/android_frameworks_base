@@ -16,6 +16,23 @@
       "message": "Fixes bootanimation on certain EGL implementations such as PowerVR.",
       "revId": "f726f1cc684fc9a18eb04f5509df3b88477fb7b1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76403103_bfb989af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2023-06-03T07:38:04Z",
+      "side": 1,
+      "message": "Merged in AOSP master",
+      "revId": "f726f1cc684fc9a18eb04f5509df3b88477fb7b1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
