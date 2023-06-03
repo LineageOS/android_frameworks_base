@@ -14449,7 +14449,7 @@ public final class Settings {
          *
          * @hide
          */
-        public static final long DEFAULT_ADB_ALLOWED_CONNECTION_TIME = 604800000;
+        public static final long DEFAULT_ADB_ALLOWED_CONNECTION_TIME = 0;
 
         /**
          * When the user first connects their device to a system a prompt is displayed to allow
