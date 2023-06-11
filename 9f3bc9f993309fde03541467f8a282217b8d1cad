@@ -16,6 +16,23 @@
       "message": "This commit requires previously submitted CVE.\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/322452\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/322453\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/345522\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/353758",
       "revId": "9f3bc9f993309fde03541467f8a282217b8d1cad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71683821_92f973ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2023-06-11T07:19:07Z",
+      "side": 1,
+      "message": "Entire topic builds fine and runs on Moto G5 Cedric. THANK YOU!",
+      "revId": "9f3bc9f993309fde03541467f8a282217b8d1cad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
