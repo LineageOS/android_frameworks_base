@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e07f1493_72f1eacf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26916
+      },
+      "writtenOn": "2023-06-12T18:11:53Z",
+      "side": 1,
+      "message": "Can\u0027t verify since I don\u0027t have anti flicker",
+      "revId": "43d77ceae4e99d227c0a0f7b846765dc39accfda",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
