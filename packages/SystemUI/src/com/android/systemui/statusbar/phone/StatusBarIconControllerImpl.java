@@ -28,8 +28,6 @@ import android.util.ArraySet;
 import android.util.Log;
 import android.view.ViewGroup;
 
-import androidx.annotation.VisibleForTesting;
-
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.systemui.Dumpable;
 import com.android.systemui.R;
@@ -65,10 +63,6 @@ public class StatusBarIconControllerImpl implements Tunable,
         ConfigurationListener, Dumpable, CommandQueue.Callbacks, StatusBarIconController, DemoMode {
 
     private static final String TAG = "StatusBarIconController";
-    // Use this suffix to prevent external icon slot names from unintentionally overriding our
-    // internal, system-level slot names. See b/255428281.
-    @VisibleForTesting
-    protected static final String EXTERNAL_SLOT_SUFFIX = "__external";
 
     private final StatusBarIconList mStatusBarIconList;
     private final ArrayList<IconManager> mIconGroups = new ArrayList<>();
@@ -352,26 +346,21 @@ public class StatusBarIconControllerImpl implements Tunable,
 
     @Override
     public void setExternalIcon(String slot) {
-        String slotName = createExternalSlotName(slot);
-        int viewIndex = mStatusBarIconList.getViewIndex(slotName, 0);
+        int viewIndex = mStatusBarIconList.getViewIndex(slot, 0);
         int height = mContext.getResources().getDimensionPixelSize(
                 R.dimen.status_bar_icon_drawing_size);
         mIconGroups.forEach(l -> l.onIconExternal(viewIndex, height));
     }
 
-    // Override for *both* CommandQueue.Callbacks AND StatusBarIconController.
-    // TODO(b/265307726): Pull out the CommandQueue callbacks into a member variable to
-    //  differentiate between those callback methods and StatusBarIconController methods.
-    @Override
+    //TODO: remove this (used in command queue and for 3rd party tiles?)
     public void setIcon(String slot, StatusBarIcon icon) {
-        String slotName = createExternalSlotName(slot);
         if (icon == null) {
-            removeAllIconsForSlot(slotName);
+            removeAllIconsForSlot(slot);
             return;
         }
 
         StatusBarIconHolder holder = StatusBarIconHolder.fromIcon(icon);
-        setIcon(slotName, holder);
+        setIcon(slot, holder);
     }
 
     private void setIcon(String slot, @NonNull StatusBarIconHolder holder) {
@@ -417,12 +406,10 @@ public class StatusBarIconControllerImpl implements Tunable,
         }
     }
 
-    // CommandQueue.Callbacks override
-    // TODO(b/265307726): Pull out the CommandQueue callbacks into a member variable to
-    //  differentiate between those callback methods and StatusBarIconController methods.
+    /** */
     @Override
     public void removeIcon(String slot) {
-        removeAllIconsForExternalSlot(slot);
+        removeAllIconsForSlot(slot);
     }
 
     /** */
@@ -434,11 +421,6 @@ public class StatusBarIconControllerImpl implements Tunable,
         int viewIndex = mStatusBarIconList.getViewIndex(slot, tag);
         mStatusBarIconList.removeIcon(slot, tag);
         mIconGroups.forEach(l -> l.onRemoveIcon(viewIndex));
-    }
-
-    @Override
-    public void removeAllIconsForExternalSlot(String slotName) {
-        removeAllIconsForSlot(createExternalSlotName(slotName));
     }
 
     /** */
@@ -523,13 +505,5 @@ public class StatusBarIconControllerImpl implements Tunable,
     @Override
     public void onDensityOrFontScaleChanged() {
         refreshIconGroups();
-    }
-
-    private String createExternalSlotName(String slot) {
-        if (slot.endsWith(EXTERNAL_SLOT_SUFFIX)) {
-            return slot;
-        } else {
-            return slot + EXTERNAL_SLOT_SUFFIX;
-        }
     }
 }
