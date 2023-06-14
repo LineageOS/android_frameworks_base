@@ -46,6 +46,8 @@ import javax.inject.Inject;
 /** Quick settings tile: Sync **/
 public class SyncTile extends QSTileImpl<BooleanState> {
 
+    public static final String TILE_SPEC = "sync";
+
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_sync);
 
     private Object mSyncObserverHandle = null;
