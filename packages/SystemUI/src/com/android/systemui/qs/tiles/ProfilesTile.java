@@ -70,6 +70,8 @@ import javax.inject.Inject;
 
 public class ProfilesTile extends QSTileImpl<State> {
 
+    public static final String TILE_SPEC = "profiles";
+
     private static final Intent PROFILES_SETTINGS =
             new Intent("org.lineageos.lineageparts.PROFILES_SETTINGS");
 
