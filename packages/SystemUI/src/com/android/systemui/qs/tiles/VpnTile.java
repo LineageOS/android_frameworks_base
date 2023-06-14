@@ -60,6 +60,9 @@ import javax.inject.Inject;
 
 /** Quick settings tile: VPN **/
 public class VpnTile extends QSTileImpl<BooleanState> {
+
+    public static final String TILE_SPEC = "vpn";
+
     private final SecurityController mController;
     private final KeyguardStateController mKeyguard;
     private final Callback mCallback = new Callback();
