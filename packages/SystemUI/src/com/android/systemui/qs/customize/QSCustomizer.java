@@ -27,6 +27,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toolbar;
@@ -81,8 +82,8 @@ public class QSCustomizer extends LinearLayout {
                 mContext.getString(com.android.internal.R.string.reset));
         resetText.setSpan(new ForegroundColorSpan(isNightMode() ?
                 Color.WHITE : Color.BLACK), 0, resetText.length(), 0);
-        toolbar.getMenu().add(Menu.NONE, MENU_RESET, 0,
-                mContext.getString(com.android.internal.R.string.reset));
+        toolbar.getMenu().add(Menu.NONE, MENU_RESET, 0, com.android.internal.R.string.reset)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         toolbar.setTitle(R.string.qs_edit);
         mRecyclerView = findViewById(android.R.id.list);
         mTransparentView = findViewById(R.id.customizer_transparent_view);

@@ -19,11 +19,9 @@ package com.android.systemui.navigationbar;
 import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_FLOATING_MENU;
 import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_GESTURE;
 import static android.provider.Settings.Secure.ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR;
-import static android.view.Display.DEFAULT_DISPLAY;
 
 import static com.android.systemui.navigationbar.gestural.EdgeBackGestureHandler.DEBUG_MISSING_GESTURE_TAG;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -55,14 +53,16 @@ import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.flags.Flags;
 import com.android.systemui.model.SysUiState;
 import com.android.systemui.recents.OverviewProxyService;
+import com.android.systemui.settings.DisplayTracker;
 import com.android.systemui.shared.system.QuickStepContract;
+import com.android.systemui.shared.system.TaskStackChangeListeners;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.statusbar.phone.AutoHideController;
 import com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
 import com.android.systemui.statusbar.phone.LightBarController;
-import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.policy.ConfigurationController;
+import com.android.systemui.util.settings.SecureSettings;
 import com.android.wm.shell.back.BackAnimation;
 import com.android.wm.shell.pip.Pip;
 
@@ -88,9 +88,11 @@ public class NavigationBarController implements
     private final Handler mHandler;
     private final NavigationBarComponent.Factory mNavigationBarComponentFactory;
     private FeatureFlags mFeatureFlags;
+    private final SecureSettings mSecureSettings;
+    private final DisplayTracker mDisplayTracker;
     private final DisplayManager mDisplayManager;
     private final TaskbarDelegate mTaskbarDelegate;
-    private final StatusBarKeyguardViewManager mStatusBarKeyguardViewManager;
+    private final NavBarHelper mNavBarHelper;
     private int mNavMode;
     private boolean mTaskbarShowing;
 
@@ -114,28 +116,32 @@ public class NavigationBarController implements
             NavBarHelper navBarHelper,
             TaskbarDelegate taskbarDelegate,
             NavigationBarComponent.Factory navigationBarComponentFactory,
-            StatusBarKeyguardViewManager statusBarKeyguardViewManager,
             DumpManager dumpManager,
             AutoHideController autoHideController,
             LightBarController lightBarController,
+            TaskStackChangeListeners taskStackChangeListeners,
             Optional<Pip> pipOptional,
             Optional<BackAnimation> backAnimation,
-            FeatureFlags featureFlags) {
+            FeatureFlags featureFlags,
+            SecureSettings secureSettings,
+            DisplayTracker displayTracker) {
         mContext = context;
         mHandler = mainHandler;
         mNavigationBarComponentFactory = navigationBarComponentFactory;
         mFeatureFlags = featureFlags;
+        mSecureSettings = secureSettings;
+        mDisplayTracker = displayTracker;
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
         commandQueue.addCallback(this);
         configurationController.addCallback(this);
         mConfigChanges.applyNewConfig(mContext.getResources());
         mNavMode = navigationModeController.addListener(this);
+        mNavBarHelper = navBarHelper;
         mTaskbarDelegate = taskbarDelegate;
-        mStatusBarKeyguardViewManager = statusBarKeyguardViewManager;
         mTaskbarDelegate.setDependencies(commandQueue, overviewProxyService,
                 navBarHelper, navigationModeController, sysUiFlagsContainer,
                 dumpManager, autoHideController, lightBarController, pipOptional,
-                backAnimation.orElse(null));
+                backAnimation.orElse(null), taskStackChangeListeners);
         overviewProxyService.addCallback(this);
         dumpManager.registerDumpable(this);
     }
@@ -204,8 +210,7 @@ public class NavigationBarController implements
     }
 
     private void updateAccessibilityButtonModeIfNeeded() {
-        ContentResolver contentResolver = mContext.getContentResolver();
-        final int mode = Settings.Secure.getIntForUser(contentResolver,
+        final int mode = mSecureSettings.getIntForUser(
                 Settings.Secure.ACCESSIBILITY_BUTTON_MODE,
                 ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR, UserHandle.USER_CURRENT);
 
@@ -219,14 +224,14 @@ public class NavigationBarController implements
         // force update to ACCESSIBILITY_BUTTON_MODE_GESTURE.
         if (QuickStepContract.isGesturalMode(mNavMode)
                 && mode == ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR) {
-            Settings.Secure.putIntForUser(contentResolver,
+            mSecureSettings.putIntForUser(
                     Settings.Secure.ACCESSIBILITY_BUTTON_MODE, ACCESSIBILITY_BUTTON_MODE_GESTURE,
                     UserHandle.USER_CURRENT);
             // ACCESSIBILITY_BUTTON_MODE_GESTURE is incompatible under non gestural mode. Need to
             // force update to ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR.
         } else if (!QuickStepContract.isGesturalMode(mNavMode)
                 && mode == ACCESSIBILITY_BUTTON_MODE_GESTURE) {
-            Settings.Secure.putIntForUser(contentResolver,
+            mSecureSettings.putIntForUser(
                     Settings.Secure.ACCESSIBILITY_BUTTON_MODE,
                     ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR, UserHandle.USER_CURRENT);
         }
@@ -245,10 +250,15 @@ public class NavigationBarController implements
     private boolean initializeTaskbarIfNecessary() {
         if (shouldShowTaskbar()) {
             Trace.beginSection("NavigationBarController#initializeTaskbarIfNecessary");
+            final int displayId = mContext.getDisplayId();
+            // Hint to NavBarHelper if we are replacing an existing bar to skip extra work
+            mNavBarHelper.setTogglingNavbarTaskbar(mNavigationBars.contains(displayId));
             // Remove navigation bar when taskbar is showing
-            removeNavigationBar(mContext.getDisplayId());
-            mTaskbarDelegate.init(mContext.getDisplayId());
+            removeNavigationBar(displayId);
+            mTaskbarDelegate.init(displayId);
+            mNavBarHelper.setTogglingNavbarTaskbar(false);
             Trace.endSection();
+
         } else {
             mTaskbarDelegate.destroy();
         }
@@ -303,9 +313,10 @@ public class NavigationBarController implements
         // Don't need to create nav bar on the default display if we initialize TaskBar.
         final boolean shouldCreateDefaultNavbar = includeDefaultDisplay
                 && !initializeTaskbarIfNecessary();
-        Display[] displays = mDisplayManager.getDisplays();
+        Display[] displays = mDisplayTracker.getAllDisplays();
         for (Display display : displays) {
-            if (shouldCreateDefaultNavbar || display.getDisplayId() != DEFAULT_DISPLAY) {
+            if (shouldCreateDefaultNavbar
+                    || display.getDisplayId() != mDisplayTracker.getDefaultDisplayId()) {
                 createNavigationBar(display, null /* savedState */, result);
             }
         }
@@ -324,7 +335,7 @@ public class NavigationBarController implements
         }
 
         final int displayId = display.getDisplayId();
-        final boolean isOnDefaultDisplay = displayId == DEFAULT_DISPLAY;
+        final boolean isOnDefaultDisplay = displayId == mDisplayTracker.getDefaultDisplayId();
 
         // We may show TaskBar on the default display for large screen device. Don't need to create
         // navigation bar for this case.
@@ -419,7 +430,7 @@ public class NavigationBarController implements
 
     /** @return {@link NavigationBarView} on the default display. */
     public @Nullable NavigationBarView getDefaultNavigationBarView() {
-        return getNavigationBarView(DEFAULT_DISPLAY);
+        return getNavigationBarView(mDisplayTracker.getDefaultDisplayId());
     }
 
     /**
@@ -440,7 +451,8 @@ public class NavigationBarController implements
         final NavigationBarView navBarView = getNavigationBarView(displayId);
         if (navBarView != null) {
             navBarView.showPinningEnterExitToast(entering);
-        } else if (displayId == DEFAULT_DISPLAY && mTaskbarDelegate.isInitialized()) {
+        } else if (displayId == mDisplayTracker.getDefaultDisplayId()
+                && mTaskbarDelegate.isInitialized()) {
             mTaskbarDelegate.showPinningEnterExitToast(entering);
         }
     }
@@ -449,7 +461,8 @@ public class NavigationBarController implements
         final NavigationBarView navBarView = getNavigationBarView(displayId);
         if (navBarView != null) {
             navBarView.showPinningEscapeToast();
-        } else if (displayId == DEFAULT_DISPLAY && mTaskbarDelegate.isInitialized()) {
+        } else if (displayId == mDisplayTracker.getDefaultDisplayId()
+                && mTaskbarDelegate.isInitialized()) {
             mTaskbarDelegate.showPinningEscapeToast();
         }
     }
@@ -490,7 +503,7 @@ public class NavigationBarController implements
     /** @return {@link NavigationBar} on the default display. */
     @Nullable
     public NavigationBar getDefaultNavigationBar() {
-        return mNavigationBars.get(DEFAULT_DISPLAY);
+        return mNavigationBars.get(mDisplayTracker.getDefaultDisplayId());
     }
 
     @Override

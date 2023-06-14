@@ -98,7 +98,7 @@ class AppTaskImpl extends IAppTask.Stub {
                     throw new IllegalArgumentException("Unable to find task ID " + mTaskId);
                 }
                 return mService.getRecentTasks().createRecentTaskInfo(task,
-                        false /* stripExtras */);
+                        false /* stripExtras */, true /* getTasksAllowed */);
             } finally {
                 Binder.restoreCallingIdentity(origId);
             }
@@ -119,10 +119,20 @@ class AppTaskImpl extends IAppTask.Stub {
                 if (appThread != null) {
                     callerApp = mService.getProcessController(appThread);
                 }
-                final ActivityStarter starter = mService.getActivityStartController().obtainStarter(
-                        null /* intent */, "moveToFront");
-                if (starter.shouldAbortBackgroundActivityStart(callingUid, callingPid,
-                        callingPackage, -1, -1, callerApp, null, false, null, null)) {
+                final BackgroundActivityStartController balController =
+                        mService.getActivityStartController()
+                                .getBackgroundActivityLaunchController();
+                if (balController.shouldAbortBackgroundActivityStart(
+                        callingUid,
+                        callingPid,
+                        callingPackage,
+                        -1,
+                        -1,
+                        callerApp,
+                        null,
+                        false,
+                        null,
+                        null)) {
                     if (!mService.isBackgroundActivityStartsEnabled()) {
                         return;
                     }

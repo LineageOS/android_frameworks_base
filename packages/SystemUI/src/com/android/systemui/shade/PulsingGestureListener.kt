@@ -20,7 +20,6 @@ import android.content.Context
 import android.hardware.display.AmbientDisplayConfiguration
 import android.os.PowerManager
 import android.os.SystemClock
-import android.os.UserHandle
 import android.provider.Settings
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -30,6 +29,7 @@ import com.android.systemui.dump.DumpManager
 import com.android.systemui.plugins.FalsingManager
 import com.android.systemui.plugins.FalsingManager.LOW_PENALTY
 import com.android.systemui.plugins.statusbar.StatusBarStateController
+import com.android.systemui.settings.UserTracker
 import com.android.systemui.statusbar.phone.CentralSurfaces
 import com.android.systemui.statusbar.phone.dagger.CentralSurfacesComponent
 import com.android.systemui.tuner.TunerService
@@ -57,6 +57,7 @@ class PulsingGestureListener @Inject constructor(
         private val statusBarStateController: StatusBarStateController,
         private val shadeLogger: ShadeLogger,
         private val powerManager: PowerManager,
+        userTracker: UserTracker,
         tunerService: TunerService,
         dumpManager: DumpManager,
         context: Context
@@ -79,10 +80,10 @@ class PulsingGestureListener @Inject constructor(
                     doubleTapEnabledNative = TunerService.parseIntegerSwitch(value, false)
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE ->
                     doubleTapEnabled = ambientDisplayConfiguration.doubleTapGestureEnabled(
-                            UserHandle.USER_CURRENT)
+                            userTracker.userId)
                 Settings.Secure.DOZE_TAP_SCREEN_GESTURE ->
                     singleTapEnabled = ambientDisplayConfiguration.tapGestureEnabled(
-                            UserHandle.USER_CURRENT)
+                            userTracker.userId)
                 DOUBLE_TAP_SLEEP_GESTURE ->
                     doubleTapToSleepEnabled = TunerService.parseIntegerSwitch(value, true)
             }

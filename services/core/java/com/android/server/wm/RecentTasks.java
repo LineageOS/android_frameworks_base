@@ -33,6 +33,8 @@ import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_DOCUMENT;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.os.Process.SYSTEM_UID;
+import static android.view.WindowManager.LayoutParams.FIRST_APPLICATION_WINDOW;
+import static android.view.WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
 
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_TASKS;
 import static com.android.server.wm.ActivityTaskManagerDebugConfig.DEBUG_RECENTS;
@@ -215,10 +217,16 @@ class RecentTasks {
             int y = (int) ev.getY();
             mService.mH.post(PooledLambda.obtainRunnable((nonArg) -> {
                 synchronized (mService.mGlobalLock) {
-                    // Unfreeze the task list once we touch down in a task
                     final RootWindowContainer rac = mService.mRootWindowContainer;
                     final DisplayContent dc = rac.getDisplayContent(displayId).mDisplayContent;
-                    if (dc.pointWithinAppWindow(x, y)) {
+                    final WindowState win = dc.getTouchableWinAtPointLocked((float) x, (float) y);
+                    if (win == null) {
+                        return;
+                    }
+                    // Unfreeze the task list once we touch down in a task
+                    final boolean isAppWindowTouch = FIRST_APPLICATION_WINDOW <= win.mAttrs.type
+                            && win.mAttrs.type <= LAST_APPLICATION_WINDOW;
+                    if (isAppWindowTouch) {
                         final Task stack = mService.getTopDisplayFocusedRootTask();
                         final Task topTask = stack != null ? stack.getTopMostTask() : null;
                         resetFreezeTaskListReordering(topTask);
@@ -976,7 +984,7 @@ class RecentTasks {
                 continue;
             }
 
-            res.add(createRecentTaskInfo(task, true /* stripExtras */));
+            res.add(createRecentTaskInfo(task, true /* stripExtras */, getTasksAllowed));
         }
         return res;
     }
@@ -1895,7 +1903,8 @@ class RecentTasks {
     /**
      * Creates a new RecentTaskInfo from a Task.
      */
-    ActivityManager.RecentTaskInfo createRecentTaskInfo(Task tr, boolean stripExtras) {
+    ActivityManager.RecentTaskInfo createRecentTaskInfo(Task tr, boolean stripExtras,
+            boolean getTasksAllowed) {
         final ActivityManager.RecentTaskInfo rti = new ActivityManager.RecentTaskInfo();
         // If the recent Task is detached, we consider it will be re-attached to the default
         // TaskDisplayArea because we currently only support recent overview in the default TDA.
@@ -1907,6 +1916,9 @@ class RecentTasks {
         rti.id = rti.isRunning ? rti.taskId : INVALID_TASK_ID;
         rti.persistentId = rti.taskId;
         rti.lastSnapshotData.set(tr.mLastTaskSnapshotData);
+        if (!getTasksAllowed) {
+            Task.trimIneffectiveInfo(tr, rti);
+        }
 
         // Fill in organized child task info for the task created by organizer.
         if (tr.mCreatedByOrganizer) {

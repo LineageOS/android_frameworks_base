@@ -79,12 +79,24 @@ public interface StatusBarIconController {
 
     /** Refresh the state of an IconManager by recreating the views */
     void refreshIconGroup(IconManager iconManager);
-    /** */
-    void setExternalIcon(String slot);
-    /** */
+
+    /**
+     * Adds or updates an icon that comes from an active tile service.
+     *
+     * If the icon is null, the icon will be removed.
+     */
+    void setIconFromTile(String slot, @Nullable StatusBarIcon icon);
+
+    /** Removes an icon that had come from an active tile service. */
+    void removeIconForTile(String slot);
+
+    /**
+     * Adds or updates an icon for the given slot for **internal system icons**.
+     *
+     * TODO(b/265307726): Re-name this to `setInternalIcon`.
+     */
     void setIcon(String slot, int resourceId, CharSequence contentDescription);
-    /** */
-    void setIcon(String slot, StatusBarIcon icon);
+
     /** */
     void setWifiIcon(String slot, WifiIconState state);
 
@@ -133,7 +145,10 @@ public interface StatusBarIconController {
      * TAG_PRIMARY to refer to the first icon at a given slot.
      */
     void removeIcon(String slot, int tag);
-    /** */
+
+    /**
+     * TODO(b/265307726): Re-name this to `removeAllIconsForInternalSlot`.
+     */
     void removeAllIconsForSlot(String slot);
 
     // TODO: See if we can rename this tunable name.
@@ -475,7 +490,7 @@ public interface StatusBarIconController {
         @VisibleForTesting
         protected StatusIconDisplayable addWifiIcon(int index, String slot, WifiIconState state) {
             if (mStatusBarPipelineFlags.useNewWifiIcon()) {
-                throw new IllegalStateException("Attempting to add a mobile icon while the new "
+                throw new IllegalStateException("Attempting to add a wifi icon while the new "
                         + "icons are enabled is not supported");
             }
 
@@ -543,7 +558,10 @@ public interface StatusBarIconController {
             mGroup.addView(view, index, onCreateLayoutParams());
 
             if (mIsInDemoMode) {
-                mDemoStatusIcons.addModernMobileView(mContext, subId);
+                mDemoStatusIcons.addModernMobileView(
+                        mContext,
+                        mMobileIconsViewModel.getLogger(),
+                        subId);
             }
 
             return view;
@@ -575,6 +593,7 @@ public interface StatusBarIconController {
             return ModernStatusBarMobileView
                     .constructAndBind(
                             mobileContext,
+                            mMobileIconsViewModel.getLogger(),
                             slot,
                             mMobileIconsViewModel.viewModelForSub(subId, mLocation)
                         );
@@ -586,13 +605,6 @@ public interface StatusBarIconController {
 
         protected void destroy() {
             mGroup.removeAllViews();
-        }
-
-        protected void onIconExternal(int viewIndex, int height) {
-            ImageView imageView = (ImageView) mGroup.getChildAt(viewIndex);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setAdjustViewBounds(true);
-            setHeightAndCenter(imageView, height);
         }
 
         protected void onDensityOrFontScaleChanged() {
