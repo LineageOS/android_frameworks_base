@@ -297,8 +297,6 @@ public final class NotificationPanelViewController implements Dumpable {
     private static final String COUNTER_PANEL_OPEN = "panel_open";
     public static final String COUNTER_PANEL_OPEN_QS = "panel_open_qs";
     private static final String COUNTER_PANEL_OPEN_PEEK = "panel_open_peek";
-    private static final String STATUS_BAR_QUICK_QS_PULLDOWN =
-            "lineagesystem:" + LineageSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN;
     private static final String DOUBLE_TAP_SLEEP_GESTURE =
             "lineagesystem:" + LineageSettings.System.DOUBLE_TAP_SLEEP_GESTURE;
     private static final Rect M_DUMMY_DIRTY_RECT = new Rect(0, 0, 1, 1);
@@ -537,8 +535,6 @@ public final class NotificationPanelViewController implements Dumpable {
 
     private final ContentResolver mContentResolver;
     private float mMinFraction;
-
-    private int mOneFingerQuickSettingsIntercept;
 
     private final KeyguardMediaController mKeyguardMediaController;
 
@@ -4500,7 +4496,6 @@ public final class NotificationPanelViewController implements Dumpable {
             mStatusBarStateController.addCallback(mStatusBarStateListener);
             mStatusBarStateListener.onStateChanged(mStatusBarStateController.getState());
             mConfigurationController.addCallback(mConfigurationListener);
-            mTunerService.addTunable(this, STATUS_BAR_QUICK_QS_PULLDOWN);
             mTunerService.addTunable(this, DOUBLE_TAP_SLEEP_GESTURE);
             // Theme might have changed between inflating this view and attaching it to the
             // window, so
@@ -4524,9 +4519,7 @@ public final class NotificationPanelViewController implements Dumpable {
 
         @Override
         public void onTuningChanged(String key, String newValue) {
-            if (STATUS_BAR_QUICK_QS_PULLDOWN.equals(key)) {
-                mOneFingerQuickSettingsIntercept = TunerService.parseInteger(newValue, 1);
-            } else if (DOUBLE_TAP_SLEEP_GESTURE.equals(key)) {
+            if (DOUBLE_TAP_SLEEP_GESTURE.equals(key)) {
                 mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
             }
         }
