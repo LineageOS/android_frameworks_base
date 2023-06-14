@@ -47,6 +47,8 @@ import javax.inject.Inject;
 
 public class ReadingModeTile extends QSTileImpl<BooleanState> {
 
+    public static final String TILE_SPEC = "reading_mode";
+
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_reader);
 
     private static final Intent DISPLAY_SETTINGS = new Intent("android.settings.DISPLAY_SETTINGS");
