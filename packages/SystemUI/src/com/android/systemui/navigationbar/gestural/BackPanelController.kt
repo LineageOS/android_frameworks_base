@@ -809,7 +809,7 @@ class BackPanelController internal constructor(
             GestureState.COMMITTED -> {
                 // When flung, trigger back immediately but don't fire again
                 // once state resolves to committed.
-                if (previousState != GestureState.FLUNG) backCallback.triggerBack()
+                if (previousState != GestureState.FLUNG) backCallback.triggerBack(false)
             }
             GestureState.ENTRY,
             GestureState.INACTIVE -> {
