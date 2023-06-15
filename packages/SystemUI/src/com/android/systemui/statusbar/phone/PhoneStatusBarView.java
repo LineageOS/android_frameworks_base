@@ -105,7 +105,8 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
                     R.dimen.rounded_corner_content_padding,
                     R.dimen.floating_rotation_button_taskbar_left_margin,
                     R.dimen.floating_rotation_button_taskbar_bottom_margin,
-                    R.dimen.floating_rotation_button_diameter, R.dimen.key_button_ripple_max_width);
+                    R.dimen.floating_rotation_button_diameter, R.dimen.key_button_ripple_max_width,
+                    R.bool.floating_rotation_button_position_left);
 
             mRotationButtonController = new RotationButtonController(lightContext, lightIconColor,
                     darkIconColor, R.drawable.ic_sysbar_rotate_button_ccw_start_0,
