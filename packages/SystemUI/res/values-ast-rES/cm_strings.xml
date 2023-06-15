@@ -33,6 +33,7 @@
     <string name="global_action_restart_fastboot_progress">Reaniciando al mou fastbootd\u2026</string>
     <string name="global_action_current_user">Actual</string>
     <string name="global_action_users">Usuarios</string>
+    <string name="drag_or_tap_to_add_tiles">Ten primío ya arrastra o calca nes caxelles p\'amestales</string>
     <string name="quick_settings_ambient_display_label">Visualización d\'ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Visualización d\'ambiente activada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Visualización d\'ambiente desactivada.</string>

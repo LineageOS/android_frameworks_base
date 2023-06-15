@@ -18,6 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">الساعة</string>
     <string name="global_action_restart_more">إعادة تشغيل\u2026</string>
     <string name="global_action_restart_system">النظام</string>
     <string name="global_action_restart_recovery">الاسترداد</string>
