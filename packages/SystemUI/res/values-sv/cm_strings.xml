@@ -24,6 +24,7 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display avslagen.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display påslagen.</string>
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD avstängd\nBatterisparfunktion</string>
     <string name="quick_settings_caffeine_label">Koffein</string>
     <string name="accessibility_quick_settings_caffeine_off">Koffein av.</string>
     <string name="accessibility_quick_settings_caffeine_on">Koffein på.</string>
@@ -34,8 +35,10 @@
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up påslaget.</string>
     <string name="global_screenshot_selector_capture_description">Fånga delvis skärmbild</string>
     <string name="global_screenshot_selector_cancel_description">Avbryt fångandet av delvis skärmbild</string>
-    <string name="quick_settings_powershare_label">Trådlös strömdelning</string>
-    <string name="quick_settings_powershare_off_powersave_label">Trådlös strömdelning av\nStrömsparläge</string>
+    <string name="quick_settings_powershare_label">Trådlös PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Trådlös PowerShare av\nStrömsparläge</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Trådlös PowerShare avstängd\nLåg batterinivå</string>
+    <string name="quick_settings_powershare_enabled_label">Trådlös PowerShare är aktiverad</string>
     <string name="quick_settings_reading_mode">Läsläge</string>
     <string name="accessibility_quick_settings_reading_mode_on">Läsläge på.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Läsläge av.</string>
@@ -78,4 +81,7 @@
     <string name="status_bar_camera">Kamera</string>
     <string name="status_bar_location">Position</string>
     <string name="status_bar_microphone">Mikrofon</string>
+    <string name="screen_pinning_description_no_navbar">Detta håller den synlig tills du frigör den. Tryck och håll nere bakåtknappen för att frigöra.</string>
+    <string name="screen_pinning_toast_no_navbar">Tryck &amp; håll in bakåtknappen för att ta bort den här rutan</string>
+    <string name="battery_notification_channel_tv">Batterivarning</string>
 </resources>
