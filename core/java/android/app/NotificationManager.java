@@ -308,6 +308,12 @@ public class NotificationManager {
      */
     public static final int IMPORTANCE_MAX = 5;
 
+    /**
+     * Maximum length of the component name of a registered NotificationListenerService.
+     * @hide
+     */
+    public static int MAX_SERVICE_COMPONENT_NAME_LENGTH = 500;
+
     private static INotificationManager sService;
 
     /** @hide */
