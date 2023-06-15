@@ -486,7 +486,7 @@ public class NavigationBarController implements
      * @return whether there is a soft nav bar on specific display.
      */
     private boolean hasSoftNavigationBar(Context context, int displayId) {
-        if (displayId == DEFAULT_DISPLAY &&
+        if (displayId == mDisplayTracker.getDefaultDisplayId() &&
                 LineageSettings.System.getIntForUser(context.getContentResolver(),
                         LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
                         UserHandle.USER_CURRENT) == 1) {
