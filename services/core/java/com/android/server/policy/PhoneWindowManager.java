@@ -1633,16 +1633,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void backLongPress() {
-        mBackKeyHandled = true;
+        if (hasLongPressOnBackBehavior()) {
+            mBackKeyHandled = true;
 
-        long now = SystemClock.uptimeMillis();
-        KeyEvent event = new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
-                KEYCODE_BACK, 0, 0, KeyCharacterMap.VIRTUAL_KEYBOARD, 0,
-                KeyEvent.FLAG_FROM_SYSTEM, InputDevice.SOURCE_KEYBOARD);
+            long now = SystemClock.uptimeMillis();
+            KeyEvent event = new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
+                    KEYCODE_BACK, 0, 0, KeyCharacterMap.VIRTUAL_KEYBOARD, 0,
+                    KeyEvent.FLAG_FROM_SYSTEM, InputDevice.SOURCE_KEYBOARD);
 
-        performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
-                "Back - Long Press");
-        performKeyAction(mBackLongPressAction, event);
+            performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
+                    "Back - Long Press");
+            performKeyAction(mBackLongPressAction, event);
+        }
     }
 
     private void accessibilityShortcutActivated() {
