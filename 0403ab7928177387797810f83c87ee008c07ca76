@@ -16,6 +16,24 @@
       "message": "line length",
       "revId": "0403ab7928177387797810f83c87ee008c07ca76",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e0645ea_e7ececfd",
+        "filename": "services/core/java/com/android/server/wm/AppTransition.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-06-18T11:54:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "940fdf69_be1d0f62",
+      "revId": "0403ab7928177387797810f83c87ee008c07ca76",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
