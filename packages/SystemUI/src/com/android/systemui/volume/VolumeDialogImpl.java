@@ -1290,7 +1290,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                 Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
                 String packageName = isMediaControllerAvailable()
                         ? getActiveLocalMediaController().getPackageName() : "";
-                mMediaOutputDialogFactory.create(packageName, true, mDialogView);
+                mMediaOutputDialogFactory.create(packageName, true, null);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
             });
         }
