@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08063b48_26a0f8df",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-06-19T09:27:53Z",
+      "side": 1,
+      "message": "Only this part is our addition, are you sure that `mBackKeyHandled \u003d true;` shouldn\u0027t be outside if check?",
+      "range": {
+        "startLine": 1462,
+        "startChar": 0,
+        "endLine": 1469,
+        "endChar": 58
+      },
+      "revId": "b95f615673404c1be1ce8e101a68f2de1d49309f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
