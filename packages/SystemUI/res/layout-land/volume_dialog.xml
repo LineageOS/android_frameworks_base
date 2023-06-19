@@ -25,7 +25,7 @@
     android:background="@android:color/transparent"
     android:theme="@style/volume_dialog_theme">
 
-    <LinearLayout
+    <com.android.systemui.animation.view.LaunchableLinearLayout
         android:id="@+id/volume_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                 android:layout_gravity="center"
                 android:soundEffectsEnabled="false" />
         </FrameLayout>
-    </LinearLayout>
+    </com.android.systemui.animation.view.LaunchableLinearLayout>
 
     <ViewStub
         android:id="@+id/odi_captions_tooltip_stub"
