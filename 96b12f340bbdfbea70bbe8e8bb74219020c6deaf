@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78445e96_92e81002",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2023-06-20T13:48:44Z",
+      "side": 1,
+      "message": "necessary because of https://github.com/LineageOS/android_frameworks_base/commit/859ccdbdb95959a2edf7e9748aa7d069d40ddd1f",
+      "revId": "96b12f340bbdfbea70bbe8e8bb74219020c6deaf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
