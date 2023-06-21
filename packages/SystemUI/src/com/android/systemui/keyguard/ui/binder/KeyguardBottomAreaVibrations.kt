@@ -17,6 +17,7 @@
 package com.android.systemui.keyguard.ui.binder
 
 import android.os.VibrationEffect
+import com.android.systemui.statusbar.VibratorHelper
 import kotlin.time.Duration.Companion.milliseconds
 
 object KeyguardBottomAreaVibrations {
@@ -27,6 +28,14 @@ object KeyguardBottomAreaVibrations {
     private const val SmallVibrationScale = 0.3f
     private const val BigVibrationScale = 0.6f
 
+    val vibratorHelper: VibratorHelper? = null
+    val areAllPrimitivesSupported = vibratorHelper?.areAllPrimitivesSupported(
+            VibrationEffect.Composition.PRIMITIVE_TICK,
+            VibrationEffect.Composition.PRIMITIVE_QUICK_RISE,
+            VibrationEffect.Composition.PRIMITIVE_QUICK_FALL
+        ) ?: false
+
+    val ShakeAlt = VibrationEffect.createPredefined(VibrationEffect.EFFECT_DOUBLE_CLICK)
     val Shake =
         VibrationEffect.startComposition()
             .apply {
@@ -45,6 +54,7 @@ object KeyguardBottomAreaVibrations {
             }
             .compose()
 
+    val ActivatedAlt = VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK)
     val Activated =
         VibrationEffect.startComposition()
             .addPrimitive(
@@ -59,6 +69,7 @@ object KeyguardBottomAreaVibrations {
             )
             .compose()
 
+    val DeactivatedAlt = VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK)
     val Deactivated =
         VibrationEffect.startComposition()
             .addPrimitive(
