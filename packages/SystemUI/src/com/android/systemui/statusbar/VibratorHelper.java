@@ -124,6 +124,15 @@ public class VibratorHelper {
     }
 
     /**
+     * @see areAllPrimitivesSupported#hasVibrator()
+     */
+    public boolean areAllPrimitivesSupported(
+        @NonNull @VibrationEffect.Composition.PrimitiveType int... primitiveIds) {
+        return mVibrator != null &&
+            mVibrator.areAllPrimitivesSupported(primitiveIds);
+    }
+
+    /**
      * @see Vibrator#cancel()
      */
     public void cancel() {
