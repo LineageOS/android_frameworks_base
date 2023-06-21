@@ -276,7 +276,12 @@ object KeyguardBottomAreaViewBinder {
                             isVisible ->
                             settingsMenu.animateVisibility(visible = isVisible)
                             if (isVisible) {
-                                vibratorHelper?.vibrate(KeyguardBottomAreaVibrations.Activated)
+                                vibratorHelper?.vibrate(
+                                    if (KeyguardBottomAreaVibrations.areAllPrimitivesSupported) {
+                                        KeyguardBottomAreaVibrations.Activated
+                                    } else {
+                                        KeyguardBottomAreaVibrations.ActivatedAlt
+                                    })
                                 settingsMenu.setOnTouchListener(
                                     KeyguardSettingsButtonOnTouchListener(
                                         viewModel = viewModel.settingsMenuViewModel,
@@ -443,7 +448,12 @@ object KeyguardBottomAreaViewBinder {
                     shakeAnimator.doOnEnd { view.translationX = 0f }
                     shakeAnimator.start()
 
-                    vibratorHelper?.vibrate(KeyguardBottomAreaVibrations.Shake)
+                    vibratorHelper?.vibrate(
+                        if (KeyguardBottomAreaVibrations.areAllPrimitivesSupported) {
+                            KeyguardBottomAreaVibrations.Shake
+                        } else {
+                            KeyguardBottomAreaVibrations.ShakeAlt
+                        })
                 }
                 view.onLongClickListener =
                     OnLongClickListener(falsingManager, viewModel, vibratorHelper, onTouchListener)
@@ -513,9 +523,17 @@ object KeyguardBottomAreaViewBinder {
                 )
                 vibratorHelper?.vibrate(
                     if (viewModel.isActivated) {
-                        KeyguardBottomAreaVibrations.Activated
+                        if (KeyguardBottomAreaVibrations.areAllPrimitivesSupported) {
+                            KeyguardBottomAreaVibrations.Activated
+                        } else {
+                            KeyguardBottomAreaVibrations.ActivatedAlt
+                        }
                     } else {
-                        KeyguardBottomAreaVibrations.Deactivated
+                        if (KeyguardBottomAreaVibrations.areAllPrimitivesSupported) {
+                            KeyguardBottomAreaVibrations.Deactivated
+                        } else {
+                            KeyguardBottomAreaVibrations.DeactivatedAlt
+                        }
                     }
                 )
             }
