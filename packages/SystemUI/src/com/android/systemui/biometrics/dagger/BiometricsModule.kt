@@ -16,6 +16,8 @@
 
 package com.android.systemui.biometrics.dagger
 
+import android.content.Context
+
 import com.android.settingslib.udfps.UdfpsUtils
 import com.android.systemui.biometrics.data.repository.FacePropertyRepository
 import com.android.systemui.biometrics.data.repository.FacePropertyRepositoryImpl
@@ -38,6 +40,8 @@ import com.android.systemui.biometrics.domain.interactor.SideFpsOverlayInteracto
 import com.android.systemui.biometrics.domain.interactor.PromptSelectorInteractor
 import com.android.systemui.biometrics.domain.interactor.PromptSelectorInteractorImpl
 import com.android.systemui.dagger.SysUISingleton
+import com.android.systemui.biometrics.FingerprintInteractiveToAuthProvider
+import com.android.systemui.biometrics.FingerprintInteractiveToAuthProviderImpl
 import com.android.systemui.util.concurrency.ThreadFactory
 import dagger.Binds
 import dagger.Module
@@ -103,6 +107,10 @@ interface BiometricsModule {
 
         @Provides
         fun providesUdfpsUtils(): UdfpsUtils = UdfpsUtils()
+
+        @Provides
+        fun providesFingerprintInteractiveToAuth(ctx: Context): FingerprintInteractiveToAuthProvider =
+            FingerprintInteractiveToAuthProviderImpl(ctx);
     }
 }
 
