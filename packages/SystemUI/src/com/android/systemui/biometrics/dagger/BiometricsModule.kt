@@ -16,7 +16,10 @@
 
 package com.android.systemui.biometrics.dagger
 
+import android.content.Context
 import com.android.systemui.dagger.SysUISingleton
+import com.android.systemui.biometrics.FingerprintInteractiveToAuthProvider
+import com.android.systemui.biometrics.FingerprintInteractiveToAuthProviderImpl
 import com.android.systemui.util.concurrency.ThreadFactory
 import dagger.Module
 import dagger.Provides
@@ -36,6 +39,10 @@ object BiometricsModule {
     @BiometricsBackground
     fun providesPluginExecutor(threadFactory: ThreadFactory): Executor =
         threadFactory.buildExecutorOnNewThread("biometrics")
+
+    @Provides
+    fun providesFingerprintInteractiveToAuth(ctx: Context): FingerprintInteractiveToAuthProvider =
+        FingerprintInteractiveToAuthProviderImpl(ctx);
 }
 
 /**
