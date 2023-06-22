@@ -23,6 +23,8 @@ import com.android.launcher3.icons.IconProvider
 import com.android.systemui.CoreStartable
 import com.android.systemui.biometrics.AuthController
 import com.android.systemui.biometrics.EllipseOverlapDetectorParams
+import com.android.systemui.biometrics.FingerprintInteractiveToAuthProvider
+import com.android.systemui.biometrics.FingerprintInteractiveToAuthProviderImpl
 import com.android.systemui.biometrics.UdfpsUtils
 import com.android.systemui.biometrics.data.repository.BiometricStatusRepository
 import com.android.systemui.biometrics.data.repository.BiometricStatusRepositoryImpl
@@ -42,9 +44,12 @@ import com.android.systemui.biometrics.udfps.OverlapDetector
 import com.android.systemui.biometrics.ui.binder.DeviceEntryUnlockTrackerViewBinder
 import com.android.systemui.biometrics.ui.binder.SideFpsOverlayViewBinder
 import com.android.systemui.dagger.SysUISingleton
+import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.keyguard.ui.binder.AlternateBouncerViewBinder
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener
+import com.android.systemui.user.domain.interactor.SelectedUserInteractor
 import com.android.systemui.util.concurrency.ThreadFactory
+import com.android.systemui.util.settings.SecureSettings
 import dagger.Binds
 import dagger.BindsOptionalOf
 import dagger.Module
@@ -54,6 +59,7 @@ import dagger.multibindings.IntoMap
 import dagger.multibindings.IntoSet
 import java.util.concurrent.Executor
 import javax.inject.Qualifier
+import kotlinx.coroutines.CoroutineDispatcher
 
 /** Dagger module for all things biometric. */
 @Module
@@ -143,6 +149,20 @@ interface BiometricsModule {
                 BoundingBoxOverlapDetector(values[2])
             }
         }
+
+        @Provides
+        fun providesFingerprintInteractiveToAuth(
+            @Background backgroundDispatcher: CoroutineDispatcher,
+            context: Context,
+            secureSettings: SecureSettings,
+            selectedUserInteractor: SelectedUserInteractor,
+        ): FingerprintInteractiveToAuthProvider =
+            FingerprintInteractiveToAuthProviderImpl(
+                backgroundDispatcher,
+                context,
+                secureSettings,
+                selectedUserInteractor,
+            )
     }
 }
 
