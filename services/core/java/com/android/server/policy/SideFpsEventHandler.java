@@ -128,7 +128,11 @@ public class SideFpsEventHandler implements View.OnClickListener {
     public void notifyPowerPressed() {
         Log.i(TAG, "notifyPowerPressed");
         if (mFingerprintManager == null) {
-            mFingerprintManager = mContext.getSystemService(FingerprintManager.class);
+            try {
+                mFingerprintManager = mContext.getSystemService(FingerprintManager.class);
+            } catch (Exception ex) {
+                // No service available, we don't want to crash
+            }
         }
         if (mFingerprintManager == null) {
             return;
