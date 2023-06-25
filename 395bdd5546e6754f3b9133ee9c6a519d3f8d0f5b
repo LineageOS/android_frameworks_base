@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa374a4c_51601b2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3917
+      },
+      "writtenOn": "2023-06-25T15:44:05Z",
+      "side": 1,
+      "message": "Fixes unlock issue when AlwaysOn screen and PIN entry enabled. Before this, it was somehow locked up",
+      "revId": "395bdd5546e6754f3b9133ee9c6a519d3f8d0f5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
