@@ -16,6 +16,23 @@
       "message": "R.bool.config_performantAuthDefault -\u003e com.android.internal.R.bool.config_performantAuthDefault",
       "revId": "eb4c0638640761805c68c004996199598bf7891f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87ed5f49_3822a1a2",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2431,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2023-06-28T15:22:04Z",
+      "side": 1,
+      "message": "By default config_performantAuthDefault is false, So the check should be in reverse.",
+      "revId": "eb4c0638640761805c68c004996199598bf7891f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
