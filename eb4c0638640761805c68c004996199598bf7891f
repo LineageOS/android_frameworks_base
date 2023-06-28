@@ -105,6 +105,24 @@
       "parentUuid": "646844af_1c2023f2",
       "revId": "eb4c0638640761805c68c004996199598bf7891f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3488709c_853b4a7f",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2431,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-06-28T18:08:07Z",
+      "side": 1,
+      "message": "Yes, you need to set it if your device sensor supports direct wake and unlock. For example razer phones do not support it.",
+      "parentUuid": "7e9fe7f2_83583892",
+      "revId": "eb4c0638640761805c68c004996199598bf7891f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
