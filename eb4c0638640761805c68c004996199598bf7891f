@@ -69,6 +69,24 @@
       "parentUuid": "fbccb639_dc873568",
       "revId": "eb4c0638640761805c68c004996199598bf7891f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "646844af_1c2023f2",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2431,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2023-06-28T17:16:26Z",
+      "side": 1,
+      "message": "nvm, didn\u0027t see this change https://review.lineageos.org/c/LineageOS/android_packages_apps_Settings/+/360469\nthis means all sfps devices need to set this prop right?",
+      "parentUuid": "d56dd8f2_302167e7",
+      "revId": "eb4c0638640761805c68c004996199598bf7891f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
