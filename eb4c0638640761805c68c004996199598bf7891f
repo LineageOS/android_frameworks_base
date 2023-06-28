@@ -51,6 +51,24 @@
       "parentUuid": "87ed5f49_3822a1a2",
       "revId": "eb4c0638640761805c68c004996199598bf7891f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d56dd8f2_302167e7",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2431,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2023-06-28T17:13:59Z",
+      "side": 1,
+      "message": "Setting it true will hide the option.\nhttps://github.com/LineageOS/android_packages_apps_Settings/blob/lineage-20.0/src/com/android/settings/biometrics/fingerprint/FingerprintSettings.java#L356",
+      "parentUuid": "fbccb639_dc873568",
+      "revId": "eb4c0638640761805c68c004996199598bf7891f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
