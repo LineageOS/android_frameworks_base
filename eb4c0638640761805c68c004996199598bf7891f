@@ -33,6 +33,24 @@
       "message": "By default config_performantAuthDefault is false, So the check should be in reverse.",
       "revId": "eb4c0638640761805c68c004996199598bf7891f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbccb639_dc873568",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2431,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-06-28T15:46:51Z",
+      "side": 1,
+      "message": "If your device supports the feature you should set config_performantAuthDefault",
+      "parentUuid": "87ed5f49_3822a1a2",
+      "revId": "eb4c0638640761805c68c004996199598bf7891f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
