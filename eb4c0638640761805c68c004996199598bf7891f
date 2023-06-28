@@ -123,6 +123,24 @@
       "parentUuid": "7e9fe7f2_83583892",
       "revId": "eb4c0638640761805c68c004996199598bf7891f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ec18980_879ab932",
+        "filename": "packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2431,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2023-06-28T18:23:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be in reverse?, Most devices supports this. Only 2-3 devices doesn\u0027t support it. All other devices will have to set this config now. Razer already set a similar config before.",
+      "parentUuid": "3488709c_853b4a7f",
+      "revId": "eb4c0638640761805c68c004996199598bf7891f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
