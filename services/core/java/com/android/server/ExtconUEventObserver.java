@@ -107,6 +107,7 @@ public abstract class ExtconUEventObserver extends UEventObserver {
         public static final String EXTCON_MICROPHONE = "MICROPHONE";
         public static final String EXTCON_HEADPHONE = "HEADPHONE";
 
+        public static final String EXTCON_DP = "DP";
         public static final String EXTCON_HDMI = "HDMI";
         public static final String EXTCON_MHL = "MHL";
         public static final String EXTCON_DVI = "DVI";
