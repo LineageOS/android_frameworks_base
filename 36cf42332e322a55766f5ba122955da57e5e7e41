@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f04c8f3d_bcbf5698",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/startingsurface/StartingSurfaceDrawer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:55:24Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "36cf42332e322a55766f5ba122955da57e5e7e41",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868fdadc_b018d104",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/startingsurface/StartingSurfaceDrawer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:55:24Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "36cf42332e322a55766f5ba122955da57e5e7e41",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba1197b5_76555e6a",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/startingsurface/StartingSurfaceDrawer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:55:24Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "36cf42332e322a55766f5ba122955da57e5e7e41",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebea5ad3_a356898d",
+        "filename": "libs/WindowManager/Shell/src/com/android/wm/shell/startingsurface/StartingSurfaceDrawer.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-07-07T19:55:24Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "36cf42332e322a55766f5ba122955da57e5e7e41",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
