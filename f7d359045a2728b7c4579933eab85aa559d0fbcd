@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f01e6239_a38d9a36",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2023-07-10T19:16:30Z",
+      "side": 1,
+      "message": "Tested working for me, but it might be helpful if at least one more person could verify as well that apps maintain their \"Allow network access\" toggle status before and after this migration (e.g., turn off for an app, upgrade to this, check and make sure it\u0027s still off and has no network access).",
+      "revId": "f7d359045a2728b7c4579933eab85aa559d0fbcd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
