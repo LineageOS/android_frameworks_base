@@ -102,8 +102,8 @@ public abstract class RemovalClient<S extends BiometricAuthenticator.Identifier,
                 // cleanup).
                 mAuthenticatorIds.put(getTargetUserId(), 0L);
             }
-            mCallback.onClientFinished(this, true /* success */);
         }
+        mCallback.onClientFinished(this, true /* success */);
     }
 
     @Override
