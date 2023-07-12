@@ -28,6 +28,7 @@ import android.app.usage.UsageStatsManagerInternal;
 import android.appwidget.AppWidgetProviderInfo;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.ContentProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -104,6 +105,7 @@ import com.android.internal.util.StatLogger;
 import com.android.server.LocalServices;
 import com.android.server.SystemService;
 import com.android.server.pm.ShortcutUser.PackageWithUser;
+import com.android.server.uri.UriGrantsManagerInternal;
 
 import libcore.io.IoUtils;
 
@@ -320,6 +322,7 @@ public class ShortcutService extends IShortcutService.Stub {
     private final UserManagerInternal mUserManagerInternal;
     private final UsageStatsManagerInternal mUsageStatsManagerInternal;
     private final ActivityManagerInternal mActivityManagerInternal;
+    private final UriGrantsManagerInternal mUriGrantsManagerInternal;
 
     private final ShortcutRequestPinProcessor mShortcutRequestPinProcessor;
     private final ShortcutBitmapSaver mShortcutBitmapSaver;
@@ -441,6 +444,8 @@ public class ShortcutService extends IShortcutService.Stub {
                 LocalServices.getService(UsageStatsManagerInternal.class));
         mActivityManagerInternal = Preconditions.checkNotNull(
                 LocalServices.getService(ActivityManagerInternal.class));
+        mUriGrantsManagerInternal = Preconditions.checkNotNull(
+                LocalServices.getService(UriGrantsManagerInternal.class));
 
         mShortcutRequestPinProcessor = new ShortcutRequestPinProcessor(this, mLock);
         mShortcutBitmapSaver = new ShortcutBitmapSaver(this);
@@ -1693,9 +1698,30 @@ public class ShortcutService extends IShortcutService.Stub {
         }
         if (shortcut.getIcon() != null) {
             ShortcutInfo.validateIcon(shortcut.getIcon());
+            validateIconURI(shortcut);
         }
 
         shortcut.replaceFlags(0);
+    }
+
+    // Validates the calling process has permission to access shortcut icon's image uri
+    private void validateIconURI(@NonNull final ShortcutInfo si) {
+        final int callingUid = injectBinderCallingUid();
+        final Icon icon = si.getIcon();
+        if (icon == null) {
+            // There's no icon in this shortcut, nothing to validate here.
+            return;
+        }
+        int iconType = icon.getType();
+        if (iconType != Icon.TYPE_URI) {
+            // The icon is not URI-based, nothing to validate.
+            return;
+        }
+        final Uri uri = icon.getUri();
+        mUriGrantsManagerInternal.checkGrantUriPermission(callingUid, si.getPackage(),
+                ContentProvider.getUriWithoutUserId(uri),
+                Intent.FLAG_GRANT_READ_URI_PERMISSION,
+                ContentProvider.getUserIdFromUri(uri, UserHandle.getUserId(callingUid)));
     }
 
     private void fixUpIncomingShortcutInfo(@NonNull ShortcutInfo shortcut, boolean forUpdate) {
