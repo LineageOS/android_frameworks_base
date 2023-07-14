@@ -137,7 +137,7 @@ class BackPanelControllerTest : SysuiTestCase() {
         finishTouchActionUp(START_X + touchSlop + triggerThreshold + 1)
         assertThat(mBackPanelController.currentState)
             .isEqualTo(BackPanelController.GestureState.COMMITTED)
-        verify(backCallback).triggerBack()
+        verify(backCallback).triggerBack(false)
 
         // Because the Handler that is typically used for transitioning the arrow state from
         // COMMITTED to GONE is used as an animation-end-listener on a SpringAnimation,
