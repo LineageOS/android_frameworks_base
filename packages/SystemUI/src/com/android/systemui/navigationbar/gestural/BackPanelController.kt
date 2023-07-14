@@ -188,6 +188,10 @@ internal constructor(
 
     private val failsafeRunnable = Runnable { onFailsafe() }
 
+    private var longSwipeThreshold = 0f
+    private var triggerLongSwipe = false
+    private var isLongSwipeEnabled = false
+
     internal enum class GestureState {
         /* Arrow is off the screen and invisible */
         GONE,
@@ -312,13 +316,16 @@ internal constructor(
                 startIsLeft = mView.isLeftPanel
                 hasPassedDragSlop = false
                 mView.resetStretch()
+                mView.setTriggerLongSwipe(false)
             }
             MotionEvent.ACTION_MOVE -> {
                 if (dragSlopExceeded(event.x, startX)) {
+                    mView.setTriggerLongSwipe(triggerLongSwipe)
                     handleMoveEvent(event)
                 }
             }
             MotionEvent.ACTION_UP -> {
+                mView.setTriggerLongSwipe(triggerLongSwipe)
                 when (currentState) {
                     GestureState.ENTRY -> {
                         if (
@@ -376,6 +383,7 @@ internal constructor(
                 velocityTracker = null
             }
             MotionEvent.ACTION_CANCEL -> {
+                mView.setTriggerLongSwipe(triggerLongSwipe)
                 // Receiving a CANCEL implies that something else intercepted
                 // the gesture, i.e., the user did not cancel their gesture.
                 // Therefore, disappear immediately, with minimum fanfare.
@@ -474,6 +482,8 @@ internal constructor(
         // occurs between the screen edge and the touch start.
         val xTranslation = max(0f, if (mView.isLeftPanel) x - startX else startX - x)
 
+        val isLongSwipe = MathUtils.abs(xTranslation) > longSwipeThreshold
+
         // Compared to last time, how far we moved in the x direction. If <0, we are moving closer
         // to the edge. If >0, we are moving further from the edge
         val xDelta = xTranslation - previousXTranslation
@@ -518,6 +528,8 @@ internal constructor(
                 else -> {}
             }
         }
+
+        if (isLongSwipeEnabled) setTriggerLongSwipe(isLongSwipe)
 
         setArrowStrokeAlpha(gestureProgress)
         setVerticalTranslation(yOffset)
@@ -673,6 +685,28 @@ internal constructor(
     override fun setLayoutParams(layoutParams: WindowManager.LayoutParams) {
         this.layoutParams = layoutParams
         windowManager.addView(mView, layoutParams)
+    }
+
+    override fun setLongSwipeEnabled(enabled: Boolean) {
+        longSwipeThreshold = if (enabled) MathUtils.min(
+                displaySize.x * 0.5f, layoutParams.width * 2.5f) else 0.0f
+        isLongSwipeEnabled = longSwipeThreshold > 0
+        setTriggerLongSwipe(isLongSwipeEnabled && triggerLongSwipe)
+    }
+
+    private fun setTriggerLongSwipe(enabled: Boolean) {
+        if (triggerLongSwipe != enabled) {
+            triggerLongSwipe = enabled
+            vibratorHelper.vibrate(VIBRATE_ACTIVATED_EFFECT)
+            updateRestingArrowDimens()
+            // Whenever the trigger back state changes
+            // the existing translation animation should be cancelled
+            cancelFailsafe()
+            mView.cancelAnimations()
+            mView.setTriggerLongSwipe(triggerLongSwipe)
+            updateConfiguration()
+            backCallback.setTriggerLongSwipe(triggerLongSwipe)
+        }
     }
 
     private fun isFlungAwayFromEdge(endX: Float, startX: Float = touchDeltaStartX): Boolean {
@@ -899,14 +933,20 @@ internal constructor(
             GestureState.COMMITTED -> {
                 // When flung, trigger back immediately but don't fire again
                 // once state resolves to committed.
-                if (previousState != GestureState.FLUNG) backCallback.triggerBack()
+                if (previousState != GestureState.FLUNG) backCallback.triggerBack(false)
             }
             GestureState.ENTRY,
             GestureState.INACTIVE -> {
+                setTriggerLongSwipe(false)
                 backCallback.setTriggerBack(false)
             }
             GestureState.ACTIVE -> {
-                backCallback.setTriggerBack(true)
+                if (triggerLongSwipe) {
+                    backCallback.triggerBack(false)
+                    backCallback.setTriggerBack(true)
+                } else {
+                    backCallback.setTriggerBack(true)
+                }
             }
             GestureState.GONE -> {}
         }
