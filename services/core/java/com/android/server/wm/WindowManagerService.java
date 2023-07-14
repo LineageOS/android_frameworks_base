@@ -374,6 +374,8 @@ public class WindowManagerService extends IWindowManager.Stub
     static final int LAYOUT_REPEAT_THRESHOLD = 4;
 
     static final boolean PROFILE_ORIENTATION = false;
+    static WindowState mFocusingWindow;
+    String mFocusingActivity;
 
     /** The maximum length we will accept for a loaded animation duration:
      * this is 10 seconds.
@@ -3441,12 +3443,28 @@ public class WindowManagerService extends IWindowManager.Stub
         ValueAnimator.setDurationScale(scale);
     }
 
+    private float animationScalesCheck (int which) {
+        float value = -1.0f;
+        if (!mAnimationsDisabled) {
+            if (value == -1.0f) {
+                switch (which) {
+                    case WINDOW_ANIMATION_SCALE: value = mWindowAnimationScaleSetting; break;
+                    case TRANSITION_ANIMATION_SCALE: value = mTransitionAnimationScaleSetting; break;
+                    case ANIMATION_DURATION_SCALE: value = mAnimatorDurationScaleSetting; break;
+                }
+            }
+        } else {
+            value = 0;
+        }
+        return value;
+    }
+
     public float getWindowAnimationScaleLocked() {
-        return mAnimationsDisabled ? 0 : mWindowAnimationScaleSetting;
+        return animationScalesCheck(WINDOW_ANIMATION_SCALE);
     }
 
     public float getTransitionAnimationScaleLocked() {
-        return mAnimationsDisabled ? 0 : mTransitionAnimationScaleSetting;
+        return animationScalesCheck(TRANSITION_ANIMATION_SCALE);
     }
 
     @Override
