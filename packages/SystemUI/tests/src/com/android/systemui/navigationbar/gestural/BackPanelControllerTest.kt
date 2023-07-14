@@ -126,7 +126,7 @@ class BackPanelControllerTest : SysuiTestCase() {
         finishTouchActionUp(START_X + touchSlop + triggerThreshold + 1)
         assertThat(mBackPanelController.currentState)
             .isEqualTo(BackPanelController.GestureState.COMMITTED)
-        verify(backCallback).triggerBack()
+        verify(backCallback).triggerBack(false)
     }
 
     @Test
@@ -152,7 +152,7 @@ class BackPanelControllerTest : SysuiTestCase() {
         finishTouchActionUp(START_X + touchSlop + triggerThreshold + 1)
         assertThat(mBackPanelController.currentState)
             .isEqualTo(BackPanelController.GestureState.COMMITTED)
-        verify(backCallback).triggerBack()
+        verify(backCallback).triggerBack(false)
     }
 
     @Test
