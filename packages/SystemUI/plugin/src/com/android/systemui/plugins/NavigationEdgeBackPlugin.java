@@ -45,6 +45,9 @@ public interface NavigationEdgeBackPlugin extends Plugin {
     /** Sets the callback that should be invoked when a Back gesture is detected. */
     void setBackCallback(BackCallback callback);
 
+    /** Specifies if the long swipe should be enabled or not. */
+    default void setLongSwipeEnabled(boolean enabled) {}
+
     /** Sets the base LayoutParams for the UI. */
     void setLayoutParams(WindowManager.LayoutParams layoutParams);
 
@@ -57,7 +60,7 @@ public interface NavigationEdgeBackPlugin extends Plugin {
     /** Callback to let the system react to the detected back gestures. */
     interface BackCallback {
         /** Indicates that a Back gesture was recognized and the system should go back. */
-        void triggerBack();
+        void triggerBack(boolean isLongPress);
 
         /** Indicates that the gesture was cancelled and the system should not go back. */
         void cancelBack();
@@ -68,5 +71,12 @@ public interface NavigationEdgeBackPlugin extends Plugin {
          * @param triggerBack if back will be triggered in current state.
          */
         void setTriggerBack(boolean triggerBack);
+
+        /**
+         * Indicates if long swipe will be triggered if committed in current state.
+         *
+         * @param triggerLongSwipe if long swipe will be triggered in current state.
+         */
+        void setTriggerLongSwipe(boolean triggerLongSwipe);
     }
 }
