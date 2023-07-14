@@ -54,6 +54,11 @@ public interface BackAnimation {
     void setTriggerBack(boolean triggerBack);
 
     /**
+     * Sets whether the back long swipe gesture is past the trigger threshold or not.
+     */
+    void setTriggerLongSwipe(boolean triggerLongSwipe);
+
+    /**
      * Sets the threshold values that define edge swipe behavior.<br>
      * <br>
      * <h1>How does {@code nonLinearFactor} work?</h1>
