@@ -637,7 +637,7 @@ public class NavigationBarEdgePanel extends View implements NavigationEdgeBackPl
     }
 
     private void triggerBack() {
-        mBackCallback.triggerBack();
+        mBackCallback.triggerBack(false);
 
         if (mVelocityTracker == null) {
             mVelocityTracker = VelocityTracker.obtain();
