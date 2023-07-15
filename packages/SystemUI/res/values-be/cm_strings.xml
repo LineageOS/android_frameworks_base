@@ -24,11 +24,8 @@
     <string name="global_action_restart_bootloader">Загрузчык</string>
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Перазапуск\u2026</string>
-    <string name="global_action_restart_recovery_progress">Перазапуск у рэжым аднаўлення\u2026</string>
-    <string name="global_action_restart_bootloader_progress">Перазапуск у рэжым загрузчыка\u2026</string>
-    <string name="global_action_restart_download_progress">Перазапуск у рэжым пампавання\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Перазапуск у рэжым fastbootd\u2026</string>
     <string name="global_action_current_user">Бягучы</string>
+    <string name="global_action_users">Карыстальнікі</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD выключаны\nЭканомія акумулятара</string>
     <string name="quick_settings_caffeine_label">Кафеін</string>
@@ -43,9 +40,7 @@
     <string name="accessibility_quick_settings_reading_mode_on">Рэжым чытання ўключаны.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Рэжым чытання выключаны.</string>
     <string name="quick_settings_sync_label">Сінхранізацыя</string>
-    <string name="accessibility_quick_settings_sync_off">Сінхранізацыя выключана</string>
     <string name="accessibility_quick_settings_sync_on">Сінхранізацыя ўключана.</string>
-    <string name="quick_settings_profiles_label">Сістэмныя профілі</string>
     <string name="accessibility_quick_settings_profiles_off">Профілі выключаны.</string>
     <string name="accessibility_quick_settings_profiles">Профіль: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
     <string name="quick_settings_usb_tether_label">USB-мадэм</string>
