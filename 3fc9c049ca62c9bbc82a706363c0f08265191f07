@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b62fbcf3_782aab8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20364
+      },
+      "writtenOn": "2023-07-15T12:52:35Z",
+      "side": 1,
+      "message": "D2TS on lockscreen is working fine for me.",
+      "revId": "3fc9c049ca62c9bbc82a706363c0f08265191f07",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
