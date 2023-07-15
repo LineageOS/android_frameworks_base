@@ -83,4 +83,5 @@
     <string name="status_bar_microphone">麥克風</string>
     <string name="screen_pinning_description_no_navbar">這會讓目前的螢幕畫面保持顯示狀態，直到取消固定為止。按住「返回」鍵即可取消固定。</string>
     <string name="screen_pinning_toast_no_navbar">要取消固定這個畫面，請按住「返回」按鈕。</string>
+    <string name="battery_notification_channel_tv">電池警告</string>
 </resources>
