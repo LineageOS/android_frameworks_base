@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ca5cfd_c2749d30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32844
+      },
+      "writtenOn": "2023-07-16T09:58:43Z",
+      "side": 1,
+      "message": "For devices with a cutout in the upper right corner, this fixes the issue of the status bar system icons collapsing prematurely.",
+      "revId": "5ea9f3d7548724f202d4a672954e88dddde02a8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
