@@ -51,6 +51,24 @@
       "parentUuid": "a301077a_20a348c5",
       "revId": "ff2fa9e11d8ecb329306ed35b20f716f2b1da299",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80d4242_d004ca36",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/FingerprintInteractiveToAuthProviderImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-07-20T15:08:03Z",
+      "side": 1,
+      "message": "Works as expected.",
+      "parentUuid": "84eb35ba_8ca41feb",
+      "revId": "ff2fa9e11d8ecb329306ed35b20f716f2b1da299",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
