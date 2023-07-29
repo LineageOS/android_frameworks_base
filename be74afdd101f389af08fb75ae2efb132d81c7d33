@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e175a303_94ba72a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-07-29T20:50:06Z",
+      "side": 1,
+      "message": "please let me know if there is interest in this commit, if there is, I can port my commit for gesture navigation + menu button as well",
+      "revId": "be74afdd101f389af08fb75ae2efb132d81c7d33",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
