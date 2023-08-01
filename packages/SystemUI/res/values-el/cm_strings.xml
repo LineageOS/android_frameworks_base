@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Κέρσορας αριστερά</string>
     <string name="accessibility_dpad_right">Κέρσορας δεξιά</string>
     <string name="status_bar_firewall">Τείχος προστασίας</string>
+    <string name="screenshot_delete_label">Διαγραφή</string>
+    <string name="screenshot_delete_description">Διαγραφή στιγμιότυπου οθόνης</string>
 </resources>

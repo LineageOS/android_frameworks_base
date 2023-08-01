@@ -65,4 +65,6 @@
     <string name="accessibility_dpad_left">Kohdistin vasemmalle</string>
     <string name="accessibility_dpad_right">Kohdistin oikealle</string>
     <string name="status_bar_firewall">Palomuuri</string>
+    <string name="screenshot_delete_label">Poista</string>
+    <string name="screenshot_delete_description">Poista kuvakaappaus</string>
 </resources>

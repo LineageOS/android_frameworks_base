@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Курсор влево</string>
     <string name="accessibility_dpad_right">Курсор вправо</string>
     <string name="status_bar_firewall">Брандмауэр</string>
+    <string name="screenshot_delete_label">Удалить</string>
+    <string name="screenshot_delete_description">Удалить скриншот</string>
 </resources>

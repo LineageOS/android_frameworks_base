@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Cursor stânga</string>
     <string name="accessibility_dpad_right">Cursor dreapta</string>
     <string name="status_bar_firewall">Firewall</string>
+    <string name="screenshot_delete_label">Șterge</string>
+    <string name="screenshot_delete_description">Ștergeți captura de ecran</string>
 </resources>

@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">カーソルを左へ</string>
     <string name="accessibility_dpad_right">カーソルを右へ</string>
     <string name="status_bar_firewall">ファイアウォール</string>
+    <string name="screenshot_delete_label">削除</string>
+    <string name="screenshot_delete_description">スクリーンショットを削除</string>
 </resources>

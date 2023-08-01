@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Kazalec levo</string>
     <string name="accessibility_dpad_right">Kazalec desno</string>
     <string name="status_bar_firewall">Požarni zid</string>
+    <string name="screenshot_delete_label">Izbriši</string>
+    <string name="screenshot_delete_description">Izbriši zaslonsko sliko</string>
 </resources>

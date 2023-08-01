@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Cursor links</string>
     <string name="accessibility_dpad_right">Cursor rechts</string>
     <string name="status_bar_firewall">Firewall</string>
+    <string name="screenshot_delete_label">Verwijder</string>
+    <string name="screenshot_delete_description">Verwijder screenshot</string>
 </resources>

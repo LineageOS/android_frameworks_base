@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Cursor esquerra</string>
     <string name="accessibility_dpad_right">Cursor dreta</string>
     <string name="status_bar_firewall">Tallafoc</string>
+    <string name="screenshot_delete_label">Suprimeix</string>
+    <string name="screenshot_delete_description">Suprimeix la captura</string>
 </resources>
