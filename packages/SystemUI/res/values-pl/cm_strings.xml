@@ -81,7 +81,7 @@
     <string name="status_bar_camera">Aparat</string>
     <string name="status_bar_location">Lokalizacja</string>
     <string name="status_bar_microphone">Mikrofon</string>
-    <string name="screen_pinning_description_no_navbar">Ekran będzie widoczny, dopóki go nie odepniesz. Dotknij i przytrzymaj Wstecz, aby odpiąć.</string>
+    <string name="screen_pinning_description_no_navbar">Ekran będzie widoczny, dopóki go nie odepniesz. Dotknij i przytrzymaj \"Wstecz\", aby odpiąć.</string>
     <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, dotknij i przytrzymaj przycisk Wstecz</string>
     <string name="battery_notification_channel_tv">Ostrzeżenie dotyczące baterii</string>
 </resources>
