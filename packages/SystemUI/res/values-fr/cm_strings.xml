@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Curseur gauche</string>
     <string name="accessibility_dpad_right">Curseur droit</string>
     <string name="status_bar_firewall">Pare-feu</string>
+    <string name="screenshot_delete_label">Supprimer</string>
+    <string name="screenshot_delete_description">Supprimer la capture d\'écran</string>
 </resources>
