@@ -1240,8 +1240,7 @@ public class NotificationStackScrollLayoutController {
                 // Hide empty shade view when in transition to Keyguard.
                 // That avoids "No Notifications" to blink when transitioning to AOD.
                 // For more details, see: b/228790482
-                && !isInTransitionToKeyguard()
-                && !mCentralSurfaces.isBouncerShowing();
+                && !isInTransitionToKeyguard();
 
         mView.updateEmptyShadeView(shouldShow, mZenModeController.areNotificationsHiddenInShade());
 

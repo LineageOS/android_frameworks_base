@@ -81,14 +81,12 @@ public class InsetsPolicyTest extends WindowTestsBase {
     }
 
     @Test
-    public void testControlsForDispatch_adjacentTasksVisible() {
+    public void testControlsForDispatch_multiWindowTaskVisible() {
         addWindow(TYPE_STATUS_BAR, "statusBar");
         addWindow(TYPE_NAVIGATION_BAR, "navBar");
 
-        final Task task1 = createTask(mDisplayContent);
-        final Task task2 = createTask(mDisplayContent);
-        task1.setAdjacentTaskFragment(task2);
-        final WindowState win = createAppWindow(task1, WINDOWING_MODE_MULTI_WINDOW, "app");
+        final WindowState win = createWindow(null, WINDOWING_MODE_MULTI_WINDOW,
+                ACTIVITY_TYPE_STANDARD, TYPE_APPLICATION, mDisplayContent, "app");
         final InsetsSourceControl[] controls = addWindowAndGetControlsForDispatch(win);
 
         // The app must not control any system bars.
