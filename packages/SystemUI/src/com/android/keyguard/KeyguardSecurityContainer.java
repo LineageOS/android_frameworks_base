@@ -32,6 +32,8 @@ import android.widget.FrameLayout;
 
 import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
+import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+import com.android.systemui.Dependency;
 
 public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSecurityView {
     private static final boolean DEBUG = KeyguardConstants.DEBUG;
@@ -49,6 +51,8 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
     private SecurityMode mCurrentSecuritySelection = SecurityMode.Invalid;
     private SecurityCallback mSecurityCallback;
     private AlertDialog mAlertDialog;
+
+    private final DeviceProvisionedController mDeviceProvisionedController;
 
     private final KeyguardUpdateMonitor mUpdateMonitor;
 
@@ -81,6 +85,7 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
         mSecurityModel = new KeyguardSecurityModel(context);
         mLockPatternUtils = new LockPatternUtils(context);
         mUpdateMonitor = KeyguardUpdateMonitor.getInstance(mContext);
+        mDeviceProvisionedController = Dependency.get(DeviceProvisionedController.class);
     }
 
     public void setSecurityCallback(SecurityCallback callback) {
@@ -351,8 +356,11 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
                 case SimPuk:
                     // Shortcut for SIM PIN/PUK to go to directly to user's security screen or home
                     SecurityMode securityMode = mSecurityModel.getSecurityMode(targetUserId);
-                    if (securityMode == SecurityMode.None || mLockPatternUtils.isLockScreenDisabled(
-                            KeyguardUpdateMonitor.getCurrentUser())) {
+                    boolean isLockscreenDisabled = mLockPatternUtils.isLockScreenDisabled(
+                            KeyguardUpdateMonitor.getCurrentUser())
+                            || !mDeviceProvisionedController.isUserSetup(targetUserId);
+
+                    if (securityMode == SecurityMode.None && isLockscreenDisabled) {
                         finish = true;
                     } else {
                         showSecurityScreen(securityMode);
