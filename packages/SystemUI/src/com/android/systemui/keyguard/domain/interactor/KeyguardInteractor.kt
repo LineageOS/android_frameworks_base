@@ -228,6 +228,8 @@ constructor(
                 CameraLaunchSourceModel.LIFT_TRIGGER
             StatusBarManager.CAMERA_LAUNCH_SOURCE_QUICK_AFFORDANCE ->
                 CameraLaunchSourceModel.QUICK_AFFORDANCE
+            StatusBarManager.CAMERA_LAUNCH_SOURCE_SCREEN_GESTURE  ->
+                CameraLaunchSourceModel.SCREEN_GESTURE
             else -> throw IllegalArgumentException("Invalid CameraLaunchSourceModel value: $value")
         }
     }
