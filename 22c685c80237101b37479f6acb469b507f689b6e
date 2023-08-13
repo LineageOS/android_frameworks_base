@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed428e6c_dcc7e53c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-08-13T10:22:18Z",
+      "side": 1,
+      "message": "Topic was fixed and this is tested by me and users of my (unofficial) LOS build. Any chance to get this feature merged or do I need to do anything else?",
+      "revId": "22c685c80237101b37479f6acb469b507f689b6e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
