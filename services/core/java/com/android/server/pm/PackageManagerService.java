@@ -24649,6 +24649,19 @@ public class PackageManagerService extends IPackageManager.Stub
         }
 
         @Override
+        public PackageParser.Package getPackage(int uid) {
+            synchronized (mPackages) {
+                final String[] packageNames = getPackagesForUid(uid);
+                PackageParser.Package pkg = null;
+                final int numPackages = packageNames == null ? 0 : packageNames.length;
+                for (int i = 0; pkg == null && i < numPackages; i++) {
+                    pkg = mPackages.get(packageNames[i]);
+                }
+                return pkg;
+            }
+        }
+
+        @Override
         public PackageList getPackageList(PackageListObserver observer) {
             synchronized (mPackages) {
                 final int N = mPackages.size();
