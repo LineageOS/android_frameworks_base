@@ -668,6 +668,12 @@ public abstract class PackageManagerInternal {
     public abstract @Nullable PackageParser.Package getPackage(@NonNull String packageName);
 
     /**
+     * Returns a package for the given UID. If the UID is part of a shared user ID, one
+     * of the packages will be chosen to be returned.
+     */
+    public abstract @Nullable PackageParser.Package getPackage(int uid);
+
+    /**
      * Returns a list without a change observer.
      *
      * @see #getPackageList(PackageListObserver)
