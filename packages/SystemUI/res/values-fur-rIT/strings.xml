@@ -20,4 +20,5 @@
     <string name="usb_debugging_message">L\'impront digjitâl de clâf RSA dal computer e je:\n<xliff:g id="fingerprint">%1$s</xliff:g></string>
     <string name="usb_debugging_secondary_user_message">L\'utent che al moment al è jentrât su chest dispositîf nol pues ativâ il debug USB. Par doprâ cheste funzion, passe al utent primari.</string>
     <string name="accessibility_unlock_without_fingerprint">Sbloche cence doprâ l\'impront digjitâl</string>
+    <string name="bubbles_settings_button_description">Impostazions pes bufulis di <xliff:g id="app_name" example="YouTube">%1$s</xliff:g></string>
 </resources>
