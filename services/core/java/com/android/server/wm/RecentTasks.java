@@ -262,12 +262,13 @@ class RecentTasks {
 
                     // Unfreeze the task list if the user is interacting with a valid window
                     if (shouldUnfreezeOnInteractionInWindow(win.mAttrs.type)) {
-                        final Task stack = mService.getTopDisplayFocusedRootTask();
-                        final Task topTask = stack != null ? stack.getTopMostTask() : null;
-                        ProtoLog.i(WM_DEBUG_TASKS, "Resetting frozen recents task list"
-                                + " win=%s type=%d x=%d y=%d insetFrame=%s",
-                                win, win.mAttrs.type, x, y, mTmpRect);
-                        resetFreezeTaskListReordering(topTask);
+                        // If we quickswitch while having gesture pill disabled, navbar height
+                        // is 0dp, which means the quickswitch start touch is inside app window
+                        // as well. To solve this, we defer resetting the freeze 500ms into the
+                        // future and if Launcher3 sends a freeze notice again, this app touch
+                        // effectively gets ignored when removeCallbacks() removes this runnable.
+                        mService.mH.removeCallbacks(mResetFreezeTaskListOnTimeoutRunnable);
+                        mService.mH.postDelayed(mResetFreezeTaskListOnTimeoutRunnable, 500);
                     }
                 }
             });
