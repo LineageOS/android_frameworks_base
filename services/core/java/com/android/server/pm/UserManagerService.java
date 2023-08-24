@@ -216,6 +216,8 @@ public class UserManagerService extends IUserManager.Stub {
 
     private static final int USER_VERSION = 7;
 
+    private static final int MAX_USER_STRING_LENGTH = 500;
+
     private static final long EPOCH_PLUS_30_YEARS = 30L * 365 * 24 * 60 * 60 * 1000L; // ms
 
     // Maximum number of managed profiles permitted per user is 1. This cannot be increased
@@ -2292,15 +2294,17 @@ public class UserManagerService extends IUserManager.Stub {
         // Write seed data
         if (userData.persistSeedData) {
             if (userData.seedAccountName != null) {
-                serializer.attribute(null, ATTR_SEED_ACCOUNT_NAME, userData.seedAccountName);
+                serializer.attribute(null, ATTR_SEED_ACCOUNT_NAME,
+                        truncateString(userData.seedAccountName));
             }
             if (userData.seedAccountType != null) {
-                serializer.attribute(null, ATTR_SEED_ACCOUNT_TYPE, userData.seedAccountType);
+                serializer.attribute(null, ATTR_SEED_ACCOUNT_TYPE,
+                        truncateString(userData.seedAccountType));
             }
         }
         if (userInfo.name != null) {
             serializer.startTag(null, TAG_NAME);
-            serializer.text(userInfo.name);
+            serializer.text(truncateString(userInfo.name));
             serializer.endTag(null, TAG_NAME);
         }
         synchronized (mRestrictionsLock) {
@@ -2333,6 +2337,13 @@ public class UserManagerService extends IUserManager.Stub {
         serializer.endTag(null, TAG_USER);
 
         serializer.endDocument();
+    }
+
+    private String truncateString(String original) {
+        if (original == null || original.length() <= MAX_USER_STRING_LENGTH) {
+            return original;
+        }
+        return original.substring(0, MAX_USER_STRING_LENGTH);
     }
 
     /*
@@ -2632,6 +2643,7 @@ public class UserManagerService extends IUserManager.Stub {
 
     private UserInfo createUserInternalUnchecked(String name, int flags, int parentId,
             String[] disallowedPackages) {
+        String truncatedName = truncateString(name);
         DeviceStorageMonitorInternal dsm = LocalServices
                 .getService(DeviceStorageMonitorInternal.class);
         if (dsm.isMemoryLow()) {
@@ -2710,7 +2722,7 @@ public class UserManagerService extends IUserManager.Stub {
                         flags |= UserInfo.FLAG_EPHEMERAL;
                     }
 
-                    userInfo = new UserInfo(userId, name, null, flags);
+                    userInfo = new UserInfo(userId, truncatedName, null, flags);
                     userInfo.serialNumber = mNextSerialNumber++;
                     long now = System.currentTimeMillis();
                     userInfo.creationTime = (now > EPOCH_PLUS_30_YEARS) ? now : 0;
@@ -3541,8 +3553,8 @@ public class UserManagerService extends IUserManager.Stub {
                     Slog.e(LOG_TAG, "No such user for settings seed data u=" + userId);
                     return;
                 }
-                userData.seedAccountName = accountName;
-                userData.seedAccountType = accountType;
+                userData.seedAccountName = truncateString(accountName);
+                userData.seedAccountType = truncateString(accountType);
                 userData.seedAccountOptions = accountOptions;
                 userData.persistSeedData = persist;
             }
