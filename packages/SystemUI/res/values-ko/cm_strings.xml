@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">커서 왼쪽</string>
     <string name="accessibility_dpad_right">커서 오른쪽</string>
     <string name="status_bar_firewall">방화벽</string>
+    <string name="screenshot_delete_label">삭제</string>
+    <string name="screenshot_delete_description">스크린샷 삭제</string>
 </resources>

@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Kursori majtas</string>
     <string name="accessibility_dpad_right">Kursori djathtas</string>
     <string name="status_bar_firewall">Muri i zjarrit</string>
+    <string name="screenshot_delete_label">Fshije</string>
+    <string name="screenshot_delete_description">Fshi pamjen e ekranit</string>
 </resources>

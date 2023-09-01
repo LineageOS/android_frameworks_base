@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Pfeiltaste links</string>
     <string name="accessibility_dpad_right">Pfeiltaste rechts</string>
     <string name="status_bar_firewall">Firewall</string>
+    <string name="screenshot_delete_label">Löschen</string>
+    <string name="screenshot_delete_description">Screenshot löschen</string>
 </resources>
