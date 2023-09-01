@@ -1424,9 +1424,9 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="adb_active_notification_title">Dadfygio USB wedi cysylltu</string>
     <string name="adb_active_notification_message">Tapia i analluogi dadfygio USB</string>
     <string name="adb_active_notification_message" product="tv">Dewisa i analluogi dadfygio USB.</string>
-    <string name="adbwifi_active_notification_title">Dadfygio diwifr wedi cysylltu</string>
-    <string name="adbwifi_active_notification_message">Tapia i analluogi dadfygio diwifr</string>
-    <string name="adbwifi_active_notification_message" product="tv">Dewisa i analluogi dadfygio diwifr.</string>
+    <string name="adbwifi_active_notification_title">Dadfygio di-wifr wedi cysylltu</string>
+    <string name="adbwifi_active_notification_message">Tapia i analluogi dadfygio di-wifr</string>
+    <string name="adbwifi_active_notification_message" product="tv">Dewisa i analluogi dadfygio di-wifr.</string>
     <string name="test_harness_mode_notification_title">Galluogwyd Modd Harnais Profi</string>
     <string name="test_harness_mode_notification_message">Ailosod y ddyfais nôl i fel yr oedd yn gadael y ffatri i analluogi Modd Harnais Profi.</string>
     <string name="console_running_notification_title">Consol cyfresol wedi\'i alluogi</string>
@@ -1680,7 +1680,7 @@ Pan mae Archwilio trwy Gyffwrdd ymlaen, rwyt yn clywed neu weld disgrifiadau\'r 
     <string name="default_audio_route_name_usb">USB</string>
     <string name="default_audio_route_category_name">System</string>
     <string name="bluetooth_a2dp_audio_route_name">Sain Bluetooth</string>
-    <string name="wireless_display_route_description">Dangosydd diwifr</string>
+    <string name="wireless_display_route_description">Dangosydd di-wifr</string>
     <string name="media_route_button_content_description">Bwrw</string>
     <string name="media_route_chooser_title">Cysylltu i ddyfais</string>
     <string name="media_route_chooser_title_for_remote_display">Bwrw\'r sgrin ar ddyfais arall</string>

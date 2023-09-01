@@ -66,7 +66,7 @@
     <string name="wifi_debugging_always">Caniatáu ar y rhwydwaith hwn bob amser</string>
     <string name="wifi_debugging_allow">Caniatáu</string>
     <string name="wifi_debugging_secondary_user_title">Ni chaniateir dadfygio gwallau di-wifr</string>
-    <string name="wifi_debugging_secondary_user_message">Gall y defnyddiwr sydd wedi mewngofnodi i\'r ddyfais hon ar hyn o bryd droi dadfygio diwifr ymlaen. I ddefnyddio\'r nodwedd hon, newidia i gyfrif y prif ddefnyddiwr.</string>
+    <string name="wifi_debugging_secondary_user_message">Gall y defnyddiwr sydd wedi mewngofnodi i\'r ddyfais hon ar hyn o bryd droi dadfygio di-wifr ymlaen. I ddefnyddio\'r nodwedd hon, newidia i gyfrif y prif ddefnyddiwr.</string>
     <string name="usb_contaminant_title">Analluogwyd y porth USB</string>
     <string name="usb_contaminant_message">I warchod dy ddyfais rhag baw neu hylif, mae\u2019r porth USB wedi\u2019i analluogi ac ni fydd yn synhwyro unrhyw beth gaiff ei gysylltu.\n\nBydd hysbysiad yn rhoi gwybod pan fydd yn iawn i ddefnyddio\u2019r porth USB eto.</string>
     <string name="usb_port_enabled">Galluogwyd y porth USB i synhwyro gwefrwyr batri ac ategolion</string>
@@ -470,7 +470,7 @@
     <string name="interruption_level_none_twoline">Distawrwydd\nllwyr</string>
     <string name="interruption_level_priority_twoline">Blaenoriaeth\nyn unig</string>
     <string name="interruption_level_alarms_twoline">Larymau\nyn unig</string>
-    <string name="keyguard_indication_charging_time_wireless"><xliff:g id="percentage" example="20%">%2$s</xliff:g> • Yn gwefru\'n ddiwifr (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> nes yn llawn)</string>
+    <string name="keyguard_indication_charging_time_wireless"><xliff:g id="percentage" example="20%">%2$s</xliff:g> • Yn gwefru\'n ddi-wifr (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> nes yn llawn)</string>
     <string name="keyguard_indication_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Yn gwefru (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> nes yn llawn)</string>
     <string name="keyguard_indication_charging_time_fast"><xliff:g id="percentage">%2$s</xliff:g> • Yn gwefru\'n gyflym (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> nes yn llawn)</string>
     <string name="keyguard_indication_charging_time_slowly"><xliff:g id="percentage">%2$s</xliff:g> • Yn gwefru\'n araf (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> nes yn llawn)</string>

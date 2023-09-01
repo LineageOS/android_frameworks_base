@@ -219,7 +219,7 @@
     <string name="enable_adb_wireless_summary">Modd dadfygio tra bod cysylltiad Wi\u2011Fi</string>
     <string name="adb_wireless_error">Gwall</string>
     <string name="adb_wireless_settings">Dadfygio di-wifr</string>
-    <string name="adb_wireless_list_empty_off">I weld a defnyddio dyfeisiau sydd ar gael, rhaid troi dadfygio diwifr ymlaen</string>
+    <string name="adb_wireless_list_empty_off">I weld a defnyddio dyfeisiau sydd ar gael, rhaid troi dadfygio di-wifr ymlaen</string>
     <string name="adb_pair_method_qrcode_title">Paru â dyfais gyda chod QR</string>
     <string name="adb_pair_method_qrcode_summary">Paru â dyfeisiau newydd gan ddefnyddio sganiwr QR</string>
     <string name="adb_pair_method_code_title">Paru â dyfais gyda chod paru</string>
@@ -257,7 +257,7 @@
     <string name="mock_location_app_not_set">Does dim ap ffugio lleoliad wedi ei osod.</string>
     <string name="mock_location_app_set">Ap ffugio lleoliad: <xliff:g id="app_name">%1$s</xliff:g></string>
     <string name="debug_networking_category">Rhwydweithio</string>
-    <string name="wifi_display_certification">Tystysgrifio dangosyddion diwifr</string>
+    <string name="wifi_display_certification">Tystysgrifio dangosyddion di-wifr</string>
     <string name="wifi_verbose_logging">Galluogi Logio Wi\u2011Fi Geiriog</string>
     <string name="wifi_scan_throttling">Throtlo sganio am Wi\u2011Fi</string>
     <string name="wifi_enhanced_mac_randomization">Wi\u2011Fi\u2011 MAC gwell ar hap</string>
