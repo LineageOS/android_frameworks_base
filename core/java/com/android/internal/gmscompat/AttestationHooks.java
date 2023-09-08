@@ -77,6 +77,9 @@ public final class AttestationHooks {
     }
 
     public static void initApplicationBeforeOnCreate(Application app) {
+        setBuildField("TYPE", "user");
+        setBuildField("TAGS", "release-keys");
+
         if (PACKAGE_GMS.equals(app.getPackageName()) &&
                 PROCESS_UNSTABLE.equals(Application.getProcessName())) {
             sIsGms = true;
