@@ -186,8 +186,8 @@ public class FrameworkParsingPackageUtils {
      * Returns {@code true} if both the property name and value are empty or if the given system
      * property is set to the specified value. Properties can be one or more, and if properties are
      * more than one, they must be separated by comma, and count of names and values must be equal,
-     * and also every given system property must be set to the corresponding value.
-     * In all other cases, returns {@code false}
+     * and also every given system property must be set to the corresponding value or it's a
+     * wildcard. In all other cases, returns {@code false}
      */
     public static boolean checkRequiredSystemProperties(@Nullable String rawPropNames,
             @Nullable String rawPropValues) {
@@ -213,9 +213,17 @@ public class FrameworkParsingPackageUtils {
             return false;
         }
         for (int i = 0; i < propNames.length; i++) {
-            // Check property value: make sure it is both set and equal to expected value
             final String currValue = SystemProperties.get(propNames[i]);
-            if (!TextUtils.equals(currValue, propValues[i])) {
+            // 1. Make sure prop is set.
+            if (currValue == null) {
+                return false;
+            }
+            // 2. Check next prop if expected value is a wildcard.
+            if ("*".equals(propValues[i])) {
+                continue;
+            }
+            // 3. Check if prop is equal to expected value.
+            if (!currValue.equals(propValues[i])) {
                 return false;
             }
         }
