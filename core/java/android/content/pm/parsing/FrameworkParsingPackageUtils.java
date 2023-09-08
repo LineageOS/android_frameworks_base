@@ -213,8 +213,17 @@ public class FrameworkParsingPackageUtils {
             return false;
         }
         for (int i = 0; i < propNames.length; i++) {
-            // Check property value: make sure it is both set and equal to expected value
+            // Check property value
             final String currValue = SystemProperties.get(propNames[i]);
+            // 1. Make sure it is set
+            if (currValue == null) {
+                return false;
+            }
+            // 2. Check next prop if requested value is a wildcard
+            if ("*".equals(propValues[i])) {
+                continue;
+            }
+            // 3. Check if prop and value are matching
             if (!TextUtils.equals(currValue, propValues[i])) {
                 return false;
             }
