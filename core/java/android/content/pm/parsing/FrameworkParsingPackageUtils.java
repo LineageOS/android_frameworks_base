@@ -215,7 +215,8 @@ public class FrameworkParsingPackageUtils {
         for (int i = 0; i < propNames.length; i++) {
             // Check property value: make sure it is both set and equal to expected value
             final String currValue = SystemProperties.get(propNames[i]);
-            if (!TextUtils.equals(currValue, propValues[i])) {
+            if (!TextUtils.equals(currValue, propValues[i]) &&
+                    (currValue == null || !"*".equals(propValues[i]))) {
                 return false;
             }
         }
