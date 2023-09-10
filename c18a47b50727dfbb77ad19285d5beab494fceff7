@@ -16,6 +16,24 @@
       "message": "100 chars",
       "revId": "c18a47b50727dfbb77ad19285d5beab494fceff7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4175e0_40234bbc",
+        "filename": "core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-09-10T00:32:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24420b04_e0f73c3f",
+      "revId": "c18a47b50727dfbb77ad19285d5beab494fceff7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
