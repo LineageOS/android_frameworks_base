@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8627efa_b3b7ab08",
+        "filename": "core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2023-09-10T00:37:19Z",
+      "side": 1,
+      "message": "How about using TextUtils.isEmpty?",
+      "revId": "5cf8bcfdad8a6fd895925530268a19f7fd5758ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca3d26e_99b20fe8",
+        "filename": "core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2023-09-10T00:37:19Z",
+      "side": 1,
+      "message": "idk if TextUtils.equals() is different from this, just making sure this is ok too (probably TextUtils also check for null, so we might get rid of the check above?)",
+      "revId": "5cf8bcfdad8a6fd895925530268a19f7fd5758ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fbf6686_7226168b",
+        "filename": "core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2023-09-10T00:37:19Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "5cf8bcfdad8a6fd895925530268a19f7fd5758ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
