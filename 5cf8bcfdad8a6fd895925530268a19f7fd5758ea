@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d5eee0_c12a2c91",
+        "filename": "core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-09-10T02:22:32Z",
+      "side": 1,
+      "message": "uneeded, does null check and blank check, we won\u0027t get blank props only null or notEmpty",
+      "parentUuid": "b8627efa_b3b7ab08",
+      "revId": "5cf8bcfdad8a6fd895925530268a19f7fd5758ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ca3d26e_99b20fe8",
@@ -35,6 +53,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "842810b1_7463ec93",
+        "filename": "core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-09-10T02:22:32Z",
+      "side": 1,
+      "message": "it\u0027s equal from this snippet point of it, it just does null checking",
+      "parentUuid": "3ca3d26e_99b20fe8",
+      "revId": "5cf8bcfdad8a6fd895925530268a19f7fd5758ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fbf6686_7226168b",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-09-10T00:37:19Z",
       "side": 1,
       "message": "ditto",
+      "revId": "5cf8bcfdad8a6fd895925530268a19f7fd5758ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b460d052_dfc176be",
+        "filename": "core/java/android/content/pm/parsing/FrameworkParsingPackageUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-09-10T02:22:32Z",
+      "side": 1,
+      "message": "as ^, as long as right side is not null it\u0027ll be fine",
+      "parentUuid": "2fbf6686_7226168b",
       "revId": "5cf8bcfdad8a6fd895925530268a19f7fd5758ea",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
