@@ -247,7 +247,13 @@ public class NotificationShadeWindowViewController {
 
                 mFalsingCollector.onTouchEvent(ev);
                 mQQSGestureHandler.onTouchEvent(ev);
-                mPulsingWakeupGestureHandler.onTouchEvent(ev);
+                // Pass touch events to the pulsing gesture listener
+                // only if it's dozing.
+                // Otherwise lockscreen DT2S and AOD DT2W will be in conflict.
+                if (mStatusBarStateController.isDozing()) {
+                    mPulsingWakeupGestureHandler.onTouchEvent(ev);
+                }
+
                 if (mStatusBarKeyguardViewManager.onTouch(ev)) {
                     return true;
                 }
