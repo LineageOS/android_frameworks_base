@@ -111,6 +111,9 @@ public class NotificationShadeWindowViewController {
                     step.getTransitionState() == TransitionState.RUNNING;
             };
 
+    private GestureDetector mQQSGestureHandler;
+    private final QQSGestureListener mQQSGestureListener;
+
     @Inject
     public NotificationShadeWindowViewController(
             LockscreenShadeTransitionController transitionController,
@@ -135,7 +138,8 @@ public class NotificationShadeWindowViewController {
             KeyguardBouncerComponent.Factory keyguardBouncerComponentFactory,
             AlternateBouncerInteractor alternateBouncerInteractor,
             KeyguardTransitionInteractor keyguardTransitionInteractor,
-            PrimaryBouncerToGoneTransitionViewModel primaryBouncerToGoneTransitionViewModel
+            PrimaryBouncerToGoneTransitionViewModel primaryBouncerToGoneTransitionViewModel,
+            QQSGestureListener qqsGestureListener
     ) {
         mLockscreenShadeTransitionController = transitionController;
         mFalsingCollector = falsingCollector;
@@ -156,6 +160,7 @@ public class NotificationShadeWindowViewController {
         mPulsingGestureListener = pulsingGestureListener;
         mNotificationInsetsController = notificationInsetsController;
         mAlternateBouncerInteractor = alternateBouncerInteractor;
+        mQQSGestureListener = qqsGestureListener;
 
         // This view is not part of the newly inflated expanded status bar.
         mBrightnessMirror = mView.findViewById(R.id.brightness_mirror_container);
@@ -188,6 +193,8 @@ public class NotificationShadeWindowViewController {
         mStackScrollLayout = mView.findViewById(R.id.notification_stack_scroller);
         mPulsingWakeupGestureHandler = new GestureDetector(mView.getContext(),
                 mPulsingGestureListener);
+        mQQSGestureHandler = new GestureDetector(mView.getContext(),
+                mQQSGestureListener);
 
         mView.setLayoutInsetsController(mNotificationInsetsController);
         mView.setInteractionEventHandler(new NotificationShadeWindowView.InteractionEventHandler() {
@@ -239,6 +246,7 @@ public class NotificationShadeWindowViewController {
                 }
 
                 mFalsingCollector.onTouchEvent(ev);
+                mQQSGestureHandler.onTouchEvent(ev);
                 mPulsingWakeupGestureHandler.onTouchEvent(ev);
                 if (mStatusBarKeyguardViewManager.onTouch(ev)) {
                     return true;
