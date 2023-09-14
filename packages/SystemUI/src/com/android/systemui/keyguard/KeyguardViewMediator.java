@@ -556,13 +556,6 @@ public class KeyguardViewMediator extends SystemUI {
                 notifyHasLockscreenWallpaperChanged(hasLockscreenWallpaper);
             }
         }
-
-        @Override
-        public void onStrongAuthStateChanged(int userId) {
-            if (mLockPatternUtils.isUserInLockdown(KeyguardUpdateMonitor.getCurrentUser())) {
-                doKeyguardLocked(null);
-            }
-        }
     };
 
     ViewMediatorCallback mViewMediatorCallback = new ViewMediatorCallback() {
@@ -1326,8 +1319,7 @@ public class KeyguardViewMediator extends SystemUI {
         }
 
         // if another app is disabling us, don't show
-        if (!mExternallyEnabled
-            && !mLockPatternUtils.isUserInLockdown(KeyguardUpdateMonitor.getCurrentUser())) {
+        if (!mExternallyEnabled) {
             if (DEBUG) Log.d(TAG, "doKeyguard: not showing because externally disabled");
 
             mNeedToReshowWhenReenabled = true;
