@@ -63,4 +63,27 @@ public class DatabaseUtilsTest {
                 bindSelection("foo=?10 AND bar=? AND meow=?1",
                         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
     }
+
+    @Test
+    public void testBindSelection_RejectInvalidUnicode() {
+        try {
+            bindSelection("DATA=?", "Fo\uD83Do");
+            fail();
+        } catch (IllegalArgumentException ignored) {
+        }
+
+	try {
+            bindSelection("DATA=?", "Fo\uDE00o");
+            fail();
+        } catch (IllegalArgumentException ignored) {
+        }
+
+	assertEquals("DATA='Fo\uD83D\uDE00o'", bindSelection("DATA=?", "Fo\uD83D\uDE00o"));
+
+	try {
+            bindSelection("DATA=?", "Fo\uDE00\uD83Do");
+            fail();
+        } catch (IllegalArgumentException ignored) {
+        }
+    }
 }
