@@ -107,6 +107,8 @@ public class CompanionDeviceManagerService extends SystemService implements Bind
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = "CompanionDeviceManagerService";
 
+    private static final int MAX_CN_LENGTH = 500;
+
     private static final String XML_TAG_ASSOCIATIONS = "associations";
     private static final String XML_TAG_ASSOCIATION = "association";
     private static final String XML_ATTR_PACKAGE = "package";
@@ -290,6 +292,9 @@ public class CompanionDeviceManagerService extends SystemService implements Bind
             String callingPackage = component.getPackageName();
             checkCanCallNotificationApi(callingPackage);
             int userId = getCallingUserId();
+            if (component.flattenToString().length() > MAX_CN_LENGTH) {
+                throw new IllegalArgumentException("Component name is too long.");
+            }
             final long identity = Binder.clearCallingIdentity();
             try {
                 return PendingIntent.getActivity(getContext(),
