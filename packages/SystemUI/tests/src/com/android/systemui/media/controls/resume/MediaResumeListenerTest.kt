@@ -99,6 +99,7 @@ class MediaResumeListenerTest : SysuiTestCase() {
     @Captor lateinit var actionCaptor: ArgumentCaptor<Runnable>
     @Captor lateinit var componentCaptor: ArgumentCaptor<String>
     @Captor lateinit var userIdCaptor: ArgumentCaptor<Int>
+    @Captor lateinit var userCallbackCaptor: ArgumentCaptor<UserTracker.Callback>
 
     private lateinit var executor: FakeExecutor
     private lateinit var data: MediaData
@@ -615,8 +616,8 @@ class MediaResumeListenerTest : SysuiTestCase() {
 
     @Test
     fun testUserUnlocked_userChangeWhileQuerying() {
-        val firstUserId = context.userId
-        val secondUserId = firstUserId + 1
+        val firstUserId = 1
+        val secondUserId = 2
         val description = MediaDescription.Builder().setTitle(TITLE).build()
         val component = ComponentName(PACKAGE_NAME, CLASS_NAME)
 
@@ -628,18 +629,16 @@ class MediaResumeListenerTest : SysuiTestCase() {
             Intent(Intent.ACTION_USER_UNLOCKED).apply {
                 putExtra(Intent.EXTRA_USER_HANDLE, firstUserId)
             }
+        verify(userTracker).addCallback(capture(userCallbackCaptor), any())
 
         // When the first user unlocks and we query their recent media
-        resumeListener.userChangeReceiver.onReceive(context, unlockIntent)
+        userCallbackCaptor.value.onUserChanged(firstUserId, context)
+        resumeListener.userUnlockReceiver.onReceive(context, unlockIntent)
         whenever(resumeBrowser.userId).thenReturn(userIdCaptor.value)
         verify(resumeBrowser, times(3)).findRecentMedia()
 
         // And the user changes before the MBS response is received
-        val changeIntent =
-            Intent(Intent.ACTION_USER_SWITCHED).apply {
-                putExtra(Intent.EXTRA_USER_HANDLE, secondUserId)
-            }
-        resumeListener.userChangeReceiver.onReceive(context, changeIntent)
+        userCallbackCaptor.value.onUserChanged(secondUserId, context)
         callbackCaptor.value.addTrack(description, component, resumeBrowser)
 
         // Then the loaded media is correctly associated with the first user
@@ -669,7 +668,7 @@ class MediaResumeListenerTest : SysuiTestCase() {
             }
 
         // When the user is unlocked, but does not have the component installed
-        resumeListener.userChangeReceiver.onReceive(context, unlockIntent)
+        resumeListener.userUnlockReceiver.onReceive(context, unlockIntent)
 
         // Then we never attempt to connect to it
         verify(resumeBrowser, never()).findRecentMedia()

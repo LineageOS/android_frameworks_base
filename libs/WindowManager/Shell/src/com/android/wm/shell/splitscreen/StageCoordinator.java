@@ -468,10 +468,26 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
                     RemoteAnimationTarget[] wallpapers,
                     RemoteAnimationTarget[] nonApps,
                     final IRemoteAnimationFinishedCallback finishedCallback) {
-                if (isEnteringSplit && mSideStage.getChildCount() == 0) {
+                boolean openingToSide = false;
+                if (apps != null) {
+                    for (int i = 0; i < apps.length; ++i) {
+                        if (apps[i].mode == MODE_OPENING
+                                && mSideStage.containsTask(apps[i].taskId)) {
+                            openingToSide = true;
+                            break;
+                        }
+                    }
+                } else if (mSideStage.getChildCount() != 0) {
+                    // There are chances the entering app transition got canceled by performing
+                    // rotation transition. Checks if there is any child task existed in split
+                    // screen before fallback to cancel entering flow.
+                    openingToSide = true;
+                }
+
+                if (isEnteringSplit && !openingToSide) {
                     mMainExecutor.execute(() -> exitSplitScreen(
-                            null /* childrenToTop */, EXIT_REASON_UNKNOWN));
-                    mSplitUnsupportedToast.show();
+                            mSideStage.getChildCount() == 0 ? mMainStage : mSideStage,
+                            EXIT_REASON_UNKNOWN));
                 }
 
                 if (finishedCallback != null) {
@@ -556,10 +572,26 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
                     RemoteAnimationTarget[] wallpapers, RemoteAnimationTarget[] nonApps,
                     IRemoteAnimationFinishedCallback finishedCallback,
                     SurfaceControl.Transaction t) {
-                if (isEnteringSplit && mSideStage.getChildCount() == 0) {
+                boolean openingToSide = false;
+                if (apps != null) {
+                    for (int i = 0; i < apps.length; ++i) {
+                        if (apps[i].mode == MODE_OPENING
+                                && mSideStage.containsTask(apps[i].taskId)) {
+                            openingToSide = true;
+                            break;
+                        }
+                    }
+                } else if (mSideStage.getChildCount() != 0) {
+                    // There are chances the entering app transition got canceled by performing
+                    // rotation transition. Checks if there is any child task existed in split
+                    // screen before fallback to cancel entering flow.
+                    openingToSide = true;
+                }
+
+                if (isEnteringSplit && !openingToSide && apps != null) {
                     mMainExecutor.execute(() -> exitSplitScreen(
-                            null /* childrenToTop */, EXIT_REASON_UNKNOWN));
-                    mSplitUnsupportedToast.show();
+                            mSideStage.getChildCount() == 0 ? mMainStage : mSideStage,
+                            EXIT_REASON_UNKNOWN));
                 }
 
                 if (apps != null) {
@@ -1002,7 +1034,7 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
     private void onRemoteAnimationFinishedOrCancelled(WindowContainerTransaction evictWct) {
         mIsDividerRemoteAnimating = false;
         mShouldUpdateRecents = true;
-        clearRequestIfPresented();
+        mSplitRequest = null;
         // If any stage has no child after animation finished, it means that split will display
         // nothing, such status will happen if task and intent is same app but not support
         // multi-instance, we should exit split and expand that app as full screen.
@@ -1022,7 +1054,7 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
     private void onRemoteAnimationFinished(RemoteAnimationTarget[] apps) {
         mIsDividerRemoteAnimating = false;
         mShouldUpdateRecents = true;
-        clearRequestIfPresented();
+        mSplitRequest = null;
         // If any stage has no child after finished animation, that side of the split will display
         // nothing. This might happen if starting the same app on the both sides while not
         // supporting multi-instance. Exit the split screen and expand that app to full screen.
@@ -1288,7 +1320,6 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
         });
         mShouldUpdateRecents = false;
         mIsDividerRemoteAnimating = false;
-        mSplitRequest = null;
 
         mSplitLayout.getInvisibleBounds(mTempRect1);
         if (childrenToTop == null || childrenToTop.getTopVisibleChildTaskId() == INVALID_TASK_ID) {
@@ -1378,13 +1409,6 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
         } catch (RemoteException | NullPointerException e) {
             ProtoLog.e(ShellProtoLogGroup.WM_SHELL_SPLIT_SCREEN,
                     "Unable to update focus on the chosen stage: %s", e.getMessage());
-        }
-    }
-
-    private void clearRequestIfPresented() {
-        if (mSideStageListener.mVisible && mSideStageListener.mHasChildren
-                && mMainStageListener.mVisible && mSideStageListener.mHasChildren) {
-            mSplitRequest = null;
         }
     }
 
@@ -1752,7 +1776,6 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
                     true /* setReparentLeafTaskIfRelaunch */);
             setRootForceTranslucent(true, wct);
         } else {
-            clearRequestIfPresented();
             wct.setReparentLeafTaskIfRelaunch(mRootTaskInfo.token,
                     false /* setReparentLeafTaskIfRelaunch */);
             setRootForceTranslucent(false, wct);
@@ -1903,7 +1926,7 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
         }
         if (mMainStageListener.mHasChildren && mSideStageListener.mHasChildren) {
             mShouldUpdateRecents = true;
-            clearRequestIfPresented();
+            mSplitRequest = null;
             updateRecentTasksSplitPair();
 
             if (!mLogger.hasStartedSession()) {
@@ -2542,7 +2565,6 @@ public class StageCoordinator implements SplitLayout.SplitLayoutHandler,
             }
         });
         mShouldUpdateRecents = false;
-        mSplitRequest = null;
 
         // Update local states.
         setSplitsVisible(false);

@@ -24,29 +24,27 @@ import android.graphics.Bitmap
 import android.graphics.drawable.Icon
 import android.net.Uri
 import android.os.UserHandle
-import android.testing.AndroidTestingRunner
 import androidx.test.filters.SmallTest
-
 import com.android.systemui.SysuiTestCase
+import com.android.systemui.flags.FakeFeatureFlags
 import com.android.systemui.screenshot.ScreenshotController.SaveImageInBackgroundData
 import com.android.systemui.screenshot.ScreenshotNotificationSmartActionsProvider.ScreenshotSmartActionType
 import com.android.systemui.util.mockito.any
 import com.android.systemui.util.mockito.eq
 import com.android.systemui.util.mockito.mock
+import com.android.systemui.util.mockito.whenever
 import java.util.concurrent.CompletableFuture
 import java.util.function.Supplier
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Before
-import org.junit.runner.RunWith
 import org.junit.Test
-import org.mockito.Mockito
 
 @SmallTest
-@RunWith(AndroidTestingRunner::class)
 class SaveImageInBackgroundTaskTest : SysuiTestCase() {
     private val imageExporter = mock<ImageExporter>()
     private val smartActions = mock<ScreenshotSmartActions>()
+    private val smartActionsProvider = mock<ScreenshotNotificationSmartActionsProvider>()
     private val saveImageData = SaveImageInBackgroundData()
     private val sharedTransitionSupplier =
         mock<Supplier<ScreenshotController.SavedImageData.ActionTransition>>()
@@ -55,6 +53,7 @@ class SaveImageInBackgroundTaskTest : SysuiTestCase() {
     private val testUser = UserHandle.getUserHandleForUid(0)
     private val testIcon = mock<Icon>()
     private val testImageTime = 1234.toLong()
+    private val flags = FakeFeatureFlags()
 
     private val smartActionsUriFuture = mock<CompletableFuture<List<Notification.Action>>>()
     private val smartActionsFuture = mock<CompletableFuture<List<Notification.Action>>>()
@@ -85,32 +84,34 @@ class SaveImageInBackgroundTaskTest : SysuiTestCase() {
     private val saveImageTask =
         SaveImageInBackgroundTask(
             mContext,
+            flags,
             imageExporter,
             smartActions,
             saveImageData,
             sharedTransitionSupplier,
+            smartActionsProvider,
         )
 
     @Before
     fun setup() {
-        Mockito.`when`(
+        whenever(
                 smartActions.getSmartActionsFuture(
                     eq(testScreenshotId),
                     any(Uri::class.java),
                     eq(testBitmap),
-                    any(ScreenshotNotificationSmartActionsProvider::class.java),
+                    eq(smartActionsProvider),
                     any(ScreenshotSmartActionType::class.java),
                     any(Boolean::class.java),
                     eq(testUser)
                 )
             )
             .thenReturn(smartActionsUriFuture)
-        Mockito.`when`(
+        whenever(
                 smartActions.getSmartActionsFuture(
                     eq(testScreenshotId),
                     eq(null),
                     eq(testBitmap),
-                    any(ScreenshotNotificationSmartActionsProvider::class.java),
+                    eq(smartActionsProvider),
                     any(ScreenshotSmartActionType::class.java),
                     any(Boolean::class.java),
                     eq(testUser)
@@ -121,12 +122,12 @@ class SaveImageInBackgroundTaskTest : SysuiTestCase() {
 
     @Test
     fun testQueryQuickShare_noAction() {
-        Mockito.`when`(
+        whenever(
                 smartActions.getSmartActions(
                     eq(testScreenshotId),
                     eq(smartActionsFuture),
                     any(Int::class.java),
-                    any(ScreenshotNotificationSmartActionsProvider::class.java),
+                    eq(smartActionsProvider),
                     eq(ScreenshotSmartActionType.QUICK_SHARE_ACTION)
                 )
             )
@@ -143,12 +144,12 @@ class SaveImageInBackgroundTaskTest : SysuiTestCase() {
         val actions = ArrayList<Notification.Action>()
         actions.add(constructAction("Action One", mutablePendingIntent))
         actions.add(constructAction("Action Two", mutablePendingIntent))
-        Mockito.`when`(
+        whenever(
                 smartActions.getSmartActions(
                     eq(testScreenshotId),
                     eq(smartActionsUriFuture),
                     any(Int::class.java),
-                    any(ScreenshotNotificationSmartActionsProvider::class.java),
+                    eq(smartActionsProvider),
                     eq(ScreenshotSmartActionType.QUICK_SHARE_ACTION)
                 )
             )
@@ -180,12 +181,12 @@ class SaveImageInBackgroundTaskTest : SysuiTestCase() {
     fun testCreateQuickShareAction_immutableIntentDifferentAction_returnsNull() {
         val actions = ArrayList<Notification.Action>()
         actions.add(constructAction("New Test Action", immutablePendingIntent))
-        Mockito.`when`(
+        whenever(
                 smartActions.getSmartActions(
                     eq(testScreenshotId),
                     eq(smartActionsUriFuture),
                     any(Int::class.java),
-                    any(ScreenshotNotificationSmartActionsProvider::class.java),
+                    eq(smartActionsProvider),
                     eq(ScreenshotSmartActionType.QUICK_SHARE_ACTION)
                 )
             )
@@ -210,12 +211,12 @@ class SaveImageInBackgroundTaskTest : SysuiTestCase() {
         val actions = ArrayList<Notification.Action>()
         val action = constructAction("Action One", mutablePendingIntent)
         actions.add(action)
-        Mockito.`when`(
+        whenever(
                 smartActions.getSmartActions(
                     eq(testScreenshotId),
                     eq(smartActionsUriFuture),
                     any(Int::class.java),
-                    any(ScreenshotNotificationSmartActionsProvider::class.java),
+                    eq(smartActionsProvider),
                     eq(ScreenshotSmartActionType.QUICK_SHARE_ACTION)
                 )
             )
@@ -245,12 +246,12 @@ class SaveImageInBackgroundTaskTest : SysuiTestCase() {
         val actions = ArrayList<Notification.Action>()
         val action = constructAction("Test Action", immutablePendingIntent)
         actions.add(action)
-        Mockito.`when`(
+        whenever(
                 smartActions.getSmartActions(
                     eq(testScreenshotId),
                     eq(smartActionsUriFuture),
                     any(Int::class.java),
-                    any(ScreenshotNotificationSmartActionsProvider::class.java),
+                    eq(smartActionsProvider),
                     eq(ScreenshotSmartActionType.QUICK_SHARE_ACTION)
                 )
             )

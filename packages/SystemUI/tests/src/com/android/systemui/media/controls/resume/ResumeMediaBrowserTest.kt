@@ -94,7 +94,7 @@ public class ResumeMediaBrowserTest : SysuiTestCase() {
                 browserFactory,
                 logger,
                 mediaController,
-                context.userId
+                context.userId,
             )
     }
 
@@ -383,7 +383,7 @@ public class ResumeMediaBrowserTest : SysuiTestCase() {
         browserFactory: MediaBrowserFactory,
         logger: ResumeMediaBrowserLogger,
         private val fakeController: MediaController,
-        userId: Int
+        userId: Int,
     ) : ResumeMediaBrowser(context, callback, componentName, browserFactory, logger, userId) {
 
         override fun createMediaController(token: MediaSession.Token): MediaController {
