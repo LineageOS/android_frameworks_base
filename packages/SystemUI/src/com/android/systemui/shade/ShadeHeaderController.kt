@@ -494,8 +494,8 @@ constructor(
         val textColor = Utils.getColorAttrDefaultColor(context, android.R.attr.textColorPrimary)
         val colorStateList = Utils.getColorAttr(context, android.R.attr.textColorPrimary)
         if (textColor != textColorPrimary) {
-            val textColorSecondary = Utils.getColorAttrDefaultColor(context,
-                    android.R.attr.textColorSecondary)
+            val textColorTertiary = Utils.getColorAttrDefaultColor(context,
+                    android.R.attr.textColorTertiary)
             textColorPrimary = textColor
             if (iconManager != null) {
                 iconManager.setTint(textColor)
@@ -503,7 +503,7 @@ constructor(
             clock.setTextColor(textColorPrimary)
             date.setTextColor(textColorPrimary)
             qsCarrierGroup.updateColors(textColorPrimary, colorStateList)
-            batteryIcon.updateColors(textColorPrimary, textColorSecondary, textColorPrimary)
+            batteryIcon.updateColors(textColorPrimary, textColorTertiary, textColorPrimary)
         }
     }
 
