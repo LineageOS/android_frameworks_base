@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c7165e7_cfcb862f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2023-09-28T16:48:28Z",
+      "side": 1,
+      "message": "Faced this issue on FP3.",
+      "revId": "0f961929157167021625df6e9d3979af09a6fced",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
