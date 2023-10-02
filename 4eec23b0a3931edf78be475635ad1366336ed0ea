@@ -16,6 +16,24 @@
       "message": "this is also duplicated",
       "revId": "4eec23b0a3931edf78be475635ad1366336ed0ea",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a27b731_428d77fd",
+        "filename": "packages/SystemUI/LineageManifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2023-10-02T12:47:26Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "d6c343e4_f87f36c9",
+      "revId": "4eec23b0a3931edf78be475635ad1366336ed0ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
