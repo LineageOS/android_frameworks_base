@@ -22,6 +22,30 @@
       },
       "revId": "fb56f3ae07e4f5dacc04583a12013eedf4cb1e27",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4047c8e2_4677cb23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-10-03T13:06:09Z",
+      "side": 1,
+      "message": "I guess we can split the change, but I agree it\u0027s prone to breakage",
+      "parentUuid": "48c43081_38f2ed21",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "fb56f3ae07e4f5dacc04583a12013eedf4cb1e27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
