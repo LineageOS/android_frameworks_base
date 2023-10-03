@@ -46,6 +46,30 @@
       },
       "revId": "fb56f3ae07e4f5dacc04583a12013eedf4cb1e27",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d499886e_ef45f51f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-10-03T13:12:47Z",
+      "side": 1,
+      "message": "Moreover, what really fix CTS tests is the removal of android.permission.NETWORK_STACK.",
+      "parentUuid": "4047c8e2_4677cb23",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "fb56f3ae07e4f5dacc04583a12013eedf4cb1e27",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
