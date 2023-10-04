@@ -38,6 +38,8 @@ import static android.content.Intent.ACTION_USER_ADDED;
 import static android.content.Intent.ACTION_USER_REMOVED;
 import static android.content.Intent.EXTRA_REPLACING;
 import static android.content.Intent.EXTRA_UID;
+import static android.content.pm.ApplicationInfo.FLAG_INSTALLED;
+import static android.content.pm.ApplicationInfo.PRIVATE_FLAG_HIDDEN;
 import static android.content.pm.PackageManager.MATCH_ANY_USER;
 import static android.content.pm.PackageManager.MATCH_DIRECT_BOOT_AWARE;
 import static android.content.pm.PackageManager.MATCH_DIRECT_BOOT_UNAWARE;
@@ -168,6 +170,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageManagerInternal;
@@ -307,6 +310,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.function.IntConsumer;
+import java.util.stream.Collectors;
 
 /**
  * Service that maintains low-level network policy rules, using
@@ -360,6 +364,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     private static final int VERSION_REMOVED_SUBSCRIPTION_PLANS = 14;
     private static final int VERSION_LATEST = VERSION_REMOVED_SUBSCRIPTION_PLANS;
 
+    private static final int LINEAGE_VERSION_INIT = 1;
+    private static final int LINEAGE_VERSION_REINSTATED_POLICY_REJECT_ALL = 2;
+    private static final int LINEAGE_VERSION_LATEST = LINEAGE_VERSION_REINSTATED_POLICY_REJECT_ALL;
+
     @VisibleForTesting
     public static final int TYPE_WARNING = SystemMessage.NOTE_NET_WARNING;
     @VisibleForTesting
@@ -379,6 +387,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     private static final String TAG_XML_UTILS_INT_ARRAY = "int-array";
 
     private static final String ATTR_VERSION = "version";
+    private static final String ATTR_LINEAGE_VERSION = "lineageVersion";
     private static final String ATTR_RESTRICT_BACKGROUND = "restrictBackground";
     private static final String ATTR_NETWORK_TEMPLATE = "networkTemplate";
     private static final String ATTR_SUBSCRIBER_ID = "subscriberId";
@@ -2525,6 +2534,89 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
+    private void migrateToPolicyRejectAll() {
+        final Set<Integer> uidsAllowedOnRestrictedNetworks =
+                ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(mContext);
+        final Set<Integer> uidsToDeny = new ArraySet<>();
+
+        for (final UserInfo userInfo : UserManager.get(mContext).getUsers()) {
+            final List<ApplicationInfo> appsForUser;
+            try {
+                appsForUser = mIPm.getInstalledApplications(
+                        PackageManager.MATCH_UNINSTALLED_PACKAGES, userInfo.id).getList();
+            } catch (RemoteException e) {
+                Slog.e(TAG, "migrateToPolicyRejectAll: Failed to retrieve package UIDs for user "
+                        + userInfo.id, e);
+                continue;
+            }
+            for (final ApplicationInfo appInfo : appsForUser) {
+                final int uid = appInfo.uid;
+                // Allow apps that are already allowlisted, or that have restricted networking
+                // permission, or that are system apps without the INTERNET permission.
+                final boolean shouldAllow = uidsAllowedOnRestrictedNetworks.contains(uid)
+                        || hasRestrictedModeAccess(uid);
+                if (!shouldAllow) {
+                    synchronized (mUidRulesFirstLock) {
+                        if (appInfo.isSystemApp() && !hasInternetPermissionUL(uid)) {
+                            // Allow system-bundled apps to add the INTERNET permission later
+                            // without the user needing to turn on their network access manually;
+                            // don't add system apps lacking that permission to the denylist now.
+                            continue;
+                        }
+                        if (((appInfo.privateFlags & PRIVATE_FLAG_HIDDEN) != PRIVATE_FLAG_HIDDEN)
+                                && ((appInfo.flags & FLAG_INSTALLED) != FLAG_INSTALLED)) {
+                            // If the app is not hidden *and* not "installed," then it's truly not
+                            // installed for the user or profile, so don't add it to the denylist.
+                            continue;
+                        }
+                        uidsToDeny.add(uid);
+                    }
+                }
+            }
+        }
+
+        // Add POLICY_REJECT_ALL to UIDs that are not allowed to use networks.
+        setPolicyForUids(uidsToDeny, POLICY_REJECT_ALL, true /* enabled */);
+
+        // Unset the restricted mode allowlist setting, which will no longer be utilized.
+        ConnectivitySettingsManager.setUidsAllowedOnRestrictedNetworks(mContext, Set.of());
+    }
+
+    private boolean isSystemApp(int uid) {
+        final String packageName = getPackageForUid(uid);
+        if (packageName == null) return false;
+        final ApplicationInfo appInfo;
+        try {
+            appInfo = mContext.getPackageManager().getApplicationInfo(packageName,
+                    PackageManager.MATCH_UNINSTALLED_PACKAGES);
+        } catch (PackageManager.NameNotFoundException ignored) {
+            return false;
+        }
+        return appInfo.isSystemApp();
+    }
+
+    private void setPolicyForUids(final Set<Integer> uids, int policy, boolean enabled) {
+        synchronized (mUidRulesFirstLock) {
+            for (final int uid : uids) {
+                // Update the policy in memory before writing it to disk.
+                int uidPolicy = mUidPolicy.get(uid, POLICY_NONE);
+                final boolean wasEnabled = (uidPolicy & policy) == policy;
+                if (enabled != wasEnabled) {
+                    if (enabled) {
+                        uidPolicy = uidPolicy | policy;
+                    } else {
+                        uidPolicy = uidPolicy & ~policy;
+                    }
+                    setUidPolicyUncheckedUL(uid, uidPolicy, false /* persist */);
+                }
+            }
+            synchronized (mNetworkPoliciesSecondLock) {
+                // Persist the policy now that we are done updating it.
+                writePolicyAL();
+            }
+        }
+    }
+
     @GuardedBy({"mUidRulesFirstLock", "mNetworkPoliciesSecondLock"})
     private void readPolicyAL() {
         if (LOGV) Slog.v(TAG, "readPolicyAL()");
@@ -2559,6 +2651,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         int type;
         int version = VERSION_INIT;
+        int lineageVersion = LINEAGE_VERSION_INIT;
         boolean insideAllowlist = false;
         while ((type = in.next()) != END_DOCUMENT) {
             final String tag = in.getName();
@@ -2566,6 +2659,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 if (TAG_POLICY_LIST.equals(tag)) {
                     final boolean oldValue = mRestrictBackground;
                     version = readIntAttribute(in, ATTR_VERSION);
+                    lineageVersion = readIntAttribute(in, ATTR_LINEAGE_VERSION, lineageVersion);
                     mLoadedRestrictBackground = (version >= VERSION_ADDED_RESTRICT_BACKGROUND)
                             && readBooleanAttribute(in, ATTR_RESTRICT_BACKGROUND);
                 } else if (TAG_NETWORK_POLICY.equals(tag)) {
@@ -2872,6 +2966,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     private void writeUidIndependentAttributes(TypedXmlSerializer out) throws IOException {
         out.startTag(null, TAG_POLICY_LIST);
         writeIntAttribute(out, ATTR_VERSION, VERSION_LATEST);
+        writeIntAttribute(out, ATTR_LINEAGE_VERSION, LINEAGE_VERSION_LATEST);
         writeBooleanAttribute(out, ATTR_RESTRICT_BACKGROUND, mRestrictBackground);
 
         // write all known network policies
