@@ -22,13 +22,16 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.net.Uri;
@@ -50,7 +53,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
+import org.mockito.ArgumentCaptor;
 
 @SmallTest
 @RunWith(AndroidJUnit4.class)
@@ -58,8 +61,8 @@ public class TileLifecycleManagerTest extends SysuiTestCase {
     private static final int TEST_FAIL_TIMEOUT = 5000;
 
     private final PackageManagerAdapter mMockPackageManagerAdapter =
-            Mockito.mock(PackageManagerAdapter.class);
-    private final IQSTileService.Stub mMockTileService = Mockito.mock(IQSTileService.Stub.class);
+            mock(PackageManagerAdapter.class);
+    private final IQSTileService.Stub mMockTileService = mock(IQSTileService.Stub.class);
     private ComponentName mTileServiceComponentName;
     private Intent mTileServiceIntent;
     private UserHandle mUser;
@@ -84,7 +87,7 @@ public class TileLifecycleManagerTest extends SysuiTestCase {
         mThread.start();
         mHandler = Handler.createAsync(mThread.getLooper());
         mStateManager = new TileLifecycleManager(mHandler, mContext,
-                Mockito.mock(IQSService.class), new Tile(),
+                mock(IQSService.class), new Tile(),
                 mTileServiceIntent,
                 mUser,
                 mMockPackageManagerAdapter);
@@ -236,5 +239,27 @@ public class TileLifecycleManagerTest extends SysuiTestCase {
         // Two calls: one for the first bind, one for the restart.
         verifyBind(2);
         verify(mMockTileService, times(2)).onStartListening();
+    }
+
+    @Test
+    public void testNullBindingCallsUnbind() {
+        Context mockContext = mock(Context.class);
+        // Binding has to succeed
+        when(mockContext.bindServiceAsUser(any(), any(), anyInt(), any())).thenReturn(true);
+        TileLifecycleManager manager = new TileLifecycleManager(mHandler, mockContext,
+                mock(IQSService.class),
+                new Tile(),
+                mTileServiceIntent,
+                mUser,
+                mMockPackageManagerAdapter,
+                mMockBroadcastDispatcher);
+
+        manager.setBindService(true);
+
+        ArgumentCaptor<ServiceConnection> captor = ArgumentCaptor.forClass(ServiceConnection.class);
+        verify(mockContext).bindServiceAsUser(any(), captor.capture(), anyInt(), any());
+
+        captor.getValue().onNullBinding(mTileServiceComponentName);
+        verify(mockContext).unbindService(captor.getValue());
     }
 }
