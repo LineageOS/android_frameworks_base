@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76dd67ff_e7f34273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33084
+      },
+      "writtenOn": "2023-10-13T23:25:39Z",
+      "side": 1,
+      "message": "I added another change ID on the other change since the existing ones conflicted with the previous merged version of the patch. I hope that\u0027s fine, unless squashing these two commits would\u0027ve been preferable?\n\nRegardless, there\u0027s some urgency since the bug is very easily reproducible, and sends SystemUI into an infinite crash loop.",
+      "revId": "d7ec6b05b99d57215efcfe433ac0c4d7dd91469a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
