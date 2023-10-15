@@ -18,22 +18,22 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="status_bar_icons_title">Vəziyyət sətri nişanları</string>
+    <string name="status_bar_icons_title">Status çubuğu nişanları</string>
     <string name="clock">Saat</string>
     <string name="global_action_restart_more">Yenidən başlat\u2026</string>
     <string name="global_action_restart_system">Sistem</string>
-    <string name="global_action_restart_recovery">Bərpa</string>
+    <string name="global_action_restart_recovery">Geri qaytarma</string>
     <string name="global_action_restart_bootloader">Önyükləyici</string>
     <string name="global_action_restart_download">Endirmə</string>
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Yenidən başladılır\u2026</string>
-    <string name="global_action_restart_recovery_progress">Bərpa rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_restart_recovery_progress">Geri qaytarma rejimində yenidən başladılır\u2026</string>
     <string name="global_action_restart_bootloader_progress">Önyükləyici rejimində yenidən başladılır\u2026</string>
     <string name="global_action_restart_download_progress">Endirmə rejimində yenidən başladılır\u2026</string>
     <string name="global_action_restart_fastboot_progress">Fastbootd rejimində yenidən başladılır\u2026</string>
     <string name="global_action_current_user">Hazırki</string>
     <string name="global_action_users">İstifadəçilər</string>
-    <string name="drag_or_tap_to_add_tiles">Xana əlavə etmək üçün basılı saxlayıb gətirin və ya toxunun</string>
+    <string name="drag_or_tap_to_add_tiles">Xana əlavə etmək üçün basılı tutub sürükləyin və ya toxunun</string>
     <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
     <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>

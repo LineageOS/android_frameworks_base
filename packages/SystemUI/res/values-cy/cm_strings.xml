@@ -18,6 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="status_bar_icons_title">Eiconau\'r bar statws</string>
     <string name="clock">Cloc</string>
     <string name="global_action_restart_more">Ailgychwyn\u2026</string>
     <string name="global_action_restart_system">System</string>
@@ -32,6 +33,7 @@
     <string name="global_action_restart_fastboot_progress">Yn ailgychwyn in fodd fastbootd\u2026</string>
     <string name="global_action_current_user">Cyfredol</string>
     <string name="global_action_users">Defnyddwyr</string>
+    <string name="drag_or_tap_to_add_tiles">Dalia &amp; llusgo neu dapio i ychwanegu teils</string>
     <string name="quick_settings_ambient_display_label">Dangosydd amgylchynol</string>
     <string name="accessibility_quick_settings_ambient_display_off">Dangosydd amgylchynol i ffwrdd.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Dangosydd amgylchynol ymlaen.</string>
@@ -65,4 +67,6 @@
     <string name="vpn_credentials_dialog_connect">Cysylltu</string>
     <string name="accessibility_dpad_left">Pwyntydd chwith</string>
     <string name="accessibility_dpad_right">Pwyntydd de</string>
+    <string name="screenshot_delete_label">Dileu</string>
+    <string name="screenshot_delete_description">Dileu sgrinlun</string>
 </resources>
