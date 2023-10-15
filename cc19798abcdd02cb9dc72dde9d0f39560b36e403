@@ -16,6 +16,23 @@
       "message": "Fixup commit, rather than reverting and reapplying, as requested.",
       "revId": "cc19798abcdd02cb9dc72dde9d0f39560b36e403",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6fbcda2_5685c2e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-10-15T17:31:01Z",
+      "side": 1,
+      "message": "wait, this isn\u0027t a proper fix up.\n\ngit commit --fixup $sha1\n\nwill generate the commit. then you can fill in the info. that\u0027s fine so that it auto squashes on rebase.",
+      "revId": "cc19798abcdd02cb9dc72dde9d0f39560b36e403",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
