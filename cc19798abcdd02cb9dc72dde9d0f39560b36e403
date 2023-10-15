@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e9548c7_cb6f18be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33084
+      },
+      "writtenOn": "2023-10-15T17:01:44Z",
+      "side": 1,
+      "message": "Fixup commit, rather than reverting and reapplying, as requested.",
+      "revId": "cc19798abcdd02cb9dc72dde9d0f39560b36e403",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
