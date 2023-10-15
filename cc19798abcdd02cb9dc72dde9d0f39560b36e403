@@ -68,6 +68,24 @@
       "message": "This should really be reported to AOSP somehow, as it\u0027s really the content of their android-security-12.0.0_r52 tag that is broken. I\u0027d say upload to review, but their android12-security-release branch is woefully behind.",
       "revId": "cc19798abcdd02cb9dc72dde9d0f39560b36e403",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "484a565f_9b728e43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33084
+      },
+      "writtenOn": "2023-10-15T17:35:43Z",
+      "side": 1,
+      "message": "Resolved. New to me, sorry.",
+      "parentUuid": "a67a2cdd_4dd7b3dc",
+      "revId": "cc19798abcdd02cb9dc72dde9d0f39560b36e403",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
