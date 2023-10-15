@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d488c4_22d8c218",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-10-15T18:41:06Z",
+      "side": 1,
+      "message": "@haggertk objections besides possible AOSP upload? I don\u0027t intend to do that myself, just wanted to ask before hitting the blue button",
+      "revId": "c3f8bfbd4f7db8de3f39253923dbdd0183a233ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
