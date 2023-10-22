@@ -1300,6 +1300,188 @@
     <family>
         <font weight="400" style="normal">NotoSansSymbols-Regular-Subsetted.ttf</font>
     </family>
+    <!-- CJK VF Insert START -->
+    <family lang="zh-Hans">
+        <font weight="100" style="normal" index="2" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="100.0" />
+        </font>
+        <font weight="300" style="normal" index="2" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="350" style="normal" index="2" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="350.0" />
+        </font>
+        <font weight="400" style="normal" index="2" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="2" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="700" style="normal" index="2" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="2" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+
+        <font weight="200" style="normal" index="2" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="200.0" />
+        </font>
+        <font weight="300" style="normal" index="2" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="400" style="normal" index="2" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="2" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="600" style="normal" index="2" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="600.0" />
+        </font>
+        <font weight="700" style="normal" index="2" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="2" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+    </family>
+    <family lang="zh-Hant,zh-Bopo">
+        <font weight="100" style="normal" index="3" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="100.0" />
+        </font>
+        <font weight="300" style="normal" index="3" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="350" style="normal" index="3" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="350.0" />
+        </font>
+        <font weight="400" style="normal" index="3" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="3" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="700" style="normal" index="3" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="3" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+
+        <font weight="200" style="normal" index="3" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="200.0" />
+        </font>
+        <font weight="300" style="normal" index="3" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="400" style="normal" index="3" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="3" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="600" style="normal" index="3" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="600.0" />
+        </font>
+        <font weight="700" style="normal" index="3" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="3" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+    </family>
+    <family lang="ja">
+        <font weight="100" style="normal" index="0" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="100.0" />
+        </font>
+        <font weight="300" style="normal" index="0" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="350" style="normal" index="0" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="350.0" />
+        </font>
+        <font weight="400" style="normal" index="0" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="0" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="700" style="normal" index="0" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="0" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+
+        <font weight="200" style="normal" index="0" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="200.0" />
+        </font>
+        <font weight="300" style="normal" index="0" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="400" style="normal" index="0" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="0" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="600" style="normal" index="0" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="600.0" />
+        </font>
+        <font weight="700" style="normal" index="0" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="0" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+    </family>
+    <family lang="ko">
+        <font weight="100" style="normal" index="1" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="100.0" />
+        </font>
+        <font weight="300" style="normal" index="1" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="350" style="normal" index="1" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="350.0" />
+        </font>
+        <font weight="400" style="normal" index="1" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="1" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="700" style="normal" index="1" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="1" postScriptName="NotoSansCJKjp-Thin">NotoSansCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+
+        <font weight="200" style="normal" index="1" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="200.0" />
+        </font>
+        <font weight="300" style="normal" index="1" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="300.0" />
+        </font>
+        <font weight="400" style="normal" index="1" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="400.0" />
+        </font>
+        <font weight="500" style="normal" index="1" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="500.0" />
+        </font>
+        <font weight="600" style="normal" index="1" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="600.0" />
+        </font>
+        <font weight="700" style="normal" index="1" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="700.0" />
+        </font>
+        <font weight="900" style="normal" index="1" fallbackFor="serif" postScriptName="NotoSerifCJKjp-ExtraLight">NotoSerifCJK-VF-Android.otf.ttc
+            <axis tag="wght" stylevalue="900.0" />
+        </font>
+    </family>
+    <!-- CJK VF Insert END -->
     <family lang="zh-Hans">
         <font weight="400" style="normal" index="2" postScriptName="NotoSansCJKjp-Regular">
             NotoSansCJK-Regular.ttc
