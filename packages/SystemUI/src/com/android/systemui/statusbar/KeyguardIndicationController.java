@@ -658,7 +658,7 @@ public class KeyguardIndicationController {
     }
 
     private void updateLockScreenBatteryMsg(boolean animate) {
-        if (mPowerPluggedIn || mEnableBatteryDefender) {
+        if (mBatteryPresent && (mPowerPluggedIn || mEnableBatteryDefender)) {
             String powerIndication = computePowerIndication();
             if (DEBUG_CHARGING_SPEED) {
                 powerIndication += ",  " + (mChargingWattage / 1000) + " mW";
@@ -674,7 +674,7 @@ public class KeyguardIndicationController {
                     animate);
         } else {
             mKeyguardLogger.log(TAG, LogLevel.DEBUG, "hide battery indication");
-            // don't show the charging information if device isn't plugged in
+            // don't show the charging information
             mRotateTextViewController.hideIndication(INDICATION_TYPE_BATTERY);
         }
     }
