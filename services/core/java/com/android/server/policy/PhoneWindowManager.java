@@ -2825,7 +2825,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void initSingleKeyGestureRules() {
         mSingleKeyGestureDetector = SingleKeyGestureDetector.get(mContext);
         mSingleKeyGestureDetector.addRule(new PowerKeyRule());
-        mSingleKeyGestureDetector.addRule(new BackKeyRule(KEY_LONGPRESS));
+        mSingleKeyGestureDetector.addRule(new BackKeyRule());
     }
 
     private void updateKeyAssignments() {
