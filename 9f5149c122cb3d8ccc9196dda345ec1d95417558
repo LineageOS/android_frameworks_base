@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccadacf5_db7c64f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-10-25T08:09:03Z",
+      "side": 1,
+      "message": "broken, don\u0027t feel like fixing it so I just removed it from chain.",
+      "revId": "9f5149c122cb3d8ccc9196dda345ec1d95417558",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
