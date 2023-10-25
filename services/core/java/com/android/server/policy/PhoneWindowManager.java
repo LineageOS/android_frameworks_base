@@ -2415,7 +2415,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mSearchKeyTargetActivity = ComponentName.unflattenFromString(
             mContext.getResources().getString(
                 com.android.internal.R.string.config_searchKeyTargetActivity));
-        readConfigurationDependentBehaviors();
 
         mDeviceHardwareKeys = mContext.getResources().getInteger(
                 org.lineageos.platform.internal.R.integer.config_deviceHardwareKeys);
