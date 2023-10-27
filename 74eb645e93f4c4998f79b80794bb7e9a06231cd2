@@ -16,6 +16,23 @@
       "message": "Let\u0027s just kill this feature.",
       "revId": "74eb645e93f4c4998f79b80794bb7e9a06231cd2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d23cbf42_e7927003",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-10-27T15:08:35Z",
+      "side": 1,
+      "message": "old games still benefit from this, at least 2 that I play still utilize this.\n\nBut, up to you. Not a massive loss.",
+      "revId": "74eb645e93f4c4998f79b80794bb7e9a06231cd2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
