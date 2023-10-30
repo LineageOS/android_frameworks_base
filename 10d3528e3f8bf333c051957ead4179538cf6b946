@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f37dcf74_ea38049d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21651
+      },
+      "writtenOn": "2023-10-30T14:56:38Z",
+      "side": 1,
+      "message": "I can\u0027t test now, but seems good for TV.",
+      "revId": "10d3528e3f8bf333c051957ead4179538cf6b946",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
