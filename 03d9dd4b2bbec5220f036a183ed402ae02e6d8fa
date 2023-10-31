@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ef3f95_b59490c6",
+        "filename": "core/java/android/net/NetworkPolicyManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 31604
+      },
+      "writtenOn": "2023-10-31T20:46:46Z",
+      "side": 1,
+      "message": "Just realized that POLICY_REJECT_CELLULAR, POLICY_REJECT_VPN, POLICY_REJECT_WIFI should be part of [Firewall: Transport-based toggle support (1/3)](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/370014/2?usp\u003drelated-change) instead.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 56
+      },
+      "revId": "03d9dd4b2bbec5220f036a183ed402ae02e6d8fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
