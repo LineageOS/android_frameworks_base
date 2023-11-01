@@ -1122,6 +1122,7 @@
     <string name="controls_media_dismiss_button">Diystyru</string>
     <string name="controls_media_resume">Parhau</string>
     <string name="controls_media_settings_button">Gosodiadau</string>
+    <string name="controls_media_empty_title">Mae <xliff:g id="app_name" example="Foo Music App">%1$s</xliff:g> yn rhedeg</string>
     <string name="controls_error_timeout">Anactif, gwiria\'r ap</string>
     <string name="controls_error_retryable">Gwall, ceisio eto:</string>
     <string name="controls_error_removed">Heb ganfod</string>

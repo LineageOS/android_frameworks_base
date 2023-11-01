@@ -14,5 +14,24 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="backup_confirm_title">Backup complet</string>
+    <string name="restore_confirm_title">Ripristinament complet</string>
+    <string name="backup_confirm_text">Al è stât domandât un backup complet di ducj i dâts viers un computer di scritori colegât. Desideristu permeti cheste operazion?\n\nSe tu no tu âs domandât il backup, no sta permeti che cheste operazion e ledi indenant.</string>
+    <string name="allow_backup_button_label">Fâs il backup</string>
+    <string name="deny_backup_button_label">No sta fâ il backup</string>
+    <string name="restore_confirm_text">Al è stât domandât, di un computer di scritori colegât, un ripristinament complet di ducj i dâts.  Desideristu permeti cheste operazion?\n\nSe tu no tu âs domandât il ripristinament, no sta permeti che cheste operazion e ledi indenant.  Chest al sostituirà ducj i dâts che a son sul dispositîf!</string>
+    <string name="allow_restore_button_label">Ripristine</string>
+    <string name="deny_restore_button_label">No sta ripristinâ</string>
+    <string name="current_password_text">Inserìs chi sot la password atuâl dal backup:</string>
+    <string name="device_encryption_restore_text">Inserìs chi sot la password di cifradure dal to dispositîf.</string>
     <string name="device_encryption_backup_text">Inserìs chi sot la password di cifradure dal to dispositîf. Cheste e vignarà doprade ancje par criptâ l\'archivi di backup.</string>
+    <string name="backup_enc_password_text">Inserìs une password di doprâ par cifrâ ducj i dâts dal backup. Se e ven lassade vueide, e vignarà doprade la tô password atuâl di backup:</string>
+    <string name="backup_enc_password_optional">Se tu desideris cifrâ ducj i dâts dal backup, inserìs une password chi sot:</string>
+    <string name="backup_enc_password_required">Viodût che il to dispositîf al è cifrât, al è necessari cifrâ il to backup. Inserìs une password chi sot:</string>
+    <string name="restore_enc_password_text">Se i dâts di ripristinâ a son cifrâts, inserìs la password chi sot:</string>
+    <string name="toast_backup_started">Backup daûr a scomençâ...</string>
+    <string name="toast_backup_ended">Backup completât</string>
+    <string name="toast_restore_started">Ripristinament daûr a scomençâ...</string>
+    <string name="toast_restore_ended">Ripristinament terminât</string>
+    <string name="toast_timeout">Operazion scjadude</string>
 </resources>

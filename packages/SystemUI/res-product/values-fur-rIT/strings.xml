@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dock_alignment_slow_charging" product="default">Met ben il telefon par ricjariâ plui svelt</string>
+    <string name="dock_alignment_not_charging" product="default">Met ben il telefon par ricjariâ cence fîi</string>
+    <string name="inattentive_sleep_warning_message" product="tv">Il dispositîf Android TV si distudarà ca di pôc; frache un boton par tignîlu impiât.</string>
+    <string name="inattentive_sleep_warning_message" product="default">Il dispositîf si distudarà ca di pôc; frache par tignîlu impiât.</string>
+    <string name="keyguard_missing_sim_message" product="tablet">Nissune SIM tal tablet.</string>
+    <string name="keyguard_missing_sim_message" product="default">Nissune SIM tal telefon.</string>
+    <string name="kg_invalid_confirm_pin_hint" product="default">I codiçs PIN no corispuindin</string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest tablet
+       al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest telefon
+       al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest tablet al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest telefon al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest utent
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest utent
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest utent al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest utent al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e il profîl di lavôr
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e il profîl di lavôr
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Il profîl di lavôr al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Il profîl di lavôr al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="tablet">        Tu âs dissegnât mâl la tô cumbinazion di sbloc <xliff:g id="number">%1$d</xliff:g> voltis.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e
+       ti vignarà domandât di sblocâ il to tablet doprant un account di e-mail.\n\n
+       Torne prove chi di <xliff:g id="number">%3$d</xliff:g> seconts.
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="default">        Tu âs dissegnât mâl la tô cumbinazion di sbloc <xliff:g id="number">%1$d</xliff:g> voltis.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e
+       ti vignarà domandât di sblocâ il to telefon doprant un account di e-mail.\n\n
+       Torne prove chi di <xliff:g id="number">%3$d</xliff:g> seconts.
+    </string>
+    <string name="global_action_lock_message" product="default">Sbloche il telefon par vê plui opzions</string>
+    <string name="global_action_lock_message" product="tablet">Sbloche il tablet par vê plui opzions</string>
+    <string name="global_action_lock_message" product="device">Sbloche il dispositîf par vê plui opzions</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">Shell</string>
+    <string name="bugreport_notification_channel">Segnalazions erôrs</string>
+    <string name="bugreport_in_progress_title">Segnalazion erôr <xliff:g id="id">#%d</xliff:g> in fase di gjenerazion</string>
+    <string name="bugreport_finished_title">Segnalazion erôr <xliff:g id="id">#%d</xliff:g> tirade dongje</string>
+    <string name="bugreport_updating_title">Daûr a zontâ detais ae segnalazion dal erôr</string>
+    <string name="bugreport_updating_wait">Par plasê spiete\u2026</string>
+    <string name="bugreport_finished_text" product="watch">La segnalazion dal erôr e vignarà fûr sul telefon chi di pôc</string>
+    <string name="bugreport_finished_text" product="tv">Selezione par condividi la tô segnalazion di erôr</string>
+    <string name="bugreport_finished_text" product="default">Tocje par condividi la tô segnalazion di erôr</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="tv">Selezione par condividi la tô segnalazion di erôr cence une schermade o spiete che la acuisizion de schermade e finissi</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="watch">Tocje par condividi la tô segnalazion di erôr cence une schermade o spiete che la acuisizion de schermade e finissi</string>
+    <string name="bugreport_finished_pending_screenshot_text" product="default">Tocje par condividi la tô segnalazion di erôr cence une schermade o spiete che la acuisizion de schermade e finissi</string>
+    <string name="bugreport_confirm">Lis segnalazions di erôrs a contegnin dâts dai varis files di regjistri dal sisteme, che a podaressin includi dâts che tu consideris sensibii (come l\'ûs des aplicazions e i dâts di localizazion). Condivît lis segnalazions dai erôrs dome cun personis e aplicazions che tu ti fidis.</string>
+    <string name="bugreport_confirm_dont_repeat">No sta mostrâ plui</string>
+    <string name="bugreport_storage_title">Segnalazions erôrs</string>
+    <string name="bugreport_unreadable_text">Nol è pussibil lei il file de segnalazion erôr</string>
+    <string name="bugreport_add_details_to_zip_failed">Impussibil zontâ i detais de segnalazion erôr sul file zip</string>
+    <string name="bugreport_unnamed">cence non</string>
+    <string name="bugreport_info_action">Detais</string>
+    <string name="bugreport_screenshot_action">Schermade</string>
+    <string name="bugreport_screenshot_taken">Schermade caturade cun sucès.</string>
+    <string name="bugreport_screenshot_failed">Nol è pussibil caturâ schermadis.</string>
+    <string name="bugreport_info_dialog_title">Detais de segnalazion erôr <xliff:g id="id">#%d</xliff:g></string>
+    <string name="bugreport_info_name">Non dal file</string>
+    <string name="bugreport_info_title">Titul dal erôr</string>
+    <string name="bugreport_info_description">Sintesi dal erôr</string>
+    <string name="save">Salve</string>
+    <string name="bugreport_intent_chooser_title">Condivît segnalazion erôr</string>
+</resources>
