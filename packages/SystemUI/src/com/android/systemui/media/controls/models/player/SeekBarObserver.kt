@@ -105,7 +105,8 @@ open class SeekBarObserver(private val holder: MediaViewHolder) :
         holder.seekBar.thumb.alpha = if (data.seekAvailable) 255 else 0
         holder.seekBar.isEnabled = data.seekAvailable
         progressDrawable?.animate = data.playing && !data.scrubbing
-        progressDrawable?.transitionEnabled = !data.seekAvailable
+        progressDrawable?.minWaveEndpoint = if (data.seekAvailable) 0f else 0.2f
+        progressDrawable?.matchedWaveEndpoint = if (data.seekAvailable) 1f else 0.6f
 
         if (holder.seekBar.maxHeight != seekBarEnabledMaxHeight) {
             holder.seekBar.maxHeight = seekBarEnabledMaxHeight
