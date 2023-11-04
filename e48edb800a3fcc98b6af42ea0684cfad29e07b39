@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c35812b_1143d5b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-11-04T16:45:59Z",
+      "side": 1,
+      "message": "no, i should have explained it better - non-seekable stays the same (transitionEnabled defaults to true, and if its non-seekable i set default values of tunables). what this patch does is \"fade out\" the wave after the current position indicator, without this patch its a straight line",
+      "parentUuid": "9cd2fece_fcd1711a",
+      "revId": "e48edb800a3fcc98b6af42ea0684cfad29e07b39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d4fbd85_8bd6d6e3",
