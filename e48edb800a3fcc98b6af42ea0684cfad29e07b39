@@ -16,6 +16,24 @@
       "message": "I\u0027m not very familiar with kotlin itself, but is changing the visibility here needed for the change in the other file or why is this done?",
       "revId": "e48edb800a3fcc98b6af42ea0684cfad29e07b39",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa2f140_fdfcf947",
+        "filename": "packages/SystemUI/src/com/android/systemui/media/controls/ui/SquigglyProgress.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2023-11-04T16:36:21Z",
+      "side": 1,
+      "message": "yes, transitionPeriods isn\u0027t used in the other file but apparently the googlers intended that to be configurable so i made all three visible. val -\u003e var is like removing final",
+      "parentUuid": "7d4fbd85_8bd6d6e3",
+      "revId": "e48edb800a3fcc98b6af42ea0684cfad29e07b39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
