@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b6b8f26_99bb51ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-11-04T22:52:14Z",
+      "side": 1,
+      "message": "in aosp there\u0027s one extra change that avoid mismatches between the different package managers in the chain, pick that as well \n20 is fine, it\u0027s just nicer",
+      "revId": "32b93f4643ac9625b7cfe407f2d5c1377f32c120",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
