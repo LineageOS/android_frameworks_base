@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd2fece_fcd1711a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-11-04T16:43:06Z",
+      "side": 1,
+      "message": "KK. Next question would be how I can test this patch. The wave appears with and without that patch for me, so I assume there is only a noticable difference when there is no seek available? If so, how do I get such a non-seekable media player ^^",
+      "revId": "e48edb800a3fcc98b6af42ea0684cfad29e07b39",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d4fbd85_8bd6d6e3",
