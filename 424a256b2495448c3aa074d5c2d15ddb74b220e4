@@ -16,6 +16,23 @@
       "message": "Can you cherry-pick https://github.com/LineageOS/android_frameworks_base/commit/8ae25474b4fec124f176e00c7d81a4dafbaae1d9 instead?",
       "revId": "424a256b2495448c3aa074d5c2d15ddb74b220e4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a23b8b6_6b1c13f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-11-04T12:25:49Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/372466",
+      "revId": "424a256b2495448c3aa074d5c2d15ddb74b220e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
