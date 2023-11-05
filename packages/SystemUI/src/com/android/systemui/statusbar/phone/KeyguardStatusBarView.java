@@ -67,6 +67,7 @@ public class KeyguardStatusBarView extends RelativeLayout {
     private final ArrayList<Rect> mEmptyTintRect = new ArrayList<>();
 
     private boolean mBatteryCharging;
+    private boolean mSymmetricalPadding;
 
     private TextView mCarrierLabel;
     private ImageView mMultiUserAvatar;
@@ -173,6 +174,7 @@ public class KeyguardStatusBarView extends RelativeLayout {
 
         mCarrierLabel.setLayoutParams(lp);
         updateKeyguardStatusBarHeight();
+        setSymmetricalPadding();
     }
 
     public void setUserSwitcherEnabled(boolean enabled) {
@@ -499,6 +501,7 @@ public class KeyguardStatusBarView extends RelativeLayout {
         pw.println("  mBatteryCharging: " + mBatteryCharging);
         pw.println("  mLayoutState: " + mLayoutState);
         pw.println("  mKeyguardUserSwitcherEnabled: " + mKeyguardUserSwitcherEnabled);
+        pw.println("  mSymmetricalPadding: " + mSymmetricalPadding);
         if (mBatteryView != null) {
             mBatteryView.dump(pw, args);
         }
@@ -532,5 +535,23 @@ public class KeyguardStatusBarView extends RelativeLayout {
         Trace.beginSection("KeyguardStatusBarView#onMeasure");
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         Trace.endSection();
+    }
+
+    /** Should only be called from {@link KeyguardStatusBarViewController}. */
+    void updateSymmetricalPadding(boolean newValue) {
+        mSymmetricalPadding = newValue;
+        setSymmetricalPadding();
+    }
+
+    private void setSymmetricalPadding() {
+        final int startPadding = mSymmetricalPadding ?
+            getResources().getDimensionPixelSize(R.dimen.status_bar_padding_start) : 0;
+
+        mCarrierLabel.setPaddingRelative(
+            startPadding,
+            mCarrierLabel.getPaddingTop(),
+            mCarrierLabel.getPaddingEnd(),
+            mCarrierLabel.getPaddingBottom()
+        );
     }
 }

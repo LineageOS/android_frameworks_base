@@ -53,17 +53,23 @@ import com.android.systemui.shared.rotation.RotationButtonController;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.statusbar.phone.userswitcher.StatusBarUserSwitcherContainer;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.user.ui.binder.StatusBarUserChipViewBinder;
 import com.android.systemui.user.ui.viewmodel.StatusBarUserChipViewModel;
 import com.android.systemui.util.leak.RotationUtils;
 
 import java.util.Objects;
 
+import lineageos.providers.LineageSettings;
+
 public class PhoneStatusBarView extends FrameLayout implements Callbacks {
     private static final String TAG = "PhoneStatusBarView";
+    private static final String SYMMETRICAL_PADDING =
+        "lineagesystem:" + LineageSettings.System.STATUS_BAR_SYMMETRICAL_PADDING;
     private final CommandQueue mCommandQueue;
     private final StatusBarContentInsetsProvider mContentInsetsProvider;
 
+    private boolean mSymmetricalPadding;
     private DarkReceiver mBattery;
     private ClockController mClockController;
     private int mRotationOrientation = -1;
@@ -223,6 +229,14 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
             mDisplaySize = newSize;
         }
 
+        final boolean symmetricalPadding = TunerService
+            .parseIntegerSwitch(Dependency.get(TunerService.class).getValue(SYMMETRICAL_PADDING), false);
+
+        if (symmetricalPadding != mSymmetricalPadding) {
+            changed = true;
+            mSymmetricalPadding = symmetricalPadding;
+        }
+
         return changed;
     }
 
@@ -339,20 +353,36 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
         Pair<Integer, Integer> insets = mContentInsetsProvider
                 .getStatusBarContentInsetsForCurrentRotation();
 
+        int paddingStart = insets.first;
+        int paddingEnd = insets.second;
+
+        if (mSymmetricalPadding) {
+            paddingStart = Math.max(insets.first, insets.second);
+            paddingEnd = Math.max(insets.first, insets.second);
+        }
+
         setPadding(
-                insets.first,
+                paddingStart,
                 getPaddingTop(),
-                insets.second,
+                paddingEnd,
                 getPaddingBottom());
 
-        // Apply negative paddings to centered area layout so that we'll actually be on the center.
-        final int winRotation = getDisplay().getRotation();
-        LayoutParams centeredAreaParams =
-                (LayoutParams) findViewById(R.id.centered_area).getLayoutParams();
-        centeredAreaParams.leftMargin =
-                winRotation == Surface.ROTATION_0 ? -insets.first : 0;
-        centeredAreaParams.rightMargin =
-                winRotation == Surface.ROTATION_0 ? -insets.second : 0;
+        if (getDisplay() != null) {
+            // Apply negative paddings to centered area layout so that we'll actually be on the center.
+            final int winRotation = getDisplay().getRotation();
+            LayoutParams centeredAreaParams =
+                    (LayoutParams) findViewById(R.id.centered_area).getLayoutParams();
+            centeredAreaParams.leftMargin =
+                    winRotation == Surface.ROTATION_0 ? -insets.first : 0;
+            centeredAreaParams.rightMargin =
+                    winRotation == Surface.ROTATION_0 ? -insets.second : 0;
+        }
+    }
+
+    public void updateSymmetricalPadding(boolean pad) {
+        mSymmetricalPadding = pad;
+        updateSafeInsets();
+        requestLayout();
     }
 
     public ClockController getClockController() {

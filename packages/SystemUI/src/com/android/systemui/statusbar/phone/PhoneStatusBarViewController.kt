@@ -32,6 +32,8 @@ import com.android.systemui.shade.ShadeController
 import com.android.systemui.shade.ShadeLogger
 import com.android.systemui.shared.animation.UnfoldMoveFromCenterAnimator
 import com.android.systemui.statusbar.policy.ConfigurationController
+import com.android.systemui.tuner.TunerService
+import com.android.systemui.tuner.TunerService.Tunable
 import com.android.systemui.unfold.SysUIUnfoldComponent
 import com.android.systemui.unfold.UNFOLD_STATUS_BAR
 import com.android.systemui.unfold.util.ScopedUnfoldTransitionProgressProvider
@@ -42,6 +44,7 @@ import com.android.systemui.util.view.ViewUtil
 import java.util.Optional
 import javax.inject.Inject
 import javax.inject.Named
+import lineageos.providers.LineageSettings
 
 private const val TAG = "PhoneStatusBarViewController"
 
@@ -55,14 +58,18 @@ class PhoneStatusBarViewController private constructor(
     private val moveFromCenterAnimationController: StatusBarMoveFromCenterAnimationController?,
     private val userChipViewModel: StatusBarUserChipViewModel,
     private val viewUtil: ViewUtil,
-    private val configurationController: ConfigurationController
-) : ViewController<PhoneStatusBarView>(view) {
+    private val configurationController: ConfigurationController,
+    private val tunerService: TunerService
+) : ViewController<PhoneStatusBarView>(view), Tunable {
 
     private val configurationListener = object : ConfigurationController.ConfigurationListener {
         override fun onConfigChanged(newConfig: Configuration?) {
             mView.updateResources()
         }
     }
+
+    private val SYMMETRICAL_PADDING_TUNE =
+        "lineagesystem:" + LineageSettings.System.STATUS_BAR_SYMMETRICAL_PADDING
 
     override fun onViewAttached() {
         if (moveFromCenterAnimationController == null) return
@@ -104,9 +111,18 @@ class PhoneStatusBarViewController private constructor(
     init {
         mView.setTouchEventHandler(PhoneStatusBarViewTouchHandler())
         mView.init(userChipViewModel)
+        tunerService.addTunable(this, SYMMETRICAL_PADDING_TUNE)
     }
 
     override fun onInit() {
+    }
+
+    override fun onTuningChanged(key: String, newValue: String) {
+        when (key) {
+            SYMMETRICAL_PADDING_TUNE -> {
+                mView.updateSymmetricalPadding(TunerService.parseIntegerSwitch(newValue, false))
+            }
+        }
     }
 
     fun setImportantForAccessibility(mode: Int) {
@@ -224,6 +240,7 @@ class PhoneStatusBarViewController private constructor(
         private val shadeLogger: ShadeLogger,
         private val viewUtil: ViewUtil,
         private val configurationController: ConfigurationController,
+        private val tunerService: TunerService,
     ) {
         fun create(
             view: PhoneStatusBarView
@@ -244,7 +261,8 @@ class PhoneStatusBarViewController private constructor(
                     statusBarMoveFromCenterAnimationController,
                     userChipViewModel,
                     viewUtil,
-                    configurationController
+                    configurationController,
+                    tunerService
             )
         }
     }

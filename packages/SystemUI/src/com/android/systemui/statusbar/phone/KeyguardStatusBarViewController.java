@@ -45,6 +45,7 @@ import com.android.systemui.R;
 import com.android.systemui.animation.InterpolatorsAndroidX;
 import com.android.systemui.battery.BatteryMeterViewController;
 import com.android.systemui.dagger.qualifiers.Main;
+import com.android.systemui.Dependency;
 import com.android.systemui.plugins.log.LogLevel;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.shade.NotificationPanelViewController;
@@ -64,9 +65,13 @@ import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.UserInfoController;
+import com.android.systemui.tuner.TunerService;
+import com.android.systemui.tuner.TunerService.Tunable;
 import com.android.systemui.user.ui.viewmodel.StatusBarUserChipViewModel;
 import com.android.systemui.util.ViewController;
 import com.android.systemui.util.settings.SecureSettings;
+
+import lineageos.providers.LineageSettings;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -78,7 +83,7 @@ import javax.inject.Inject;
 import kotlin.Unit;
 
 /** View Controller for {@link com.android.systemui.statusbar.phone.KeyguardStatusBarView}. */
-public class KeyguardStatusBarViewController extends ViewController<KeyguardStatusBarView> {
+public class KeyguardStatusBarViewController extends ViewController<KeyguardStatusBarView> implements Tunable {
     private static final String TAG = "KeyguardStatusBarViewController";
     private static final AnimationProperties KEYGUARD_HUN_PROPERTIES =
             new AnimationProperties().setDuration(StackStateAnimator.ANIMATION_DURATION_STANDARD);
@@ -259,6 +264,9 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
      */
     private float mExplicitAlpha = -1f;
 
+    private static final String SYMMETRICAL_PADDING =
+        "lineagesystem:" + LineageSettings.System.STATUS_BAR_SYMMETRICAL_PADDING;
+
     @Inject
     public KeyguardStatusBarViewController(
             KeyguardStatusBarView view,
@@ -368,6 +376,7 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
                 UserHandle.USER_ALL);
         updateUserSwitcher();
         onThemeChanged();
+        Dependency.get(TunerService.class).addTunable(this, SYMMETRICAL_PADDING);
     }
 
     @Override
@@ -382,6 +391,7 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
         if (mTintedIconManager != null) {
             mStatusBarIconController.removeIconGroup(mTintedIconManager);
         }
+        Dependency.get(TunerService.class).removeTunable(this);
     }
 
     /** Should be called when the theme changes. */
@@ -632,5 +642,12 @@ public class KeyguardStatusBarViewController extends ViewController<KeyguardStat
             mView.setTranslationX(translationX);
             return Unit.INSTANCE;
         }, isAnimationRunning);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        if (SYMMETRICAL_PADDING.equals(key)) {
+            mView.updateSymmetricalPadding(TunerService.parseIntegerSwitch(newValue, false));
+        }
     }
 }
