@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Erabili sistema biometrikoak edo pantailaren blokeoa"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Egiaztatu zeu zarela"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Aurrera egiteko, erabili sistema biometrikoak"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Aurrera egiteko, erabili hatz-marka"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Aurrera egiteko, erabili aurpegia"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Aurrera egiteko, erabili sistema biometrikoak edo pantailaren blokeoa"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Hardware biometrikoa ez dago erabilgarri"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Utzi da autentifikazioa"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Ez da ezagutu"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Ez da ezagutu aurpegia"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Utzi egin da autentifikazioa"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Ez da ezarri PIN koderik, eredurik edo pasahitzik"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Errorea autentifikatzean"</string>
@@ -670,7 +673,7 @@
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Sakatu hau aurpegi-eredua ezabatzeko eta, gero, gehitu aurpegia berriro"</string>
     <string name="face_setup_notification_title" msgid="8843461561970741790">"Konfiguratu Aurpegi bidez desblokeatzea"</string>
     <string name="face_setup_notification_content" msgid="5463999831057751676">"Telefonoa desblokeatzeko, begira iezaiozu"</string>
-    <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Aurpegi bidez desblokeatzeko aukera erabiltzeko, aktibatu "<b>"kamera erabiltzeko baimena"</b>" Ezarpenak &gt; Pribatutasuna atalean"</string>
+    <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Aurpegi bidez desblokeatzeko eginbidea erabiltzeko, aktibatu "<b>"kamera erabiltzeko baimena"</b>" Ezarpenak &gt; Pribatutasuna atalean"</string>
     <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Konfiguratu telefonoa desblokeatzeko modu gehiago"</string>
     <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Sakatu hau hatz-marka bat gehitzeko"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Hatz-marka bidez desblokeatzea"</string>

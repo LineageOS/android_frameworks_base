@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Лицето бе разпознато. Натиснете, за да продължите."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Лицето бе разпознато. Продължете чрез иконата за отключване."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Удостоверено"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Анулиране на удостоверяването"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Използване на ПИН"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Използване на фигура"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Използване на парола"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"За да настроите „Отключване с лице“ отново, текущият модел на лицето ви ще бъде изтрит.\n\nЩе трябва да настроите функцията отново, за да отключвате телефона си с лице."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Функцията „Отключване с лице“ не бе настроена. Отворете настройките, за да опитате отново."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Докоснете сензора за отпечатъци"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Натиснете иконата за отключване, за да продължите"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Лицето не е разпознато. Използвайте отпечатък."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Отключено с лице"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Лицето бе разпознато"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Плъзнете бързо нагоре, за да опитате отново"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Плъзнете нагоре, за да изпробвате отново „Отключване с лице“"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Отключете, за да използвате NFC"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Това устройство принадлежи на организацията ви"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Това устройство принадлежи на <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Меню за включване/изключване"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Страница <xliff:g id="ID_1">%1$d</xliff:g> от <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Заключен екран"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Тел. се изкл. поради загряване"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Телефонът ви вече работи нормално.\nДокоснете за още информация"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Телефонът ви бе твърде горещ, затова се изключи с цел охлаждане. Вече работи нормално.\n\nТелефонът ви може да стане твърде горещ, ако:\n	• използвате приложения, които ползват голям обем ресурси (като например игри, видеосъдържание или приложения за навигация);\n	• изтегляте или качвате големи файлове;\n	• използвате устройството си при високи температури."</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Вижте стъпките, които да предприемете"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Телефонът загрява"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Някои функции са ограничени, докато телефонът се охлажда.\nДокоснете за още информация"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Телефонът ви автоматично ще направи опит за охлаждане. Пак можете да го използвате, но той може да работи по-бавно.\n\nСлед като се охлади, ще работи нормално."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Вижте стъпките, които да предприемете"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Изключете устройството си"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Устройството ви се загрява до порта за зареждане. Ако е свързано със зарядно устройство или аксесоар за USB, изключете го и внимавайте, тъй като и кабелът може да е топъл."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Опитайте с друг ПИН код"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Потвърдете промяната за <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Прекарайте пръст, за да видите повече"</string>
+    <string name="retry_face" msgid="416380073082560186">"Повторен опит за удостоверяване с лице"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Препоръките се зареждат"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Мултимедия"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Скриване на мултимед. контрола за <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>

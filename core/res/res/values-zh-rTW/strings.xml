@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"使用生物特徵辨識或螢幕鎖定功能"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"驗證你的身分"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"如要繼續操作，請使用生物特徵辨識功能驗證身分"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"如要繼續操作，請使用指紋驗證身分"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"如要繼續操作，請使用臉孔驗證身分"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"請使用生物特徵辨識或螢幕鎖定功能驗證身分，才能繼續操作"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"無法使用生物特徵辨識硬體"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"已取消驗證"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"無法辨識"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"無法辨識臉孔"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"已取消驗證"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"未設定 PIN 碼、解鎖圖案或密碼"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"驗證時發生錯誤"</string>
@@ -1392,7 +1395,7 @@
     <string name="share_remote_bugreport_action" msgid="7630880678785123682">"分享"</string>
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"拒絕"</string>
     <string name="select_input_method" msgid="3971267998568587025">"選擇輸入法"</string>
-    <string name="show_ime" msgid="6406112007347443383">"使用實體鍵盤時仍繼續顯示虛擬鍵盤"</string>
+    <string name="show_ime" msgid="6406112007347443383">"使用實體鍵盤時仍繼續顯示螢幕小鍵盤"</string>
     <string name="hardware" msgid="1800597768237606953">"顯示虛擬鍵盤"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"設定「<xliff:g id="DEVICE_NAME">%s</xliff:g>」"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"設定實體鍵盤"</string>
@@ -1940,7 +1943,7 @@
     <string name="country_selection_title" msgid="5221495687299014379">"地區偏好設定"</string>
     <string name="search_language_hint" msgid="7004225294308793583">"請輸入語言名稱"</string>
     <string name="language_picker_section_suggested" msgid="6556199184638990447">"建議語言"</string>
-    <string name="language_picker_regions_section_suggested" msgid="6080131515268225316">"建議的語言"</string>
+    <string name="language_picker_regions_section_suggested" msgid="6080131515268225316">"建議地區"</string>
     <string name="language_picker_section_suggested_bilingual" msgid="5932198319583556613">"建議語言"</string>
     <string name="region_picker_section_suggested_bilingual" msgid="704607569328224133">"建議地區"</string>
     <string name="language_picker_section_all" msgid="1985809075777564284">"所有語言"</string>

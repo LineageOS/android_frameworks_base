@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"Ativar USB"</string>
     <string name="learn_more" msgid="4690632085667273811">"Saiba mais"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Capturar tela"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Extend Unlock desativado"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Desbloqueio extra desativado"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"enviou uma imagem"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Salvando captura de tela..."</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Salvando captura de tela no perfil de trabalho…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Rosto reconhecido. Pressione para continuar."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Rosto reconhecido. Pressione o ícone para continuar."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Autenticado"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Cancelar autenticação"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Usar PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Usar padrão"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Usar senha"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"O modelo de rosto atual será excluído para reconfigurar o Desbloqueio facial.\n\nVocê vai precisar configurar esse recurso de novo para desbloquear o smartphone com o rosto."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Não foi possível configurar o Desbloqueio facial. Acesse as Configurações e tente de novo."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Toque no sensor de impressão digital"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Pressione o ícone de desbloqueio para continuar"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Não foi possível reconhecer o rosto Use a impressão digital."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Desbloqueado pelo rosto"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Rosto reconhecido"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Deslize para cima para tentar novamente"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Deslize para cima para usar o Desbloqueio facial e novo"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Desbloqueie para usar a NFC"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Este dispositivo pertence à sua organização"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Este dispositivo pertence à organização <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Menu liga/desliga"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Página <xliff:g id="ID_1">%1$d</xliff:g> de <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Tela de bloqueio"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"O smartphone foi desligado devido ao aquecimento"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"O smartphone está funcionando normalmente agora.\nToque para saber mais"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"O smartphone estava muito quente e foi desligado para resfriar. Agora, ele está sendo executado normalmente.\n\nO smartphone pode ficar quente demais se você:\n	• usar apps que consomem muitos recursos (como apps de jogos, vídeos ou navegação);\n	• fizer o download ou upload de arquivos grandes;\n	• usar o smartphone em temperaturas altas."</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Ver etapas de cuidado"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"O smartphone está esquentando"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Alguns recursos ficam limitados enquanto o smartphone é resfriado.\nToque para saber mais"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Seu smartphone tentará se resfriar automaticamente. Você ainda poderá usá-lo, mas talvez ele fique mais lento.\n\nQuando o smartphone estiver resfriado, ele voltará ao normal."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Ver etapas de cuidado"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Desconecte seu dispositivo"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Seu dispositivo está ficando quente perto da porta de carregamento. Desconecte qualquer carregador ou acessório USB que esteja conectado, mas tome cuidado, porque o cabo também pode estar quente."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Tente usar outro PIN"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Confirme a mudança para <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Deslize para ver mais"</string>
+    <string name="retry_face" msgid="416380073082560186">"Refazer autenticação facial"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Carregando recomendações"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Mídia"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Ocultar este controle de mídia para <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>

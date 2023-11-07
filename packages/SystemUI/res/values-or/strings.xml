@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"USB ସକ୍ଷମ କରନ୍ତୁ"</string>
     <string name="learn_more" msgid="4690632085667273811">"ଅଧିକ ଜାଣନ୍ତୁ"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"ସ୍କ୍ରିନ୍‌ସଟ୍ ନିଅନ୍ତୁ"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Extend Unlockକୁ ଅକ୍ଷମ କରାଯାଇଛି"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"ଏକ୍ସଟେଣ୍ଡ ଅନଲକକୁ ଅକ୍ଷମ କରାଯାଇଛି"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"ଏକ ଛବି ପଠାଯାଇଛି"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"ସ୍କ୍ରୀନଶଟ୍‍ ସେଭ୍‍ କରାଯାଉଛି…"</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"ୱାର୍କ ପ୍ରୋଫାଇଲରେ ସ୍କ୍ରିନସଟ ସେଭ କରାଯାଉଛି…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"ଫେସ ଚିହ୍ନଟ କରାଯାଇଛି। ଜାରି ରଖିବାକୁ ଦବାନ୍ତୁ।"</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"ଫେସ ଚିହ୍ନଟ କରାଯାଇଛି। ଜାରି ରଖିବାକୁ ଅନଲକ ଆଇକନ ଦବାନ୍ତୁ।"</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"ପ୍ରାମାଣିକତା ହୋଇଛି"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"ପ୍ରମାଣୀକରଣକୁ ବାତିଲ କରନ୍ତୁ"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"PIN ବ୍ୟବହାର କରନ୍ତୁ"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"ପାଟର୍ନ ବ୍ୟବହାର କରନ୍ତୁ"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"ପାସ୍‌ୱାର୍ଡ୍ ବ୍ୟବହାର କରନ୍ତୁ"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"ଫେସ ଅନଲକ ପୁଣି ସେଟ ଅପ କରିବାକୁ ଆପଣଙ୍କ ବର୍ତ୍ତମାନର ଫେସ ମଡେଲ ଡିଲିଟ ହୋଇଯିବ।\n\nଆପଣଙ୍କ ଫୋନକୁ ଅନଲକ କରିବା ପାଇଁ ଆପଣଙ୍କ ଫେସ ବ୍ୟବହାର କରିବାକୁ ଆପଣଙ୍କୁ ଏହି ଫିଚର ପୁଣି ସେଟ ଅପ କରିବାକୁ ହେବ।"</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"ଫେସ ଅନଲକ ସେଟ ଅପ କରାଯାଇପାରିଲା ନାହିଁ। ପୁଣି ଚେଷ୍ଟା କରିବା ପାଇଁ ସେଟିଂସକୁ ଯାଆନ୍ତୁ।"</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"ଟିପଚିହ୍ନ ସେନସର୍‌କୁ ଛୁଅଁନ୍ତୁ"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"ଜାରି ରଖିବାକୁ ଅନଲକ ଆଇକନ ଦବାନ୍ତୁ"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"ଫେସ୍ ଚିହ୍ନଟ କରିହେବ ନାହିଁ। ଟିପଚିହ୍ନ ବ୍ୟବହାର କରନ୍ତୁ।"</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"ଫେସ ମାଧ୍ୟମରେ ଅନଲକ କରାଯାଇଛି"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"ଫେସ ଚିହ୍ନଟ କରାଯାଇଛି"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"ପୁଣି ଚେଷ୍ଟା କରିବା ପାଇଁ ଉପରକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"ପୁଣି ଫେସ ଅନଲକ ବ୍ୟବହାର କରି ଦେଖିବା ପାଇଁ ଉପରକୁ ସ୍ୱାଇପ କରନ୍ତୁ"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"NFC ବ୍ୟବହାର କରିବାକୁ ଅନଲକ୍ କରନ୍ତୁ"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"ଏହି ଡିଭାଇସଟି ଆପଣଙ୍କ ସଂସ୍ଥାର ଅଟେ"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"ଏହି ଡିଭାଇସଟି <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>ର ଅଟେ"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"ପାୱାର ମେନୁ"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"ପୃଷ୍ଠା <xliff:g id="ID_1">%1$d</xliff:g> ମୋଟ <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"ଲକ ସ୍କ୍ରିନ"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"ଗରମ ହେତୁ ଫୋନ୍‍ ଅଫ୍‍ କରିଦିଆଗଲା"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"ଆପଣଙ୍କ ଫୋନ୍ ବର୍ତ୍ତମାନ ସାମାନ୍ୟ ରୂପେ ଚାଲୁଛି।\nଅଧିକ ସୂଚନା ପାଇଁ ଟାପ୍ କରନ୍ତୁ"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"ଆପଣଙ୍କ ଫୋନ୍‍ ବହୁତ ଗରମ ଥିଲା, ତେଣୁ ଏହାକୁ ଥଣ୍ଡା କରାଯିବାକୁ ଅଫ୍‍ କରିଦିଆଗଲା। ଆପଣଙ୍କ ଫୋନ୍‍ ବର୍ତ୍ତମାନ ସାମାନ୍ୟ ଅବସ୍ଥାରେ ଚାଲୁଛି।\n\nଆପଣଙ୍କ ଫୋନ୍‍ ଅଧିକ ଗରମ ହୋଇଯାଇପାରେ ଯଦି ଆପଣ:\n	• ରିସୋର୍ସ-ଇଣ୍ଟେନସିଭ୍‍ ଆପ୍‍ (ଯେପରିକି ଗେମିଙ୍ଗ, ଭିଡିଓ, କିମ୍ବା ନେଭିଗେସନ୍‍ ଆପ୍‍) ବ୍ୟବହାର କରନ୍ତି\n	• ବଡ ଫାଇଲ୍‍ ଡାଉନଲୋଡ କିମ୍ବା ଅପଲୋଡ୍‍ କରନ୍ତି\n	• ଅଧିକ ତାପମାତ୍ରାରେ ଆପଣଙ୍କ ଫୋନ୍‍ ବ୍ୟବହାର କରନ୍ତି"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"ଯତ୍ନ ନେବା ପାଇଁ ଷ୍ଟେପଗୁଡ଼ିକ ଦେଖନ୍ତୁ"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"ଫୋନ୍‍ ଗରମ ହୋଇଯାଉଛି"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"ଫୋନ୍ ଥଣ୍ଡା ହେବା ସମୟରେ କିଛି ଫିଚର୍ ଠିକ ଭାବେ କାମ କରିନଥାଏ।\nଅଧିକ ସୂଚନା ପାଇଁ ଟାପ୍ କରନ୍ତୁ"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"ଆପଣଙ୍କ ଫୋନ୍‍ ସ୍ୱଚାଳିତ ଭାବେ ଥଣ୍ଡା ହେବାକୁ ଚେଷ୍ଟା କରିବ। ଆପଣ ତଥାପି ନିଜ ଫୋନ୍‍ ବ୍ୟବହାର କରିପାରିବେ, କିନ୍ତୁ ଏହା ଧୀରେ ଚାଲିପାରେ।\n\nଆପଣଙ୍କ ଫୋନ୍‍ ଥଣ୍ଡା ହୋଇଯିବାପରେ, ଏହା ସାମାନ୍ୟ ଭାବେ ଚାଲିବ।"</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"ଯତ୍ନ ନେବା ପାଇଁ ଷ୍ଟେପଗୁଡ଼ିକ ଦେଖନ୍ତୁ"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"ଆପଣଙ୍କ ଡିଭାଇସକୁ ଅନପ୍ଲଗ କରନ୍ତୁ"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"ଚାର୍ଜିଂ ପୋର୍ଟ ନିକଟରେ ଆପଣଙ୍କ ଡିଭାଇସ ଗରମ ହୋଇଯାଉଛି। ଯଦି ଏହା ଏକ ଚାର୍ଜର କିମ୍ବା USB ଆକସେସୋରୀ ସହ କନେକ୍ଟ କରାଯାଇଥାଏ ତେବେ ଏହାକୁ ଅନପ୍ଲଗ କରନ୍ତୁ ଏବଂ ଧ୍ୟାନ ରଖନ୍ତୁ କାରଣ କେବୁଲ ମଧ୍ୟ ଗରମ ହୋଇପାରେ।"</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"ଅନ୍ୟ ଏକ PIN ଚେଷ୍ଟା କରି ଦେଖନ୍ତୁ"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"<xliff:g id="DEVICE">%s</xliff:g> ପାଇଁ ପରିବର୍ତ୍ତନ ସୁନିଶ୍ଚିତ କରନ୍ତୁ"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"ଅଧିକ ଦେଖିବାକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ"</string>
+    <string name="retry_face" msgid="416380073082560186">"ଫେସ ପ୍ରମାଣୀକରଣ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"ସୁପାରିଶଗୁଡ଼ିକ ଲୋଡ୍ କରାଯାଉଛି"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"ମିଡିଆ"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"<xliff:g id="APP_NAME">%1$s</xliff:g> ପାଇଁ ଏହି ମିଡିଆ ନିୟନ୍ତ୍ରଣକୁ ଲୁଚାଇବେ?"</string>

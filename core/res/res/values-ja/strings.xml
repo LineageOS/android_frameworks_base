@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"生体認証または画面ロックの使用"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"本人確認"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"続行するには生体認証を使用してください"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"続行するには指紋認証を使用してください"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"続行するには顔認証を使用してください"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"続行するには、生体認証または画面ロックを使用してください"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"生体認証ハードウェアが利用できません"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"認証をキャンセルしました"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"認識されませんでした"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"顔を認識できません"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"認証をキャンセルしました"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"PIN、パターン、パスワードが設定されていません"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"エラー認証"</string>
@@ -2336,7 +2339,7 @@
     <string name="keyboard_layout_notification_one_selected_message" msgid="4314216053129257197">"キーボードのレイアウトは<xliff:g id="LAYOUT_1">%s</xliff:g>に設定されています。タップで変更できます。"</string>
     <string name="keyboard_layout_notification_two_selected_message" msgid="1876349944065922950">"キーボードのレイアウトは<xliff:g id="LAYOUT_1">%1$s</xliff:g>、<xliff:g id="LAYOUT_2">%2$s</xliff:g>に設定されています。タップで変更できます。"</string>
     <string name="keyboard_layout_notification_three_selected_message" msgid="280734264593115419">"キーボードのレイアウトは<xliff:g id="LAYOUT_1">%1$s</xliff:g>、<xliff:g id="LAYOUT_2">%2$s</xliff:g>、<xliff:g id="LAYOUT_3">%3$s</xliff:g>に設定されています。タップで変更できます。"</string>
-    <string name="keyboard_layout_notification_more_than_three_selected_message" msgid="1581834181578206937">"キーボードのレイアウトは<xliff:g id="LAYOUT_1">%1$s</xliff:g>、<xliff:g id="LAYOUT_2">%2$s</xliff:g>、<xliff:g id="LAYOUT_3">%3$s</xliff:g>に設定されています。タップで変更できます。"</string>
+    <string name="keyboard_layout_notification_more_than_three_selected_message" msgid="1581834181578206937">"キーボードのレイアウトは<xliff:g id="LAYOUT_1">%1$s</xliff:g>、<xliff:g id="LAYOUT_2">%2$s</xliff:g>、<xliff:g id="LAYOUT_3">%3$s</xliff:g>などに設定されています。タップで変更できます。"</string>
     <string name="keyboard_layout_notification_multiple_selected_title" msgid="5242444914367024499">"物理キーボードの設定完了"</string>
     <string name="keyboard_layout_notification_multiple_selected_message" msgid="6576533454124419202">"タップするとキーボードを表示できます"</string>
 </resources>

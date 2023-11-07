@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"USB engedélyezése"</string>
     <string name="learn_more" msgid="4690632085667273811">"Részletek"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Képernyőkép"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Extend Unlock letiltva"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Tartós feloldás letiltva"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"képet küldött"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Képernyőkép mentése..."</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Képernyőkép mentése a munkaprofilba…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Arc felismerve. Koppintson a folytatáshoz."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Arc felismerve. A folytatáshoz koppintson a Feloldásra."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Hitelesítve"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Hitelesítés megszakítása"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"PIN-kód használata"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Minta használata"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Jelszó használata"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Az Arcalapú feloldás újbóli beállításához a rendszer törli majd arcmodelljét.\n\nA funkciót újból be kell állítania ahhoz, hogy arca segítségével tudja feloldani telefonja zárolását."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Nem sikerült beállítani az arcalapú feloldást. Próbálkozzon újra a Beállításokban."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Érintse meg az ujjlenyomat-érzékelőt"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"A folytatáshoz koppintson a Feloldás ikonra"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Az arc nem felismerhető. Használjon ujjlenyomatot."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Zárolás arccal feloldva"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Arc felismerve"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Az újrapróbálkozáshoz csúsztassa felfelé az ujját"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Felfelé csúsztatással próbálja újra az arcalapú feloldást"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Az NFC használatához oldja fel a képernyőzárat"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Ez az eszköz az Ön szervezetének tulajdonában van"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Ez az eszköz a(z) <xliff:g id="ORGANIZATION_NAME">%s</xliff:g> tulajdonában van"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Bekapcsológombhoz tartozó menü"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"<xliff:g id="ID_1">%1$d</xliff:g>. oldal, összesen: <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Lezárási képernyő"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"A meleg miatt kikapcsolt"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Telefonja most már megfelelően működik.\nKoppintson, ha további információra van szüksége."</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Telefonja túlmelegedett, így kikapcsolt, hogy lehűlhessen. Most már megfelelően működik.\n\nA telefon akkor melegedhet túl, ha Ön:\n	• Energiaigényes alkalmazásokat használ (például játékokat, videókat vagy navigációs alkalmazásokat)\n	• Nagy fájlokat tölt le vagy fel\n	• Melegben használja a telefonját"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Olvassa el a kímélő használat lépéseit"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"A telefon melegszik"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Bizonyos funkciók korlátozottan működnek a telefon lehűlése közben.\nKoppintson, ha további információra van szüksége."</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"A telefon automatikusan megpróbál lehűlni. Továbbra is tudja használni a telefont, de elképzelhető, hogy működése lelassul.\n\nAmint a telefon lehűl, újra a szokásos módon működik majd."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Olvassa el a kímélő használat lépéseit"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Húzza ki az eszközt"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Eszköze kezd melegedni a töltőport közelében. Ha töltő vagy USB-s kiegészítő van csatlakoztatva hozzá, húzza ki, és legyen óvatos, mert a kábel is meleg lehet."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Próbálkozzon másik kóddal"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"A(z) <xliff:g id="DEVICE">%s</xliff:g> módosításának megerősítése"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Továbbiak megtekintéséhez csúsztasson"</string>
+    <string name="retry_face" msgid="416380073082560186">"Arcfelismerés újraindítása"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Javaslatok betöltése…"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Média"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Elrejti ezt a(z) <xliff:g id="APP_NAME">%1$s</xliff:g>-médiavezérlőt?"</string>

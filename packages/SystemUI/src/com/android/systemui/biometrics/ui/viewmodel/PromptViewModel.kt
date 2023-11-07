@@ -17,11 +17,13 @@ package com.android.systemui.biometrics.ui.viewmodel
 
 import android.hardware.biometrics.BiometricPrompt
 import android.util.Log
+import android.view.MotionEvent
 import com.android.systemui.biometrics.AuthBiometricView
 import com.android.systemui.biometrics.domain.interactor.PromptSelectorInteractor
 import com.android.systemui.biometrics.domain.model.BiometricModalities
-import com.android.systemui.biometrics.domain.model.BiometricModality
+import com.android.systemui.biometrics.shared.model.BiometricModality
 import com.android.systemui.biometrics.shared.model.PromptKind
+import com.android.systemui.statusbar.VibratorHelper
 import javax.inject.Inject
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.coroutineScope
@@ -41,6 +43,7 @@ class PromptViewModel
 @Inject
 constructor(
     private val interactor: PromptSelectorInteractor,
+    private val vibrator: VibratorHelper,
 ) {
     /** The set of modalities available for this prompt */
     val modalities: Flow<BiometricModalities> =
@@ -61,8 +64,18 @@ constructor(
     /** If the user has successfully authenticated and confirmed (when explicitly required). */
     val isAuthenticated: Flow<PromptAuthState> = _isAuthenticated.asStateFlow()
 
-    /** If the API caller requested explicit confirmation after successful authentication. */
-    val isConfirmationRequested: Flow<Boolean> = interactor.isConfirmationRequested
+    private val _isOverlayTouched: MutableStateFlow<Boolean> = MutableStateFlow(false)
+
+    /**
+     * If the API caller or the user's personal preferences require explicit confirmation after
+     * successful authentication.
+     */
+    val isConfirmationRequired: Flow<Boolean> =
+        combine(_isOverlayTouched, interactor.isConfirmationRequired) {
+            isOverlayTouched,
+            isConfirmationRequired ->
+            !isOverlayTouched && isConfirmationRequired
+        }
 
     /** The kind of credential the user has. */
     val credentialKind: Flow<PromptKind> = interactor.credentialKind
@@ -91,7 +104,7 @@ constructor(
                 _forceLargeSize,
                 _forceMediumSize,
                 modalities,
-                interactor.isConfirmationRequested,
+                interactor.isConfirmationRequired,
                 fingerprintStartMode,
             ) { forceLarge, forceMedium, modalities, confirmationRequired, fpStartMode ->
                 when {
@@ -135,6 +148,12 @@ constructor(
                 size.isNotSmall && authState.isAuthenticated && authState.needsUserConfirmation
             }
             .distinctUntilChanged()
+
+    /** If the icon can be used as a confirmation button. */
+    val isIconConfirmButton: Flow<Boolean> =
+        combine(size, interactor.isConfirmationRequired) { size, isConfirmationRequired ->
+            size.isNotSmall && isConfirmationRequired
+        }
 
     /** If the negative button should be shown. */
     val isNegativeButtonVisible: Flow<Boolean> =
@@ -202,36 +221,42 @@ constructor(
     private var messageJob: Job? = null
 
     /**
-     * Show a temporary error [message] associated with an optional [failedModality].
+     * Show a temporary error [message] associated with an optional [failedModality] and play
+     * [hapticFeedback].
      *
-     * An optional [messageAfterError] will be shown via [showAuthenticating] when
-     * [authenticateAfterError] is set (or via [showHelp] when not set) after the error is
-     * dismissed.
+     * The [messageAfterError] will be shown via [showAuthenticating] when [authenticateAfterError]
+     * is set (or via [showHelp] when not set) after the error is dismissed.
      *
-     * The error is ignored if the user has already authenticated and it is treated as
-     * [onSilentError] if [suppressIfErrorShowing] is set and an error message is already showing.
+     * The error is ignored if the user has already authenticated or if [suppressIf] is true given
+     * the currently showing [PromptMessage].
      */
     suspend fun showTemporaryError(
         message: String,
-        messageAfterError: String = "",
-        authenticateAfterError: Boolean = false,
-        suppressIfErrorShowing: Boolean = false,
+        messageAfterError: String,
+        authenticateAfterError: Boolean,
+        suppressIf: (PromptMessage) -> Boolean = { false },
+        hapticFeedback: Boolean = true,
         failedModality: BiometricModality = BiometricModality.None,
     ) = coroutineScope {
         if (_isAuthenticated.value.isAuthenticated) {
             return@coroutineScope
         }
-        if (_message.value.isErrorOrHelp && suppressIfErrorShowing) {
-            onSilentError(failedModality)
+
+        _canTryAgainNow.value = supportsRetry(failedModality)
+
+        if (suppressIf(_message.value)) {
             return@coroutineScope
         }
 
         _isAuthenticating.value = false
         _isAuthenticated.value = PromptAuthState(false)
         _forceMediumSize.value = true
-        _canTryAgainNow.value = supportsRetry(failedModality)
         _message.value = PromptMessage.Error(message)
         _legacyState.value = AuthBiometricView.STATE_ERROR
+
+        if (hapticFeedback) {
+            vibrator.error(failedModality)
+        }
 
         messageJob?.cancel()
         messageJob = launch {
@@ -241,18 +266,6 @@ constructor(
             } else {
                 showHelp(messageAfterError)
             }
-        }
-    }
-
-    /**
-     * Call instead of [showTemporaryError] if an error from the HAL should be silently ignored to
-     * enable retry (if the [failedModality] supports retrying).
-     *
-     * Ignored if the user has already authenticated.
-     */
-    private fun onSilentError(failedModality: BiometricModality = BiometricModality.None) {
-        if (_isAuthenticated.value.isNotAuthenticated) {
-            _canTryAgainNow.value = supportsRetry(failedModality)
         }
     }
 
@@ -287,8 +300,10 @@ constructor(
             if (message.isNotBlank()) PromptMessage.Help(message) else PromptMessage.Empty
         _forceMediumSize.value = true
         _legacyState.value =
-            if (alreadyAuthenticated) {
+            if (alreadyAuthenticated && isConfirmationRequired.first()) {
                 AuthBiometricView.STATE_PENDING_CONFIRMATION
+            } else if (alreadyAuthenticated && !isConfirmationRequired.first()) {
+                AuthBiometricView.STATE_AUTHENTICATED
             } else {
                 AuthBiometricView.STATE_HELP
             }
@@ -373,6 +388,10 @@ constructor(
                 AuthBiometricView.STATE_AUTHENTICATED
             }
 
+        if (!needsUserConfirmation) {
+            vibrator.success(modality)
+        }
+
         messageJob?.cancel()
         messageJob = null
 
@@ -382,19 +401,11 @@ constructor(
     }
 
     private suspend fun needsExplicitConfirmation(modality: BiometricModality): Boolean {
-        val availableModalities = modalities.first()
-        val confirmationRequested = interactor.isConfirmationRequested.first()
+        val confirmationRequired = isConfirmationRequired.first()
 
-        if (availableModalities.hasFaceAndFingerprint) {
-            // coex only needs confirmation when face is successful, unless it happens on the
-            // first attempt (i.e. without failure) before fingerprint scanning starts
-            if (modality == BiometricModality.Face) {
-                return (fingerprintStartMode.first() != FingerprintStartMode.Pending) ||
-                    confirmationRequested
-            }
-        }
-        if (availableModalities.hasFaceOnly) {
-            return confirmationRequested
+        // Only worry about confirmationRequired if face was used to unlock
+        if (modality == BiometricModality.Face) {
+            return confirmationRequired
         }
         // fingerprint only never requires confirmation
         return false
@@ -409,17 +420,38 @@ constructor(
     fun confirmAuthenticated() {
         val authState = _isAuthenticated.value
         if (authState.isNotAuthenticated) {
-            "Cannot show authenticated after authenticated"
             Log.w(TAG, "Cannot confirm authenticated when not authenticated")
             return
         }
 
-        _isAuthenticated.value = authState.asConfirmed()
+        _isAuthenticated.value = authState.asExplicitlyConfirmed()
         _message.value = PromptMessage.Empty
         _legacyState.value = AuthBiometricView.STATE_AUTHENTICATED
 
+        vibrator.success(authState.authenticatedModality)
+
         messageJob?.cancel()
         messageJob = null
+    }
+
+    /**
+     * Touch event occurred on the overlay
+     *
+     * Tracks whether a finger is currently down to set [_isOverlayTouched] to be used as user
+     * confirmation
+     */
+    fun onOverlayTouch(event: MotionEvent): Boolean {
+        if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+            _isOverlayTouched.value = true
+
+            if (_isAuthenticated.value.needsUserConfirmation) {
+                confirmAuthenticated()
+            }
+            return true
+        } else if (event.actionMasked == MotionEvent.ACTION_UP) {
+            _isOverlayTouched.value = false
+        }
+        return false
     }
 
     /**
@@ -430,6 +462,12 @@ constructor(
     fun onSwitchToCredential() {
         _forceLargeSize.value = true
     }
+
+    private fun VibratorHelper.success(modality: BiometricModality) =
+        vibrateAuthSuccess("$TAG, modality = $modality BP::success")
+
+    private fun VibratorHelper.error(modality: BiometricModality = BiometricModality.None) =
+        vibrateAuthError("$TAG, modality = $modality BP::error")
 
     companion object {
         private const val TAG = "PromptViewModel"

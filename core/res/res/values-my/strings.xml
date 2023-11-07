@@ -229,7 +229,7 @@
     <string name="reboot_to_update_reboot" msgid="4474726009984452312">"ပြန်လည်စတင်နေ…"</string>
     <string name="reboot_to_reset_title" msgid="2226229680017882787">"စက်ရုံထုတ်အခြေအနေပြန်ယူခြင်း"</string>
     <string name="reboot_to_reset_message" msgid="3347690497972074356">"ပြန်လည်စတင်နေ…"</string>
-    <string name="shutdown_progress" msgid="5017145516412657345">"စက်ပိတ်ပါမည်"</string>
+    <string name="shutdown_progress" msgid="5017145516412657345">"စက်ပိတ်နေသည်…"</string>
     <string name="shutdown_confirm" product="tablet" msgid="2872769463279602432">"သင့်တက်ဘလက်အား စက်ပိတ်ပါမည်"</string>
     <string name="shutdown_confirm" product="tv" msgid="7975942887313518330">"သင့် Android TV စက်ပစ္စည်း ပိတ်သွားပါမည်။"</string>
     <string name="shutdown_confirm" product="watch" msgid="2977299851200240146">"သင်၏ ကြည့်ရှုမှု ပိတ်ပစ်မည်။"</string>
@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"ဇီဝမက်ထရစ်အချက်အလက်များ (သို့) ဖန်သားပြင်လော့ခ်ချခြင်းကို သုံးခြင်း"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"သင်ဖြစ်ကြောင်း အတည်ပြုပါ"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"ရှေ့ဆက်ရန် သင်၏ ဇီဝမက်ထရစ်အချက်အလက်ကို သုံးပါ"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"ရှေ့ဆက်ရန် သင့်လက်ဗွေကို သုံးပါ"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"ရှေ့ဆက်ရန် သင့်မျက်နှာကို သုံးပါ"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"ရှေ့ဆက်ရန် သင်၏ ဇီဝမက်ထရစ်အချက်အလက် (သို့) ဖန်သားပြင်လော့ခ်ကို သုံးပါ"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"ဇီဝအချက်အလက်သုံး ကွန်ပျူတာစက်ပစ္စည်း မရရှိနိုင်ပါ"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"အထောက်အထားစိစစ်ခြင်းကို ပယ်ဖျက်လိုက်သည်"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"မသိ"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"မျက်နှာကို မသိရှိပါ"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"အထောက်အထားစိစစ်ခြင်းကို ပယ်ဖျက်လိုက်သည်"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"ပင်နံပါတ်၊ လော့ခ်ပုံစံ သို့မဟုတ် စကားဝှက် သတ်မှတ်မထားပါ"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"အထောက်အထားစိစစ်ရာတွင် အမှားအယွင်းရှိနေသည်"</string>
@@ -1951,7 +1954,7 @@
     <string name="app_suspended_more_details" msgid="211260942831587014">"ပိုမိုလေ့လာရန်"</string>
     <string name="app_suspended_unsuspend_message" msgid="1665438589450555459">"အက်ပ်ကို ခဏမရပ်တော့ရန်"</string>
     <string name="work_mode_off_title" msgid="6367463960165135829">"အလုပ်သုံးအက်ပ် ပြန်ဖွင့်မလား။"</string>
-    <string name="work_mode_turn_on" msgid="5316648862401307800">"ပြန်စရန်"</string>
+    <string name="work_mode_turn_on" msgid="5316648862401307800">"ပြန်ဖွင့်ရန်"</string>
     <string name="work_mode_emergency_call_button" msgid="6818855962881612322">"အရေးပေါ်"</string>
     <string name="app_blocked_title" msgid="7353262160455028160">"အက်ပ်ကို မရနိုင်ပါ"</string>
     <string name="app_blocked_message" msgid="542972921087873023">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ယခု မရနိုင်ပါ။"</string>

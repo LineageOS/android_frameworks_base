@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Biyometri veya ekran kilidi kullan"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Siz olduğunuzu doğrulayın"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Devam etmek için biyometri kullanın"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Devam etmek için parmak izinizi kullanın"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Devam etmek için yüzünüzü kullanın"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Devam etmek için biyometrik kimlik bilginizi veya ekran kilidinizi kullanın"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Biyometrik donanım kullanılamıyor"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Kimlik doğrulama iptal edildi"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Tanınmadı"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Yüz tanınmadı"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Kimlik doğrulama iptal edildi"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"PIN, desen veya şifre seti yok"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Kimlik doğrulama sırasında hata oluştu"</string>
@@ -1950,7 +1953,7 @@
     <string name="app_suspended_default_message" msgid="6451215678552004172">"<xliff:g id="APP_NAME_0">%1$s</xliff:g> uygulaması şu anda kullanılamıyor. Uygulamanın kullanım durumu <xliff:g id="APP_NAME_1">%2$s</xliff:g> tarafından yönetiliyor."</string>
     <string name="app_suspended_more_details" msgid="211260942831587014">"Daha fazla bilgi"</string>
     <string name="app_suspended_unsuspend_message" msgid="1665438589450555459">"Uygulamanın duraklatmasını kaldır"</string>
-    <string name="work_mode_off_title" msgid="6367463960165135829">"İş uygulamaları açılsın mı?"</string>
+    <string name="work_mode_off_title" msgid="6367463960165135829">"İş uygulamaları devam ettirilsin mi?"</string>
     <string name="work_mode_turn_on" msgid="5316648862401307800">"Devam ettir"</string>
     <string name="work_mode_emergency_call_button" msgid="6818855962881612322">"Acil durum"</string>
     <string name="app_blocked_title" msgid="7353262160455028160">"Uygulama kullanılamıyor"</string>
@@ -2163,7 +2166,7 @@
     <string name="resolver_switch_on_work" msgid="4527096360772311894">"Devam ettir"</string>
     <string name="resolver_no_work_apps_available" msgid="3298291360133337270">"İş uygulaması yok"</string>
     <string name="resolver_no_personal_apps_available" msgid="6284837227019594881">"Kişisel uygulama yok"</string>
-    <string name="miniresolver_open_work" msgid="6286176185835401931">"İş uygulaması (<xliff:g id="APP">%s</xliff:g>) açılsın mı?"</string>
+    <string name="miniresolver_open_work" msgid="6286176185835401931">"<xliff:g id="APP">%s</xliff:g> iş uygulaması açılsın mı?"</string>
     <string name="miniresolver_open_in_personal" msgid="807427577794490375">"Kişisel uygulamada (<xliff:g id="APP">%s</xliff:g>) açılsın mı?"</string>
     <string name="miniresolver_open_in_work" msgid="941341494673509916">"İş uygulamasında (<xliff:g id="APP">%s</xliff:g>) açılsın mı?"</string>
     <string name="miniresolver_call_in_work" msgid="528779988307529039">"İş uygulamasından aransın mı?"</string>

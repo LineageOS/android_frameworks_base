@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Օգտագործել կենսաչափական համակարգեր կամ էկրանի կողպում"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Հաստատեք ձեր ինքնությունը"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Շարունակելու համար օգտագործեք կենսաչափական համակարգեր"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Շարունակելու համար օգտագործեք ձեր մատնահետքը"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Շարունակելու համար օգտագործեք դեմքով իսկորոշումը"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Շարունակելու համար օգտագործեք ձեր կենսաչափական տվյալները կամ էկրանի կողպումը"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Կենսաչափական սարքը հասանելի չէ"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Նույնականացումը չեղարկվեց"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Չհաջողվեց ճանաչել"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Դեմքը չի ճանաչվել"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Նույնականացումը չեղարկվեց"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Ավելացրեք PIN կոդ, նախշ կամ գաղտնաբառ։"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Չհաջողվեց նույնականացնել"</string>
@@ -1256,7 +1259,7 @@
     <string name="android_upgrading_starting_apps" msgid="6206161195076057075">"Հավելվածները մեկնարկում են:"</string>
     <string name="android_upgrading_complete" msgid="409800058018374746">"Բեռնումն ավարտվում է:"</string>
     <string name="fp_power_button_enrollment_message" msgid="5648173517663246140">"Դուք սեղմել եք սնուցման կոճակը։ Սովորաբար դրա արդյունքում էկրանն անջատվում է։\n\nՄատնահետքը ավելացնելու համար թեթևակի հպեք կոճակին։"</string>
-    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Ավարտեք կարգավորումը՝ անջատելով էկրանը"</string>
+    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Անջատեք էկրանը և ավարտեք"</string>
     <string name="fp_power_button_enrollment_button_text" msgid="3199783266386029200">"Անջատել"</string>
     <string name="fp_power_button_bp_title" msgid="5585506104526820067">"Շարունակե՞լ մատնահետքի սկանավորումը"</string>
     <string name="fp_power_button_bp_message" msgid="2983163038168903393">"Դուք սեղմել եք սնուցման կոճակը։ Սովորաբար դրա արդյունքում էկրանն անջատվում է։\n\nՄատնահետքը սկանավորելու համար թեթևակի հպեք կոճակին։"</string>

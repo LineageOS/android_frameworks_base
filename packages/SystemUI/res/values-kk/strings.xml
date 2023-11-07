@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Бет танылды. Жалғастыру үшін басыңыз."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Бет танылды. Жалғастыру үшін құлыпты ашу белгішесін басыңыз."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Аутентификацияланған"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Аутентификациядан бас тарту"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"PIN кодын пайдалану"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Өрнекті пайдалану"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Құпия сөзді пайдалану"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Бет тану функциясын қайта реттеу үшін қолданыстағы бет үлгісі жойылады.\n\nБет үлгісімен телефон құлпын ашу үшін бұл функцияны қайта реттеуіңіз қажет."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Бет тану функциясы реттелмеді. \"Параметрлер\" бөліміне өтіп, әрекетті қайталап көріңіз."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Саусақ ізін оқу сканерін түртіңіз"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Жалғастыру үшін құлыпты ашу белгішесін басыңыз."</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Бет танылмады. Орнына саусақ ізін пайдаланыңыз."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -301,8 +303,8 @@
     <string name="quick_settings_dark_mode_secondary_label_until_sunrise" msgid="4404885070316716472">"Күн шыққанға дейін"</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at" msgid="5128758823486361279">"Қосылу уақыты: <xliff:g id="TIME">%s</xliff:g>"</string>
     <string name="quick_settings_dark_mode_secondary_label_until" msgid="2289774641256492437">"<xliff:g id="TIME">%s</xliff:g> дейін"</string>
-    <string name="quick_settings_dark_mode_secondary_label_on_at_bedtime" msgid="2274300599408864897">"Ұйқы уақытында"</string>
-    <string name="quick_settings_dark_mode_secondary_label_until_bedtime_ends" msgid="1790772410777123685">"Ұйқы уақыты аяқталғанға дейін"</string>
+    <string name="quick_settings_dark_mode_secondary_label_on_at_bedtime" msgid="2274300599408864897">"Ұйқы режимінде"</string>
+    <string name="quick_settings_dark_mode_secondary_label_until_bedtime_ends" msgid="1790772410777123685">"Ұйқы режимі аяқталғанға дейін"</string>
     <string name="quick_settings_nfc_label" msgid="1054317416221168085">"NFC"</string>
     <string name="quick_settings_nfc_off" msgid="3465000058515424663">"NFC өшірулі"</string>
     <string name="quick_settings_nfc_on" msgid="1004976611203202230">"NFC қосулы"</string>
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Бетпен ашылды."</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Бет танылды."</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Әрекетті қайталау үшін жоғары сырғытыңыз."</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Бет тану функциясын тағы қолданып көру үшін жоғары сырғытыңыз."</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"NFC пайдалану үшін құлыпты ашыңыз."</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Бұл құрылғы ұйымыңызға тиесілі."</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Бұл құрылғы <xliff:g id="ORGANIZATION_NAME">%s</xliff:g> ұйымына тиесілі."</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Қуат мәзірі"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"<xliff:g id="ID_2">%2$d</xliff:g> ішінен <xliff:g id="ID_1">%1$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Құлыптаулы экран"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Телефон қызып кеткендіктен өшірілді"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Телефоныңыз қалыпты жұмыс істеп тұр.\nТолығырақ ақпарат алу үшін түртіңіз."</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Телефоныңыз қатты қызып кеткендіктен өшірілді. Телефоныңыз қазір қалыпты жұмыс істеп тұр.\n\nТелефоныңыз мына жағдайларда ыстық болуы мүмкін:\n	• Ресурстар талап ететін қолданбаларды пайдалану (ойын, бейне немесе навигация қолданбалары)\n	• Үлкен көлемді файлдарды жүктеу немесе жүктеп салу\n	• Телефонды жоғары температурада пайдалану"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Пайдалану нұсқаулығын қараңыз"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Телефон қызуда"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Телефон толық суығанға дейін, кейбір функциялардың жұмысы шектеледі.\nТолығырақ ақпарат үшін түртіңіз."</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Телефон автоматты түрде суи бастайды. Оны пайдалана бере аласыз, бірақ ол баяуырақ жұмыс істеуі мүмкін.\n\nТелефон суығаннан кейін, оның жұмысы қалпына келеді."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Пайдалану нұсқаулығын қараңыз"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Құрылғыны ажыратыңыз"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Құрылғының зарядтау ұяшығы тұрған бөлігі қызып келеді. Зарядтағышқа немесе USB құрылғысына жалғанған болса, оны ажыратыңыз. Абайлаңыз, кабель де ыстық болуы мүмкін."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Басқа PIN кодын енгізіңіз"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"<xliff:g id="DEVICE">%s</xliff:g> құрылғысындағы өзгерісті растау"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Толығырақ ақпарат алу үшін сырғытыңыз."</string>
+    <string name="retry_face" msgid="416380073082560186">"Бет аутентификациясын қайталап көру"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Жүктеуге қатысты ұсыныстар"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Мультимедиа"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"<xliff:g id="APP_NAME">%1$s</xliff:g> үшін медиа контроллері жасырылсын ба?"</string>

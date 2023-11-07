@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Veidas atpažintas. Paspauskite, jei norite tęsti."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Veidas atpažintas. Tęskite paspaudę atrakinimo piktogramą."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Autentifikuota"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Atšaukti autentifikavimą"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Naudoti PIN kodą"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Naudoti atrakinimo piešinį"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Naudoti slaptažodį"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Norint dar kartą nustatyti atrakinimą pagal veidą, dabartinis veido modelis bus ištrintas.\n\nTurite dar kartą nustatyti šią funkciją, kad galėtumėte atrakinti telefoną pagal veidą."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Nepavyko nustatyti atrakinimo pagal veidą. Eikite į skiltį „Nustatymai“ ir bandykite dar kartą."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Palieskite piršto antspaudo jutiklį"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Tęskite paspaudę atrakinimo piktogramą"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Veidas neatpažintas. Naudokite kontrolinį kodą."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Atrakinta pagal veidą"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Veidas atpažintas"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Jei norite bandyti dar kartą, perbraukite aukštyn"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Perbr. aukštyn, kad dar k. paband. naud. atraki. pagal veidą"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Norėdami naudoti NFC, atrakinkite"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Šis įrenginys priklauso jūsų organizacijai"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Šis įrenginys priklauso „<xliff:g id="ORGANIZATION_NAME">%s</xliff:g>“"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Įjungimo meniu"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"<xliff:g id="ID_1">%1$d</xliff:g> psl. iš <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Užrakinimo ekranas"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Telefonas išjungt., nes įkaito"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Telefonas dabar veikia normaliai.\nPalietę gausite daugiau informacijos"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Telefonas per daug įkaito, todėl buvo išj., kad atvėstų. Dabar telefonas veikia įprastai.\n\nTelefonas gali per daug įkaisti, jei:\n	• esate įjungę daug išteklių naudoj. progr. (pvz., žaidimų, vaizdo įr. arba navig. progr.);\n	• atsis. arba įkeliate didelius failus;\n	• telefoną naudojate aukštoje temper."</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Žr. priežiūros veiksmus"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Telefonas kaista"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Kai kurios funkcijos gali neveikti, kol telefonas vėsta.\nPalietę gausite daugiau informacijos"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Telefonas automatiškai bandys atvėsti. Telefoną vis tiek galėsite naudoti, tačiau jis gali veikti lėčiau.\n\nKai telefonas atvės, jis veiks įprastai."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Žr. priežiūros veiksmus"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Atjunkite įrenginį"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Įrenginys kaista šalia įkrovimo prievado. Jei jis prijungtas prie kroviklio ar USB priedo, atjunkite jį ir patikrinkite, nes laidas taip pat gali būti įkaitęs."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Išbandykite kitą PIN kodą"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Patvirtinti <xliff:g id="DEVICE">%s</xliff:g> pakeitimą"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Perbraukite, kad peržiūrėtumėte daugiau"</string>
+    <string name="retry_face" msgid="416380073082560186">"Bandyti iš naujo autentifikuoti veidą"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Įkeliamos rekomendacijos"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Medija"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Slėpti šį programos „<xliff:g id="APP_NAME">%1$s</xliff:g>“ medijos valdiklį?"</string>

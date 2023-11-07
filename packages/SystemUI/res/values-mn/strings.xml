@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"USB-г идэвхжүүлэх"</string>
     <string name="learn_more" msgid="4690632085667273811">"Нэмэлт мэдээлэл авах"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Дэлгэцийн зураг дарах"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Extend Unlock-г идэвхгүй болгосон"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Түгжээгүй байлгахыг идэвхгүй болгосон"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"зураг илгээсэн"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Дэлгэцийн агшинг хадгалж байна…"</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Дэлгэцийн агшныг ажлын профайлд хадгалж байна…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Царайг таньсан. Үргэлжлүүлэхийн тулд дарна уу."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Царайг таньсан. Үргэлжлүүлэх бол түгжээг тайлах дүрсийг дар."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Баталгаажуулагдсан"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Баталгаажуулалтыг цуцлах"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"ПИН ашиглах"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Хээ ашиглах"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Нууц үг ашиглах"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Царайгаар түгжээ тайлахыг дахин тохируулахын тулд таны одоогийн нүүрний загварыг устгана.\n\nТа царайгаа утасныхаа түгжээг тайлахад ашиглахын тулд энэ онцлогийг дахин тохируулах шаардлагатай."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Царайгаар түгжээ тайлахыг тохируулж чадсангүй. Дахин оролдохын тулд Тохиргоо руу очно уу."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Хурууны хээ мэдрэгчид хүрэх"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Үргэлжлүүлэхийн тулд түгжээг тайлах дүрс тэмдгийг дарна уу"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Царай таних боломжгүй. Оронд нь хурууны хээ ашигла"</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Царайгаар түгжээг тайлсан"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Царайг таньсан"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Дахин оролдохын тулд дээш шударна уу"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Царайгаар түгжээ тайлахыг дахин оролдохын тулд дээш шудар"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"NFC-г ашиглахын тулд түгжээг тайлна уу"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Энэ төхөөрөмж танай байгууллагад харьяалагддаг"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Энэ төхөөрөмж <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>-д харьяалагддаг"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Асаах/унтраах цэс"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"<xliff:g id="ID_2">%2$d</xliff:g>-н <xliff:g id="ID_1">%1$d</xliff:g>-р хуудас"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Түгжээтэй дэлгэц"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Халснаас үүдэн утас унтарсан"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Таны утас одоо хэвийн ажиллаж байна.\nДэлгэрэнгүй мэдээлэл авах бол товшино уу"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Таны утас хэт халсан тул хөргөхөөр унтраасан болно. Таны утас одоо хэвийн ажиллаж байна.\n\nХэрэв та дараахыг хийвэл таны утас хэт халж болзошгүй:\n	• Их хэмжээний нөөц хэрэглээний апп (тоглоом, видео эсвэл шилжилтийн апп зэрэг)\n	• Багтаамж ихтэй файл татах, байршуулах\n	• Утсаа өндөр температурт ашиглах"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Хянамж болгоомжийн алхмыг харах"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Утас халж эхэлж байна"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Утсыг хөрөх үед зарим онцлогийг хязгаарлана.\nДэлгэрэнгүй мэдээлэл авах бол товшино уу"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Таны утас автоматаар хөрөх болно. Та утсаа ашиглаж болох хэдий ч удаан ажиллаж болзошгүй.\n\nТаны утас хөрсний дараагаар хэвийн ажиллана."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Хянамж болгоомжийн алхмыг харах"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Төхөөрөмжөө салгана уу"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Таны төхөөрөмж цэнэглэх портын ойролцоо халж байна. Хэрэв төхөөрөмжийг цэнэглэгч эсвэл USB дагалдах хэрэгсэлд холбосон бол төхөөрөмжийг салгаж, кабель нь халуун байж болзошгүй тул болгоомжтой байгаарай."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Өөр ПИН ашиглах"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"<xliff:g id="DEVICE">%s</xliff:g>-н өөрчлөлтийг баталгаажуулна уу"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Илүү ихийг харахын тулд шударна уу"</string>
+    <string name="retry_face" msgid="416380073082560186">"Царай баталгаажуулалтыг дахин оролдох"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Зөвлөмжүүдийг ачаалж байна"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Медиа"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Энэ медиа хяналтыг <xliff:g id="APP_NAME">%1$s</xliff:g>-д нуух уу?"</string>

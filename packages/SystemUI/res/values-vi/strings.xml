@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"Bật USB"</string>
     <string name="learn_more" msgid="4690632085667273811">"Tìm hiểu thêm"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Chụp ảnh màn hình"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Đã tắt tính năng Luôn mở khoá"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Đã tắt tính năng Kéo dài trạng thái mở khoá"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"đã gửi hình ảnh"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Đang lưu ảnh chụp màn hình..."</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Đang lưu ảnh chụp màn hình vào hồ sơ công việc…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Đã nhận diện khuôn mặt. Hãy nhấn để tiếp tục."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Đã nhận diện khuôn mặt. Nhấn biểu tượng mở khoá để tiếp tục."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Đã xác thực"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Huỷ quy trình xác thực"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Dùng mã PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Dùng hình mở khóa"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Dùng mật khẩu"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Để thiết lập lại tính năng Mở khoá bằng khuôn mặt, hệ thống sẽ xoá mẫu khuôn mặt bạn đang dùng.\n\nBạn sẽ cần thiết lập lại tính năng này để mở khoá điện thoại bằng khuôn mặt."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Không thiết lập được tính năng Mở khoá bằng khuôn mặt. Hãy chuyển đến phần Cài đặt để thử lại."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Chạm vào cảm biến vân tay"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Nhấn vào biểu tượng mở khoá để tiếp tục"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Không thể nhận dạng khuôn mặt. Hãy dùng vân tay."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Đã mở khoá bằng khuôn mặt."</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Đã nhận diện khuôn mặt."</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Vuốt lên để thử lại"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Vuốt lên để thử dùng lại tính năng Mở khoá bằng khuôn mặt"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Mở khóa để sử dụng NFC"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Thiết bị này thuộc về tổ chức của bạn"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Thiết bị này thuộc về <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Trình đơn nguồn"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Trang <xliff:g id="ID_1">%1$d</xliff:g> / <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Màn hình khóa"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Điện thoại đã tắt do nhiệt"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Điện thoại của bạn đang chạy bình thường.\nHãy nhấn để biết thêm thông tin"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Do quá nóng nên điện thoại đã tắt để hạ nhiệt. Hiện điện thoại của bạn đang chạy bình thường.\n\nĐiện thoại có thể bị quá nóng nếu bạn:\n	• Dùng các ứng dụng tốn nhiều tài nguyên (như ứng dụng trò chơi, video hoặc điều hướng)\n	• Tải xuống hoặc tải lên tệp có dung lượng lớn\n	• Dùng điện thoại ở nhiệt độ cao"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Xem các bước chăm sóc"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Điện thoại đang nóng lên"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Một số tính năng bị hạn chế trong khi điện thoại nguội dần.\nHãy nhấn để biết thêm thông tin"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Điện thoại của bạn sẽ tự động nguội dần. Bạn vẫn có thể sử dụng điện thoại, nhưng điện thoại có thể chạy chậm hơn. \n\nSau khi đã nguội, điện thoại sẽ chạy bình thường."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Xem các bước chăm sóc"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Rút thiết bị ra"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Phần gần cổng sạc của thiết bị đang nóng lên. Nếu thiết bị kết nối với bộ sạc hoặc phụ kiện USB, hãy rút ra một cách thận trọng vì cáp có thể cũng đang nóng."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Thử một mã PIN khác"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Xác nhận thay đổi <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Vuốt để xem thêm"</string>
+    <string name="retry_face" msgid="416380073082560186">"Thử xác thực lại khuôn mặt"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Đang tải các đề xuất"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Nội dung nghe nhìn"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Ẩn tính năng điều khiển này cho <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>

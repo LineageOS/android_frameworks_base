@@ -256,7 +256,7 @@
     <string name="bugreport_option_interactive_summary" msgid="8493795476325339542">"Usa esta opción na maioría das circunstancias. Permíteche realizar un seguimento do progreso do informe, introducir máis detalles sobre o problema e facer capturas de pantalla. É posible que omita algunhas seccións menos usadas para as que se tarda máis en facer o informe."</string>
     <string name="bugreport_option_full_title" msgid="7681035745950045690">"Informe completo"</string>
     <string name="bugreport_option_full_summary" msgid="1975130009258435885">"Usa esta opción para que a interferencia sexa mínima cando o teu dispositivo non responda ou funcione demasiado lento, ou ben cando precises todas as seccións do informe. Non poderás introducir máis detalles nin facer máis capturas de pantalla."</string>
-    <string name="bugreport_countdown" msgid="6418620521782120755">"{count,plural, =1{Vaise facer unha captura de pantalla para o informe de erro dentro de # segundo.}other{Vaise facer unha captura de pantalla para o informe de erro dentro de # segundos.}}"</string>
+    <string name="bugreport_countdown" msgid="6418620521782120755">"{count,plural, =1{Vaise facer unha captura de pantalla para o informe de erros dentro de # segundo.}other{Vaise facer unha captura de pantalla para o informe de erros dentro de # segundos.}}"</string>
     <string name="bugreport_screenshot_success_toast" msgid="7986095104151473745">"Realizouse a captura de pantalla co informe de erros"</string>
     <string name="bugreport_screenshot_failure_toast" msgid="6736320861311294294">"Produciuse un erro ao realizar a captura de pantalla co informe de erros"</string>
     <string name="global_action_toggle_silent_mode" msgid="8464352592860372188">"Modo silencioso"</string>
@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Utilizar desbloqueo biométrico ou credencial do dispositivo"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Verifica que es ti"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Para continuar, utiliza o desbloqueo biométrico"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Usa a impresión dixital para continuar"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Usa o recoñecemento facial para continuar"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Para continuar, utiliza o desbloqueo biométrico ou o bloqueo de pantalla"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"O hardware biométrico non está dispoñible"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Cancelouse a autenticación"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Non se recoñeceu"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Non se recoñeceu a cara"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Cancelouse a autenticación"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Non se estableceu ningún PIN, padrón ou contrasinal"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Produciuse un erro ao realizar a autenticación"</string>
@@ -1393,7 +1396,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"ANULAR"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Escoller método de introdución de texto"</string>
     <string name="show_ime" msgid="6406112007347443383">"Móstrase na pantalla mentres o teclado físico estea activo"</string>
-    <string name="hardware" msgid="1800597768237606953">"Mostrar teclado virtual"</string>
+    <string name="hardware" msgid="1800597768237606953">"Mostrar o teclado virtual"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Configura o teclado (<xliff:g id="DEVICE_NAME">%s</xliff:g>)"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Configura os teclados físicos"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Toca para seleccionar o idioma e o deseño"</string>

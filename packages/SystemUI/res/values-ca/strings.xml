@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"Activa l\'USB"</string>
     <string name="learn_more" msgid="4690632085667273811">"Més informació"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Captura de pantalla"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Extend Unlock desactivat"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Desbloqueig ampliat desactivat"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"ha enviat una imatge"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"S\'està desant la captura de pantalla..."</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"S\'està desant la captura al perfil de treball…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"S\'ha reconegut la cara. Prem per continuar."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"S\'ha reconegut la cara. Prem la icona per continuar."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Autenticat"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Cancel·la l\'autenticació"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Utilitza el PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Utilitza el patró"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Utilitza la contrasenya"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Per tornar a configurar Desbloqueig facial, el model facial actual se suprimirà.\n\nHauràs de tornar configurar aquesta funció per desbloquejar el telèfon utilitzant la cara."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"No s\'ha pogut configurar el desbloqueig facial. Ves a Configuració per tornar-ho a provar."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Toca el sensor d\'empremtes digitals"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Prem la icona de desbloqueig per continuar"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"No podem detectar la cara. Usa l\'empremta digital."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"S\'ha desbloquejat amb la cara"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"S\'ha reconegut la cara"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Llisca cap a dalt per tornar-ho a provar"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Llisca cap amunt per tornar a provar Desbloqueig facial"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Desbloqueja per utilitzar l\'NFC"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Aquest dispositiu pertany a la teva organització"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Aquest dispositiu pertany a <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Menú d\'engegada"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Pàgina <xliff:g id="ID_1">%1$d</xliff:g> (<xliff:g id="ID_2">%2$d</xliff:g> en total)"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Pantalla de bloqueig"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Telèfon apagat per la calor"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Ara el telèfon funciona correctament.\nToca per obtenir més informació"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"El telèfon s\'havia sobreescalfat i s\'ha apagat per refredar-se. Ara funciona amb normalitat.\n\nEs pot sobreescalfar si:\n	• utilitzes aplicacions que consumeixen molts recursos (com ara, videojocs, vídeos o aplicacions de navegació);\n	• baixes o penges fitxers grans;\n	• l\'utilitzes amb temperatures altes."</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Mostra els passos de manteniment"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"El telèfon s\'està escalfant"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Algunes funcions estan limitades mentre el telèfon es refreda.\nToca per obtenir més informació"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"El telèfon provarà de refredar-se automàticament. Podràs continuar utilitzant-lo, però és possible que funcioni més lentament.\n\nUn cop s\'hagi refredat, funcionarà amb normalitat."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Mostra els passos de manteniment"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Desconnecta el dispositiu"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"El dispositiu s\'està escalfant a prop del port de càrrega. Si està connectat a un carregador o a un accessori USB, desconnecta\'l. Ves amb compte perquè el cable també pot haver-se escalfat."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Prova un altre PIN"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Confirma el canvi per a <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Llisca per veure\'n més"</string>
+    <string name="retry_face" msgid="416380073082560186">"Torna a provar l\'autenticació facial"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Carregant les recomanacions"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Multimèdia"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Amagar aquest control multimèdia per a <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>
