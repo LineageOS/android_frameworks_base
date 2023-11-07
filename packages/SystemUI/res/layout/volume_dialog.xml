@@ -30,7 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:layout_marginRight="@dimen/volume_dialog_panel_transparent_padding_right"
+        android:layout_marginLeft="@dimen/volume_dialog_panel_transparent_padding_horizontal"
+        android:layout_marginRight="@dimen/volume_dialog_panel_transparent_padding_horizontal"
         android:orientation="vertical"
         android:clipToPadding="false"
         android:clipChildren="false">
@@ -147,6 +148,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginRight="@dimen/volume_tool_tip_right_margin"/>
+        android:layout_marginLeft="@dimen/volume_tool_tip_horizontal_margin"
+        android:layout_marginRight="@dimen/volume_tool_tip_horizontal_margin"/>
 
 </FrameLayout>
