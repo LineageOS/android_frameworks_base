@@ -19,7 +19,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="right"
-    android:layout_gravity="right"
     android:background="@android:color/transparent"
     android:theme="@style/volume_dialog_theme">
 
@@ -29,7 +28,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:layout_gravity="right"
         android:layout_marginRight="@dimen/volume_dialog_panel_transparent_padding_right"
         android:orientation="vertical"
         android:clipToPadding="false"
@@ -53,7 +51,6 @@
                 android:layout_height="@dimen/volume_dialog_ringer_size"
                 android:layout_marginBottom="@dimen/volume_dialog_spacer"
                 android:gravity="right"
-                android:layout_gravity="right"
                 android:translationZ="@dimen/volume_dialog_elevation"
                 android:clipToPadding="false"
                 android:background="@drawable/rounded_bg_full">
@@ -75,7 +72,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:layout_gravity="right"
                 android:orientation="vertical"
                 android:clipChildren="false"
                 android:clipToPadding="false" >
@@ -130,7 +126,6 @@
             android:layout_height="@dimen/volume_dialog_caption_size"
             android:layout_marginTop="@dimen/volume_dialog_row_margin_bottom"
             android:gravity="right"
-            android:layout_gravity="right"
             android:clipToPadding="false"
             android:clipToOutline="true"
             android:background="@drawable/volume_row_rounded_background">
@@ -152,7 +147,7 @@
         android:layout="@layout/volume_tool_tip_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom | right"
+        android:layout_gravity="bottom"
         android:layout_marginRight="@dimen/volume_tool_tip_right_margin"/>
 
 </FrameLayout>
