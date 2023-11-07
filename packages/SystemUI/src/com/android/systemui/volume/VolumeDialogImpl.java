@@ -482,8 +482,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         final int[] locInWindow = new int[2];
         view.getLocationInWindow(locInWindow);
 
-        float x = locInWindow[0];
-        float y = locInWindow[1];
+        float xExtraSize = 0;
+        float yExtraSize = 0;
 
         // The ringer and rows container has extra height at the top to fit the expanded ringer
         // drawer. This area should not be touchable unless the ringer drawer is open.
@@ -491,18 +491,27 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         // are multiple rows they are touchable.
         if (view == mTopContainer && !mIsRingerDrawerOpen) {
             if (!isLandscape()) {
-                y += getRingerDrawerOpenExtraSize();
+                yExtraSize = getRingerDrawerOpenExtraSize();
             } else if (getRingerDrawerOpenExtraSize() > getVisibleRowsExtraSize()) {
-                x += (getRingerDrawerOpenExtraSize() - getVisibleRowsExtraSize());
+                xExtraSize = (getRingerDrawerOpenExtraSize() - getVisibleRowsExtraSize());
             }
         }
 
-        mTouchableRegion.op(
-                (int) x,
-                (int) y,
-                locInWindow[0] + view.getWidth(),
-                locInWindow[1] + view.getHeight(),
-                Region.Op.UNION);
+        if (isWindowGravityLeft()) {
+            mTouchableRegion.op(
+                    locInWindow[0],
+                    locInWindow[1] + (int) yExtraSize,
+                    locInWindow[0] + view.getWidth() - (int) xExtraSize,
+                    locInWindow[1] + view.getHeight(),
+                    Region.Op.UNION);
+        } else {
+            mTouchableRegion.op(
+                    locInWindow[0] + (int) xExtraSize,
+                    locInWindow[1] + (int) yExtraSize,
+                    locInWindow[0] + view.getWidth(),
+                    locInWindow[1] + view.getHeight(),
+                    Region.Op.UNION);
+        }
     }
 
     // Helper to set gravity.
