@@ -50,6 +50,24 @@
       "message": "No, but I am assuming that this is the proper fix: https://review.lineageos.org/q/topic:%2213-caf-hdmi-audio%22+status:open",
       "revId": "e8c56ba93b521afa5b9f1cd6d3ce3f8a97258903",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "006e8f9b_5689b197",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-11-16T10:16:58Z",
+      "side": 1,
+      "message": "so we have no idea if it works or not...",
+      "parentUuid": "c01ebe08_0c1e2b61",
+      "revId": "e8c56ba93b521afa5b9f1cd6d3ce3f8a97258903",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
