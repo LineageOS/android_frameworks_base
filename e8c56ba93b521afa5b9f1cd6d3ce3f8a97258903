@@ -33,6 +33,23 @@
       "message": "yeah, gonna ask for a hold on this one, Tegra nvaudio HAL (important to ATV) breaks hard, logs look like everything should work, but it doesn\u0027t - so can we make this something one could opt-out of at least?",
       "revId": "e8c56ba93b521afa5b9f1cd6d3ce3f8a97258903",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c01ebe08_0c1e2b61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-16T10:15:50Z",
+      "side": 1,
+      "message": "No, but I am assuming that this is the proper fix: https://review.lineageos.org/q/topic:%2213-caf-hdmi-audio%22+status:open",
+      "revId": "e8c56ba93b521afa5b9f1cd6d3ce3f8a97258903",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
