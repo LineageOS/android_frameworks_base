@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84b9690d_d1a3b49c",
+        "filename": "services/core/java/com/android/server/WiredAccessoryManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-16T10:02:40Z",
+      "side": 1,
+      "message": "This was a derp:  https://git.codelinaro.org/clo/la/platform/frameworks/base/-/commit/56ddaca64cc4e59e8538d1c8398ce6d8fd4be31f#cb83412832e58c70e7bd49e3eafceba8b860a30f_569_617",
+      "range": {
+        "startLine": 630,
+        "startChar": 42,
+        "endLine": 630,
+        "endChar": 52
+      },
+      "revId": "e89a31a1cc5514db3264ebca4654c49108461989",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
