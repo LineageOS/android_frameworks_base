@@ -823,8 +823,13 @@ public class ScreenshotView extends FrameLayout implements
             mUiEventLogger.log(ScreenshotEvent.SCREENSHOT_PREVIEW_TAPPED, 0, mPackageName);
             prepareSharedTransition();
             mActionExecutor.launchIntentAsync(
+<<<<<<< HEAD
                     ActionIntentCreator.INSTANCE.createEditIntent(imageData.uri, mContext),
                     imageData.editTransition.get().bundle,
+=======
+                    ActionIntentCreator.INSTANCE.createViewIntent(imageData.uri, mContext),
+                    imageData.viewTransition.get().bundle,
+>>>>>>> cc96bc957759 (fixup! base: ChooserActivity: Don't show image edit button on multiple targets)
                     imageData.owner.getIdentifier(), true);
         });
         if (mQuickShareChip != null) {
