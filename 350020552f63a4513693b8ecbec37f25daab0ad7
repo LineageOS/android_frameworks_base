@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "147bd50a_87014b46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2023-11-16T23:10:08Z",
+      "side": 1,
+      "message": "Chain does not regress tegra, but cannot verify that qcom works.",
+      "revId": "350020552f63a4513693b8ecbec37f25daab0ad7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
