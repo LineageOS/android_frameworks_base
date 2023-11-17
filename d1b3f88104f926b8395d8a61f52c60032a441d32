@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d199428b_fb0b7760",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-17T18:55:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c6c1c55_d6ca9645",
+      "revId": "d1b3f88104f926b8395d8a61f52c60032a441d32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84f304e8_5bb63437",
@@ -35,6 +53,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1093437e_d6cd9b09",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 994,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-17T18:55:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84f304e8_5bb63437",
+      "revId": "d1b3f88104f926b8395d8a61f52c60032a441d32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f90665bf_bbe82e48",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-11-17T17:50:51Z",
       "side": 1,
       "message": "then you\u0027ll be able to do mOverlay.setDimAmount() here.",
+      "range": {
+        "startLine": 1023,
+        "startChar": 25,
+        "endLine": 1023,
+        "endChar": 40
+      },
+      "revId": "d1b3f88104f926b8395d8a61f52c60032a441d32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6450bc3f_92adcdb2",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-17T18:55:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f90665bf_bbe82e48",
       "range": {
         "startLine": 1023,
         "startChar": 25,
@@ -88,6 +148,24 @@
       "writtenOn": "2023-11-17T17:50:51Z",
       "side": 1,
       "message": "```\nvar dimAmount\n    get() \u003d coreLayoutParams.dimAmount\n    set(value) {\n        coreLayoutParams.dimAmount \u003d newDimAmount\n        windowManager.updateViewLayout(overlayView, coreLayoutParams)\n    }\n```",
+      "revId": "d1b3f88104f926b8395d8a61f52c60032a441d32",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a16df6_254d101c",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsControllerOverlay.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-17T18:55:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d90859a_5103d1a0",
       "revId": "d1b3f88104f926b8395d8a61f52c60032a441d32",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
