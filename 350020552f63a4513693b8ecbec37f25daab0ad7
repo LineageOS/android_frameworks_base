@@ -16,6 +16,23 @@
       "message": "Chain does not regress tegra, but cannot verify that qcom works.",
       "revId": "350020552f63a4513693b8ecbec37f25daab0ad7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37f7303e_c08d1e9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-11-17T01:05:43Z",
+      "side": 1,
+      "message": "awaiting bruno\u0027s V+1 for QCOM side",
+      "revId": "350020552f63a4513693b8ecbec37f25daab0ad7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
