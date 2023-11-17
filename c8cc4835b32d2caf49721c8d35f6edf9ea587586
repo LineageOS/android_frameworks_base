@@ -16,6 +16,24 @@
       "message": "I\u0027d invert this and make it an early-return?",
       "revId": "c8cc4835b32d2caf49721c8d35f6edf9ea587586",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5e803dc_98099dc4",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-11-17T22:50:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d21f19d9_5294d633",
+      "revId": "c8cc4835b32d2caf49721c8d35f6edf9ea587586",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
