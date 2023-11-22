@@ -617,10 +617,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Usar datos biométricos o bloqueo de pantalla"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Comprueba que eres tú"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Usa tus datos biométricos para continuar"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Usa tu huella dactilar para continuar"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Usa el rostro para continuar"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Usa tus datos biométricos o bloqueo de pantalla para continuar"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"No hay hardware biométrico disponible"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Se canceló la autenticación"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"No se reconoció"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"No se reconoció el rostro"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Se canceló la autenticación"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"No se estableció ningún PIN, patrón ni contraseña"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Error de autenticación"</string>
@@ -2335,9 +2338,9 @@
     <string name="device_state_notification_turn_off_button" msgid="6327161707661689232">"Desactivar"</string>
     <string name="keyboard_layout_notification_selected_title" msgid="1202560174252421219">"Se configuró <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="keyboard_layout_notification_one_selected_message" msgid="4314216053129257197">"Diseño de teclado establecido en <xliff:g id="LAYOUT_1">%s</xliff:g>. Presiona para cambiar esta opción."</string>
-    <string name="keyboard_layout_notification_two_selected_message" msgid="1876349944065922950">"Diseño de teclado establecido en <xliff:g id="LAYOUT_1">%1$s</xliff:g> y <xliff:g id="LAYOUT_2">%2$s</xliff:g>. Presiona para cambiar esta opción."</string>
-    <string name="keyboard_layout_notification_three_selected_message" msgid="280734264593115419">"Diseño de teclado establecido en <xliff:g id="LAYOUT_1">%1$s</xliff:g>, <xliff:g id="LAYOUT_2">%2$s</xliff:g> y <xliff:g id="LAYOUT_3">%3$s</xliff:g>. Presiona para cambiar esta opción."</string>
-    <string name="keyboard_layout_notification_more_than_three_selected_message" msgid="1581834181578206937">"Diseño de teclado establecido en <xliff:g id="LAYOUT_1">%1$s</xliff:g>, <xliff:g id="LAYOUT_2">%2$s</xliff:g> y <xliff:g id="LAYOUT_3">%3$s</xliff:g>. Presiona para cambiarlo."</string>
+    <string name="keyboard_layout_notification_two_selected_message" msgid="1876349944065922950">"Diseño de teclado establecido en <xliff:g id="LAYOUT_1">%1$s</xliff:g>, <xliff:g id="LAYOUT_2">%2$s</xliff:g>. Presiona para cambiar esta opción."</string>
+    <string name="keyboard_layout_notification_three_selected_message" msgid="280734264593115419">"Diseño de teclado establecido en <xliff:g id="LAYOUT_1">%1$s</xliff:g>, <xliff:g id="LAYOUT_2">%2$s</xliff:g>, <xliff:g id="LAYOUT_3">%3$s</xliff:g>. Presiona para cambiar esta opción."</string>
+    <string name="keyboard_layout_notification_more_than_three_selected_message" msgid="1581834181578206937">"Diseño de teclado establecido en <xliff:g id="LAYOUT_1">%1$s</xliff:g>, <xliff:g id="LAYOUT_2">%2$s</xliff:g>, <xliff:g id="LAYOUT_3">%3$s</xliff:g>. Presiona para cambiar esta opción."</string>
     <string name="keyboard_layout_notification_multiple_selected_title" msgid="5242444914367024499">"Teclados físicos configurados"</string>
     <string name="keyboard_layout_notification_multiple_selected_message" msgid="6576533454124419202">"Presiona para ver los teclados"</string>
 </resources>

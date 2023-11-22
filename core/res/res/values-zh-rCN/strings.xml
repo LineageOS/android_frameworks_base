@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"使用生物识别或屏幕锁定凭据"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"验证是您本人在操作"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"使用生物识别验证身份才能继续"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"如需继续操作，请使用指纹验证身份"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"如需继续操作，请刷脸验证身份"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"使用生物识别或屏幕锁定凭据验证身份，才能继续操作"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"生物识别硬件无法使用"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"身份验证已取消"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"无法识别"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"无法识别面孔"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"身份验证已取消"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"未设置任何 PIN 码、图案和密码"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"进行身份验证时出错"</string>
@@ -1958,7 +1961,7 @@
     <string name="app_streaming_blocked_title" msgid="6090945835898766139">"<xliff:g id="ACTIVITY">%1$s</xliff:g>不可用"</string>
     <string name="app_streaming_blocked_title_for_permission_dialog" msgid="4483161748582966785">"需要权限"</string>
     <string name="app_streaming_blocked_title_for_camera_dialog" msgid="3935701653713853065">"无法使用摄像头"</string>
-    <string name="app_streaming_blocked_title_for_fingerprint_dialog" msgid="3516853717714141951">"继续在手机上操作"</string>
+    <string name="app_streaming_blocked_title_for_fingerprint_dialog" msgid="3516853717714141951">"在手机上继续操作"</string>
     <string name="app_streaming_blocked_title_for_microphone_dialog" msgid="544822455127171206">"无法使用麦克风"</string>
     <string name="app_streaming_blocked_title_for_playstore_dialog" msgid="8149823099822897538">"无法使用 Play 商店"</string>
     <string name="app_streaming_blocked_title_for_settings_dialog" product="tv" msgid="196994247017450357">"无法使用 Android TV 设置"</string>
@@ -2163,7 +2166,7 @@
     <string name="resolver_switch_on_work" msgid="4527096360772311894">"取消暂停"</string>
     <string name="resolver_no_work_apps_available" msgid="3298291360133337270">"没有支持该内容的工作应用"</string>
     <string name="resolver_no_personal_apps_available" msgid="6284837227019594881">"没有支持该内容的个人应用"</string>
-    <string name="miniresolver_open_work" msgid="6286176185835401931">"打开工作 <xliff:g id="APP">%s</xliff:g>？"</string>
+    <string name="miniresolver_open_work" msgid="6286176185835401931">"打开工作应用 <xliff:g id="APP">%s</xliff:g>？"</string>
     <string name="miniresolver_open_in_personal" msgid="807427577794490375">"在个人 <xliff:g id="APP">%s</xliff:g> 中打开？"</string>
     <string name="miniresolver_open_in_work" msgid="941341494673509916">"在工作 <xliff:g id="APP">%s</xliff:g> 中打开？"</string>
     <string name="miniresolver_call_in_work" msgid="528779988307529039">"通过工作应用拨打电话？"</string>

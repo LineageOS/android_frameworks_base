@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"Virkja USB"</string>
     <string name="learn_more" msgid="4690632085667273811">"Frekari upplýsingar"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Skjámynd"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Slökkt á Extend Unlock"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Slökkt á Lengri opnun"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"sendi mynd"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Vistar skjámynd…"</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Vistar skjámynd á vinnusnið…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Andlitið var greint. Ýttu til að halda áfram."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Andlitið var greint. Ýttu á opnunartáknið til að halda áfr."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Auðkennt"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Hætta við auðkenningu"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Nota PIN-númer"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Nota mynstur"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Nota aðgangsorð"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Núverandi andlitslíkani verður eytt til að setja andlitskenni upp á ný.\n\nÞú þarft að setja þennan eiginleika upp aftur til að nota andlitið til að taka símann úr lás."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Ekki var hægt að setja upp andlitskenni. Farðu í stillingar og reyndu aftur."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Snertu fingrafaralesarann"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Ýttu á táknið taka úr lás til að halda áfram"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Andlit þekkist ekki. Notaðu fingrafar í staðinn."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Opnað með andliti"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Andlitið var greint"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Strjúktu upp til að reyna aftur"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Strjúktu upp til að prófa andlitskenni aftur"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Taktu úr lás til að nota NFC"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Þetta tæki tilheyrir fyrirtækinu þínu"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Þetta tæki tilheyrir <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Aflrofavalmynd"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Blaðsíða <xliff:g id="ID_1">%1$d</xliff:g> af <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Lásskjár"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Slökkt var á símanum vegna hita"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Síminn virkar nú eins og venjulega.\nÝttu til að fá frekari upplýsingar"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Síminn varð of heitur og því var slökkt á honum til að kæla hann. Síminn virkar núna sem skyldi.\n\nSíminn getur orðið of heitur ef þú:\n	• Notar plássfrek forrit (t.d. leikja-, myndbands- eða leiðsagnarforrit\n	• Sækir eða hleður upp stórum skrám\n	• Notar símann í miklum hita"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Sjá varúðarskref"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Síminn er að hitna"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Sumir eiginleikar eru takmarkaðir meðan síminn kælir sig.\nÝttu til að fá frekari upplýsingar"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Síminn reynir sjálfkrafa að kæla sig. Þú getur enn notað símann en hann gæti verið hægvirkari.\n\nEftir að síminn hefur kælt sig niður virkar hann eðlilega."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Sjá varúðarskref"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Taktu tækið úr sambandi"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Tækið er að hitna nálægt hleðslutenginu. Ef það er tengt við hleðslutæki eða USB-aukahlut skaltu taka það úr sambandi og hafa í huga að snúran gæti einnig verið heit."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Prófaðu annað PIN-númer"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Staðfesta breytingu fyrir <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Strjúktu til að sjá meira"</string>
+    <string name="retry_face" msgid="416380073082560186">"Prófa andlitsgreiningu aftur"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Hleður tillögum"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Margmiðlunarefni"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Fela þessa efnisstýringu fyrir <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>

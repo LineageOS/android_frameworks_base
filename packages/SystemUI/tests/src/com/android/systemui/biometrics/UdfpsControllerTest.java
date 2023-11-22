@@ -442,6 +442,16 @@ public class UdfpsControllerTest extends SysuiTestCase {
     }
 
     @Test
+    public void showUdfpsOverlay_callsListener() throws RemoteException {
+        mOverlayController.showUdfpsOverlay(TEST_REQUEST_ID, mOpticalProps.sensorId,
+                BiometricOverlayConstants.REASON_AUTH_KEYGUARD, mUdfpsOverlayControllerCallback);
+        mFgExecutor.runAllReady();
+
+        verify(mFingerprintManager).onUdfpsUiEvent(FingerprintManager.UDFPS_UI_OVERLAY_SHOWN,
+                TEST_REQUEST_ID, mOpticalProps.sensorId);
+    }
+
+    @Test
     public void testSubscribesToOrientationChangesWhenShowingOverlay() throws Exception {
         mOverlayController.showUdfpsOverlay(TEST_REQUEST_ID, mOpticalProps.sensorId,
                 BiometricOverlayConstants.REASON_AUTH_KEYGUARD, mUdfpsOverlayControllerCallback);
@@ -761,17 +771,20 @@ public class UdfpsControllerTest extends SysuiTestCase {
                 inOrder.verify(mAlternateTouchProvider).onUiReady();
                 inOrder.verify(mLatencyTracker).onActionEnd(
                         eq(LatencyTracker.ACTION_UDFPS_ILLUMINATE));
-                verify(mFingerprintManager, never()).onUiReady(anyLong(), anyInt());
+                verify(mFingerprintManager, never()).onUdfpsUiEvent(
+                        eq(FingerprintManager.UDFPS_UI_READY), anyLong(), anyInt());
             } else {
                 InOrder inOrder = inOrder(mFingerprintManager, mLatencyTracker);
-                inOrder.verify(mFingerprintManager).onUiReady(eq(TEST_REQUEST_ID),
+                inOrder.verify(mFingerprintManager).onUdfpsUiEvent(
+                        eq(FingerprintManager.UDFPS_UI_READY), eq(TEST_REQUEST_ID),
                         eq(testParams.sensorProps.sensorId));
                 inOrder.verify(mLatencyTracker).onActionEnd(
                         eq(LatencyTracker.ACTION_UDFPS_ILLUMINATE));
                 verify(mAlternateTouchProvider, never()).onUiReady();
             }
         } else {
-            verify(mFingerprintManager, never()).onUiReady(anyLong(), anyInt());
+            verify(mFingerprintManager, never()).onUdfpsUiEvent(
+                    eq(FingerprintManager.UDFPS_UI_READY), anyLong(), anyInt());
             verify(mAlternateTouchProvider, never()).onUiReady();
             verify(mLatencyTracker, never()).onActionEnd(
                     eq(LatencyTracker.ACTION_UDFPS_ILLUMINATE));
@@ -1327,12 +1340,22 @@ public class UdfpsControllerTest extends SysuiTestCase {
         // WHEN ACTION_DOWN is received
         when(mSinglePointerTouchProcessor.processTouch(any(), anyInt(), any())).thenReturn(
                 processorResultDown);
-        MotionEvent downEvent = MotionEvent.obtain(0, 0, ACTION_DOWN, 0, 0, 0);
-        mTouchListenerCaptor.getValue().onTouch(mUdfpsView, downEvent);
+        MotionEvent event = MotionEvent.obtain(0, 0, ACTION_DOWN, 0, 0, 0);
+        mTouchListenerCaptor.getValue().onTouch(mUdfpsView, event);
         mBiometricExecutor.runAllReady();
-        downEvent.recycle();
 
-        // THEN the touch is pilfered
+        // WHEN ACTION_MOVE is received after
+        final TouchProcessorResult processorResultUnchanged =
+                new TouchProcessorResult.ProcessedTouch(
+                        InteractionEvent.UNCHANGED, 1 /* pointerId */, touchData);
+        when(mSinglePointerTouchProcessor.processTouch(any(), anyInt(), any())).thenReturn(
+                processorResultUnchanged);
+        event.setAction(ACTION_MOVE);
+        mTouchListenerCaptor.getValue().onTouch(mUdfpsView, event);
+        mBiometricExecutor.runAllReady();
+        event.recycle();
+
+        // THEN only pilfer once on the initial down
         verify(mInputManager).pilferPointers(any());
     }
 

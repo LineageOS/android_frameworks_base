@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Gebruik biometrie of skermslot"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Verifieer dat dit jy is"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Gebruik jou biometrie om voort te gaan"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Gebruik jou vingerafdruk om voort te gaan"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Gebruik jou gesig om voort te gaan"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Gebruik jou biometriese data of skermslot om voort te gaan"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Biometriese hardeware is nie beskikbaar nie"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Stawing is gekanselleer"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Nie herken nie"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Gesig word nie herken nie"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Stawing is gekanselleer"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Geen PIN, patroon of wagwoord is gestel nie"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Kon nie staaf nie"</string>

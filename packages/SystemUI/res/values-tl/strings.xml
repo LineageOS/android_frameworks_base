@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Nakilala ang mukha. Pindutin para magpatuloy."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Nakilala ang mukha. Pindutin ang unlock para magpatuloy."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Na-authenticate"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Kanselahin ang Pag-authenticate"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Gumamit ng PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Gumamit ng pattern"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Gumamit ng password"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Para ma-set up ulit ang Pag-unlock Gamit ang Mukha, made-delete ang iyong kasalukuyang face model.\n\nKakailanganin mong i-set up ulit ang feature na ito para magamit ang iyong mukha para i-unlock ang telepono mo."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Hindi na-set up ang pag-unlock gamit ang mukha. Pumunta sa Mga Setting para subukan ulit."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Pindutin ang fingerprint sensor"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Pindutin ang icon ng pag-unlock para magpatuloy"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Hindi makilala ang mukha. Gumamit ng fingerprint."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Na-unlock gamit ang mukha"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Nakilala ang mukha"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Mag-swipe pataas para subukan ulit"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Mag-swipe up para ulitin ang Pag-unlock Gamit ang Mukha"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"I-unlock para magamit ang NFC"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Pagmamay-ari ng iyong organisasyon ang device na ito"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Pagmamay-ari ng <xliff:g id="ORGANIZATION_NAME">%s</xliff:g> ang device na ito"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Power menu"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Page <xliff:g id="ID_1">%1$d</xliff:g> ng <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Lock screen"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Na-off ang telepono dahil sa init"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Maayos na ngayong gumagana ang iyong telepono.\nMag-tap para sa higit pang impormasyon"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Napakainit ng telepono, kaya nag-off ito para lumamig. Maayos na itong gumagana.\n\nMaaaring lubos na uminit ang telepono kapag:\n	• Gumamit ka ng resource-intensive na app (gaya ng app para sa gaming, video, o navigation)\n	• Nag-download o nag-upload ka ng malaking file\n • Ginamit mo ito sa mainit na lugar"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Tingnan ang mga hakbang sa pangangalaga"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Umiinit ang telepono"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Limitado ang ilang feature habang nagku-cool down ang telepono.\nMag-tap para sa higit pang impormasyon"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Awtomatikong susubukan ng iyong telepono na mag-cool down. Magagamit mo pa rin ang iyong telepono, ngunit maaaring mas mabagal ang paggana nito.\n\nKapag nakapag-cool down na ang iyong telepono, gagana na ito nang normal."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Tingnan ang mga hakbang sa pangangalaga"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Bunutin sa saksakan ang device"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Umiinit ang iyong device malapit sa charging port. Kung nakakonekta ito sa charger o USB accessory, bunutin ito sa saksakan, at mag-ingat dahil posibleng mainit din ang cable."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Sumubok ng ibang PIN"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Kumpirmahin ang pagbabago para sa <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Mag-swipe para tumingin ng higit pa"</string>
+    <string name="retry_face" msgid="416380073082560186">"Subukan ulit ang pag-authenticate ng mukha"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Nilo-load ang rekomendasyon"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Media"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"itago ang kontrol sa media na ito para sa <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>

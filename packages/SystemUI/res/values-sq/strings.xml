@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"Aktivizo USB-në"</string>
     <string name="learn_more" msgid="4690632085667273811">"Mëso më shumë"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Pamja e ekranit"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"\"Shkyçja e zgjeruar\" u çaktivizua"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"\"Shkyçja e zgjatur\" u çaktivizua"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"dërgoi një imazh"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Po ruan pamjen e ekranit…"</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Pamja e ekranit po ruhet te profili i punës…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Fytyra u njoh. Shtyp për të vazhduar."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Fytyra u njoh. Shtyp ikonën e shkyçjes për të vazhduar."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"U vërtetua"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Anulo vërtetimin"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Përdor kodin PIN"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Përdor motivin"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Përdor fjalëkalimin"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Për të konfiguruar përsëri \"Shkyçjen me fytyrë\", modeli yt aktual i fytyrës do të fshihet.\n\nDo të duhet ta konfigurosh përsëri këtë veçori që të përdorësh fytyrën tënde për të shkyçur telefonin."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Shkyçja me fytyrë nuk mund të konfigurohej. Shko te \"Cilësimet\" për të provuar përsëri."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Prek sensorin e gjurmës së gishtit"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Shtyp ikonën e shkyçjes për të vazhduar"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Nuk mund ta dallojë fytyrën. Përdor më mirë gjurmën e gishtit."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"U shkyç me fytyrë"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Fytyra u njoh"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Rrëshqit lart për të provuar përsëri"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Rrëshqit shpejt lart dhe provo sërish \"Shkyçjen me fytyrë\""</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Shkyçe për të përdorur NFC-në"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Kjo pajisje i përket organizatës sate"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Kjo pajisje i përket <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Menyja e energjisë"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Faqja <xliff:g id="ID_1">%1$d</xliff:g> nga <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Ekrani i kyçjes"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Telefoni u fik për shkak të nxehtësisë"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Telefoni tani punon normalisht.\nTrokit për më shumë informacione"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Telefoni yt ishte tepër i nxehtë, prandaj u fik për t\'u ftohur. Telefoni tani punon normalisht.\n\nTelefoni mund të nxehet së tepërmi nëse ti:\n	• Përdor aplikacione intensive për burimet (siç janë aplikacionet e lojërave, videove apo aplikacionet e navigimit)\n	• Shkarkon ose ngarkon skedarë të mëdhenj\n	• E përdor telefonin në temperatura të larta"</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Shiko hapat për kujdesin"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Telefoni po bëhet i ngrohtë"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Disa veçori janë të kufizuara kur telefoni është duke u ftohur.\nTrokit për më shumë informacione"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Telefoni yt do të përpiqet automatikisht që të ftohet. Mund ta përdorësh përsëri telefonin, por ai mund të punojë më ngadalë.\n\nPasi telefoni të jetë ftohur, ai do të punojë si normalisht."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Shiko hapat për kujdesin"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Shkëpute pajisjen"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Pajisja jote po nxehet pranë portës së karikimit. Nëse është lidhur me një karikues ose një aksesor USB, shkëpute dhe trego kujdes pasi kablloja mund të jetë e nxehtë po ashtu."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Provo një kod tjetër PIN"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Konfirmo ndryshimin për <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Rrëshqit shpejt për të shikuar më shumë"</string>
+    <string name="retry_face" msgid="416380073082560186">"Riprovo vërtetimin me fytyrë"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Po ngarkon rekomandimet"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Media"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Të fshihet kontrolluesi i medias për <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>

@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"Включить USB-порт"</string>
     <string name="learn_more" msgid="4690632085667273811">"Подробнее"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Скриншот"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Функция \"Отложить блокировку\" отключена"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Отложенная блокировка отключена"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"отправлено изображение"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Сохранение..."</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Сохранение скриншота в рабочем профиле…"</string>
@@ -147,6 +147,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Лицо распознано. Нажмите, чтобы продолжить."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Лицо распознано. Нажмите на значок разблокировки."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Аутентификация выполнена"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Отмена распознавания лица"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"PIN-код"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Использовать графический ключ"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Использовать пароль"</string>
@@ -180,6 +181,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Для повторной настройки фейсконтроля существующая модель лица будет удалена с устройства.\n\nЧтобы разблокировать телефон с помощью фейсконтроля, вам потребуется настроить эту функцию заново."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Не удалось настроить фейсконтроль. Перейдите в настройки и повторите попытку."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Прикоснитесь к сканеру отпечатков пальцев."</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Нажмите на значок разблокировки."</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Не удалось распознать лицо. Используйте отпечаток."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -359,6 +361,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Разблокировано сканированием лица"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Лицо распознано"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Чтобы повторить попытку, проведите вверх"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Проведите вверх, чтобы повторить распознавание лица."</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Чтобы использовать NFC, разблокируйте устройство."</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Это устройство принадлежит вашей организации"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Этим устройством владеет организация \"<xliff:g id="ORGANIZATION_NAME">%s</xliff:g>\""</string>
@@ -759,13 +762,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Меню кнопки питания"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Страница <xliff:g id="ID_1">%1$d</xliff:g> из <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Заблокированный экран"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Телефон выключился из-за перегрева"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Сейчас телефон работает нормально.\nНажмите, чтобы получить дополнительную информацию"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Ваш телефон выключился из-за перегрева. Сейчас он работает нормально.\n\nВозможные причины перегрева телефона:\n	• использование ресурсоемких игр и приложений, связанных с видео или навигацией);\n	• скачивание или загрузка больших файлов;\n	• высокая температура окружающей среды."</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Подробнее о действиях при перегреве…"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Телефон нагревается"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Пока телефон не остынет, некоторые функции могут быть недоступны.\nНажмите, чтобы получить дополнительную информацию"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Ваш телефон остынет автоматически.\n\nОбратите внимание, что до тех пор он может работать медленнее, чем обычно."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Подробнее о действиях при перегреве…"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Отключите устройство"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Устройство нагревается в районе зарядного порта. Если оно подключено к зарядному или USB-устройству, отключите его. Будьте осторожны: кабель тоже мог нагреться."</string>
@@ -934,6 +931,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Введите другой PIN-код"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Подтвердите изменения для устройства \"<xliff:g id="DEVICE">%s</xliff:g>\""</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Проведите по экрану, чтобы увидеть больше"</string>
+    <string name="retry_face" msgid="416380073082560186">"Повторить распознавание лица"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Загрузка рекомендаций…"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Медиа"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Скрыть этот элемент в приложении \"<xliff:g id="APP_NAME">%1$s</xliff:g>\"?"</string>

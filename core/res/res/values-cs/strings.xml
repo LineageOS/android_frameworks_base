@@ -618,10 +618,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Použít biometrii nebo zámek obrazovky"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Potvrďte, že jste to vy"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Pokračujte biometrickým ověřením"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Pokračujte přiložením prstu"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Pokračujte ověřením obličeje"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Pokračujte ověřením pomocí biometrických údajů nebo zámku obrazovky"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Biometrický hardware není k dispozici"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Ověření bylo zrušeno"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Nerozpoznáno"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Obličej nebyl rozpoznán"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Ověření bylo zrušeno"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Není nastaven žádný PIN, gesto ani heslo"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Při ověřování došlo k chybě"</string>
@@ -1952,7 +1955,7 @@
     <string name="app_suspended_default_message" msgid="6451215678552004172">"Aplikace <xliff:g id="APP_NAME_0">%1$s</xliff:g> momentálně není dostupná. Tato předvolba se spravuje v aplikaci <xliff:g id="APP_NAME_1">%2$s</xliff:g>."</string>
     <string name="app_suspended_more_details" msgid="211260942831587014">"Další informace"</string>
     <string name="app_suspended_unsuspend_message" msgid="1665438589450555459">"Zrušit pozastavení aplikace"</string>
-    <string name="work_mode_off_title" msgid="6367463960165135829">"Zrušit pozast. prac. aplikací?"</string>
+    <string name="work_mode_off_title" msgid="6367463960165135829">"Zrušit pozastavení pracovních aplikací?"</string>
     <string name="work_mode_turn_on" msgid="5316648862401307800">"Zrušit pozastavení"</string>
     <string name="work_mode_emergency_call_button" msgid="6818855962881612322">"Stav nouze"</string>
     <string name="app_blocked_title" msgid="7353262160455028160">"Aplikace není k dispozici"</string>

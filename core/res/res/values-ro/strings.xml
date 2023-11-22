@@ -617,10 +617,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Folosește sistemele biometrice sau blocarea ecranului"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Confirmă-ți identitatea"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Folosește sistemele biometrice pentru a continua"</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Folosește amprenta pentru a continua"</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Folosește-ți chipul pentru a continua"</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Folosește sistemele biometrice sau blocarea ecranului pentru a continua"</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Hardware biometric indisponibil"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Autentificarea a fost anulată"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Nu este recunoscut"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Fața nu a fost recunoscută"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Autentificarea a fost anulată"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Nu este setat un cod PIN, un model sau o parolă"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Eroare la autentificare"</string>
@@ -1257,7 +1260,7 @@
     <string name="android_upgrading_starting_apps" msgid="6206161195076057075">"Se pornesc aplicațiile."</string>
     <string name="android_upgrading_complete" msgid="409800058018374746">"Se finalizează pornirea."</string>
     <string name="fp_power_button_enrollment_message" msgid="5648173517663246140">"Ai apăsat butonul de pornire. De obicei, astfel se dezactivează ecranul.\n\nAtinge ușor când îți configurezi amprenta."</string>
-    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Ca să termini configurarea, dezactivează ecranul"</string>
+    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Termină configurarea dezactivând ecranul"</string>
     <string name="fp_power_button_enrollment_button_text" msgid="3199783266386029200">"Dezactivează"</string>
     <string name="fp_power_button_bp_title" msgid="5585506104526820067">"Continui cu verificarea amprentei?"</string>
     <string name="fp_power_button_bp_message" msgid="2983163038168903393">"Ai apăsat butonul de pornire. De obicei, astfel se dezactivează ecranul.\n\nAtinge ușor pentru verificarea amprentei."</string>
@@ -1951,7 +1954,7 @@
     <string name="app_suspended_default_message" msgid="6451215678552004172">"Momentan, aplicația <xliff:g id="APP_NAME_0">%1$s</xliff:g> nu este disponibilă. Aceasta este gestionată de <xliff:g id="APP_NAME_1">%2$s</xliff:g>."</string>
     <string name="app_suspended_more_details" msgid="211260942831587014">"Află mai multe"</string>
     <string name="app_suspended_unsuspend_message" msgid="1665438589450555459">"Anulează întreruperea aplicației"</string>
-    <string name="work_mode_off_title" msgid="6367463960165135829">"Reactivezi aplicații lucru?"</string>
+    <string name="work_mode_off_title" msgid="6367463960165135829">"Reactivezi aplicații de lucru?"</string>
     <string name="work_mode_turn_on" msgid="5316648862401307800">"Reactivează"</string>
     <string name="work_mode_emergency_call_button" msgid="6818855962881612322">"Urgență"</string>
     <string name="app_blocked_title" msgid="7353262160455028160">"Aplicația nu este disponibilă"</string>

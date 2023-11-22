@@ -229,7 +229,7 @@
     <string name="reboot_to_update_reboot" msgid="4474726009984452312">"Қайта іске қосылуда…"</string>
     <string name="reboot_to_reset_title" msgid="2226229680017882787">"Зауыттық деректерді қалпына келтіру"</string>
     <string name="reboot_to_reset_message" msgid="3347690497972074356">"Қайта іске қосылуда…"</string>
-    <string name="shutdown_progress" msgid="5017145516412657345">"Өшірілуде…"</string>
+    <string name="shutdown_progress" msgid="5017145516412657345">"Өшіріліп жатыр…"</string>
     <string name="shutdown_confirm" product="tablet" msgid="2872769463279602432">"Планшет өшіріледі."</string>
     <string name="shutdown_confirm" product="tv" msgid="7975942887313518330">"Android TV құрылғысы өшеді."</string>
     <string name="shutdown_confirm" product="watch" msgid="2977299851200240146">"Сағатыңыз өшіріледі."</string>
@@ -616,10 +616,13 @@
     <string name="biometric_or_screen_lock_app_setting_name" msgid="5348462421758257752">"Биометриканы немесе экран құлпын пайдалану"</string>
     <string name="biometric_dialog_default_title" msgid="55026799173208210">"Бұл сіз екеніңізді растаңыз"</string>
     <string name="biometric_dialog_default_subtitle" msgid="8457232339298571992">"Жалғастыру үшін биометрикаңызды пайдаланыңыз."</string>
+    <string name="biometric_dialog_fingerprint_subtitle" msgid="2520227942533751342">"Жалғастыру үшін саусақ ізін пайдаланыңыз."</string>
+    <string name="biometric_dialog_face_subtitle" msgid="5269284162191087084">"Жалғастыру үшін бетті анықтау функциясын пайдаланыңыз."</string>
     <string name="biometric_or_screen_lock_dialog_default_subtitle" msgid="159539678371552009">"Жалғастыру үшін биометриканы немесе экран құлпын пайдаланыңыз."</string>
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Биометрикалық жабдық жоқ"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Аутентификациядан бас тартылды."</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Танылмады"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Бет танылмады."</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Аутентификациядан бас тартылды."</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Ешқандай PIN коды, өрнек немесе құпия сөз орнатылмаған."</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Аутентификациялауда қате шықты."</string>

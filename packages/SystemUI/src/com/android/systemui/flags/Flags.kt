@@ -221,7 +221,7 @@ object Flags {
     // TODO(b/267722622): Tracking Bug
     @JvmField
     val WALLPAPER_PICKER_UI_FOR_AIWP =
-            unreleasedFlag(
+            releasedFlag(
                     229,
                     "wallpaper_picker_ui_for_aiwp"
             )
@@ -267,6 +267,17 @@ object Flags {
     // TODO(b/286563884): Tracking bug
     @JvmField
     val KEYGUARD_TALKBACK_FIX = releasedFlag(238, "keyguard_talkback_fix")
+
+    /** Stop running face auth when the display state changes to OFF. */
+    // TODO(b/294221702): Tracking bug.
+    @JvmField val STOP_FACE_AUTH_ON_DISPLAY_OFF = resourceBooleanFlag(245,
+            R.bool.flag_stop_face_auth_on_display_off, "stop_face_auth_on_display_off")
+
+    /** Flag to disable the face scanning animation pulsing. */
+    // TODO(b/295245791): Tracking bug.
+    @JvmField val STOP_PULSING_FACE_SCANNING_ANIMATION = resourceBooleanFlag(246,
+            R.bool.flag_stop_pulsing_face_scanning_animation,
+            "stop_pulsing_face_scanning_animation")
 
     // 300 - power menu
     // TODO(b/254512600): Tracking Bug
@@ -662,7 +673,7 @@ object Flags {
     @JvmField val UDFPS_NEW_TOUCH_DETECTION = releasedFlag(2200, "udfps_new_touch_detection")
     @JvmField val UDFPS_ELLIPSE_DETECTION = releasedFlag(2201, "udfps_ellipse_detection")
     // TODO(b/278622168): Tracking Bug
-    @JvmField val BIOMETRIC_BP_STRONG = unreleasedFlag(2202, "biometric_bp_strong")
+    @JvmField val BIOMETRIC_BP_STRONG = releasedFlag(2202, "biometric_bp_strong")
 
     // 2300 - stylus
     @JvmField val TRACK_STYLUS_EVER_USED = releasedFlag(2300, "track_stylus_ever_used")
