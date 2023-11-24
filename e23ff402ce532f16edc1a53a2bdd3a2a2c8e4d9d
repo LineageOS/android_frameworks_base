@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df9ce9c_eb76a38c",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2023-11-24T11:51:23Z",
+      "side": 1,
+      "message": "TAKE_SCREENSHOT_FULLSCREEN - This import haven\u0027t used anywhere.",
+      "revId": "e23ff402ce532f16edc1a53a2bdd3a2a2c8e4d9d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
