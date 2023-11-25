@@ -256,6 +256,7 @@ java_library_static {
         "net_flags_lib",
         "stats_flags_lib",
         "core_os_flags_lib",
+        "vendor.aospa.biometrics.face",
     ],
     javac_shard_size: 50,
     javacflags: [
