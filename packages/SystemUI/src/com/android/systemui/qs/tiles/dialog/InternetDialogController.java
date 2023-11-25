@@ -768,6 +768,10 @@ public class InternetDialogController implements AccessPointController.AccessPoi
 
     void launchMobileNetworkSettings(View view) {
         final int subId = getActiveAutoSwitchNonDdsSubId();
+        launchMobileNetworkSettings(view, subId);
+    }
+
+    void launchMobileNetworkSettings(View view, int subId) {
         if (subId == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
             Log.w(TAG, "launchMobileNetworkSettings fail, invalid subId:" + subId);
             return;
