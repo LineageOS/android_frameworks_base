@@ -16,6 +16,24 @@
       "message": "With the current behaviour it\u0027s one click away (see all button or long press on generic tile) and then the gear\nthis is fine, but user discoverability is awkward (given hear near WiFi)",
       "revId": "d46a80e4dd5d6162e9c7ef2a97b5f4108ba51c58",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "939bd189_a55dab6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2023-11-25T14:48:08Z",
+      "side": 1,
+      "message": "Well, I tend to open tiles to go to the respective settings (which the current wifi network allows already). The \"See all\" only appears afert a brief search and then requires another click on the gear icon next to the network. same goes for long pressing the tile itself -\u003e requires that other click. Feels more like being able to access the proper settings when I can access it from the tile itself...",
+      "parentUuid": "9e4d0e13_6538a323",
+      "revId": "d46a80e4dd5d6162e9c7ef2a97b5f4108ba51c58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
