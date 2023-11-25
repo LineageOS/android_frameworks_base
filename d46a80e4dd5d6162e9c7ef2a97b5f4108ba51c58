@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e4d0e13_6538a323",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-11-25T14:23:43Z",
+      "side": 1,
+      "message": "With the current behaviour it\u0027s one click away (see all button or long press on generic tile) and then the gear\nthis is fine, but user discoverability is awkward (given hear near WiFi)",
+      "revId": "d46a80e4dd5d6162e9c7ef2a97b5f4108ba51c58",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
