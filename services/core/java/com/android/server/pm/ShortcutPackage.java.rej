@@ -1,0 +1,16 @@
+diff a/services/core/java/com/android/server/pm/ShortcutPackage.java b/services/core/java/com/android/server/pm/ShortcutPackage.java	(rejected hunks)
+@@ -28,12 +29,14 @@
+ import android.content.pm.ShortcutManager;
+ import android.content.res.Resources;
+ import android.os.PersistableBundle;
++import android.os.SystemClock;
+ import android.text.format.Formatter;
+ import android.util.ArrayMap;
+ import android.util.ArraySet;
+ import android.util.Log;
+ import android.util.Slog;
+ 
++import com.android.internal.annotations.GuardedBy;
+ import com.android.internal.annotations.VisibleForTesting;
+ import com.android.internal.util.ArrayUtils;
+ import com.android.internal.util.Preconditions;
