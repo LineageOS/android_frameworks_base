@@ -19,6 +19,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UserIdInt;
 import android.app.Person;
+import android.app.usage.UsageStatsManagerInternal;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -28,12 +29,14 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.content.res.Resources;
 import android.os.PersistableBundle;
+import android.os.SystemClock;
 import android.text.format.Formatter;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.Slog;
 
+import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.Preconditions;
@@ -119,6 +122,11 @@ class ShortcutPackage extends ShortcutPackageItem {
     private static final String KEY_BITMAPS = "bitmaps";
     private static final String KEY_BITMAP_BYTES = "bitmapBytes";
 
+    @VisibleForTesting
+    public static final int REPORT_USAGE_BUFFER_SIZE = 3;
+
+    private final Object mLock = new Object();
+
     /**
      * All the shortcuts from the package, keyed on IDs.
      */
@@ -142,6 +150,9 @@ class ShortcutPackage extends ShortcutPackageItem {
     private final int mPackageUid;
 
     private long mLastKnownForegroundElapsedTime;
+
+    @GuardedBy("mLock")
+    private List<Long> mLastReportedTime = new ArrayList<>();
 
     private ShortcutPackage(ShortcutUser shortcutUser,
             int packageUserId, String packageName, ShortcutPackageInfo spi) {
@@ -1350,6 +1361,30 @@ class ShortcutPackage extends ShortcutPackageItem {
             }
         }
         return false;
+    }
+
+    void reportShortcutUsed(@NonNull final UsageStatsManagerInternal usageStatsManagerInternal,
+            @NonNull final String shortcutId) {
+        synchronized (mLock) {
+            final long currentTS = SystemClock.elapsedRealtime();
+            final ShortcutService s = mShortcutUser.mService;
+            if (mLastReportedTime.isEmpty()
+                    || mLastReportedTime.size() < REPORT_USAGE_BUFFER_SIZE) {
+                mLastReportedTime.add(currentTS);
+            } else if (currentTS - mLastReportedTime.get(0) > s.mSaveDelayMillis) {
+                mLastReportedTime.remove(0);
+                mLastReportedTime.add(currentTS);
+            } else {
+                return;
+            }
+            final long token = s.injectClearCallingIdentity();
+            try {
+                usageStatsManagerInternal.reportShortcutUsage(getPackageName(), shortcutId,
+                        getUser().getUserId());
+            } finally {
+                s.injectRestoreCallingIdentity(token);
+            }
+        }
     }
 
     public void dump(@NonNull PrintWriter pw, @NonNull String prefix, DumpFilter filter) {
