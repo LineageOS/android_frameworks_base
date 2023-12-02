@@ -43,18 +43,6 @@ public class PropImitationHooks {
     private static final String TAG = "PropImitationHooks";
     private static final boolean DEBUG = SystemProperties.getBoolean("debug.pihooks.log", false);
 
-    private static final String[] sCertifiedProps =
-            Resources.getSystem().getStringArray(R.array.config_certifiedBuildProperties);
-
-    private static final String sStockFp =
-            Resources.getSystem().getString(R.string.config_stockFingerprint);
-
-    private static final String sNetflixModel =
-            Resources.getSystem().getString(R.string.config_netflixSpoofModel);
-
-    private static final boolean sSpoofGapps =
-            Resources.getSystem().getBoolean(R.bool.config_spoofGoogleApps);
-
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_ASI = "com.google.android.as";
     private static final String PACKAGE_FINSKY = "com.android.vending";
@@ -99,6 +87,10 @@ public class PropImitationHooks {
         "PIXEL_2020_MIDYEAR_EXPERIENCE"
     );
 
+    private static volatile String[] sCertifiedProps;
+    private static volatile String sStockFp, sNetflixModel;
+    private static volatile boolean sSpoofGapps;
+
     private static volatile String sProcessName;
     private static volatile boolean sIsGms, sIsFinsky, sIsPhotos;
 
@@ -110,6 +102,17 @@ public class PropImitationHooks {
             Log.e(TAG, "Null package or process name");
             return;
         }
+
+        final Resources res = context.getResources();
+        if (res == null) {
+            Log.e(TAG, "Null resources");
+            return;
+        }
+
+        sCertifiedProps = res.getStringArray(R.array.config_certifiedBuildProperties);
+        sStockFp = res.getString(R.string.config_stockFingerprint);
+        sNetflixModel = res.getString(R.string.config_netflixSpoofModel);
+        sSpoofGapps = res.getBoolean(R.bool.config_spoofGoogleApps);
 
         sProcessName = processName;
         sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
