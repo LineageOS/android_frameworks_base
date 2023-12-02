@@ -34,7 +34,7 @@
             android:id="@+id/face_unlock_icon"
             android:layout_height="@dimen/keyguard_affordance_fixed_height"
             android:layout_width="@dimen/keyguard_affordance_fixed_width"
-            android:layout_marginBottom="@dimen/keyguard_affordance_vertical_offset"
+            android:layout_marginBottom="@dimen/keyguard_lock_height"
             android:padding="@dimen/keyguard_affordance_fixed_padding"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
