@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c86eb6bd_7a229f52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33255
+      },
+      "writtenOn": "2023-12-08T22:37:32Z",
+      "side": 1,
+      "message": "This is causing numeric characters to not be visible on input fields, tested with LatinIME and Dialer on lux and surnia, reverting this specific change and rebuilding fixed the issue.",
+      "revId": "4bda7b62630750195f3334a640a613ce9749c859",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
