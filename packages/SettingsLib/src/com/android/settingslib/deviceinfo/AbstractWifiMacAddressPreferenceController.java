@@ -50,16 +50,14 @@ public abstract class AbstractWifiMacAddressPreferenceController
     };
 
     private Preference mWifiMacAddress;
-    private final WifiManager mWifiManager;
 
     public AbstractWifiMacAddressPreferenceController(Context context, Lifecycle lifecycle) {
         super(context, lifecycle);
-        mWifiManager = context.getSystemService(WifiManager.class);
     }
 
     @Override
     public boolean isAvailable() {
-        return true;
+        return context.getSystemService(WifiManager.class) != null;
     }
 
     @Override
@@ -70,10 +68,8 @@ public abstract class AbstractWifiMacAddressPreferenceController
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        if (isAvailable()) {
-            mWifiMacAddress = screen.findPreference(KEY_WIFI_MAC_ADDRESS);
-            updateConnectivity();
-        }
+        mWifiMacAddress = screen.findPreference(KEY_WIFI_MAC_ADDRESS);
+        updateConnectivity();
     }
 
     @Override
@@ -84,14 +80,15 @@ public abstract class AbstractWifiMacAddressPreferenceController
     @SuppressLint("HardwareIds")
     @Override
     protected void updateConnectivity() {
-        final String[] macAddresses = mWifiManager.getFactoryMacAddresses();
+        WifiManager wifiService = context.getSystemService(WifiManager.class);
+        if (wifiService == null || mWifiMacAddress == null) {
+            return;
+        }
+
+        final String[] macAddresses = wifiService.getFactoryMacAddresses();
         String macAddress = null;
         if (macAddresses != null && macAddresses.length > 0) {
             macAddress = macAddresses[0];
-        }
-
-        if (mWifiMacAddress == null) {
-            return;
         }
 
         if (TextUtils.isEmpty(macAddress) || macAddress.equals(WifiInfo.DEFAULT_MAC_ADDRESS)) {
