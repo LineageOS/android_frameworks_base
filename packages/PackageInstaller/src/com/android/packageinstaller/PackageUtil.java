@@ -152,10 +152,25 @@ public class PackageUtil {
         }
 
         private Bitmap getBitmapFromDrawable(Drawable drawable) {
-            // Create an empty bitmap with the dimensions of our drawable
-            final Bitmap bmp = Bitmap.createBitmap(drawable.getIntrinsicWidth(),
-                    drawable.getIntrinsicHeight(),
-                    Bitmap.Config.ARGB_8888);
+            int origW = drawable.getIntrinsicWidth();
+            int origH = drawable.getIntrinsicHeight();
+
+            // resulting bitmap will be transferred over binder, which limits safe transcation size
+            // to a few hundred KiB
+            final int maxSide = 250; // 250 KB at 4 bytes per pixel
+
+            int w = origW;
+            int h = origH;
+            if (Math.max(origW, origH) > maxSide) {
+                double ratio = Math.min((double) maxSide / origW, (double) maxSide / origH);
+                w = (int) (ratio * w);
+                h = (int) (ratio * h);
+                Log.d("AppSnippet", "getBitmapFromDrawable: downscaling, " +
+                        "origW " + origW + " origH " + origH + " scaleRatio " + ratio + " label " +
+                        label);
+            }
+
+            final Bitmap bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
             // Associate it with a canvas. This canvas will draw the icon on the bitmap
             final Canvas canvas = new Canvas(bmp);
             // Draw the drawable in the canvas. The canvas will ultimately paint the drawable in the
