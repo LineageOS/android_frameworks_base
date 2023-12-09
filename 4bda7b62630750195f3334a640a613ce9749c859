@@ -16,6 +16,24 @@
       "message": "This is causing numeric characters to not be visible on input fields, tested with LatinIME and Dialer on lux and surnia, reverting this specific change and rebuilding fixed the issue.",
       "revId": "4bda7b62630750195f3334a640a613ce9749c859",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a1e819a_36460daf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-12-09T07:57:50Z",
+      "side": 1,
+      "message": "Did you pick the whole topic? There is a fix up for this: https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/369697\n\nI don\u0027t see the issue on lilac. Can you describe more how to reproduce this if the above doesn\u0027t fix it already?",
+      "parentUuid": "c86eb6bd_7a229f52",
+      "revId": "4bda7b62630750195f3334a640a613ce9749c859",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
