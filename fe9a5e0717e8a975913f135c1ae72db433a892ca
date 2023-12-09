@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29588c80_6682b66b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-12-09T22:05:44Z",
+      "side": 1,
+      "message": "yeah I\u0027d shoot this to AOSP - but I do know something about \"we expect devices to have wifi, they don\u0027t _have_ to have BT being said to me about ATV at some point.\n\nThey still may take it tho.",
+      "revId": "fe9a5e0717e8a975913f135c1ae72db433a892ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
