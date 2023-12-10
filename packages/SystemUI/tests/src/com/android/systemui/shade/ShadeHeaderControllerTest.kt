@@ -29,6 +29,7 @@ import android.view.DisplayCutout
 import android.view.View
 import android.view.ViewPropertyAnimator
 import android.view.WindowInsets
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -54,6 +55,7 @@ import com.android.systemui.shade.carrier.ShadeCarrierGroupController
 import com.android.systemui.statusbar.phone.StatusBarContentInsetsProvider
 import com.android.systemui.statusbar.phone.StatusBarIconController
 import com.android.systemui.statusbar.phone.StatusIconContainer
+import com.android.systemui.statusbar.phone.StatusOverlayHoverListenerFactory
 import com.android.systemui.statusbar.policy.Clock
 import com.android.systemui.statusbar.policy.FakeConfigurationController
 import com.android.systemui.statusbar.policy.NextAlarmController
@@ -122,11 +124,13 @@ class ShadeHeaderControllerTest : SysuiTestCase() {
     @Mock private lateinit var qsBatteryModeController: QsBatteryModeController
     @Mock private lateinit var nextAlarmController: NextAlarmController
     @Mock private lateinit var activityStarter: ActivityStarter
+    @Mock private lateinit var mStatusOverlayHoverListenerFactory: StatusOverlayHoverListenerFactory
 
     @JvmField @Rule val mockitoRule = MockitoJUnit.rule()
     var viewVisibility = View.GONE
     var viewAlpha = 1f
 
+    private val systemIcons = LinearLayout(context)
     private lateinit var shadeHeaderController: ShadeHeaderController
     private lateinit var carrierIconSlots: List<String>
     private val configurationController = FakeConfigurationController()
@@ -134,18 +138,19 @@ class ShadeHeaderControllerTest : SysuiTestCase() {
 
     @Before
     fun setup() {
-        whenever<Clock>(view.findViewById(R.id.clock)).thenReturn(clock)
+        whenever<Clock>(view.requireViewById(R.id.clock)).thenReturn(clock)
         whenever(clock.context).thenReturn(mockedContext)
 
-        whenever<TextView>(view.findViewById(R.id.date)).thenReturn(date)
+        whenever<TextView>(view.requireViewById(R.id.date)).thenReturn(date)
         whenever(date.context).thenReturn(mockedContext)
 
-        whenever<ShadeCarrierGroup>(view.findViewById(R.id.carrier_group)).thenReturn(carrierGroup)
+        whenever<ShadeCarrierGroup>(view.requireViewById(R.id.carrier_group)).thenReturn(carrierGroup)
 
-        whenever<BatteryMeterView>(view.findViewById(R.id.batteryRemainingIcon))
+        whenever<BatteryMeterView>(view.requireViewById(R.id.batteryRemainingIcon))
             .thenReturn(batteryMeterView)
 
-        whenever<StatusIconContainer>(view.findViewById(R.id.statusIcons)).thenReturn(statusIcons)
+        whenever<StatusIconContainer>(view.requireViewById(R.id.statusIcons)).thenReturn(statusIcons)
+        whenever<View>(view.requireViewById(R.id.shade_header_system_icons)).thenReturn(systemIcons)
 
         viewContext = Mockito.spy(context)
         whenever(view.context).thenReturn(viewContext)
@@ -191,6 +196,7 @@ class ShadeHeaderControllerTest : SysuiTestCase() {
                 qsBatteryModeController,
                 nextAlarmController,
                 activityStarter,
+                mStatusOverlayHoverListenerFactory
             )
         whenever(view.isAttachedToWindow).thenReturn(true)
         shadeHeaderController.init()
@@ -237,8 +243,19 @@ class ShadeHeaderControllerTest : SysuiTestCase() {
         whenever(mShadeCarrierGroupController.isSingleCarrier).thenReturn(false)
 
         makeShadeVisible()
+        shadeHeaderController.qsExpandedFraction = 1.0f
 
         verify(statusIcons).addIgnoredSlots(carrierIconSlots)
+    }
+
+    @Test
+    fun dualCarrier_enablesCarrierIconsInStatusIcons_qsExpanded() {
+        whenever(mShadeCarrierGroupController.isSingleCarrier).thenReturn(false)
+
+        makeShadeVisible()
+        shadeHeaderController.qsExpandedFraction = 0.0f
+
+        verify(statusIcons, times(2)).removeIgnoredSlots(carrierIconSlots)
     }
 
     @Test
@@ -437,6 +454,17 @@ class ShadeHeaderControllerTest : SysuiTestCase() {
         shadeHeaderController.largeScreenActive = false
 
         verify(view).setTransition(ShadeHeaderController.HEADER_TRANSITION_ID)
+    }
+
+    @Test
+    fun testLargeScreenActive_collapseActionRun_onSystemIconsClick() {
+        shadeHeaderController.largeScreenActive = true
+        var wasRun = false
+        shadeHeaderController.shadeCollapseAction = Runnable { wasRun = true }
+
+        systemIcons.performClick()
+
+        assertThat(wasRun).isTrue()
     }
 
     @Test

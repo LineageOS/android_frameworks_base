@@ -1827,6 +1827,7 @@ public final class ProcessList {
 
             if (debuggableFlag) {
                 runtimeFlags |= Zygote.DEBUG_ENABLE_JDWP;
+                runtimeFlags |= Zygote.DEBUG_ENABLE_PTRACE;
                 runtimeFlags |= Zygote.DEBUG_JAVA_DEBUGGABLE;
                 // Also turn on CheckJNI for debuggable apps. It's quite
                 // awkward to turn on otherwise.
@@ -5621,7 +5622,7 @@ public final class ProcessList {
             if (logToDropbox) {
                 final long now = SystemClock.elapsedRealtime();
                 final StringBuilder sb = new StringBuilder();
-                mService.appendDropBoxProcessHeaders(app, app.processName, sb);
+                mService.appendDropBoxProcessHeaders(app, app.processName, null, sb);
                 sb.append("Reason: " + reason).append("\n");
                 sb.append("Requester UID: " + requester).append("\n");
                 dbox.addText(DROPBOX_TAG_IMPERCEPTIBLE_KILL, sb.toString());

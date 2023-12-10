@@ -229,7 +229,7 @@
     <string name="reboot_to_update_reboot" msgid="4474726009984452312">"ပြန်လည်စတင်နေ…"</string>
     <string name="reboot_to_reset_title" msgid="2226229680017882787">"စက်ရုံထုတ်အခြေအနေပြန်ယူခြင်း"</string>
     <string name="reboot_to_reset_message" msgid="3347690497972074356">"ပြန်လည်စတင်နေ…"</string>
-    <string name="shutdown_progress" msgid="5017145516412657345">"စက်ပိတ်ပါမည်"</string>
+    <string name="shutdown_progress" msgid="5017145516412657345">"စက်ပိတ်နေသည်…"</string>
     <string name="shutdown_confirm" product="tablet" msgid="2872769463279602432">"သင့်တက်ဘလက်အား စက်ပိတ်ပါမည်"</string>
     <string name="shutdown_confirm" product="tv" msgid="7975942887313518330">"သင့် Android TV စက်ပစ္စည်း ပိတ်သွားပါမည်။"</string>
     <string name="shutdown_confirm" product="watch" msgid="2977299851200240146">"သင်၏ ကြည့်ရှုမှု ပိတ်ပစ်မည်။"</string>
@@ -238,7 +238,7 @@
     <string name="reboot_safemode_title" msgid="5853949122655346734">"safe mode ဖြင့် ပြန်လည် စ တင်ရန်"</string>
     <string name="reboot_safemode_confirm" msgid="1658357874737219624">"safe mode ကို ပြန်လည် စတင် မလား? ဒီလို စတင်ခြင်းဟာ သင် သွင်းထားသော တတိယပါတီ အပလီကေးရှင်းများအား ရပ်ဆိုင်းထားပါမည်။ ပုံမှန်အတိုင်း ပြန်စလျှင် ထိုအရာများ ပြန်လည် ရောက်ရှိလာပါမည်။"</string>
     <string name="recent_tasks_title" msgid="8183172372995396653">"လတ်တလော"</string>
-    <string name="no_recent_tasks" msgid="9063946524312275906">"မကြာမီတုန်းက အက်ပ်များ မရှိပါ"</string>
+    <string name="no_recent_tasks" msgid="9063946524312275906">"မကြာသေးမီက အက်ပ်များ မရှိပါ"</string>
     <string name="global_actions" product="tablet" msgid="4412132498517933867">"Tabletဆိုင်ရာရွေးချယ်မှုများ"</string>
     <string name="global_actions" product="tv" msgid="3871763739487450369">"Android TV ရွေးချယ်စရာများ"</string>
     <string name="global_actions" product="default" msgid="6410072189971495460">"ဖုန်းဆိုင်ရာရွေးချယ်မှုများ"</string>
@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"ဇီဝအချက်အလက်သုံး ကွန်ပျူတာစက်ပစ္စည်း မရရှိနိုင်ပါ"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"အထောက်အထားစိစစ်ခြင်းကို ပယ်ဖျက်လိုက်သည်"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"မသိ"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"မျက်နှာကို မသိရှိပါ"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"အထောက်အထားစိစစ်ခြင်းကို ပယ်ဖျက်လိုက်သည်"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"ပင်နံပါတ်၊ လော့ခ်ပုံစံ သို့မဟုတ် စကားဝှက် သတ်မှတ်မထားပါ"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"အထောက်အထားစိစစ်ရာတွင် အမှားအယွင်းရှိနေသည်"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"လက်ဗွေကို မသိရှိပါ"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"လက်ဗွေကို မသိရှိပါ"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"မျက်နှာကို မမှတ်မိပါ။ လက်ဗွေကို အစားထိုးသုံးပါ။"</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"လက်ဗွေကို အထောက်အထား စိစစ်ပြီးပါပြီ"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"မျက်နှာ အထောက်အထားစိစစ်ပြီးပြီ"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"မျက်နှာ အထောက်အထားစိစစ်ပြီးပြီ၊ အတည်ပြုရန်ကို နှိပ်ပါ"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"တစ်ခုခုမှားသွားသည်။ ထပ်စမ်းကြည့်ပါ။"</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"လက်ဗွေ သင်္ကေတ"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"စက်ပစ္စည်းဖွင့်ခြင်း"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"ဖွင့်ရန် နည်းလမ်းနောက်တစ်ခု စမ်းကြည့်ပါ"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"သင့်လက်ချောင်းများ ရေစိုနေချိန်ကဲ့သို့ သင်၏လက်ဗွေကို မမှတ်မိသောအခါ ‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ သုံးပါ"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"အလင်းရောင် အလုံအလောက်မရချိန်ကဲ့သို့ သင့်မျက်နှာကို မမှတ်မိသောအခါ ‘လက်ဗွေသုံး လော့ခ်ဖွင့်ခြင်း’ သုံးပါ"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"‘မျက်နှာပြ လော့ခ်ဖွင့်ခြင်း’ ဆိုင်ရာ ပြဿနာ"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"သင်၏မျက်နှာနမူနာကို ဖျက်ရန် တို့ပါ။ ထို့နောက် သင့်မျက်နှာကို ထပ်ထည့်ပါ"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"မျက်နှာပြ လော့ခ်ဖွင့်ခြင်းကို ထည့်သွင်းပါ"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"သင့်ဖုန်းကိုကြည့်၍ သော့ဖွင့်ပါ"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"မျက်နှာပြ လော့ခ်ဖွင့်ခြင်းကို သုံးရန် "<b>"ကင်မရာ သုံးခွင့်"</b>" ကို ‘ဆက်တင်များ &gt; ကန့်သတ်ဆက်တင်’ တွင်ဖွင့်ပါ"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"သော့ဖွင့်ရန် နောက်ထပ်နည်းလမ်းများကို စနစ်ထည့်သွင်းပါ"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"လက်ဗွေထည့်ရန် တို့ပါ"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"လက်ဗွေသုံး လော့ခ်ဖွင့်ခြင်း"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"လက်ဗွေ အာရုံခံကိရိယာကို အသုံးပြု၍ မရပါ"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"ပြုပြင်ရေး ဝန်ဆောင်မှုပေးသူထံသို့ သွားပါ။"</string>
@@ -806,7 +808,7 @@
     <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"မျက်နှာပြင်ကို သော့ဖွင့်ရန် အတွက် စကားဝှက် မမှန်မကန် ထည့်သွင်းမှု အရေအတွက်ကို စောင့်ကြည့်လျက်၊ စကားဝှက် ရိုက်ထည့်မှု သိပ်များနေလျှင် တက်ဘလက်ကို သော့ခတ်ရန် သို့မဟုတ် တက်ဘလက် ဒေတာ အားလုံးကို ဖျက်ရန်။"</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"မျက်နှာပြင်ကို လော့ခ်ဖွင့်သည့်အခါ စကားဝှက်မှားယွင်းစွာ ရိုက်သွင်းသည့်အကြိမ်ရေကို စောင့်ကြည့်ပြီး မှားယွင်းသည့်အကြိမ်ရေ အလွန်များလာပါက သင့် Android TV စက်ပစ္စည်းကို လော့ခ်ချခြင်း သို့မဟုတ် သင့် Android TV ရှိ အသုံးပြုသူဒေတာများအားလုံးကို ဖျက်ခြင်းတို့ ပြုလုပ်သွားပါမည်။"</string>
     <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"ဖန်သားပြင်လော့ခ်ဖွင့်ရန် အတွက် စကားဝှက် မမှန်မကန် ထည့်သွင်းမှု အရေအတွက်ကို စောင့်ကြည့်လျက် စကားဝှက် မမှန်မကန် ရိုက်ထည့်မှု များနေလျှင် သတင်းနှင့်ဖျော်ဖြေရေး စနစ်ကို လော့ခ်ချသည် (သို့) ၎င်း၏ ဒေတာအားလုံးကို ဖျက်သည်။"</string>
-    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"မျက်နှာပြင်ကို သော့ဖွင့်ရန် အတွက် စကားဝှက် မမှန်မကန် ထည့်သွင်းမှု အရေအတွက်ကို စောင့်ကြည့်လျက်၊ စကားဝှက် ရိုက်ထည့်မှု သိပ်များနေလျှင် ဖုန်းကို သော့ခတ်ရန် သို့မဟုတ် ဖုန်း ဒေတာ အားလုံးကို ဖျက်ရန်။"</string>
+    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"မျက်နှာပြင်ကို လောခ်ဖွင့်ရန်အတွက် ရိုက်ထည့်သည့် မှားယွင်းသောစကားဝှက် အကြိမ်ရေကို စောင့်ကြည့်ပြီး မမှန်သောစကားဝှက် ရိုက်ထည့်မှု အလွန်များနေလျှင် ဖုန်းကိုလော့ခ်ချသည် (သို့) ဖုန်း ဒေတာအားလုံးကို ဖျက်သည်။"</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"ဖန်မျက်နှာပြင်အား သော့ဖွင့်စဉ် လျှို့ဝှက်ကုဒ်အမှားများ ရိုက်သွင်းမှုအား စောင့်ကြည့်ရန်နှင့်၊ လျှို့ဝှက်ကုဒ်အမှားများ များစွာ ရိုက်သွင်းပါက တက်ဘလက်အား သော့ချခြင်း သို့မဟုတ် တက်ဘလက်၏ အချက်အလက်များအား ဖျက်ပစ်ခြင်းများ ပြုလုပ်မည်။"</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"မျက်နှာပြင်ကို လော့ခ်ဖွင့်သည့်အခါ စကားဝှက်မှားယွင်းစွာ ရိုက်သွင်းသည့်အကြိမ်ရေကို စောင့်ကြည့်ပြီး မှားယွင်းသည့်အကြိမ်ရေ အလွန်များလာပါက သင့် Android TV စက်ပစ္စည်းကို လော့ခ်ချခြင်း သို့မဟုတ် ဤအသုံးပြုသူဒေတာများအားလုံးကို ဖျက်ခြင်းတို့ ပြုလုပ်သွားပါမည်။"</string>
     <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"ဖန်သားပြင်လော့ခ်ဖွင့်ရန် အတွက် စကားဝှက် မမှန်မကန် ထည့်သွင်းမှု အရေအတွက်ကို စောင့်ကြည့်လျက် စကားဝှက် မမှန်မကန် ရိုက်ထည့်မှု များနေလျှင် သတင်းနှင့်ဖျော်ဖြေရေး စနစ်ကို လော့ခ်ချသည် (သို့) ဤပရိုဖိုင်၏ ဒေတာအားလုံးကို ဖျက်သည်။"</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"ငြင်းပယ်ပါ"</string>
     <string name="select_input_method" msgid="3971267998568587025">"ထည့်သွင်းရေး နည်းကို ရွေးရန်"</string>
     <string name="show_ime" msgid="6406112007347443383">"စက်၏ကီးဘုတ် ဖွင့်ထားစဉ်တွင် ၎င်းကို ဖန်သားပြင်ပေါ်တွင် ဆက်ထားပါ"</string>
-    <string name="hardware" msgid="1800597768237606953">"ပကတိအသွင်ကီးဘုတ်ပြရန်"</string>
+    <string name="hardware" msgid="3611039921284836033">"မျက်နှာပြင် လက်ကွက် သုံးခြင်း"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"<xliff:g id="DEVICE_NAME">%s</xliff:g> ကို စီစဉ်သတ်မှတ်ရန်"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"ပကတိကီးဘုတ်များကို စီစဉ်သတ်မှတ်ရန်"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"ဘာသာစကားနှင့် အသွင်အပြင်ရွေးချယ်ရန် တို့ပါ"</string>
@@ -1951,7 +1953,7 @@
     <string name="app_suspended_more_details" msgid="211260942831587014">"ပိုမိုလေ့လာရန်"</string>
     <string name="app_suspended_unsuspend_message" msgid="1665438589450555459">"အက်ပ်ကို ခဏမရပ်တော့ရန်"</string>
     <string name="work_mode_off_title" msgid="6367463960165135829">"အလုပ်သုံးအက်ပ် ပြန်ဖွင့်မလား။"</string>
-    <string name="work_mode_turn_on" msgid="5316648862401307800">"ပြန်စရန်"</string>
+    <string name="work_mode_turn_on" msgid="5316648862401307800">"ပြန်ဖွင့်ရန်"</string>
     <string name="work_mode_emergency_call_button" msgid="6818855962881612322">"အရေးပေါ်"</string>
     <string name="app_blocked_title" msgid="7353262160455028160">"အက်ပ်ကို မရနိုင်ပါ"</string>
     <string name="app_blocked_message" msgid="542972921087873023">"<xliff:g id="APP_NAME">%1$s</xliff:g> ကို ယခု မရနိုင်ပါ။"</string>
@@ -2127,7 +2129,7 @@
     <string name="usb_device_resolve_prompt_warn" msgid="325871329788064199">"ဤအက်ပ်ကို အသံဖမ်းခွင့် ပေးမထားသော်လည်း ၎င်းသည် ဤ USB စက်ပစ္စည်းမှတစ်ဆင့် အသံများကို ဖမ်းယူနိုင်ပါသည်။"</string>
     <string name="accessibility_system_action_home_label" msgid="3234748160850301870">"ပင်မစာမျက်နှာ"</string>
     <string name="accessibility_system_action_back_label" msgid="4205361367345537608">"နောက်သို့"</string>
-    <string name="accessibility_system_action_recents_label" msgid="4782875610281649728">"လတ်တလောသုံး အက်ပ်များ"</string>
+    <string name="accessibility_system_action_recents_label" msgid="4782875610281649728">"မကြာသေးမီက အက်ပ်များ"</string>
     <string name="accessibility_system_action_notifications_label" msgid="6083767351772162010">"အကြောင်းကြားချက်များ"</string>
     <string name="accessibility_system_action_quick_settings_label" msgid="4583900123506773783">"အမြန် ဆက်တင်များ"</string>
     <string name="accessibility_system_action_power_dialog_label" msgid="8095341821683910781">"ပါဝါ ဒိုင်ယာလော့"</string>

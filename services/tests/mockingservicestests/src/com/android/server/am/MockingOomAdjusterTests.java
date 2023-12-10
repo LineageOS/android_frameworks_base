@@ -1862,6 +1862,13 @@ public class MockingOomAdjusterTests {
         assertProcStates(app2, PROCESS_STATE_FOREGROUND_SERVICE, PERCEPTIBLE_APP_ADJ,
                 SCHED_GROUP_DEFAULT);
         assertBfsl(app2);
+
+        bindService(client2, app1, null, 0, mock(IBinder.class));
+        bindService(app1, client2, null, 0, mock(IBinder.class));
+        client2.mServices.setHasForegroundServices(false, 0, /* hasNoneType=*/false);
+        updateOomAdj(app1, client1, client2);
+        assertProcStates(app1, PROCESS_STATE_IMPORTANT_FOREGROUND, VISIBLE_APP_ADJ,
+                SCHED_GROUP_TOP_APP);
     }
 
     @SuppressWarnings("GuardedBy")
@@ -1966,6 +1973,36 @@ public class MockingOomAdjusterTests {
         assertProcStates(app1, PROCESS_STATE_FOREGROUND_SERVICE, PERCEPTIBLE_APP_ADJ,
                 SCHED_GROUP_DEFAULT);
         assertBfsl(app1);
+    }
+
+    @SuppressWarnings("GuardedBy")
+    @Test
+    public void testUpdateOomAdj_DoOne_PendingFinishAttach() {
+        ProcessRecord app = spy(makeDefaultProcessRecord(MOCKAPP_PID, MOCKAPP_UID,
+                MOCKAPP_PROCESSNAME, MOCKAPP_PACKAGENAME, false));
+        app.setPendingFinishAttach(true);
+        app.mState.setHasForegroundActivities(false);
+
+        sService.mOomAdjuster.setAttachingProcessStatesLSP(app);
+        updateOomAdj(app);
+
+        assertProcStates(app, PROCESS_STATE_CACHED_EMPTY, FOREGROUND_APP_ADJ,
+                SCHED_GROUP_DEFAULT);
+    }
+
+    @SuppressWarnings("GuardedBy")
+    @Test
+    public void testUpdateOomAdj_DoOne_TopApp_PendingFinishAttach() {
+        ProcessRecord app = spy(makeDefaultProcessRecord(MOCKAPP_PID, MOCKAPP_UID,
+                MOCKAPP_PROCESSNAME, MOCKAPP_PACKAGENAME, false));
+        app.setPendingFinishAttach(true);
+        app.mState.setHasForegroundActivities(true);
+
+        sService.mOomAdjuster.setAttachingProcessStatesLSP(app);
+        updateOomAdj(app);
+
+        assertProcStates(app, PROCESS_STATE_TOP, FOREGROUND_APP_ADJ,
+                SCHED_GROUP_TOP_APP);
     }
 
     @SuppressWarnings("GuardedBy")

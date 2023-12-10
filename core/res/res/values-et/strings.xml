@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Biomeetriline riistvara ei ole saadaval"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Autentimine tühistati"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Ei tuvastatud"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Nägu ei tuvastatud"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Autentimine tühistati"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"PIN-koodi, mustrit ega parooli pole määratud"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Viga autentimisel"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Sõrmejälge ei tuvastatud"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Sõrmejälge ei tuvastatud"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Nägu ei õnnestu tuvastada. Kasutage sõrmejälge."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Sõrmejälg autenditi"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Nägu on autenditud"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Nägu on autenditud, vajutage käsku Kinnita"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Midagi läks valesti. Proovige uuesti."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Sõrmejälje ikoon"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Seadme avamine"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Proovige avamiseks teist viisi"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Kasutage näoga avamist, kui teie sõrmejälge ei tuvastata, näiteks kui sõrmed on märjad"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Kasutage sõrmejäljega avamist, kui teie nägu ei tuvastata, näiteks kui pole piisavalt valgust"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Näoga avamine"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Probleem funktsiooniga Näoga avamine"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Puudutage näomudeli kustutamiseks, seejärel lisage oma nägu uuesti"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Näoga avamise seadistamine"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Avage telefon seda vaadates"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Näoga avamise kasutamiseks lülitage menüüs Seaded &gt; Privaatsus sisse "<b>"juurdepääs kaamerale"</b>"."</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Seadistage rohkem viise avamiseks"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Puudutage sõrmejälje lisamiseks"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Sõrmejäljega avamine"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Sõrmejäljeandurit ei saa kasutada"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Külastage remonditeenuse pakkujat."</string>
@@ -819,7 +821,7 @@
     <string name="policydesc_wipeData" product="tablet" msgid="7245372676261947507">"Kustutage tahvelarvuti andmed hoiatamata, lähtestades arvuti tehaseandmetele."</string>
     <string name="policydesc_wipeData" product="tv" msgid="513862488950801261">"Kustutatakse teie Android TV seadme andmed ilma hoiatamata, lähtestades seadme tehase andmetele."</string>
     <string name="policydesc_wipeData" product="automotive" msgid="660804547737323300">"Teabe ja meelelahutuse süsteemi andmete hoiatamata kustutamine tehase andmetele lähtestamise abil."</string>
-    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"Telefoniandmete hoiatuseta kustutamine, lähtestades telefoni tehaseseadetele."</string>
+    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"Kustutab telefoniandmed hoiatuseta, lähtestades telefoni tehaseseadetele."</string>
     <string name="policylab_wipeData_secondaryUser" product="automotive" msgid="115034358520328373">"Profiili andmete kustutamine"</string>
     <string name="policylab_wipeData_secondaryUser" product="default" msgid="413813645323433166">"Kasutaja andmete kustutamine"</string>
     <string name="policydesc_wipeData_secondaryUser" product="tablet" msgid="2336676480090926470">"Kustutatakse selle kasutaja andmed sellest tahvelarvutist ilma hoiatamata."</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"KEELDU"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Valige sisestusmeetod"</string>
     <string name="show_ime" msgid="6406112007347443383">"Hoia seda ekraanil, kui füüsiline klaviatuur on aktiivne"</string>
-    <string name="hardware" msgid="1800597768237606953">"Virtuaalse klaviatuuri kuvam."</string>
+    <string name="hardware" msgid="3611039921284836033">"Kasuta ekraaniklaviatuuri"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Seadistage <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Seadistage füüsilised klaviatuurid"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Puudutage keele ja paigutuse valimiseks"</string>
@@ -2323,13 +2325,13 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"Lubab kaasrakendusel taustal käivitada esiplaanil olevaid teenuseid."</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"Mikrofon on saadaval"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"Mikrofon on blokeeritud"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Kahe ekraani režiim"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Kahe ekraani režiim on sisse lülitatud"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Dual Screeni režiim on sisse lülitatud"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"<xliff:g id="APP_NAME">%1$s</xliff:g> kasutab sisu kuvamiseks mõlemat ekraani"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"Seade on liiga kuum"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Kahe ekraani režiim pole saadaval, kuna teie telefon läheb liiga kuumaks"</string>
-    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Kahe ekraani režiim ei ole saadaval"</string>
-    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Kahe ekraani režiim ei ole saadaval, kuna akusäästja on sisse lülitatud. Saate selle seadetes välja lülitada."</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Dual Screeni režiim pole saadaval, kuna teie telefon läheb liiga kuumaks"</string>
+    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Dual Screeni režiim ei ole saadaval"</string>
+    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Dual Screeni režiim ei ole saadaval, kuna akusäästja on sisse lülitatud. Saate selle seadetes välja lülitada."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"Ava seaded"</string>
     <string name="device_state_notification_turn_off_button" msgid="6327161707661689232">"Lülita välja"</string>
     <string name="keyboard_layout_notification_selected_title" msgid="1202560174252421219">"<xliff:g id="DEVICE_NAME">%s</xliff:g> on seadistatud"</string>

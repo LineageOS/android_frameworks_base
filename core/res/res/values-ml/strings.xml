@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"ബയോമെട്രിക് ഹാർ‌ഡ്‌വെയർ ലഭ്യമല്ല"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"പരിശോധിച്ചുറപ്പിക്കൽ റദ്ദാക്കി"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"തിരിച്ചറിഞ്ഞില്ല"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"മുഖം തിരിച്ചറിഞ്ഞിട്ടില്ല"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"പരിശോധിച്ചുറപ്പിക്കൽ റദ്ദാക്കി"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"പിന്നോ പാറ്റേണോ പാസ്‌വേഡോ സജ്ജീകരിച്ചിട്ടില്ല"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"പിശക് പരിശോധിച്ചുറപ്പിക്കുന്നു"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"ഫിംഗർപ്രിന്റ് തിരിച്ചറിഞ്ഞില്ല"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"ഫിംഗർപ്രിന്റ് തിരിച്ചറിഞ്ഞില്ല"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"മുഖം തിരിച്ചറിയാനായില്ല. പകരം ഫിംഗർപ്രിന്റ് ഉപയോഗിക്കൂ."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"ഫിംഗർപ്രിന്റ് പരിശോധിച്ചുറപ്പിച്ചു"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"മുഖം പരിശോധിച്ചുറപ്പിച്ചു"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"മുഖം പരിശോധിച്ചുറപ്പിച്ചു, സ്ഥിരീകരിക്കുക അമർത്തുക"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"എന്തോ കുഴപ്പമുണ്ടായി. വീണ്ടും ശ്രമിക്കുക."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"ഫിംഗർപ്രിന്റ് ഐക്കൺ"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"ഉപകരണ അൺലോക്ക്"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"അൺലോക്ക് ചെയ്യാനുള്ള മറ്റൊരു മാർഗ്ഗം പരീക്ഷിച്ച് നോക്കൂ"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"ഫിംഗർപ്രിന്റ് തിരിച്ചറിയാൻ കഴിയാത്തപ്പോൾ, ഉദാഹരണത്തിന്, വിരൽ നനഞ്ഞിരിക്കുമ്പോൾ ഫേസ് അൺലോക്ക് ഉപയോഗിക്കുക"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"നിങ്ങളുടെ മുഖം തിരിച്ചറിയാനാകാത്തപ്പോൾ, ഉദാഹരണത്തിന്, ആവശ്യത്തിന് ലൈറ്റ് ഇല്ലാത്തപ്പോൾ ഫിംഗർപ്രിന്റ് അൺലോക്ക് ഉപയോഗിക്കുക"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"ഫെയ്‌സ് അൺലോക്ക്"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"ഫെയ്‌സ് അൺലോക്കുമായി ബന്ധപ്പെട്ട പ്രശ്നം"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"നിങ്ങളുടെ മുഖ മോഡൽ ഇല്ലാതാക്കാൻ ടാപ്പ് ചെയ്യുക, തുടർന്ന് അത് വീണ്ടും ചേർക്കുക"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"ഫെയ്‌സ് അൺലോക്ക് സജ്ജീകരിക്കുക"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"ഫോണിലേക്ക് നോക്കി അത് അൺലോക്ക് ചെയ്യുക"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"ഫെയ്‌സ് അൺലോക്ക് ഉപയോഗിക്കാൻ, ക്രമീകരണം &gt; സ്വകാര്യത എന്നതിൽ "<b>"ക്യാമറാ ആക്‌സസ്"</b>" ഓണാക്കുക"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"അൺലോക്ക് ചെയ്യുന്നതിനുള്ള കൂടുതൽ വഴികൾ സജ്ജീകരിക്കുക"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"ഫിംഗർപ്രിന്റ് ചേർക്കാൻ ടാപ്പ് ചെയ്യുക"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"ഫിംഗർപ്രിന്റ് അൺലോക്ക്"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"വിരലടയാള സെൻസർ ഉപയോഗിക്കാനാകുന്നില്ല"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"റിപ്പയർ കേന്ദ്രം സന്ദർശിക്കുക."</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"നിരസിക്കുക"</string>
     <string name="select_input_method" msgid="3971267998568587025">"ഇൻപുട്ട് രീതി തിരഞ്ഞെടുക്കുക"</string>
     <string name="show_ime" msgid="6406112007347443383">"ഫിസിക്കൽ കീബോർഡ് സജീവമായിരിക്കുമ്പോൾ സ്ക്രീനിൽ നിലനിർത്തുക"</string>
-    <string name="hardware" msgid="1800597768237606953">"വെർച്വൽ കീബോർഡ് കാണിക്കുക"</string>
+    <string name="hardware" msgid="3611039921284836033">"ഓൺ-സ്ക്രീൻ കീബോർഡ് ഉപയോഗിക്കൂ"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"<xliff:g id="DEVICE_NAME">%s</xliff:g> കോൺഫിഗർ ചെയ്യുക"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"യഥാർത്ഥ കീബോർഡുകൾ കോൺഫിഗർ ചെയ്യുക"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"ഭാഷയും ലേഔട്ടും തിരഞ്ഞെടുക്കുന്നതിന് ടാപ്പ് ചെയ്യുക"</string>

@@ -622,6 +622,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Біяметрычнае абсталяванне недаступнае"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Аўтэнтыфікацыя скасавана"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Не распазнана"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Твар не распазнаны"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Аўтэнтыфікацыя скасавана"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Не заданы PIN-код, узор разблакіроўкі або пароль"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Памылка аўтэнтыфікацыі"</string>
@@ -642,6 +643,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Адбітак пальца не распазнаны"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Адбітак пальца не распазнаны"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Твар не распазнаны. Скарыстайце адбітак пальца."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Адбітак пальца распазнаны"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Твар распазнаны"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Твар распазнаны. Націсніце, каб пацвердзіць"</string>
@@ -667,14 +669,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Нешта пайшло не так. Паўтарыце спробу."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Значок адбіткаў пальцаў"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Разблакіроўка прылады"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Паспрабуйце іншы спосаб разблакіроўкі"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Выкарыстоўвайце распазнаванне твару, калі прылада не распазнае ваш адбітак пальца. Гэта функцыя можа прыдацца, напрыклад, калі ў вас мокрыя пальцы."</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Выкарыстоўвайце разблакіроўку адбіткам пальца, калі прылада не распазнае ваш твар. Гэта функцыя можа прыдацца, напрыклад, ва ўмовах недастатковай асветленасці."</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Распазнаванне твару"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Праблема з распазнаваннем твару"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Націсніце, каб выдаліць мадэль твару, пасля дадайце твар яшчэ раз"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Наладзьце распазнаванне твару"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Разблакіруйце свой тэлефон, паглядзеўшы на яго"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Каб выкарыстоўваць распазнаванне твару, уключыце "<b>"доступ да камеры"</b>" праз раздзел \"Налады &gt; Прыватнасць\""</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Наладзьце дадатковыя спосабы разблакіроўкі"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Націсніце, каб дадаць адбітак пальца"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Разблакіроўка адбіткам пальца"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Не ўдалося скарыстаць сканер адбіткаў пальцаў"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Звярніцеся ў сэрвісны цэнтр."</string>
@@ -808,7 +810,7 @@
     <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"Сачыць за колькасцю няправільных набраных пароляў падчас разблакоўкі экрана і блакаваць планшэт або сціраць усе дадзеныя на ім, калі няправільны пароль набраны занадта шмат разоў."</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і заблакіраваць прыладу Android TV або сцерці ўсе даныя на прыладзе, калі няправільны пароль набраны занадта шмат разоў."</string>
     <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"Падчас разблакіроўкі экрана сачыць за колькасцю няправільна набраных пароляў і, калі няправільны пароль набраны занадта шмат разоў, заблакіраваць інфармацыйна-забаўляльную сістэму ці сцерці ў ёй усе даныя."</string>
-    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"Сачыць за колькасцю няправільных набраных пароляў падчас разблакоўкі экрана і блакаваць тяэлефон або сціраць усе дадзеныя на ім, калі набрана занадта шмат няправільных пароляў."</string>
+    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і блакіраваць тэлефон або сціраць усе даныя на ім, калі набрана занадта шмат няправільных пароляў."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і блакіраваць планшэт або сцерці ўсе даныя гэтага карыстальніка, калі няправільны пароль набраны занадта шмат разоў."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"Сачыць за колькасцю няправільна набраных пароляў падчас разблакіроўкі экрана і заблакіраваць прыладу Android TV або сцерці ўсе даныя карыстальніка, калі няправільны пароль набраны занадта шмат разоў."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"Падчас разблакіроўкі экрана сачыць за колькасцю няправільна набраных пароляў і, калі няправільны пароль набраны занадта шмат разоў, заблакіраваць інфармацыйна-забаўляльную сістэму ці сцерці ўсе даныя гэтага профілю."</string>
@@ -1258,7 +1260,7 @@
     <string name="android_upgrading_starting_apps" msgid="6206161195076057075">"Запуск прыкладанняў."</string>
     <string name="android_upgrading_complete" msgid="409800058018374746">"Завяршэнне загрузкі."</string>
     <string name="fp_power_button_enrollment_message" msgid="5648173517663246140">"Вы націснулі кнопку сілкавання. Звычайна ў выніку гэтага дзеяння выключаецца экран.\n\nПадчас наладжвання адбітка пальца злёгку дакраніцеся да кнопкі."</string>
-    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Каб завяршыць наладку, выключыце экран"</string>
+    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Каб скончыць наладку, выключыце экран"</string>
     <string name="fp_power_button_enrollment_button_text" msgid="3199783266386029200">"Выключыць"</string>
     <string name="fp_power_button_bp_title" msgid="5585506104526820067">"Працягнуць спраўджанне адбітка пальца?"</string>
     <string name="fp_power_button_bp_message" msgid="2983163038168903393">"Вы націснулі кнопку сілкавання. Звычайна ў выніку гэтага дзеяння выключаецца экран.\n\nКаб спраўдзіць адбітак пальца, злёгку дакраніцеся да кнопкі."</string>
@@ -1395,7 +1397,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"АДХІЛІЦЬ"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Выберыце метад уводу"</string>
     <string name="show_ime" msgid="6406112007347443383">"Захоўваць яе на экране ў той час, калі фізічная клавіятура актыўная"</string>
-    <string name="hardware" msgid="1800597768237606953">"Паказаць віртуальную клавіятуру"</string>
+    <string name="hardware" msgid="3611039921284836033">"Экранная клавіятура"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Наладзьце прыладу \"<xliff:g id="DEVICE_NAME">%s</xliff:g>\""</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Наладзьце фізічныя клавіятуры"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Дакраніцеся, каб выбраць мову і раскладку"</string>
@@ -2325,11 +2327,11 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"Спадарожная праграма зможа запускаць актыўныя сэрвісы з фонавага рэжыму."</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"Мікрафон даступны"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"Мікрафон заблакіраваны"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Двайны экран"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Уключана функцыя \"Двайны экран\""</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Уключана функцыя Dual Screen"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"Праграма \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" выкарыстоўвае абодва экраны для паказу змесціва"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"Прылада моцна нагрэлася"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Функцыя \"Двайны экран\" недаступная, бо тэлефон моцна награваецца"</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Функцыя Dual Screen недаступная, бо тэлефон моцна награваецца"</string>
     <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Функцыя Dual Screen недаступная"</string>
     <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Функцыя Dual Screen недаступная, бо ўключаны рэжым энергазберажэння. Вы можаце выключыць яго ў Наладах."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"Перайсці ў Налады."</string>

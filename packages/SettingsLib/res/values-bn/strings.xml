@@ -114,9 +114,9 @@
     <string name="bluetooth_profile_sap" msgid="8304170950447934386">"সিম অ্যাক্সেস"</string>
     <string name="bluetooth_profile_a2dp_high_quality" msgid="4739440941324792775">"HD অডিও: <xliff:g id="CODEC_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_profile_a2dp_high_quality_unknown_codec" msgid="2477639096903834374">"HD অডিও"</string>
-    <string name="bluetooth_profile_hearing_aid" msgid="58154575573984914">"হিয়ারিং এড"</string>
+    <string name="bluetooth_profile_hearing_aid" msgid="2607867572569689732">"হিয়ারিং এড"</string>
     <string name="bluetooth_profile_le_audio" msgid="1725521360076451751">"LE অডিও"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="8191273236809964030">"হিয়ারিং এডের সাথে কানেক্ট করা হয়েছে"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="5757754050938807276">"হিয়ারিং এডের সাথে কানেক্ট করা হয়েছে"</string>
     <string name="bluetooth_le_audio_profile_summary_connected" msgid="6916226974453480650">"LE অডিও কানেক্ট করা হয়েছে"</string>
     <string name="bluetooth_a2dp_profile_summary_connected" msgid="7422607970115444153">"মিডিয়া অডিওতে কানেক্ট রয়েছে"</string>
     <string name="bluetooth_headset_profile_summary_connected" msgid="2420981566026949688">"ফোন অডিওতে কানেক্ট"</string>
@@ -134,7 +134,7 @@
     <string name="bluetooth_headset_profile_summary_use_for" msgid="808970643123744170">"ফোন অডিওয়ের জন্য ব্যবহার করুন"</string>
     <string name="bluetooth_opp_profile_summary_use_for" msgid="461981154387015457">"ফাইল স্থানান্তরের জন্য ব্যবহার করুন"</string>
     <string name="bluetooth_hid_profile_summary_use_for" msgid="4289460627406490952">"ইনপুটের জন্য ব্যবহার করুন"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="7689393730163320483">"হিয়ারিং এডের জন্য ব্যবহার করুন"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="3374057355721486932">"হিয়ারিং এডের জন্য ব্যবহার করুন"</string>
     <string name="bluetooth_le_audio_profile_summary_use_for" msgid="2778318636027348572">"LE_AUDIO-এর জন্য ব্যবহার করুন"</string>
     <string name="bluetooth_pairing_accept" msgid="2054232610815498004">"যুক্ত করুন"</string>
     <string name="bluetooth_pairing_accept_all_caps" msgid="2734383073450506220">"যুক্ত করুন"</string>
@@ -174,7 +174,7 @@
     <string name="launch_defaults_some" msgid="3631650616557252926">"কিছু ডিফল্ট সেট করা রয়েছে"</string>
     <string name="launch_defaults_none" msgid="8049374306261262709">"কোনও ডিফল্ট সেট করা নেই"</string>
     <string name="tts_settings" msgid="8130616705989351312">"পাঠ্য থেকে ভাষ্য আউটপুট সেটিংস"</string>
-    <string name="tts_settings_title" msgid="7602210956640483039">"টেক্সট-টু-স্পিচ"</string>
+    <string name="tts_settings_title" msgid="7602210956640483039">"টেক্সট-টু-স্পিচ আউটপুট"</string>
     <string name="tts_default_rate_title" msgid="3964187817364304022">"কথা বলার হার"</string>
     <string name="tts_default_rate_summary" msgid="3781937042151716987">"যে গতিতে পাঠ্য উচ্চারিত হয়"</string>
     <string name="tts_default_pitch_title" msgid="6988592215554485479">"পিচ"</string>
@@ -355,6 +355,8 @@
     <string name="pointer_location_summary" msgid="957120116989798464">"স্ক্রিন ওভারলে বর্তমান স্পর্শ ডেটা দেখাচ্ছে"</string>
     <string name="show_touches" msgid="8437666942161289025">"আলতো চাপ দেখান"</string>
     <string name="show_touches_summary" msgid="3692861665994502193">"আলতো চাপ দিলে ভিজ্যুয়াল প্রতিক্রিয়া দেখান"</string>
+    <string name="show_key_presses" msgid="6360141722735900214">"প্রেস করা কী দেখুন"</string>
+    <string name="show_key_presses_summary" msgid="725387457373015024">"ফিজিক্যাল কী প্রেস করা হলে ভিজুয়াল ফিডব্যাক দেখুন"</string>
     <string name="show_screen_updates" msgid="2078782895825535494">"সারফেস আপডেটগুলি দেখান"</string>
     <string name="show_screen_updates_summary" msgid="2126932969682087406">"সম্পূর্ণ উইন্ডোর সারফেস আপডেট হয়ে গেলে সেটিকে ফ্ল্যাশ করুন"</string>
     <string name="show_hw_screen_updates" msgid="2021286231267747506">"ভিউয়ের আপডেট দেখুন"</string>
@@ -673,7 +675,7 @@
     <string name="physical_keyboard_title" msgid="4811935435315835220">"ফিজিক্যাল কীবোর্ড"</string>
     <string name="keyboard_layout_dialog_title" msgid="3927180147005616290">"কীবোর্ড লেআউট বেছে নিন"</string>
     <string name="keyboard_layout_default_label" msgid="1997292217218546957">"ডিফল্ট"</string>
-    <string name="turn_screen_on_title" msgid="3266937298097573424">"স্ক্রিন চালু করুন"</string>
+    <string name="turn_screen_on_title" msgid="3266937298097573424">"স্ক্রিন চালু করা"</string>
     <string name="allow_turn_screen_on" msgid="6194845766392742639">"স্ক্রিন চালু করার অনুমতি দিন"</string>
     <string name="allow_turn_screen_on_description" msgid="43834403291575164">"অ্যাপকে স্ক্রিন চালু করার অনুমতি দিন। অনুমতি দেওয়া হলে, অ্যাপ আপনার এক্সপ্লিসিট ইনটেন্ট ছাড়াই যেকোনও সময় স্ক্রিন চালু করতে পারবে।"</string>
     <string name="bt_le_audio_broadcast_dialog_title" msgid="5392738488989777074">"<xliff:g id="APP_NAME">%1$s</xliff:g> সম্প্রচার বন্ধ করবেন?"</string>

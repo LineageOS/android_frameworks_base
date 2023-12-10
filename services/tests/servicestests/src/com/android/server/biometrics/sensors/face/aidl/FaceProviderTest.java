@@ -27,6 +27,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.hardware.biometrics.common.CommonProps;
 import android.hardware.biometrics.face.IFace;
 import android.hardware.biometrics.face.ISession;
@@ -36,10 +37,10 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.platform.test.annotations.Presubmit;
 
-import androidx.annotation.NonNull;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 
+import com.android.internal.R;
 import com.android.server.biometrics.log.BiometricContext;
 import com.android.server.biometrics.sensors.BaseClientMonitor;
 import com.android.server.biometrics.sensors.BiometricScheduler;
@@ -60,10 +61,14 @@ public class FaceProviderTest {
 
     private static final String TAG = "FaceProviderTest";
 
+    private static final float FRR_THRESHOLD = 0.2f;
+
     @Mock
     private Context mContext;
     @Mock
     private UserManager mUserManager;
+    @Mock
+    private Resources mResources;
     @Mock
     private IFace mDaemon;
     @Mock
@@ -73,7 +78,7 @@ public class FaceProviderTest {
 
     private SensorProps[] mSensorProps;
     private LockoutResetDispatcher mLockoutResetDispatcher;
-    private TestableFaceProvider mFaceProvider;
+    private FaceProvider mFaceProvider;
 
     private static void waitForIdle() {
         InstrumentationRegistry.getInstrumentation().waitForIdleSync();
@@ -87,6 +92,10 @@ public class FaceProviderTest {
         when(mUserManager.getAliveUsers()).thenReturn(new ArrayList<>());
         when(mDaemon.createSession(anyInt(), anyInt(), any())).thenReturn(mock(ISession.class));
 
+        when(mContext.getResources()).thenReturn(mResources);
+        when(mResources.getFraction(R.fraction.config_biometricNotificationFrrThreshold, 1, 1))
+                .thenReturn(FRR_THRESHOLD);
+
         final SensorProps sensor1 = new SensorProps();
         sensor1.commonProps = new CommonProps();
         sensor1.commonProps.sensorId = 0;
@@ -98,8 +107,9 @@ public class FaceProviderTest {
 
         mLockoutResetDispatcher = new LockoutResetDispatcher(mContext);
 
-        mFaceProvider = new TestableFaceProvider(mDaemon, mContext, mBiometricStateCallback,
-                mSensorProps, TAG, mLockoutResetDispatcher, mBiometricContext);
+        mFaceProvider = new FaceProvider(mContext, mBiometricStateCallback,
+                mSensorProps, TAG, mLockoutResetDispatcher, mBiometricContext,
+                mDaemon);
     }
 
     @Test
@@ -130,6 +140,7 @@ public class FaceProviderTest {
         for (SensorProps prop : mSensorProps) {
             final BiometricScheduler scheduler =
                     mFaceProvider.mFaceSensors.get(prop.commonProps.sensorId).getScheduler();
+            scheduler.reset();
             for (int i = 0; i < numFakeOperations; i++) {
                 final HalClientMonitor testMonitor = mock(HalClientMonitor.class);
                 when(testMonitor.getFreshDaemon()).thenReturn(new Object());
@@ -142,7 +153,7 @@ public class FaceProviderTest {
         for (SensorProps prop : mSensorProps) {
             final BiometricScheduler scheduler =
                     mFaceProvider.mFaceSensors.get(prop.commonProps.sensorId).getScheduler();
-            assertEquals(numFakeOperations, scheduler.getCurrentPendingCount());
+            assertEquals(numFakeOperations - 1, scheduler.getCurrentPendingCount());
             assertNotNull(scheduler.getCurrentClient());
         }
 
@@ -157,27 +168,6 @@ public class FaceProviderTest {
                     mFaceProvider.mFaceSensors.get(prop.commonProps.sensorId).getScheduler();
             assertNull(scheduler.getCurrentClient());
             assertEquals(0, scheduler.getCurrentPendingCount());
-        }
-    }
-
-    private static class TestableFaceProvider extends FaceProvider {
-        private final IFace mDaemon;
-
-        TestableFaceProvider(@NonNull IFace daemon,
-                @NonNull Context context,
-                @NonNull BiometricStateCallback biometricStateCallback,
-                @NonNull SensorProps[] props,
-                @NonNull String halInstanceName,
-                @NonNull LockoutResetDispatcher lockoutResetDispatcher,
-                @NonNull BiometricContext biometricContext) {
-            super(context, biometricStateCallback, props, halInstanceName, lockoutResetDispatcher,
-                    biometricContext);
-            mDaemon = daemon;
-        }
-
-        @Override
-        synchronized IFace getHalInstance() {
-            return mDaemon;
         }
     }
 }

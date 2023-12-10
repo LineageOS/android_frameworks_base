@@ -622,6 +622,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Биометрическое оборудование недоступно"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Аутентификация отменена"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Не распознано"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Лицо не распознано."</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Аутентификация отменена"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Укажите PIN-код, пароль или графический ключ"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Ошибка аутентификации."</string>
@@ -642,6 +643,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Отпечаток не распознан."</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Отпечаток не распознан."</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Не удалось распознать лицо. Используйте отпечаток."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Отпечаток пальца проверен"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Лицо распознано"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Лицо распознано, нажмите кнопку \"Подтвердить\""</string>
@@ -667,14 +669,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Произошла ошибка. Повторите попытку."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Значок отпечатка пальца"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Разблокировка устройства"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Попробуйте другой способ разблокировки"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Когда устройство не распознает ваш отпечаток пальца, используйте фейсконтроль. Например, это пригодится, когда палец мокрый."</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Когда устройство не распознает ваше лицо, используйте разблокировку по отпечатку пальца. Например, это пригодится при плохом освещении."</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Фейсконтроль"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Ошибка фейсконтроля"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Нажмите, чтобы удалить модель лица, а затем добавьте ее снова."</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Настройка фейсконтроля"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Вы сможете разблокировать телефон, просто посмотрев на него."</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Чтобы использовать фейсконтроль, разрешите "<b>"доступ к камере"</b>". Для этого перейдите в настройки и нажмите \"Конфиденциальность\"."</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Настройте другие способы разблокировки"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Нажмите, чтобы добавить отпечаток пальца."</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Разблокировка по отпечатку пальца"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Невозможно использовать сканер отпечатков пальцев"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Обратитесь в сервисный центр."</string>
@@ -1395,7 +1397,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"ОТКЛОНИТЬ"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Выберите способ ввода"</string>
     <string name="show_ime" msgid="6406112007347443383">"Не скрывать экранную клавиатуру, когда включена физическая"</string>
-    <string name="hardware" msgid="1800597768237606953">"Виртуальная клавиатура"</string>
+    <string name="hardware" msgid="3611039921284836033">"Использовать экранную клавиатуру"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Настройте устройство \"<xliff:g id="DEVICE_NAME">%s</xliff:g>\""</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Настройте физические клавиатуры"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Нажмите, чтобы выбрать язык и раскладку"</string>
@@ -1594,7 +1596,7 @@
     <string name="data_usage_restricted_body" msgid="5338694433686077733">"Нажмите, чтобы отменить ограничение."</string>
     <string name="data_usage_rapid_title" msgid="2950192123248740375">"Высокое потребление трафика"</string>
     <string name="data_usage_rapid_body" msgid="3886676853263693432">"В ваших приложениях было передано больше трафика, чем обычно."</string>
-    <string name="data_usage_rapid_app_body" msgid="5425779218506513861">"В приложении \"<xliff:g id="APP">%s</xliff:g>\" было передано больше трафика, чем обычно."</string>
+    <string name="data_usage_rapid_app_body" msgid="5425779218506513861">"Приложение \"<xliff:g id="APP">%s</xliff:g>\" использовало больше трафика, чем обычно."</string>
     <string name="ssl_certificate" msgid="5690020361307261997">"Сертификат безопасности"</string>
     <string name="ssl_certificate_is_valid" msgid="7293675884598527081">"Этот сертификат действителен."</string>
     <string name="issued_to" msgid="5975877665505297662">"Кому выдан:"</string>
@@ -1861,7 +1863,7 @@
     <string name="select_day" msgid="2060371240117403147">"Выберите месяц и число"</string>
     <string name="select_year" msgid="1868350712095595393">"Выберите год"</string>
     <string name="deleted_key" msgid="9130083334943364001">"Цифра <xliff:g id="KEY">%1$s</xliff:g> удалена"</string>
-    <string name="managed_profile_label_badge" msgid="6762559569999499495">"Рабочий <xliff:g id="LABEL">%1$s</xliff:g>"</string>
+    <string name="managed_profile_label_badge" msgid="6762559569999499495">"<xliff:g id="LABEL">%1$s</xliff:g> (рабочий профиль)"</string>
     <string name="managed_profile_label_badge_2" msgid="5673187309555352550">"Задача 2: <xliff:g id="LABEL">%1$s</xliff:g>"</string>
     <string name="managed_profile_label_badge_3" msgid="6882151970556391957">"Задача 3: <xliff:g id="LABEL">%1$s</xliff:g>"</string>
     <string name="clone_profile_label_badge" msgid="1871997694718793964">"Клонировать <xliff:g id="LABEL">%1$s</xliff:g>"</string>
@@ -2325,11 +2327,11 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"Сопутствующее приложение сможет запускать активные службы из фонового режима."</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"Микрофон доступен."</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"Микрофон заблокирован."</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Двойной экран"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Двойной экран включен"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Функция Dual Screen включена"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"<xliff:g id="APP_NAME">%1$s</xliff:g> использует оба экрана."</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"Устройство перегрелось"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Двойной экран недоступен из-за перегрева телефона."</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Функция Dual Screen недоступна из-за перегрева телефона."</string>
     <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Функция Dual Screen недоступна"</string>
     <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Функция Dual Screen недоступна, так как включен режим энергосбережения. Вы можете отключить его в настройках."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"Открыть настройки"</string>

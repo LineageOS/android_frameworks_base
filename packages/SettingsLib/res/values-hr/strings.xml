@@ -114,9 +114,9 @@
     <string name="bluetooth_profile_sap" msgid="8304170950447934386">"Pristup SIM-u"</string>
     <string name="bluetooth_profile_a2dp_high_quality" msgid="4739440941324792775">"HD audio: <xliff:g id="CODEC_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_profile_a2dp_high_quality_unknown_codec" msgid="2477639096903834374">"HD audio"</string>
-    <string name="bluetooth_profile_hearing_aid" msgid="58154575573984914">"Slušni aparati"</string>
+    <string name="bluetooth_profile_hearing_aid" msgid="2607867572569689732">"Slušna pomagala"</string>
     <string name="bluetooth_profile_le_audio" msgid="1725521360076451751">"LE Audio"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="8191273236809964030">"Povezano sa Slušnim aparatima"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="5757754050938807276">"Povezano sa slušnim pomagalima"</string>
     <string name="bluetooth_le_audio_profile_summary_connected" msgid="6916226974453480650">"Povezano s profilom LE_AUDIO"</string>
     <string name="bluetooth_a2dp_profile_summary_connected" msgid="7422607970115444153">"Povezano s medijskim zvukom"</string>
     <string name="bluetooth_headset_profile_summary_connected" msgid="2420981566026949688">"Povezano sa telefonskim zvukom"</string>
@@ -134,7 +134,7 @@
     <string name="bluetooth_headset_profile_summary_use_for" msgid="808970643123744170">"Koristi za telefonski zvuk"</string>
     <string name="bluetooth_opp_profile_summary_use_for" msgid="461981154387015457">"Koristi za prijenos datoteke"</string>
     <string name="bluetooth_hid_profile_summary_use_for" msgid="4289460627406490952">"Upotrijebi za ulaz"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="7689393730163320483">"Upotrijebi za Slušne aparate"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="3374057355721486932">"Upotrijebi za slušna pomagala"</string>
     <string name="bluetooth_le_audio_profile_summary_use_for" msgid="2778318636027348572">"Upotrebljavajte za LE_AUDIO"</string>
     <string name="bluetooth_pairing_accept" msgid="2054232610815498004">"Upari"</string>
     <string name="bluetooth_pairing_accept_all_caps" msgid="2734383073450506220">"UPARI"</string>
@@ -355,6 +355,8 @@
     <string name="pointer_location_summary" msgid="957120116989798464">"Na zaslonu se prikazuju podaci o dodirima"</string>
     <string name="show_touches" msgid="8437666942161289025">"Prikaži dodire"</string>
     <string name="show_touches_summary" msgid="3692861665994502193">"Prikazuju se vizualne povratne informacije za dodire"</string>
+    <string name="show_key_presses" msgid="6360141722735900214">"Prikaži pritiske na tipke"</string>
+    <string name="show_key_presses_summary" msgid="725387457373015024">"Prikaži vizualne povratne informacije za pritiske na tipke"</string>
     <string name="show_screen_updates" msgid="2078782895825535494">"Prikaži ažuriranja površine"</string>
     <string name="show_screen_updates_summary" msgid="2126932969682087406">"Sve površine prozora bljeskaju pri ažuriranju"</string>
     <string name="show_hw_screen_updates" msgid="2021286231267747506">"Prikaži ažuriranja prikaza"</string>
@@ -616,7 +618,7 @@
     <string name="guest_exit_dialog_message" msgid="1743218864242719783">"Time će se izbrisati aplikacije i podaci iz trenutačne gostujuće sesije."</string>
     <string name="grant_admin" msgid="4323199171790522574">"Da, dodijeli status administratora"</string>
     <string name="not_grant_admin" msgid="3557849576157702485">"Ne, nemoj dodijeliti status administratora"</string>
-    <string name="guest_exit_dialog_button" msgid="1736401897067442044">"Izlaz"</string>
+    <string name="guest_exit_dialog_button" msgid="1736401897067442044">"Izađi"</string>
     <string name="guest_exit_dialog_title_non_ephemeral" msgid="7675327443743162986">"Želite li spremiti aktivnosti gosta?"</string>
     <string name="guest_exit_dialog_message_non_ephemeral" msgid="223385323235719442">"Možete spremiti aktivnosti iz ove sesije ili izbrisati sve aplikacije i podatke"</string>
     <string name="guest_exit_clear_data_button" msgid="3425812652180679014">"Izbriši"</string>

@@ -622,6 +622,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Biometrický hardware není k dispozici"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Ověření bylo zrušeno"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Nerozpoznáno"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Obličej nebyl rozpoznán"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Ověření bylo zrušeno"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Není nastaven žádný PIN, gesto ani heslo"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Při ověřování došlo k chybě"</string>
@@ -642,6 +643,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Otisk prstu nebyl rozpoznán"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Otisk prstu nebyl rozpoznán"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Obličej se nepodařilo rozpoznat. Použijte místo něj otisk prstu."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Otisk byl ověřen"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Obličej byl ověřen"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Obličej byl ověřen, stiskněte tlačítko pro potvrzení"</string>
@@ -667,14 +669,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Došlo k chybě. Zkuste to znovu."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Ikona otisku prstů"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Odemknutí zařízení"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Použijte jiný způsob odemknutí"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Pokud váš otisk prstu nebude rozpoznán (např. když budete mít mokré prsty), použijte odemknutí obličejem"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Pokud váš obličej nebude rozpoznán (např. když bude málo světla), použijte odemknutí otiskem prstu"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Odemknutí obličejem"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Problém s odemykáním obličejem"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Klepnutím svůj model obličeje smažte a potom ho přidejte znovu"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Nastavte odemknutí obličejem"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Telefon odemknete pohledem"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Pokud chcete používat odemknutí obličejem, v Nastavení &gt; Soukromí zapnetě "<b>"přístup k fotoaparátu"</b></string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Nastavte si více způsobů odemykání"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Klepnutím přidáte otisk prstu"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Odemknutí otiskem prstu"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Snímač otisků prstů nelze použít"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Navštivte servis"</string>
@@ -1395,7 +1397,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"ODMÍTNOUT"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Vybrat metodu zadávání"</string>
     <string name="show_ime" msgid="6406112007347443383">"Ponechat na obrazovce, když je aktivní fyzická klávesnice"</string>
-    <string name="hardware" msgid="1800597768237606953">"Zobrazit virtuální klávesnici"</string>
+    <string name="hardware" msgid="3611039921284836033">"Použít softwarovou klávesnici"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Nakonfigurujte zařízení <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Nakonfigurujte fyzické klávesnice"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Klepnutím vyberte jazyk a rozvržení"</string>
@@ -1952,7 +1954,7 @@
     <string name="app_suspended_default_message" msgid="6451215678552004172">"Aplikace <xliff:g id="APP_NAME_0">%1$s</xliff:g> momentálně není dostupná. Tato předvolba se spravuje v aplikaci <xliff:g id="APP_NAME_1">%2$s</xliff:g>."</string>
     <string name="app_suspended_more_details" msgid="211260942831587014">"Další informace"</string>
     <string name="app_suspended_unsuspend_message" msgid="1665438589450555459">"Zrušit pozastavení aplikace"</string>
-    <string name="work_mode_off_title" msgid="6367463960165135829">"Zrušit pozast. prac. aplikací?"</string>
+    <string name="work_mode_off_title" msgid="6367463960165135829">"Zrušit pozastavení pracovních aplikací?"</string>
     <string name="work_mode_turn_on" msgid="5316648862401307800">"Zrušit pozastavení"</string>
     <string name="work_mode_emergency_call_button" msgid="6818855962881612322">"Stav nouze"</string>
     <string name="app_blocked_title" msgid="7353262160455028160">"Aplikace není k dispozici"</string>
@@ -2325,11 +2327,11 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"Umožňuje doprovodné aplikaci spouštět z pozadí služby v popředí."</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"Mikrofon je dostupný"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"Mikrofon je zablokován"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dvojitá obrazovka"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Je zapnutá funkce Dvojitá obrazovka"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Je zapnutá funkce Dual Screen"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"<xliff:g id="APP_NAME">%1$s</xliff:g> používá k zobrazení obsahu oba displeje"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"Zařízení je příliš horké"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Dvojitá obrazovka není k dispozici, protože se telefon příliš zahřívá"</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Funkce Dual Screen není k dispozici, protože se telefon příliš zahřívá"</string>
     <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Funkce Dual Screen není k dispozici"</string>
     <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Funkce Dual Screen není k dispozici, protože je zapnutý spořič baterie. Tuto možnost můžete vypnout v nastavení."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"Přejít do Nastavení"</string>

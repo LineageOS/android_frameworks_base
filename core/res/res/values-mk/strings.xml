@@ -296,7 +296,7 @@
     <string name="foreground_service_multiple_separator" msgid="5002287361849863168">"<xliff:g id="LEFT_SIDE">%1$s</xliff:g>, <xliff:g id="RIGHT_SIDE">%2$s</xliff:g>"</string>
     <string name="safeMode" msgid="8974401416068943888">"Безбеден режим"</string>
     <string name="android_system_label" msgid="5974767339591067210">"Систем Android"</string>
-    <string name="user_owner_label" msgid="8628726904184471211">"Префрли на личен профил"</string>
+    <string name="user_owner_label" msgid="8628726904184471211">"Префрлете се на личен профил"</string>
     <string name="managed_profile_label" msgid="7316778766973512382">"Префрли се на работен профил"</string>
     <string name="user_owner_app_label" msgid="1553595155465750298">"Префрлете се на личната апликација <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="managed_profile_app_label" msgid="367401088383965725">"Префрлете се на работната апликација <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Биометрискиот хардвер е недостапен"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Проверката е откажана"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Непознат"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Ликот не е препознаен"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Проверката е откажана"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Не е поставен PIN, шема или лозинка"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Грешка при проверката"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Отпечатокот не е препознаен"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Отпечатокот не е препознаен"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Не се препознава ликот. Користете отпечаток."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Отпечатокот е проверен"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Лицето е проверено"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Лицето е проверено, притиснете го копчето „Потврди“"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Нешто не е во ред. Обидете се повторно."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Икона за отпечатоци"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Отклучување на уредот"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Пробајте друг начин на отклучување"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Користете „Отклучување со лик“ кога не ви се препознава отпечатокот, како кога прстите ви се влажни"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Користете „Отклучување со отпечаток“ кога не ви се препознава ликот, како кога нема доволно светлина"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Отклучување со лик"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Проблем со „Отклучување со лик“"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Допрете за да го избришете вашиот модел на лик, а потоа повторно додајте го ликот"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Поставете „Отклучување со лик“"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Отклучете го телефонот со гледање во него"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"За да користите „Отклучување со лик“, вклучете "<b>"Пристап до камерата"</b>" во „Поставки &gt; Приватност“"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Поставете уште начини за отклучување"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Допрете за да додадете отпечаток"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Отклучување со отпечаток"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Не може да се користи сензорот за отпечатоци"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Однесете го на поправка."</string>
@@ -802,11 +804,11 @@
     <string name="permdesc_updatePackagesWithoutUserAction" msgid="4567739631260526366">"Дозволува сопственикот да ја ажурира апликацијата што претходно ја инсталирал без дејство од корисникот"</string>
     <string name="policylab_limitPassword" msgid="4851829918814422199">"Постави правила за лозинката"</string>
     <string name="policydesc_limitPassword" msgid="4105491021115793793">"Контролирај ги должината и знаците што се дозволени за лозинки и PIN-броеви за отклучување екран."</string>
-    <string name="policylab_watchLogin" msgid="7599669460083719504">"Следи ги обидите за отклучување на екранот"</string>
-    <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"Посматрај го бројот на неточни лозинки што се напишани за да се отклучи екранот и заклучи го таблетот или избриши ги сите податоци од него ако бидат напишани премногу неточни лозинки."</string>
+    <string name="policylab_watchLogin" msgid="7599669460083719504">"Следење на обидите за отклучување на екранот"</string>
+    <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"Го следи бројот на неточни лозинки што се внесени за отклучување на екранот и го заклучува таблетот или ги брише сите податоци од него ако се внесат голем број неточни лозинки."</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"Го следи бројот на погрешно внесени лозинки при отклучување на екранот и го заклучува уредот Android TV или ги брише сите податоци од уредот Android TV доколку се внесени премногу погрешни лозинки."</string>
     <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"Набљудувај го бројот на погрешно внесени лозинки при отклучување на екранот и заклучи го системот за информации и забава или избриши ги сите негови податоци доколку се внесени премногу погрешни лозинки."</string>
-    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"Посматрај го бројот на неточни лозинки што се напишани за да се отклучи екранот и заклучи го телефонот или избриши ги сите податоци од него ако бидат напишани премногу неточни лозинки."</string>
+    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"Го следи бројот на неточни лозинки што се внесени за отклучување на екранот и го заклучува телефонот или ги брише сите податоци од него ако се внесат голем број неточни лозинки."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"Набљудувај го бројот на погрешно внесени лозинки при отклучување на екранот и заклучи го таблетот или избриши ги сите податоци од овој корисник доколку се внесени премногу погрешни лозинки."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"Го следи бројот на погрешно внесени лозинки при отклучување на екранот и го заклучува уредот Android TV или ги брише сите податоци од овој корисник доколку се внесени премногу погрешни лозинки."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"Набљудувај го бројот на погрешно внесени лозинки при отклучување на екранот и заклучи го системот за информации и забава или избриши ги сите податоци од овој профил доколку се внесени премногу погрешни лозинки."</string>
@@ -815,11 +817,11 @@
     <string name="policydesc_resetPassword" msgid="4626419138439341851">"Промени го заклучувањето на екранот."</string>
     <string name="policylab_forceLock" msgid="7360335502968476434">"Заклучи го екранот"</string>
     <string name="policydesc_forceLock" msgid="1008844760853899693">"Контролирај како и кога се заклучува екранот."</string>
-    <string name="policylab_wipeData" msgid="1359485247727537311">"Избриши ги сите податоци"</string>
+    <string name="policylab_wipeData" msgid="1359485247727537311">"Бришење на сите податоци"</string>
     <string name="policydesc_wipeData" product="tablet" msgid="7245372676261947507">"Избриши ги податоците во таблетот без предупредување со ресетирање на фабрички податоци."</string>
     <string name="policydesc_wipeData" product="tv" msgid="513862488950801261">"Ги брише податоците на вашиот уред Android TV без предупредување, така што ќе изврши ресетирање на фабричките податоци."</string>
     <string name="policydesc_wipeData" product="automotive" msgid="660804547737323300">"Избриши ги податоците во системот за информации и забава без предупредување со ресетирање на фабрички податоци."</string>
-    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"Избриши ги податоците во телефонот без предупредување со ресетирање на фабрички податоци."</string>
+    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"Ги брише податоците од телефонот без предупредување вршејќи ресетирање на фабрички податоци."</string>
     <string name="policylab_wipeData_secondaryUser" product="automotive" msgid="115034358520328373">"Избриши ги податоците на профилот"</string>
     <string name="policylab_wipeData_secondaryUser" product="default" msgid="413813645323433166">"Избриши ги податоците на корисникот"</string>
     <string name="policydesc_wipeData_secondaryUser" product="tablet" msgid="2336676480090926470">"Избриши ги податоците на овој корисник на таблетот без предупредување."</string>
@@ -1256,7 +1258,7 @@
     <string name="android_upgrading_starting_apps" msgid="6206161195076057075">"Се стартуваат апликациите."</string>
     <string name="android_upgrading_complete" msgid="409800058018374746">"Подигањето завршува."</string>
     <string name="fp_power_button_enrollment_message" msgid="5648173517663246140">"Го притиснавте копчето за вклучување — така обично се исклучува екранот.\n\nДопрете лесно додека го поставувате отпечатокот."</string>
-    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"За да завршите со поставувањето, исклучете го екранот"</string>
+    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"За излез, исклучете го екранот"</string>
     <string name="fp_power_button_enrollment_button_text" msgid="3199783266386029200">"Исклучи"</string>
     <string name="fp_power_button_bp_title" msgid="5585506104526820067">"Да продолжи потврдувањето на отпечаток?"</string>
     <string name="fp_power_button_bp_message" msgid="2983163038168903393">"Го притиснавте копчето за вклучување — така обично се исклучува екранот.\n\nДопрете лесно за да го потврдите отпечатокот."</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"ОДБИЈ"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Одбери метод на внес"</string>
     <string name="show_ime" msgid="6406112007347443383">"Прикажувај ја на екранот додека е активна физичката тастатура"</string>
-    <string name="hardware" msgid="1800597768237606953">"Прикажи виртуелна тастатура"</string>
+    <string name="hardware" msgid="3611039921284836033">"Користете тастатура на екран"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Конфигурирање на <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Конфигурирање физички тастатури"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Допрете за избирање јазик и распоред"</string>
@@ -2323,13 +2325,13 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"Дозволува придружна апликација да започне услуги во преден план од заднината."</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"Микрофонот е достапен"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"Микрофонот е блокиран"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Двоен екран"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Вклучен е двоен екран"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Вклучен е Dual Screen"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"<xliff:g id="APP_NAME">%1$s</xliff:g> ги користи двата екрани за да прикажува содржини"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"Уредот е претопол"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Двојниот екран е недостапен бидејќи вашиот телефон станува претопол"</string>
-    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"„Двојниот екран“ е недостапен"</string>
-    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Двојниот екран е недостапен бидејќи е вклучен „Штедач на батерија“. Ова може да се исклучи во „Поставки“."</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Dual Screen е недостапен бидејќи вашиот телефон станува претопол"</string>
+    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Dual Screen е недостапен"</string>
+    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Dual Screen е недостапен бидејќи е вклучен „Штедач на батерија“. Ова може да се исклучи во „Поставки“."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"Отворете „Поставки“"</string>
     <string name="device_state_notification_turn_off_button" msgid="6327161707661689232">"Исклучи"</string>
     <string name="keyboard_layout_notification_selected_title" msgid="1202560174252421219">"<xliff:g id="DEVICE_NAME">%s</xliff:g> е конфигуриран"</string>

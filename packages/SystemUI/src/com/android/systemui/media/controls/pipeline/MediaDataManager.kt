@@ -22,11 +22,14 @@ import android.app.Notification
 import android.app.Notification.EXTRA_SUBSTITUTE_APP_NAME
 import android.app.PendingIntent
 import android.app.StatusBarManager
+import android.app.UriGrantsManager
+import android.app.smartspace.SmartspaceAction
 import android.app.smartspace.SmartspaceConfig
 import android.app.smartspace.SmartspaceManager
 import android.app.smartspace.SmartspaceSession
 import android.app.smartspace.SmartspaceTarget
 import android.content.BroadcastReceiver
+import android.content.ContentProvider
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
@@ -699,10 +702,13 @@ class MediaDataManager(
             Log.d(TAG, "adding track for $userId from browser: $desc")
         }
 
+        val currentEntry = mediaEntries.get(packageName)
+        val appUid = currentEntry?.appUid ?: Process.INVALID_UID
+
         // Album art
         var artworkBitmap = desc.iconBitmap
         if (artworkBitmap == null && desc.iconUri != null) {
-            artworkBitmap = loadBitmapFromUri(desc.iconUri!!)
+            artworkBitmap = loadBitmapFromUriForUser(desc.iconUri!!, userId, appUid, packageName)
         }
         val artworkIcon =
             if (artworkBitmap != null) {
@@ -711,13 +717,10 @@ class MediaDataManager(
                 null
             }
 
-        val currentEntry = mediaEntries.get(packageName)
         val instanceId = currentEntry?.instanceId ?: logger.getNewInstanceId()
-        val appUid = currentEntry?.appUid ?: Process.INVALID_UID
         val isExplicit =
             desc.extras?.getLong(MediaConstants.METADATA_KEY_IS_EXPLICIT) ==
-                MediaConstants.METADATA_VALUE_ATTRIBUTE_PRESENT &&
-                mediaFlags.isExplicitIndicatorEnabled()
+                MediaConstants.METADATA_VALUE_ATTRIBUTE_PRESENT
 
         val progress =
             if (mediaFlags.isResumeProgressEnabled()) {
@@ -826,12 +829,10 @@ class MediaDataManager(
 
         // Explicit Indicator
         var isExplicit = false
-        if (mediaFlags.isExplicitIndicatorEnabled()) {
-            val mediaMetadataCompat = MediaMetadataCompat.fromMediaMetadata(metadata)
-            isExplicit =
-                mediaMetadataCompat?.getLong(MediaConstants.METADATA_KEY_IS_EXPLICIT) ==
-                    MediaConstants.METADATA_VALUE_ATTRIBUTE_PRESENT
-        }
+        val mediaMetadataCompat = MediaMetadataCompat.fromMediaMetadata(metadata)
+        isExplicit =
+            mediaMetadataCompat?.getLong(MediaConstants.METADATA_KEY_IS_EXPLICIT) ==
+                MediaConstants.METADATA_VALUE_ATTRIBUTE_PRESENT
 
         // Artist name
         var artist: CharSequence? = metadata?.getString(MediaMetadata.METADATA_KEY_ARTIST)
@@ -1253,6 +1254,9 @@ class MediaDataManager(
         return try {
             val options = BroadcastOptions.makeBasic()
             options.setInteractive(true)
+            options.setPendingIntentBackgroundActivityStartMode(
+                BroadcastOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED
+            )
             intent.send(options.toBundle())
             true
         } catch (e: PendingIntent.CanceledException) {
@@ -1260,6 +1264,30 @@ class MediaDataManager(
             false
         }
     }
+
+    /** Returns a bitmap if the user can access the given URI, else null */
+    private fun loadBitmapFromUriForUser(
+        uri: Uri,
+        userId: Int,
+        appUid: Int,
+        packageName: String,
+    ): Bitmap? {
+        try {
+            val ugm = UriGrantsManager.getService()
+            ugm.checkGrantUriPermission_ignoreNonSystem(
+                appUid,
+                packageName,
+                ContentProvider.getUriWithoutUserId(uri),
+                Intent.FLAG_GRANT_READ_URI_PERMISSION,
+                ContentProvider.getUserIdFromUri(uri, userId)
+            )
+            return loadBitmapFromUri(uri)
+        } catch (e: SecurityException) {
+            Log.e(TAG, "Failed to get URI permission: $e")
+        }
+        return null
+    }
+
     /**
      * Load a bitmap from a URI
      *
@@ -1623,20 +1651,18 @@ class MediaDataManager(
      *   SmartspaceTarget's data is invalid.
      */
     private fun toSmartspaceMediaData(target: SmartspaceTarget): SmartspaceMediaData {
-        var dismissIntent: Intent? = null
-        if (target.baseAction != null && target.baseAction.extras != null) {
-            dismissIntent =
-                target.baseAction.extras.getParcelable(EXTRAS_SMARTSPACE_DISMISS_INTENT_KEY)
-                    as Intent?
-        }
+        val baseAction: SmartspaceAction? = target.baseAction
+        val dismissIntent =
+            baseAction?.extras?.getParcelable(EXTRAS_SMARTSPACE_DISMISS_INTENT_KEY) as Intent?
 
         val isActive =
             when {
                 !mediaFlags.isPersistentSsCardEnabled() -> true
-                target.baseAction == null -> true
-                else ->
-                    target.baseAction.extras.getString(EXTRA_KEY_TRIGGER_SOURCE) !=
-                        EXTRA_VALUE_TRIGGER_PERIODIC
+                baseAction == null -> true
+                else -> {
+                    val triggerSource = baseAction.extras?.getString(EXTRA_KEY_TRIGGER_SOURCE)
+                    triggerSource != EXTRA_VALUE_TRIGGER_PERIODIC
+                }
             }
 
         packageName(target)?.let {

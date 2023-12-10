@@ -32,12 +32,14 @@ import com.android.systemui.keyguard.ui.viewmodel.KeyguardBottomAreaViewModel
 import com.android.systemui.plugins.ActivityStarter
 import com.android.systemui.plugins.FalsingManager
 import com.android.systemui.statusbar.VibratorHelper
+import com.android.systemui.util.animation.requiresRemeasuring
 
 /**
  * Renders the bottom area of the lock-screen. Concerned primarily with the quick affordance UI
  * elements. A secondary concern is the interaction of the quick affordance elements with the
  * indication area between them, though the indication area is primarily controlled elsewhere.
  */
+@Deprecated("Deprecated as part of b/278057014")
 class KeyguardBottomAreaView
 @JvmOverloads
 constructor(
@@ -53,6 +55,7 @@ constructor(
         defStyleRes,
     ) {
 
+    @Deprecated("Deprecated as part of b/278057014")
     interface MessageDisplayer {
         fun display(@StringRes stringResourceId: Int)
     }
@@ -62,6 +65,7 @@ constructor(
     private var lockIconViewController: LockIconViewController? = null
 
     /** Initializes the view. */
+    @Deprecated("Deprecated as part of b/278057014")
     fun init(
         viewModel: KeyguardBottomAreaViewModel,
         falsingManager: FalsingManager? = null,
@@ -88,13 +92,14 @@ constructor(
      * Initializes this instance of [KeyguardBottomAreaView] based on the given instance of another
      * [KeyguardBottomAreaView]
      */
+    @Deprecated("Deprecated as part of b/278057014")
     fun initFrom(oldBottomArea: KeyguardBottomAreaView) {
         // if it exists, continue to use the original ambient indication container
         // instead of the newly inflated one
         ambientIndicationArea?.let { nonNullAmbientIndicationArea ->
             // remove old ambient indication from its parent
             val originalAmbientIndicationView =
-                oldBottomArea.findViewById<View>(R.id.ambient_indication_container)
+                oldBottomArea.requireViewById<View>(R.id.ambient_indication_container)
             (originalAmbientIndicationView.parent as ViewGroup).removeView(
                 originalAmbientIndicationView
             )
@@ -122,8 +127,10 @@ constructor(
     }
 
     /** Returns a list of animators to use to animate the indication areas. */
+    @Deprecated("Deprecated as part of b/278057014")
     val indicationAreaAnimators: List<ViewPropertyAnimator>
         get() = checkNotNull(binding).getIndicationAreaAnimators()
+
 
     override fun hasOverlappingRendering(): Boolean {
         return false

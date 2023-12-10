@@ -76,7 +76,7 @@
     <string name="kg_prompt_after_user_lockdown_pin" msgid="5374732179740050373">"PIN-koodi tarvitaan lukitustilan jälkeen"</string>
     <string name="kg_prompt_after_user_lockdown_password" msgid="9097968458291129795">"Salasana tarvitaan lukitustilan jälkeen"</string>
     <string name="kg_prompt_after_user_lockdown_pattern" msgid="215072203613597906">"Kuvio tarvitaan lukitustilan jälkeen"</string>
-    <string name="kg_prompt_unattended_update" msgid="8223448855578632202">"Päivitys asennetaan käyttöajan ulkopuolella"</string>
+    <string name="kg_prompt_unattended_update" msgid="4366635751738712452">"Päivitys asennetaan, kun laite ei ole käytössä"</string>
     <string name="kg_prompt_pin_auth_timeout" msgid="5868644725126275245">"Lisäsuojausta tarvitaan. PIN-koodia ei ole käytetty."</string>
     <string name="kg_prompt_password_auth_timeout" msgid="5809110458491920871">"Lisäsuojausta tarvitaan. Salasanaa ei ole käytetty."</string>
     <string name="kg_prompt_pattern_auth_timeout" msgid="1860605401869262178">"Lisäsuojausta tarvitaan. Kuviota ei ole käytetty."</string>
@@ -127,7 +127,7 @@
     <string name="keyguard_unlock_to_continue" msgid="7509503484250597743">"Jatka avaamalla laitteen lukitus"</string>
     <string name="kg_prompt_unattended_update_pin" msgid="5979434876768801873">"Jos haluat asentaa päivityksen myöhemmin, lisää PIN-koodi"</string>
     <string name="kg_prompt_unattended_update_password" msgid="8805664437604967210">"Jos haluat asentaa päivityksen myöhemmin, lisää salasana"</string>
-    <string name="kg_prompt_unattended_update_pattern" msgid="8580479377489546091">"Jos haluat asentaa päivityksen myöhemmin, piirrä kuvio"</string>
+    <string name="kg_prompt_unattended_update_pattern" msgid="8580479377489546091">"Salli päivitys myöhemmin piirtämällä kuvio"</string>
     <string name="kg_prompt_after_update_pin" msgid="7051709651908643013">"Laite päivitetty. Jatka lisäämällä PIN-koodi."</string>
     <string name="kg_prompt_after_update_password" msgid="153703052501352094">"Laite päivitetty. Jatka lisäämällä salasana."</string>
     <string name="kg_prompt_after_update_pattern" msgid="1484084551298241992">"Laite päivitetty. Jatka piirtämällä kuvio."</string>

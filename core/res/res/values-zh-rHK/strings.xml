@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"無法使用生物識別硬件"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"已取消驗證"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"未能識別"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"無法辨識面孔"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"已取消驗證"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"未設定 PIN、圖案或密碼"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"驗證時發生錯誤"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"無法辨識指紋"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"無法辨識指紋"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"無法辨識面孔，請改用指紋完成驗證。"</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"驗證咗指紋"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"面孔已經驗證"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"面孔已經驗證，請㩒一下 [確認]"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"發生錯誤，請再試一次。"</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"指紋圖示"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"裝置解鎖"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"改用其他解鎖方式"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"當指紋無法識別 (如手指弄濕) 時使用面孔解鎖"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"當面孔無法識別 (如光線不足) 時使用指紋解鎖"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"面孔解鎖"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"「面孔解鎖」功能發生問題"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"請輕按這裡刪除面部模型，然後再重新新增"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"設定「面孔解鎖」"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"直望手機即可解鎖"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"如要使用「面孔解鎖」，請在 [設定] &gt; [私隱] 開啟"<b>"相機存取權"</b></string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"設定更多解鎖方法"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"輕按即可新增指紋"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"指紋解鎖"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"無法使用指紋感應器"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"請諮詢維修服務供應商。"</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"拒絕"</string>
     <string name="select_input_method" msgid="3971267998568587025">"選擇輸入法"</string>
     <string name="show_ime" msgid="6406112007347443383">"在實體鍵盤處於連接狀態時保持顯示"</string>
-    <string name="hardware" msgid="1800597768237606953">"顯示虛擬鍵盤"</string>
+    <string name="hardware" msgid="3611039921284836033">"使用屏幕鍵盤"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"設定「<xliff:g id="DEVICE_NAME">%s</xliff:g>」"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"設定實體鍵盤"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"輕按即可選取語言和鍵盤配置"</string>
@@ -1884,7 +1886,7 @@
     <string name="zen_mode_duration_hours" msgid="7841806065034711849">"{count,plural, =1{1 小時}other{# 小時}}"</string>
     <string name="zen_mode_duration_hours_short" msgid="3666949653933099065">"{count,plural, =1{1 小時}other{# 小時}}"</string>
     <string name="zen_mode_until_next_day" msgid="1403042784161725038">"直至<xliff:g id="FORMATTEDTIME">%1$s</xliff:g>"</string>
-    <string name="zen_mode_until" msgid="2250286190237669079">"完成時間：<xliff:g id="FORMATTEDTIME">%1$s</xliff:g>"</string>
+    <string name="zen_mode_until" msgid="2250286190237669079">"結束時間：<xliff:g id="FORMATTEDTIME">%1$s</xliff:g>"</string>
     <string name="zen_mode_alarm" msgid="7046911727540499275">"直至<xliff:g id="FORMATTEDTIME">%1$s</xliff:g> (下一次響鬧)"</string>
     <string name="zen_mode_forever" msgid="740585666364912448">"直至你關閉為止"</string>
     <string name="zen_mode_forever_dnd" msgid="3423201955704180067">"直至你關閉「請勿騷擾」功能"</string>
@@ -1940,7 +1942,7 @@
     <string name="country_selection_title" msgid="5221495687299014379">"地區偏好設定"</string>
     <string name="search_language_hint" msgid="7004225294308793583">"輸入語言名稱"</string>
     <string name="language_picker_section_suggested" msgid="6556199184638990447">"建議"</string>
-    <string name="language_picker_regions_section_suggested" msgid="6080131515268225316">"建議的語言"</string>
+    <string name="language_picker_regions_section_suggested" msgid="6080131515268225316">"建議地區"</string>
     <string name="language_picker_section_suggested_bilingual" msgid="5932198319583556613">"建議的語言"</string>
     <string name="region_picker_section_suggested_bilingual" msgid="704607569328224133">"建議地區"</string>
     <string name="language_picker_section_all" msgid="1985809075777564284">"所有語言"</string>
@@ -2163,7 +2165,7 @@
     <string name="resolver_switch_on_work" msgid="4527096360772311894">"取消暫停"</string>
     <string name="resolver_no_work_apps_available" msgid="3298291360133337270">"沒有適用的工作應用程式"</string>
     <string name="resolver_no_personal_apps_available" msgid="6284837227019594881">"沒有適用的個人應用程式"</string>
-    <string name="miniresolver_open_work" msgid="6286176185835401931">"要開啟「<xliff:g id="APP">%s</xliff:g>」嗎？"</string>
+    <string name="miniresolver_open_work" msgid="6286176185835401931">"要開啟工作應用程式「<xliff:g id="APP">%s</xliff:g>」嗎？"</string>
     <string name="miniresolver_open_in_personal" msgid="807427577794490375">"要在個人「<xliff:g id="APP">%s</xliff:g>」中開啟嗎？"</string>
     <string name="miniresolver_open_in_work" msgid="941341494673509916">"要在工作「<xliff:g id="APP">%s</xliff:g>」中開啟嗎？"</string>
     <string name="miniresolver_call_in_work" msgid="528779988307529039">"要透過工作應用程式打電話嗎？"</string>

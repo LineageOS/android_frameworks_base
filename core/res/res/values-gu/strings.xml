@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"બાયોમેટ્રિક હાર્ડવેર ઉપલબ્ધ નથી"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"પ્રમાણીકરણ રદ કર્યું"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"ઓળખાયેલ નથી"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"ચહેરો ઓળખાયો નથી"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"પ્રમાણીકરણ રદ કર્યું"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"કોઈ પિન, પૅટર્ન અથવા પાસવર્ડ સેટ કરેલો નથી"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"પ્રમાણિત કરવામાં ભૂલ આવી"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"ફિંગરપ્રિન્ટ ઓળખી શકાઈ નથી"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"ફિંગરપ્રિન્ટ ઓળખી શકાઈ નથી"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"ચહેરો ઓળખી શકતા નથી. તેને બદલે ફિંગરપ્રિન્ટ વાપરો."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"ફિંગરપ્રિન્ટ પ્રમાણિત કરી"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"ચહેરા પ્રમાણિત"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"ચહેરા પ્રમાણિત, કૃપા કરીને કન્ફર્મ કરો"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"કંઈક ખોટું થયું. ફરી પ્રયાસ કરો."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"ફિંગરપ્રિન્ટ આયકન"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"ડિવાઇસ અનલૉક કરવું"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"અનલૉક કરવા માટેની અન્ય રીત અજમાવી જુઓ"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"જ્યારે તમારી ફિંગરપ્રિન્ટ ઓળખાતી ન હોય, જેમ કે જ્યારે તમારી આંગળીઓ ભીની હોય ત્યારે ફેસ અનલૉકનો ઉપયોગ કરો"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"જ્યારે તમારો ચહેરો ઓળખાતો ન હોય, જેમ કે જ્યારે પૂરતો પ્રકાશ ન હોય ત્યારે ફિંગરપ્રિન્ટ અનલૉકનો ઉપયોગ કરો"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"ફેસ અનલૉક"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"ફેસ અનલૉકની સુવિધામાં સમસ્યા"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"તમારા ચહેરાનું મૉડલ ડિલીટ કરવા માટે ટૅપ કરો, પછી તમારો ચહેરો ફરીથી ઉમેરો"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"ફેસ અનલૉક સુવિધાનું સેટઅપ કરો"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"તમારા ફોનની તરફ જોઈને તેને અનલૉક કરો"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"ફેસ અનલૉક સુવિધાનો ઉપયોગ કરવા માટે, સેટિંગ &gt; પ્રાઇવસીમાં જઈને "<b>"કૅમેરા ઍક્સેસ"</b>" ચાલુ કરો"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"અનલૉક કરવાની બીજી રીતોનું સેટઅપ કરો"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"ફિંગરપ્રિન્ટ ઉમેરવા માટે ટૅપ કરો"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"ફિંગરપ્રિન્ટ અનલૉક"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"ફિંગરપ્રિન્ટ સેન્સરનો ઉપયોગ કરી શકાતો નથી"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"રિપેર કરવાની સેવા આપતા પ્રદાતાની મુલાકાત લો."</string>
@@ -802,7 +804,7 @@
     <string name="permdesc_updatePackagesWithoutUserAction" msgid="4567739631260526366">"હોલ્ડરને વપરાશકર્તા દ્વારા કરવામાં આવતી ક્રિયા વિના, અગાઉ ઇન્સ્ટૉલ કરેલી ઍપને અપડેટ કરવાની મંજૂરી આપે છે"</string>
     <string name="policylab_limitPassword" msgid="4851829918814422199">"પાસવર્ડ નિયમો સેટ કરો"</string>
     <string name="policydesc_limitPassword" msgid="4105491021115793793">"સ્ક્રીન લૉક પાસવર્ડ અને પિનમાં મંજૂર લંબાઈ અને અક્ષરોને નિયંત્રિત કરો."</string>
-    <string name="policylab_watchLogin" msgid="7599669460083719504">"સ્ક્રીનને અનલૉક કરવાના પ્રયત્નોનું નિયમન કરો"</string>
+    <string name="policylab_watchLogin" msgid="7599669460083719504">"સ્ક્રીનને અનલૉક કરવાના પ્રયત્નોને મૉનિટર કરો"</string>
     <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"સ્ક્રીનને અનલૉક કરતી વખતે લખેલા ખોટા પાસવર્ડ્સની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ્સ લખ્યાં છે તો ટેબ્લેટને લૉક કરો અથવા ટેબ્લેટનો તમામ ડેટા કાઢી નાખો."</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"સ્ક્રીનને અનલૉક કરતી વખતે ટાઇપ કરેલા ખોટા પાસવર્ડની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ ટાઇપ કર્યા હોય, તો તમારા Android TV ડિવાઇસના ડેટાને લૉક કરો અથવા આ વપરાશકર્તાનો બધો ડેટા કાઢી નાખો."</string>
     <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"સ્ક્રીનને અનલૉક કરતી વખતે લખેલા ખોટા પાસવર્ડની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ લખ્યા હોય તો ઇન્ફોટેનમેન્ટ સિસ્ટમને લૉક કરો અથવા ઇન્ફોટેનમેન્ટ સિસ્ટમનો બધો ડેટા કાઢી નાખો."</string>
@@ -810,7 +812,7 @@
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"સ્ક્રીનને અનલૉક કરતી વખતે લખેલા ખોટા પાસવર્ડ્સની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ્સ લખ્યાં છે તો ટેબ્લેટને લૉક કરો અથવા આ વપરાશકર્તાનો તમામ ડેટા કાઢી નાખો."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"સ્ક્રીનને અનલૉક કરતી વખતે ટાઇપ કરેલા ખોટા પાસવર્ડની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ ટાઇપ કર્યા હોય તો તમારા Android TV ડિવાઇસને લૉક કરો અથવા આ વપરાશકર્તાનો બધો ડેટા કાઢી નાખો."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"સ્ક્રીનને અનલૉક કરતી વખતે લખેલા ખોટા પાસવર્ડની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ લખ્યા હોય તો ઇન્ફોટેનમેન્ટ સિસ્ટમને લૉક કરો અથવા આ પ્રોફાઇલનો બધો ડેટા કાઢી નાખો."</string>
-    <string name="policydesc_watchLogin_secondaryUser" product="default" msgid="9177645136475155924">"સ્ક્રીનને અનલૉક કરતી વખતે લખેલા ખોટા પાસવર્ડ્સની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ્સ લખ્યાં છે તો ફોનને લૉક કરો અથવા આ વપરાશકર્તાનો તમામ ડેટા કાઢી નાખો."</string>
+    <string name="policydesc_watchLogin_secondaryUser" product="default" msgid="9177645136475155924">"સ્ક્રીનને અનલૉક કરતી વખતે લખેલા ખોટા પાસવર્ડની સંખ્યાને મૉનિટર કરો અને જો ઘણા બધા ખોટા પાસવર્ડ લખ્યાં છે તો ફોનને લૉક કરો અથવા આ વપરાશકર્તાનો તમામ ડેટા કાઢી નાખો."</string>
     <string name="policylab_resetPassword" msgid="214556238645096520">"સ્ક્રીન લૉક બદલો"</string>
     <string name="policydesc_resetPassword" msgid="4626419138439341851">"સ્ક્રીન લૉક બદલો."</string>
     <string name="policylab_forceLock" msgid="7360335502968476434">"સ્ક્રીન લૉક કરો"</string>
@@ -819,7 +821,7 @@
     <string name="policydesc_wipeData" product="tablet" msgid="7245372676261947507">"ફેક્ટરી ડેટા ફરીથી સેટ કરોને કરીને ચેતવણી વિના ટેબ્લેટનો ડેટા કાઢી નાખો."</string>
     <string name="policydesc_wipeData" product="tv" msgid="513862488950801261">"ફેક્ટરી ડેટા રીસેટ કરીને ચેતવણી વિના તમારા Android TV ડિવાઇસનો ડેટા કાઢી નાખો."</string>
     <string name="policydesc_wipeData" product="automotive" msgid="660804547737323300">"ફેક્ટરી ડેટા રીસેટ કરીને કોઈ ચેતવણી વિના જ ઇન્ફોટેનમેન્ટ સિસ્ટમનો ડેટા કાઢી નાખો."</string>
-    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"ફેક્ટરી ડેટા ફરીથી સેટ કરોને કરીને ચેતવણી વિના ફોનનો ડેટા કાઢી નાખો."</string>
+    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"ફેક્ટરી ડેટા ફરીથી સેટ કરીને ચેતવણી વિના ફોનનો ડેટા કાઢી નાખો."</string>
     <string name="policylab_wipeData_secondaryUser" product="automotive" msgid="115034358520328373">"પ્રોફાઇલનો ડેટા કાઢી નાખો"</string>
     <string name="policylab_wipeData_secondaryUser" product="default" msgid="413813645323433166">"વપરાશકર્તા ડેટા કાઢી નાખો"</string>
     <string name="policydesc_wipeData_secondaryUser" product="tablet" msgid="2336676480090926470">"ચેતવણી વિના આ ટેબ્લેટ પરનો આ વપરાશકર્તાનો ડેટા કાઢી નાખો."</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"નકારો"</string>
     <string name="select_input_method" msgid="3971267998568587025">"ઇનપુટ પદ્ધતિ પસંદ કરો"</string>
     <string name="show_ime" msgid="6406112007347443383">"જ્યારે ભૌતિક કીબોર્ડ સક્રિય હોય ત્યારે તેને સ્ક્રીન પર રાખો"</string>
-    <string name="hardware" msgid="1800597768237606953">"વર્ચ્યુઅલ કીબોર્ડ બતાવો"</string>
+    <string name="hardware" msgid="3611039921284836033">"ઑન-સ્ક્રીન કીબોર્ડનો ઉપયોગ કરો"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"<xliff:g id="DEVICE_NAME">%s</xliff:g>ની ગોઠવણી કરો"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"ભૌતિક કીબોર્ડની ગોઠવણી કરો"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"ભાષા અને લેઆઉટ પસંદ કરવા માટે ટૅપ કરો"</string>
@@ -2327,9 +2329,9 @@
     <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Dual screen ચાલુ છે"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"કન્ટેન્ટ બતાવવા માટે <xliff:g id="APP_NAME">%1$s</xliff:g> બન્ને ડિસ્પ્લેનો ઉપયોગ કરી રહી છે"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"ડિવાઇસ ખૂબ જ ગરમ છે"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"ડ્યૂઅલ સ્ક્રીન અનુપલબ્ધ છે કારણ કે તમારો ફોન ખૂબ જ ગરમ થઈ રહ્યો છે"</string>
-    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"ડ્યૂઅલ સ્ક્રીન અનુપલબ્ધ છે"</string>
-    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"બૅટરી સેવર ચાલુ હોવાને કારણે ડ્યૂઅલ સ્ક્રીન અનુપલબ્ધ છે. તમે સેટિંગમાં જઈને આને બંધ કરી શકો છો."</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Dual Screen ઉપલબ્ધ નથી કારણ કે તમારો ફોન ખૂબ જ ગરમ થઈ રહ્યો છે"</string>
+    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Dual Screen ઉપલબ્ધ નથી"</string>
+    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"બૅટરી સેવર ચાલુ હોવાને કારણે Dual Screen ઉપલબ્ધ નથી. તમે સેટિંગમાં જઈને આને બંધ કરી શકો છો."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"સેટિંગ પર જાઓ"</string>
     <string name="device_state_notification_turn_off_button" msgid="6327161707661689232">"બંધ કરો"</string>
     <string name="keyboard_layout_notification_selected_title" msgid="1202560174252421219">"<xliff:g id="DEVICE_NAME">%s</xliff:g>ની ગોઠવણી કરવામાં આવી છે"</string>

@@ -50,15 +50,17 @@ import androidx.annotation.RawRes
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieProperty
 import com.airbnb.lottie.model.KeyPath
+import com.android.app.animation.Interpolators
 import com.android.internal.annotations.VisibleForTesting
+import com.android.keyguard.KeyguardPINView
 import com.android.systemui.Dumpable
 import com.android.systemui.R
 import com.android.systemui.biometrics.domain.interactor.DisplayStateInteractor
+import com.android.systemui.bouncer.domain.interactor.AlternateBouncerInteractor
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.dump.DumpManager
-import com.android.systemui.keyguard.domain.interactor.AlternateBouncerInteractor
 import com.android.systemui.util.boundsOnScreen
 import com.android.systemui.util.concurrency.DelayableExecutor
 import com.android.systemui.util.traceSection
@@ -112,23 +114,33 @@ constructor(
     private val isReverseDefaultRotation =
         context.resources.getBoolean(com.android.internal.R.bool.config_reverseDefaultRotation)
 
-    private var overlayHideAnimator: ViewPropertyAnimator? = null
+    private var overlayShowAnimator: ViewPropertyAnimator? = null
 
     private var overlayView: View? = null
         set(value) {
             field?.let { oldView ->
-                val lottie = oldView.findViewById(R.id.sidefps_animation) as LottieAnimationView
+                val lottie = oldView.requireViewById(R.id.sidefps_animation) as LottieAnimationView
                 lottie.pauseAnimation()
                 windowManager.removeView(oldView)
                 orientationListener.disable()
             }
-            overlayHideAnimator?.cancel()
-            overlayHideAnimator = null
+            overlayShowAnimator?.cancel()
+            overlayShowAnimator = null
 
             field = value
             field?.let { newView ->
+                if (requests.contains(SideFpsUiRequestSource.PRIMARY_BOUNCER)) {
+                    newView.alpha = 0f
+                    overlayShowAnimator =
+                        newView
+                            .animate()
+                            .alpha(1f)
+                            .setDuration(KeyguardPINView.ANIMATION_DURATION)
+                            .setInterpolator(Interpolators.ALPHA_IN)
+                }
                 windowManager.addView(newView, overlayViewParams)
                 orientationListener.enable()
+                overlayShowAnimator?.start()
             }
         }
     @VisibleForTesting var overlayOffsets: SensorLocationInternal = SensorLocationInternal.DEFAULT
@@ -174,7 +186,7 @@ constructor(
     }
 
     private fun listenForAlternateBouncerVisibility() {
-        alternateBouncerInteractor.setAlternateBouncerUIAvailable(true)
+        alternateBouncerInteractor.setAlternateBouncerUIAvailable(true, "SideFpsController")
         scope.launch {
             alternateBouncerInteractor.isVisible.collect { isVisible: Boolean ->
                 if (isVisible) {
@@ -262,7 +274,7 @@ constructor(
             }
         overlayOffsets = offsets
 
-        val lottie = view.findViewById(R.id.sidefps_animation) as LottieAnimationView
+        val lottie = view.requireViewById(R.id.sidefps_animation) as LottieAnimationView
         view.rotation =
             display.asSideFpsAnimationRotation(
                 offsets.isYAligned(),

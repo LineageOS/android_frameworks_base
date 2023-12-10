@@ -621,6 +621,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Hardware biometric indisponibil"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Autentificarea a fost anulată"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Nu este recunoscut"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Fața nu a fost recunoscută"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Autentificarea a fost anulată"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Nu este setat un cod PIN, un model sau o parolă"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Eroare la autentificare"</string>
@@ -641,6 +642,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Amprenta nu a fost recunoscută"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Amprenta nu a fost recunoscută"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Chipul nu a fost recunoscut. Folosește amprenta."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Amprentă autentificată"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Chip autentificat"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Chip autentificat, apasă pe Confirmă"</string>
@@ -666,14 +668,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"A apărut o eroare. Încearcă din nou."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Pictograma amprentă"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Deblocarea dispozitivului"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Încearcă o altă modalitate de deblocare"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Folosește Deblocarea facială atunci când amprenta ta nu este recunoscută, de exemplu, când ai degetele ude"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Folosește Deblocarea cu amprenta atunci când chipul tău nu este recunoscut, de exemplu, când nu există suficientă lumină"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Deblocare facială"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Problemă cu Deblocarea facială"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Atinge pentru a șterge modelul facial, apoi adaugă din nou chipul"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Configurează Deblocarea facială"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Deblochează-ți telefonul uitându-te la el"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Pentru a folosi Deblocarea facială, activează "<b>"Accesul la cameră"</b>" în Setări și confidențialitate"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Configurează mai multe moduri de deblocare"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Atinge ca să adaugi o amprentă"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Deblocare cu amprenta"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Nu se poate folosi senzorul de amprentă"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Vizitează un furnizor de servicii de reparații."</string>
@@ -1257,7 +1259,7 @@
     <string name="android_upgrading_starting_apps" msgid="6206161195076057075">"Se pornesc aplicațiile."</string>
     <string name="android_upgrading_complete" msgid="409800058018374746">"Se finalizează pornirea."</string>
     <string name="fp_power_button_enrollment_message" msgid="5648173517663246140">"Ai apăsat butonul de pornire. De obicei, astfel se dezactivează ecranul.\n\nAtinge ușor când îți configurezi amprenta."</string>
-    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Ca să termini configurarea, dezactivează ecranul"</string>
+    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Termină configurarea dezactivând ecranul"</string>
     <string name="fp_power_button_enrollment_button_text" msgid="3199783266386029200">"Dezactivează"</string>
     <string name="fp_power_button_bp_title" msgid="5585506104526820067">"Continui cu verificarea amprentei?"</string>
     <string name="fp_power_button_bp_message" msgid="2983163038168903393">"Ai apăsat butonul de pornire. De obicei, astfel se dezactivează ecranul.\n\nAtinge ușor pentru verificarea amprentei."</string>
@@ -1394,7 +1396,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"REFUZ"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Alege metoda de introducere de text"</string>
     <string name="show_ime" msgid="6406112007347443383">"Se păstrează pe ecran cât timp este activată tastatura fizică"</string>
-    <string name="hardware" msgid="1800597768237606953">"Afișează tastatura virtuală"</string>
+    <string name="hardware" msgid="3611039921284836033">"Folosește tastatura pe ecran"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Configurează <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Configurează tastaturi fizice"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Atinge pentru a selecta limba și aspectul"</string>
@@ -1951,7 +1953,7 @@
     <string name="app_suspended_default_message" msgid="6451215678552004172">"Momentan, aplicația <xliff:g id="APP_NAME_0">%1$s</xliff:g> nu este disponibilă. Aceasta este gestionată de <xliff:g id="APP_NAME_1">%2$s</xliff:g>."</string>
     <string name="app_suspended_more_details" msgid="211260942831587014">"Află mai multe"</string>
     <string name="app_suspended_unsuspend_message" msgid="1665438589450555459">"Anulează întreruperea aplicației"</string>
-    <string name="work_mode_off_title" msgid="6367463960165135829">"Reactivezi aplicații lucru?"</string>
+    <string name="work_mode_off_title" msgid="6367463960165135829">"Reactivezi aplicații de lucru?"</string>
     <string name="work_mode_turn_on" msgid="5316648862401307800">"Reactivează"</string>
     <string name="work_mode_emergency_call_button" msgid="6818855962881612322">"Urgență"</string>
     <string name="app_blocked_title" msgid="7353262160455028160">"Aplicația nu este disponibilă"</string>

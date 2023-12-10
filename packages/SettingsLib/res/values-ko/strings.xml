@@ -114,9 +114,9 @@
     <string name="bluetooth_profile_sap" msgid="8304170950447934386">"SIM 액세스"</string>
     <string name="bluetooth_profile_a2dp_high_quality" msgid="4739440941324792775">"HD 오디오: <xliff:g id="CODEC_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_profile_a2dp_high_quality_unknown_codec" msgid="2477639096903834374">"HD 오디오"</string>
-    <string name="bluetooth_profile_hearing_aid" msgid="58154575573984914">"보청기"</string>
+    <string name="bluetooth_profile_hearing_aid" msgid="2607867572569689732">"보청기"</string>
     <string name="bluetooth_profile_le_audio" msgid="1725521360076451751">"LE 오디오"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="8191273236809964030">"보청기에 연결됨"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="5757754050938807276">"보청기에 연결됨"</string>
     <string name="bluetooth_le_audio_profile_summary_connected" msgid="6916226974453480650">"LE 오디오에 연결됨"</string>
     <string name="bluetooth_a2dp_profile_summary_connected" msgid="7422607970115444153">"미디어 오디오에 연결됨"</string>
     <string name="bluetooth_headset_profile_summary_connected" msgid="2420981566026949688">"휴대전화 오디오에 연결됨"</string>
@@ -134,7 +134,7 @@
     <string name="bluetooth_headset_profile_summary_use_for" msgid="808970643123744170">"휴대전화 오디오에 사용"</string>
     <string name="bluetooth_opp_profile_summary_use_for" msgid="461981154387015457">"파일 전송에 사용"</string>
     <string name="bluetooth_hid_profile_summary_use_for" msgid="4289460627406490952">"입력에 사용"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="7689393730163320483">"보청기로 사용"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="3374057355721486932">"보청기로 사용"</string>
     <string name="bluetooth_le_audio_profile_summary_use_for" msgid="2778318636027348572">"LE_AUDIO에 사용"</string>
     <string name="bluetooth_pairing_accept" msgid="2054232610815498004">"페어링"</string>
     <string name="bluetooth_pairing_accept_all_caps" msgid="2734383073450506220">"페어링"</string>
@@ -355,6 +355,8 @@
     <string name="pointer_location_summary" msgid="957120116989798464">"현재 터치 데이터 오버레이 표시"</string>
     <string name="show_touches" msgid="8437666942161289025">"탭한 항목 표시"</string>
     <string name="show_touches_summary" msgid="3692861665994502193">"탭한 항목에 대해 시각적인 피드백 표시"</string>
+    <string name="show_key_presses" msgid="6360141722735900214">"키 누름 표시"</string>
+    <string name="show_key_presses_summary" msgid="725387457373015024">"물리적 키 누름에 관한 시각적 피드백을 표시합니다."</string>
     <string name="show_screen_updates" msgid="2078782895825535494">"표면 업데이트 표시"</string>
     <string name="show_screen_updates_summary" msgid="2126932969682087406">"전체 창 화면이 업데이트되었을 때 플래시 처리"</string>
     <string name="show_hw_screen_updates" msgid="2021286231267747506">"보기 업데이트 표시"</string>
@@ -550,9 +552,9 @@
     <string name="media_transfer_default_device_name" msgid="4315604017399871828">"연결된 기기"</string>
     <string name="media_transfer_this_phone" msgid="7194341457812151531">"이 휴대전화"</string>
     <string name="media_output_status_unknown_error" msgid="5098565887497902222">"이 기기에서 재생할 수 없음"</string>
-    <string name="media_output_status_require_premium" msgid="8411255800047014822">"전환하려면 계정을 업그레이드하세요."</string>
+    <string name="media_output_status_require_premium" msgid="8411255800047014822">"계정을 업그레이드하여 전환하기"</string>
     <string name="media_output_status_not_support_downloads" msgid="4523828729240373315">"여기서 다운로드한 콘텐츠를 재생할 수 없습니다."</string>
-    <string name="media_output_status_try_after_ad" msgid="8312579066856015441">"광고 후에 다시 시도해 주세요."</string>
+    <string name="media_output_status_try_after_ad" msgid="8312579066856015441">"광고 후에 다시 시도하기"</string>
     <string name="media_output_status_device_in_low_power_mode" msgid="8184631698321758451">"기기 절전 모드 해제 후 여기에서 재생"</string>
     <string name="media_output_status_unauthorized" msgid="5880222828273853838">"기기에서 재생을 승인하지 않음"</string>
     <string name="media_output_status_track_unsupported" msgid="5576313219317709664">"여기에서 이 미디어를 재생할 수 없음"</string>
@@ -579,7 +581,7 @@
     <string name="user_add_profile_item_title" msgid="3111051717414643029">"제한된 프로필"</string>
     <string name="user_add_user_title" msgid="5457079143694924885">"신규 사용자를 추가할까요?"</string>
     <string name="user_add_user_message_long" msgid="1527434966294733380">"추가 사용자를 만들어 다른 사용자와 기기를 공유할 수 있습니다. 각 사용자는 앱, 배경화면 등으로 맞춤설정할 수 있는 자신만의 공간을 갖게 됩니다. 또한 모든 사용자에게 영향을 미치는 Wi‑Fi와 같은 기기 설정도 조정할 수 있습니다.\n\n추가된 신규 사용자는 자신의 공간을 설정해야 합니다.\n\n모든 사용자가 앱을 업데이트할 수 있으며, 업데이트는 다른 사용자에게도 적용됩니다. 접근성 설정 및 서비스는 신규 사용자에게 이전되지 않을 수도 있습니다."</string>
-    <string name="user_add_user_message_short" msgid="3295959985795716166">"추가된 새로운 사용자는 자신의 공간을 설정해야 합니다.\n\n모든 사용자는 다른 사용자들을 위하여 앱을 업데이트할 수 있습니다."</string>
+    <string name="user_add_user_message_short" msgid="3295959985795716166">"추가된 신규 사용자는 자신의 공간을 설정해야 합니다.\n\n모든 사용자가 앱을 업데이트할 수 있으며, 업데이트는 다른 사용자에게도 적용됩니다."</string>
     <string name="user_grant_admin_title" msgid="5157031020083343984">"이 사용자에게 관리자 권한을 부여하시겠습니까?"</string>
     <string name="user_grant_admin_message" msgid="1673791931033486709">"관리자는 다른 사용자가 가지지 못한 특별한 권한을 보유합니다. 관리자는 모든 사용자를 관리하고, 기기를 업데이트하거나 재설정하고, 설정을 변경하고, 설치된 모든 앱을 확인하고, 다른 사용자에게 관리자 권한을 부여하거나 취소할 수 있습니다."</string>
     <string name="user_grant_admin_button" msgid="5441486731331725756">"관리자 권한 부여"</string>

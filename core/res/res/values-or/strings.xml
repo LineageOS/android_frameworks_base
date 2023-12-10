@@ -229,7 +229,7 @@
     <string name="reboot_to_update_reboot" msgid="4474726009984452312">"ରିଷ୍ଟାର୍ଟ କରାଯାଉଛି…"</string>
     <string name="reboot_to_reset_title" msgid="2226229680017882787">"ଫ୍ୟାକ୍ଟୋରୀ ଡାଟା ରିସେଟ୍‌"</string>
     <string name="reboot_to_reset_message" msgid="3347690497972074356">"ରିଷ୍ଟାର୍ଟ କରାଯାଉଛି…"</string>
-    <string name="shutdown_progress" msgid="5017145516412657345">"ବନ୍ଦ କରାଯାଉଛି…"</string>
+    <string name="shutdown_progress" msgid="5017145516412657345">"ବନ୍ଦ ହେଉଛି…"</string>
     <string name="shutdown_confirm" product="tablet" msgid="2872769463279602432">"ଆପଣଙ୍କ ଟାବଲେଟ୍ ବନ୍ଦ ହୋଇଯିବ।"</string>
     <string name="shutdown_confirm" product="tv" msgid="7975942887313518330">"ଆପଣଙ୍କର Android TV ଡିଭାଇସ୍ ବନ୍ଦ ହୋଇଯିବ।"</string>
     <string name="shutdown_confirm" product="watch" msgid="2977299851200240146">"ଆପଣଙ୍କ ଘଣ୍ଟା ବନ୍ଦ ହୋଇଯିବ।"</string>
@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"ବାୟୋମେଟ୍ରିକ୍‌ ହାର୍ଡୱେର୍‌ ଉପଲବ୍ଧ ନାହିଁ"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"ପ୍ରାମାଣିକତାକୁ ବାତିଲ୍ କରାଯାଇଛି"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"ଚିହ୍ନଟ ହେଲାନାହିଁ"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"ଫେସ ଚିହ୍ନଟ କରାଯାଇନାହିଁ"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"ପ୍ରାମାଣିକତାକୁ ବାତିଲ୍ କରାଯାଇଛି"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"କୌଣସି ପିନ୍, ପେଟେର୍ନ ବା ପାସ୍‍ୱର୍ଡ ସେଟ୍ ନାହିଁ"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"ପ୍ରାମାଣିକରଣ କରିବା ସମୟରେ ତ୍ରୁଟି"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"ଟିପଚିହ୍ନ ଚିହ୍ନଟ ହେଲା ନାହିଁ"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"ଟିପଚିହ୍ନ ଚିହ୍ନଟ ହେଲା ନାହିଁ"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"ଫେସ୍ ଚିହ୍ନଟ କରିହେବ ନାହିଁ। ଟିପଚିହ୍ନ ବ୍ୟବହାର କରନ୍ତୁ।"</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"ଟିପଚିହ୍ନ ପ୍ରମାଣିତ ହେଲା"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"ମୁହଁ ଚିହ୍ନଟ ହୋଇଛି"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"ମୁହଁ ଚିହ୍ନଟ ହୋଇଛି, ଦୟାକରି ସୁନିଶ୍ଚିତ ଦବାନ୍ତୁ"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"କିଛି ତ୍ରୁଟି ହୋଇଛି। ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"ଟିପଚିହ୍ନ ଆଇକନ୍"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"ଡିଭାଇସ ଅନଲକ"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"ଅନଲକ କରିବା ପାଇଁ ଅନ୍ୟ ଏକ ଉପାୟ ଚେଷ୍ଟା କରନ୍ତୁ"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"ଆପଣଙ୍କ ଆଙ୍ଗୁଠି ଓଦା ଥିବା ସମୟରେ ଆପଣଙ୍କର ଟିପଚିହ୍ନ ଚିହ୍ନଟ ନହେଲେ ଫେସ ଅନଲକ ବ୍ୟବହାର କରନ୍ତୁ"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"ପର୍ଯ୍ୟାପ୍ତ ଆଲୋକ ନଥିବା ପରି ସମୟରେ ଆପଣଙ୍କର ଫେସ ଚିହ୍ନଟ ନହେଲେ ଫିଙ୍ଗରପ୍ରିଣ୍ଟ ଅନଲକ ବ୍ୟବହାର କରନ୍ତୁ"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"ଫେସ ଅନଲକ"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"ଫେସ୍ ଅନଲକ୍ ସହ ସମସ୍ୟା"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"ଆପଣଙ୍କ ଫେସ୍ ମଡେଲକୁ ଡିଲିଟ୍ କରିବାକୁ ଟାପ୍ କରନ୍ତୁ, ତା\'ପରେ ପୁଣି ଆପଣଙ୍କ ଫେସ୍ ଯୋଗ କରନ୍ତୁ"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"ଫେସ ଅନଲକ ସେଟ ଅପ କରନ୍ତୁ"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"ଫୋନକୁ ଦେଖି ଏହାକୁ ଅନଲକ୍ କରନ୍ତୁ"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"ଫେସ ଅନଲକ ବ୍ୟବହାର କରିବା ପାଇଁ, ସେଟିଂସ ଏବଂ ଗୋପନୀୟତାରେ "<b>"କ୍ୟାମେରା ଆକ୍ସେସ"</b>"କୁ ଚାଲୁ କରନ୍ତୁ"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"ଅନଲକ୍ କରିବା ପାଇଁ ଆହୁରି ଅଧିକ ଉପାୟ ସେଟ୍ ଅପ୍ କରନ୍ତୁ"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"ଏକ ଟିପଚିହ୍ନ ଯୋଗ କରିବାକୁ ଟାପ୍ କରନ୍ତୁ"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"ଫିଙ୍ଗରପ୍ରିଣ୍ଟ ଅନଲକ୍"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"ଟିପଚିହ୍ନ ସେନ୍ସରକୁ ବ୍ୟବହାର କରାଯାଇପାରିବ ନାହିଁ"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"ଏକ ମରାମତି କେନ୍ଦ୍ରକୁ ଭିଜିଟ୍ କରନ୍ତୁ।"</string>
@@ -752,8 +754,8 @@
     <string name="permdesc_register_call_provider" msgid="4201429251459068613">"ନୂତନ ଦୂରସଂଚାର ସଂଯୋଗକୁ ନଥିଭୁକ୍ତ କରିବା ପାଇଁ ଆପ୍‌କୁ ଅନୁମତି ଦିଅନ୍ତୁ।"</string>
     <string name="permlab_connection_manager" msgid="3179365584691166915">"ଟେଲିକମ୍ ସଂଯୋଗ ପରିଚାଳିତ କରନ୍ତୁ"</string>
     <string name="permdesc_connection_manager" msgid="1426093604238937733">"ଦୁରସଂଚାର ସଂଯୋଗ ପ୍ରବନ୍ଧିତ କରିବାକୁ ଆପ୍‌କୁ ଅନୁମତି ଦିଅନ୍ତୁ।"</string>
-    <string name="permlab_bind_incall_service" msgid="5990625112603493016">"ଇନ୍ କଲ୍ ସ୍କ୍ରୀନ୍‍‌ ସହିତ ସଂଯୋଗ କରନ୍ତୁ"</string>
-    <string name="permdesc_bind_incall_service" msgid="4124917526967765162">"ୟୁଜର୍‍ କଲ୍ ଇନ୍ ସ୍କ୍ରୀନ୍‍‌ କେବେ ଓ କିପରି ଦେଖୁଛି, ତାହାକୁ ନିୟନ୍ତ୍ରିତ କରିବା ପାଇଁ ଆପ୍‌କୁ ଅନୁମତି ଦିଅନ୍ତୁ।"</string>
+    <string name="permlab_bind_incall_service" msgid="5990625112603493016">"ଇନ କଲ ସ୍କ୍ରିନ ସହିତ ଇଣ୍ଟରାକ୍ଟ କରନ୍ତୁ"</string>
+    <string name="permdesc_bind_incall_service" msgid="4124917526967765162">"ୟୁଜର ଇନ-କଲ ସ୍କ୍ରିନ କେବେ ଓ କିପରି ଦେଖୁଛନ୍ତି, ତାହାକୁ ନିୟନ୍ତ୍ରଣ କରିବା ପାଇଁ ଆପକୁ ଅନୁମତି ଦିଏ।"</string>
     <string name="permlab_bind_connection_service" msgid="5409268245525024736">"ଟେଲିଫୋନୀ ସେବା ସହିତ ସଂଯୋଗ କରନ୍ତୁ"</string>
     <string name="permdesc_bind_connection_service" msgid="6261796725253264518">"ଆପ୍‌କୁ କଲ୍ କରିବା ଏବଂ ପ୍ରାପ୍ତ କରିବା ପାଇଁ ଟେଲିଫୋନୀ ସେବା ସହିତ ସଂଯୋଗ କରିବା ପାଇଁ ଅନୁମତି ଦିଅନ୍ତୁ।"</string>
     <string name="permlab_control_incall_experience" msgid="6436863486094352987">"ଏକ କଲ୍ ୟୁଜର୍‍ ଅନୁଭବ ପ୍ରଦାନ କରିଥାଏ"</string>
@@ -802,11 +804,11 @@
     <string name="permdesc_updatePackagesWithoutUserAction" msgid="4567739631260526366">"ୟୁଜର ଆକ୍ସନ ବିନା ପୂର୍ବରୁ ଇନଷ୍ଟଲ କରାଯାଇଥିବା ଆପକୁ ଅପଡେଟ କରିବା ପାଇଁ ଏହା ହୋଲ୍ଡରକୁ ଅନୁମତି ଦିଏ"</string>
     <string name="policylab_limitPassword" msgid="4851829918814422199">"ପାସ୍‌ୱର୍ଡ ନିୟମାବଳୀ ସେଟ୍ କରନ୍ତୁ"</string>
     <string name="policydesc_limitPassword" msgid="4105491021115793793">"ଲକ୍‍ ସ୍କ୍ରୀନ୍‍ ପାସ୍‌ୱର୍ଡ ଓ PINରେ ଅନୁମୋଦିତ ଦୀର୍ଘତା ଓ ବର୍ଣ୍ଣ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ।"</string>
-    <string name="policylab_watchLogin" msgid="7599669460083719504">"ସ୍କ୍ରୀନ୍-ଅନଲକ୍ କରିବା ଉଦ୍ୟମ ନୀରିକ୍ଷଣ କରନ୍ତୁ"</string>
+    <string name="policylab_watchLogin" msgid="7599669460083719504">"ସ୍କ୍ରିନ-ଅନଲକ କରିବା ଉଦ୍ୟମ ନୀରିକ୍ଷଣ କରିବା"</string>
     <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"ସ୍କ୍ରୀନ୍‍ ଅନଲକ୍‍ କରିବାବେଳେ ଟାଇପ୍‍ କରିଥିବା ଭୁଲ ପାସୱର୍ଡର ସଂଖ୍ୟାକୁ ନୀରିକ୍ଷଣ କରେ ଏବଂ ଟାବଲେଟ୍‍କୁ ଲକ୍‍ କରିଦିଏ କିମ୍ବା ଯଦି ଅନେକ ଭୁଲ ପାସୱର୍ଡ ଟାଇପ୍‍ କରାଯାଇଥାଏ, ତେବେ ଟାବଲେଟ୍‍ର ସମସ୍ତ ଡାଟା ଲିଭାଇଦିଏ।"</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"ସ୍କ୍ରିନ୍ ଅନ୍‌ଲକ୍ କରିବା ସମୟରେ ଟାଇପ୍ କରାଯାଇଥିବା ଭୁଲ ପାସ୍‌ୱାର୍ଡଗୁଡ଼ିକର ସଂଖ୍ୟାକୁ ନିରୀକ୍ଷଣ କରନ୍ତୁ ଏବଂ ଆପଣଙ୍କର Android TV ଡିଭାଇସ୍‌କୁ ଲକ୍ କରନ୍ତୁ କିମ୍ବା ଯଦି ଅନେକ ଭୁଲ ପାସ୍‌ୱାର୍ଡ ଟାଇପ୍ କରାଯାଇଥାଏ, ତେବେ ଆପଣଙ୍କ Android TV ଡିଭାଇସ୍‌ର ସମସ୍ତ ଡାଟା ଲିଭାଇ ଦିଅନ୍ତୁ।"</string>
     <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"ସ୍କ୍ରିନ ଅନଲକ କରିବା ସମୟରେ ଟାଇପ କରାଯାଇଥିବା ଭୁଲ ପାସୱାର୍ଡର ସଂଖ୍ୟାକୁ ମନିଟର କରନ୍ତୁ ଏବଂ ଇନଫୋଟେନମେଣ୍ଟ ସିଷ୍ଟମକୁ ଲକ କରନ୍ତୁ କିମ୍ବା ଯଦି ଅନେକଗୁଡ଼ିଏ ଭୁଲ ପାସୱାର୍ଡ ଟାଇପ କରାଯାଇଥାଏ ତେବେ ଇନଫୋଟେନମେଣ୍ଟ ସିଷ୍ଟମର ସମସ୍ତ ଡାଟା ଖାଲି କରନ୍ତୁ।"</string>
-    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"ସ୍କ୍ରୀନ୍‍ ଅନଲକ୍‍ କରିବାବେଳେ ଟାଇପ୍‍ କରିଥିବା ଭୁଲ ପାସୱର୍ଡର ସଂଖ୍ୟାକୁ ନୀରିକ୍ଷଣ କରେ ଏବଂ ଫୋନ୍‍କୁ ଲକ୍‍ କରିଦିଏ କିମ୍ବା ଯଦି ଅନେକ ଭୁଲ ପାସୱର୍ଡ ଟାଇପ୍‍ କରାଯାଇଥାଏ, ତେବେ ଫୋନ୍‍ର ସମସ୍ତ ଡାଟା ଲିଭାଇଦିଏ।"</string>
+    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"ଟାଇପ କରାଯାଇଥିବା ଭୁଲ ପାସୱର୍ଡର ସଂଖ୍ୟାକୁ ନୀରିକ୍ଷଣ କରେ। ସ୍କ୍ରିନ ଅନଲକ କରିବାବେଳେ ଏବଂ ଫୋନକୁ ଲକ କରିବା ସମୟରେ ଯଦି ଅନେକ ଭୁଲ ପାସୱର୍ଡ ଟାଇପ କରାଯାଇଥାଏ, ତେବେ ଫୋନର ସମସ୍ତ ଡାଟା ଡିଲିଟ କରେ।"</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"ସ୍କ୍ରୀନ୍‍ ଅନଲକ୍‍ କରିବାବେଳେ ଟାଇପ୍‍ କରାଯାଇଥିବା ଭୁଲ ପାସ୍‌ୱର୍ଡର ସଂଖ୍ୟାକୁ ନୀରିକ୍ଷଣ କରେ ଏବଂ ଟାବଲେଟ୍‍କୁ ଲକ୍‍ କରିଦିଏ କିମ୍ବା ଯଦି ଅନେକ ଭୁଲ ପାସ୍‌ୱର୍ଡ ଟାଇପ୍‍ କରାଯାଇଥାଏ, ତେବେ ସମସ୍ତ ଡାଟା ଲିଭାଇଦିଏ।"</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"ସ୍କ୍ରିନ୍ ଅନ୍‌ଲକ୍ କରିବା ସମୟରେ ଟାଇପ୍ କରାଯାଇଥିବା ଭୁଲ ପାସ୍‌ୱାର୍ଡଗୁଡ଼ିକର ସଂଖ୍ୟାକୁ ନିରୀକ୍ଷଣ କରନ୍ତୁ ଏବଂ ଆପଣଙ୍କର Android TV ଡିଭାଇସ୍‌କୁ ଲକ୍ କରନ୍ତୁ କିମ୍ବା ଯଦି ଅନେକ ଭୁଲ ପାସ୍‌ୱାର୍ଡ ଟାଇପ୍ କରାଯାଇଥାଏ, ତେବେ ସମସ୍ତ ଡାଟା ଲିଭାଇ ଦିଅନ୍ତୁ।"</string>
     <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"ସ୍କ୍ରିନ ଅନଲକ କରିବା ସମୟରେ ଟାଇପ କରାଯାଇଥିବା ଭୁଲ ପାସୱାର୍ଡର ସଂଖ୍ୟାକୁ ମନିଟର କରନ୍ତୁ ଏବଂ ଇନଫୋଟେନମେଣ୍ଟ ସିଷ୍ଟମକୁ ଲକ କରନ୍ତୁ କିମ୍ବା ଯଦି ଅନେକଗୁଡ଼ିଏ ଭୁଲ ପାସୱାର୍ଡ ଟାଇପ କରାଯାଇଥାଏ ତେବେ ଏହି ପ୍ରୋଫାଇଲର ସମସ୍ତ ଡାଟା ଖାଲି କରନ୍ତୁ।"</string>
@@ -819,7 +821,7 @@
     <string name="policydesc_wipeData" product="tablet" msgid="7245372676261947507">"ବିନା ଚେତାବନୀରେ ଫ୍ୟାକ୍ଟୋରୀ ସେଟିଙ୍ଗ କରାଇ ଟାବ୍‍ଲେଟ୍‍ର ଡାଟା ଲିଭାଇଥାଏ।"</string>
     <string name="policydesc_wipeData" product="tv" msgid="513862488950801261">"ଏକ ଫ୍ୟାକ୍ଟୋରୀ ଡାଟା ରିସେଟ୍ କରି ବିନା ଚେତାବନୀରେ ଆପଣଙ୍କର Android TV ଡିଭାଇସ୍‌ର ଡାଟା ଲିଭାନ୍ତୁ।"</string>
     <string name="policydesc_wipeData" product="automotive" msgid="660804547737323300">"ଏକ ଫ୍ୟାକ୍ଟୋରୀ ଡାଟା ରିସେଟ କରି ବିନା ଚେତାବନୀରେ ଇନଫୋଟେନମେଣ୍ଟ ସିଷ୍ଟମର ଡାଟା ଖାଲି କରନ୍ତୁ।"</string>
-    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"ବିନା ଚେତାବନୀରେ ଫ୍ୟାକ୍ଟୋରୀ ଡାଟା ରିସେଟ୍ କରି ଫୋନ୍‍ର ଡାଟା ଲିଭାଇଥାଏ।"</string>
+    <string name="policydesc_wipeData" product="default" msgid="8036084184768379022">"ବିନା ଚେତାବନୀରେ ଫ୍ୟାକ୍ଟୋରୀ ଡାଟା ରିସେଟ କରି ଫୋନର ଡାଟା ଲିଭାଇଥାଏ।"</string>
     <string name="policylab_wipeData_secondaryUser" product="automotive" msgid="115034358520328373">"ପ୍ରୋଫାଇଲ ଡାଟା ଖାଲି କରନ୍ତୁ"</string>
     <string name="policylab_wipeData_secondaryUser" product="default" msgid="413813645323433166">"ୟୁଜର୍‍ ଡାଟା ଲିଭାନ୍ତୁ"</string>
     <string name="policydesc_wipeData_secondaryUser" product="tablet" msgid="2336676480090926470">"ବିନା ଚେତାବନୀରେ ଏହି ଟାବଲେଟରେ ଥିବା ଏହି ୟୁଜରଙ୍କ ଡାଟା ଲିଭାଇ ଦିଅନ୍ତୁ।"</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"ଅଗ୍ରାହ୍ୟ କରନ୍ତୁ"</string>
     <string name="select_input_method" msgid="3971267998568587025">"ଇନପୁଟ୍ ପଦ୍ଧତି ବାଛନ୍ତୁ"</string>
     <string name="show_ime" msgid="6406112007347443383">"ଫିଜିକାଲ୍‌ କୀବୋର୍ଡ ସକ୍ରିୟ ଥିବାବେଳେ ଏହାକୁ ସ୍କ୍ରିନ୍‌ ଉପରେ ରଖନ୍ତୁ"</string>
-    <string name="hardware" msgid="1800597768237606953">"ଭର୍ଚୁଆଲ୍ କୀ’ବୋର୍ଡ ଦେଖାନ୍ତୁ"</string>
+    <string name="hardware" msgid="3611039921284836033">"ଅନ-ସ୍କ୍ରିନ କୀବୋର୍ଡ ବ୍ୟବହାର କର"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"<xliff:g id="DEVICE_NAME">%s</xliff:g>କୁ କନଫିଗର କରନ୍ତୁ"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"ଫିଜିକାଲ କୀବୋର୍ଡଗୁଡ଼ିକୁ କନଫିଗର କରନ୍ତୁ"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"ଭାଷା ଓ ଲେଆଉଟ ଚୟନ କରିବା ପାଇଁ ଟାପ କରନ୍ତୁ"</string>
@@ -1430,7 +1432,7 @@
     <string name="ext_media_nomedia_notification_message" msgid="2832724384636625852">"କିଛି କାର୍ଯ୍ୟକ୍ଷମତା ଠିକ୍ ଭାବେ କାମ ନକରିପାରେ। ନୂଆ ଷ୍ଟୋରେଜ୍ ଭର୍ତ୍ତି କରନ୍ତୁ।"</string>
     <string name="ext_media_unmounting_notification_title" msgid="4147986383917892162">"<xliff:g id="NAME">%s</xliff:g>କୁ ଇଜେକ୍ଟ କରାଯାଉଛି"</string>
     <string name="ext_media_unmounting_notification_message" msgid="5717036261538754203">"କାଢ଼ନ୍ତୁ ନାହିଁ"</string>
-    <string name="ext_media_init_action" msgid="2312974060585056709">"ସେଟ୍ ଅପ୍ କରନ୍ତୁ"</string>
+    <string name="ext_media_init_action" msgid="2312974060585056709">"ସେଟ ଅପ କରନ୍ତୁ"</string>
     <string name="ext_media_unmount_action" msgid="966992232088442745">"କାଢ଼ି ଦିଅନ୍ତୁ"</string>
     <string name="ext_media_browse_action" msgid="344865351947079139">"ଖୋଜନ୍ତୁ"</string>
     <string name="ext_media_seamless_action" msgid="8837030226009268080">"ଆଉଟ୍‌ପୁଟ୍ ସ୍ୱିଚ୍‌ କରନ୍ତୁ"</string>
@@ -2096,7 +2098,7 @@
     <string name="dynamic_mode_notification_channel_name" msgid="2986926422100223328">"ନିୟମିତ ମୋଡ୍‍ ସୂଚନା ବିଜ୍ଞପ୍ତି"</string>
     <string name="dynamic_mode_notification_title" msgid="1388718452788985481">"ବେଟେରୀ ସେଭର ଚାଲୁ କରାଯାଇଛି"</string>
     <string name="dynamic_mode_notification_summary" msgid="1639031262484979689">"ବ୍ୟାଟେରୀ ଲାଇଫ ବଢ଼ାଇବା ପାଇଁ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କମ୍ କରିବା"</string>
-    <string name="battery_saver_notification_channel_name" msgid="3918243458067916913">"ବ୍ୟାଟେରୀ ସେଭର୍"</string>
+    <string name="battery_saver_notification_channel_name" msgid="3918243458067916913">"ବେଟେରୀ ସେଭର"</string>
     <string name="battery_saver_off_notification_title" msgid="7637255960468032515">"ବ୍ୟାଟେରୀ ସେଭର୍ ବନ୍ଦ ଅଛି"</string>
     <string name="battery_saver_charged_notification_summary" product="default" msgid="5544457317418624367">"ଫୋନରେ ଯଥେଷ୍ଟ ଚାର୍ଜ ଅଛି। ଫିଚରଗୁଡ଼ିକ ଆଉ ପ୍ରତିବନ୍ଧିତ ନୁହେଁ।"</string>
     <string name="battery_saver_charged_notification_summary" product="tablet" msgid="4426317048139996888">"ଟାବଲେଟରେ ଯଥେଷ୍ଟ ଚାର୍ଜ ଅଛି। ଫିଚରଗୁଡ଼ିକ ଆଉ ପ୍ରତିବନ୍ଧିତ ନୁହେଁ।"</string>
@@ -2122,7 +2124,7 @@
     <string name="bluetooth_airplane_mode_toast" msgid="2066399056595768554">"ଏୟାରପ୍ଲେନ୍ ମୋଡରେ ବ୍ଲୁଟୁଥ୍ ଚାଲୁ ରହିବ"</string>
     <string name="car_loading_profile" msgid="8219978381196748070">"ଲୋଡ୍ ହେଉଛି"</string>
     <string name="file_count" msgid="3220018595056126969">"{count,plural, =1{{file_name} + #ଟି ଫାଇଲ}other{{file_name} + #ଟି ଫାଇଲ}}"</string>
-    <string name="chooser_no_direct_share_targets" msgid="1511722103987329028">"ଏହାକୁ ସେୟାର୍ କରିବା ପାଇଁ କୌଣସି ସୁପାରିଶ କରାଯାଇଥିବା ଲୋକ ନାହାଁନ୍ତି"</string>
+    <string name="chooser_no_direct_share_targets" msgid="1511722103987329028">"ଏହାକୁ ସେୟାର କରିବା ପାଇଁ କୌଣସି ସୁପାରିଶ କରାଯାଇଥିବା ଲୋକ ନାହାଁନ୍ତି"</string>
     <string name="chooser_all_apps_button_label" msgid="3230427756238666328">"ଆପ୍ସ ତାଲିକା"</string>
     <string name="usb_device_resolve_prompt_warn" msgid="325871329788064199">"ଏହି ଆପ୍‌କୁ ରେକର୍ଡ କରିବାକୁ ଅନୁମତି ଦିଆଯାଇ ନାହିଁ କିନ୍ତୁ ଏହି USB ଡିଭାଇସ୍ ଜରିଆରେ ଅଡିଓ କ୍ୟାପ୍‍ଚର୍‍ କରିପାରିବ।"</string>
     <string name="accessibility_system_action_home_label" msgid="3234748160850301870">"ହୋମ"</string>
@@ -2323,13 +2325,13 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"ପୃଷ୍ଠପଟରୁ ଫୋରଗ୍ରାଉଣ୍ଡ ସେବାଗୁଡ଼ିକ ଆରମ୍ଭ କରିବାକୁ ଏକ ସହଯୋଗୀ ଆପକୁ ଅନୁମତି ଦିଏ।"</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"ମାଇକ୍ରୋଫୋନ ଉପଲବ୍ଧ ଅଛି"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"ମାଇକ୍ରୋଫୋନକୁ ବ୍ଲକ କରାଯାଇଛି"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"ଡୁଆଲ ସ୍କ୍ରିନ"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"ଡୁଆଲ ସ୍କ୍ରିନ ଚାଲୁ ଅଛି"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Dual Screen ଚାଲୁ ଅଛି"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"ବିଷୟବସ୍ତୁ ଦେଖାଇବା ପାଇଁ <xliff:g id="APP_NAME">%1$s</xliff:g> ଉଭୟ ଡିସପ୍ଲେକୁ ବ୍ୟବହାର କରୁଛି"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"ଡିଭାଇସ ବହୁତ ଗରମ ଅଛି"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"ଆପଣଙ୍କ ଫୋନ ବହୁତ ଗରମ ହେଉଥିବା ଯୋଗୁଁ ଡୁଆଲ ସ୍କ୍ରିନ ଉପଲବ୍ଧ ନାହିଁ"</string>
-    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"ଡୁଆଲ ସ୍କ୍ରିନ ଉପଲବ୍ଧ ନାହିଁ"</string>
-    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"ବେଟେରୀ ସେଭର ଚାଲୁ ଥିବା ଯୋଗୁଁ ଡୁଆଲ ସ୍କ୍ରିନ ଉପଲବ୍ଧ ନାହିଁ। ଆପଣ ସେଟିଂସରେ ଏହାକୁ ବନ୍ଦ କରିପାରିବେ।"</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"ଆପଣଙ୍କ ଫୋନ ବହୁତ ଗରମ ହେଉଥିବା ଯୋଗୁଁ Dual Screen ଉପଲବ୍ଧ ନାହିଁ"</string>
+    <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Dual Screen ଉପଲବ୍ଧ ନାହିଁ"</string>
+    <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"ବେଟେରୀ ସେଭର ଚାଲୁ ଥିବା ଯୋଗୁଁ Dual Screen ଉପଲବ୍ଧ ନାହିଁ। ଆପଣ ସେଟିଂସରେ ଏହାକୁ ବନ୍ଦ କରିପାରିବେ।"</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"ସେଟିଂସକୁ ଯାଆନ୍ତୁ"</string>
     <string name="device_state_notification_turn_off_button" msgid="6327161707661689232">"ବନ୍ଦ କରନ୍ତୁ"</string>
     <string name="keyboard_layout_notification_selected_title" msgid="1202560174252421219">"<xliff:g id="DEVICE_NAME">%s</xliff:g>କୁ କନଫିଗର କରାଯାଇଛି"</string>

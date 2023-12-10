@@ -69,7 +69,7 @@
     <string name="usb_disable_contaminant_detection" msgid="3827082183595978641">"Aktivera USB"</string>
     <string name="learn_more" msgid="4690632085667273811">"Läs mer"</string>
     <string name="global_action_screenshot" msgid="2760267567509131654">"Skärmbild"</string>
-    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Extend Unlock har inaktiverats"</string>
+    <string name="global_action_smart_lock_disabled" msgid="6286551337177954859">"Håll olåst har inaktiverats"</string>
     <string name="remote_input_image_insertion_text" msgid="4850791636452521123">"har skickat en bild"</string>
     <string name="screenshot_saving_title" msgid="2298349784913287333">"Skärmbilden sparas ..."</string>
     <string name="screenshot_saving_work_profile_title" msgid="5332829607308450880">"Sparar skärmbild i jobbprofilen …"</string>
@@ -118,6 +118,9 @@
     <string name="screenrecord_save_text" msgid="3008973099800840163">"Tryck för att visa"</string>
     <string name="screenrecord_save_error" msgid="5862648532560118815">"Det gick inte att spara skärminspelningen"</string>
     <string name="screenrecord_start_error" msgid="2200660692479682368">"Det gick inte att starta skärminspelningen"</string>
+    <string name="immersive_cling_title" msgid="8372056499315585941">"Visar på fullskärm"</string>
+    <string name="immersive_cling_description" msgid="6913958856085185775">"Svep nedåt från skärmens överkant för att avsluta."</string>
+    <string name="immersive_cling_positive" msgid="3076681691468978568">"OK"</string>
     <string name="accessibility_back" msgid="6530104400086152611">"Tillbaka"</string>
     <string name="accessibility_home" msgid="5430449841237966217">"Startsida"</string>
     <string name="accessibility_menu" msgid="2701163794470513040">"Meny"</string>
@@ -147,6 +150,7 @@
     <string name="biometric_dialog_tap_confirm_with_face_alt_2" msgid="8586608186457385108">"Ansiktet har identifierats. Tryck för att fortsätta."</string>
     <string name="biometric_dialog_tap_confirm_with_face_alt_3" msgid="2192670471930606539">"Ansiktet har identifierats. Tryck på ikonen lås upp."</string>
     <string name="biometric_dialog_authenticated" msgid="7337147327545272484">"Autentiserad"</string>
+    <string name="biometric_dialog_cancel_authentication" msgid="981316588773442637">"Avbryt autentiseringen"</string>
     <string name="biometric_dialog_use_pin" msgid="8385294115283000709">"Använd pinkod"</string>
     <string name="biometric_dialog_use_pattern" msgid="2315593393167211194">"Använd mönster"</string>
     <string name="biometric_dialog_use_password" msgid="3445033859393474779">"Använd lösenord"</string>
@@ -180,6 +184,7 @@
     <string name="face_re_enroll_dialog_content" msgid="7353502359464038511">"Din nuvarande ansiktsmodell raderas när du konfigurerar ansiktslås igen.\n\nDu måste konfigurera den här funktionen igen för att kunna låsa upp telefonen med ditt ansikte."</string>
     <string name="face_reenroll_failure_dialog_content" msgid="7073947334397236935">"Det gick inte att konfigurera ansiktslåset. Öppna inställningarna och försök igen."</string>
     <string name="fingerprint_dialog_touch_sensor" msgid="2817887108047658975">"Tryck på fingeravtryckssensorn"</string>
+    <string name="fingerprint_dialog_authenticated_confirmation" msgid="1603899612957562862">"Tryck på ikonen lås upp för att fortsätta"</string>
     <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6178228876763024452">"Ansiktet kändes inte igen. Använd fingeravtryck."</string>
     <!-- no translation found for keyguard_face_failed_use_fp (7140293906176164263) -->
     <skip />
@@ -243,7 +248,7 @@
     <string name="quick_settings_bluetooth_secondary_label_audio" msgid="780333390310051161">"Ljud"</string>
     <string name="quick_settings_bluetooth_secondary_label_headset" msgid="2332093067553000852">"Headset"</string>
     <string name="quick_settings_bluetooth_secondary_label_input" msgid="3887552721233148132">"Ingång"</string>
-    <string name="quick_settings_bluetooth_secondary_label_hearing_aids" msgid="3003338571871392293">"Hörapparater"</string>
+    <string name="quick_settings_bluetooth_secondary_label_hearing_aids" msgid="5553051568867097111">"Hörapparater"</string>
     <string name="quick_settings_bluetooth_secondary_label_transient" msgid="3882884317600669650">"Aktiverar …"</string>
     <string name="quick_settings_rotation_unlocked_label" msgid="2359922767950346112">"Rotera automatiskt"</string>
     <string name="accessibility_quick_settings_rotation" msgid="4800050198392260738">"Rotera skärmen automatiskt"</string>
@@ -270,7 +275,7 @@
     <string name="quick_settings_inversion_label" msgid="3501527749494755688">"Färginvertering"</string>
     <string name="quick_settings_color_correction_label" msgid="5636617913560474664">"Färgkorrigering"</string>
     <string name="quick_settings_font_scaling_label" msgid="5289001009876936768">"Teckenstorlek"</string>
-    <string name="quick_settings_more_user_settings" msgid="7634653308485206306">"Hantera användare"</string>
+    <string name="quick_settings_more_user_settings" msgid="7634653308485206306">"Välj användare"</string>
     <string name="quick_settings_done" msgid="2163641301648855793">"Klart"</string>
     <string name="quick_settings_close_user_panel" msgid="5599724542275896849">"Stäng"</string>
     <string name="quick_settings_connected" msgid="3873605509184830379">"Ansluten"</string>
@@ -290,6 +295,7 @@
     <string name="quick_settings_cellular_detail_data_limit" msgid="1791389609409211628">"Gräns: <xliff:g id="DATA_LIMIT">%s</xliff:g>"</string>
     <string name="quick_settings_cellular_detail_data_warning" msgid="7957253810481086455">"Varning <xliff:g id="DATA_LIMIT">%s</xliff:g>"</string>
     <string name="quick_settings_work_mode_label" msgid="6440531507319809121">"Jobbappar"</string>
+    <string name="quick_settings_work_mode_paused_state" msgid="6681788236383735976">"Pausad"</string>
     <string name="quick_settings_night_display_label" msgid="8180030659141778180">"Nattljus"</string>
     <string name="quick_settings_night_secondary_label_on_at_sunset" msgid="3358706312129866626">"På från solnedgången"</string>
     <string name="quick_settings_night_secondary_label_until_sunrise" msgid="4063448287758262485">"Till soluppgången"</string>
@@ -359,6 +365,7 @@
     <string name="keyguard_face_successful_unlock" msgid="4203999851465708287">"Upplåst med ansiktslås"</string>
     <string name="keyguard_face_successful_unlock_alt1" msgid="5853906076353839628">"Ansiktet har identifierats"</string>
     <string name="keyguard_retry" msgid="886802522584053523">"Svep uppåt om du vill försöka igen"</string>
+    <string name="accesssibility_keyguard_retry" msgid="8880238862712870676">"Svep uppåt för att försöka använda ansiktslåset igen"</string>
     <string name="require_unlock_for_nfc" msgid="1305686454823018831">"Lås upp om du vill använda NFC"</string>
     <string name="do_disclosure_generic" msgid="4896482821974707167">"Den här enheten tillhör organisationen"</string>
     <string name="do_disclosure_with_name" msgid="2091641464065004091">"Den här enheten tillhör <xliff:g id="ORGANIZATION_NAME">%s</xliff:g>"</string>
@@ -404,6 +411,7 @@
     <string name="media_projection_entry_app_permission_dialog_warning_entire_screen" msgid="8736391633234144237">"När du delar, spelar in eller castar har <xliff:g id="APP_SEEKING_PERMISSION">%s</xliff:g> åtkomst till allt som visas på skärmen eller spelas upp på enheten. Var försiktig med sådant som lösenord, betalningsuppgifter, meddelanden, foton och ljud och video."</string>
     <string name="media_projection_entry_app_permission_dialog_warning_single_app" msgid="5211695779082563959">"När du delar, spelar in eller castar en app har <xliff:g id="APP_SEEKING_PERMISSION">%s</xliff:g> åtkomst till allt som visas eller spelas upp i appen. Var försiktig med sådant som lösenord, betalningsuppgifter, meddelanden, foton och ljud och video."</string>
     <string name="media_projection_entry_app_permission_dialog_continue" msgid="295463518195075840">"Börja"</string>
+    <string name="media_projection_entry_app_permission_dialog_single_app_disabled" msgid="8999903044874669995">"<xliff:g id="APP_NAME">%1$s</xliff:g> har inaktiverat alternativet"</string>
     <string name="media_projection_entry_cast_permission_dialog_title" msgid="8860150223172993547">"Vill du börja casta?"</string>
     <string name="media_projection_entry_cast_permission_dialog_warning_entire_screen" msgid="1986212276016817231">"När du castar har Android åtkomst till allt som visas på skärmen eller spelas upp på enheten. Var försiktig med sådant som lösenord, betalningsuppgifter, meddelanden, foton och ljud och video."</string>
     <string name="media_projection_entry_cast_permission_dialog_warning_single_app" msgid="9900961380294292">"När du castar en app har Android åtkomst till allt som visas eller spelas upp i appen. Var försiktig med sådant som lösenord, betalningsuppgifter, meddelanden, foton och ljud och video."</string>
@@ -412,6 +420,10 @@
     <string name="media_projection_entry_generic_permission_dialog_warning_entire_screen" msgid="5407906851409410209">"När du delar, spelar in eller castar har Android åtkomst till allt som visas på skärmen eller spelas upp på enheten. Var försiktig med sådant som lösenord, betalningsuppgifter, meddelanden, foton och ljud och video."</string>
     <string name="media_projection_entry_generic_permission_dialog_warning_single_app" msgid="3454859977888159495">"När du delar, spelar in eller castar en app har Android åtkomst till allt som visas eller spelas upp i appen. Var försiktig med sådant som lösenord, betalningsuppgifter, meddelanden, foton och ljud och video."</string>
     <string name="media_projection_entry_generic_permission_dialog_continue" msgid="8640381403048097116">"Börja"</string>
+    <string name="media_projection_task_switcher_text" msgid="590885489897412359">"Delningen pausas när du byter appar"</string>
+    <string name="media_projection_task_switcher_action_switch" msgid="8682258717291921123">"Dela den här appen i stället"</string>
+    <string name="media_projection_task_switcher_action_back" msgid="5324164224147845282">"Byt tillbaka"</string>
+    <string name="media_projection_task_switcher_notification_channel" msgid="7613206306777814253">"Appbyte"</string>
     <string name="screen_capturing_disabled_by_policy_dialog_title" msgid="2113331792064527203">"Blockeras av IT-administratören"</string>
     <string name="screen_capturing_disabled_by_policy_dialog_description" msgid="6015975736747696431">"Skärminspelning är inaktiverat av enhetspolicyn"</string>
     <string name="clear_all_notifications_text" msgid="348312370303046130">"Rensa alla"</string>
@@ -759,13 +771,7 @@
     <string name="accessibility_quick_settings_power_menu" msgid="6820426108301758412">"Startmeny"</string>
     <string name="accessibility_quick_settings_page" msgid="7506322631645550961">"Sida <xliff:g id="ID_1">%1$d</xliff:g> av <xliff:g id="ID_2">%2$d</xliff:g>"</string>
     <string name="tuner_lock_screen" msgid="2267383813241144544">"Låsskärm"</string>
-    <string name="thermal_shutdown_title" msgid="2702966892682930264">"Mobilen stängdes av pga. värme"</string>
-    <string name="thermal_shutdown_message" msgid="6142269839066172984">"Telefonen fungerar nu som vanligt.\nTryck för mer information"</string>
-    <string name="thermal_shutdown_dialog_message" msgid="6745684238183492031">"Mobilen var för varm och stängdes av för att kylas ned. Den fungerar nu som vanligt.\n\nMobilen kan bli för varm om du\n	• använder resurskrävande appar (till exempel spel-, video- eller navigeringsappar)\n	• laddar ned eller laddar upp stora filer\n	• använder mobilen vid höga temperaturer."</string>
     <string name="thermal_shutdown_dialog_help_text" msgid="6413474593462902901">"Visa alla skötselråd"</string>
-    <string name="high_temp_title" msgid="2218333576838496100">"Mobilen börjar bli varm"</string>
-    <string name="high_temp_notif_message" msgid="1277346543068257549">"Vissa funktioner är begränsade medan telefonen svalnar.\nTryck för mer information"</string>
-    <string name="high_temp_dialog_message" msgid="3793606072661253968">"Mobilen försöker svalna automatiskt. Du kan fortfarande använda mobilen, men den kan vara långsammare än vanligt.\n\nMobilen fungerar som vanligt när den har svalnat."</string>
     <string name="high_temp_dialog_help_text" msgid="7380171287943345858">"Visa alla skötselråd"</string>
     <string name="high_temp_alarm_title" msgid="8654754369605452169">"Koppla ur enheten"</string>
     <string name="high_temp_alarm_notify_message" msgid="3917622943609118956">"Enheten börjar bli varm vid laddningsporten. Om den är ansluten till en laddare eller ett USB-tillbehör kopplar du ur den. Var försiktigt eftersom kabeln också kan vara varm."</string>
@@ -855,10 +861,16 @@
     <string name="accessibility_control_move_down" msgid="5390922476900974512">"Flytta nedåt"</string>
     <string name="accessibility_control_move_left" msgid="8156206978511401995">"Flytta åt vänster"</string>
     <string name="accessibility_control_move_right" msgid="8926821093629582888">"Flytta åt höger"</string>
+    <string name="accessibility_control_increase_window_width" msgid="6992249470832493283">"Öka bredden på förstoringen"</string>
+    <string name="accessibility_control_decrease_window_width" msgid="5740401560105929681">"Minska bredden på förstoringen"</string>
+    <string name="accessibility_control_increase_window_height" msgid="2200966116612324260">"Öka höjden på förstoringen"</string>
+    <string name="accessibility_control_decrease_window_height" msgid="2054479949445332761">"Minska höjden på förstoringen"</string>
     <string name="magnification_mode_switch_description" msgid="2698364322069934733">"Förstoringsreglage"</string>
     <string name="magnification_mode_switch_state_full_screen" msgid="5229653514979530561">"Förstora hela skärmen"</string>
     <string name="magnification_mode_switch_state_window" msgid="8597100249594076965">"Förstora en del av skärmen"</string>
     <string name="magnification_open_settings_click_label" msgid="6151849212725923363">"Öppna inställningarna för förstoring"</string>
+    <string name="magnification_close_settings_click_label" msgid="4642477260651704517">"Stäng inställningarna för förstoring"</string>
+    <string name="magnification_exit_edit_mode_click_label" msgid="1664818325144887117">"Lämna redigeringsläget"</string>
     <string name="magnification_drag_corner_to_resize" msgid="1249766311052418130">"Dra i hörnet för att ändra storlek"</string>
     <string name="accessibility_allow_diagonal_scrolling" msgid="3258050349191496398">"Tillåt diagonal scrollning"</string>
     <string name="accessibility_resize" msgid="5733759136600611551">"Ändra storlek"</string>
@@ -934,6 +946,7 @@
     <string name="controls_pin_instructions_retry" msgid="1566667581012131046">"Testa en annan pinkod"</string>
     <string name="controls_confirmation_message" msgid="7744104992609594859">"Bekräfta ändring av <xliff:g id="DEVICE">%s</xliff:g>"</string>
     <string name="controls_structure_tooltip" msgid="4355922222944447867">"Svep om du vill se mer"</string>
+    <string name="retry_face" msgid="416380073082560186">"Försök med ansiktsautentisering igen"</string>
     <string name="controls_seeding_in_progress" msgid="3033855341410264148">"Rekommendationer läses in"</string>
     <string name="controls_media_title" msgid="1746947284862928133">"Media"</string>
     <string name="controls_media_close_session" msgid="4780485355795635052">"Vill du dölja denna mediastyrning för <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>
@@ -1045,6 +1058,7 @@
     <string name="battery_state_unknown_notification_title" msgid="8464703640483773454">"Batteriindikatorn visas inte"</string>
     <string name="battery_state_unknown_notification_text" msgid="13720937839460899">"Tryck för mer information"</string>
     <string name="qs_alarm_tile_no_alarm" msgid="4826472008616807923">"Inget inställt alarm"</string>
+    <string name="accessibility_bouncer" msgid="5896923685673320070">"ange skärmlåset"</string>
     <string name="accessibility_fingerprint_label" msgid="5255731221854153660">"Fingeravtryckssensor"</string>
     <string name="accessibility_authenticate_hint" msgid="798914151813205721">"autentisera"</string>
     <string name="accessibility_enter_hint" msgid="2617864063504824834">"ange enhet"</string>
@@ -1096,7 +1110,7 @@
     <string name="clipboard_image_preview" msgid="2156475174343538128">"Bildförhandsgranskning"</string>
     <string name="clipboard_edit" msgid="4500155216174011640">"redigera"</string>
     <string name="add" msgid="81036585205287996">"Lägg till"</string>
-    <string name="manage_users" msgid="1823875311934643849">"Hantera användare"</string>
+    <string name="manage_users" msgid="1823875311934643849">"Välj användare"</string>
     <string name="drag_split_not_supported" msgid="7173481676120546121">"Det går inte att dra den här aviseringen till delad skärm"</string>
     <string name="dream_overlay_status_bar_wifi_off" msgid="4497069245055003582">"Wifi är inte tillgängligt"</string>
     <string name="dream_overlay_status_bar_priority_mode" msgid="5428462123314728739">"Prioritetsläge"</string>
@@ -1107,7 +1121,8 @@
     <string name="dream_overlay_status_bar_assistant_attention_indicator" msgid="4712565923771372690">"Assistenten lyssnar"</string>
     <string name="dream_overlay_status_bar_notification_indicator" msgid="8091389255691081711">"{count,plural, =1{# avisering}other{# aviseringar}}"</string>
     <string name="dream_overlay_weather_complication_desc" msgid="824503662089783824">"<xliff:g id="WEATHER_CONDITION">%1$s</xliff:g>, <xliff:g id="TEMPERATURE">%2$s</xliff:g>"</string>
-    <string name="note_task_button_label" msgid="8718616095800343136">"Anteckningar"</string>
+    <string name="note_task_button_label" msgid="230135078402003532">"Anteckna"</string>
+    <string name="note_task_shortcut_long_label" msgid="7729325091147319409">"Anteckna med <xliff:g id="NOTE_TAKING_APP">%1$s</xliff:g>"</string>
     <string name="broadcasting_description_is_broadcasting" msgid="765627502786404290">"Sänder"</string>
     <string name="bt_le_audio_broadcast_dialog_title" msgid="3605428497924077811">"Vill du sluta sända från <xliff:g id="APP_NAME">%1$s</xliff:g>?"</string>
     <string name="bt_le_audio_broadcast_dialog_sub_title" msgid="7889684551194225793">"Om en utsändning från <xliff:g id="SWITCHAPP">%1$s</xliff:g> pågår eller om du byter ljudutgång avbryts den nuvarande utsändningen"</string>
@@ -1125,9 +1140,8 @@
     <string name="keyguard_affordance_enablement_dialog_action_template" msgid="8164857863036314664">"Öppna <xliff:g id="APPNAME">%1$s</xliff:g>"</string>
     <string name="wallet_quick_affordance_unavailable_install_the_app" msgid="7298552910007208368">"Se till att Wallet-appen är installerad om du vill lägga till den som genväg"</string>
     <string name="wallet_quick_affordance_unavailable_configure_the_app" msgid="4387433357429873258">"Se till att minst ett kort har lagts till om du vill lägga till Wallet-appen som genväg"</string>
-    <string name="qr_scanner_quick_affordance_unavailable_explanation" msgid="3049582306241150946">"Se till att en kameraapp är installerad om du vill lägga till QR-skannern som genväg"</string>
     <string name="home_quick_affordance_unavailable_install_the_app" msgid="6187820778998446168">"Se till att Home-appen är installerad om du vill lägga till den som genväg"</string>
-    <string name="home_quick_affordance_unavailable_configure_the_app" msgid="7953595390775156839">"• minst en enhet är tillgänglig"</string>
+    <string name="home_quick_affordance_unavailable_configure_the_app" msgid="604424593994493281">"• Minst en enhet eller enhetspanel är tillgänglig"</string>
     <string name="notes_app_quick_affordance_unavailable_explanation" msgid="4796955161600178530">"Välj en standardapp för anteckningar om du vill använda genvägen för anteckningar"</string>
     <string name="keyguard_affordance_enablement_dialog_notes_app_action" msgid="6821710209675089470">"Välj app"</string>
     <string name="keyguard_affordance_press_too_short" msgid="8145437175134998864">"Tryck länge på genvägen"</string>
@@ -1158,4 +1172,22 @@
     <string name="assistant_attention_content_description" msgid="6830215897604642875">"Assistenten är aktiverad"</string>
     <string name="set_default_notes_app_toast_content" msgid="2812374329662610753">"Ställ in en standardapp för anteckningar i inställningarna"</string>
     <string name="install_app" msgid="5066668100199613936">"Installera appen"</string>
+    <string name="privacy_dialog_title" msgid="7839968133469098311">"Mikrofon och kamera"</string>
+    <string name="privacy_dialog_summary" msgid="2458769652125995409">"Senaste appanvändning"</string>
+    <string name="privacy_dialog_more_button" msgid="7610604080293562345">"Se senaste åtkomst"</string>
+    <string name="privacy_dialog_done_button" msgid="4504330708531434263">"Klar"</string>
+    <string name="privacy_dialog_expand_action" msgid="9129262348628331377">"Utöka och visa alternativ"</string>
+    <string name="privacy_dialog_collapse_action" msgid="277419962019466347">"Komprimera"</string>
+    <string name="privacy_dialog_close_app_button" msgid="8006250171305878606">"Stäng den här appen"</string>
+    <string name="privacy_dialog_close_app_message" msgid="1316408652526310985">"<xliff:g id="APP_NAME">%1$s</xliff:g> stängdes"</string>
+    <string name="privacy_dialog_manage_service" msgid="8320590856621823604">"Hantera tjänst"</string>
+    <string name="privacy_dialog_manage_permissions" msgid="2543451567190470413">"Hantera åtkomst"</string>
+    <string name="privacy_dialog_active_call_usage" msgid="7858746847946397562">"Används av telefonsamtal"</string>
+    <string name="privacy_dialog_recent_call_usage" msgid="1214810644978167344">"Användes nyligen i telefonsamtal"</string>
+    <string name="privacy_dialog_active_app_usage" msgid="631997836335929880">"Används av <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
+    <string name="privacy_dialog_recent_app_usage" msgid="4883417856848222450">"Användes nyligen av <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
+    <string name="privacy_dialog_active_app_usage_1" msgid="9047570143069220911">"Används av <xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="ATTRIBUTION_LABEL">%2$s</xliff:g>)"</string>
+    <string name="privacy_dialog_recent_app_usage_1" msgid="2551340497722370109">"Användes nyligen av <xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="ATTRIBUTION_LABEL">%2$s</xliff:g>)"</string>
+    <string name="privacy_dialog_active_app_usage_2" msgid="2770926061339921767">"Används av <xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="ATTRIBUTION_LABEL">%2$s</xliff:g> • <xliff:g id="PROXY_LABEL">%3$s</xliff:g>)"</string>
+    <string name="privacy_dialog_recent_app_usage_2" msgid="2874689735085367167">"Användes nyligen av <xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="ATTRIBUTION_LABEL">%2$s</xliff:g> • <xliff:g id="PROXY_LABEL">%3$s</xliff:g>)"</string>
 </resources>

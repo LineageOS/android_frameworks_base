@@ -114,9 +114,9 @@
     <string name="bluetooth_profile_sap" msgid="8304170950447934386">"SIM యాక్సెస్"</string>
     <string name="bluetooth_profile_a2dp_high_quality" msgid="4739440941324792775">"HD ఆడియో: <xliff:g id="CODEC_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_profile_a2dp_high_quality_unknown_codec" msgid="2477639096903834374">"HD ఆడియో"</string>
-    <string name="bluetooth_profile_hearing_aid" msgid="58154575573984914">"వినికిడి మద్దతు ఉపకరణాలు"</string>
+    <string name="bluetooth_profile_hearing_aid" msgid="2607867572569689732">"వినికిడి పరికరాలు"</string>
     <string name="bluetooth_profile_le_audio" msgid="1725521360076451751">"LE ఆడియో"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="8191273236809964030">"వినికిడి మద్దతు ఉపకరణాలకు కనెక్ట్ చేయబడింది"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="5757754050938807276">"వినికిడి పరికరాలకు కనెక్ట్ చేయబడింది"</string>
     <string name="bluetooth_le_audio_profile_summary_connected" msgid="6916226974453480650">"LE ఆడియోకు కనెక్ట్ చేయబడింది"</string>
     <string name="bluetooth_a2dp_profile_summary_connected" msgid="7422607970115444153">"మీడియా ఆడియోకు కనెక్ట్ చేయబడింది"</string>
     <string name="bluetooth_headset_profile_summary_connected" msgid="2420981566026949688">"ఫోన్ ఆడియోకు కనెక్ట్ చేయబడింది"</string>
@@ -134,7 +134,7 @@
     <string name="bluetooth_headset_profile_summary_use_for" msgid="808970643123744170">"ఫోన్ ఆడియో కోసం ఉపయోగించండి"</string>
     <string name="bluetooth_opp_profile_summary_use_for" msgid="461981154387015457">"ఫైల్ బదిలీ కోసం ఉపయోగించండి"</string>
     <string name="bluetooth_hid_profile_summary_use_for" msgid="4289460627406490952">"ఇన్‌పుట్ కోసం ఉపయోగించండి"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="7689393730163320483">"వినికిడి మద్దతు ఉపకరణాలకు ఉపయోగించండి"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="3374057355721486932">"వినికిడి పరికరాల కోసం ఉపయోగించండి"</string>
     <string name="bluetooth_le_audio_profile_summary_use_for" msgid="2778318636027348572">"LE_AUDIO కోసం ఉపయోగించండి"</string>
     <string name="bluetooth_pairing_accept" msgid="2054232610815498004">"జత చేయి"</string>
     <string name="bluetooth_pairing_accept_all_caps" msgid="2734383073450506220">"జత చేయి"</string>
@@ -355,6 +355,8 @@
     <string name="pointer_location_summary" msgid="957120116989798464">"ప్రస్తుత టచ్ డేటాను చూపుతోన్న స్క్రీన్"</string>
     <string name="show_touches" msgid="8437666942161289025">"నొక్కినవి చూపు"</string>
     <string name="show_touches_summary" msgid="3692861665994502193">"నొక్కినప్పుడు దృశ్యపరమైన ప్రతిస్పందన చూపు"</string>
+    <string name="show_key_presses" msgid="6360141722735900214">"కీ ప్రెస్‌లను చూడండి"</string>
+    <string name="show_key_presses_summary" msgid="725387457373015024">"భౌతిక కీ ప్రెస్‌ల విజువల్ ఫీడ్‌బ్యాక్‌ను చూడండి"</string>
     <string name="show_screen_updates" msgid="2078782895825535494">"సర్ఫేస్‌ అప్‌డేట్లను చూపు"</string>
     <string name="show_screen_updates_summary" msgid="2126932969682087406">"విండో సర్‌ఫేస్‌లన్నీ అప్‌డేట్‌ అయితే ఫ్లాష్ చేయి"</string>
     <string name="show_hw_screen_updates" msgid="2021286231267747506">"వీక్షణ అప్‌డేట్‌లను చూపు"</string>
@@ -586,7 +588,7 @@
     <string name="user_setup_dialog_title" msgid="8037342066381939995">"యూజర్‌ను ఇప్పుడే సెటప్ చేయాలా?"</string>
     <string name="user_setup_dialog_message" msgid="269931619868102841">"పరికరాన్ని తీసుకోవడానికి వ్యక్తి అందుబాటులో ఉన్నారని నిర్ధారించుకొని, ఆపై వారికి స్టోరేజ్‌ స్థలాన్ని సెటప్ చేయండి"</string>
     <string name="user_setup_profile_dialog_message" msgid="4788197052296962620">"ఇప్పుడు ప్రొఫైల్‌ను సెటప్ చేయాలా?"</string>
-    <string name="user_setup_button_setup_now" msgid="1708269547187760639">"ఇప్పుడే సెట‌ప్ చేయి"</string>
+    <string name="user_setup_button_setup_now" msgid="1708269547187760639">"ఇప్పుడే సెట‌ప్ చేయండి"</string>
     <string name="user_setup_button_setup_later" msgid="8712980133555493516">"ఇప్పుడు కాదు"</string>
     <string name="user_add_user_type_title" msgid="551279664052914497">"జోడించండి"</string>
     <string name="user_new_user_name" msgid="60979820612818840">"కొత్త యూజర్"</string>

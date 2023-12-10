@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"বায়োমেট্ৰিক হাৰ্ডৱেৰ উপলব্ধ নহয়"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"বিশ্বাসযোগ্যতাৰ প্ৰমাণীকৰণ বাতিল কৰা হৈছে"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"চিনাক্ত কৰিব পৰা নাই"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"মুখাৱয়ব চিনি পোৱা নাই"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"বিশ্বাসযোগ্যতাৰ প্ৰমাণীকৰণ বাতিল কৰা হৈছে"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"কোনো পিন, আৰ্হি বা পাছৱৰ্ড ছেট কৰা নাই"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"আসোঁৱাহৰ বিশ্বাসযোগ্যতা প্ৰমাণীকৰণ কৰি থকা হৈছে"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"ফিংগাৰপ্ৰিণ্ট চিনাক্ত কৰিব পৰা নাই"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"ফিংগাৰপ্ৰিণ্ট চিনাক্ত কৰিব পৰা নাই"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"মুখাৱয়ব চিনিব নোৱাৰি। ফিংগাৰপ্ৰিণ্ট ব্যৱহাৰ কৰক।"</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"ফিংগাৰপ্ৰিণ্টৰ সত্যাপন কৰা হ’ল"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"মুখমণ্ডলৰ বিশ্বাসযোগ্যতা প্ৰমাণীকৰণ কৰা হ’ল"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"মুখমণ্ডলৰ বিশ্বাসযোগ্যতা প্ৰমাণীকৰণ কৰা হ’ল, অনুগ্ৰহ কৰি ‘নিশ্চিত কৰক’ বুটামটো টিপক"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"কিবা ভুল হ’ল। পুনৰ চেষ্টা কৰক।"</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"ফিংগাৰপ্ৰিণ্ট আইকন"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"ডিভাইচ আনলক"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"আনলক কৰিবলৈ আন এটা উপায় ব্যৱহাৰ কৰি চাওক"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"আপোনাৰ আঙুলিকেইটা তিতি থকাৰ দৰে পৰিস্থিতিত, আপোনাৰ ফিংগাৰপ্ৰিণ্ট চিনাক্ত কৰিব নোৱাৰিলে ফে’চ আনলক সুবিধাটো ব্যৱহাৰ কৰক"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"পৰ্যাপ্ত পোহৰ নথকাৰ দৰে পৰিস্থিতিত, আপোনাৰ মুখাৱয়ব চিনাক্ত কৰিব নোৱাৰিলে ফিংগাৰপ্ৰিণ্ট আনলক সুবিধাটো ব্যৱহাৰ কৰক"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"ফেচ আনলক"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"ফেচ আনলক ব্যৱহাৰ কৰোঁতে সমস্যা হৈছে"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"আপোনাৰ মুখাৱয়বৰ মডেলটো মচিবলৈ টিপক, তাৰ পাছত পুনৰ আপোনাৰ মুখাৱয়ব যোগ দিয়ক"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"ফেচ আনলক সুবিধাটো ছেট আপ কৰক"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"আপোনাৰ ফ’নটোলৈ চাই সেইটো আনলক কৰক"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"ফেচ আনলক সুবিধাটো ব্যৱহাৰ কৰিবলৈ ছেটিং &gt; গোপনীয়তাত "<b>"কেমেৰাৰ এক্সেছ"</b>" অন কৰক"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"আনলক কৰাৰ অধিক উপায় ছেট আপ কৰক"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"এটা ফিংগাৰপ্ৰিণ্ট যোগ দিবলৈ টিপক"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"ফিংগাৰপ্ৰিন্ট আনলক"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"ফিংগাৰপ্ৰিণ্ট ছেন্সৰ ব্যৱহাৰ কৰিব নোৱাৰি"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"মেৰামতি সেৱা প্ৰদানকাৰী কোনো প্ৰতিষ্ঠানলৈ যাওক।"</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"প্ৰত্যাখ্যান কৰক"</string>
     <string name="select_input_method" msgid="3971267998568587025">"ইনপুট পদ্ধতি বাছনি কৰক"</string>
     <string name="show_ime" msgid="6406112007347443383">"কায়িক কীব’ৰ্ড সক্ৰিয় হৈ থাকোঁতে ইয়াক স্ক্ৰীনত ৰাখক"</string>
-    <string name="hardware" msgid="1800597768237606953">"ভাৰ্শ্বুৱল কীব\'ৰ্ড দেখুৱাওক"</string>
+    <string name="hardware" msgid="3611039921284836033">"অন-স্ক্ৰীন কীব’ৰ্ড ব্যৱহাৰ কৰক"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"<xliff:g id="DEVICE_NAME">%s</xliff:g> কনফিগাৰ কৰক"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"ভৌতিক কীব’ৰ্ড কনফিগাৰ কৰক"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"ভাষা আৰু চানেকি বাছনি কৰিবলৈ ইয়াত টিপক"</string>
@@ -2323,11 +2325,11 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"এটা সহযোগী এপক নেপথ্যৰ পৰা অগ্ৰভূমি সেৱাসমূহ আৰম্ভ কৰিবলৈ দিয়ে।"</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"মাইক্ৰ’ফ’নটো উপলব্ধ"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"মাইক্ৰ’ফ’নটো অৱৰোধ কৰি থোৱা আছে"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"দ্বৈত স্ক্ৰীন"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"ডুৱেল স্ক্ৰীন অন আছে"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Dual Screen অন আছে"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"<xliff:g id="APP_NAME">%1$s</xliff:g>এ সমল দেখুৱাবলৈ দুয়োখন ডিছপ্লে’ ব্যৱহাৰ কৰি আছে"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"ডিভাইচটো অতি বেছি গৰম হৈছে"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"আপোনাৰ ফ’নটো অতি বেছি গৰম হোৱাৰ বাবে ডুৱেল স্ক্ৰীন উপলব্ধ নহয়"</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"আপোনাৰ ফ’নটো অতি বেছি গৰম হোৱাৰ বাবে Dual Screen উপলব্ধ নহয়"</string>
     <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Dual Screen উপলব্ধ নহয়"</string>
     <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"বেটাৰী সঞ্চয়কাৰী অন হৈ থকাৰ কাৰণে Dual Screen সুবিধাটো উপলব্ধ নহয়। আপুনি ছেটিঙত এই সুবিধাটো অফ কৰিব পাৰে।"</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"ছেটিঙলৈ যাওক"</string>

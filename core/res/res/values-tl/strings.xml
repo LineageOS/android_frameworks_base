@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Walang biometric hardware"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Nakansela ang pag-authenticate"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Hindi nakilala"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Hindi nakilala ang mukha"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Nakansela ang pag-authenticate"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Walang itinakdang pin, pattern, o password"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Nagkaroon ng error sa pag-authenticate"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Hindi nakilala ang fingerprint"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Hindi nakilala ang fingerprint"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Hindi makilala ang mukha. Gumamit ng fingerprint."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Na-authenticate ang fingerprint"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Na-authenticate ang mukha"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Na-authenticate ang mukha, pakipindot ang kumpirmahin"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Nagkaproblema. Subukan ulit."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Icon ng fingerprint"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Pag-unlock ng device"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Sumubok ng ibang paraan ng pag-unlock."</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Gamitin ang Pag-unlock Gamit ang Mukha kapag hindi nakikilala ang iyong fingerprint, tulad kapag basa ang iyong mga daliri"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Gamitin ang Pag-unlock Gamit ang Fingerprint kapag hindi nakikilala ang iyong mukha, tulad kapag madilim"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Pag-unlock Gamit ang Mukha"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Isyu sa Pag-unlock Gamit ang Mukha"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"I-tap para i-delete ang iyong face model, pagkatapos ay idagdag ulit ang mukha mo"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"I-set up ang Pag-unlock Gamit ang Mukha"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"I-unlock ang iyong telepono sa pamamagitan ng pagtingin dito"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Para magamit ang Pag-unlock Gamit ang Mukha, i-on ang "<b>"Access sa camera"</b>" sa Mga Setting &gt; Privacy"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Mag-set up ng higit pang paraan para mag-unlock"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"I-tap para magdagdag ng fingerprint"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Pag-unlock Gamit ang Fingerprint"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Hindi magamit ang sensor para sa fingerprint"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Bumisita sa provider ng pag-aayos."</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"TANGGIHAN"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Pumili ng pamamaraan ng pag-input"</string>
     <string name="show_ime" msgid="6406112007347443383">"Panatilihin ito sa screen habang aktibo ang pisikal na keyboard"</string>
-    <string name="hardware" msgid="1800597768237606953">"Ipakita ang virtual keyboard"</string>
+    <string name="hardware" msgid="3611039921284836033">"Gumamit ng on-screen keyboard"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"I-configure ang <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"I-configure ang mga pisikal na keyboard"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"I-tap upang pumili ng wika at layout"</string>

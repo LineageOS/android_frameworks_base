@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Biometrik sensor ishlamayapti"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Autentifikatsiya bekor qilindi"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Aniqlanmadi"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Yuz aniqlanmadi"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Autentifikatsiya bekor qilindi"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"PIN kod, grafik kalit yoki parol sozlanmagan"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Autentifikatsiya amalga oshmadi"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Barmoq izi aniqlanmadi"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Barmoq izi aniqlanmadi"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Bu yuz notanish. Barmoq izi orqali urining."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Barmoq izi tekshirildi"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Yuzingiz aniqlandi"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Yuzingiz aniqlandi, tasdiqlash uchun bosing"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Xatolik yuz berdi. Qayta urining."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Barmoq izi belgisi"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Qurilma qulfini ochish"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Boshqa usulda oching"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Barmoq izi aniqlanmasa, masalan, barmoqlar hoʻl boʻlsa, Yuz bilan ochish funksiyasidan foydalaning"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Yuz tanilmasa, masalan, yorugʻlik kamligida Barmoq izi bilan ochish funksiyasidan foydalaning"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Yuz bilan ochish"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Yuz bilan ochishda muammo bor"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Yuz modelini oʻchirish uchun bosing va keyin yana yuzni qoʻshing"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Yuz bilan ochishni sozlash"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Telefoningizni yuz tekshiruvi yordamida qulfdan chiqaring"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Yuz bilan ochish uchun Sozlamalar va maxfiylik orqali "<b>"kameraga kirishga ruxsat bering"</b></string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Qulfdan chiqarishning boshqa usullarini sozlang"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Barmoq izi kiritish uchun bosing"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Barmoq izi bilan ochish"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Barmoq izi skaneridan foydalanish imkonsiz"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Xizmat koʻrsatish markaziga murojaat qiling."</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"RAD ETISH"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Matn kiritish usulini tanlang"</string>
     <string name="show_ime" msgid="6406112007347443383">"Tashqi klaviatura ulanganida ekranda chiqib turadi"</string>
-    <string name="hardware" msgid="1800597768237606953">"Virtual klaviatura"</string>
+    <string name="hardware" msgid="3611039921284836033">"Ekrandagi klaviatura"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Sozlang: <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Tashqi klaviaturalarni sozlang"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Til va sxemani belgilash uchun bosing"</string>

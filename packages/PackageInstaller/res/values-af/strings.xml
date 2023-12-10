@@ -26,7 +26,9 @@
     <string name="install_done" msgid="5987363587661783896">"Program geïnstalleer."</string>
     <string name="install_confirm_question" msgid="7663733664476363311">"Wil jy hierdie program installeer?"</string>
     <string name="install_confirm_question_update" msgid="3348888852318388584">"Wil jy hierdie program opdateer?"</string>
-    <string name="install_confirm_question_update_owner_reminder" msgid="3750986542284587290">"Dateer hierdie app vanaf <xliff:g id="NEW_UPDATE_OWNER">%1$s</xliff:g> op?\n\nHierdie app kry gewoonlik opdaterings vanaf <xliff:g id="EXISTING_UPDATE_OWNER">%2$s</xliff:g>. As jy vanaf ’n ander bron opdateer, kan jy in die toekoms dalk opdaterings vanaf enige bron op jou foon kry. Appfunksie kan verander."</string>
+    <string name="install_confirm_question_update_owner_reminder" product="tablet" msgid="738046584021528374">"Dateer hierdie app vanaf <xliff:g id="NEW_UPDATE_OWNER">%1$s</xliff:g> op?\n\nHierdie app kry gewoonlik opdaterings vanaf <xliff:g id="EXISTING_UPDATE_OWNER">%2$s</xliff:g>. As jy vanaf ’n ander bron opdateer, kan jy in die toekoms dalk opdaterings vanaf enige bron op jou tablet kry. Appfunksies kan verander."</string>
+    <string name="install_confirm_question_update_owner_reminder" product="tv" msgid="3056133099508550163">"Dateer hierdie app vanaf <xliff:g id="NEW_UPDATE_OWNER">%1$s</xliff:g> op?\n\nHierdie app kry gewoonlik opdaterings vanaf <xliff:g id="EXISTING_UPDATE_OWNER">%2$s</xliff:g>. As jy vanaf ’n ander bron opdateer, kan jy in die toekoms dalk opdaterings vanaf enige bron op jou TV kry. Appfunksies kan verander."</string>
+    <string name="install_confirm_question_update_owner_reminder" product="default" msgid="3750986542284587290">"Dateer hierdie app vanaf <xliff:g id="NEW_UPDATE_OWNER">%1$s</xliff:g> op?\n\nHierdie app kry gewoonlik opdaterings vanaf <xliff:g id="EXISTING_UPDATE_OWNER">%2$s</xliff:g>. As jy vanaf ’n ander bron opdateer, kan jy in die toekoms dalk opdaterings vanaf enige bron op jou foon kry. Appfunksie kan verander."</string>
     <string name="install_failed" msgid="5777824004474125469">"Program nie geïnstalleer nie."</string>
     <string name="install_failed_blocked" msgid="8512284352994752094">"Die installering van die pakket is geblokkeer."</string>
     <string name="install_failed_conflict" msgid="3493184212162521426">"Program is nie geïnstalleer nie omdat pakket met \'n bestaande pakket bots."</string>
@@ -74,8 +76,8 @@
     <string name="uninstall_failed" msgid="1847750968168364332">"Deïnstallering onsuksesvol."</string>
     <string name="uninstall_failed_app" msgid="5506028705017601412">"Kon nie <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g> deïnstalleer nie."</string>
     <string name="uninstalling_cloned_app" msgid="1826380164974984870">"Vee tans <xliff:g id="PACKAGE_LABEL">%1$s</xliff:g>-kloon uit …"</string>
-    <string name="uninstall_failed_device_policy_manager" msgid="785293813665540305">"Kan nie aktiewe toesteladministrasieprogram deïnstalleer nie"</string>
-    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4813104025494168064">"Kan nie aktiewe toesteladministrasieprogram vir <xliff:g id="USERNAME">%1$s</xliff:g> deïnstalleer nie"</string>
+    <string name="uninstall_failed_device_policy_manager" msgid="785293813665540305">"Kan nie aktiewe toesteladministrasie-app deïnstalleer nie"</string>
+    <string name="uninstall_failed_device_policy_manager_of_user" msgid="4813104025494168064">"Kan nie aktiewe toesteladministrasie-app vir <xliff:g id="USERNAME">%1$s</xliff:g> deïnstalleer nie"</string>
     <string name="uninstall_all_blocked_profile_owner" msgid="2009393666026751501">"Dié program word vir sommige gebruikers of profiele vereis en is vir ander gedeïnstalleer"</string>
     <string name="uninstall_blocked_profile_owner" msgid="6373897407002404848">"Hierdie program is nodig vir jou profiel en kan nie gedeïnstalleer word nie."</string>
     <string name="uninstall_blocked_device_owner" msgid="6724602931761073901">"Jou toesteladministrateur vereis die program; kan nie gedeïnstalleer word nie."</string>

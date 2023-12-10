@@ -624,6 +624,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"معدّات المقاييس الحيوية غير متاحة."</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"تم إلغاء المصادقة."</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"لم يتم التعرف عليها."</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"لم يتم التعرّف على الوجه."</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"تم إلغاء المصادقة."</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"لم يتم ضبط رقم تعريف شخصي أو نقش أو كلمة مرور."</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"خطأ في المصادقة"</string>
@@ -644,6 +645,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"لم يتمّ التعرّف على البصمة."</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"لم يتمّ التعرّف على بصمة الإصبع."</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"يتعذّر التعرّف على الوجه. استخدِم بصمة الإصبع بدلاً من ذلك."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"تم مصادقة بصمة الإصبع"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"تمّت مصادقة الوجه"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"تمّت مصادقة الوجه، يُرجى الضغط على \"تأكيد\"."</string>
@@ -669,14 +671,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"حدث خطأ، يُرجى إعادة المحاولة."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"رمز بصمة الإصبع"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"فتح قفل الجهاز"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"تجربة طريقة أخرى لفتح القفل"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"استخدِم ميزة \"فتح الجهاز بالتعرف على الوجه\" عندما لا يتم التعرف على بصمة إصبعك، مثلاً عندما تكون أصابعك مبتلة."</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"استخدِم ميزة \"فتح الجهاز ببصمة الإصبع\" عندما لا يتم التعرف على وجهك، مثلاً عند عدم وجود ضوء كافٍ."</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"فتح الجهاز بالتعرف على الوجه"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"مشكلة متعلّقة بميزة \"فتح الجهاز بالتعرف على الوجه\""</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"انقر لحذف نموذج الوجه ثم أضِف نموذجًا لوجهك مرة أخرى."</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"إعداد ميزة \"فتح الجهاز بالتعرف على الوجه\""</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"يمكنك فتح قفل هاتفك بمجرّد النظر إلى الشاشة."</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"‏لاستخدام ميزة \"فتح الجهاز بالتعرف على الوجه\"، عليك منح إذن "<b>"الوصول إلى الكاميرا"</b>" في الإعدادات &gt; الخصوصية."</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"إعداد المزيد من الطرق لفتح قفل الجهاز"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"انقر لإضافة بصمة إصبع."</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"فتح الجهاز ببصمة الإصبع"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"لا يمكن استخدام مستشعر بصمات الإصبع"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"يُرجى التواصل مع مقدِّم خدمات إصلاح."</string>
@@ -1397,7 +1399,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"رفض"</string>
     <string name="select_input_method" msgid="3971267998568587025">"اختيار أسلوب الإدخال"</string>
     <string name="show_ime" msgid="6406112007347443383">"استمرار عرضها على الشاشة عندما تكون لوحة المفاتيح الخارجية متصلة"</string>
-    <string name="hardware" msgid="1800597768237606953">"إظهار لوحة المفاتيح الافتراضية"</string>
+    <string name="hardware" msgid="3611039921284836033">"استخدام لوحة المفاتيح على الشاشة"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"إعداد <xliff:g id="DEVICE_NAME">%s</xliff:g>"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"إعداد لوحات المفاتيح الخارجية"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"انقر لاختيار لغة وتنسيق"</string>
@@ -1596,7 +1598,7 @@
     <string name="data_usage_restricted_body" msgid="5338694433686077733">"انقر لإزالة القيد."</string>
     <string name="data_usage_rapid_title" msgid="2950192123248740375">"استخدام مرتفع لبيانات الجوّال"</string>
     <string name="data_usage_rapid_body" msgid="3886676853263693432">"استخدمت تطبيقاتك بيانات أكثر من المعتاد"</string>
-    <string name="data_usage_rapid_app_body" msgid="5425779218506513861">"استخدمَ تطبيق <xliff:g id="APP">%s</xliff:g> بيانات أكثر من المعتاد"</string>
+    <string name="data_usage_rapid_app_body" msgid="5425779218506513861">"استخدمَ تطبيق \"<xliff:g id="APP">%s</xliff:g>\" بيانات أكثر من المعتاد"</string>
     <string name="ssl_certificate" msgid="5690020361307261997">"شهادة الأمان"</string>
     <string name="ssl_certificate_is_valid" msgid="7293675884598527081">"هذه الشهادة صالحة."</string>
     <string name="issued_to" msgid="5975877665505297662">"إصدار لـ:"</string>
@@ -2167,7 +2169,7 @@
     <string name="resolver_switch_on_work" msgid="4527096360772311894">"إلغاء الإيقاف المؤقت"</string>
     <string name="resolver_no_work_apps_available" msgid="3298291360133337270">"ما مِن تطبيقات عمل."</string>
     <string name="resolver_no_personal_apps_available" msgid="6284837227019594881">"ما مِن تطبيقات شخصية."</string>
-    <string name="miniresolver_open_work" msgid="6286176185835401931">"هل تريد فتح تطبيق \"<xliff:g id="APP">%s</xliff:g>\" في الملف الشخصي للعمل؟"</string>
+    <string name="miniresolver_open_work" msgid="6286176185835401931">"هل تريد فتح تطبيق \"<xliff:g id="APP">%s</xliff:g>\" في ملفك الشخصي للعمل؟"</string>
     <string name="miniresolver_open_in_personal" msgid="807427577794490375">"هل تريد فتح المحتوى في تطبيق \"<xliff:g id="APP">%s</xliff:g>\" في الملف الشخصي؟"</string>
     <string name="miniresolver_open_in_work" msgid="941341494673509916">"هل تريد فتح المحتوى في تطبيق \"<xliff:g id="APP">%s</xliff:g>\" في الملف الشخصي للعمل؟"</string>
     <string name="miniresolver_call_in_work" msgid="528779988307529039">"هل تريد الاتصال من تطبيق العمل؟"</string>
@@ -2327,11 +2329,11 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"يسمح هذا الإذن للتطبيق المصاحب ببدء الخدمات التي تعمل في المقدّمة من الخلفية."</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"الميكروفون متاح."</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"تم حظر الميكروفون."</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"استخدام الشاشتين"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"ميزة \"استخدام الشاشتين\" مفعّلة"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"‏ميزة Dual Screen مفعّلة"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"يستخدم \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" كلتا الشاشتين لعرض المحتوى."</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"الجهاز ساخن للغاية"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"ميزة \"استخدام الشاشتين\" غير متاحة لأن هاتفك ساخن للغاية."</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"‏ميزة Dual Screen غير متاحة لأنّ هاتفك ساخن للغاية."</string>
     <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"‏ميزة Dual Screen غير متاحة"</string>
     <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"‏ميزة Dual Screen غير متاحة لأن ميزة \"توفير شحن البطارية\" مفعّلة. ويمكنك إيقاف هذا الإجراء من خلال \"الإعدادات\"."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"الانتقال إلى الإعدادات"</string>

@@ -620,6 +620,7 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"Կենսաչափական սարքը հասանելի չէ"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"Նույնականացումը չեղարկվեց"</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"Չհաջողվեց ճանաչել"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"Դեմքը չի ճանաչվել"</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"Նույնականացումը չեղարկվեց"</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"Ավելացրեք PIN կոդ, նախշ կամ գաղտնաբառ։"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"Չհաջողվեց նույնականացնել"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"Մատնահետքը չի ճանաչվել"</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"Մատնահետքը չի ճանաչվել"</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"Դեմքը չի հաջողվում ճանաչել։ Օգտագործեք մատնահետքը։"</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"Մատնահետքը նույնականացվեց"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"Դեմքը ճանաչվեց"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"Դեմքը ճանաչվեց: Սեղմեք «Հաստատել»:"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"Սխալ առաջացավ։ Նորից փորձեք։"</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"Մատնահետքի պատկերակ"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"Սարքի ապակողպում"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"Ընտրեք ապակողպման այլ եղանակ"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"Օգտագործեք դեմքով ապակողպումը, երբ ձեր մատնահետքը չի հաջողվում ճանաչել, օրինակ՝ երբ ձեր ձեռքերը թաց են"</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"Օգտագործեք մատնահետքով ապակողպումը, երբ ձեր դեմքը չի հաջողվում ճանաչել, օրինակ՝ երբ լուսավորությունը թույլ է"</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"Դեմքով ապակողպում"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"Դեմքով ապակողպման հետ կապված խնդիր"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"Հպեք՝ ձեր դեմքի նմուշը ջնջելու համար, այնուհետև նորից ավելացրեք այն:"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"Կարգավորեք դեմքով ապակողպումը"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"Ապակողպելու համար պարզապես նայեք հեռախոսին"</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"Դեմքով ապակողպումն օգտագործելու համար անցեք Կարգավորումներ &gt; Գաղտնիություն և տրամադրեք "<b>"տեսախցիկն օգտագործելու թույլտվություն"</b>"։"</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"Կարգավորեք ապակողպելու այլ եղանակներ"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"Հպեք՝ մատնահետք ավելացնելու համար"</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"Մատնահետքով ապակողպում"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"Մատնահետքերի սկաները հնարավոր չէ օգտագործել"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"Այցելեք սպասարկման կենտրոն։"</string>
@@ -1256,7 +1258,7 @@
     <string name="android_upgrading_starting_apps" msgid="6206161195076057075">"Հավելվածները մեկնարկում են:"</string>
     <string name="android_upgrading_complete" msgid="409800058018374746">"Բեռնումն ավարտվում է:"</string>
     <string name="fp_power_button_enrollment_message" msgid="5648173517663246140">"Դուք սեղմել եք սնուցման կոճակը։ Սովորաբար դրա արդյունքում էկրանն անջատվում է։\n\nՄատնահետքը ավելացնելու համար թեթևակի հպեք կոճակին։"</string>
-    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Ավարտեք կարգավորումը՝ անջատելով էկրանը"</string>
+    <string name="fp_power_button_enrollment_title" msgid="6976841690455338563">"Անջատեք էկրանը և ավարտեք"</string>
     <string name="fp_power_button_enrollment_button_text" msgid="3199783266386029200">"Անջատել"</string>
     <string name="fp_power_button_bp_title" msgid="5585506104526820067">"Շարունակե՞լ մատնահետքի սկանավորումը"</string>
     <string name="fp_power_button_bp_message" msgid="2983163038168903393">"Դուք սեղմել եք սնուցման կոճակը։ Սովորաբար դրա արդյունքում էկրանն անջատվում է։\n\nՄատնահետքը սկանավորելու համար թեթևակի հպեք կոճակին։"</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"ՄԵՐԺԵԼ"</string>
     <string name="select_input_method" msgid="3971267998568587025">"Ընտրեք ներածման եղանակը"</string>
     <string name="show_ime" msgid="6406112007347443383">"Պահել էկրանին, երբ ֆիզիկական ստեղնաշարն ակտիվ է"</string>
-    <string name="hardware" msgid="1800597768237606953">"Ցույց տալ վիրտուալ ստեղնաշարը"</string>
+    <string name="hardware" msgid="3611039921284836033">"Օգտագործել էկրանային ստեղնաշար"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"Կարգավորեք <xliff:g id="DEVICE_NAME">%s</xliff:g> սարքը"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"Կարգավորեք ֆիզիկական ստեղնաշարերը"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"Հպեք՝ լեզուն և դասավորությունն ընտրելու համար"</string>
@@ -2323,11 +2325,11 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"Թույլատրում է ուղեկցող հավելվածին ակտիվ ծառայություններ գործարկել ֆոնային ռեժիմից։"</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"Խոսափողը հասանելի է"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"Խոսափողն արգելափակված է"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Կրկնակի էկրան"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Կրկնակի էկրանը միացված է"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Dual Screen-ը միացված է"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"<xliff:g id="APP_NAME">%1$s</xliff:g> հավելվածն օգտագործում է երկու էկրանները"</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"Սարքը գերտաքացել է"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Կրկնակի էկրանն անհասանելի է, քանի որ ձեր հեռախոսը գերտաքանում է"</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"Dual Screen-ն անհասանելի է, քանի որ ձեր հեռախոսը գերտաքանում է"</string>
     <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Dual Screen-ը հասանելի չէ"</string>
     <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"Dual Screen-ն անհասանելի է, քանի որ Մարտկոցի տնտեսումը միացված է։ Դուք կարող եք անջատել այս գործառույթը Կարգավորումներում։"</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"Անցնել Կարգավորումներ"</string>

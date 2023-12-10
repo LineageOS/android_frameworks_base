@@ -34,6 +34,7 @@ import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.plugins.ActivityStarter
 import com.android.systemui.wallet.controller.QuickAccessWalletController
+import com.android.systemui.wallet.util.getPaymentCards
 import javax.inject.Inject
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -59,8 +60,8 @@ constructor(
         conflatedCallbackFlow {
             val callback =
                 object : QuickAccessWalletClient.OnWalletCardsRetrievedCallback {
-                    override fun onWalletCardsRetrieved(response: GetWalletCardsResponse?) {
-                        val hasCards = response?.walletCards?.isNotEmpty() == true
+                    override fun onWalletCardsRetrieved(response: GetWalletCardsResponse) {
+                        val hasCards = getPaymentCards(response.walletCards)?.isNotEmpty() == true
                         trySendWithFailureLogging(
                             state(
                                 isFeatureEnabled = isWalletAvailable(),
@@ -71,7 +72,7 @@ constructor(
                         )
                     }
 
-                    override fun onWalletCardRetrievalError(error: GetWalletCardsError?) {
+                    override fun onWalletCardRetrievalError(error: GetWalletCardsError) {
                         Log.e(TAG, "Wallet card retrieval error, message: \"${error?.message}\"")
                         trySendWithFailureLogging(
                             KeyguardQuickAffordanceConfig.LockScreenState.Hidden,
@@ -133,13 +134,13 @@ constructor(
         return suspendCancellableCoroutine { continuation ->
             val callback =
                 object : QuickAccessWalletClient.OnWalletCardsRetrievedCallback {
-                    override fun onWalletCardsRetrieved(response: GetWalletCardsResponse?) {
+                    override fun onWalletCardsRetrieved(response: GetWalletCardsResponse) {
                         continuation.resumeWith(
-                            Result.success(response?.walletCards ?: emptyList())
+                            Result.success(getPaymentCards(response.walletCards) ?: emptyList())
                         )
                     }
 
-                    override fun onWalletCardRetrievalError(error: GetWalletCardsError?) {
+                    override fun onWalletCardRetrievalError(error: GetWalletCardsError) {
                         continuation.resumeWith(Result.success(emptyList()))
                     }
                 }

@@ -17,6 +17,8 @@
 package com.android.server.biometrics;
 
 import static android.Manifest.permission.USE_BIOMETRIC_INTERNAL;
+import static android.hardware.biometrics.BiometricAuthenticator.TYPE_FACE;
+import static android.hardware.biometrics.BiometricAuthenticator.TYPE_FINGERPRINT;
 import static android.hardware.biometrics.BiometricManager.Authenticators;
 
 import static com.android.server.biometrics.BiometricServiceStateProto.STATE_AUTH_IDLE;
@@ -33,6 +35,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.UserInfo;
 import android.database.ContentObserver;
+import android.hardware.SensorPrivacyManager;
 import android.hardware.biometrics.BiometricAuthenticator;
 import android.hardware.biometrics.BiometricConstants;
 import android.hardware.biometrics.BiometricPrompt;
@@ -47,6 +50,7 @@ import android.hardware.biometrics.ITestSession;
 import android.hardware.biometrics.ITestSessionCallback;
 import android.hardware.biometrics.PromptInfo;
 import android.hardware.biometrics.SensorPropertiesInternal;
+import android.hardware.camera2.CameraManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 import android.net.Uri;
@@ -123,6 +127,8 @@ public class BiometricService extends SystemService {
     @VisibleForTesting
     AuthSession mAuthSession;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
+
+    private final BiometricCameraManager mBiometricCameraManager;
 
     /**
      * Tracks authenticatorId invalidation. For more details, see
@@ -365,7 +371,7 @@ public class BiometricService extends SystemService {
         public boolean getConfirmationAlwaysRequired(@BiometricAuthenticator.Modality int modality,
                 int userId) {
             switch (modality) {
-                case BiometricAuthenticator.TYPE_FACE:
+                case TYPE_FACE:
                     if (!mFaceAlwaysRequireConfirmation.containsKey(userId)) {
                         onChange(true /* selfChange */,
                                 FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION,
@@ -562,22 +568,6 @@ public class BiometricService extends SystemService {
             }
 
             Utils.combineAuthenticatorBundles(promptInfo);
-
-            // Set the default title if necessary.
-            if (promptInfo.isUseDefaultTitle()) {
-                if (TextUtils.isEmpty(promptInfo.getTitle())) {
-                    promptInfo.setTitle(getContext()
-                            .getString(R.string.biometric_dialog_default_title));
-                }
-            }
-
-            // Set the default subtitle if necessary.
-            if (promptInfo.isUseDefaultSubtitle()) {
-                if (TextUtils.isEmpty(promptInfo.getSubtitle())) {
-                    promptInfo.setSubtitle(getContext()
-                            .getString(R.string.biometric_dialog_default_subtitle));
-                }
-            }
 
             final long requestId = mRequestCounter.get();
             mHandler.post(() -> handleAuthenticate(
@@ -933,7 +923,7 @@ public class BiometricService extends SystemService {
 
         return PreAuthInfo.create(mTrustManager, mDevicePolicyManager, mSettingObserver, mSensors,
                 userId, promptInfo, opPackageName, false /* checkDevicePolicyManager */,
-                getContext());
+                getContext(), mBiometricCameraManager);
     }
 
     /**
@@ -1026,6 +1016,11 @@ public class BiometricService extends SystemService {
         public UserManager getUserManager(Context context) {
             return context.getSystemService(UserManager.class);
         }
+
+        public BiometricCameraManager getBiometricCameraManager(Context context) {
+            return new BiometricCameraManagerImpl(context.getSystemService(CameraManager.class),
+                    context.getSystemService(SensorPrivacyManager.class));
+        }
     }
 
     /**
@@ -1054,6 +1049,7 @@ public class BiometricService extends SystemService {
         mRequestCounter = mInjector.getRequestGenerator();
         mBiometricContext = injector.getBiometricContext(context);
         mUserManager = injector.getUserManager(context);
+        mBiometricCameraManager = injector.getBiometricCameraManager(context);
 
         try {
             injector.getActivityManagerService().registerUserSwitchObserver(
@@ -1290,7 +1286,37 @@ public class BiometricService extends SystemService {
                 final PreAuthInfo preAuthInfo = PreAuthInfo.create(mTrustManager,
                         mDevicePolicyManager, mSettingObserver, mSensors, userId, promptInfo,
                         opPackageName, promptInfo.isDisallowBiometricsIfPolicyExists(),
-                        getContext());
+                        getContext(), mBiometricCameraManager);
+
+                // Set the default title if necessary.
+                if (promptInfo.isUseDefaultTitle()) {
+                    if (TextUtils.isEmpty(promptInfo.getTitle())) {
+                        promptInfo.setTitle(getContext()
+                                .getString(R.string.biometric_dialog_default_title));
+                    }
+                }
+
+                final int eligible = preAuthInfo.getEligibleModalities();
+                final boolean hasEligibleFingerprintSensor =
+                        (eligible & TYPE_FINGERPRINT) == TYPE_FINGERPRINT;
+                final boolean hasEligibleFaceSensor = (eligible & TYPE_FACE) == TYPE_FACE;
+
+                // Set the subtitle according to the modality.
+                if (promptInfo.isUseDefaultSubtitle()) {
+                    if (hasEligibleFingerprintSensor && hasEligibleFaceSensor) {
+                        promptInfo.setSubtitle(getContext()
+                                .getString(R.string.biometric_dialog_default_subtitle));
+                    } else if (hasEligibleFingerprintSensor) {
+                        promptInfo.setSubtitle(getContext()
+                                .getString(R.string.fingerprint_dialog_default_subtitle));
+                    } else if (hasEligibleFaceSensor) {
+                        promptInfo.setSubtitle(getContext()
+                                .getString(R.string.face_dialog_default_subtitle));
+                    } else {
+                        promptInfo.setSubtitle(getContext()
+                                .getString(R.string.screen_lock_dialog_default_subtitle));
+                    }
+                }
 
                 final Pair<Integer, Integer> preAuthStatus = preAuthInfo.getPreAuthenticateStatus();
 
@@ -1300,9 +1326,7 @@ public class BiometricService extends SystemService {
                         + promptInfo.isIgnoreEnrollmentState());
                 // BIOMETRIC_ERROR_SENSOR_PRIVACY_ENABLED is added so that BiometricPrompt can
                 // be shown for this case.
-                if (preAuthStatus.second == BiometricConstants.BIOMETRIC_SUCCESS
-                        || preAuthStatus.second
-                        == BiometricConstants.BIOMETRIC_ERROR_SENSOR_PRIVACY_ENABLED) {
+                if (preAuthStatus.second == BiometricConstants.BIOMETRIC_SUCCESS) {
                     // If BIOMETRIC_WEAK or BIOMETRIC_STRONG are allowed, but not enrolled, but
                     // CREDENTIAL is requested and available, set the bundle to only request
                     // CREDENTIAL.

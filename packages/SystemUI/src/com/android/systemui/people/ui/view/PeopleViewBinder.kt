@@ -109,14 +109,6 @@ object PeopleViewBinder {
                     }
             }
         }
-
-        // Make sure to refresh the tiles/conversations when the Activity is resumed, so that it
-        // updates them when going back to the Activity after leaving it.
-        lifecycleOwner.lifecycleScope.launch {
-            lifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
-                viewModel.onTileRefreshRequested()
-            }
-        }
     }
 
     private fun setNoConversationsContent(view: ViewGroup, onGotItClicked: () -> Unit) {
@@ -140,13 +132,13 @@ object PeopleViewBinder {
             LayoutInflater.from(context)
                 .inflate(R.layout.people_space_activity_no_conversations, /* root= */ view)
 
-        noConversationsView.findViewById<View>(R.id.got_it_button).setOnClickListener {
+        noConversationsView.requireViewById<View>(R.id.got_it_button).setOnClickListener {
             onGotItClicked()
         }
 
         // The Tile preview has colorBackground as its background. Change it so it's different than
         // the activity's background.
-        val item = noConversationsView.findViewById<LinearLayout>(android.R.id.background)
+        val item = noConversationsView.requireViewById<LinearLayout>(android.R.id.background)
         val shape = item.background as GradientDrawable
         val ta =
             context.theme.obtainStyledAttributes(

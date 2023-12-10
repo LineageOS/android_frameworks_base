@@ -41,7 +41,7 @@ import com.android.systemui.settings.UserContextProvider
 
 /** Dialog to select screen recording options */
 class ScreenRecordPermissionDialog(
-    context: Context?,
+    context: Context,
     private val hostUserHandle: UserHandle,
     private val controller: RecordingController,
     private val activityStarter: ActivityStarter,
@@ -52,7 +52,7 @@ class ScreenRecordPermissionDialog(
     BaseScreenSharePermissionDialog(
         context,
         createOptionList(),
-        null,
+        appName = null,
         R.drawable.ic_screenrecord,
         R.color.screenrecord_icon_color
     ) {
@@ -63,6 +63,7 @@ class ScreenRecordPermissionDialog(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setDialogTitle(R.string.screenrecord_permission_dialog_title)
+        setTitle(R.string.screenrecord_title)
         setStartButtonText(R.string.screenrecord_permission_dialog_continue)
         setStartButtonOnClickListener { v: View? ->
             onStartRecordingClicked?.run()
@@ -100,11 +101,11 @@ class ScreenRecordPermissionDialog(
     @LayoutRes override fun getOptionsViewLayoutId(): Int = R.layout.screen_record_options
 
     private fun initRecordOptionsView() {
-        audioSwitch = findViewById(R.id.screenrecord_audio_switch)
-        tapsSwitch = findViewById(R.id.screenrecord_taps_switch)
-        tapsView = findViewById(R.id.show_taps)
+        audioSwitch = requireViewById(R.id.screenrecord_audio_switch)
+        tapsSwitch = requireViewById(R.id.screenrecord_taps_switch)
+        tapsView = requireViewById(R.id.show_taps)
         updateTapsViewVisibility()
-        options = findViewById(R.id.screen_recording_options)
+        options = requireViewById(R.id.screen_recording_options)
         val a: ArrayAdapter<*> =
             ScreenRecordingAdapter(context, android.R.layout.simple_spinner_dropdown_item, MODES)
         a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

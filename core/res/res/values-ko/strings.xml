@@ -620,16 +620,17 @@
     <string name="biometric_error_hw_unavailable" msgid="2494077380540615216">"생체 인식 하드웨어를 사용할 수 없음"</string>
     <string name="biometric_error_user_canceled" msgid="6732303949695293730">"인증이 취소되었습니다."</string>
     <string name="biometric_not_recognized" msgid="5106687642694635888">"인식할 수 없음"</string>
+    <string name="biometric_face_not_recognized" msgid="5535599455744525200">"얼굴을 인식할 수 없습니다."</string>
     <string name="biometric_error_canceled" msgid="8266582404844179778">"인증이 취소되었습니다."</string>
     <string name="biometric_error_device_not_secured" msgid="3129845065043995924">"PIN, 패턴, 비밀번호가 설정되지 않음"</string>
     <string name="biometric_error_generic" msgid="6784371929985434439">"인증 오류"</string>
     <string name="screen_lock_app_setting_name" msgid="6054944352976789228">"화면 잠금 사용"</string>
     <string name="screen_lock_dialog_default_subtitle" msgid="120359538048533695">"계속하려면 화면 잠금용 사용자 인증 정보를 입력하세요"</string>
-    <string name="fingerprint_acquired_partial" msgid="4323789264604479684">"센서 위에 손가락을 좀 더 오래 올려놓으세요"</string>
+    <string name="fingerprint_acquired_partial" msgid="4323789264604479684">"센서를 세게 누르세요"</string>
     <string name="fingerprint_acquired_insufficient" msgid="623888149088216458">"지문을 인식할 수 없습니다. 다시 시도해 주세요."</string>
     <string name="fingerprint_acquired_imager_dirty" msgid="1770676120848224250">"지문 센서를 닦은 후 다시 시도해 보세요."</string>
     <string name="fingerprint_acquired_imager_dirty_alt" msgid="9169582140486372897">"센서를 닦은 후 다시 시도해 보세요."</string>
-    <string name="fingerprint_acquired_too_fast" msgid="1628459767349116104">"센서 위에 손가락을 좀 더 오래 올려놓으세요"</string>
+    <string name="fingerprint_acquired_too_fast" msgid="1628459767349116104">"센서를 세게 누르세요"</string>
     <string name="fingerprint_acquired_too_slow" msgid="6683510291554497580">"손가락을 너무 느리게 움직였습니다. 다시 시도해 주세요."</string>
     <string name="fingerprint_acquired_already_enrolled" msgid="2285166003936206785">"다른 지문으로 시도"</string>
     <string name="fingerprint_acquired_too_bright" msgid="3863560181670915607">"너무 밝음"</string>
@@ -640,6 +641,7 @@
   </string-array>
     <string name="fingerprint_error_not_match" msgid="4599441812893438961">"지문이 인식되지 않았습니다."</string>
     <string name="fingerprint_udfps_error_not_match" msgid="8236930793223158856">"지문을 인식할 수 없습니다."</string>
+    <string name="fingerprint_dialog_use_fingerprint_instead" msgid="6226091888364083421">"얼굴을 인식할 수 없습니다. 대신 지문을 사용하세요."</string>
     <string name="fingerprint_authenticated" msgid="2024862866860283100">"지문이 인증됨"</string>
     <string name="face_authenticated_no_confirmation_required" msgid="8867889115112348167">"얼굴이 인증되었습니다"</string>
     <string name="face_authenticated_confirmation_required" msgid="6872632732508013755">"얼굴이 인증되었습니다. 확인을 누르세요"</string>
@@ -665,14 +667,14 @@
   </string-array>
     <string name="fingerprint_error_vendor_unknown" msgid="4170002184907291065">"문제가 발생했습니다. 다시 시도해 보세요."</string>
     <string name="fingerprint_icon_content_description" msgid="4741068463175388817">"지문 아이콘"</string>
+    <string name="device_unlock_notification_name" msgid="2632928999862915709">"기기 잠금 해제"</string>
+    <string name="alternative_unlock_setup_notification_title" msgid="6241508547901933544">"다른 잠금 해제 방법 사용"</string>
+    <string name="alternative_face_setup_notification_content" msgid="3384959224091897331">"손가락에 물기가 있는 등 지문이 인식되지 않을 때는 얼굴 인식 잠금 해제를 사용하세요."</string>
+    <string name="alternative_fp_setup_notification_content" msgid="7454096947415721639">"주변이 어두운 경우 등 얼굴이 인식되지 않을 때는 지문 잠금 해제를 사용해 보세요."</string>
     <string name="face_recalibrate_notification_name" msgid="7311163114750748686">"얼굴 인식 잠금 해제"</string>
     <string name="face_recalibrate_notification_title" msgid="2524791952735579082">"얼굴 인식 잠금 해제 문제"</string>
     <string name="face_recalibrate_notification_content" msgid="3064513770251355594">"탭하여 얼굴 모델을 삭제한 후 다시 얼굴을 추가하세요"</string>
-    <string name="face_setup_notification_title" msgid="8843461561970741790">"얼굴 인식 잠금 해제 설정"</string>
-    <string name="face_setup_notification_content" msgid="5463999831057751676">"휴대전화의 화면을 응시하여 잠금 해제할 수 있습니다."</string>
     <string name="face_sensor_privacy_enabled" msgid="7407126963510598508">"얼굴 인식 잠금 해제를 사용하려면 설정 &gt; 개인 정보 보호에서 "<b>"카메라 액세스"</b>"를 사용 설정하세요."</string>
-    <string name="fingerprint_setup_notification_title" msgid="2002630611398849495">"다른 잠금 해제 방법 설정"</string>
-    <string name="fingerprint_setup_notification_content" msgid="205578121848324852">"지문을 추가하려면 탭하세요."</string>
     <string name="fingerprint_recalibrate_notification_name" msgid="1414578431898579354">"지문 잠금 해제"</string>
     <string name="fingerprint_recalibrate_notification_title" msgid="2406561052064558497">"지문 센서를 사용할 수 없음"</string>
     <string name="fingerprint_recalibrate_notification_content" msgid="8519935717822194943">"수리업체에 방문하세요."</string>
@@ -806,7 +808,7 @@
     <string name="policydesc_watchLogin" product="tablet" msgid="2388436408621909298">"화면 잠금해제 시 비밀번호를 잘못 입력한 횟수를 모니터링하고, 잘못된 비밀번호 입력 횟수가 너무 많은 경우 태블릿을 잠그거나 태블릿에 있는 데이터를 모두 지웁니다."</string>
     <string name="policydesc_watchLogin" product="tv" msgid="2140588224468517507">"화면 잠금 해제 시 비밀번호를 잘못 입력한 횟수를 모니터링하고 잘못된 비밀번호 입력 횟수가 너무 많은 경우 Android TV 기기를 잠그거나 Android TV 기기의 데이터를 모두 삭제합니다."</string>
     <string name="policydesc_watchLogin" product="automotive" msgid="7011438994051251521">"화면 잠금 해제 시 잘못된 비밀번호를 입력한 횟수를 모니터링하고 잘못된 비밀번호 입력 횟수가 너무 많은 경우 인포테인먼트 시스템을 잠그거나 인포테인먼트 시스템의 데이터를 모두 삭제합니다."</string>
-    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"화면 잠금해제 시 비밀번호를 잘못 입력한 횟수를 모니터링하고, 잘못된 비밀번호 입력 횟수가 너무 많은 경우 휴대전화를 잠그거나 휴대전화에 있는 데이터를 모두 지웁니다."</string>
+    <string name="policydesc_watchLogin" product="default" msgid="4885030206253600299">"화면 잠금 해제 시 비밀번호를 잘못 입력한 횟수를 모니터링하고, 잘못된 비밀번호 입력 횟수가 너무 많은 경우 휴대전화를 잠그거나 휴대전화에 있는 데이터를 모두 지웁니다."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tablet" msgid="2049038943004297474">"화면 잠금 해제 시 비밀번호를 잘못 입력한 횟수를 모니터링하고 잘못된 비밀번호 입력 횟수가 너무 많은 경우 태블릿을 잠그거나 이 사용자의 데이터를 모두 삭제합니다."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="tv" msgid="8965224107449407052">"화면 잠금 해제 시 비밀번호를 잘못 입력한 횟수를 모니터링하고 잘못된 비밀번호 입력 횟수가 너무 많은 경우 Android TV 기기를 잠그거나 사용자 데이터를 모두 삭제합니다."</string>
     <string name="policydesc_watchLogin_secondaryUser" product="automotive" msgid="7180857406058327941">"화면 잠금 해제 시 잘못된 비밀번호를 입력한 횟수를 모니터링하고 잘못된 비밀번호 입력 횟수가 너무 많은 경우 인포테인먼트 시스템을 잠그거나 이 프로필의 데이터를 모두 삭제합니다."</string>
@@ -1393,7 +1395,7 @@
     <string name="decline_remote_bugreport_action" msgid="4040894777519784346">"거부"</string>
     <string name="select_input_method" msgid="3971267998568587025">"입력 방법 선택"</string>
     <string name="show_ime" msgid="6406112007347443383">"물리적 키보드가 활성 상태인 경우 화면에 켜 둠"</string>
-    <string name="hardware" msgid="1800597768237606953">"가상 키보드 표시"</string>
+    <string name="hardware" msgid="3611039921284836033">"터치 키보드 사용"</string>
     <string name="select_keyboard_layout_notification_title" msgid="5823199895322205589">"<xliff:g id="DEVICE_NAME">%s</xliff:g> 설정"</string>
     <string name="select_multiple_keyboards_layout_notification_title" msgid="6999491025126641938">"실제 키보드 설정"</string>
     <string name="select_keyboard_layout_notification_message" msgid="8835158247369158154">"탭하여 언어와 레이아웃을 선택하세요."</string>
@@ -2323,11 +2325,11 @@
     <string name="permdesc_startForegroundServicesFromBackground" msgid="4071826571656001537">"호환 앱이 백그라운드에서 포그라운드 서비스를 시작할 수 있게 허용합니다."</string>
     <string name="mic_access_on_toast" msgid="2666925317663845156">"마이크 사용 가능"</string>
     <string name="mic_access_off_toast" msgid="8111040892954242437">"마이크가 차단됨"</string>
-    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"듀얼 스크린"</string>
-    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"듀얼 스크린 켜짐"</string>
+    <string name="concurrent_display_notification_name" msgid="1526911253558311131">"Dual Screen"</string>
+    <string name="concurrent_display_notification_active_title" msgid="4892473462327943673">"Dual Screen 켜짐"</string>
     <string name="concurrent_display_notification_active_content" msgid="5889355473710601270">"<xliff:g id="APP_NAME">%1$s</xliff:g>에서 두 화면을 모두 사용하여 콘텐츠를 표시합니다."</string>
     <string name="concurrent_display_notification_thermal_title" msgid="5921609404644739229">"기기 온도가 너무 높음"</string>
-    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"휴대전화 온도가 너무 높아지고 있으므로 듀얼 스크린을 사용할 수 없습니다."</string>
+    <string name="concurrent_display_notification_thermal_content" msgid="2075484836527609319">"휴대전화 온도가 너무 높아지고 있으므로 Dual Screen을 사용할 수 없습니다."</string>
     <string name="concurrent_display_notification_power_save_title" msgid="1794569070730736281">"Dual Screen을 사용할 수 없음"</string>
     <string name="concurrent_display_notification_power_save_content" msgid="2198116070583851493">"절전 모드가 사용 설정되어 있어 Dual Screen을 사용할 수 없습니다. 설정에서 이 기능을 사용 중지할 수 있습니다."</string>
     <string name="device_state_notification_settings_button" msgid="691937505741872749">"설정으로 이동"</string>

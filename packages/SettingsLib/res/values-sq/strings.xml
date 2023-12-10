@@ -114,9 +114,9 @@
     <string name="bluetooth_profile_sap" msgid="8304170950447934386">"Qasje në kartën SIM"</string>
     <string name="bluetooth_profile_a2dp_high_quality" msgid="4739440941324792775">"Audio HD: <xliff:g id="CODEC_NAME">%1$s</xliff:g>"</string>
     <string name="bluetooth_profile_a2dp_high_quality_unknown_codec" msgid="2477639096903834374">"Audio HD"</string>
-    <string name="bluetooth_profile_hearing_aid" msgid="58154575573984914">"Aparatet e dëgjimit"</string>
+    <string name="bluetooth_profile_hearing_aid" msgid="2607867572569689732">"Aparatet e dëgjimit"</string>
     <string name="bluetooth_profile_le_audio" msgid="1725521360076451751">"LE Audio"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="8191273236809964030">"Lidhur me aparatet e dëgjimit"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_connected" msgid="5757754050938807276">"Lidhur me aparatet e dëgjimit"</string>
     <string name="bluetooth_le_audio_profile_summary_connected" msgid="6916226974453480650">"U lidh me audion LE"</string>
     <string name="bluetooth_a2dp_profile_summary_connected" msgid="7422607970115444153">"U lidh me audion e medias"</string>
     <string name="bluetooth_headset_profile_summary_connected" msgid="2420981566026949688">"U lidh me audion e telefonit"</string>
@@ -134,7 +134,7 @@
     <string name="bluetooth_headset_profile_summary_use_for" msgid="808970643123744170">"Përdor për audion e telefonit"</string>
     <string name="bluetooth_opp_profile_summary_use_for" msgid="461981154387015457">"Përdor për transferimin e skedarëve"</string>
     <string name="bluetooth_hid_profile_summary_use_for" msgid="4289460627406490952">"Përdore për hyrjen"</string>
-    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="7689393730163320483">"Përdore për aparatet e dëgjimit"</string>
+    <string name="bluetooth_hearing_aid_profile_summary_use_for" msgid="3374057355721486932">"Përdore për aparatet e dëgjimit"</string>
     <string name="bluetooth_le_audio_profile_summary_use_for" msgid="2778318636027348572">"Përdor për LE_AUDIO"</string>
     <string name="bluetooth_pairing_accept" msgid="2054232610815498004">"Çifto"</string>
     <string name="bluetooth_pairing_accept_all_caps" msgid="2734383073450506220">"ÇIFTO"</string>
@@ -268,7 +268,7 @@
     <string name="mock_location_app_not_set" msgid="6972032787262831155">"Nuk është vendosur asnjë aplikacion që simulon vendndodhjen"</string>
     <string name="mock_location_app_set" msgid="4706722469342913843">"Aplikacioni për simulimin e vendndodhjes: <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="debug_networking_category" msgid="6829757985772659599">"Rrjetet"</string>
-    <string name="wifi_display_certification" msgid="1805579519992520381">"Certifikimi i ekranit pa tel"</string>
+    <string name="wifi_display_certification" msgid="1805579519992520381">"Certifikimi i ekranit wireless"</string>
     <string name="wifi_verbose_logging" msgid="1785910450009679371">"Aktivizo regjistrimin Wi-Fi Verbose"</string>
     <string name="wifi_scan_throttling" msgid="2985624788509913617">"Përshpejtimi i skanimit të Wi‑Fi"</string>
     <string name="wifi_non_persistent_mac_randomization" msgid="7482769677894247316">"Renditje e rastësishme jo e përhershme e MAC për Wi‑Fi"</string>
@@ -300,7 +300,7 @@
     <string name="private_dns_mode_provider" msgid="3619040641762557028">"Emri i pritësit të ofruesit të DNS-së private"</string>
     <string name="private_dns_mode_provider_hostname_hint" msgid="6564868953748514595">"Fut emrin e pritësit të ofruesit të DNS-së"</string>
     <string name="private_dns_mode_provider_failure" msgid="8356259467861515108">"Nuk mund të lidhej"</string>
-    <string name="wifi_display_certification_summary" msgid="8111151348106907513">"Shfaq opsionet për certifikimin e ekranit pa tel"</string>
+    <string name="wifi_display_certification_summary" msgid="8111151348106907513">"Shfaq opsionet për certifikimin e ekranit wireless"</string>
     <string name="wifi_verbose_logging_summary" msgid="4993823188807767892">"Rrit nivelin regjistrues të Wi‑Fi duke shfaqur SSID RSSI-në te Zgjedhësi i Wi‑Fi"</string>
     <string name="wifi_scan_throttling_summary" msgid="2577105472017362814">"Zvogëlon shkarkimin e baterisë dhe përmirëson cilësinë e funksionimit të rrjetit"</string>
     <string name="wifi_non_persistent_mac_randomization_summary" msgid="2159794543105053930">"Kur ky modalitet është i aktivizuar, adresa MAC e kësaj pajisjeje mund të ndryshojë çdo herë që lidhet me një rrjet që ka të aktivizuar renditjen e rastësishme të adresave MAC."</string>
@@ -355,6 +355,8 @@
     <string name="pointer_location_summary" msgid="957120116989798464">"Mbivendosja e ekranit tregon të dhënat e prekjes"</string>
     <string name="show_touches" msgid="8437666942161289025">"Shfaq trokitjet"</string>
     <string name="show_touches_summary" msgid="3692861665994502193">"Shfaq reagimet vizuale për trokitjet"</string>
+    <string name="show_key_presses" msgid="6360141722735900214">"Shfaq shtypjet e tasteve"</string>
+    <string name="show_key_presses_summary" msgid="725387457373015024">"Shfaq reagim vizual për shtypjet fizike të tasteve"</string>
     <string name="show_screen_updates" msgid="2078782895825535494">"Shfaq përditësimet e sipërfaqes"</string>
     <string name="show_screen_updates_summary" msgid="2126932969682087406">"Ndriço të gjitha sipërfaqet e dritares kur ato të përditësohen"</string>
     <string name="show_hw_screen_updates" msgid="2021286231267747506">"Shfaq përditësimet e pamjes"</string>
@@ -476,7 +478,7 @@
     <string name="battery_info_status_charging" msgid="4279958015430387405">"Po karikohet"</string>
     <string name="battery_info_status_charging_fast" msgid="8027559755902954885">"Karikim i shpejtë"</string>
     <string name="battery_info_status_charging_slow" msgid="3190803837168962319">"Po karikohet ngadalë"</string>
-    <string name="battery_info_status_charging_wireless" msgid="8924722966861282197">"Po karikohet pa tel"</string>
+    <string name="battery_info_status_charging_wireless" msgid="8924722966861282197">"Po karikohet wireless"</string>
     <string name="battery_info_status_charging_dock" msgid="8573274094093364791">"Po karikohet"</string>
     <string name="battery_info_status_discharging" msgid="6962689305413556485">"Nuk po karikohet"</string>
     <string name="battery_info_status_not_charging" msgid="3371084153747234837">"Lidhur, jo në karikim"</string>
@@ -583,7 +585,7 @@
     <string name="user_grant_admin_title" msgid="5157031020083343984">"Të bëhet administrator ky përdorues?"</string>
     <string name="user_grant_admin_message" msgid="1673791931033486709">"Administratorët kanë privilegje të veçanta që nuk i kanë përdoruesit e tjerë. Një administrator mund të menaxhojë të gjithë përdoruesit, të përditësojë ose të rivendosë këtë pajisje, të modifikojë cilësimet, të shikojë të gjitha aplikacionet e instaluara dhe të japë ose të revokojë privilegjet e administratorit për të tjerët."</string>
     <string name="user_grant_admin_button" msgid="5441486731331725756">"Bëje administrator"</string>
-    <string name="user_setup_dialog_title" msgid="8037342066381939995">"Të konfig. përdoruesi tani?"</string>
+    <string name="user_setup_dialog_title" msgid="8037342066381939995">"Të konfigurohet përdoruesi?"</string>
     <string name="user_setup_dialog_message" msgid="269931619868102841">"Sigurohu që personi të jetë i gatshëm të marrë pajisjen dhe të caktojë hapësirën e vet"</string>
     <string name="user_setup_profile_dialog_message" msgid="4788197052296962620">"Të konfigurohet tani profili?"</string>
     <string name="user_setup_button_setup_now" msgid="1708269547187760639">"Konfiguro tani"</string>
