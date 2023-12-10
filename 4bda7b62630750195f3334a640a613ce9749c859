@@ -34,6 +34,24 @@
       "parentUuid": "c86eb6bd_7a229f52",
       "revId": "4bda7b62630750195f3334a640a613ce9749c859",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99d9b176_548760a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33255
+      },
+      "writtenOn": "2023-12-10T02:41:06Z",
+      "side": 1,
+      "message": "My bad, sorry, I didn\u0027t pick that commit. Rebuilt with that picked and the issue was solved, thanks :)",
+      "parentUuid": "5a1e819a_36460daf",
+      "revId": "4bda7b62630750195f3334a640a613ce9749c859",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
