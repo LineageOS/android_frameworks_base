@@ -2217,6 +2217,8 @@ public final class DisplayManagerService extends SystemService {
     private void handleLogicalDisplaySwappedLocked(@NonNull LogicalDisplay display) {
         handleLogicalDisplayChangedLocked(display);
 
+        updateLogicalDisplayState(display);
+
         final int displayId = display.getDisplayIdLocked();
         if (displayId == Display.DEFAULT_DISPLAY) {
             notifyDefaultDisplayDeviceUpdated(display);
