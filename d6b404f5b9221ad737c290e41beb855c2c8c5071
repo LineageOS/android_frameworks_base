@@ -16,6 +16,24 @@
       "message": "Why?",
       "revId": "d6b404f5b9221ad737c290e41beb855c2c8c5071",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d1d7f59_9fb0f270",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 23782
+      },
+      "writtenOn": "2023-12-11T20:23:50Z",
+      "side": 1,
+      "message": "I have added a description.",
+      "parentUuid": "be9eff8c_adde9c2f",
+      "revId": "d6b404f5b9221ad737c290e41beb855c2c8c5071",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
