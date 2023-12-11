@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79a95f1_8107857e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2023-12-11T17:13:10Z",
+      "side": 1,
+      "message": "An alternative solution would be to revert https://android.googlesource.com/platform/frameworks/base/+/625a23ff22f0a9327b9a24341dfa0b8fbaf61a1b",
+      "revId": "27e4a339a03c0a610d630324480ea5cc4e8fe581",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
