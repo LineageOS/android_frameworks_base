@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "851f5666_72acf78b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 23715
+      },
+      "writtenOn": "2023-12-11T04:47:19Z",
+      "side": 1,
+      "message": "Is there any specific reason I\u0027ve been moved to reviewer? I\u0027m afraid I won\u0027t be able to test this at the moment.",
+      "revId": "f5092b2fb8b15c68ea8412b15e0efb4acaeaab4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
