@@ -16,6 +16,24 @@
       "message": "Is there any specific reason I\u0027ve been moved to reviewer? I\u0027m afraid I won\u0027t be able to test this at the moment.",
       "revId": "f5092b2fb8b15c68ea8412b15e0efb4acaeaab4e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb69acf_937beed1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2023-12-11T08:30:24Z",
+      "side": 1,
+      "message": "Gerrit automaticlaly did that since you\u0027re an author of this change.",
+      "parentUuid": "851f5666_72acf78b",
+      "revId": "f5092b2fb8b15c68ea8412b15e0efb4acaeaab4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
