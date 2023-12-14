@@ -225,7 +225,7 @@
             android:id="@+id/clock_center"
             android:textAppearance="@style/TextAppearance.StatusBar.Clock"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/status_bar_system_icons_height"
             android:singleLine="true"
             android:gravity="center"
             android:visibility="gone"
