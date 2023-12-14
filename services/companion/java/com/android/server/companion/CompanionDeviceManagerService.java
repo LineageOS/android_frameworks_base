@@ -345,6 +345,11 @@ public class CompanionDeviceManagerService extends SystemService implements Bind
         public void onShellCommand(FileDescriptor in, FileDescriptor out, FileDescriptor err,
                 String[] args, ShellCallback callback, ResultReceiver resultReceiver)
                 throws RemoteException {
+            final int callingUid = Binder.getCallingUid();
+            if (callingUid != Process.ROOT_UID && callingUid != Process.SHELL_UID) {
+                resultReceiver.send(-1, null);
+                throw new RemoteException("Shell commands are only callable by ADB");
+            }
             new ShellCmd().exec(this, in, out, err, args, callback, resultReceiver);
         }
     }
