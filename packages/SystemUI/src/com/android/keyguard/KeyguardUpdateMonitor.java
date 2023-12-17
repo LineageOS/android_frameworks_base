@@ -3470,7 +3470,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
      * @deprecated This is being migrated to use modern architecture.
      */
     @Deprecated
-    private boolean isUnlockWithFacePossible(int userId) {
+    public boolean isUnlockWithFacePossible(int userId) {
         if (isFaceAuthInteractorEnabled()) {
             return getFaceAuthInteractor().canFaceAuthRun();
         }

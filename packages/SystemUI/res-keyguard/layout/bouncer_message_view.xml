@@ -15,6 +15,27 @@
   -->
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <LinearLayout
+        android:id="@+id/bouncer_face_icon_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/keyguard_indication_margin_bottom"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical">
+
+        <com.android.systemui.statusbar.phone.FaceUnlockImageView
+            android:id="@+id/bouncer_face_unlock_icon"
+            android:layout_height="@dimen/keyguard_affordance_fixed_height"
+            android:layout_width="@dimen/keyguard_affordance_fixed_width"
+            android:layout_marginBottom="@dimen/keyguard_affordance_vertical_offset"
+            android:padding="@dimen/keyguard_affordance_fixed_padding"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:tint="?android:attr/textColorPrimary"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
     <com.android.keyguard.BouncerKeyguardMessageArea
         android:id="@+id/bouncer_primary_message_area"
         style="@style/Keyguard.Bouncer.PrimaryMessage"
