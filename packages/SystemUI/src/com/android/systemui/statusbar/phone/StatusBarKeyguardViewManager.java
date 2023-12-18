@@ -370,7 +370,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         @Override
         public void onBiometricHelp(int msgId, String helpString,
                 BiometricSourceType biometricSourceType) {
-            if (biometricSourceType == BiometricSourceType.FACE && helpString.equals(mContext.getString(R.string.kg_face_not_recognized))){
+            if (biometricSourceType == BiometricSourceType.FACE && mContext.getString(R.string.kg_face_not_recognized).equals(helpString)) {
                 FaceUnlockImageView.setBouncerState(FaceUnlockImageView.State.NOT_VERIFIED);
             }
         }
@@ -1416,9 +1416,9 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
 
     /** Display security message to relevant KeyguardMessageArea. */
     public void setKeyguardMessage(String message, ColorStateList colorState) {
-        if (message.equals(mContext.getString(R.string.face_unlock_recognizing))) {
+        if (mContext.getString(R.string.face_unlock_recognizing).equals(message)) {
             FaceUnlockImageView.setBouncerState(FaceUnlockImageView.State.SCANNING);
-        } else if (message.equals(mContext.getString(R.string.kg_face_not_recognized))) {
+        } else if (mContext.getString(R.string.kg_face_not_recognized).equals(message)) {
             FaceUnlockImageView.setBouncerState(FaceUnlockImageView.State.NOT_VERIFIED);
         } else {
             // there is no success message on keyguard bouncer
