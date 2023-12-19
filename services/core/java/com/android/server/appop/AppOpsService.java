@@ -3092,6 +3092,11 @@ public class AppOpsService extends IAppOpsService.Stub {
             return AppOpsManager.MODE_ERRORED;
         }
 
+        if (proxyAttributionTag != null
+                && !isAttributionTagDefined(packageName, proxyPackageName, proxyAttributionTag)) {
+            proxyAttributionTag = null;
+        }
+
         synchronized (this) {
             final Ops ops = getOpsLocked(uid, packageName, attributionTag, bypass,
                     true /* edit */);
@@ -3956,6 +3961,55 @@ public class AppOpsService extends IAppOpsService.Stub {
         }
 
         return bypass;
+    }
+
+    private boolean isAttributionInPackage(@Nullable AndroidPackage pkg,
+            @Nullable String attributionTag) {
+        if (pkg == null) {
+            return false;
+        } else if (attributionTag == null) {
+            return true;
+        }
+        if (pkg.getAttributions() != null) {
+            int numAttributions = pkg.getAttributions().size();
+            for (int i = 0; i < numAttributions; i++) {
+                if (pkg.getAttributions().get(i).tag.equals(attributionTag)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks to see if the attribution tag is defined in either package or proxyPackage.
+     * This method is intended for ProxyAttributionTag validation and returns false
+     * if it does not exist in either one of them.
+     *
+     * @param packageName Name of the package
+     * @param proxyPackageName Name of the proxy package
+     * @param attributionTag attribution tag to be checked
+     *
+     * @return boolean specifying if attribution tag is valid or not
+     */
+    private boolean isAttributionTagDefined(@Nullable String packageName,
+                                            @Nullable String proxyPackageName,
+                                            @Nullable String attributionTag) {
+        if (packageName == null) {
+            return false;
+        } else if (attributionTag == null) {
+            return true;
+        }
+        PackageManagerInternal pmInt = LocalServices.getService(PackageManagerInternal.class);
+        if (proxyPackageName != null) {
+            AndroidPackage proxyPkg = pmInt.getPackage(proxyPackageName);
+            if (proxyPkg != null && isAttributionInPackage(proxyPkg, attributionTag)) {
+                return true;
+            }
+        }
+        AndroidPackage pkg = pmInt.getPackage(packageName);
+        return isAttributionInPackage(pkg, attributionTag);
     }
 
     /**
