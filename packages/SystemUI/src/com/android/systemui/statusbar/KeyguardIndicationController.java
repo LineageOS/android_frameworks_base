@@ -916,11 +916,11 @@ public class KeyguardIndicationController {
     private void hideFaceUnlockRecognizingMessage() {
         String faceUnlockMessage = mContext.getResources().getString(
             R.string.face_unlock_recognizing);
-        if (mBiometricMessage != null && mBiometricMessage == faceUnlockMessage) {
+        if (TextUtils.equals(faceUnlockMessage, mBiometricMessage)) {
             mBiometricMessage = null;
             hideBiometricMessage();
-            mFaceIconView.setState(FaceUnlockImageView.State.HIDDEN);
         }
+        mFaceIconView.setState(FaceUnlockImageView.State.HIDDEN);
     }
 
     /**
