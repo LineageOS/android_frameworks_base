@@ -35,13 +35,10 @@ import android.view.animation.LinearInterpolator
 import android.view.animation.OvershootInterpolator
 
 import androidx.core.animation.doOnEnd
+import androidx.core.animation.doOnCancel
 
 import com.android.systemui.R
 import com.android.systemui.statusbar.policy.ConfigurationController
-
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class FaceUnlockImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -53,6 +50,7 @@ class FaceUnlockImageView @JvmOverloads constructor(
 
     private val DELAY_HIDE_DURATION = 1500
     private var currentState: State = State.HIDDEN
+    private var colorState: ColorStateList? = null
     private val startAnimation: ObjectAnimator = createScaleAnimation(start = true)
     private val dismissAnimation: ObjectAnimator = createScaleAnimation(start = false)
     private val scanningAnimation: ObjectAnimator = createScanningAnimation()
@@ -110,16 +108,19 @@ class FaceUnlockImageView @JvmOverloads constructor(
             }
     }
 
+    fun setKeyguardColorState(color: ColorStateList) {
+        this.colorState = color
+        updateColor()
+    }
+
     fun updateColor() {
         val isDark = (context.resources.configuration.uiMode
                 and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
-        val darkColor = context.getColor(R.color.island_background_color_dark)
-        val lightColor = context.getColor(R.color.island_background_color_light)
-        imageTintList = ColorStateList.valueOf(if (this.id == R.id.bouncer_face_unlock_icon) {
-            if (isDark) lightColor else darkColor
+        imageTintList = if (this.id == R.id.bouncer_face_unlock_icon) {
+            if (isDark) ColorStateList.valueOf(Color.WHITE) else ColorStateList.valueOf(Color.BLACK)
         } else {
-            Color.parseColor("#FFFFFF")
-        })
+            colorState ?: ColorStateList.valueOf(Color.WHITE)
+        }
     }
 
     fun setState(state: State) {
@@ -178,7 +179,7 @@ class FaceUnlockImageView @JvmOverloads constructor(
     }
 
     private fun vibrate(effect: Int) {
-        GlobalScope.launch(Dispatchers.Main) {
+        post {
             val vibrationEffect = VibrationEffect.createPredefined(effect)
             vibrator.vibrate(vibrationEffect)
         }
@@ -191,25 +192,51 @@ class FaceUnlockImageView @JvmOverloads constructor(
                 failureShakeAnimation.cancel()
                 successAnimation.cancel()
                 postOnAnimation { startAnimation.start() }
-                startAnimation.doOnEnd { postOnAnimation { scanningAnimation.start() } }
+                startAnimation.doOnEnd {
+                    postOnAnimation {
+                        scanningAnimation.start()
+                    }
+                }
             }
             State.NOT_VERIFIED -> {
                 scanningAnimation.cancel()
                 successAnimation.cancel()
                 failureShakeAnimation.start()
-                failureShakeAnimation.doOnEnd { postOnAnimationDelayed({ dismissAnimation.start() }, DELAY_HIDE_DURATION.toLong()) }
+                failureShakeAnimation.doOnEnd {
+                    postOnAnimation {
+                        dismissAnimation.start()
+                    }
+                }
                 vibrate(VibrationEffect.EFFECT_DOUBLE_CLICK)
             }
             State.SUCCESS -> {
                 scanningAnimation.cancel()
                 failureShakeAnimation.cancel()
                 successAnimation.start()
-                successAnimation.doOnEnd { postOnAnimationDelayed({ dismissAnimation.start() }, DELAY_HIDE_DURATION.toLong()) }
+                successAnimation.doOnEnd {
+                    postOnAnimation {
+                        dismissAnimation.start()
+                    }
+                }
                 vibrate(VibrationEffect.EFFECT_CLICK)
             }
             State.HIDDEN -> {
-                failureShakeAnimation.doOnEnd { postOnAnimationDelayed({ dismissAnimation.start() }, (DELAY_HIDE_DURATION / 2).toLong()) }
-                successAnimation.doOnEnd { postOnAnimationDelayed({ dismissAnimation.start() }, (DELAY_HIDE_DURATION / 2).toLong()) }
+                scanningAnimation.cancel()
+                scanningAnimation.doOnCancel {
+                    postOnAnimation {
+                        dismissAnimation.start()
+                    }
+                }
+                failureShakeAnimation.doOnEnd {
+                    postOnAnimation {
+                        dismissAnimation.start()
+                    }
+                }
+                successAnimation.doOnEnd {
+                    postOnAnimation {
+                        dismissAnimation.start()
+                    }
+                }
             }
         }
     }
