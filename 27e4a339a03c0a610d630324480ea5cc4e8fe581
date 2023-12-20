@@ -16,6 +16,23 @@
       "message": "An alternative solution would be to revert https://android.googlesource.com/platform/frameworks/base/+/625a23ff22f0a9327b9a24341dfa0b8fbaf61a1b",
       "revId": "27e4a339a03c0a610d630324480ea5cc4e8fe581",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f618d40_1abebfea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16023
+      },
+      "writtenOn": "2023-12-20T20:57:29Z",
+      "side": 1,
+      "message": "We simply tracked the repository from main: https://git.halogenos.org/halogenOS/android_manifest/-/blob/XOS-14.0/snippets/XOS.xml?ref_type\u003dheads#L39\n\nhttps://git.halogenos.org/halogenOS/android_external_mockito-kotlin\n\nThis is working for us, at least for regular building.",
+      "revId": "27e4a339a03c0a610d630324480ea5cc4e8fe581",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
