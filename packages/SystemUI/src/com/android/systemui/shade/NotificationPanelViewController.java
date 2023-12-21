@@ -979,6 +979,19 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
         mAlternateBouncerInteractor = alternateBouncerInteractor;
         mKeyguardRootView = keyguardRootView;
         dumpManager.registerDumpable(this);
+
+        mContentResolver.registerContentObserver(
+                LineageSettings.System.getUriFor(LineageSettings.System.DOUBLE_TAP_SLEEP_GESTURE),
+                false,
+                new ContentObserver(handler) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        mDoubleTapToSleepEnabled = LineageSettings.System.getInt(mContentResolver,
+                                LineageSettings.System.DOUBLE_TAP_SLEEP_GESTURE, 0) != 0
+                                || mResources.getBoolean(org.lineageos.platform.internal.R.bool.
+                                config_dt2sGestureEnabledByDefault);
+                    }
+                });
     }
 
     private void unlockAnimationFinished() {
