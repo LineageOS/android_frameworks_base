@@ -33,6 +33,23 @@
       "message": "We simply tracked the repository from main: https://git.halogenos.org/halogenOS/android_manifest/-/blob/XOS-14.0/snippets/XOS.xml?ref_type\u003dheads#L39\n\nhttps://git.halogenos.org/halogenOS/android_external_mockito-kotlin\n\nThis is working for us, at least for regular building.",
       "revId": "27e4a339a03c0a610d630324480ea5cc4e8fe581",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2640bbf7_c54e5651",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32245
+      },
+      "writtenOn": "2023-12-21T06:01:08Z",
+      "side": 1,
+      "message": "It\u0027s fixed in upstream in some days ago, workarounds are no longer needed",
+      "revId": "27e4a339a03c0a610d630324480ea5cc4e8fe581",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
