@@ -35,9 +35,11 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Fragment;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Insets;
 import android.graphics.Rect;
 import android.graphics.Region;
+import android.os.Handler;
 import android.util.IndentingPrintWriter;
 import android.util.Log;
 import android.util.MathUtils;
@@ -397,6 +399,19 @@ public class QuickSettingsController implements Dumpable {
 
         mLockscreenShadeTransitionController.addCallback(new LockscreenShadeTransitionCallback());
         dumpManager.registerDumpable(this);
+
+        mPanelView.getContext().getContentResolver().registerContentObserver(
+                LineageSettings.System.getUriFor(
+                        LineageSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
+                false,
+                new ContentObserver(null) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        mOneFingerQuickSettingsIntercept = LineageSettings.System.getInt(
+                                mPanelView.getContext().getContentResolver(),
+                                LineageSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
+                    }
+                });
     }
 
     @VisibleForTesting
