@@ -68,4 +68,6 @@
     <string name="accessibility_dpad_left">Sol imleç</string>
     <string name="accessibility_dpad_right">Sağ imleç</string>
     <string name="status_bar_firewall">Güvenlik Duvarı</string>
+    <string name="screenshot_delete_label">Sil</string>
+    <string name="screenshot_delete_description">Ekran görüntüsünü sil</string>
 </resources>

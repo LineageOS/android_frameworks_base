@@ -34,9 +34,9 @@
     <string name="global_action_current_user">Bieżący</string>
     <string name="global_action_users">Użytkownicy</string>
     <string name="drag_or_tap_to_add_tiles">Przytrzymaj i przeciągnij lub dotknij, aby dodać kafelki</string>
-    <string name="quick_settings_ambient_display_label">Aktywny wyświetlacz</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Aktywny wyświetlacz wyłączony.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Aktywny wyświetlacz włączony.</string>
+    <string name="quick_settings_ambient_display_label">Ekran Ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ekran Ambient wyłączony.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ekran Ambient włączony.</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD wył.\nOszczędzanie baterii</string>
     <string name="quick_settings_caffeine_label">Kofeina</string>
