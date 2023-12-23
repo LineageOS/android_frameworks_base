@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "323974eb_e7928be6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2023-12-23T20:57:02Z",
+      "side": 1,
+      "message": "This feature fails due to google\u0027s change.\n\nhttps://github.com/crdroidandroid/android_frameworks_base/commit/c6696e596be6ccbc2920e3e47050467eafacbf9c",
+      "revId": "5adf1eb8dd2ac6a23794cb00cca63e3d978a2c2a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
