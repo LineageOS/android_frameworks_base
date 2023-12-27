@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "159951fd_fa908d6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26658
+      },
+      "writtenOn": "2023-12-27T14:04:51Z",
+      "side": 1,
+      "message": "With the new patch set the topic can no longer be picked:\n```\nApplying change number 365453...\n--\u003e Subject:       \"Check URIs in notification public version.\"\n--\u003e Project path:  frameworks/base\n--\u003e Change number: 365453 (Patch Set 2)\n[\u0027git fetch github\u0027, \u0027refs/changes/53/365453/2\u0027]\nremote: Enumerating objects: 736, done.\nremote: Counting objects: 100% (736/736), done.\nremote: Compressing objects: 100% (147/147), done.\nremote: Total 736 (delta 406), reused 693 (delta 397), pack-reused 0\nReceiving objects: 100% (736/736), 1.45 MiB | 570.00 KiB/s, done.\nResolving deltas: 100% (406/406), completed with 130 local objects.\nFrom https://github.com/LineageOS/android_frameworks_base\n * branch                    refs/changes/53/365453/2 -\u003e FETCH_HEAD\nAuto-merging core/java/android/app/Notification.java\nAuto-merging services/tests/uiservicestests/src/com/android/server/notification/NotificationManagerServiceTest.java\nCONFLICT (content): Merge conflict in services/tests/uiservicestests/src/com/android/server/notification/NotificationManagerServiceTest.java\nerror: could not apply 85b9d12294c... Check URIs in notification public version.\nhint: After resolving the conflicts, mark them with\nhint: \"git add/rm \u003cpathspec\u003e\", then run\nhint: \"git cherry-pick --continue\".\nhint: You can instead skip this commit with \"git cherry-pick --skip\".\nhint: To abort and get back to the state before \"git cherry-pick\",\nhint: run \"git cherry-pick --abort\".\nRecorded preimage for \u0027services/tests/uiservicestests/src/com/android/server/notification/NotificationManagerServiceTest.java\u0027\nERROR: git command failed\n\n```",
+      "revId": "85b9d12294c4570937b7a2dc56d9a9fadd9c0e74",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
