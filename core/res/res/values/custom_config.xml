@@ -23,4 +23,7 @@
          unlock pixel-exclusive features -->
     <bool name="config_spoofGoogleApps">true</bool>
 
+    <!-- Whether to spoof GMS as Pixel Tablet -->
+    <bool name="config_spoofasTablet">false</bool>
+
 </resources>
