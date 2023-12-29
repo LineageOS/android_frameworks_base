@@ -17,6 +17,7 @@
 package com.android.systemui.clipboardoverlay;
 
 import static com.android.systemui.flags.Flags.CLIPBOARD_MINIMIZED_LAYOUT;
+import static com.android.internal.config.sysui.SystemUiDeviceConfigFlags.CLIPBOARD_OVERLAY_ENABLED;
 
 import static com.google.android.setupcompat.util.WizardManagerHelper.SETTINGS_SECURE_USER_SETUP_COMPLETE;
 
@@ -33,6 +34,7 @@ import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.os.PersistableBundle;
+import android.provider.DeviceConfig;
 import android.provider.Settings;
 
 import androidx.test.filters.SmallTest;
@@ -41,6 +43,7 @@ import androidx.test.runner.AndroidJUnit4;
 import com.android.internal.logging.UiEventLogger;
 import com.android.systemui.SysuiTestCase;
 import com.android.systemui.flags.FakeFeatureFlags;
+import com.android.systemui.util.DeviceConfigProxyFake;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,6 +71,7 @@ public class ClipboardListenerTest extends SysuiTestCase {
     private FakeFeatureFlags mFeatureFlags = new FakeFeatureFlags();
     @Mock
     private UiEventLogger mUiEventLogger;
+    private DeviceConfigProxyFake mDeviceConfigProxy;
 
     private ClipData mSampleClipData;
     private String mSampleSource = "Example source";
@@ -99,15 +103,27 @@ public class ClipboardListenerTest extends SysuiTestCase {
         when(mClipboardManager.getPrimaryClip()).thenReturn(mSampleClipData);
         when(mClipboardManager.getPrimaryClipSource()).thenReturn(mSampleSource);
 
+        mDeviceConfigProxy = new DeviceConfigProxyFake();
         mFeatureFlags.set(CLIPBOARD_MINIMIZED_LAYOUT, true);
 
-        mClipboardListener = new ClipboardListener(getContext(), mOverlayControllerProvider,
-                mClipboardToast, mClipboardManager, mFeatureFlags, mUiEventLogger);
+        mClipboardListener = new ClipboardListener(getContext(), mDeviceConfigProxy,
+                mOverlayControllerProvider, mClipboardToast, mClipboardManager,
+                mFeatureFlags, mUiEventLogger);
     }
 
+    @Test
+    public void test_disabled() {
+        mDeviceConfigProxy.setProperty(DeviceConfig.NAMESPACE_SYSTEMUI, CLIPBOARD_OVERLAY_ENABLED,
+                "false", false);
+        mClipboardListener.start();
+        verifyZeroInteractions(mClipboardManager);
+        verifyZeroInteractions(mUiEventLogger);
+    }
 
     @Test
-    public void test_initialization() {
+    public void test_enabled() {
+        mDeviceConfigProxy.setProperty(DeviceConfig.NAMESPACE_SYSTEMUI, CLIPBOARD_OVERLAY_ENABLED,
+                "true", false);
         mClipboardListener.start();
         verify(mClipboardManager).addPrimaryClipChangedListener(any());
         verifyZeroInteractions(mUiEventLogger);
@@ -115,6 +131,8 @@ public class ClipboardListenerTest extends SysuiTestCase {
 
     @Test
     public void test_consecutiveCopies() {
+        mDeviceConfigProxy.setProperty(DeviceConfig.NAMESPACE_SYSTEMUI, CLIPBOARD_OVERLAY_ENABLED,
+                "true", false);
         mClipboardListener.start();
         mClipboardListener.onPrimaryClipChanged();
 
