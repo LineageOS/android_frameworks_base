@@ -28,6 +28,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -35,6 +36,8 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.UiEventLogger;
 import com.android.systemui.CoreStartable;
 import com.android.systemui.dagger.SysUISingleton;
+
+import lineageos.providers.LineageSettings;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -80,6 +83,10 @@ public class ClipboardListener implements
 
     @Override
     public void onPrimaryClipChanged() {
+        if (LineageSettings.Secure.getIntForUser(mContext.getContentResolver(),
+                LineageSettings.Secure.CLIPBOARD_SHOW_OVERLAY, 1, UserHandle.USER_CURRENT) == 0) {
+            return;
+        }
         if (!mClipboardManager.hasPrimaryClip()) {
             return;
         }
