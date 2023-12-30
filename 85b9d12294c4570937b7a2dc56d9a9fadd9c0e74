@@ -34,6 +34,24 @@
       "parentUuid": "159951fd_fa908d6b",
       "revId": "85b9d12294c4570937b7a2dc56d9a9fadd9c0e74",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b71dcda_07b5702c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-12-30T22:59:19Z",
+      "side": 1,
+      "message": "I suspect it failed to pick https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/378097?usp\u003dmerge-conflict first which Gerrit mentions As conflicting but should work when picked in dependency order  (see relstion chain)",
+      "parentUuid": "a69f69a2_c818a4ef",
+      "revId": "85b9d12294c4570937b7a2dc56d9a9fadd9c0e74",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
