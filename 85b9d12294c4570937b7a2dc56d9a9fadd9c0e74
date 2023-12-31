@@ -52,6 +52,24 @@
       "parentUuid": "a69f69a2_c818a4ef",
       "revId": "85b9d12294c4570937b7a2dc56d9a9fadd9c0e74",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e65137_331cc506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26658
+      },
+      "writtenOn": "2023-12-31T00:35:01Z",
+      "side": 1,
+      "message": "Thanks!\n\nWhen going in the following order:\n```\nrepopick -f 365443 || exit 1\ncp -v ./android/default.xml ./.repo/manifests || exit 1\nrepo sync -v -j 1 -c --no-tags --no-clone-bundle --force-sync --fail-fast system/ca-certificates 2\u003e\u00261 || exit 1\nrepopick -f 378097 || exit 1\nrepopick -f -t Q_asb_2023-08 || exit 1\n```\nI get:\n```\nApplying change number 378099...\n\nApplying change number 378100...\n--\u003e Subject:       \"Resolve StatusHints image exploit across user.\"\n--\u003e Project path:  frameworks/base\n--\u003e Change number: 378100 (Patch Set 1)\n[\u0027git fetch github\u0027, \u0027refs/changes/00/378100/1\u0027]\nFrom https://github.com/LineageOS/android_frameworks_base\n * branch                    refs/changes/00/378100/1 -\u003e FETCH_HEAD\nNot currently on any branch.\nYou are currently cherry-picking commit c940ce984d4.\n  (all conflicts fixed: run \"git cherry-pick --continue\")\n  (use \"git cherry-pick --skip\" to skip this patch)\n  (use \"git cherry-pick --abort\" to cancel the cherry-pick operation)\n\nnothing to commit, working tree clean\nThe previous cherry-pick is now empty, possibly due to conflict resolution.\nIf you wish to commit it anyway, use:\n\n    git commit --allow-empty\n\nOtherwise, please use \u0027git cherry-pick --skip\u0027\nWARNING: git command resulted with an empty commit, aborting cherry-pick\n\nApplying change number 378122...\n\n# and so on\n```",
+      "parentUuid": "3b71dcda_07b5702c",
+      "revId": "85b9d12294c4570937b7a2dc56d9a9fadd9c0e74",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
