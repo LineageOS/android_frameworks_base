@@ -70,6 +70,24 @@
       "parentUuid": "3b71dcda_07b5702c",
       "revId": "85b9d12294c4570937b7a2dc56d9a9fadd9c0e74",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51997c55_30110ea7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2023-12-31T12:35:51Z",
+      "side": 1,
+      "message": "As you can tell from the message the commit didn\u0027t result in a change. A little bit of checking the log or git history would have shown that it picked https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/365456 and https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/378100 which is the same change. I removed the set topic on the former and abandoned it which I previously forgot.",
+      "parentUuid": "99e65137_331cc506",
+      "revId": "85b9d12294c4570937b7a2dc56d9a9fadd9c0e74",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
