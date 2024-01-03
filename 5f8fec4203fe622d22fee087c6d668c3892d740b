@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae8b24ec_19c9ae0a",
+        "filename": "packages/SystemUI/src/com/android/systemui/navigationbar/gestural/EdgeBackGestureHandler.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-01-03T18:01:46Z",
+      "side": 1,
+      "message": "No longer needed after removal of tuner usage.",
+      "revId": "5f8fec4203fe622d22fee087c6d668c3892d740b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
