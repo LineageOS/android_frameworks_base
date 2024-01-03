@@ -292,6 +292,8 @@ public class ZygoteProcess {
                     throw new ZygoteStartFailedEx("Embedded newlines not allowed");
                 } else if (args.get(i).indexOf('\r') >= 0) {
                     throw new ZygoteStartFailedEx("Embedded carriage returns not allowed");
+                } else if (args.get(i).indexOf('\u0000') >= 0) {
+                    throw new ZygoteStartFailedEx("Embedded nulls not allowed");
                 }
             }
 
