@@ -16,6 +16,24 @@
       "message": "On lineage-20 i have noticed the packageName being \"\" for some apps.\nSince \"\" is the default for the packageexcludelist, these apps are contained in it then.\nThis is a regression introduced by this patch since previously these apps worked normally and were able to access aux cameras.\nI wasn\u0027t able to figure out why packageName wasn\u0027t set properly, but would you be opposed to replace\n\"!packageExcludelist.contains(packageName)\"\nwith\n\"(packageName \u003d\u003d null || !packageExcludelist.contains(packageName))\"?",
       "revId": "54e370768d92176a8114a8fbdf3a71b498a2d98f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23cc7020_b3ce7c3d",
+        "filename": "core/java/android/hardware/Camera.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-01-04T19:54:10Z",
+      "side": 1,
+      "message": "I agree with that sentiment.\n\nDone.",
+      "parentUuid": "a192d884_770c87da",
+      "revId": "54e370768d92176a8114a8fbdf3a71b498a2d98f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
