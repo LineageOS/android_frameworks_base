@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d39e09_ec56cdac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-01-04T19:07:27Z",
+      "side": 1,
+      "message": "It doesn\u0027t dismiss the notification here",
+      "revId": "e532d5de32b68f23fb0344fb8fc769fb6fe63f0d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
