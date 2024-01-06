@@ -34,6 +34,24 @@
       "parentUuid": "1e4b4c9c_59b8cf1c",
       "revId": "e209fe004f2042770bf51fb596c16a53d2913d29",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dda11161_a8308a96",
+        "filename": "packages/PackageInstaller/src/com/android/packageinstaller/PackageUtil.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-01-06T07:28:22Z",
+      "side": 1,
+      "message": "Not a typo, it referred to the side (height or width)",
+      "parentUuid": "e3f177b5_31fa05b9",
+      "revId": "e209fe004f2042770bf51fb596c16a53d2913d29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
