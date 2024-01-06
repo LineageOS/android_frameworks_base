@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "604c4c2d_63192e22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-01-06T01:00:10Z",
+      "side": 1,
+      "message": "not sure what the optimization here is? splitting stuff into methods to keep each method itself contained and small is a good habit. micro-optimization?",
+      "revId": "80ff848fe7b390a992b77a09a404f657f6c7407a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
