@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e4b4c9c_59b8cf1c",
+        "filename": "packages/PackageInstaller/src/com/android/packageinstaller/PackageUtil.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-01-06T00:56:16Z",
+      "side": 1,
+      "message": "typo, should be \"maxSize\", shouldn\u0027t it? ofc also change all occurences",
+      "revId": "e209fe004f2042770bf51fb596c16a53d2913d29",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
