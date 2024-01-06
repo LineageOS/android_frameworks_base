@@ -155,10 +155,7 @@ constructor(
      * If the API caller or the user's personal preferences require explicit confirmation after
      * successful authentication. Confirmation always required when in explicit flow.
      */
-    val isConfirmationRequired: Flow<Boolean> =
-        combine(_isOverlayTouched, size) { isOverlayTouched, size ->
-            !isOverlayTouched && size.isNotSmall
-        }
+    val isConfirmationRequired: Flow<Boolean> = promptSelectorInteractor.isConfirmationRequired
 
     /**
      * When fingerprint and face modalities are enrolled, indicates whether only face auth has
@@ -476,11 +473,9 @@ constructor(
     }
 
     private suspend fun needsExplicitConfirmation(modality: BiometricModality): Boolean {
-        val confirmationRequired = isConfirmationRequired.first()
-
         // Only worry about confirmationRequired if face was used to unlock
         if (modality == BiometricModality.Face) {
-            return confirmationRequired
+            return isConfirmationRequired.first()
         }
         // fingerprint only never requires confirmation
         return false
