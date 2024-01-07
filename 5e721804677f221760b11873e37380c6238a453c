@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6cfd788_8cbf1ef8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2024-01-07T00:07:59Z",
+      "side": 1,
+      "message": "Any reason this is in Settings instead of LineageSettings?",
+      "revId": "5e721804677f221760b11873e37380c6238a453c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
