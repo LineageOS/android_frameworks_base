@@ -1320,9 +1320,15 @@ public class LockPatternView extends View {
                     if (mUseLockPatternDrawable) {
                         drawCellDrawable(canvas, i, j, cellState.radius, drawLookup[i][j]);
                     } else {
-                        drawCircle(canvas, (int) centerX, (int) centerY + translationY,
-                                cellState.radius, drawLookup[i][j], cellState.alpha,
-                                cellState.activationAnimationProgress);
+                        if (isHardwareAccelerated() && cellState.hwAnimating) {
+                            RecordingCanvas recordingCanvas = (RecordingCanvas) canvas;
+                            recordingCanvas.drawCircle(cellState.hwCenterX, cellState.hwCenterY,
+                                    cellState.hwRadius, cellState.hwPaint);
+                        } else {
+                            drawCircle(canvas, (int) centerX, (int) centerY + translationY,
+                                    cellState.radius, drawLookup[i][j], cellState.alpha,
+                                    cellState.activationAnimationProgress);
+                        }
                     }
                 }
             }
