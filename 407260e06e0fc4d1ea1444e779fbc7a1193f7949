@@ -16,6 +16,24 @@
       "message": "Why not TunerService?",
       "revId": "407260e06e0fc4d1ea1444e779fbc7a1193f7949",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a7db765_ff607d8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2024-01-13T19:02:46Z",
+      "side": 1,
+      "message": "It\u0027s deprecated.\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SystemUI/src/com/android/systemui/tuner/TunerService.java;l\u003d27?q\u003dTunerService",
+      "parentUuid": "9df38e02_5d7b24e6",
+      "revId": "407260e06e0fc4d1ea1444e779fbc7a1193f7949",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
