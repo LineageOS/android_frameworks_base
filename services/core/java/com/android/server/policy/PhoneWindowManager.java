@@ -260,6 +260,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -779,6 +780,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private LineageHardwareManager mLineageHardware;
 
     private boolean mLongSwipeDown;
+    private CameraAvailbilityListener mCameraAvailabilityListener;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -2378,6 +2380,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mAlarmManager = mContext.getSystemService(AlarmManager.class);
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         mCameraManager.registerTorchCallback(new TorchModeCallback(), mHandler);
+        mCameraAvailabilityListener = new CameraAvailbilityListener();
+        mCameraManager.registerAvailabilityCallback(mCameraAvailabilityListener, mHandler);
 
         mModifierShortcutManager = new ModifierShortcutManager(mContext, mHandler);
         mUiMode = mContext.getResources().getInteger(
@@ -5016,7 +5020,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 } else {
                     mHandler.removeMessages(MSG_CAMERA_LONG_PRESS);
                     // Consume key up events of long presses only.
-                    if (mIsLongPress && mCameraLaunch) {
+                    if (mIsLongPress && mCameraLaunch
+                            && !mCameraAvailabilityListener.isAnyCameraInUse()) {
                         Intent intent;
                         if (keyguardActive) {
                             intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
@@ -7403,6 +7408,31 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             Slog.e(TAG, "Could not resolve activity with : "
                     + intent.getComponent().flattenToString()
                     + " name.");
+        }
+    }
+
+    private class CameraAvailbilityListener extends CameraManager.AvailabilityCallback {
+        private final Set<String> mCameraInUse = Collections.synchronizedSet(new HashSet<>());
+
+        @Override
+        public void onCameraAvailable(String cameraId) {
+            mCameraInUse.remove(cameraId);
+        }
+
+        @Override
+        public void onCameraUnavailable(String cameraId) {
+            try {
+                // check if the camera id is still valid
+                mCameraManager.getCameraCharacteristics(cameraId);
+            } catch (Exception e) {
+                // camera id is no longer valid, ignore
+                return;
+            }
+            mCameraInUse.add(cameraId);
+        }
+
+        public boolean isAnyCameraInUse() {
+            return !mCameraInUse.isEmpty();
         }
     }
 }
