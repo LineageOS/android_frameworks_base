@@ -34,6 +34,47 @@
       "parentUuid": "19828c4d_4c311351",
       "revId": "79756ad896ef6b822a756331b128157ee2e22f90",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d196f1a_c856e199",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2024-01-15T16:57:17Z",
+      "side": 1,
+      "message": "Would you mind handling the comment below as well at the same time",
+      "parentUuid": "822aed2d_cc1698bd",
+      "revId": "79756ad896ef6b822a756331b128157ee2e22f90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73fd213b_fcdae1b3",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/HeadsUpAppearanceController.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2024-01-15T16:57:17Z",
+      "side": 1,
+      "message": "statusBarView.getClockController();",
+      "range": {
+        "startLine": 148,
+        "startChar": 27,
+        "endLine": 148,
+        "endChar": 89
+      },
+      "revId": "79756ad896ef6b822a756331b128157ee2e22f90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
