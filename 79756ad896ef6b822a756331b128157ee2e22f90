@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19828c4d_4c311351",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17793
+      },
+      "writtenOn": "2024-01-15T16:33:00Z",
+      "side": 1,
+      "message": "is this working fine? i had to use main looper like that https://paste.myself5.de/vobibivoni.java\n\nBinder  : android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views. Expected: main Calling: binder:9347_F",
+      "revId": "79756ad896ef6b822a756331b128157ee2e22f90",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
