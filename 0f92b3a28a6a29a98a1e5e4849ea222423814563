@@ -16,6 +16,24 @@
       "message": "Done, pushed the fix, sorry in advance if i broke the chain",
       "revId": "0f92b3a28a6a29a98a1e5e4849ea222423814563",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86010e17_659e70dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2024-01-15T18:09:30Z",
+      "side": 1,
+      "message": "Chain should be fixed now",
+      "parentUuid": "ac8cd443_36e80df2",
+      "revId": "0f92b3a28a6a29a98a1e5e4849ea222423814563",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
