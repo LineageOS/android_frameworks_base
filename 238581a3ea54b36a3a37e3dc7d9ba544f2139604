@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "929a7191_37540520",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19252
+      },
+      "writtenOn": "2024-01-16T13:31:49Z",
+      "side": 1,
+      "message": "This fixes UDFPS icon while registering a new fingerprint on rtwo (Motorola Edge 40 Pro)",
+      "revId": "238581a3ea54b36a3a37e3dc7d9ba544f2139604",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
