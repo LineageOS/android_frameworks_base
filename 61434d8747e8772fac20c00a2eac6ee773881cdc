@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a8dbad8_76855354",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19252
+      },
+      "writtenOn": "2024-01-16T17:37:01Z",
+      "side": 1,
+      "message": "Fixed Luk\u0027s code review\n\nSorry about breaking the chain earlier, I totally forgot to check if I was on latest patchset before pushing",
+      "revId": "61434d8747e8772fac20c00a2eac6ee773881cdc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

@@ -16,6 +16,24 @@
       "message": "break",
       "revId": "265ed03571e965e9e9278892ef1c234720a15c8a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a7cb0c6_e57a61a1",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 19252
+      },
+      "writtenOn": "2024-01-16T17:37:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f39f4714_d1253350",
+      "revId": "265ed03571e965e9e9278892ef1c234720a15c8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
