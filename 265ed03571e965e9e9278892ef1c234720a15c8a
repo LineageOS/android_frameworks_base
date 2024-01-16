@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39f4714_d1253350",
+        "filename": "services/core/java/com/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-16T15:41:38Z",
+      "side": 1,
+      "message": "break",
+      "revId": "265ed03571e965e9e9278892ef1c234720a15c8a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
