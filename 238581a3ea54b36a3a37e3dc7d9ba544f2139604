@@ -16,6 +16,23 @@
       "message": "This fixes UDFPS icon while registering a new fingerprint on rtwo (Motorola Edge 40 Pro)",
       "revId": "238581a3ea54b36a3a37e3dc7d9ba544f2139604",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9047d1b5_6c0aa2b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2024-01-16T13:35:27Z",
+      "side": 1,
+      "message": "required to get udfps ui up on spacewar and most likely other devices using hidl still",
+      "revId": "238581a3ea54b36a3a37e3dc7d9ba544f2139604",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
