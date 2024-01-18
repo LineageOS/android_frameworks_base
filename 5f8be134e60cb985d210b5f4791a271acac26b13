@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c65c674e_f7482177",
+        "filename": "services/backup/java/com/android/server/backup/BackupManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-18T22:43:42Z",
+      "side": 1,
+      "message": "spaces",
+      "revId": "5f8be134e60cb985d210b5f4791a271acac26b13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb709a4_4beb8a70",
+        "filename": "services/backup/java/com/android/server/backup/BackupManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-18T22:43:42Z",
+      "side": 1,
+      "message": "minus 4 spaces",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 22
+      },
+      "revId": "5f8be134e60cb985d210b5f4791a271acac26b13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c43a7fe_e9bcf93a",
+        "filename": "services/backup/java/com/android/server/backup/BackupManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-18T22:43:42Z",
+      "side": 1,
+      "message": "lineage sdk setting.",
+      "revId": "5f8be134e60cb985d210b5f4791a271acac26b13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a9fcd4_6d0b68fc",
+        "filename": "services/backup/java/com/android/server/backup/BackupManagerService.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-18T22:43:42Z",
+      "side": 1,
+      "message": "reformat",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 19
+      },
+      "revId": "5f8be134e60cb985d210b5f4791a271acac26b13",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
