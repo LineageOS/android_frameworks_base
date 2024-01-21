@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4efa0c61_453334ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2024-01-21T18:36:52Z",
+      "side": 1,
+      "message": "The line width in the lock screen/AOD has enough space for 10 notification icons, no need to limit at 3.\nTested with hawao and crosshatch.",
+      "revId": "269c9c587246c73391fc9ab04faedfa58f9991dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
