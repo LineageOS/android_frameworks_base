@@ -33,6 +33,24 @@
       "message": "We might as well just use LineageSettings for it, if we have to maintain code for that on our own.",
       "revId": "e13d7ba64b2168471b6a154b8a313cc38f1ce543",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ffefc30_2f9862e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2024-01-22T14:36:51Z",
+      "side": 1,
+      "message": "Could just do https://gerrit.aospa.co/c/AOSPA/android_frameworks_base/+/33689 and https://gerrit.aospa.co/c/AOSPA/android_packages_apps_Settings/+/33686",
+      "parentUuid": "15a764f6_f926f3da",
+      "revId": "e13d7ba64b2168471b6a154b8a313cc38f1ce543",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
