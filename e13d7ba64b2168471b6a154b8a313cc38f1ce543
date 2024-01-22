@@ -16,6 +16,23 @@
       "message": "Hey, would you be so kind and take a look when you\u0027ve got a minute? Also, do you think it would be worth adding a system setting for the clipboard overlay? Thanks!",
       "revId": "e13d7ba64b2168471b6a154b8a313cc38f1ce543",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52115b23_920c3bfb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-01-22T13:29:49Z",
+      "side": 1,
+      "message": "We might as well just use LineageSettings for it, if we have to maintain code for that on our own.",
+      "revId": "e13d7ba64b2168471b6a154b8a313cc38f1ce543",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
