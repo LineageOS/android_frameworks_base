@@ -166,7 +166,9 @@ public class Clock extends TextView implements
                         // Force refresh of dependent variables.
                         mContentDescriptionFormatString = "";
                         mDateTimePatternGenerator = null;
-                        updateClock(true);
+                        mContext.getMainExecutor().execute(() -> {
+                            updateClock(true);
+                        });
                     } else if (LineageSettings.System.getUriFor(
                             LineageSettings.System.STATUS_BAR_CLOCK_AUTO_HIDE).equals(uri)) {
                         handleTaskStackListener(
