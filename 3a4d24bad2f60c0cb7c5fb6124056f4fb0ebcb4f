@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7cb145_cea78a46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-01-23T22:36:02Z",
+      "side": 1,
+      "message": "I wish to review the cpl/profiles code and compare against current upstream again before these are merged. Updates could be done in a followup, so I\u0027m not calling it a full blocker as this current iteration does work.",
+      "revId": "3a4d24bad2f60c0cb7c5fb6124056f4fb0ebcb4f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
