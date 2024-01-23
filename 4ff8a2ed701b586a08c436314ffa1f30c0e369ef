@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2079c174_57dd9dc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2024-01-23T12:05:37Z",
+      "side": 1,
+      "message": "Causes this crash and breaks the whole clock. \nhttps://katb.in/kixaxepolow",
+      "revId": "4ff8a2ed701b586a08c436314ffa1f30c0e369ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
