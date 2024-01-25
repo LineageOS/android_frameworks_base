@@ -16,6 +16,40 @@
       "message": "Causes this crash and breaks the whole clock. \nhttps://katb.in/kixaxepolow",
       "revId": "4ff8a2ed701b586a08c436314ffa1f30c0e369ef",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3e5940_49cfb6c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-01-25T11:39:52Z",
+      "side": 1,
+      "message": "if that works, please switch over",
+      "revId": "4ff8a2ed701b586a08c436314ffa1f30c0e369ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be20ecab_f86a89ae",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/Clock.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-01-25T11:39:52Z",
+      "side": 1,
+      "message": "that\u0027s fine, but I\u0027d rather create an handler like in the other observer",
+      "revId": "4ff8a2ed701b586a08c436314ffa1f30c0e369ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
