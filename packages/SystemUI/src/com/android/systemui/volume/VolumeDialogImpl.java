@@ -776,8 +776,10 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             ViewGroup container = mDialog.findViewById(R.id.volume_dialog_container);
             setGravity(container, Gravity.LEFT);
 
+            setLayoutGravity(container, Gravity.LEFT);
             setGravity(mDialogView, Gravity.LEFT);
 
+            setLayoutGravity(mDialogView, Gravity.LEFT);
             setGravity((ViewGroup) mTopContainer, Gravity.LEFT);
 
             setLayoutGravity(mRingerDrawerNewSelectionBg, Gravity.BOTTOM | Gravity.LEFT);
@@ -786,9 +788,13 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
             setGravity(mRinger, Gravity.LEFT);
 
+            setLayoutGravity(mRinger, Gravity.BOTTOM | Gravity.LEFT);
             setGravity(mDialogRowsViewContainer, Gravity.LEFT);
 
+            setLayoutGravity(mDialogRowsViewContainer, Gravity.LEFT);
             setGravity(mODICaptionsView, Gravity.LEFT);
+
+            setLayoutGravity(mODICaptionsView, Gravity.LEFT);
 
             mExpandRows.setRotation(-90);
         }
