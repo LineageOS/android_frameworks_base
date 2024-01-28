@@ -16,6 +16,23 @@
       "message": "Since we don\u0027t actually change anything on layout direction changes now, it doesn\u0027t make much sense to indicate a config change, hence i removed calling onConfigurationChanged to avoid re-init the dialog without changes.",
       "revId": "19ac03f94fe7a84d95bc02e88d9fb9096a97996d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed934f2e_74a16bff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 22465
+      },
+      "writtenOn": "2024-01-28T13:12:15Z",
+      "side": 1,
+      "message": "Looks good to me",
+      "revId": "19ac03f94fe7a84d95bc02e88d9fb9096a97996d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
