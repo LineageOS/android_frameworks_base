@@ -48,6 +48,7 @@ public class NvAppProfileService {
     private static final String NvPowerModeProperty = "persist.vendor.sys.NV_POWER_MODE";
 
     private final NvAppProfiles mAppProfile;
+    private final NvWhitelistService mWhitelistService;
     private final Context mContext;
 
     private boolean mInitAppProfiles = false;
@@ -63,6 +64,7 @@ public class NvAppProfileService {
         }
 
         mAppProfile = new NvAppProfiles(mContext);
+        mWhitelistService = new NvWhitelistService(mContext);
     }
 
     private static String getPackageName(String appName) {
@@ -259,5 +261,33 @@ public class NvAppProfileService {
         intent.putExtra("AppStartId", packageName);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT,
                 "nvidia.permission.READ_APP_START_INFO");
+    }
+
+    public String customizeAppBanner(String packageName) {
+        if (packageName == null) return null;
+
+        final String bannerName = mAppProfile.getApplicationProfileString(packageName,
+                NvAppProfileSettingId.WHITELIST_CUSTOMIZE_BANNER);
+        if (bannerName != null && !bannerName.isEmpty()) return bannerName;
+
+        return mWhitelistService.getBannerName(packageName);
+    }
+
+    public Drawable getBannerDrawable(String packageName) {
+        final String bannerName = customizeAppBanner(packageName);
+        if (bannerName == null || bannerName.length() == 0) {
+            return null;
+        }
+
+        final Resources systemResources = mContext.getResources().getSystem();
+        final int drawableResourceId = systemResources.getIdentifier(bannerName,
+                "drawable", "android");
+        if (drawableResourceId == 0) return null;
+
+        return systemResources.getDrawable(drawableResourceId);
+    }
+
+    public NvWhitelistService getWhitelistService() {
+        return mWhitelistService;
     }
 }
