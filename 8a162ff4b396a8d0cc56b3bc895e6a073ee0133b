@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55d52f40_b9b6c1d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14010
+      },
+      "writtenOn": "2024-01-31T14:42:56Z",
+      "side": 1,
+      "message": "I am not sure if there is a reason for having this duplicate ContentObserver, but whitelisting and blacklisting the clock from the status bar elements works as expected even without it.",
+      "revId": "8a162ff4b396a8d0cc56b3bc895e6a073ee0133b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
