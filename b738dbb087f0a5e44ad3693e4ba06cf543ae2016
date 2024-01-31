@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b667b1d4_adaebed2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14010
+      },
+      "writtenOn": "2024-01-31T14:44:12Z",
+      "side": 1,
+      "message": "Together with the previous patch, this fixes the alignment/gravity of the right clock.",
+      "revId": "b738dbb087f0a5e44ad3693e4ba06cf543ae2016",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
