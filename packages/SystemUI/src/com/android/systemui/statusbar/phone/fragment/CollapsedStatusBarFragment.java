@@ -151,8 +151,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
 
     private ClockController mClockController;
-    private Context mContext;
-    private boolean mIsClockDenylisted;
 
     private List<String> mBlockedIcons = new ArrayList<>();
     private Map<Startable, Startable.State> mStartableStates = new ArrayMap<>();
@@ -328,25 +326,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         showClock(false);
         initOperatorName();
         initNotificationIconArea();
-
-        mContext = getContext();
-
-        ContentObserver contentObserver = new ContentObserver(null) {
-            @Override
-            public void onChange(boolean selfChange) {
-                boolean wasClockDenylisted = mIsClockDenylisted;
-                mIsClockDenylisted = StatusBarIconController.getIconHideList(mContext,
-                        Settings.Secure.getString(mContext.getContentResolver(),
-                                StatusBarIconController.ICON_HIDE_LIST)).contains("clock");
-                if (wasClockDenylisted && !mIsClockDenylisted) {
-                    showClock(false);
-                }
-            }
-        };
-        mContext.getContentResolver().registerContentObserver(
-                Settings.Secure.getUriFor(StatusBarIconController.ICON_HIDE_LIST), false,
-                contentObserver);
-        contentObserver.onChange(true);
 
         mSystemEventAnimator = getSystemEventAnimator();
         mCarrierConfigTracker.addCallback(mCarrierConfigCallback);
