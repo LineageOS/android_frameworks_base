@@ -3668,6 +3668,10 @@ public class NotificationManagerService extends SystemService {
             Preconditions.checkNotNull(user);
 
             verifyPrivilegedListener(token, user);
+
+            final NotificationChannel originalChannel = mRankingHelper.getNotificationChannel(
+                    pkg, getUidForPackageAndUser(pkg, user), channel.getId(), true);
+            verifyPrivilegedListenerUriPermission(Binder.getCallingUid(), channel, originalChannel);
             updateNotificationChannelInt(pkg, getUidForPackageAndUser(pkg, user), channel, true);
         }
 
@@ -3706,6 +3710,24 @@ public class NotificationManagerService extends SystemService {
             }
             if (!info.enabledAndUserMatches(user.getIdentifier())) {
                 throw new SecurityException(info + " does not have access");
+            }
+        }
+
+        private void verifyPrivilegedListenerUriPermission(int sourceUid,
+                @NonNull NotificationChannel updateChannel,
+                @Nullable NotificationChannel originalChannel) {
+            // Check that the NLS has the required permissions to access the channel
+            final Uri soundUri = updateChannel.getSound();
+            final Uri originalSoundUri =
+                    (originalChannel != null) ? originalChannel.getSound() : null;
+            if (soundUri != null && !Objects.equals(originalSoundUri, soundUri)) {
+                Binder.withCleanCallingIdentity(() -> {
+                    mAm.checkGrantUriPermission(sourceUid, null,
+                            ContentProvider.getUriWithoutUserId(soundUri),
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION,
+                            ContentProvider.getUserIdFromUri(soundUri,
+                            UserHandle.getUserId(sourceUid)));
+                });
             }
         }
 
