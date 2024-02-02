@@ -63,6 +63,9 @@ public class RotationLockTile extends QSTileImpl<BooleanState> implements
 
     private static final String EMPTY_SECONDARY_STRING = "";
 
+    private static final String ROTATION_SETTINGS =
+            "org.lineageos.lineageparts.DISPLAY_ROTATION";
+
     private final Icon mIcon = ResourceIcon.get(com.android.internal.R.drawable.ic_qs_auto_rotate);
     private final RotationLockController mController;
     private final SensorPrivacyManager mPrivacyManager;
@@ -127,7 +130,7 @@ public class RotationLockTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.ACTION_AUTO_ROTATE_SETTINGS);
+        return new Intent(ROTATION_SETTINGS);
     }
 
     @Override
