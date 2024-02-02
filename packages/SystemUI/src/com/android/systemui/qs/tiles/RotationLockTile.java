@@ -122,7 +122,7 @@ public class RotationLockTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.ACTION_AUTO_ROTATE_SETTINGS);
+        return new Intent("org.lineageos.lineageparts.DISPLAY_ROTATION");
     }
 
     @Override
