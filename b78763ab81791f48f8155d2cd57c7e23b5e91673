@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "614cb376_ba764355",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2024-02-03T02:35:12Z",
+      "side": 1,
+      "message": "This should be overlayed in vendor/lineage",
+      "revId": "b78763ab81791f48f8155d2cd57c7e23b5e91673",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
