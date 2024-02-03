@@ -22,6 +22,23 @@
       },
       "revId": "26c85362af81dd92862cb104bce48c3b4baedd02",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d39c3b8c_f7a25f37",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-02-03T15:13:59Z",
+      "side": 1,
+      "message": "the string should be declared as static final probably in L#65 and then used here",
+      "revId": "26c85362af81dd92862cb104bce48c3b4baedd02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
