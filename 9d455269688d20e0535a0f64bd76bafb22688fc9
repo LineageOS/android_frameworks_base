@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45e6257c_099d7732",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2024-02-04T22:36:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ae8356_c95be30d",
+      "range": {
+        "startLine": 65,
+        "startChar": 32,
+        "endLine": 65,
+        "endChar": 57
+      },
+      "revId": "9d455269688d20e0535a0f64bd76bafb22688fc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03308d72_4c06e82f",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-04T13:50:49Z",
       "side": 1,
       "message": "8 spaces, not 4.",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 8
+      },
+      "revId": "9d455269688d20e0535a0f64bd76bafb22688fc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "753349f9_14faf90b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2024-02-04T22:36:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03308d72_4c06e82f",
       "range": {
         "startLine": 66,
         "startChar": 4,
