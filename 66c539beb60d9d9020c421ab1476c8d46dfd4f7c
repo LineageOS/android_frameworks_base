@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd40e4c_bca9bad0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2024-02-04T12:50:12Z",
+      "side": 1,
+      "message": "I am blind, whoops.",
+      "parentUuid": "63d80e50_94c8ba4a",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "66c539beb60d9d9020c421ab1476c8d46dfd4f7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4303f700_ce333443",
@@ -47,6 +71,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d30ba7_2e3e34ee",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2024-02-04T12:50:12Z",
+      "side": 1,
+      "message": "Okay, Done. I was only replicating the style here: https://github.com/LineageOS/android_frameworks_base/blob/f1b360b81a979157d338af89579ab4e0e9a72e80/packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java#L75",
+      "parentUuid": "4303f700_ce333443",
+      "range": {
+        "startLine": 65,
+        "startChar": 32,
+        "endLine": 65,
+        "endChar": 56
+      },
+      "revId": "66c539beb60d9d9020c421ab1476c8d46dfd4f7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eeb7983b_820d8764",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-02-04T11:23:13Z",
       "side": 1,
       "message": "Leave the original code here and refer and pass the string.",
+      "range": {
+        "startLine": 128,
+        "startChar": 15,
+        "endLine": 128,
+        "endChar": 39
+      },
+      "revId": "66c539beb60d9d9020c421ab1476c8d46dfd4f7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7380dcf_f160fb63",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2024-02-04T12:50:12Z",
+      "side": 1,
+      "message": "Done, thanks",
+      "parentUuid": "eeb7983b_820d8764",
       "range": {
         "startLine": 128,
         "startChar": 15,
