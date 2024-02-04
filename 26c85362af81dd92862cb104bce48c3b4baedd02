@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0a90da_aa606fe1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2024-02-04T00:12:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01faee82_55d2c432",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 34
+      },
+      "revId": "26c85362af81dd92862cb104bce48c3b4baedd02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d39c3b8c_f7a25f37",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-02-03T15:13:59Z",
       "side": 1,
       "message": "the string should be declared as static final probably in L#65 and then used here",
+      "revId": "26c85362af81dd92862cb104bce48c3b4baedd02",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76e0d440_169fb91b",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 17945
+      },
+      "writtenOn": "2024-02-04T00:12:12Z",
+      "side": 1,
+      "message": "Done, using the way it was set in https://github.com/LineageOS/android_frameworks_base/blob/f1b360b81a979157d338af89579ab4e0e9a72e80/packages/SystemUI/src/com/android/systemui/qs/tiles/ProfilesTile.java#L75",
+      "parentUuid": "d39c3b8c_f7a25f37",
       "revId": "26c85362af81dd92862cb104bce48c3b4baedd02",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
