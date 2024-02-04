@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4303f700_ce333443",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-02-04T11:23:13Z",
+      "side": 1,
+      "message": "Not sure why would you want to inline as a new intent here. Just make it a string.",
+      "range": {
+        "startLine": 65,
+        "startChar": 32,
+        "endLine": 65,
+        "endChar": 56
+      },
+      "revId": "66c539beb60d9d9020c421ab1476c8d46dfd4f7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb7983b_820d8764",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-02-04T11:23:13Z",
+      "side": 1,
+      "message": "Leave the original code here and refer and pass the string.",
+      "range": {
+        "startLine": 128,
+        "startChar": 15,
+        "endLine": 128,
+        "endChar": 39
+      },
+      "revId": "66c539beb60d9d9020c421ab1476c8d46dfd4f7c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
