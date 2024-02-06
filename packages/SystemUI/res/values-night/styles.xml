@@ -50,6 +50,7 @@
         <item name="onShadeInactiveVariant">?android:attr/textColorSecondary</item>
         <item name="shadeDisabled">@color/shade_disabled</item>
         <item name="underSurface">@android:color/system_neutral1_900</item>
+        <item name="underSurfaceVariant">@android:color/system_neutral1_700</item>
         <item name="android:itemTextAppearance">@style/Control.MenuItem</item>
     </style>
 

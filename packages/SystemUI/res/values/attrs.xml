@@ -123,6 +123,7 @@
     <!-- color attribute tokens for QS -->
     <attr name="isQsTheme" format="boolean" />
     <attr name="underSurface" format="reference|color"/>
+    <attr name="underSurfaceVariant" format="reference|color"/>
     <attr name="shadeActive" format="reference|color" />
     <attr name="onShadeActive" format="reference|color" />
     <attr name="onShadeActiveVariant" format="reference|color" />
