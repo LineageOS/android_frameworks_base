@@ -16,6 +16,24 @@
       "message": "tho wait for ASB merge.",
       "revId": "e228c1e0d3c981627e8adb6152470deb53b2e49a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca15f9ae_acc74b99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-02-07T09:04:18Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "a20dd2e8_22432b3f",
+      "revId": "e228c1e0d3c981627e8adb6152470deb53b2e49a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
