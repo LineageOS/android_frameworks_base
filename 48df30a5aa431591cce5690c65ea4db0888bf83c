@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08758604_9508bf1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27741
+      },
+      "writtenOn": "2024-02-08T16:33:42Z",
+      "side": 1,
+      "message": "don\u0027t kill nvconstants; it is used in cpl itself and used by clients to not have to redefine constants.",
+      "revId": "48df30a5aa431591cce5690c65ea4db0888bf83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
