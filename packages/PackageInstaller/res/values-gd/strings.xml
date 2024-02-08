@@ -38,6 +38,9 @@
     <string name="install_failed_incompatible" product="default">Cha deach an aplacaid a stàladh oir nach eil an aplacaid seo
         co-chòrdail ris an fhòn agad.</string>
     <string name="install_failed_invalid_apk">Cha deach an aplacaid a stàladh on a tha coltas mì-dhligheach air a’ phacaid.</string>
+    <string name="install_failed_msg" product="tablet">Cha b’ urrainn dhuinn <xliff:g id="app_name">%1$s</xliff:g> a stàladh air an tablaid agad.</string>
+    <string name="install_failed_msg" product="tv">Cha b’ urrainn dhuinn <xliff:g id="app_name">%1$s</xliff:g> a stàladh air an TBh agad.</string>
+    <string name="install_failed_msg" product="default">Cha b’ urrainn dhuinn <xliff:g id="app_name">%1$s</xliff:g> a stàladh air an fhòn agad.</string>
     <string name="launch">Fosgail</string>
     <string name="unknown_apps_admin_dlg_text">Cha cheadaich an rianaire agad gun stàlaich thu aplacaidean
         o thùs nach aithne dhuinn.</string>
@@ -47,6 +50,7 @@
     <string name="ok">Ceart ma-thà</string>
     <string name="manage_applications">Stiùir na h-aplacaidean</string>
     <string name="out_of_space_dlg_title">Chan eil àite air fhàgail</string>
+    <string name="out_of_space_dlg_text">Cha b’ urrainn dhuinn <xliff:g id="app_name">%1$s</xliff:g> a stàladh. Saor àite is feuch ris a-rithist.</string>
     <string name="app_not_found_dlg_title">Cha deach an aplacaid a lorg</string>
     <string name="app_not_found_dlg_text"> Cha deach an aplacaid a lorg air liosta nan aplacaidean stàlaichte.</string>
     <string name="user_is_not_allowed_dlg_title">Gun chead</string>
@@ -55,16 +59,25 @@
     <string name="generic_error_dlg_text">Cha b’ urrainn dhuinn a aplacaid a dhì-stàladh.</string>
     <string name="uninstall_application_title">Dì-stàlaich an aplacaid</string>
     <string name="uninstall_update_title">Dì-stàlaich an t-ùrachadh</string>
+    <string name="uninstall_activity_text">Tha <xliff:g id="activity_name">%1$s</xliff:g> ’na phàirt dhen aplacaid seo:</string>
     <string name="uninstall_application_text">An dì-stàlaich thu an aplacaid seo?</string>
+    <string name="uninstall_application_text_all_users">A bheil thu airson an aplacaid seo a dhì-stàladh dhan <b>a h-uile cleachdaiche</b>?
+  Thèid an aplacaid ’s an dàta ’na broinn a thoirt air falbh dhan <b>a h-uile cleachdaiche</b> air an uidheam seo.</string>
+    <string name="uninstall_application_text_user">A bheil thu airson an aplacaid seo a dhì-stàladh dhan chleachdaiche <xliff:g id="username">%1$s</xliff:g>?</string>
     <string name="uninstall_update_text">A bheil thu airson tionndadh an fhactaraidh a chur an àite na h-aplacaid seo? Thèid a h-uile dàta a thoirt air falbh.</string>
     <string name="uninstall_update_text_multiuser">A bheil thu airson tionndadh an fhactaraidh a chur an àite na h-aplacaid seo? Thèid a h-uile dàta a thoirt air falbh. Bidh buaidh aig seo air gach cleachdaiche an uidheim seo, a’ gabhail a-staigh an fheadhainn aig a bheil pròifil obrach. </string>
+    <string name="uninstall_keep_data">Cùm <xliff:g id="size" example="1.5MB">%1$s</xliff:g> a dhàta nan aplacaidean.</string>
     <string name="uninstalling_notification_channel">Dì-stàlaidhean ’gan ruith</string>
     <string name="uninstall_failure_notification_channel">Dì-stàlaidhean a dh’fhàillig leotha</string>
     <string name="uninstalling">’Ga dhì-stàladh\u2026</string>
+    <string name="uninstalling_app">A’ dì-stàladh <xliff:g id="package_label">%1$s</xliff:g>\u2026</string>
     <string name="uninstall_done">Chaidh a dhì-stàladh.</string>
+    <string name="uninstall_done_app">Chaidh <xliff:g id="package_label">%1$s</xliff:g> a dhì-stàladh</string>
     <string name="uninstall_failed">Cha deach leinn a dhì-stàladh.</string>
+    <string name="uninstall_failed_app">Cha deach le dì-stàladh <xliff:g id="package_label">%1$s</xliff:g>.</string>
     <string name="uninstall_failed_device_policy_manager">Cha ghabh an aplacaid ghnìomhach airson rianachd an uidheim
         a dhì-stàladh</string>
+    <string name="uninstall_failed_device_policy_manager_of_user">Cha ghabh an aplacaid ghnìomhach airson rianachd an uidheim a dhì-stàladh airson <xliff:g id="username">%1$s</xliff:g></string>
     <string name="uninstall_all_blocked_profile_owner">Tha an aplacaid seo riatanach air cuid a phròifilean cleachdaiche
         agus chaidh a dì-stàladh do dh’fheadhainn eile</string>
     <string name="uninstall_blocked_profile_owner">Feumaidh a’ phròifil agad an aplacaid seo
@@ -73,8 +86,11 @@
         agus cha ghabh a dì-stàladh.</string>
     <string name="manage_device_administrators">Stiùir aplacaidean rianachd an uidheim</string>
     <string name="manage_users">Stiùir na cleachdaichean</string>
+    <string name="uninstall_failed_msg">Cha b’ urrainn dhuinn <xliff:g id="app_name">%1$s</xliff:g> a dhì-stàladh.</string>
     <string name="Parse_error_dlg_text">Bha duilgheadas le parsadh na pacaid.</string>
+    <string name="wear_not_allowed_dlg_title">Android Wear</string>
     <string name="wear_not_allowed_dlg_text">Cha chuir Wear taic ri gnìomhan stàlaidh/dì-stàlaidh.</string>
+    <string name="message_staging">Ag ullachadh na h-aplacaid…</string>
     <string name="app_name_unknown">Chan eil fhios</string>
     <string name="untrusted_external_source_warning" product="tablet">A chùm do thèarainteachd, chan fhaod an tablaid agad aplacaidean nach aithne dhuinn a stàladh on tùs seo.</string>
     <string name="untrusted_external_source_warning" product="tv">A chùm do thèarainteachd, chan fhaod an TBh agad aplacaidean nach aithne dhuinn a stàladh on tùs seo.</string>
@@ -99,4 +115,5 @@
     <string name="wear_app_channel">A’ stàladh/dhì-stàladh aplacaidean wear</string>
     <string name="app_installed_notification_channel_description">Brath air stàladh aplacaid</string>
     <string name="notification_installation_success_message">Chaidh a stàladh</string>
+    <string name="notification_installation_success_status">Chaidh “<xliff:g id="appname" example="Package Installer">%1$s</xliff:g>” a stàladh</string>
 </resources>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2015 The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="wifi_status">
+        <item/>
+        <item>Daûr a cirî\u2026</item>
+        <item>Daûr a conetisi\u2026</item>
+        <item>Daûr a autenticâsi\u2026</item>
+        <item>Daûr a otignî la direzion IP\u2026</item>
+        <item>Conetût</item>
+        <item>Sospindût</item>
+        <item>Daûr a disconetisi\u2026</item>
+        <item>Disconetût</item>
+        <item>Falît</item>
+        <item>Blocât</item>
+        <item>Daûr a evitâ in mût temporani la conession scjarse</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item/>
+        <item>Daûr a cirî\u2026</item>
+        <item>Daûr a conetisi a <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Daûr a autenticâsi cun <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Daûr a otignî une direzion IP di <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Conetût a <xliff:g id="network_name">%1$s</xliff:g></item>
+        <item>Sospindût</item>
+        <item>Daûr a disconetisi di <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <item>Disconetût</item>
+        <item>Falît</item>
+        <item>Blocât</item>
+        <item>Daûr a evitâ in mût temporani la conession scjarse</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>No sta controlâ mai</item>
+        <item>Controle dome pai contignûts DRM</item>
+        <item>Controle simpri</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>No sta doprâ mai il control HDCP</item>
+        <item>Dopre il control HDCP dome pai contignûts DRM</item>
+        <item>Dopre simpri il control HDCP</item>
+    </string-array>
+    <string-array name="bt_hci_snoop_log_entries">
+        <item>Disativât</item>
+        <item>Ativât cun filtri</item>
+        <item>Ativât</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (predefinît)</item>
+        <item>AVRCP 1.3</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_version_values">
+        <item>avrcp14</item>
+        <item>avrcp13</item>
+        <item>avrcp15</item>
+        <item>avrcp16</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Audio <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g></item>
+        <item>Audio <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g></item>
+        <item>LDAC</item>
+        <item>Abilite i codecs opzionâi</item>
+        <item>Disabilite i codecs opzionâi</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Audio <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g></item>
+        <item>Audio <xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g></item>
+        <item>LDAC</item>
+        <item>Abilite i codecs opzionâi</item>
+        <item>Disabilite i codecs opzionâi</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>16 bits/campion</item>
+        <item>24 bits/campion</item>
+        <item>32 bits/campion</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>16 bits/campion</item>
+        <item>24 bits/campion</item>
+        <item>32 bits/campion</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Dopre selezion di sisteme (predefinide)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Otimizât pe cualitât audio (990kbps/909kbps)</item>
+        <item>Cualitât audio e di conession belançadis (660kbps/606kbps)</item>
+        <item>Otimizât pe cualitât de conession (330kbps/303kbps)</item>
+        <item>Miôr risultât (velocitât di trasmission adative)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Otimizât pe cualitât audio</item>
+        <item>Cualitât di audio e di conession belançadis</item>
+        <item>Otimizât pe cualitât de conession</item>
+        <item>Miôr risultât (velocitât di trasmission adative)</item>
+    </string-array>
+    <string-array name="bluetooth_audio_active_device_summaries">
+        <item/>
+        <item>, atîf</item>
+        <item>, atîf (multimedia)</item>
+        <item>, atîf (telefon)</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Off</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Off</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Off</item>
+        <item>64K par memorie tampon di regjistri</item>
+        <item>256K par memorie tampon di regjistri</item>
+        <item>1M par memorie tampon di regjistri</item>
+        <item>4M par memorie tampon di regjistri</item>
+        <item>16M par memorie tampon di regjistri</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Off</item>
+        <item>Dut</item>
+        <item>Dut gjavât il segnâl radio</item>
+        <item>dome kernel</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Off</item>
+        <item>Dutis lis memoriis tampon dai regjistris</item>
+        <item>Dut gjavâts i buffers di regjistris dal segn.radio</item>
+        <item>dome il buffer di regjistri dal kernel</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animazion disativade</item>
+        <item>Scjale di animazion 0,5x</item>
+        <item>Scjale di animazion 1x</item>
+        <item>Scjale di animazion 1,5x</item>
+        <item>Scjale di animazion 2x</item>
+        <item>Scjale di animazion 5x</item>
+        <item>Scjale di animazion 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animazion disativade</item>
+        <item>Scjale di animazion 0,5x</item>
+        <item>Scjale di animazion 1x</item>
+        <item>Scjale di animazion 1,5x</item>
+        <item>Scjale di animazion 2x</item>
+        <item>Scjale di animazion 5x</item>
+        <item>Scjale di animazion 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animazion disativade</item>
+        <item>Scjale di animazion 0,5x</item>
+        <item>Scjale di animazion 1x</item>
+        <item>Scjale di animazion 1,5x</item>
+        <item>Scjale di animazion 2x</item>
+        <item>Scjale di animazion 5x</item>
+        <item>Scjale di animazion 10x</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>Nissune</item>
+        <item>480p</item>
+        <item>480p (sigûr)</item>
+        <item>720p</item>
+        <item>720p (sigûr)</item>
+        <item>1080p</item>
+        <item>1080p (sigûr)</item>
+        <item>4K</item>
+        <item>4K (sigûr)</item>
+        <item>4K (ingrandît)</item>
+        <item>4K (ingrandît, sigûr)</item>
+        <item>720p, 1080p (dopli schermi)</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>Nissune</item>
+        <item>Logcat</item>
+        <item>Systrace (Grafics)</item>
+        <item>Stack de clamade su glGetError</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Disativât</item>
+        <item>Dissegne regjon di ritai no-retangolâr in blu</item>
+        <item>Evidenzie comants di dissen provâts in vert</item>
+    </string-array>
+    <string-array name="track_frame_time_entries">
+        <item>Disativât</item>
+        <item>Sul schermi come sbaris</item>
+        <item>In <xliff:g id="as_typed_command">adb shell dumpsys gfxinfo</xliff:g></item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Disativât</item>
+        <item>Mostre areis di dissen intensîf</item>
+        <item>Mostre areis pe deuteranomalie</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Limit standard</item>
+        <item>Nissun procès in sotfont</item>
+        <item>Al massim 1 procès</item>
+        <item>Al massim 2 procès</item>
+        <item>Al massim 3 procès</item>
+        <item>Al massim 4 procès</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Ricjarie</item>
+        <item>MTP (Protocol di Trasferiment Multimediâl)</item>
+        <item>PTP (Protocol di trasferiment imagjins)</item>
+        <item>RNDIS (Ethernet USB)</item>
+        <item>Sorzint audio</item>
+        <item>MIDI</item>
+    </string-array>
+</resources>

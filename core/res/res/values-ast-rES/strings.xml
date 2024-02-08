@@ -190,7 +190,7 @@
     <string name="network_logging_notification_text">La to organización xestiona esti preséu y pue supervisar el tránsitu de la rede. Toca pa ver los detalles.</string>
     <string name="factory_reset_warning">El preséu va reafitase</string>
     <string name="factory_reset_message">L\'aplicación d\'alministración nun se pue usar. Van
-        desaniciase los datos del preséu.\n\nSi tienes entrugues,
+        desaniciase los datos del preséu.\n\nSi tienes duldes,
         ponte en contautu col alministrador de la to organización.</string>
     <string name="printing_disabled_by">«<xliff:g id="owner_app">%s</xliff:g>» desactivó la imprentación.</string>
     <string name="me">Yo</string>
@@ -295,14 +295,14 @@
     <string name="permgroupdesc_contacts">accesu a los contautos</string>
     <string name="permgrouprequest_contacts">¿Quies permitir que
         &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; acceda a los contautos?</string>
-    <string name="permgrouplab_location">Allugamientu</string>
-    <string name="permgroupdesc_location">accesu al allugamientu del preséu</string>
+    <string name="permgrouplab_location">Llocalización</string>
+    <string name="permgroupdesc_location">accesu a la llocalización del preséu</string>
     <string name="permgrouprequest_location">¿Quies permitir que
-        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; acceda al allugamientu d\'esti preséu?</string>
-    <string name="permgrouprequestdetail_location">L\'aplicación namás tien accesu al allugamientu mentanto la tas usando</string>
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; acceda a la llocalización d\'esti preséu?</string>
+    <string name="permgrouprequestdetail_location">L\'aplicación namás tien accesu a la llocalización mentanto la tas usando</string>
     <string name="permgroupbackgroundrequest_location">¿Quies permitir que
-        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; acceda &lt;b&gt;de contino&lt;/b&gt; al allugamientu d\'esti preséu?</string>
-    <string name="permgroupbackgroundrequestdetail_location">Anguaño, l\'aplicación pue acceder al allugamientu namás mentanto la tas usando</string>
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; acceda &lt;b&gt;de contino&lt;/b&gt; a la llocalización d\'esti preséu?</string>
+    <string name="permgroupbackgroundrequestdetail_location">Anguaño, l\'aplicación pue acceder a la llocalización namás mentanto la tas usando</string>
     <string name="permgrouplab_calendar">Calendariu</string>
     <string name="permgroupdesc_calendar">accesu al calendariu</string>
     <string name="permgrouprequest_calendar">¿Quies permitir que
@@ -342,7 +342,7 @@
     <string name="capability_title_canRetrieveWindowContent">Recuperar el conteníu de les ventanes</string>
     <string name="capability_desc_canRetrieveWindowContent">Inspeiciona\'l conteníu de la ventana
         cola que teas interactuando.</string>
-    <string name="capability_title_canRequestTouchExploration">Activar «Esploración táctil»</string>
+    <string name="capability_title_canRequestTouchExploration">Activar la esploración táctil</string>
     <string name="capability_desc_canRequestTouchExploration">Los elementos tocaos van dicise n\'alto y la pantalla
         va poder esplorase con xestos.</string>
     <string name="capability_title_canRequestFilterKeyEvents">Ver el testu que teclexes</string>
@@ -505,19 +505,19 @@
     <string name="permdesc_writeCalendar" product="tablet">Esta aplicación pue amestar, quitar o camudar los eventos del calendariu atroxaos na tableta. Tamién pue unviar mensaxes que paezan venir de los propietarios del preséu o camudar los eventos ensin avisar a los sos propietarios.</string>
     <string name="permdesc_writeCalendar" product="tv">Esta aplicación pue amestar, quitar o camudar los eventos del calendariu atroxaos na TV. Tamién pue unviar mensaxes que paezan venir de los propietarios del preséu o camudar los eventos ensin avisar a los sos propietarios.</string>
     <string name="permdesc_writeCalendar" product="default">Esta aplicación pue amestar, quitar o camudar los eventos del calendariu atroxaos nel teléfonu. Tamién pue unviar mensaxes que paezan venir de los propietarios del preséu o camudar los eventos ensin avisar a los sos propietarios.</string>
-    <string name="permlab_accessLocationExtraCommands">accesu a comandos adicionales del fornidor d\'allugamientu</string>
+    <string name="permlab_accessLocationExtraCommands">accesu a comandos adicionales del fornidor de llocalización</string>
     <string name="permdesc_accessLocationExtraCommands">Permite que l\'aplicación acceda
-        a los comandos adicionales del fornidor d\'allugamientu.  Esti permisu
-        pue interfirir col funcionamientu del GPS con otres fontes d\'allugamientu.</string>
-    <string name="permlab_accessFineLocation">accesu al allugamientu exautu namás en primer planu</string>
-    <string name="permdesc_accessFineLocation">Esta aplicación pue consiguir l\'allugamientu exautu namás cuando ta en primer planu. Estos servicios d\'allugamientu han activase y tar disponibles nel teléfonu pa que l\'aplicación seya a usalos. Poro, el consumu d\'enerxía pue aumentar.</string>
-    <string name="permlab_accessCoarseLocation">accesu al allugamientu aproximáu namás en primer planu</string>
-    <string name="permdesc_accessCoarseLocation" product="tablet">Esta aplicación pue consiguir el to allugamientu según les fontes d\'allugamientu de rede, como torres de telefonía y redes Wi-Fi, mas namás cuando l\'aplicación ta en primer planu. Estos servicios d\'allugamientu han activase y tar disponibles na tableta pa que l\'aplicación seya a usalos.</string>
-    <string name="permdesc_accessCoarseLocation" product="tv">Esta aplicación pue consiguir el to allugamientu según les fontes d\'allugamientu de rede, como torres de telefonía y redes Wi-Fi, mas namás cuando l\'aplicación ta en primer planu. Estos servicios d\'allugamientu han activase y tar disponibles na TV pa que l\'aplicación seya a usalos.</string>
-    <string name="permdesc_accessCoarseLocation" product="automotive">Esta aplicación pue consiguir el to allugamientu aproximáu namás cuando ta en primer planu. Estos servicios d\'allugamientu han activase y tar disponibles nel coche pa que l\'aplicación seya a usalos.</string>
-    <string name="permdesc_accessCoarseLocation" product="default">Esta aplicación pue consiguir el to allugamientu según les fontes d\'allugamientu de rede, como torres de telefonía y redes Wi-Fi, mas namás cuando l\'aplicación ta en primer planu. Estos servicios d\'allugamientu han activase y tar disponibles nel teléfonu pa que l\'aplicación seya a usalos.</string>
-    <string name="permlab_accessBackgroundLocation">accesu al allugamientu en segundu planu</string>
-    <string name="permdesc_accessBackgroundLocation">Si se concede esti permisu, amás d\'acceder al allugamientu aproximáu o exautu, l\'aplicación pue acceder al allugamientu mentanto s\'executa en segundu planu.</string>
+        a los comandos adicionales del fornidor de llocalización.  Esti permisu
+        pue interfirir col funcionamientu del GPS con otres fontes de llocalización.</string>
+    <string name="permlab_accessFineLocation">accesua la llocalización exauta namás en primer planu</string>
+    <string name="permdesc_accessFineLocation">Esta aplicación pue consiguir la llocalización exauta namás cuando ta en primer planu. Estos servicios de llocalización han activase y tar disponibles nel teléfonu pa que l\'aplicación seya a usalos. Poro, el consumu d\'enerxía pue aumentar.</string>
+    <string name="permlab_accessCoarseLocation">accesu a la llocalización aproximada namás en primer planu</string>
+    <string name="permdesc_accessCoarseLocation" product="tablet">Esta aplicación pue consiguir la lo llocalización según les fontes de llocalización de rede, como torres de telefonía y redes Wi-Fi, mas namás cuando l\'aplicación ta en primer planu. Estos servicios de llocalización han activase y tar disponibles na tableta pa que l\'aplicación seya a usalos.</string>
+    <string name="permdesc_accessCoarseLocation" product="tv">Esta aplicación pue consiguir la lo llocalización según les fontes de llocalización de rede, como torres de telefonía y redes Wi-Fi, mas namás cuando l\'aplicación ta en primer planu. Estos servicios de llocalización han activase y tar disponibles na TV pa que l\'aplicación seya a usalos.</string>
+    <string name="permdesc_accessCoarseLocation" product="automotive">Esta aplicación pue consiguir la to llocalización aproximada namás cuando ta en primer planu. Estos servicios de llocalización han activase y tar disponibles nel coche pa que l\'aplicación seya a usalos.</string>
+    <string name="permdesc_accessCoarseLocation" product="default">Esta aplicación pue consiguir la lo llocalización según les fontes de llocalización de rede, como torres de telefonía y redes Wi-Fi, mas namás cuando l\'aplicación ta en primer planu. Estos servicios de llocalización han activase y tar disponibles nel teléfonu pa que l\'aplicación seya a usalos.</string>
+    <string name="permlab_accessBackgroundLocation">accesu a la llocalización en segundu planu</string>
+    <string name="permdesc_accessBackgroundLocation">Si se concede esti permisu, amás d\'acceder a la llocalización aproximada o exauta, l\'aplicación pue acceder a la llocalización mentanto s\'executa en segundu planu.</string>
     <string name="permlab_modifyAudioSettings">cambéu de los axustes d\'audiu</string>
     <string name="permdesc_modifyAudioSettings">Permite que l\'aplicación modifique los axustes d\'audiu globales como\'l volume o l\'altavoz que s\'usa pa la salida.</string>
     <string name="permlab_recordAudio">grabación d\'audiu</string>
@@ -542,7 +542,7 @@
     <string name="permdesc_accessImsCallService">Permite que l\'aplicación use\'l serviciu IMS pa facer llamaes ensin la to intervención.</string>
     <string name="permlab_readPhoneState">llectura del estáu y la identidá del teléfonu</string>
     <string name="permdesc_readPhoneState">Permite que l\'aplicación acceda a les
-      carauterístiques telefóniques del preséu. Con esti permisu l\'aplicación pue determinar
+      funciones telefóniques del preséu. Con esti permisu l\'aplicación pue determinar
       el númberu de teléfonu y les IDs de preseos, saber si hai llamaes en cursu y los
       númberos remotos conectaos pente una llamada.</string>
     <string name="permlab_manageOwnCalls">encaminamientu de llamaes pente\'l sistema</string>
@@ -851,7 +851,7 @@
     <string name="policylab_disableCamera">Desactivación de les cámares</string>
     <string name="policydesc_disableCamera">Evita l\'usu de toles cámares del preséu.</string>
     <string name="policylab_disableKeyguardFeatures">Desact. caract. bloq. pant.</string>
-    <string name="policydesc_disableKeyguardFeatures">Impide l\'usu de dalgunes carauterístiques del bloquéu de pantalla.</string>
+    <string name="policydesc_disableKeyguardFeatures">Impide l\'usu de dalgunes funciones del bloquéu de pantalla.</string>
     <string-array name="phoneTypes">
         <item>Casa</item>
         <item>Móvil</item>
@@ -1206,14 +1206,14 @@
     <string name="permlab_setAlarm">programación d\'una alarma</string>
     <string name="permdesc_setAlarm">Permite que l\'aplicación programe una
         alarma nes aplicaciones d\'espertador. Dalgunes aplicaciones
-        d\'espertador quiciabes nun incorporen esta carauterística.</string>
+        d\'espertador quiciabes nun incorporen esta función.</string>
     <string name="permlab_addVoicemail">amiestu de mensaxes nel buzón de voz</string>
     <string name="permdesc_addVoicemail">Permite que l\'aplicación amieste
       mensaxes al buzón de voz.</string>
-    <string name="permlab_writeGeolocationPermissions">modificación de los permisos d\'allugamientu xeográficu de Restolador</string>
+    <string name="permlab_writeGeolocationPermissions">modificación de los permisos de llocalización xeográficu de Restolador</string>
     <string name="permdesc_writeGeolocationPermissions">Permite que l\'aplicación modifique
-        los permisos d\'allugamientu xeográficu de Restolador. Les aplicaciones
-        puen usar esti permisu pa permitir l\'unviu de la información d\'allugamientu
+        los permisos de llocalización xeográficu de Restolador. Les aplicaciones
+        puen usar esti permisu pa permitir l\'unviu de la información de llocalización
         a sitios web arbitrarios.</string>
     <string name="save_password_message">¿Quies que\'l restolador s\'acuerde d\'esta contraseña?</string>
     <string name="save_password_notnow">Agora non</string>
@@ -1240,11 +1240,11 @@
     <string name="searchview_description_clear">Desaniciar la consulta</string>
     <string name="searchview_description_submit">Unviar la consulta</string>
     <string name="searchview_description_voice">Busca per voz</string>
-    <string name="enable_explore_by_touch_warning_title">¿Quies activar «Esploración táctil»?</string>
-    <string name="enable_explore_by_touch_warning_message" product="tablet">        «<xliff:g id="accessibility_service_name">%1$s</xliff:g>» quier activar «Esploración táctil».
+    <string name="enable_explore_by_touch_warning_title">¿Quies activar la esploración táctil?</string>
+    <string name="enable_explore_by_touch_warning_message" product="tablet">        «<xliff:g id="accessibility_service_name">%1$s</xliff:g>» quier activar la esploración táctil.
         Cuando s\'activa esta función, vas poder oyer y ver les descripciones de lo que tengas sol
         deu o facer xestos pa interactuar cola tableta.</string>
-    <string name="enable_explore_by_touch_warning_message" product="default">        «<xliff:g id="accessibility_service_name">%1$s</xliff:g>» quier activar «Esploración táctil».
+    <string name="enable_explore_by_touch_warning_message" product="default">        «<xliff:g id="accessibility_service_name">%1$s</xliff:g>» quier activar la esploración táctil.
        Cuando s\'activa esta función, vas poder oyer y ver les descripciones de lo que tengas sol
        deu o facer xestos pa interactuar col teléfonu.</string>
     <string name="oneMonthDurationPast">Hai un mes</string>
@@ -1346,7 +1346,7 @@
     <string name="Midnight">"Medianueche"</string>
     <string name="elapsed_time_short_format_mm_ss"><xliff:g id="minutes" example="1">%1$02d</xliff:g>:<xliff:g id="seconds" example="23">%2$02d</xliff:g></string>
     <string name="elapsed_time_short_format_h_mm_ss"><xliff:g id="hours" example="1">%1$d</xliff:g>:<xliff:g id="minutes" example="43">%2$02d</xliff:g>:<xliff:g id="seconds" example="33">%3$02d</xliff:g></string>
-    <string name="selectAll">Esbillar too</string>
+    <string name="selectAll">Seleicionar too</string>
     <string name="cut">Cortar</string>
     <string name="copy">Copiar</string>
     <string name="failed_to_copy_to_clipboard">Hebo un fallu al copiar nel cartafueyu</string>
@@ -1539,7 +1539,7 @@
     <string name="wifi_cannot_connect_with_randomized_mac_message">Toca pa camudar los axustes de privacidá y volver tentalo</string>
     <string name="wifi_disable_mac_randomization_dialog_title">¿Quies camudar l\'axuste de privacidá?</string>
     <string name="wifi_disable_mac_randomization_dialog_message"> Pa conectate, «<xliff:g id="ssid" example="SSID_1">%1$s</xliff:g>» tien d\'usar la direición MAC del to preséu, un identificador únicu. Anguaño, l\'axuste de privacidá d\'esta rede usa un identificador al debalu.
-        \n\nEsti cambéu pue permitir que los preseos cercanos faigan un siguimientu del allugamientu del to preséu.</string>
+        \n\nEsti cambéu pue permitir que los preseos cercanos faigan un siguimientu de la llocalización del to preséu.</string>
     <string name="wifi_disable_mac_randomization_dialog_confirm_text">Camudar l\'axuste</string>
     <string name="wifi_disable_mac_randomization_dialog_success">Anovóse la conexón. Volvi probar a conectate.</string>
     <string name="wifi_disable_mac_randomization_dialog_failure">Nun se pue camudar l\'axuste de privacidá</string>
@@ -1685,7 +1685,7 @@
     <string name="alert_windows_notification_channel_group_name">Superposición a otres aplicaciones</string>
     <string name="alert_windows_notification_channel_name">«<xliff:g id="name" example="Google Maps">%s</xliff:g>» superponiéndose a otres aplicaciones</string>
     <string name="alert_windows_notification_title">«<xliff:g id="name" example="Google Maps">%s</xliff:g>» superpónse a otres aplicaciones</string>
-    <string name="alert_windows_notification_message">Si nun quies que «<xliff:g id="name" example="Google Maps">%s</xliff:g>» use esta carauterística, toca p\'abrir los axustes y desactivala.</string>
+    <string name="alert_windows_notification_message">Si nun quies que «<xliff:g id="name" example="Google Maps">%s</xliff:g>» use esta función, toca p\'abrir los axustes y desactivala.</string>
     <string name="alert_windows_notification_turn_off_action">Desactivar</string>
     <string name="ext_media_checking_notification_title">Comprobando\'l mediu «<xliff:g id="name" example="SD card">%s</xliff:g>»\u2026</string>
     <string name="ext_media_checking_notification_message">Revisando\'l conteníu actual</string>
@@ -1804,8 +1804,8 @@
     <string name="websearch">Busca web</string>
     <string name="find_next">Atopar lo siguiente</string>
     <string name="find_previous">Atopar lo anterior</string>
-    <string name="gpsNotifTicker">Solicitú d\'allugamientu de: <xliff:g id="name">%s</xliff:g></string>
-    <string name="gpsNotifTitle">Solicitú d\'allugamientu</string>
+    <string name="gpsNotifTicker">Solicitú de llocalización de: <xliff:g id="name">%s</xliff:g></string>
+    <string name="gpsNotifTitle">Solicitú de llocalización</string>
     <string name="gpsNotifMessage">Aición solicitada por «<xliff:g id="name">%1$s</xliff:g>» (<xliff:g id="service" example="SUPL-service">%2$s</xliff:g>)</string>
     <string name="gpsVerifYes">Sí</string>
     <string name="gpsVerifNo">Non</string>
@@ -2004,8 +2004,8 @@
     </string>
     <string name="accessibility_shortcut_warning_dialog_title">¿Quies usar l\'atayu «Accesibilidá»?</string>
     <string name="accessibility_shortcut_toogle_warning">        Al activar l\'atayu y primir al empar los botones de volume demientres 3 segundos,
-        actívase una carauterística d\'accesibilidá.\n\n
-        Carauterísitca d\'accesibilidá actual:\n
+        actívase una función d\'accesibilidá.\n\n
+        Función d\'accesibilidá actual:\n
         <xliff:g id="service_name" example="TalkBack">%1$s</xliff:g>\n\n
         Pues camudar esta carauterística n\'Axustes &gt; Accesibilidá.
     </string>
@@ -2139,7 +2139,7 @@
     <string name="restr_pin_try_later">Volvi tentalo dempués</string>
     <string name="immersive_cling_title">Vista a pantalla completa</string>
     <string name="immersive_cling_description">Pa colar, esliza dende lo baxero hasta lo cimero.</string>
-    <string name="immersive_cling_positive">D\'acuerdu</string>
+    <string name="immersive_cling_positive">Entendílo</string>
     <string name="done_label">Fecho</string>
     <string name="hour_picker_description">Control circular de les hores</string>
     <string name="minute_picker_description">Control circular de los minutos</string>
@@ -2164,8 +2164,8 @@
     <string name="package_updated_device_owner">L\'alministrador anovó l\'aplicación</string>
     <string name="package_deleted_device_owner">L\'alministrador desanició l\'aplicación</string>
     <string name="confirm_battery_saver">OK</string>
-    <string name="battery_saver_description_with_learn_more">P\'aumentar la duración de la batería, «Aforrador d\'enerxía»:\n·Activa l\'estilu escuru\n·Desactiva o torga l\'actividá en segundu planu, dalgunos efeutos visuales y otres carauterístiques como «Á Google»\n\n<annotation id="url">Saber más</annotation></string>
-    <string name="battery_saver_description">P\'aumentar la duración de la batería, «Aforrador d\'enerxía»:\n·Activa l\'estilu escuru\n·Desactiva o torga l\'actividá en segundu planu, dalgunos efeutos visuales y otres carauterístiques como «Á Google»</string>
+    <string name="battery_saver_description_with_learn_more">P\'aumentar la duración de la batería, l\'aforrador d\'enerxía»:\n·Activa l\'estilu escuru\n·Desactiva o torga l\'actividá en segundu planu, dalgunos efeutos visuales y otres funciones como «Á Google»\n\n<annotation id="url">Saber más</annotation></string>
+    <string name="battery_saver_description">P\'aumentar la duración de la batería, l\'aforrador d\'enerxía»:\n·Activa l\'estilu escuru\n·Desactiva o torga l\'actividá en segundu planu, dalgunos efeutos visuales y otres funciones como «Á Google»</string>
     <string name="data_saver_description">P\'ayudar a amenorgar l\'usu de datos, «Aforrador de datos» evita que que les aplicaciones unvien y reciban datos en segundu planu. L\'aplicación que teas usando pue acceder a los datos, mas quiciabes lo faiga con menos frecuencia. Esto quier dicir, por exemplu, que les imáxenes nun van amosase hasta que calques nelles.</string>
     <string name="data_saver_enable_title">¿Quies activar «Aforrador de datos»?</string>
     <string name="data_saver_enable_button">Activar</string>
@@ -2360,15 +2360,15 @@
     <string name="notification_appops_overlay_active">superpónse a otres aplicaciones de la pantalla</string>
     <string name="dynamic_mode_notification_channel_name">Avisu d\'información el mou Rutina</string>
     <string name="dynamic_mode_notification_title">La batería pue escosar enantes de lo normal</string>
-    <string name="dynamic_mode_notification_summary">Activóse «Aforrador d\'enerxía» p\'aumentar la duración de la batería</string>
+    <string name="dynamic_mode_notification_summary">Activóse l\'aforrador d\'enerxía p\'aumentar la duración de la batería</string>
     <string name="battery_saver_notification_channel_name">Aforrador d\'enerxía</string>
-    <string name="battery_saver_sticky_disabled_notification_title">«Aforrador d\'enerxía» nun va volver activase hasta que vuelva haber poca batería</string>
-    <string name="battery_saver_sticky_disabled_notification_summary">La batería cargó a un nivel abondu. «Aforrador d\'enerxía» nun va volver activase hasta que vuelva haber poca batería.</string>
+    <string name="battery_saver_sticky_disabled_notification_title">L\'aforrador d\'enerxía nun va volver activase hasta que vuelva haber poca batería</string>
+    <string name="battery_saver_sticky_disabled_notification_summary">La batería cargó a un nivel abondu. L\'aforrador d\'enerxía nun va volver activase hasta que vuelva haber poca batería.</string>
     <string name="battery_saver_charged_notification_title" product="default">El teléfonu cargó al <xliff:g id="charge level" example="90%">%1$s</xliff:g></string>
     <string name="battery_saver_charged_notification_title" product="tablet">La tableta cargó al <xliff:g id="charge level" example="90%">%1$s</xliff:g></string>
     <string name="battery_saver_charged_notification_title" product="device">El preséu cargó al <xliff:g id="charge level" example="90%">%1$s</xliff:g></string>
-    <string name="battery_saver_off_notification_summary">«Aforrador d\'enerxía» ta desactiváu. Les carauterístiques yá nun tán torgaes.</string>
-    <string name="battery_saver_off_alternative_notification_summary">Desactivóse «Aforrador d\'enerxía». Les carauterístiques yá nun tán torgaes.</string>
+    <string name="battery_saver_off_notification_summary">L\'aforrador d\'enerxía ta desactiváu. Les funciones yá nun tán torgaes.</string>
+    <string name="battery_saver_off_alternative_notification_summary">Desactivóse l\'aforrador d\'enerxía. Les funciones yá nun tán torgaes.</string>
     <string name="mime_type_folder">Carpeta</string>
     <string name="mime_type_apk">Aplicación d\'Android</string>
     <string name="mime_type_generic">Ficheru</string>

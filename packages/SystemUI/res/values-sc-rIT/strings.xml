@@ -352,6 +352,7 @@
     <string name="enable_bluetooth_confirmation_ok">Ativa</string>
     <string name="notification_header_default_channel">Notìficas</string>
     <string name="inline_done_button">Fatu</string>
+    <string name="inline_ok_button">Àplica</string>
     <string name="notification_appops_settings">Impostatziones</string>
     <string name="notification_more_settings">Àteras cunfiguratziones</string>
     <string name="notification_app_settings">Personaliza</string>

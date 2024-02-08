@@ -32,7 +32,7 @@
     <string name="keyguard_password_wrong_pin_code">Cod PIN anghywir</string>
     <string name="keyguard_sim_error_message_short">Cerdyn Annilys.</string>
     <string name="keyguard_charged">Wedi gwefru\u2019n llawn</string>
-    <string name="keyguard_plugged_in_wireless"><xliff:g id="percentage" example="20%">%s</xliff:g> • Yn gwefru\u2019n ddiwifr</string>
+    <string name="keyguard_plugged_in_wireless"><xliff:g id="percentage" example="20%">%s</xliff:g> • Yn gwefru\u2019n ddi-wifr</string>
     <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru</string>
     <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru\'n gyflym</string>
     <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • Yn gwefru\'n araf</string>
@@ -150,9 +150,9 @@ Rho gynnig arall arni ymhen <xliff:g id="number">%3$d</xliff:g> eiliad.    </str
     <string name="keyguard_carrier_default">Dim gwasanaeth.</string>
     <string name="accessibility_ime_switch_button" msgid="5032926134740456424">Newid dull mewnbwn</string>
     <string name="airplane_mode">Modd awyren</string>
-    <string name="kg_prompt_reason_restart_pattern">Rhaid rhoi\'r patrwm ar ôl ail-ddechrau\'r ddyfais</string>
-    <string name="kg_prompt_reason_restart_pin">Rhaid rhoi\'r PIN ar ôl ail-ddechrau\'r ddyfais</string>
-    <string name="kg_prompt_reason_restart_password">Rhaid rhoi\'r cyfrinair ar ôl ail-ddechrau\'r ddyfais</string>
+    <string name="kg_prompt_reason_restart_pattern">Rhaid rhoi\'r patrwm ar ôl ailgychwyn y ddyfais</string>
+    <string name="kg_prompt_reason_restart_pin">Rhaid rhoi\'r PIN ar ôl ailgychwyn y ddyfais</string>
+    <string name="kg_prompt_reason_restart_password">Rhaid rhoi\'r cyfrinair ar ôl ailgychwyn y ddyfais</string>
     <string name="kg_prompt_reason_timeout_pattern">Rhaid rhoi\'r patrwm fel cam diogelwch ychwanegol</string>
     <string name="kg_prompt_reason_timeout_pin">Rhaid rhoi\'r PIN fel cam diogelwch ychwanegol</string>
     <string name="kg_prompt_reason_timeout_password">Rhaid rhoi\'r cyfrinair fel cam diogelwch ychwanegol</string>

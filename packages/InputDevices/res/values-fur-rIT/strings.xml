@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_label">Dispositîfs di input</string>
+    <string name="keyboard_layouts_label">Tastiere Android</string>
+    <string name="keyboard_layout_english_uk_label">Inglese (Ream Unît)</string>
+    <string name="keyboard_layout_english_us_label">Inglese (Stâts Unîts)</string>
+    <string name="keyboard_layout_english_us_intl">Inglese (Stâts Unîts), stîl internazionâl</string>
+    <string name="keyboard_layout_english_us_colemak_label">Inglese (Stâts Unîts), stîl Colemak</string>
+    <string name="keyboard_layout_english_us_dvorak_label">Inglese (Stâts Unîts), stîl Dvorak</string>
+    <string name="keyboard_layout_english_us_workman_label">Inglese (Stâts Unîts), stîl Workman</string>
+    <string name="keyboard_layout_german_label">Todescje</string>
+    <string name="keyboard_layout_french_label">Francese</string>
+    <string name="keyboard_layout_french_ca_label">Francese (Canadà)</string>
+    <string name="keyboard_layout_russian_label">Russe</string>
+    <string name="keyboard_layout_russian_mac_label">Russe, stîl Mac</string>
+    <string name="keyboard_layout_spanish_label">Spagnole</string>
+    <string name="keyboard_layout_swiss_french_label">Francese svuizare</string>
+    <string name="keyboard_layout_swiss_german_label">Todescje svuizare</string>
+    <string name="keyboard_layout_belgian">Belgjiche</string>
+    <string name="keyboard_layout_bulgarian">Bulgare</string>
+    <string name="keyboard_layout_italian">Taliane</string>
+    <string name="keyboard_layout_danish">Danese</string>
+    <string name="keyboard_layout_norwegian">Norvegjese</string>
+    <string name="keyboard_layout_swedish">Svedese</string>
+    <string name="keyboard_layout_finnish">Finlandese</string>
+    <string name="keyboard_layout_croatian">Cravuate</string>
+    <string name="keyboard_layout_czech">Ceche</string>
+    <string name="keyboard_layout_estonian">Estone</string>
+    <string name="keyboard_layout_hungarian">Ongjarese</string>
+    <string name="keyboard_layout_icelandic">Islandese</string>
+    <string name="keyboard_layout_brazilian">Brasiliane</string>
+    <string name="keyboard_layout_portuguese">Portughese</string>
+    <string name="keyboard_layout_slovak">Slovache</string>
+    <string name="keyboard_layout_slovenian">Slovene</string>
+    <string name="keyboard_layout_turkish">Turche</string>
+    <string name="keyboard_layout_ukrainian">Ucraine</string>
+    <string name="keyboard_layout_arabic">Arabe</string>
+    <string name="keyboard_layout_greek">Greche</string>
+    <string name="keyboard_layout_hebrew">Ebraiche</string>
+    <string name="keyboard_layout_lithuanian">Lituane</string>
+    <string name="keyboard_layout_spanish_latin">Spagnole (Latine)</string>
+    <string name="keyboard_layout_latvian">Letone</string>
+    <string name="keyboard_layout_persian">Persiane</string>
+    <string name="keyboard_layout_azerbaijani">Azere</string>
+    <string name="keyboard_layout_polish">Polache</string>
+</resources>

@@ -32,11 +32,11 @@
     <string name="install_failed_blocked">Cafodd yr ap ei atal rhag cael ei osod.</string>
     <string name="install_failed_conflict">Ni osodwyd yr ap am fod y pecyn yn gwrthdaro â phecyn sy\'n bodoli.</string>
     <string name="install_failed_incompatible" product="tablet">Ni osodwyd yr ap am nad
-        yw\'n gydnaws â dy lechen.</string>
+        yw\'n gytûn â dy lechen.</string>
     <string name="install_failed_incompatible" product="tv">Dyw\'r ap hwn ddim
-        yn gydnaws â dy deledu.</string>
+        yn gytûn â dy deledu.</string>
     <string name="install_failed_incompatible" product="default">Ni osodwyd yr ap am nad
-        yw\'n gydnaws â dy ffôn.</string>
+        yw\'n gytûn â dy ffôn.</string>
     <string name="install_failed_invalid_apk">Dyw\'r ap heb ei osod am fod y pecyn yn ymddangos i fod yn annilys.</string>
     <string name="install_failed_msg" product="tablet">Methwyd â gosod <xliff:g id="app_name">%1$s</xliff:g> ar dy lechen.</string>
     <string name="install_failed_msg" product="tv">Methwyd â gosod <xliff:g id="app_name">%1$s</xliff:g> ar dy deledu.</string>

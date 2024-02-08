@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Bloc dai tascj</string>
+    <string name="keyguard_password_enter_pin_code">Scrîf il codiç PIN</string>
+    <string name="keyguard_password_enter_puk_code">Scrîf il PUK de SIM e il gnûf codiç PIN</string>
+    <string name="keyguard_password_enter_puk_prompt">Codiç PUK de SIM</string>
+    <string name="keyguard_password_enter_pin_prompt">Gnûf codiç PIN de SIM</string>
+    <string name="keyguard_password_entry_touch_hint"><font size="17">Tocje par scrivi la password</font></string>
+    <string name="keyguard_password_enter_password_code">Scrîf la password par sblocâ</string>
+    <string name="keyguard_password_enter_pin_password_code">Scrîf il PIN par sblocâ</string>
+    <string name="keyguard_enter_your_pin">Inserìs il to PIN</string>
+    <string name="keyguard_enter_your_pattern">Inserìs la tô cumbinazion</string>
+    <string name="keyguard_enter_your_password">Inserìs la tô password</string>
+    <string name="keyguard_password_wrong_pin_code">Codiç PIN sbaliât.</string>
+    <string name="keyguard_sim_error_message_short">Schede no valide.</string>
+    <string name="keyguard_charged">Cjarie completade</string>
+    <string name="keyguard_plugged_in_wireless"><xliff:g id="percentage" example="20%">%s</xliff:g> • Ricjarie cence fîi</string>
+    <string name="keyguard_plugged_in"><xliff:g id="percentage">%s</xliff:g> • Daûr a ricjariâ</string>
+    <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • Ricjarie rapide</string>
+    <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • Ricjarie lente</string>
+    <string name="keyguard_low_battery">Tache il cjariadôr.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">Frache Menù par sblocâ.</string>
+    <string name="keyguard_network_locked_message">Rêt blocade</string>
+    <string name="keyguard_missing_sim_message_short">Nissune schede SIM</string>
+    <string name="keyguard_missing_sim_message" product="tablet">Nissune SIM tal tablet.</string>
+    <string name="keyguard_missing_sim_message" product="default">Nissune SIM tal telefon.</string>
+    <string name="keyguard_missing_sim_instructions">Inserìs une schede SIM.</string>
+    <string name="keyguard_missing_sim_instructions_long">E mancje opûr no si rive a lei la schede SIM. Inserìs une schede SIM.</string>
+    <string name="keyguard_permanent_disabled_sim_message_short">Schede SIM inusabile.</string>
+    <string name="keyguard_permanent_disabled_sim_instructions">La tô schede SIM e je stade disativade in maniere definitive.\n
+    Contate il to furnidôr dal servizi cence fîi par vê une altre schede SIM.</string>
+    <string name="keyguard_sim_locked_message">La schede SIM e je blocade.</string>
+    <string name="keyguard_sim_puk_locked_message">La schede SIM e je blocade cul PUK.</string>
+    <string name="keyguard_sim_unlock_progress_dialog_message">Daûr a sblocâ la schede SIM\u2026</string>
+    <string name="keyguard_accessibility_pin_area">Aree dal PIN</string>
+    <string name="keyguard_accessibility_password">Password dal dispositîf</string>
+    <string name="keyguard_accessibility_sim_pin_area">Aree dal PIN de SIM</string>
+    <string name="keyguard_accessibility_sim_puk_area">Aree dal PUK de SIM</string>
+    <string name="keyguard_accessibility_next_alarm">Svee sucessive metude par <xliff:g id="alarm" example="Fri 8:30 AM">%1$s</xliff:g></string>
+    <string name="keyboardview_keycode_delete">Elimine</string>
+    <string name="disable_carrier_button_text">Disabilite eSIM</string>
+    <string name="error_disable_esim_title">Impussibil disabilitâ la eSIM</string>
+    <string name="error_disable_esim_msg">Nol è pussibil disabilitâ la eSIM par vie di un erôr.</string>
+    <string name="keyboardview_keycode_enter">Invie</string>
+    <string name="kg_forgot_pattern_button_text">Cumbinazion dismenteade</string>
+    <string name="kg_wrong_pattern">Cumbinazion sbaliade</string>
+    <string name="kg_wrong_password">Password sbaliade</string>
+    <string name="kg_wrong_pin">PIN sbaliât</string>
+    <plurals name="kg_too_many_failed_attempts_countdown">
+        <item quantity="one">Torne prove ca di 1 secont.</item>
+        <item quantity="other">Torne prove ca di <xliff:g id="number">%d</xliff:g> seconts.</item>
+    </plurals>
+    <string name="kg_pattern_instructions">Dissegne la tô cumbinazion</string>
+    <string name="kg_sim_pin_instructions">Inserìs il PIN de SIM.</string>
+    <string name="kg_sim_pin_instructions_multi">Inserìs il PIN de SIM par \"<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>\".</string>
+    <string name="kg_sim_lock_esim_instructions"><xliff:g id="previous_msg" example="Enter SIM PIN.">%1$s</xliff:g> Disabilite la eSIM par doprâ il dispositîf cence servizis mobii.</string>
+    <string name="kg_pin_instructions">Inserìs il PIN</string>
+    <string name="kg_password_instructions">Inserìs la password</string>
+    <string name="kg_puk_enter_puk_hint">Cumò la SIM e je disativade. Inserìs il codiç PUK par continuâ. Contate l\'operadôr pai detais.</string>
+    <string name="kg_puk_enter_puk_hint_multi">La SIM \"<xliff:g id="carrier" example="CARD 1">%1$s</xliff:g>\" cumò e je disativade. Inserìs il codiç PUK par continuâ. Contate l\'operadôr pai detais.</string>
+    <string name="kg_puk_enter_pin_hint">Inserìs il codiç PIN desiderât</string>
+    <string name="kg_enter_confirm_pin_hint">Conferme il codiç PIN desiderât</string>
+    <string name="kg_sim_unlock_progress_dialog_message">Daûr a sblocâ la schede SIM\u2026</string>
+    <string name="kg_invalid_sim_pin_hint">Scrîf un PIN che al vedi di 4 a 8 numars.</string>
+    <string name="kg_invalid_sim_puk_hint">Il codiç PUK al à di vê 8 numars o plui.</string>
+    <string name="kg_invalid_puk">Torne inserìs il codiç PUK just. Tentatîfs sbaliâts ripetûts a disabilitaran par simpri la SIM.</string>
+    <string name="kg_invalid_confirm_pin_hint" product="default">I codiçs PIN no corispuindin</string>
+    <string name="kg_login_too_many_attempts">Masse tentatîfs pe cumbinazion</string>
+    <string name="kg_too_many_failed_pin_attempts_dialog_message">        Tu âs sbaliât di inserî il to PIN <xliff:g id="number">%1$d</xliff:g> voltis.
+        \n\nTorne prove chi di <xliff:g id="number">%2$d</xliff:g> seconts.
+    </string>
+    <string name="kg_too_many_failed_password_attempts_dialog_message">        Tu âs sbaliât di scrivi la tô password <xliff:g id="number">%1$d</xliff:g> voltis.
+        \n\nTorne prove chi di <xliff:g id="number">%2$d</xliff:g> seconts.
+    </string>
+    <string name="kg_too_many_failed_pattern_attempts_dialog_message">        Tu âs dissegnât mâl la tô cumbinazion di sbloc <xliff:g id="number">%1$d</xliff:g> voltis.
+        \n\nTorne prove chi di <xliff:g id="number">%2$d</xliff:g> seconts.
+    </string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest tablet
+       al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_almost_at_wipe" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest telefon
+       al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest tablet al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_now_wiping" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest telefon al vignarà ripristinât e a vignaran eliminâts ducj i siei dâts.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest utent
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_user" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e chest utent
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest utent al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_user" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Chest utent al vignarà gjavât e a vignaran eliminâts ducj i dâts dal utent.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e il profîl di lavôr
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_almost_at_erase_profile" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%1$d</xliff:g> tentatîfs sbaliâts.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e il profîl di lavôr
+       al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="tablet">       Tu âs cirût di sblocâ il tablet cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Il profîl di lavôr al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_now_erasing_profile" product="default">       Tu âs cirût di sblocâ il telefon cun <xliff:g id="number">%d</xliff:g> tentatîfs sbaliâts.
+       Il profîl di lavôr al vignarà gjavât e a vignaran eliminâts ducj i dâts dal profîl.
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="tablet">        Tu âs dissegnât mâl la tô cumbinazion di sbloc <xliff:g id="number">%1$d</xliff:g> voltis.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e
+       ti vignarà domandât di sblocâ il to tablet doprant un account di e-mail.\n\n
+       Torne prove chi di <xliff:g id="number">%3$d</xliff:g> seconts.
+    </string>
+    <string name="kg_failed_attempts_almost_at_login" product="default">        Tu âs dissegnât mâl la tô cumbinazion di sbloc <xliff:g id="number">%1$d</xliff:g> voltis.
+       Ancjemò <xliff:g id="number">%2$d</xliff:g> tentatîfs sbaliâts e
+       ti vignarà domandât di sblocâ il to telefon doprant un account di e-mail.\n\n
+       Torne prove chi di <xliff:g id="number">%3$d</xliff:g> seconts.
+    </string>
+    <string name="kg_password_wrong_pin_code_pukked">Codiç PIN de SIM sbaliât, cumò tu âs di contatâ il to operadôr par sblocâ il to dispositîf.</string>
+    <plurals name="kg_password_wrong_pin_code">
+        <item quantity="one">Codiç PIN de SIM sbaliât, tu âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîf prime di scugnî contatâ il to operadôr par sblocâ il to dispositîf.</item>
+        <item quantity="other">Codiç PIN de SIM sbaliât, tu âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîfs prime di scugnî contatâ il to operadôr par sblocâ il to dispositîf.</item>
+    </plurals>
+    <string name="kg_password_wrong_puk_code_dead">La SIM e je inusabile. Contate il to operadôr.</string>
+    <plurals name="kg_password_wrong_puk_code">
+        <item quantity="one">Codiç PUK de SIM sbaliât, tu âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîf prime che la SIM e deventi inservibile par simpri.</item>
+        <item quantity="other">Codiç PUK de SIM sbaliât, tu âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîfs prime che la SIM e deventi inservibile par simpri.</item>
+    </plurals>
+    <string name="kg_password_pin_failed">Operazion PIN de SIM falide!</string>
+    <string name="kg_password_puk_failed">Operazion PUK de SIM falide!</string>
+    <string name="kg_pin_accepted">Codiç acetât!</string>
+    <string name="keyguard_carrier_default">Nissun servizi.</string>
+    <string name="accessibility_ime_switch_button" msgid="5032926134740456424">Cambie metodi di imission</string>
+    <string name="airplane_mode">Modalitât avion</string>
+    <string name="kg_prompt_reason_restart_pattern">Cumbinazion necessarie dopo che il dispositîf al torne a inviâsi</string>
+    <string name="kg_prompt_reason_restart_pin">PIN necessari dopo che il dispositîf al torne a inviâsi</string>
+    <string name="kg_prompt_reason_restart_password">Password necessarie dopo che il dispositîf al torne a inviâsi</string>
+    <string name="kg_prompt_reason_timeout_pattern">Cumbinazion necessarie par vê plui sigurece</string>
+    <string name="kg_prompt_reason_timeout_pin">PIN necessari par vê plui sigurece</string>
+    <string name="kg_prompt_reason_timeout_password">Password necessarie par vê plui sigurece</string>
+    <string name="kg_prompt_reason_switch_profiles_pattern">Cumbinazion necessarie cuant che tu cambis profîi</string>
+    <string name="kg_prompt_reason_switch_profiles_pin">PIN necessari cuant che tu cambis profîi</string>
+    <string name="kg_prompt_reason_switch_profiles_password">Password necessarie cuant che tu cambis profîi</string>
+    <string name="kg_prompt_reason_device_admin">Dispositîf blocât dal aministradôr</string>
+    <string name="kg_prompt_reason_user_request">Il dispositîf al è stât blocât a man</string>
+    <plurals name="kg_prompt_reason_time_pattern">
+        <item quantity="one">Il dispositîf nol è stât sblocât par <xliff:g id="number">%d</xliff:g> ore. Conferme la cumbinazion.</item>
+        <item quantity="other">Il dispositîf nol è stât sblocât par <xliff:g id="number">%d</xliff:g> oris. Conferme la cumbinazion.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_pin">
+        <item quantity="one">Il dispositîf nol è stât sblocât par <xliff:g id="number">%d</xliff:g> ore. Conferme il PIN.</item>
+        <item quantity="other">Il dispositîf nol è stât sblocât par <xliff:g id="number">%d</xliff:g> oris. Conferme il PIN.</item>
+    </plurals>
+    <plurals name="kg_prompt_reason_time_password">
+        <item quantity="one">Il dispositîf nol è stât sblocât par <xliff:g id="number">%d</xliff:g> ore. Conferme la password.</item>
+        <item quantity="other">Il dispositîf nol è stât sblocât par <xliff:g id="number">%d</xliff:g> oris. Conferme la password.</item>
+    </plurals>
+    <string name="kg_fingerprint_not_recognized">No ricognossût</string>
+    <string name="kg_face_not_recognized">No ricognossude</string>
+    <plurals name="kg_password_default_pin_message">
+        <item quantity="one">Inserìs il PIN de SIM. Ti âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîf prime di vê di contatâ il to operadôr par sblocâ il to dispositîf.</item>
+        <item quantity="other">Inserìs il PIN de SIM. Ti âs ancjemò <xliff:g id="number">%d</xliff:g> tentatîfs.</item>
+    </plurals>
+    <plurals name="kg_password_default_puk_message">
+        <item quantity="one">La SIM e je cumò disabilitade. Inserìs il codiç PUK par continuâ. Tu âs ancjemò <xliff:g id=" number">%d</xliff:g> tentatîf prime che la SIM e deventi par simpri inservibile. Contate l\'operadôr pai detais.</item>
+        <item quantity="other">La SIM e je cumò disabilitade. Inserìs il codiç PUK par continuâ. Tu âs ancjemò <xliff:g id=" number">%d</xliff:g> tentatîfs prime che la SIM e deventi par simpri inservibile. Contate l\'operadôr pai detais.</item>
+    </plurals>
+    <string name="clock_title_default">Predefinît</string>
+    <string name="clock_title_bubble">Bufule</string>
+    <string name="clock_title_analog">Analogjic</string>
+</resources>

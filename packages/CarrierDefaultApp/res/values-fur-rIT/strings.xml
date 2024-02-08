@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CarrierDefaultApp</string>
+    <string name="android_system_label">Operadôr di telefonie mobile</string>
+    <string name="portal_notification_id">Dâts mobii esaurîts</string>
+    <string name="no_data_notification_id">I tiei dâts mobii a son stâts disativâts</string>
+    <string name="portal_notification_detail">Tocje par visitâ il sît web %s</string>
+    <string name="no_data_notification_detail">Contate il to operadôr telefonic %s</string>
+    <string name="no_mobile_data_connection_title">Nissune conession dâts mobii</string>
+    <string name="no_mobile_data_connection">Zonte un plan dâts o di roaming midiant %s</string>
+    <string name="mobile_data_status_notification_channel_name">Stât dai dâts mobii</string>
+    <string name="action_bar_label">Jentre te rêt mobile</string>
+    <string name="ssl_error_warning">Tu stâs cirint di jentrâ suntune rêt che e à problemis di sigurece.</string>
+    <string name="ssl_error_example">Par esempli, al è pussibil che la pagjine di acès no sedi de organizazion mostrade.</string>
+    <string name="ssl_error_continue">Continue istès vie navigadôr</string>
+</resources>

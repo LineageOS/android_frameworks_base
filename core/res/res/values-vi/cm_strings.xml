@@ -20,4 +20,5 @@
     <string name="adb_net_active_notification_title">Đã bật ADB qua mạng</string>
     <string name="adb_both_active_notification_title">Đã kích hoạt ADB qua USB &amp; mạng</string>
     <string name="adb_active_generic_notification_message">Chạm để tắt gỡ lỗi.</string>
+    <string name="bluetooth_airplane_mode_toast">Bluetooth sẽ vẫn bật trong chế độ trên máy bay</string>
 </resources>

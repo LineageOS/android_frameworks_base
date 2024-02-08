@@ -15,4 +15,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label">Ajeɣlal</string>
+    <string name="bugreport_updating_wait">Ttxil-k rǧu\u2026</string>
+    <string name="bugreport_confirm_dont_repeat">Ur d-skan ara tikkelt-nniḍen</string>
+    <string name="bugreport_unnamed">udrig</string>
+    <string name="bugreport_info_action">Talqayt</string>
+    <string name="bugreport_screenshot_action">Tuṭṭfa n ugdil</string>
+    <string name="bugreport_info_name">Isem n ufaylu</string>
+    <string name="save">Sekles</string>
 </resources>

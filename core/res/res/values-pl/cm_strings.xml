@@ -18,6 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="adb_net_active_notification_title">ADB przez sieć włączone</string>
-    <string name="adb_both_active_notification_title">ADB przez USB &amp; sieć włączone</string>
+    <string name="adb_both_active_notification_title">ADB przez USB i sieć włączone</string>
     <string name="adb_active_generic_notification_message">Dotknij, aby wyłączyć debugowanie.</string>
+    <string name="bluetooth_airplane_mode_toast">Bluetooth pozostanie włączony w trybie samolotowym</string>
 </resources>

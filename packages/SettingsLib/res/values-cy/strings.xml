@@ -203,6 +203,7 @@
     <string name="choose_profile">Dewis proffil</string>
     <string name="category_personal">Personol</string>
     <string name="category_work">Gwaith</string>
+    <string name="development_settings_title">Dewisiadau datblygwr</string>
     <string name="development_settings_enable">Galluogi dewisiadau datblygwyr</string>
     <string name="development_settings_summary">Gosod gosodiadau er mwyn datblygu apiau</string>
     <string name="development_settings_not_available">Dyw dewisiadau datblygu ddim ar gael ar gyfer y defnyddiwr hwn.</string>
@@ -226,7 +227,7 @@
     <string name="mock_location_app_not_set">Does dim ap ffugio lleoliad wedi ei osod.</string>
     <string name="mock_location_app_set">Ap ffugio lleoliad: <xliff:g id="app_name">%1$s</xliff:g></string>
     <string name="debug_networking_category">Rhwydweithio</string>
-    <string name="wifi_display_certification">Tystysgrifio dangosyddion diwifr</string>
+    <string name="wifi_display_certification">Tystysgrifio dangosyddion di-wifr</string>
     <string name="wifi_verbose_logging">Galluogi Logio Wi\u2011Fi Geiriog</string>
     <string name="wifi_scan_throttling">Throtlo sganio am Wi\u2011Fi</string>
     <string name="mobile_data_always_on">Data symudol yn weithredol o hyd</string>
@@ -448,7 +449,7 @@ Gwasga \'Clirio a Throsi\' i barhau.</string>
     <string name="use_system_language_to_select_input_method_subtypes">Defnyddio ieithoedd y system</string>
     <string name="failed_to_open_app_settings_toast">Methwyd ag agor y gosodiadau ar gyfer <xliff:g id="spell_application_name">%1$s</xliff:g></string>
     <string name="ime_security_warning">Mae\'n bosib gall y dull mewnbwn hwn gasglu\'r holl destun rwyt yn ei deipio, gan gynnwys data personol fel cyfrineiriau a rhifau cardiau credyd. Mae\'n dod o\'r ap <xliff:g id="ime_application_name">%1$s</xliff:g>. Defnyddio\'r dull mewnbwn hwn?</string>
-    <string name="direct_boot_unaware_dialog_message">Noder: Ar ôl ailddechrau, ni all yr ap hwn ddechrau nes bod dy ffôn wedi ei ddatgloi.</string>
+    <string name="direct_boot_unaware_dialog_message">Noder: Ar ôl ailgychwyn, ni all yr ap hwn ddechrau nes bod dy ffôn wedi ei ddatgloi.</string>
     <string name="ims_reg_title">"Statws cofrestriad IMS"</string>
     <string name="ims_reg_status_registered">"Cofrestredig"</string>
     <string name="ims_reg_status_not_registered">"Heb gofrestru"</string>

@@ -19,6 +19,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="adb_net_active_notification_title">网络 ADB 调试已启用</string>
     <string name="adb_both_active_notification_title">USB 和网络 ADB 调试已启用</string>
-    <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
+    <string name="adb_active_generic_notification_message">点击以禁用调试。</string>
     <string name="bluetooth_airplane_mode_toast">在飞行模式下蓝牙仍将保持开启</string>
 </resources>

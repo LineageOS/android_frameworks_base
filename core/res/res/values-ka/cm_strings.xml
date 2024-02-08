@@ -18,5 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="adb_net_active_notification_title">ADB ქსელით ჩართულია</string>
+    <string name="adb_both_active_notification_title">ADB ქსელითა და USB-ით ჩართულია</string>
+    <string name="adb_active_generic_notification_message">შეეხეთ გამართვის გასათიშად.</string>
     <string name="bluetooth_airplane_mode_toast">Bluetooth ჩართული დარჩება ფრენის რეჟიმში</string>
 </resources>

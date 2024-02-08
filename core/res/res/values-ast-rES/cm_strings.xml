@@ -17,6 +17,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="adb_net_active_notification_title">ADB per rede activáu</string>
+    <string name="adb_both_active_notification_title">ADB per USB y rede activáu</string>
     <string name="adb_active_generic_notification_message">Toca pa desactivar la depuración.</string>
     <string name="bluetooth_airplane_mode_toast">El Bluetooth va siguir habilitáu nel mou avión</string>
 </resources>

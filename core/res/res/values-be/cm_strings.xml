@@ -17,7 +17,8 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="adb_net_active_notification_title">ADB праз сетку ўключана</string>
-    <string name="adb_both_active_notification_title">ADB праз USB &amp; сетку ўключана</string>
-    <string name="adb_active_generic_notification_message">Націснуць для выключэння наладкі.</string>
+    <string name="adb_net_active_notification_title">ADB праз сетку ўключаны</string>
+    <string name="adb_both_active_notification_title">ADB праз USB і сетку ўключаны</string>
+    <string name="adb_active_generic_notification_message">Націснуць для адключэння адладкі.</string>
+    <string name="bluetooth_airplane_mode_toast">Bluetooth застанецца ўключаным у рэжыме палёту</string>
 </resources>

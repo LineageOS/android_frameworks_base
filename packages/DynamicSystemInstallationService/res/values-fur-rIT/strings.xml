@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inzornaments di sisteme dinamics</string>
+    <string name="notification_channel_name">Inzornaments di sisteme dinamics</string>
+    <string name="keyguard_title">Inzornaments di sisteme dinamics</string>
+    <string name="keyguard_description">Inserìs la tô password e continue su Inzornaments di sisteme dinamics</string>
+    <string name="notification_install_completed">Sisteme dinamic pront. Par scomençâ a doprâlu, torne invie il dispositîf.</string>
+    <string name="notification_install_inprogress">Instalazion in vore</string>
+    <string name="notification_install_failed">Instalazion falide</string>
+    <string name="notification_dynsystem_in_use">Sisteme dinamic in ûs. Torne invie par doprâ la version Android origjinâl.</string>
+    <string name="notification_action_cancel">Anule</string>
+    <string name="notification_action_discard">Scarte</string>
+    <string name="notification_action_uninstall">Disinstale</string>
+    <string name="notification_action_reboot_to_dynsystem">Torne invie</string>
+    <string name="toast_dynsystem_discarded">Sisteme dinamic scartât</string>
+    <string name="toast_failed_to_reboot_to_dynsystem">Impussibil tornâ a inviâ o cjariâ il sisteme dinamic</string>
+</resources>

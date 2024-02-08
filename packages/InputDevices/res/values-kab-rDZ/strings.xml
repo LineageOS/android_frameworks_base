@@ -38,4 +38,7 @@
     <string name="keyboard_layout_hebrew">Taɛbrit</string>
     <string name="keyboard_layout_lithuanian">Taliṭwanit</string>
     <string name="keyboard_layout_latvian">Talitunit</string>
+    <string name="keyboard_layout_persian">Tafarsit</string>
+    <string name="keyboard_layout_azerbaijani">Tazeṛbayǧant</string>
+    <string name="keyboard_layout_polish">Tapulunit</string>
 </resources>
