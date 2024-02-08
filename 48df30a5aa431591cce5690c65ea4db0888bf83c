@@ -16,6 +16,24 @@
       "message": "don\u0027t kill nvconstants; it is used in cpl itself and used by clients to not have to redefine constants.",
       "revId": "48df30a5aa431591cce5690c65ea4db0888bf83c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bac1da76_57b1709b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-02-08T18:31:36Z",
+      "side": 1,
+      "message": "It is not used by cpl itself, at least not how this is set up. The cpl apk references a package named com.nvidia.frameworks, whereas this is just com.nvidia.",
+      "parentUuid": "08758604_9508bf1c",
+      "revId": "48df30a5aa431591cce5690c65ea4db0888bf83c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
