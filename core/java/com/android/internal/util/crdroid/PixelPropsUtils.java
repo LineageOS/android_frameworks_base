@@ -241,7 +241,7 @@ public class PixelPropsUtils {
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith("com.samsung.")
                 || Arrays.asList(packagesToChangePixel8Pro).contains(packageName)
-                || Arrays.asList(packagesToChangePixel5a.contains(packageName)) {
+                || Arrays.asList(packagesToChangePixel5a).contains(packageName)) {
 
             if (!SystemProperties.getBoolean(SPOOF_PIXEL_GAPPS, true))
                 return;
