@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0aec942_113b8386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30922
+      },
+      "writtenOn": "2024-02-09T21:11:46Z",
+      "side": 1,
+      "message": "This needs to be merged alongside https://review.lineageos.org/c/LineageOS/android_packages_apps_Dialer/+/378864, could someone help me out with that? I can\u0027t figure out if there is a way to make one dependent on the other...",
+      "revId": "1d4fdd41e11f19fa2d85da8ac6cab62e2687cced",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
