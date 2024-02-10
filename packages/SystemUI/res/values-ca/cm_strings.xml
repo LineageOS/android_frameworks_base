@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Rellotge</string>
+    <string name="global_action_restart_more">Reinicia\u2026</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recuperació</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Descàrrega</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">S\'està reiniciant\u2026</string>
+    <string name="global_action_restart_recovery_progress">S\'està reiniciant al mode de recuperació\u2026</string>
+    <string name="global_action_restart_bootloader_progress">S\'està reiniciant al mode bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">S\'està reiniciant al mode de descàrrega\u2026</string>
+    <string name="global_action_restart_fastboot_progress">S\'està reiniciant al mode fastbootd\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuaris</string>
+    <string name="status_bar_icons_title">Icones de la barra d\'estat</string>
+    <string name="drag_or_tap_to_add_tiles">Manteniu premut i arrossegueu o toqueu per afegir fitxes</string>
+    <string name="quick_settings_ambient_display_label">Pantalla ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambient desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambient activada.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desactivat\nEstalvi de bateria</string>
+    <string name="quick_settings_caffeine_label">Cafeïna</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïna activada.</string>
+    <string name="quick_settings_heads_up_label">Notificacions emergents</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificacions emergents apagades.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades.</string>
+    <string name="quick_settings_powershare_label">PowerShare sense fils</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare sense fils desactivat\nEstalvi de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare sense fils desactivat\nBateria massa baixa</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare sense fils està activat</string>
+    <string name="quick_settings_reading_mode">Mode lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
+    <string name="quick_settings_sync_label">Sinc</string>
+    <string name="accessibility_quick_settings_sync_off">Sinc desactivada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinc activada.</string>
+    <string name="quick_settings_profiles_label">Perfils de sistema</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfils desactivats.</string>
+    <string name="accessibility_quick_settings_profiles">Perfils: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Ancoratge USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Connecta\'t a\u2026</string>
+    <string name="vpn_credentials_hint">Introduïu les vostres credencials per connectar-vos a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nom d\'usuari</string>
+    <string name="vpn_credentials_password">Contrasenya</string>
+    <string name="vpn_credentials_dialog_connect">Connecta</string>
+    <string name="accessibility_dpad_left">Cursor esquerra</string>
+    <string name="accessibility_dpad_right">Cursor dreta</string>
+    <string name="status_bar_firewall">Tallafoc</string>
+    <string name="screenshot_delete_label">Suprimeix</string>
+    <string name="screenshot_delete_description">Suprimeix la captura</string>
+</resources>

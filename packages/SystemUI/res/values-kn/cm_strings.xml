@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_system">ವ್ಯವಸ್ಥೆ</string>
+    <string name="global_action_restart_recovery">ಮರುಚೇತರಿಕೆ</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">ಇಳಿಸು</string>
+    <string name="global_action_restart_progress">ಪುನರಾರಂಭವಾಗುತ್ತಿದೆ\u2026</string>
+    <string name="global_action_restart_recovery_progress">Restarting ರೀತಿಗೆ ಪುನರಾರಂಭವಾಗುತ್ತಿದೆ</string>
+    <string name="global_action_restart_bootloader_progress">Bootloader ರೀತಿಗೆ ಪುನರಾರಂಭವಾಗುತ್ತಿದೆ\u2026</string>
+    <string name="global_action_restart_download_progress">Download ರೀತಿಗೆ ಪುನರಾರಂಭವಾಗುತ್ತಿದೆ\u2026</string>
+    <string name="global_action_current_user">ಪ್ರಚಲಿತ</string>
+    <string name="quick_settings_ambient_display_label">ಪರಿಸರ ಪ್ರದರ್ಶನ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ಪರಿಸರ ಪ್ರದರ್ಶನ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ಪರಿಸರ ಪ್ರದರ್ಶನ ಆನ್.</string>
+    <string name="quick_settings_caffeine_label">ಕ್ಯಾಫೀನ್</string>
+    <string name="accessibility_quick_settings_caffeine_off">ಕ್ಯಾಫೀನ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_caffeine_on">ಕ್ಯಾಫೀನ್ ಒನ್.</string>
+    <string name="quick_settings_heads_up_label">ಮುನ್ನೆಚ್ಚರಿಕೆ</string>
+    <string name="accessibility_quick_settings_heads_up_off">ಮುನ್ನೆಚ್ಚರಿಕೆ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ಮುನ್ನೆಚ್ಚರಿಕೆ ಆನ್.</string>
+    <string name="quick_settings_reading_mode">ಓದುವ ರೀತಿ</string>
+    <string name="accessibility_quick_settings_reading_mode_on">ಓದುವ ರೀತಿ ಆನ್.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">ಓದುವ ರೀತಿ ಆಫ್.</string>
+    <string name="quick_settings_sync_label">ಸಿಂಕ್</string>
+    <string name="accessibility_quick_settings_sync_off">ಸಿಂಕ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_sync_on">ಸಿಂಕ್ ಆನ್.</string>
+    <string name="quick_settings_profiles_label">ಸಿಸ್ಟಂ ಪ್ರೊಫೈಲ್ಸ್</string>
+    <string name="accessibility_quick_settings_profiles_off">ಪ್ರೊಫೈಲ್ಸ್ ಆಫ್.</string>
+    <string name="accessibility_quick_settings_profiles">ಪ್ರೊಫೈಲ್: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">ಯುಎಸ್‍ಬಿ ಟೆಥರಿಂಗ್</string>
+    <string name="accessibility_dpad_left">ಸೂಚಕದ ಎಡ</string>
+    <string name="accessibility_dpad_right">ಸೂಚಕದ ಬಲ</string>
+</resources>

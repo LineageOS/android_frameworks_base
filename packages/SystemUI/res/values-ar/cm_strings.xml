@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">الساعة</string>
+    <string name="global_action_restart_more">إعادة تشغيل\u2026</string>
+    <string name="global_action_restart_system">النظام</string>
+    <string name="global_action_restart_recovery">الاسترداد</string>
+    <string name="global_action_restart_bootloader">محمل الاقلاع</string>
+    <string name="global_action_restart_download">التنزيل</string>
+    <string name="global_action_restart_fastboot">إعادة التشغيل إلى وضع الإقلاع السريع</string>
+    <string name="global_action_restart_progress">جارٍ إعادة التشغيل\u2026</string>
+    <string name="global_action_restart_recovery_progress">إعادة التشغيل في وضع الاسترداد\u2026</string>
+    <string name="global_action_restart_bootloader_progress">إعادة التشغيل في وضع مُحمّل الإقلاع\u2026</string>
+    <string name="global_action_restart_download_progress">إعادة التشغيل في وضع التنزيل\u2026</string>
+    <string name="global_action_restart_fastboot_progress">إعادة التشغيل إلى وضع الإقلاع السريع\u2026</string>
+    <string name="global_action_current_user">الحالي</string>
+    <string name="global_action_users">المستخدمون</string>
+    <string name="quick_settings_ambient_display_label">العرض المحيط</string>
+    <string name="accessibility_quick_settings_ambient_display_off">تعطيل العرض المحيط.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">تشغيل العرض المحيط.</string>
+    <string name="quick_settings_aod_label">الشاشة الدائمة</string>
+    <string name="quick_settings_aod_off_powersave_label">إيقاف\n الشاشة الدائمة عند تفعيل وضع توفير البطارية</string>
+    <string name="quick_settings_caffeine_label">وضع الكافيين</string>
+    <string name="accessibility_quick_settings_caffeine_off">ايقاف وضع الكافيين.</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الكافيين.</string>
+    <string name="quick_settings_heads_up_label">إنذار مسبق</string>
+    <string name="accessibility_quick_settings_heads_up_off">تعطيل الإنذار المسبق.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل الإنذار المسبق.</string>
+    <string name="quick_settings_powershare_label">مشاركة الشحن لاسلكياً</string>
+    <string name="quick_settings_powershare_off_powersave_label">إيقاف\n مشاركة الشحن لاسلكياً عند تفعيل وضع توفير البطارية</string>
+    <string name="quick_settings_powershare_off_low_battery_label">إيقاف\n مشاركة الشحن لاسلكياً عندما يكون مستوى البطارية منخفضة جداً</string>
+    <string name="quick_settings_powershare_enabled_label">مشاركة الشحن لاسلكياً مفعلة</string>
+    <string name="quick_settings_reading_mode">وضع القراءة</string>
+    <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
+    <string name="quick_settings_sync_label">المزامنة</string>
+    <string name="accessibility_quick_settings_sync_off">تعطيل المزامنة. </string>
+    <string name="accessibility_quick_settings_sync_on">تشغيل المزامنة.</string>
+    <string name="quick_settings_profiles_label">ملفات تعريف النظام</string>
+    <string name="accessibility_quick_settings_profiles_off">إيقاف ملفات التعريف.</string>
+    <string name="accessibility_quick_settings_profiles">ملف التعريف: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">الربط عبر USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ \u2026</string>
+    <string name="vpn_credentials_hint">الرجاء إدخال بيانات الاعتماد الخاصة بك ليتم الاتصال بـ<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">اسم المستخدم</string>
+    <string name="vpn_credentials_password">كلمة المرور</string>
+    <string name="vpn_credentials_dialog_connect">اتصال</string>
+    <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
+    <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
+</resources>

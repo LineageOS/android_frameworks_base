@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Đồng hồ</string>
+    <string name="global_action_restart_more">Khởi động lại\u2026</string>
+    <string name="global_action_restart_system">Hệ thống</string>
+    <string name="global_action_restart_recovery">Chế độ phục hồi</string>
+    <string name="global_action_restart_bootloader">Trình nạp khởi động</string>
+    <string name="global_action_restart_download">Tải xuống</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Đang khởi động lại\u2026</string>
+    <string name="global_action_restart_recovery_progress">Đang khởi động lại vào chế độ phục hồi\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Đang khởi động lại vào chế độ trình nạp khởi động\u2026</string>
+    <string name="global_action_restart_download_progress">Đang khởi động lại vào chế độ tải về\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Đang khởi động lại vào chế độ fastboot\u2026</string>
+    <string name="global_action_current_user">Hiện tại</string>
+    <string name="global_action_users">Người dùng</string>
+    <string name="status_bar_icons_title">Biểu tượng thanh trạng thái</string>
+    <string name="drag_or_tap_to_add_tiles">Giữ &amp;  kéo hoặc nhấn để thêm ô</string>
+    <string name="quick_settings_ambient_display_label">Hiển thị môi trường xung quanh</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tắt hiển thị môi trường xung quanh.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Hiển thị môi trường xung quanh bật.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">Tắt AOD\nTiết kiệm pin</string>
+    <string name="quick_settings_caffeine_label">Cafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Đã tắt Cafein.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Đã bật Cafein.</string>
+    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up tắt.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads up bật.</string>
+    <string name="quick_settings_powershare_label">PowerShare không dây</string>
+    <string name="quick_settings_powershare_off_powersave_label">Tắt PowerShare không dây\nTiết kiệm pin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Tắt PowerShare không dây\nPin Yếu</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare không dây đã bật</string>
+    <string name="quick_settings_reading_mode">Chế độ đọc</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Chế độ đọc đang bật.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Chế độ đọc đang tắt.</string>
+    <string name="quick_settings_sync_label">Đồng bộ</string>
+    <string name="accessibility_quick_settings_sync_off">Tắt đồng bộ.</string>
+    <string name="accessibility_quick_settings_sync_on">Bật đồng bộ.</string>
+    <string name="quick_settings_profiles_label">Cấu hình hệ thống</string>
+    <string name="accessibility_quick_settings_profiles_off">Hồ sơ tắt.</string>
+    <string name="accessibility_quick_settings_profiles">Hồ sơ: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Kết nối mạng qua USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Kết nối với\u2026</string>
+    <string name="vpn_credentials_hint">Vui lòng nhập thông tin đăng nhập của bạn để kết nối với <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Tên người dùng</string>
+    <string name="vpn_credentials_password">Mật khẩu</string>
+    <string name="vpn_credentials_dialog_connect">Kết nối</string>
+    <string name="accessibility_dpad_left">Trỏ trái</string>
+    <string name="accessibility_dpad_right">Trỏ phải</string>
+    <string name="status_bar_firewall">Tường lửa</string>
+    <string name="screenshot_delete_label">Xóa</string>
+    <string name="screenshot_delete_description">Xóa ảnh chụp màn hình</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Ura</string>
+    <string name="global_action_restart_more">Vnovičen zagon \u2026</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Obnovitev</string>
+    <string name="global_action_restart_bootloader">Zagonski nalagalnik</string>
+    <string name="global_action_restart_download">Prenos</string>
+    <string name="global_action_restart_fastboot">Namen. zagon. nalagalnik</string>
+    <string name="global_action_restart_progress">Vnovično zaganjanje \u2026</string>
+    <string name="global_action_restart_recovery_progress">Vnovično zaganjanje v obnovitveni način \u2026</string>
+    <string name="global_action_restart_bootloader_progress">Vnovično zaganjanje v način zagonskega nalagalnika \u2026</string>
+    <string name="global_action_restart_download_progress">Vnovično zaganjanje v način prenosa \u2026</string>
+    <string name="global_action_restart_fastboot_progress">Vnovično zaganjanje v način namen. zagon. nalagalnika \u2026</string>
+    <string name="global_action_current_user">Trenutni</string>
+    <string name="global_action_users">Uporabniki</string>
+    <string name="status_bar_icons_title">Ikone vrstice stanja</string>
+    <string name="drag_or_tap_to_add_tiles">Pridržite in povlecite ali tapnite, da dodate ploščice</string>
+    <string name="quick_settings_ambient_display_label">Okoliški zaslon</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Okoliški zaslon izklopljen.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Okoliški zaslon vklopljen.</string>
+    <string name="quick_settings_aod_label">Stalni prikaz</string>
+    <string name="quick_settings_aod_off_powersave_label">Stalni prikaz izklopljen\nVarčevanje z energijo baterije</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein izklopljen.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein vklopljen.</string>
+    <string name="quick_settings_heads_up_label">Obvestila na zaslonu</string>
+    <string name="accessibility_quick_settings_heads_up_off">Obvestila na zas. izk.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Obvestila na zas. vkl.</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare izklopljen\nVarčevanje z energijo baterije</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare izklopljen\nRaven napolnjenosti baterije prenizka</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare je omogočen</string>
+    <string name="quick_settings_reading_mode">Način za branje</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Način za branje vklopljen.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Način za branje izklopljen.</string>
+    <string name="quick_settings_sync_label">Sinhronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinhronizacija izklopljena.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinhronizacija vklopljena.</string>
+    <string name="quick_settings_profiles_label">Sistemski profili</string>
+    <string name="accessibility_quick_settings_profiles_off">Profili izklopljeni.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Delj. mob. int. USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Poveži z \u2026</string>
+    <string name="vpn_credentials_hint">Vnesite vaše podatke za povezovanje s/z <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Uporabniško ime</string>
+    <string name="vpn_credentials_password">Geslo</string>
+    <string name="vpn_credentials_dialog_connect">Poveži</string>
+    <string name="accessibility_dpad_left">Kazalec levo</string>
+    <string name="accessibility_dpad_right">Kazalec desno</string>
+    <string name="status_bar_firewall">Požarni zid</string>
+    <string name="screenshot_delete_label">Izbriši</string>
+    <string name="screenshot_delete_description">Izbriši zaslonsko sliko</string>
+</resources>

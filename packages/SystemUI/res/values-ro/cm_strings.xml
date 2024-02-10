@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Ceas</string>
+    <string name="global_action_restart_more">Repornire\u2026</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Se repornește\u2026</string>
+    <string name="global_action_restart_recovery_progress">Repornire în modul recuperare\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Repornire în modul bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">Repornire în modul descărcare\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Repornire în modul fastbootd\u2026</string>
+    <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Utilizatori</string>
+    <string name="status_bar_icons_title">Pictograme bară de stare</string>
+    <string name="drag_or_tap_to_add_tiles">Țineți apăsat &amp; trageți sau apăsați pentru a adăuga piese</string>
+    <string name="quick_settings_ambient_display_label">Afișare ambientală</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Afișare ambientală oprită.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Afișare ambientală pornită.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD oprit\nEconomie energie</string>
+    <string name="quick_settings_caffeine_label">Cofeină</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cofeină oprit.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cofeină pornit.</string>
+    <string name="quick_settings_heads_up_label">Atenționare</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up oprit.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up pornit.</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare oprit\nEconomisire baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare oprit\nBaterie prea slabă</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare este activat</string>
+    <string name="quick_settings_reading_mode">Mod lectură</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mod lectură activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mod lectură dezactivat.</string>
+    <string name="quick_settings_sync_label">Sincronizare</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizare oprită.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizare pornită.</string>
+    <string name="quick_settings_profiles_label">Profiluri de sistem</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiluri oprit.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectare la\u2026</string>
+    <string name="vpn_credentials_hint">Vă rugăm să introduceți datele pentru conectare la <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nume de utilizator</string>
+    <string name="vpn_credentials_password">Parolă</string>
+    <string name="vpn_credentials_dialog_connect">Conectare</string>
+    <string name="accessibility_dpad_left">Cursor stânga</string>
+    <string name="accessibility_dpad_right">Cursor dreapta</string>
+    <string name="status_bar_firewall">Firewall</string>
+    <string name="screenshot_delete_label">Șterge</string>
+    <string name="screenshot_delete_description">Ștergeți captura de ecran</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Klok</string>
+    <string name="global_action_restart_more">Herstarten\u2026</string>
+    <string name="global_action_restart_system">Systeem</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Opnieuw opstarten\u2026</string>
+    <string name="global_action_restart_recovery_progress">Opnieuw opstarten naar recovery\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Opnieuw opstarten naar bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">Opnieuw opstarten naar download-modus\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Herstarten naar fastbootd modus\u2026</string>
+    <string name="global_action_current_user">Huidige</string>
+    <string name="global_action_users">Gebruikers</string>
+    <string name="status_bar_icons_title">Statusbalk iconen</string>
+    <string name="drag_or_tap_to_add_tiles">Houd vast &amp; sleep of tik om tegels toe te voegen</string>
+    <string name="quick_settings_ambient_display_label">Omgevingsdisplay</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Omgevingsdisplay uit.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Omgevingsdisplay aan.</string>
+    <string name="quick_settings_aod_label">AOD (scherm altijd aan)</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD (scherm altijd aan) uit\nBatterijbesparing</string>
+    <string name="quick_settings_caffeine_label">Cafeïne</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan.</string>
+    <string name="quick_settings_heads_up_label">Heads-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up uit.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up aan.</string>
+    <string name="quick_settings_powershare_label">Draadloze PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Draadloze PowerShare uit\nBatterijbesparing</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Draadloze PowerShare uit\nBatterij te ver leeg</string>
+    <string name="quick_settings_powershare_enabled_label">Draadloze PowerShare is ingeschakeld</string>
+    <string name="quick_settings_reading_mode">Leesmodus</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Leesmodus aan.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Leesmodus uit.</string>
+    <string name="quick_settings_sync_label">Synchroniseren</string>
+    <string name="accessibility_quick_settings_sync_off">Synchr. uit.</string>
+    <string name="accessibility_quick_settings_sync_on">Synchr. aan.</string>
+    <string name="quick_settings_profiles_label">Systeemprofielen</string>
+    <string name="accessibility_quick_settings_profiles_off">Profielen uit.</string>
+    <string name="accessibility_quick_settings_profiles">Profiel: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB-tethering</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Verbinden met\u2026</string>
+    <string name="vpn_credentials_hint">Voer uw inloggegevens in om verbinding te maken met <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Gebruikersnaam</string>
+    <string name="vpn_credentials_password">Wachtwoord</string>
+    <string name="vpn_credentials_dialog_connect">Verbinden </string>
+    <string name="accessibility_dpad_left">Cursor links</string>
+    <string name="accessibility_dpad_right">Cursor rechts</string>
+    <string name="status_bar_firewall">Firewall</string>
+    <string name="screenshot_delete_label">Verwijder</string>
+    <string name="screenshot_delete_description">Verwijder screenshot</string>
+</resources>

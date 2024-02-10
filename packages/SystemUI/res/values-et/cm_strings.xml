@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Kell</string>
+    <string name="global_action_restart_more">Taaskäivita\u2026</string>
+    <string name="global_action_restart_recovery">Taastus</string>
+    <string name="global_action_restart_bootloader">Käivituslaadur</string>
+    <string name="global_action_restart_download">Allalaadimine</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Taaskäivitamine\u2026</string>
+    <string name="global_action_restart_recovery_progress">Taaskäivitamine taastusrežiimi\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Taaskäivitamine käivituslaadurisse\u2026</string>
+    <string name="global_action_restart_download_progress">Taaskäivitamine allalaadimisrežiimi\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Taaskäivitamine fastbootd-režiimi\u2026</string>
+    <string name="global_action_current_user">Praegune</string>
+    <string name="global_action_users">Kasutajad</string>
+    <string name="quick_settings_ambient_display_label">Säästlik ekraan</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Säästlik ekraan väljas.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Säästlik ekraan sees.</string>
+    <string name="quick_settings_aod_label">Alati-sees ekraan</string>
+    <string name="quick_settings_aod_off_powersave_label">Alati-sees ekraan väljas\nAkusäästja</string>
+    <string name="quick_settings_caffeine_label">Kofeiin</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeiin välja.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeiin sisse.</string>
+    <string name="quick_settings_heads_up_label">Piiluvad teated</string>
+    <string name="accessibility_quick_settings_heads_up_off">Piiluvad teated väljas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Piiluvad teated sees.</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare väljas\nAkusäästja</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare väljas\nAku on liiga tühi</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare sees</string>
+    <string name="quick_settings_reading_mode">Lugemisrežiim</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Lugemisrežiim sees.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lugemisrežiim väljas.</string>
+    <string name="quick_settings_sync_label">Sünk</string>
+    <string name="accessibility_quick_settings_sync_off">Sünk väljas.</string>
+    <string name="accessibility_quick_settings_sync_on">Sünk sees.</string>
+    <string name="quick_settings_profiles_label">Süsteemi profiilid</string>
+    <string name="accessibility_quick_settings_profiles_off">Profiilid väljas.</string>
+    <string name="accessibility_quick_settings_profiles">Profiil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB lõastamine</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ühendu\u2026</string>
+    <string name="vpn_credentials_hint">Sisestage oma mandaadid <xliff:g id="name">%s</xliff:g> ühenduse loomiseks</string>
+    <string name="vpn_credentials_username">Kasutajanimi</string>
+    <string name="vpn_credentials_password">Parool</string>
+    <string name="vpn_credentials_dialog_connect">Ühenda</string>
+    <string name="accessibility_dpad_left">Kursor vasakule</string>
+    <string name="accessibility_dpad_right">Kursor paremale</string>
+</resources>

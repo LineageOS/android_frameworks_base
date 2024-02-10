@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_system">Systeem</string>
+    <string name="global_action_restart_recovery">Werstel</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Downloade</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Opnij opstarte\u2026</string>
+    <string name="global_action_restart_recovery_progress">Opnij opstarte nei werstelmodus\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Opnij opstarte nei bootloadermodus\u2026</string>
+    <string name="global_action_restart_download_progress">Opnij opstarte nei downloadmodus\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Opnij opstarte nei fastbootddmodus\u2026</string>
+    <string name="global_action_current_user">Aktuele</string>
+    <string name="quick_settings_ambient_display_label">Omjouwingsdisplay</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Omjouwingsdisplay út.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Omjouwingsdisplay oan.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD út\nEnerzjybesparmodus</string>
+    <string name="quick_settings_caffeine_label">Kafeïne</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafeïne út.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeïne oan.</string>
+    <string name="quick_settings_heads_up_label">Heads-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-up út.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-up oan.</string>
+    <string name="quick_settings_powershare_label">Triedleas PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Triedleaze PowerShare út\nBatterijbesparring</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Triedleaze PowerShare út\nBatterij te leech</string>
+    <string name="quick_settings_powershare_enabled_label">Triedleaze PowerShare is ynskeakele</string>
+    <string name="quick_settings_reading_mode">Lêsmodus</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Lêsmodus oan.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lêsmodus út.</string>
+    <string name="quick_settings_sync_label">Syngronisearje</string>
+    <string name="accessibility_quick_settings_sync_off">Syngr. út.</string>
+    <string name="accessibility_quick_settings_sync_on">Syngr. oan.</string>
+    <string name="quick_settings_profiles_label">Systeemprofilen</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilen út.</string>
+    <string name="accessibility_quick_settings_profiles">Profyl: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB-tethering</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ferbine mei\u2026</string>
+    <string name="vpn_credentials_hint">Folje jo gegevens yn om mei <xliff:g id="name">%s</xliff:g> te ferbinen</string>
+    <string name="vpn_credentials_username">Brûkersnamme</string>
+    <string name="vpn_credentials_password">Wachtwurd</string>
+    <string name="vpn_credentials_dialog_connect">Ferbine</string>
+    <string name="accessibility_dpad_left">Cursor links</string>
+    <string name="accessibility_dpad_right">Cursor rjochts</string>
+</resources>

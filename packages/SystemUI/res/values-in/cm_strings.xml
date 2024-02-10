@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Jam</string>
+    <string name="global_action_restart_more">Mulai ulang\u2026</string>
+    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Download</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Memulai ulang\u2026</string>
+    <string name="global_action_restart_recovery_progress">Memulai ulang ke mode recovery</string>
+    <string name="global_action_restart_bootloader_progress">Memulai ulang ke mode bootloader</string>
+    <string name="global_action_restart_download_progress">Memulai ulang ke mode download</string>
+    <string name="global_action_restart_fastboot_progress">Memulai ulang ke mode fastbootd</string>
+    <string name="global_action_current_user">Saat ini</string>
+    <string name="global_action_users">Pengguna</string>
+    <string name="quick_settings_ambient_display_label">Tampilan ambien</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tampilan ambien mati.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tampilan ambien hidup.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein mati.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein hidup.</string>
+    <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang mati.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare nonaktif\nPenghemat baterai</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare nonaktif\nBaterai terlalu lemah</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare diaktifkan</string>
+    <string name="quick_settings_reading_mode">Modus membaca</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modus membaca hidup.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modus membaca mati.</string>
+    <string name="quick_settings_sync_label">Sinkronisasi</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati.</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup.</string>
+    <string name="quick_settings_profiles_label">Profil sistem</string>
+    <string name="accessibility_quick_settings_profiles_off">Profil mati.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Mengubungkan ke\u2026</string>
+    <string name="vpn_credentials_hint">Masukkan kredensial Anda untuk menghubungkan ke<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nama pengguna</string>
+    <string name="vpn_credentials_password">Kata sandi</string>
+    <string name="vpn_credentials_dialog_connect">Hubungkan</string>
+    <string name="accessibility_dpad_left">Kursor kiri</string>
+    <string name="accessibility_dpad_right">Kursor kanan</string>
+    <string name="status_bar_firewall">Firewall</string>
+</resources>

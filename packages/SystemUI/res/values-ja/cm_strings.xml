@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">時計</string>
+    <string name="global_action_restart_more">再起動\u2026</string>
+    <string name="global_action_restart_system">システム</string>
+    <string name="global_action_restart_recovery">リカバリー</string>
+    <string name="global_action_restart_bootloader">ブートローダー</string>
+    <string name="global_action_restart_download">ダウンロード</string>
+    <string name="global_action_restart_fastboot">fastbootd</string>
+    <string name="global_action_restart_progress">再起動中\u2026</string>
+    <string name="global_action_restart_recovery_progress">リカバリーモードで再起動中\u2026</string>
+    <string name="global_action_restart_bootloader_progress">ブートローダーモードで再起動中\u2026</string>
+    <string name="global_action_restart_download_progress">ダウンロードモードで再起動中\u2026</string>
+    <string name="global_action_restart_fastboot_progress">fastbootd モードで再起動中\u2026</string>
+    <string name="global_action_current_user">現在</string>
+    <string name="global_action_users">ユーザー</string>
+    <string name="status_bar_icons_title">ステータスバーのアイコン</string>
+    <string name="drag_or_tap_to_add_tiles">長押しして移動、タップでタイルを追加</string>
+    <string name="quick_settings_ambient_display_label">アンビエント表示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示は OFF です。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示は ON です。</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェインはOFFです。</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェインはONです。</string>
+    <string name="quick_settings_heads_up_label">ヘッドアップ</string>
+    <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
+    <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
+    <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">ワイヤレス PowerShare OFF\nバッテリー節約</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレス PowerShare OFF\nバッテリー残量低下</string>
+    <string name="quick_settings_powershare_enabled_label">ワイヤレス PowerShare は有効です</string>
+    <string name="quick_settings_reading_mode">読書モード</string>
+    <string name="accessibility_quick_settings_reading_mode_on">読書モードは ON です。</string>
+    <string name="accessibility_quick_settings_reading_mode_off">読書モードは OFF です。</string>
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="accessibility_quick_settings_sync_off">同期はOFFです。</string>
+    <string name="accessibility_quick_settings_sync_on">同期はONです。</string>
+    <string name="quick_settings_profiles_label">システムプロファイル</string>
+    <string name="accessibility_quick_settings_profiles_off">プロファイルはOFFです。</string>
+    <string name="accessibility_quick_settings_profiles">プロファイル: <xliff:g id="profile" example="Default">%s</xliff:g>です。</string>
+    <string name="quick_settings_usb_tether_label">USBテザリング</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026 に接続</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> への接続の認証情報を入力して下さい</string>
+    <string name="vpn_credentials_username">ユーザー名</string>
+    <string name="vpn_credentials_password">パスワード</string>
+    <string name="vpn_credentials_dialog_connect">接続</string>
+    <string name="accessibility_dpad_left">カーソルを左へ</string>
+    <string name="accessibility_dpad_right">カーソルを右へ</string>
+    <string name="status_bar_firewall">ファイアウォール</string>
+    <string name="screenshot_delete_label">削除</string>
+    <string name="screenshot_delete_description">スクリーンショットを削除</string>
+</resources>
