@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98cee776_b99e9de4",
+        "filename": "services/core/java/com/android/server/audio/AudioDeviceInventory.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 2644
+      },
+      "writtenOn": "2024-02-10T18:15:52Z",
+      "side": 1,
+      "message": "This isn\u0027t defined. Backporting seems to involve setting up bluetooth in/out (BT dual mode support)",
+      "range": {
+        "startLine": 95,
+        "startChar": 35,
+        "endLine": 95,
+        "endChar": 52
+      },
+      "revId": "83a70e9910487fa2fe6802b88d8b028ce0358645",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
