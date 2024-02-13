@@ -35,11 +35,7 @@
         android:right="@dimen/volume_slider_icon_inset">
         <rotate
             android:fromDegrees="-270"
-            android:toDegrees="-270">
-            <!-- A placeholder drawable is required here - it'll be replaced in code. -->
-            <com.android.systemui.util.AlphaTintDrawableWrapper
-                android:drawable="@drawable/ic_volume_media"
-                android:tint="?androidprv:attr/colorAccentPrimaryVariant" />
-        </rotate>
+            android:toDegrees="-270"
+            android:drawable="@drawable/volume_row_seekbar_progress_icon" />
     </item>
 </layer-list>
