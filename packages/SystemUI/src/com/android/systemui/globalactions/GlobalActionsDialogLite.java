@@ -2960,6 +2960,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 GradientColors colors = mColorExtractor.getNeutralColors();
                 updateColors(colors, false /* animate */);
             }
+
+            mGlobalActionsLayout.getChildAt(0).requestFocus();
         }
 
         /**

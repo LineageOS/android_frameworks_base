@@ -21,7 +21,9 @@
     android:gravity="center"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:stateListAnimator="@anim/control_state_list_animator">
+    android:stateListAnimator="@anim/control_state_list_animator"
+    android:clipChildren="false"
+    android:clipToPadding="false">
         <ImageView
             android:id="@*android:id/icon"
             android:layout_width="@dimen/global_actions_button_size"
@@ -30,7 +32,8 @@
             android:padding="@dimen/global_actions_button_padding"
             android:scaleType="centerInside"
             android:tint="@color/global_actions_lite_text"
-            android:background="@drawable/global_actions_lite_button"/>
+            android:background="@drawable/global_actions_lite_button"
+            android:duplicateParentState="true"/>
         <TextView
             android:id="@*android:id/message"
             android:layout_width="match_parent"
