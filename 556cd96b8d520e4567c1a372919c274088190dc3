@@ -16,6 +16,23 @@
       "message": "Hold",
       "revId": "556cd96b8d520e4567c1a372919c274088190dc3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "268942cd_becb2d56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2024-02-14T09:09:01Z",
+      "side": 1,
+      "message": "dots didn\u0027t turn red when \u0027show pattern error\u0027 disabled. that\u0027s the default behaviour when fading pattern enabled, so fine I think,",
+      "revId": "556cd96b8d520e4567c1a372919c274088190dc3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
