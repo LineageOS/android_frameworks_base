@@ -16,6 +16,29 @@
       "message": "As discussed with Nolen, this is my proposed workaround for the exclamation mark issue that affects mata and cheryl (and should affect any device without an IWlan stack) on 21.",
       "revId": "5df135cd4392a1fe32be129d54e494427f40f2ea",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14326d27_56a1c550",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/pipeline/mobile/domain/interactor/MobileIconInteractor.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-02-15T19:09:40Z",
+      "side": 1,
+      "message": "line length?",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 132
+      },
+      "revId": "5df135cd4392a1fe32be129d54e494427f40f2ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
