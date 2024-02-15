@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da94d3a6_59176e48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14010
+      },
+      "writtenOn": "2024-02-15T16:34:53Z",
+      "side": 1,
+      "message": "As discussed with Nolen, this is my proposed workaround for the exclamation mark issue that affects mata and cheryl (and should affect any device without an IWlan stack) on 21.",
+      "revId": "5df135cd4392a1fe32be129d54e494427f40f2ea",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
