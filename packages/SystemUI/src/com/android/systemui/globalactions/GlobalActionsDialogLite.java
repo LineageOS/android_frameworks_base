@@ -38,6 +38,7 @@ import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.Dialog;
 import android.app.IActivityManager;
+import android.app.UiModeManager;
 import android.app.WallpaperManager;
 import android.app.trust.TrustManager;
 import android.content.BroadcastReceiver;
@@ -865,7 +866,11 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                     addIfShouldShowAction(tempActions, restartAction);
                     break;
                 case SCREENSHOT:
-                    addIfShouldShowAction(tempActions, new ScreenshotAction());
+                    UiModeManager uiModeManager =
+                            (UiModeManager) mContext.getSystemService(Context.UI_MODE_SERVICE);
+                    if (uiModeManager.getCurrentModeType() != Configuration.UI_MODE_TYPE_TELEVISION) {
+                        addIfShouldShowAction(tempActions, new ScreenshotAction());
+                    }
                     break;
                 case LOGOUT:
                     if (mLogoutInteractor.isLogoutEnabled().getValue()) {
