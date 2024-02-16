@@ -24,15 +24,15 @@
     android:padding="@dimen/global_actions_lite_padding">
 
     <androidx.constraintlayout.helper.widget.Flow
-          android:id="@+id/power_flow"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintTop_toTopOf="parent"
-          app:flow_wrapMode="chain"
-          app:flow_maxElementsWrap="2"
-          app:flow_horizontalGap="@dimen/global_actions_lite_padding"
-          app:flow_verticalGap="@dimen/global_actions_lite_padding"
-          app:flow_horizontalStyle="packed"/>
+        android:id="@+id/power_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:flow_wrapMode="chain"
+        app:flow_maxElementsWrap="2"
+        app:flow_horizontalGap="@dimen/global_actions_lite_padding"
+        app:flow_verticalGap="@dimen/global_actions_lite_padding"
+        app:flow_horizontalStyle="packed"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
