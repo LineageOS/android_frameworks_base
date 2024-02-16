@@ -33,6 +33,24 @@
       "message": "can\u0027t we just put this as an overlay??",
       "revId": "257edc567bc61e60665c9b24acfbbf49185364da",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0723e8cc_1a992ca4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-02-16T08:56:12Z",
+      "side": 1,
+      "message": "Yeah, but it\u0027s cleaner to make it a required RRO of Glimpse.",
+      "parentUuid": "fe7d24b0_75ee9e15",
+      "revId": "257edc567bc61e60665c9b24acfbbf49185364da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
