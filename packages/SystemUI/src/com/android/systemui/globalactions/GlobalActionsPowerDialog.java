@@ -51,6 +51,17 @@ public class GlobalActionsPowerDialog {
 
         Resources res = context.getResources();
 
+        int nElementsWrap = res.getInteger(
+                com.android.systemui.R.integer.power_menu_lite_max_columns);
+        int nChildren = listView.getChildCount() - 1; // don't count flow element
+
+        // Avoid having just one action on the last row if there are more than 2 columns because
+        // it looks unbalanced. Instead, bring the column size down to balance better.
+        if (nChildren == nElementsWrap + 1 && nElementsWrap > 2) {
+            nElementsWrap -= 1;
+        }
+        flow.setMaxElementsWrap(nElementsWrap);
+
         Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(listView);
