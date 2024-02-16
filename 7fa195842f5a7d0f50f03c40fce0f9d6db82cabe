@@ -16,6 +16,24 @@
       "message": "Verified only on tv.",
       "revId": "7fa195842f5a7d0f50f03c40fce0f9d6db82cabe",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa975759_5a8909d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-02-16T16:59:48Z",
+      "side": 1,
+      "message": "It works fine on mobile, no regression noticed.",
+      "parentUuid": "eb1f2273_9db2a754",
+      "revId": "7fa195842f5a7d0f50f03c40fce0f9d6db82cabe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }

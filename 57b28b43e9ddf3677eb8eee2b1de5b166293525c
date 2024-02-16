@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c83d02a6_4d65ef1e",
+        "filename": "packages/SystemUI/res/anim-television/control_state_list_animator.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-02-16T16:59:48Z",
+      "side": 0,
+      "message": "Can you add a newline at the end of the file?",
+      "revId": "57b28b43e9ddf3677eb8eee2b1de5b166293525c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
