@@ -16,6 +16,29 @@
       "message": "Together with the previous patch, this fixes the alignment/gravity of the right clock.",
       "revId": "b738dbb087f0a5e44ad3693e4ba06cf543ae2016",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac7732a5_48ee9be6",
+        "filename": "packages/SystemUI/res/layout/system_icons.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-02-16T09:56:15Z",
+      "side": 1,
+      "message": "could it be that this doesn\u0027t need start?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 51
+      },
+      "revId": "b738dbb087f0a5e44ad3693e4ba06cf543ae2016",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
