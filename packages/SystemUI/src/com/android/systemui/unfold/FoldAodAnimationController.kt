@@ -110,7 +110,7 @@ constructor(
     private fun shouldStartAnimation(): Boolean =
         alwaysOnEnabled &&
             wakefulnessLifecycle.lastSleepReason == PowerManager.GO_TO_SLEEP_REASON_DEVICE_FOLD &&
-            globalSettings.getString(Settings.Global.ANIMATOR_DURATION_SCALE) != "0"
+            globalSettings.getFloat(Settings.Global.ANIMATOR_DURATION_SCALE) != 0f
 
     override fun startAnimation(): Boolean =
         if (shouldStartAnimation()) {
