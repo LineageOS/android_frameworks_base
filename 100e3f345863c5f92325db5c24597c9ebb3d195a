@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e8b727_628bdfb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32683
+      },
+      "writtenOn": "2024-02-17T06:38:50Z",
+      "side": 1,
+      "message": "This bug happens sometimes when switching user profiles: https://hastebin.com/share/malugunano.yaml",
+      "revId": "100e3f345863c5f92325db5c24597c9ebb3d195a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
