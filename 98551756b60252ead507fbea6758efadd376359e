@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65f41fc3_4f8f9ac6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14010
+      },
+      "writtenOn": "2024-02-17T13:36:07Z",
+      "side": 1,
+      "message": "Just two line break fixes",
+      "revId": "98551756b60252ead507fbea6758efadd376359e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
