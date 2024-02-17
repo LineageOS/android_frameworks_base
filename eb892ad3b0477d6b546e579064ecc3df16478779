@@ -16,6 +16,24 @@
       "message": "This should default to 0.\n\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/336877 was missed from this somehow?",
       "revId": "eb892ad3b0477d6b546e579064ecc3df16478779",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8d7ae40_97bcb826",
+        "filename": "services/usb/java/com/android/server/usb/UsbDeviceManager.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-02-17T12:58:28Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/383017",
+      "parentUuid": "b3f3cc70_bac16e14",
+      "revId": "eb892ad3b0477d6b546e579064ecc3df16478779",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
