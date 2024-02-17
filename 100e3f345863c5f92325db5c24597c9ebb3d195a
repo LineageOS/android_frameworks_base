@@ -16,6 +16,23 @@
       "message": "This bug happens sometimes when switching user profiles: https://hastebin.com/share/malugunano.yaml",
       "revId": "100e3f345863c5f92325db5c24597c9ebb3d195a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e523add_44113cc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32683
+      },
+      "writtenOn": "2024-02-17T09:36:46Z",
+      "side": 1,
+      "message": "Link to AOSP commit BTW:\nhttps://cs.android.com/android/_/android/platform/frameworks/base/+/a1c34f0aac5acb50b1c912e2c96d9ef7a6a79348\nhttps://android.googlesource.com/platform/frameworks/base/+/a1c34f0aac5acb50b1c912e2c96d9ef7a6a79348",
+      "revId": "100e3f345863c5f92325db5c24597c9ebb3d195a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
