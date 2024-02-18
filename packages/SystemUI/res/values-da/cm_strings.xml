@@ -56,7 +56,8 @@
     <string name="quick_settings_reading_mode">Læsetilstand</string>
     <string name="accessibility_quick_settings_reading_mode_on">Læsetilstand til.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Læsetilstand fra.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_on">Læsetilstand er slået til.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Læsetilstand tændt.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Læsetilstand fra.</string>
     <string name="quick_settings_sync_label">Synkronisering</string>
     <string name="accessibility_quick_settings_sync_off">Synkronisering fra.</string>
     <string name="accessibility_quick_settings_sync_on">Synkronisering til.</string>
