@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b975696_c6c4a1eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-02-18T20:08:06Z",
+      "side": 1,
+      "message": "please also fix it here packages/SystemUI/src/com/android/systemui/unfold/FoldAodAnimationController.kt:",
+      "revId": "87dc2492ae2ee994bb1b6167a140622b201da751",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
