@@ -32,17 +32,27 @@
     <string name="global_action_restart_fastboot_progress">Fastbootd মোডে রিস্টার্ট করা হচ্ছে\u2026</string>
     <string name="global_action_current_user">বর্তমান</string>
     <string name="global_action_users">ব্যবহারকারী</string>
+    <string name="quick_settings_ambient_display_label">অ্যাম্বিয়েন্ট ডিসপ্লে</string>
+    <string name="accessibility_quick_settings_ambient_display_off">অ্যাম্বিয়েন্ট ডিসপ্লে বন্ধ</string>
+    <string name="accessibility_quick_settings_ambient_display_on">অ্যাম্বিয়েন্ট ডিসপ্লে চালু</string>
     <string name="quick_settings_aod_off_powersave_label">AOD বন্ধ\nব্যাটারি সেভার</string>
     <string name="quick_settings_caffeine_label">ক্যাফেইন</string>
     <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ।</string>
     <string name="accessibility_quick_settings_caffeine_on">ক্যাফেইন চালু।</string>
     <string name="quick_settings_heads_up_label">হেডস আপ</string>
     <string name="accessibility_quick_settings_heads_up_off">হেডস আপ বন্ধ।</string>
+    <string name="accessibility_quick_settings_heads_up_on">হেডস আপ চালু</string>
     <string name="quick_settings_powershare_label">ওয়্যারলেস পাওয়ার শেয়ার</string>
     <string name="quick_settings_powershare_off_powersave_label">ওয়্যারলেস পাওয়ারশেয়ার অক্ষম\nব্যাটারি সেভার</string>
     <string name="quick_settings_powershare_off_low_battery_label">ওয়্যারলেস পাওয়ারশেয়ার অক্ষম\nব্যাটারি খুব কম</string>
     <string name="quick_settings_powershare_enabled_label">ওয়্যারলেস পাওয়ার শেয়ার সক্ষম করা আছে</string>
+    <string name="accessibility_quick_settings_reading_mode_on">রিডিং মোড চালু</string>
+    <string name="accessibility_quick_settings_reading_mode_off">রিডিং মোড বন্ধ</string>
+    <string name="quick_settings_sync_label">সমন্বয়</string>
+    <string name="accessibility_quick_settings_sync_off">সিঙ্ক বন্ধ</string>
+    <string name="accessibility_quick_settings_sync_on">সিঙ্ক চালু</string>
     <string name="quick_settings_profiles_label">সিস্টেম প্রফাইলস</string>
+    <string name="accessibility_quick_settings_profiles_off">প্রোফাইল বন্ধ</string>
     <string name="accessibility_quick_settings_profiles">প্রোফাইল: <xliff:g id="profile" example="Default">%s </xliff:g>।</string>
     <string name="quick_settings_usb_tether_label">ইউএসবি টিথারিং</string>
     <string name="quick_settings_vpn_label">ভিপিএন</string>
