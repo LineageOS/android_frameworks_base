@@ -16,6 +16,24 @@
       "message": "wouldn\u0027t it be enough to use Log.v() here?",
       "revId": "af8a9afe622570015d9e11c691129fe8dfc1a5e6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f4f31b_a6165551",
+        "filename": "core/java/com/android/internal/widget/LocalImageResolver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 20364
+      },
+      "writtenOn": "2024-02-18T21:10:11Z",
+      "side": 1,
+      "message": "Could be, I followed this commit for a better chance to be accepted. https://review.lineageos.org/c/LineageOS/android_packages_modules_Connectivity/+/375029 but feel free to try with logv.",
+      "parentUuid": "f5f1210b_bfe31780",
+      "revId": "af8a9afe622570015d9e11c691129fe8dfc1a5e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
