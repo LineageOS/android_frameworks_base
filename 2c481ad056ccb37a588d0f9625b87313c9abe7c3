@@ -87,6 +87,24 @@
       "parentUuid": "bc729dc4_94cd7768",
       "revId": "2c481ad056ccb37a588d0f9625b87313c9abe7c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2cd57e_66b95093",
+        "filename": "services/core/java/com/android/server/hdmi/HdmiCecController.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 27741
+      },
+      "writtenOn": "2024-02-19T18:59:59Z",
+      "side": 1,
+      "message": "right right, AIDL casting should be on caller instead. I\u0027ll rip that out",
+      "parentUuid": "e4da40ca_0ae338de",
+      "revId": "2c481ad056ccb37a588d0f9625b87313c9abe7c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
