@@ -33,6 +33,24 @@
       "message": "why the cast only here?",
       "revId": "2c481ad056ccb37a588d0f9625b87313c9abe7c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f3ae800_a0516f48",
+        "filename": "services/core/java/com/android/server/hdmi/HdmiCecController.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 27741
+      },
+      "writtenOn": "2024-02-19T18:31:43Z",
+      "side": 1,
+      "message": "read the interface--the HIDL interfaces properly set uint16_t so it comes in as a short. the AIDL one used here comes in as an int. the \"proper\" way of course would be to have AIDL not be broken and just convert all usages of PA in frameworks to short, but since Google already created the interface, it\u0027s better to follow the garbage than change interface (would totally break the api and would require extensive fw changes).",
+      "parentUuid": "d27bfd96_511fabb0",
+      "revId": "2c481ad056ccb37a588d0f9625b87313c9abe7c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
