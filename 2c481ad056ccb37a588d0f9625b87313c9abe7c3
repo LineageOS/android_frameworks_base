@@ -69,6 +69,24 @@
       "parentUuid": "6f3ae800_a0516f48",
       "revId": "2c481ad056ccb37a588d0f9625b87313c9abe7c3",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4da40ca_0ae338de",
+        "filename": "services/core/java/com/android/server/hdmi/HdmiCecController.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-02-19T18:46:08Z",
+      "side": 1,
+      "message": "To me it seems like instead you should fix your aidl impl to actually provide unsigned int data?\nit\u0027s passed down signed short when the iface expect unsigned int, you\u0027re breaking the expectations of the client.\nThe HIDL changes are correct, since the old iface provided short, but since aidl does not and it matches the builder type you should instead make sure your impl is correct.\nI\u0027d simply remove the AIDL fix-up",
+      "parentUuid": "bc729dc4_94cd7768",
+      "revId": "2c481ad056ccb37a588d0f9625b87313c9abe7c3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
