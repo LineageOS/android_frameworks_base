@@ -58,6 +58,7 @@ cc_library_static {
         "com_android_server_PersistentDataBlockService.cpp",
         "com_android_server_am_CachedAppOptimizer.cpp",
         "com_android_server_am_LowMemDetector.cpp",
+        "com_android_server_pm_PackageManagerService.cpp",
         "com_android_server_pm_PackageManagerShellCommandDataLoader.cpp",
         "onload.cpp",
         ":lib_networkStatsFactory_native",
@@ -81,6 +82,9 @@ cc_library_static {
             srcs: [
                 ":arctimersrcs",
             ],
+        },
+        debuggable: {
+            cflags: ["-DANDROID_DEBUGGABLE"],
         }
     }
 }
