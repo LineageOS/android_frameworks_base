@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b577ac_e86be4e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2024-02-20T22:09:54Z",
+      "side": 1,
+      "message": "Instead of hardcoding third party public keys (\u003d no control over the keys, keys can leak blah blah), how about providing flashable zips (like MTG) but with GmsCore signed with LineageOS platform keys?",
+      "revId": "9c86a47e24b1d1e2ba317503d279cfd1628ef06e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
