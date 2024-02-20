@@ -19,6 +19,7 @@ package com.android.egg.landroid
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent;
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedVisibility
@@ -240,13 +241,14 @@ fun Telemetry(universe: VisibleUniverse) {
 
 class MainActivity : ComponentActivity() {
     private var foldState = mutableStateOf<FoldingFeature?>(null)
+    private lateinit var universe: VisibleUniverse;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         onWindowLayoutInfoChange()
 
-        val universe = VisibleUniverse(namer = Namer(resources), randomSeed = randomSeed())
+        universe = VisibleUniverse(namer = Namer(resources), randomSeed = randomSeed())
 
         if (TEST_UNIVERSE) {
             universe.initTest()
@@ -264,30 +266,57 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 minRadius = minRadius,
                 maxRadius = maxRadius,
-                color = Color.Green
-            ) { vec ->
-                (universe.follow as? Spacecraft)?.let { ship ->
-                    if (vec == Vec2.Zero) {
-                        ship.thrust = Vec2.Zero
-                    } else {
-                        val a = vec.angle()
-                        ship.angle = a
+                color = Color.Green,
+                onStickChanged = ::handleStickChanges
+            )
+            Telemetry(universe)
+        }
+    }
 
-                        val m = vec.mag()
-                        if (m < minRadius) {
-                            // within this radius, just reorient
-                            ship.thrust = Vec2.Zero
-                        } else {
-                            ship.thrust =
-                                Vec2.makeWithAngleMag(
-                                    a,
-                                    lexp(minRadius, maxRadius, m).coerceIn(0f, 1f)
-                                )
-                        }
-                    }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        when (keyCode) {
+            KeyEvent.KEYCODE_DPAD_LEFT -> handleStickChanges(Vec2(-1000f, 0f))
+            KeyEvent.KEYCODE_DPAD_RIGHT -> handleStickChanges(Vec2(1000f, 0f))
+            KeyEvent.KEYCODE_DPAD_UP -> handleStickChanges(Vec2(0f, -1000f))
+            KeyEvent.KEYCODE_DPAD_DOWN -> handleStickChanges(Vec2(0f, 1000f))
+            else -> return super.onKeyDown(keyCode, event)
+        }
+
+        return true
+    }
+
+    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
+        when (keyCode) {
+            KeyEvent.KEYCODE_DPAD_LEFT,
+            KeyEvent.KEYCODE_DPAD_RIGHT,
+            KeyEvent.KEYCODE_DPAD_UP,
+            KeyEvent.KEYCODE_DPAD_DOWN -> handleStickChanges(Vec2.Zero)
+            else -> return super.onKeyDown(keyCode, event)
+        }
+
+        return true
+    }
+
+    fun handleStickChanges(vec: Vec2, minRadius: Float = 0f, maxRadius: Float = 1000f) {
+        (universe.follow as? Spacecraft)?.let { ship ->
+            if (vec == Vec2.Zero) {
+                ship.thrust = Vec2.Zero
+            } else {
+                val a = vec.angle()
+                ship.angle = a
+
+                val m = vec.mag()
+                if (m < minRadius) {
+                    // within this radius, just reorient
+                    ship.thrust = Vec2.Zero
+                } else {
+                    ship.thrust =
+                        Vec2.makeWithAngleMag(
+                            a,
+                            lexp(minRadius, maxRadius, m).coerceIn(0f, 1f)
+                        )
                 }
             }
-            Telemetry(universe)
         }
     }
 
@@ -326,7 +355,7 @@ fun FlightStick(
     minRadius: Float = 0f,
     maxRadius: Float = 1000f,
     color: Color = Color.Green,
-    onStickChanged: (vector: Vec2) -> Unit
+    onStickChanged: (vector: Vec2, minRadius: Float, maxRadius: Float) -> Unit
 ) {
     val origin = remember { mutableStateOf(Vec2.Zero) }
     val target = remember { mutableStateOf(Vec2.Zero) }
@@ -347,7 +376,7 @@ fun FlightStick(
                                 val event: PointerEvent = awaitPointerEvent()
                                 target.value = event.changes[0].position
 
-                                onStickChanged(target.value - origin.value)
+                                onStickChanged(target.value - origin.value, minRadius, maxRadius)
                             } while (
                                 !event.changes.any { it.isConsumed } &&
                                     event.changes.count { it.pressed } == 1
@@ -357,7 +386,7 @@ fun FlightStick(
                             target.value = Vec2.Zero
                             origin.value = Vec2.Zero
 
-                            onStickChanged(Vec2.Zero)
+                            onStickChanged(Vec2.Zero, minRadius, maxRadius)
                         }
                     }
                 }
