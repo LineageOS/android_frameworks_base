@@ -33,6 +33,24 @@
       "message": "I think that shipping custom MicroG is indeed a better idea than hardcoding keys, Mostly because yes, I\u0027m pretty sure the resources needed for that to be automated aren\u0027t that extensive.",
       "revId": "9c86a47e24b1d1e2ba317503d279cfd1628ef06e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cd1d735_3e3cf18f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2024-02-20T22:17:48Z",
+      "side": 1,
+      "message": "Note that this doesn\u0027t give that much access either way. Let\u0027s say the keys leak, then what? Someone could make a rogue `com.google.android.gms` that is allowed to spoof signature on LineageOS, but that\u0027s all the access this gets you.\n\nJust to keep things simpler.",
+      "parentUuid": "88b577ac_e86be4e4",
+      "revId": "9c86a47e24b1d1e2ba317503d279cfd1628ef06e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
