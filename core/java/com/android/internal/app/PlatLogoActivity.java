@@ -253,7 +253,7 @@ public class PlatLogoActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_SPACE) {
+        if (keyCode == KeyEvent.KEYCODE_SPACE || keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
             if (event.getRepeatCount() == 0) {
                 startWarp();
             }
@@ -264,7 +264,7 @@ public class PlatLogoActivity extends Activity {
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_SPACE) {
+        if (keyCode == KeyEvent.KEYCODE_SPACE || keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
             stopWarp();
             return true;
         }
