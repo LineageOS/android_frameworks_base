@@ -68,6 +68,24 @@
       "message": "One thought would be to make this a list somewhere up above and do list.contains(). However given this list is just 2 apps and is fixed, it might not be worth it.",
       "revId": "9c86a47e24b1d1e2ba317503d279cfd1628ef06e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7496a6b0_6aeb701a",
+        "filename": "services/core/java/com/android/server/pm/ComputerEngine.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-02-21T07:38:49Z",
+      "side": 1,
+      "message": "I thought of having a map of packageName -\u003e (real, fake) but in the end, I think that might be an overkill for something like this.",
+      "parentUuid": "16f664c9_db36f3de",
+      "revId": "9c86a47e24b1d1e2ba317503d279cfd1628ef06e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
