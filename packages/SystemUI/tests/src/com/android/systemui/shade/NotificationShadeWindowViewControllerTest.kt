@@ -24,6 +24,7 @@ import android.view.ViewGroup
 import androidx.test.filters.SmallTest
 import com.android.keyguard.KeyguardMessageAreaController
 import com.android.keyguard.KeyguardSecurityContainerController
+import com.android.keyguard.FaceIconViewController
 import com.android.keyguard.LockIconViewController
 import com.android.keyguard.dagger.KeyguardBouncerComponent
 import com.android.systemui.R
@@ -123,6 +124,7 @@ class NotificationShadeWindowViewControllerTest : SysuiTestCase() {
     @Mock lateinit var keyEventInteractor: KeyEventInteractor
     private val notificationExpansionRepository = NotificationExpansionRepository()
     @Mock private lateinit var qqsGestureListener: QQSGestureListener
+    @Mock private lateinit var faceIconViewController: FaceIconViewController
 
     private lateinit var fakeClock: FakeSystemClock
     private lateinit var interactionEventHandlerCaptor: ArgumentCaptor<InteractionEventHandler>
@@ -197,6 +199,7 @@ class NotificationShadeWindowViewControllerTest : SysuiTestCase() {
                     BouncerLogger(logcatLogBuffer("BouncerLog")),
                     keyEventInteractor,
                     qqsGestureListener,
+                    faceIconViewController,
             )
         underTest.setupExpandedStatusBar()
 
