@@ -16,6 +16,24 @@
       "message": "Submit to AOSP?",
       "revId": "31d0f46ec96317048622c87f0c4d93784aff5570",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a783bc79_0730baee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32245
+      },
+      "writtenOn": "2024-02-21T18:02:52Z",
+      "side": 1,
+      "message": "1. they only accept real person names in commit author, that\u0027s why I changed my git author name since I submitted the first change\n\n2. \"5. You represent that each of Your Contributions is Your original creation\"\n\nhttps://cla.developers.google.com/about/google-individual",
+      "parentUuid": "695c0bfd_6a35c18b",
+      "revId": "31d0f46ec96317048622c87f0c4d93784aff5570",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
