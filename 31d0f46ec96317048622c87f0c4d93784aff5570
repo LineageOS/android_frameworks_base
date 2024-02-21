@@ -52,6 +52,24 @@
       "parentUuid": "a783bc79_0730baee",
       "revId": "31d0f46ec96317048622c87f0c4d93784aff5570",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93924949_8fb05362",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32245
+      },
+      "writtenOn": "2024-02-21T18:11:39Z",
+      "side": 1,
+      "message": "ok, so... will he submit it by himself?",
+      "parentUuid": "acbe5342_7cbeeda7",
+      "revId": "31d0f46ec96317048622c87f0c4d93784aff5570",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
