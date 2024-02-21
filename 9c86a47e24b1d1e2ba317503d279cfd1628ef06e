@@ -53,6 +53,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37adc63d_f7c30895",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33489
+      },
+      "writtenOn": "2024-02-21T09:04:46Z",
+      "side": 1,
+      "message": "If you wanted to make it something tied to a flashable zip, one option would be to allow apps in system dir to do signature spoofing, independent of their signature. Then microg could provide a flashable zip to install the two microg components to system dir.\n\nSome might wonder if there\u0027s anything to do security-wise for the flashable zip, as malicious flashable zips could then use signature spoofing. But malicious flashable zips can already do *everything*, so that\u0027s really a non-issue.\n\nAlso, signatures for system apps are not even verified (see https://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/java/android/content/pm/PackageParser.java#L1428), so technically microg could already today provide such a flashable zip and spoof a google signature. They don\u0027t, because that way it wouldn\u0027t be possible for users to easily install updates (signatures of updates to system apps are properly verified). Also this would be a more invasive way of signature spoofing, because even the OS and all its security APIs relying on signatures (like permissions with signature level, shared uid, etc) would be affected.\n\nAll in all, I think the solution in this patch is superior, providing better security for the users than any of the alternatives (asking users to install a flashable zip really isn\u0027t a good solution from security perspective).",
+      "parentUuid": "5cd1d735_3e3cf18f",
+      "revId": "9c86a47e24b1d1e2ba317503d279cfd1628ef06e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16f664c9_db36f3de",
