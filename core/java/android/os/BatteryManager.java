@@ -174,6 +174,20 @@ public class BatteryManager {
     // TODO: b/461917615 - add EXTRA_CHARGING_STATUS API constants with clear definitions
 
     /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Int value representing the estimated battery full charge capacity in microampere-hours.
+     * @hide
+     */
+    public static final String EXTRA_MAXIMUM_CAPACITY = "android.os.extra.MAXIMUM_CAPACITY";
+
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * Int value representing the battery full charge design capacity in microampere-hours.
+     * @hide
+     */
+    public static final String EXTRA_DESIGN_CAPACITY = "android.os.extra.DESIGN_CAPACITY";
+
+    /**
      * Battery capacity level is unsupported.
      *
      * @see #EXTRA_CAPACITY_LEVEL
