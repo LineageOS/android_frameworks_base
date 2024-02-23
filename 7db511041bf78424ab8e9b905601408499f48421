@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06fdd858_6465e5e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-02-23T17:08:16Z",
+      "side": 1,
+      "message": "Verified on foster, still works as expected after updating to replicate latest upstream.",
+      "revId": "7db511041bf78424ab8e9b905601408499f48421",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
