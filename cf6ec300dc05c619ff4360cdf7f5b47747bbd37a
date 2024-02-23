@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78480842_4481a430",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-02-23T17:08:52Z",
+      "side": 1,
+      "message": "Not ready yet. Default banner is missing, for example.",
+      "revId": "cf6ec300dc05c619ff4360cdf7f5b47747bbd37a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
