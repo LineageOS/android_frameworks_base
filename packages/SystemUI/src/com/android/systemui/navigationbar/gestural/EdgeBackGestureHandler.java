@@ -541,6 +541,8 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
                         updateLongSwipeWidth();
                     }
                 });
+        mContext.getContentResolver().notifyChange(LineageSettings.System.getUriFor(
+                LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION), null);
 
         // Reduce the default touch slop to ensure that we can intercept the gesture
         // before the app starts to react to it.
