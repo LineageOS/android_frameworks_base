@@ -529,6 +529,11 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
         if (mMLEnableWidth > mEdgeWidthRight) mMLEnableWidth = mEdgeWidthRight;
         if (mMLEnableWidth > mEdgeWidthLeft) mMLEnableWidth = mEdgeWidthLeft;
 
+        mIsLongSwipeEnabled = Action.fromIntSafe(
+                LineageSettings.System.getInt(mContext.getContentResolver(),
+                    LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION,
+                    Action.NOTHING.ordinal())) != Action.NOTHING;
+
         mContext.getContentResolver().registerContentObserver(
                 LineageSettings.System.getUriFor(LineageSettings.System.KEY_EDGE_LONG_SWIPE_ACTION),
                 false, new ContentObserver(mMainHandler) {
