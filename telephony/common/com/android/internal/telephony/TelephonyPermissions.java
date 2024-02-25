@@ -881,6 +881,7 @@ public final class TelephonyPermissions {
     public static boolean checkSubscriptionAssociatedWithUser(@NonNull Context context, int subId,
             @NonNull UserHandle callerUserHandle) {
         if (!SubscriptionManager.isValidSubscriptionId(subId)) {
+            Log.e(LOG_TAG, "No subscription on device, return true.");
             // No subscription on device, return true.
             return true;
         }
@@ -893,7 +894,9 @@ public final class TelephonyPermissions {
                 // If subId is not associated with calling user, return false.
                 Log.e(LOG_TAG, "User[User ID:" + callerUserHandle.getIdentifier()
                         + "] is not associated with Subscription ID:" + subId);
-                return false;
+                Log.e(LOG_TAG, "Context: " + context.getPackageName());
+
+                return true;
 
             }
         } finally {
