@@ -34,6 +34,24 @@
       "parentUuid": "698dfb24_8bf0d4da",
       "revId": "e57b8a05b905f0b327a1f5d686cef9853a0e7fbf",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8571020e_4f9c78c5",
+        "filename": "services/usb/java/com/android/server/usb/UsbDeviceManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-02-27T22:15:08Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "857aaa66_cc204a3a",
+      "revId": "e57b8a05b905f0b327a1f5d686cef9853a0e7fbf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
