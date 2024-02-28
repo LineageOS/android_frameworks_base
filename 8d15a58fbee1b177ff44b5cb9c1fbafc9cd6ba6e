@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "918494b5_0cc98a46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29356
+      },
+      "writtenOn": "2024-02-28T14:26:54Z",
+      "side": 1,
+      "message": "379795 rebased to lineage-21.0",
+      "revId": "8d15a58fbee1b177ff44b5cb9c1fbafc9cd6ba6e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
