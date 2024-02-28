@@ -659,6 +659,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // Behavior of Back button while in-call and screen on
     int mIncallBackBehavior;
 
+    // Should device react to a lid event
+    boolean mEnableLidControl;
+
     // Whether system navigation keys are enabled
     boolean mSystemNavigationKeysEnabled;
 
@@ -1000,6 +1003,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.System.getUriFor(
                     LineageSettings.System.VOLUME_ANSWER_CALL), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.LID_CONTROL_SLEEP), false, this,
                     UserHandle.USER_ALL);
 
             updateSettings();
@@ -1419,7 +1425,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private int getLidBehavior() {
-        return Settings.Global.getInt(mContext.getContentResolver(),
+        if(!mEnableLidControl)
+            return LID_BEHAVIOR_NONE;
+        else
+            return Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.LID_BEHAVIOR, LID_BEHAVIOR_NONE);
     }
 
@@ -3058,6 +3067,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             UserHandle.USER_CURRENT) == 1;
             mCameraLaunch = LineageSettings.System.getIntForUser(resolver,
                     LineageSettings.System.CAMERA_LAUNCH, 0,
+                    UserHandle.USER_CURRENT) == 1;
+            mEnableLidControl = LineageSettings.System.getIntForUser(resolver,
+                    LineageSettings.System.LID_CONTROL_SLEEP, 0,
                     UserHandle.USER_CURRENT) == 1;
 
             // Configure wake gesture.
