@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76390d8c_b4838e71",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-02-28T09:10:45Z",
+      "side": 1,
+      "message": "Missing space afeter if and opening and closing brackets.",
+      "revId": "6e4b5ea910c2056c21818bc41905bbb4196ee132",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
