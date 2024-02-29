@@ -104,6 +104,10 @@ class ZygoteConnection {
             Log.e(TAG, "Cannot read peer credentials", ex);
             throw ex;
         }
+
+        if (peer.getUid() != Process.SYSTEM_UID) {
+            throw new ZygoteSecurityException("Only system UID is allowed to connect to Zygote.");
+        }
     }
 
     /**
