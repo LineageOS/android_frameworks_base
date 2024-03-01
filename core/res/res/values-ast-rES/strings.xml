@@ -148,8 +148,8 @@
     <string name="cfTemplateForwardedTime"><xliff:g id="bearer_service_code">{0}</xliff:g>: <xliff:g id="dialing_number">{1}</xliff:g> dempués de <xliff:g id="time_delay">{2}</xliff:g> segundos</string>
     <string name="cfTemplateRegistered"><xliff:g id="bearer_service_code">{0}</xliff:g>: nun s\'esvió</string>
     <string name="cfTemplateRegisteredTime"><xliff:g id="bearer_service_code">{0}</xliff:g>: nun s\'esvió</string>
-    <string name="fcComplete">Códigu de carauterística completu.</string>
-    <string name="fcError">Hebo un problema de conexón o\'l códigu de carauterística nun ye válidu.</string>
+    <string name="fcComplete">Códigu de función completu.</string>
+    <string name="fcError">Hebo un problema de conexón o\'l códigu de función nun ye válidu.</string>
     <string name="httpErrorOk">OK</string>
     <string name="httpError">Hebo un fallu de rede.</string>
     <string name="httpErrorLookup">Nun se pudo atopar la URL.</string>
@@ -228,7 +228,7 @@
     <string name="reboot_to_reset_message">Reaniciando\u2026</string>
     <string name="shutdown_progress">Apagando\u2026</string>
     <string name="shutdown_confirm" product="tablet">La tableta va apagase.</string>
-    <string name="shutdown_confirm" product="tv">El preséu d\'Android TV va apagase.</string>
+    <string name="shutdown_confirm" product="tv">El preséu Android TV va apagase.</string>
     <string name="shutdown_confirm" product="watch">El reló va apagase.</string>
     <string name="shutdown_confirm" product="default">El teléfonu va apagase.</string>
     <string name="shutdown_confirm_question">¿Quies apagar el preséu?</string>
@@ -516,7 +516,7 @@
     <string name="permdesc_accessLocationExtraCommands">Permite que l\'aplicación acceda
         a los comandos adicionales del fornidor de llocalización.  Esti permisu
         pue interfirir col funcionamientu del GPS con otres fontes de llocalización.</string>
-    <string name="permlab_accessFineLocation">accesua la llocalización exauta namás en primer planu</string>
+    <string name="permlab_accessFineLocation">accesu a la llocalización exauta namás en primer planu</string>
     <string name="permdesc_accessFineLocation">Esta aplicación pue consiguir la lo llocalización exautu pente les fontes de llocalización mentanto l\'aplicación ta n\'usu. Los servicios de llocalización han tar activaos pa que l\'aplicación consiga la llocalización. Poro, l\'aplicación pue consumir más enerxía.</string>
     <string name="permlab_accessCoarseLocation">accesu a la llocalización namás en primer planu</string>
     <string name="permdesc_accessCoarseLocation">Esta aplicación pue consiguir la to llocalización aproximada pente les fontes de llocalización mentanto l\'aplicación ta n\'usu. Los servicios de llocalización han tar activaos pa que l\'aplicación consiga la llocalización.</string>
@@ -1565,10 +1565,10 @@
     <string name="sms_short_code_remember_undo_instruction">Camúdalo dempués n\'Axustes\u00A0&gt;\u00A0Aplicaciones</string>
     <string name="sms_short_code_confirm_always_allow">Permitir siempres</string>
     <string name="sms_short_code_confirm_never_allow">Nun permitir enxamás</string>
-    <string name="sim_removed_title">Estraición de la tarxeta SIM</string>
+    <string name="sim_removed_title">Estráxose una tarxeta SIM</string>
     <string name="sim_removed_message">La rede móvil nun va tar disponible hasta que reanicies el preséu con una tarxeta SIM válida inxertada.</string>
     <string name="sim_done_button">Fecho</string>
-    <string name="sim_added_title">Amiestu d\'una tarxeta SIM</string>
+    <string name="sim_added_title">Amestóse una SIM</string>
     <string name="sim_added_message">Reanicia\'l preséu p\'acceder a la rede móvil.</string>
     <string name="sim_restart_button">Reaniciar</string>
     <string name="install_carrier_app_notification_title">Activación del serviciu móvil</string>
@@ -1951,13 +1951,13 @@
     </string>
     <string name="accessibility_shortcut_warning_dialog_title">¿Quies usar l\'atayu «Accesibilidá»?</string>
     <string name="accessibility_shortcut_toogle_warning">        Cuando l\'atayu ta activáu, primi los botones del volume demientres 3 segundos
-        p\'aniciar una carauterística de privacidá.
+        p\'aniciar una función de privacidá.
     </string>
-    <string name="accessibility_shortcut_multiple_service_warning_title">¿Quies activar les carauterístiques d\'accesibilidá?</string>
-    <string name="accessibility_shortcut_multiple_service_warning">Tener primíes les tecles del volume demientres unos segundos activa les carauterístiques d\'accesibilidá. Esto pue camuda cómo funciona\'l preséu.\n\nCarauterístiques actuales:\n<xliff:g id="service" example="TalkBack">%1$s</xliff:g>\nPues camudar les carauterístiques esbillaes n\'Axustes &gt; Accesibilidá.</string>
+    <string name="accessibility_shortcut_multiple_service_warning_title">¿Quies activar les funciones d\'accesibilidá?</string>
+    <string name="accessibility_shortcut_multiple_service_warning">Tener primíes les tecles del volume demientres unos segundos activa les funciones d\'accesibilidá. Esto pue camuda cómo funciona\'l preséu.\n\nfunciones actuales:\n<xliff:g id="service" example="TalkBack">%1$s</xliff:g>\nPues camudar les funciones esbillaes n\'Axustes &gt; Accesibilidá.</string>
     <string name="accessibility_shortcut_multiple_service_list">\t• <xliff:g id="service" example="TalkBack">%1$s</xliff:g>\n</string>
     <string name="accessibility_shortcut_single_service_warning_title">¿Quies activar «<xliff:g id="service" example="TalkBack">%1$s</xliff:g>»?</string>
-    <string name="accessibility_shortcut_single_service_warning">Tener primíes les tecles del volume demientres unos segundos activa «<xliff:g id="service" example="TalkBack">%1$s</xliff:g>,» una carauterística d\'accesibilidá. Esto pue camudar cómo funciona\'l preséu.\n\nPues camudar la carauterística d\'esti atayu n\'Axustes &gt; Accesibilidá.</string>
+    <string name="accessibility_shortcut_single_service_warning">Tener primíes les tecles del volume demientres unos segundos activa «<xliff:g id="service" example="TalkBack">%1$s</xliff:g>,» una función d\'accesibilidá. Esto pue camudar cómo funciona\'l preséu.\n\nPues camudar la función d\'esti atayu n\'Axustes &gt; Accesibilidá.</string>
     <string name="accessibility_shortcut_on">Activar</string>
     <string name="accessibility_shortcut_off">Nun activar</string>
     <string name="accessibility_shortcut_menu_item_status_on">SÍ</string>
@@ -1982,11 +1982,11 @@
     </string>
     <string name="accessibility_dialog_button_allow">Permitir</string>
     <string name="accessibility_dialog_button_deny">Negar</string>
-    <string name="accessibility_select_shortcut_menu_title">Toca una carauterística pa comenzar a usala:</string>
-    <string name="accessibility_edit_shortcut_menu_button_title">Escueyi qué carauterístiques usar
+    <string name="accessibility_select_shortcut_menu_title">Toca una función pa comenzar a usala:</string>
+    <string name="accessibility_edit_shortcut_menu_button_title">Escueyi qué funciones usar
         col botón «Accesibilidá»
     </string>
-    <string name="accessibility_edit_shortcut_menu_volume_title">Escueyi qué carauterístiques usar
+    <string name="accessibility_edit_shortcut_menu_volume_title">Escueyi qué funciones usar
         col atayu de les tecles del volume
     </string>
     <string name="accessibility_uncheck_legacy_item_warning">        «<xliff:g id="service_name" example="TalkBack">%s</xliff:g>» desactivóse</string>
@@ -2000,12 +2000,12 @@
     <string name="accessibility_shortcut_disabling_service">Tuviéronse primíes les tecles del volume. Desactivóse «<xliff:g id="service_name" example="TalkBack">%1$s</xliff:g>».</string>
     <string name="accessibility_shortcut_spoken_feedback">Ten primíos los botones del volume demientres trés segundos pa usar
         «<xliff:g id="service_name" example="TalkBack">%1$s</xliff:g>»</string>
-    <string name="accessibility_button_prompt_text">Escueyi la carauterística que va usase cuando toques el botón d\'accesibilidá:</string>
-    <string name="accessibility_gesture_prompt_text">Escueyi la carauterística que va usase pal xestu d\'accesibilidá (esliza dende lo baxero a lo cimero de la pantalla con dos deos):</string>
-    <string name="accessibility_gesture_3finger_prompt_text">Escueyi la carauterística que va usase pal xestu d\'accesibilidá (esliza dende lo baxero a lo cimero de la pantalla con trés deos):</string>
-    <string name="accessibility_button_instructional_text">Pa cambiar de carauterístiques, ten primíu\'l botón d\'accesibilidá.</string>
-    <string name="accessibility_gesture_instructional_text">Pa cambiar de carauterístiques, esliza p\'arriba con dos deos y ten primida la pantalla.</string>
-    <string name="accessibility_gesture_3finger_instructional_text">Pa cambiar de carauterístiques, esliza p\'arriba con trés deos y ten primida la pantalla.</string>
+    <string name="accessibility_button_prompt_text">Escueyi la función que va usase cuando toques el botón d\'accesibilidá:</string>
+    <string name="accessibility_gesture_prompt_text">Escueyi la función que va usase pal xestu d\'accesibilidá (esliza dende lo baxero a lo cimero de la pantalla con dos deos):</string>
+    <string name="accessibility_gesture_3finger_prompt_text">Escueyi la función que va usase pal xestu d\'accesibilidá (esliza dende lo baxero a lo cimero de la pantalla con trés deos):</string>
+    <string name="accessibility_button_instructional_text">Pa cambiar de función, ten primíu\'l botón d\'accesibilidá.</string>
+    <string name="accessibility_gesture_instructional_text">Pa cambiar de función, esliza p\'arriba con dos deos y ten primida la pantalla.</string>
+    <string name="accessibility_gesture_3finger_instructional_text">Pa cambiar de función, esliza p\'arriba con trés deos y ten primida la pantalla.</string>
     <string name="accessibility_magnification_chooser_text">Aumentu</string>
     <string name="user_switched">Usuariu actual: <xliff:g id="name" example="Bob">%1$s</xliff:g>.</string>
     <string name="user_switching_message">Cambiando a «<xliff:g id="name" example="Bob">%1$s</xliff:g>»\u2026</string>
@@ -2147,7 +2147,7 @@
     <string name="confirm_battery_saver">OK</string>
     <string name="battery_saver_description_with_learn_more">P\'aumentar la duración de la batería, l\'aforrador d\'enerxía»:\n\n\u2022Activa l\'estilu escuru\n\u2022Desactiva o torga l\'actividá en segundu planu, dalgunos efeutos visuales y otres funciones como «Á Google»\n\n<annotation id="url">Saber más</annotation></string>
     <string name="battery_saver_description">P\'aumentar la duración de la batería, l\'aforrador d\'enerxía»:\n\n\u2022Activa l\'estilu escuru\n\u2022Desactiva o torga l\'actividá en segundu planu, dalgunos efeutos visuales y otres funciones como «Á Google»</string>
-    <string name="data_saver_description">P\'ayudar a amenorgar l\'usu de datos, «Aforrador de datos» evita que que les aplicaciones unvien y reciban datos en segundu planu. L\'aplicación que teas usando pue acceder a los datos, mas quiciabes lo faiga con menos frecuencia. Esto quier dicir, por exemplu, que les imáxenes nun van amosase hasta que calques nelles.</string>
+    <string name="data_saver_description">P\'ayudar a amenorgar l\'usu de datos, «Aforrador de datos» evita que les aplicaciones unvien y reciban datos en segundu planu. L\'aplicación que teas usando pue acceder a los datos, mas quiciabes lo faiga con menos frecuencia. Esto quier dicir, por exemplu, que les imáxenes nun van amosase hasta que calques nelles.</string>
     <string name="data_saver_enable_title">¿Quies activar «Aforrador de datos»?</string>
     <string name="data_saver_enable_button">Activar</string>
     <plurals name="zen_mode_duration_minutes_summary">
@@ -2242,7 +2242,7 @@
     <string name="app_suspended_more_details">Saber más</string>
     <string name="app_suspended_unsuspend_message">Anular la posa</string>
     <string name="work_mode_off_title">¿Activar el perfil llaboral?</string>
-    <string name="work_mode_off_message">Van activase los datos, les aplicaciones, los avisos y les demás carauterístiques del perfil llaboral</string>
+    <string name="work_mode_off_message">Van activase los datos, les aplicaciones, los avisos y les demás funciones del perfil llaboral</string>
     <string name="work_mode_turn_on">Activar</string>
     <string name="app_blocked_title">L\'aplicación nun ta disponible</string>
     <string name="app_blocked_message">        Nesti momentu, «<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>» nun ta disponible.
@@ -2348,7 +2348,7 @@
     <string name="zen_upgrade_notification_title">«Nun molestar» camudó</string>
     <string name="zen_upgrade_notification_content">Toca pa comprobar qué se bloquió.</string>
     <string name="notification_app_name_system">Sistema</string>
-    <string name="notification_app_name_settings">Axustes</string>
+    <string name="notification_app_name_settings">Configuración</string>
     <string name="notification_appops_camera_active">Cámara</string>
     <string name="notification_appops_microphone_active">Micrófonu</string>
     <string name="notification_appops_overlay_active">superpónse a otres aplicaciones de la pantalla</string>
@@ -2357,9 +2357,9 @@
     <string name="dynamic_mode_notification_summary">Activóse l\'aforrador d\'enerxía p\'aumentar la duración de la batería</string>
     <string name="battery_saver_notification_channel_name">Aforrador d\'enerxía</string>
     <string name="battery_saver_off_notification_title">Desactivóse l\'aforrador d\'enerxía</string>
-    <string name="battery_saver_charged_notification_summary" product="default">El teléfonu yá cargó abondo. Les carauterístiques yá nun tán torgaes.</string>
-    <string name="battery_saver_charged_notification_summary" product="tablet">La tableta yá cargó abondo. Les carauterístiques yá nun tán torgaes.</string>
-    <string name="battery_saver_charged_notification_summary" product="device">El preséu yá cargó abondo. Les carauterístiques yá nun tán torgaes.</string>
+    <string name="battery_saver_charged_notification_summary" product="default">El teléfonu yá cargó abondo. Les funciones yá nun tán torgaes.</string>
+    <string name="battery_saver_charged_notification_summary" product="tablet">La tableta yá cargó abondo. Les funciones yá nun tán torgaes.</string>
+    <string name="battery_saver_charged_notification_summary" product="device">El preséu yá cargó abondo. Les funciones yá nun tán torgaes.</string>
     <string name="mime_type_folder">Carpeta</string>
     <string name="mime_type_apk">Aplicación d\'Android</string>
     <string name="mime_type_generic">Ficheru</string>

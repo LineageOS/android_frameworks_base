@@ -60,13 +60,13 @@
     <string name="usb_debugging_always">Permitir siempres dende esti ordenador</string>
     <string name="usb_debugging_allow">Permitir</string>
     <string name="usb_debugging_secondary_user_title">Depuración per USB non permitida</string>
-    <string name="usb_debugging_secondary_user_message">L\'usuariu que tien la sesión aniciada nel preséu nun pue activar la depuración per USB. Pa usar esta carauterística, cambia al usuariu principal.</string>
+    <string name="usb_debugging_secondary_user_message">L\'usuariu que tien la sesión aniciada nel preséu nun pue activar la depuración per USB. Pa usar esta función, cambia al usuariu principal.</string>
     <string name="wifi_debugging_title">¿Quies permitir la depuración ensin filos nesta rede?</string>
     <string name="wifi_debugging_message">Nome de la rede (SSID)\n<xliff:g id="ssid" example="My wifi">%1$s</xliff:g>\n\nDireición Wi\u2011Fi (BSSID)\n<xliff:g id="bssid" example="AB:CD:EF:12:34:56">%2$s</xliff:g></string>
     <string name="wifi_debugging_always">Permitir siempres nesta rede</string>
     <string name="wifi_debugging_allow">Permitir</string>
     <string name="wifi_debugging_secondary_user_title">Nun se permite la depuración ensin filos</string>
-    <string name="wifi_debugging_secondary_user_message">L\u2019usuariu que tien la sesión aniciada nel preséu nun pue activar la depuración ensin filos. Pa usar esta carauterística, cambia al usuariu principal.</string>
+    <string name="wifi_debugging_secondary_user_message">L\u2019usuariu que tien la sesión aniciada nel preséu nun pue activar la depuración ensin filos. Pa usar esta función, cambia al usuariu principal.</string>
     <string name="usb_contaminant_title">El puertu USB ta inhabilitáu</string>
     <string name="usb_contaminant_message">Pa protexer el preséu de líquidu o porquería, inhabilitóse\u2019l puertu USB y nun va detectar nengún accesoriu.\n\nCuando yá se pueda volver usar el puertu USB, va apaecer un avisu.</string>
     <string name="usb_port_enabled">Habilitóse\'l puertu USB pa detectar cargadores y accesorios</string>
@@ -667,12 +667,12 @@ prioridá</string>
     <string name="accessibility_status_bar_hotspot">Puntu Wi-Fi</string>
     <string name="accessibility_managed_profile">Perfil llaboral</string>
     <string name="tuner_warning_title">Diversión namás pa dalgunes persones</string>
-    <string name="tuner_warning">«Afinador de la IU del sistema» ufre más formes d\'axustar y personalizar la interfaz d\'usuariu d\'Android. Estes carauterístiques esperimentales puen camudar, desapaecer o dexar de funcionar nes versiones futures. Sigui con curiáu.</string>
-    <string name="tuner_persistent_warning">Estes carauterístiques esperimentales puen camudar, desapaecer o dexar de funcionar nes versiones futures. Sigui con curiáu.</string>
+    <string name="tuner_warning">«Afinador de la IU del sistema» ufre más formes d\'axustar y personalizar la interfaz d\'usuariu d\'Android. Estes funciones esperimentales puen camudar, desapaecer o dexar de funcionar nes versiones futures. Sigui con curiáu.</string>
+    <string name="tuner_persistent_warning">Estes funciones esperimentales puen camudar, desapaecer o dexar de funcionar nes versiones futures. Sigui con curiáu.</string>
     <string name="got_it">Entendílo</string>
     <string name="tuner_toast">¡Norabona! Amestóse «Afinador de la IU del sistema» a «Axustes»</string>
     <string name="remove_from_settings">Quitar d\'«Axustes»</string>
-    <string name="remove_from_settings_prompt">¿Quies quitar «Afinador de la IU del sistema» d\'«Axustes» y dexar d\'usar toles sos carauterístiques?</string>
+    <string name="remove_from_settings_prompt">¿Quies quitar «Afinador de la IU del sistema» d\'«Axustes» y dexar d\'usar toles sos funciones?</string>
     <string name="activity_not_found">L\'aplicación nun ta instalada nel preséu</string>
     <string name="clock_seconds">Amosar los segundos del reló</string>
     <string name="clock_seconds_desc">Amuesa los segundos del reló na barra d\'estáu. Esta opción pue afeutar a la duración de la batería.</string>
@@ -941,7 +941,7 @@ prioridá</string>
     <string name="pip_phone_dismiss_hint">Arrastra p\'abaxo pa escartar</string>
     <string name="pip_menu_title">Menú</string>
     <string name="pip_notification_title">«<xliff:g id="name" example="Google Maps">%s</xliff:g>» ta nel mou «Picture-in-Picture»</string>
-    <string name="pip_notification_message">Si nun quies que «<xliff:g id="name" example="Google Maps">%s</xliff:g>» use esta carauterística, toca equí p\'abrir los axustes y desactivala.</string>
+    <string name="pip_notification_message">Si nun quies que «<xliff:g id="name" example="Google Maps">%s</xliff:g>» use esta función, toca equí p\'abrir los axustes y desactivala.</string>
     <string name="pip_play">Reproducir</string>
     <string name="pip_pause">Posar</string>
     <string name="pip_skip_to_next">Dir a lo siguiente</string>

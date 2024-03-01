@@ -113,9 +113,9 @@
     <string name="kg_prompt_reason_timeout_pattern">Cumbinazion necessarie par vê plui sigurece</string>
     <string name="kg_prompt_reason_timeout_pin">PIN necessari par vê plui sigurece</string>
     <string name="kg_prompt_reason_timeout_password">Password necessarie par vê plui sigurece</string>
-    <string name="kg_prompt_reason_switch_profiles_pattern">Cumbinazion necessarie cuant che tu cambis profîi</string>
-    <string name="kg_prompt_reason_switch_profiles_pin">PIN necessari cuant che tu cambis profîi</string>
-    <string name="kg_prompt_reason_switch_profiles_password">Password necessarie cuant che tu cambis profîi</string>
+    <string name="kg_prompt_reason_switch_profiles_pattern">Cumbinazion necessarie cuant che tu cambiis profîi</string>
+    <string name="kg_prompt_reason_switch_profiles_pin">PIN necessari cuant che tu cambiis profîi</string>
+    <string name="kg_prompt_reason_switch_profiles_password">Password necessarie cuant che tu cambiis profîi</string>
     <string name="kg_prompt_reason_device_admin">Dispositîf blocât dal aministradôr</string>
     <string name="kg_prompt_reason_user_request">Il dispositîf al è stât blocât a man</string>
     <plurals name="kg_prompt_reason_time_pattern">

@@ -741,6 +741,7 @@
     <string name="inline_turn_off_notifications">Disative lis notifichis</string>
     <string name="inline_keep_showing_app">Continuâ a mostrâ lis notifichis di cheste aplicazion?</string>
     <string name="notification_silence_title">Cidin</string>
+    <string name="notification_alert_title">Predefinide</string>
     <string name="notification_bubble_title">Bufule</string>
     <string name="notification_channel_summary_low">Nissun sun o vibrazion</string>
     <string name="notification_conversation_summary_low">Nissun sun o vibrazion e al somee plui in bas te sezion des conversazions</string>

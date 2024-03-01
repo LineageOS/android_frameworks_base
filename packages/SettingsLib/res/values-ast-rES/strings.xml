@@ -255,7 +255,7 @@
     <string name="oem_unlock_enable">Desbloquéu d\'OEM</string>
     <string name="oem_unlock_enable_summary">Permite desbloquiar el cargador d\'arrinque</string>
     <string name="confirm_enable_oem_unlock_title">¿Quies permitir el desbloquéu d\'OEM?</string>
-    <string name="confirm_enable_oem_unlock_text">ALVERTENCIA: les carauterístiques de proteición del preséu nun van funcionar mentanto esti axuste tea activáu.</string>
+    <string name="confirm_enable_oem_unlock_text">ALVERTENCIA: les funciones de proteición del preséu nun van funcionar mentanto esti axuste tea activáu.</string>
     <string name="mock_location_app">Esbillar l\'aplicación de llocalización ficticia</string>
     <string name="mock_location_app_not_set">Nun s\'afitó l\'aplicación de llocalización ficticia</string>
     <string name="mock_location_app_set">Aplicación de llocalización ficticia: <xliff:g id="app_name">%1$s</xliff:g></string>
@@ -323,8 +323,8 @@
     <string name="verify_apps_over_usb_summary">Comprueba les aplicaciones instalaes per ADB/ADT pa detectar comportamientos peligrosos.</string>
     <string name="bluetooth_show_devices_without_names_summary">Los preseos Bluetooth van apaecer ensin el nome (namás la direición MAC)</string>
     <string name="bluetooth_disable_absolute_volume_summary">Desactiva la función del volume absolutu del Bluetooth nel casu d\'haber problemes colos preseos remotos, como un volume peraltu o una falta de control.</string>
-    <string name="bluetooth_enable_gabeldorsche_summary">Activa la pila de carauterístiques de Bluetooth «Gabeldorsche».</string>
-    <string name="enhanced_connectivity_summary">Activa la carauterística «Conectividá ameyorada».</string>
+    <string name="bluetooth_enable_gabeldorsche_summary">Activa la pila de funciones de Bluetooth «Gabeldorsche».</string>
+    <string name="enhanced_connectivity_summary">Activa la función «Conectividá ameyorada».</string>
     <string name="enable_terminal_title">Terminal llocal</string>
     <string name="enable_terminal_summary">Activa l\'aplicación «Terminal» qu\'ufre accesu a la shell llocal</string>
     <string name="hdcp_checking_title">Comprobación HDCP</string>
