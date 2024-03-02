@@ -19,17 +19,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="clock">Zegar</string>
-    <string name="global_action_restart_more">Ponowne uruchamianie\u2026</string>
+    <string name="global_action_restart_more">Uruchom ponownie\u2026</string>
     <string name="global_action_restart_system">System</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_download">Download</string>
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Ponowne uruchamianie\u2026</string>
-    <string name="global_action_restart_recovery_progress">Uruchamianie w trybie recovery\u2026</string>
-    <string name="global_action_restart_bootloader_progress">Uruchamianie w trybie bootloader\u2026</string>
-    <string name="global_action_restart_download_progress">Uruchamianie w trybie download\u2026</string>
-    <string name="global_action_restart_fastboot_progress">Uruchamianie w trybie fastbootd\u2026</string>
+    <string name="global_action_restart_recovery_progress">Uruchamianie w trybie Recovery\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Uruchamianie w trybie Bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">Uruchamianie w trybie Download\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Uruchamianie w trybie Fastbootd\u2026</string>
     <string name="global_action_current_user">Bieżący</string>
     <string name="global_action_users">Użytkownicy</string>
     <string name="status_bar_icons_title">Ikony paska stanu</string>
@@ -37,8 +37,8 @@
     <string name="quick_settings_ambient_display_label">Ekran Ambient</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ekran Ambient wyłączony.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ekran Ambient włączony.</string>
-    <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD wył.\nOszczędzanie baterii</string>
+    <string name="quick_settings_aod_label">Ekran zawsze włączony</string>
+    <string name="quick_settings_aod_off_powersave_label">\"Ekran zawsze włączony\" wył.\nOszczędzanie baterii</string>
     <string name="quick_settings_caffeine_label">Kofeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofeina wył.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofeina wł.</string>
