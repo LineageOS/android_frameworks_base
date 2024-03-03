@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0890aeb1_7289257e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2024-03-03T12:30:25Z",
+      "side": 1,
+      "message": "Same like other previous content observer issues. Fixes that binder crash reporting wrong thread",
+      "revId": "d166020f40708b34648f3ebe89ec3af03990d034",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
