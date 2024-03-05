@@ -75,7 +75,6 @@ class Idmap2Service : public BinderService<Idmap2Service>, public BnIdmap2 {
  private:
   // idmap2d is killed after a period of inactivity, so any information stored on this class should
   // be able to be recalculated if idmap2 dies and restarts.
-  std::unique_ptr<idmap2::TargetResourceContainer> lineage_apk_cache_;
 
   // A cache item for the resource containers (apks or frros), with all information needed to
   // detect if it has changed since it was parsed:
