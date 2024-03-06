@@ -97,7 +97,6 @@ import com.android.server.utils.EventLogger;
 import com.android.server.wm.ActivityTaskManagerInternal;
 
 import lineageos.providers.LineageSettings;
-import vendor.lineage.trust.V1_0.IUsbRestrict;
 
 import java.io.File;
 import java.io.FileDescriptor;
@@ -607,8 +606,6 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
         protected int mCurrentGadgetHalVersion;
         protected boolean mPendingBootAccessoryHandshakeBroadcast;
 
-        private IUsbRestrict mUsbRestrictor;
-
         /**
          * The persistent property which stores whether adb is enabled or not.
          * May also contain vendor-specific default functions for testing purposes.
@@ -647,12 +644,6 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
             boolean massStorageSupported = primary != null && primary.allowMassStorage();
             mUseUsbNotification = !massStorageSupported && mContext.getResources().getBoolean(
                     com.android.internal.R.bool.config_usbChargingMessage);
-
-            try {
-                mUsbRestrictor = IUsbRestrict.getService();
-            } catch (NoSuchElementException | RemoteException ignored) {
-                // This feature is not supported
-            }
         }
 
         public void sendMessage(int what, boolean arg) {
@@ -1690,25 +1681,14 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                     || restrictUsb == 2;
 
             UsbManager usbManager = mContext.getSystemService(UsbManager.class);
-            boolean useUsbManager = false;
             try {
                 if (usbManager != null &&
                         usbManager.getUsbHalVersion() >= UsbManager.USB_HAL_V1_3) {
-                    useUsbManager = true;
+                    usbManager.enableUsbDataSignal(!shouldRestrict);
                 }
             } catch (RuntimeException ignore) {
                 // Can't get USB Hal version. Assume it's an unsupported version and
                 // don't try using UsbManager to toggle USB data.
-            }
-
-            if (!useUsbManager || !usbManager.enableUsbDataSignal(!shouldRestrict)) {
-                try {
-                    if (mUsbRestrictor != null) {
-                        mUsbRestrictor.setEnabled(shouldRestrict);
-                    }
-                } catch (RemoteException ignored) {
-                    // This feature is not supported
-                }
             }
         }
     }
