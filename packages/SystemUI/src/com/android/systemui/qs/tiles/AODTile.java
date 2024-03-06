@@ -38,7 +38,7 @@ import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.QsEventLogger;
-import com.android.systemui.qs.SettingObserver;
+import com.android.systemui.qs.UserSettingObserver;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.settings.UserTracker;
@@ -55,7 +55,7 @@ public class AODTile extends QSTileImpl<BooleanState> implements
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
     private final BatteryController mBatteryController;
 
-    private final SettingObserver mSetting;
+    private final UserSettingObserver mSetting;
 
     @Inject
     public AODTile(
@@ -75,7 +75,7 @@ public class AODTile extends QSTileImpl<BooleanState> implements
         super(host, uiEventLogger, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
 
-        mSetting = new SettingObserver(secureSettings, mHandler, Settings.Secure.DOZE_ALWAYS_ON,
+        mSetting = new UserSettingObserver(secureSettings, mHandler, Settings.Secure.DOZE_ALWAYS_ON,
                 userTracker.getUserId()) {
             @Override
             protected void handleValueChanged(int value, boolean observedChange) {
@@ -145,12 +145,8 @@ public class AODTile extends QSTileImpl<BooleanState> implements
     protected void handleUpdateState(BooleanState state, Object arg) {
         final int value = arg instanceof Integer ? (Integer) arg : mSetting.getValue();
         final boolean enable = value != 0;
-        if (state.slash == null) {
-            state.slash = new SlashState();
-        }
         state.icon = mIcon;
         state.value = enable;
-        state.slash.isSlashed = state.value;
         state.label = mContext.getString(R.string.quick_settings_aod_label);
         if (mBatteryController.isAodPowerSave()) {
             state.state = Tile.STATE_UNAVAILABLE;
