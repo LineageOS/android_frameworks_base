@@ -158,8 +158,7 @@ public class InternetTileTest extends SysuiTestCase {
             /* activityOut= */ false,
             /* description= */ null,
             /* isTransient= */ false,
-            /* statusLabel= */ null,
-            /* isDefault= */ true
+            /* statusLabel= */ null
         );
         mTile.mSignalCallback.setWifiIndicators(wifiIndicators);
         IconState state = new IconState(true, 0, "");
