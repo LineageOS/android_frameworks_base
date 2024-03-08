@@ -1294,10 +1294,13 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
         boolean isUnlockingOrUnlocked = mContext.getSystemService(UserManager.class)
                 .isUserUnlockingOrUnlocked(userState.mUserId);
 
+        // Store the list of installed services.
+        mTempComponentNameSet.clear();
         for (int i = 0, count = userState.mInstalledServices.size(); i < count; i++) {
             AccessibilityServiceInfo installedService = userState.mInstalledServices.get(i);
             ComponentName componentName = ComponentName.unflattenFromString(
                     installedService.getId());
+            mTempComponentNameSet.add(componentName);
 
             Service service = componentNameToServiceMap.get(componentName);
 
@@ -1325,6 +1328,25 @@ public class AccessibilityManagerService extends IAccessibilityManager.Stub {
             }
         }
 
+        // If any services have been removed, remove them from the enabled list and the touch
+        // exploration granted list.
+        boolean anyServiceRemoved =
+                userState.mEnabledServices.removeIf((comp) -> !mTempComponentNameSet.contains(comp))
+                        || userState.mTouchExplorationGrantedServices.removeIf(
+                                (comp) -> !mTempComponentNameSet.contains(comp));
+        if (anyServiceRemoved) {
+            // Update the enabled services setting.
+            persistComponentNamesToSettingLocked(
+                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES,
+                    userState.mEnabledServices,
+                    userState.mUserId);
+            // Update the touch exploration granted services setting.
+            persistComponentNamesToSettingLocked(
+                    Settings.Secure.TOUCH_EXPLORATION_GRANTED_ACCESSIBILITY_SERVICES,
+                    userState.mTouchExplorationGrantedServices,
+                    userState.mUserId);
+        }
+        mTempComponentNameSet.clear();
         updateAccessibilityEnabledSetting(userState);
     }
 
