@@ -29,24 +29,25 @@ import android.os.PatternMatcher
 import android.os.Process
 import android.util.ArraySet
 import android.util.SparseArray
-import com.android.server.pm.parsing.pkg.AndroidPackageInternal
+import com.android.internal.pm.parsing.pkg.AndroidPackageInternal
+import com.android.internal.pm.pkg.component.ParsedActivityImpl
+import com.android.internal.pm.pkg.component.ParsedIntentInfoImpl
 import com.android.server.pm.pkg.PackageStateInternal
 import com.android.server.pm.pkg.PackageUserStateInternal
-import com.android.server.pm.pkg.component.ParsedActivityImpl
-import com.android.server.pm.pkg.component.ParsedIntentInfoImpl
 import com.android.server.pm.verify.domain.DomainVerificationManagerStub
 import com.android.server.pm.verify.domain.DomainVerificationService
 import com.android.server.testutils.mockThrowOnUnmocked
 import com.android.server.testutils.whenever
 import com.google.common.truth.Truth.assertThat
+import java.util.UUID
+import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.test.assertFailsWith
 import org.junit.Test
 import org.mockito.ArgumentMatchers.any
 import org.mockito.ArgumentMatchers.anyInt
 import org.mockito.ArgumentMatchers.anyLong
 import org.mockito.ArgumentMatchers.anyString
-import java.util.UUID
-import java.util.concurrent.atomic.AtomicBoolean
-import kotlin.test.assertFailsWith
+import org.mockito.Mockito.doReturn
 
 class DomainVerificationManagerApiTest {
 
@@ -555,12 +556,12 @@ class DomainVerificationManagerApiTest {
         whenever(this.domainSetId) { domainSetId }
         whenever(getUserStateOrDefault(0)) { pkgUserState0() }
         whenever(getUserStateOrDefault(1)) { pkgUserState1() }
-        whenever(userStates) {
+        doReturn(
             SparseArray<PackageUserStateInternal>().apply {
                 this[0] = pkgUserState0()
                 this[1] = pkgUserState1()
             }
-        }
+        ).whenever(this).userStates
         whenever(isSystem) { false }
     }
 

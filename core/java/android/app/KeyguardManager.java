@@ -26,6 +26,7 @@ import android.annotation.RequiresPermission;
 import android.annotation.SystemApi;
 import android.annotation.SystemService;
 import android.annotation.TestApi;
+import android.annotation.UserIdInt;
 import android.app.admin.DevicePolicyManager;
 import android.app.admin.DevicePolicyManager.PasswordComplexity;
 import android.app.admin.PasswordMetrics;
@@ -49,7 +50,6 @@ import android.util.ArrayMap;
 import android.util.Log;
 import android.view.IOnKeyguardExitResult;
 import android.view.IWindowManager;
-import android.view.WindowManager.LayoutParams;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -61,8 +61,11 @@ import com.android.internal.widget.IWeakEscrowTokenRemovedListener;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.LockPatternView;
 import com.android.internal.widget.LockscreenCredential;
+import com.android.internal.widget.PasswordValidationError;
 import com.android.internal.widget.VerifyCredentialResponse;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
@@ -70,9 +73,7 @@ import java.util.Objects;
 import java.util.concurrent.Executor;
 
 /**
- * Class that can be used to lock and unlock the keyguard. The
- * actual class to control the keyguard locking is
- * {@link android.app.KeyguardManager.KeyguardLock}.
+ * Class to manage and query the state of the lock screen (also known as Keyguard).
  */
 @SystemService(Context.KEYGUARD_SERVICE)
 public class KeyguardManager {
@@ -236,6 +237,7 @@ public class KeyguardManager {
             PIN,
             PATTERN
     })
+    @Retention(RetentionPolicy.SOURCE)
     @interface LockTypes {}
 
     private final IKeyguardLockedStateListener mIKeyguardLockedStateListener =
@@ -258,7 +260,9 @@ public class KeyguardManager {
      * {@link android.app.Activity#RESULT_OK} if the user successfully completes the challenge.
      *
      * @return the intent for launching the activity or null if no password is required.
-     * @deprecated see BiometricPrompt.Builder#setDeviceCredentialAllowed(boolean)
+     *
+     * @deprecated see {@link
+     *   android.hardware.biometrics.BiometricPrompt.Builder#setAllowedAuthenticators(int)}
      */
     @Deprecated
     @RequiresFeature(PackageManager.FEATURE_SECURE_LOCK_SCREEN)
@@ -476,13 +480,12 @@ public class KeyguardManager {
 
     /**
      * Handle returned by {@link KeyguardManager#newKeyguardLock} that allows
-     * you to disable / reenable the keyguard.
+     * you to temporarily disable / reenable the keyguard (lock screen).
      *
-     * @deprecated Use {@link LayoutParams#FLAG_DISMISS_KEYGUARD}
-     * and/or {@link LayoutParams#FLAG_SHOW_WHEN_LOCKED}
-     * instead; this allows you to seamlessly hide the keyguard as your application
-     * moves in and out of the foreground and does not require that any special
-     * permissions be requested.
+     * @deprecated Use {@link android.R.attr#showWhenLocked} or {@link
+     *   android.app.Activity#setShowWhenLocked(boolean)} instead. This allows you to seamlessly
+     *   occlude and unocclude the keyguard as your application moves in and out of the foreground
+     *   and does not require that any special permissions be requested.
      */
     @Deprecated
     public class KeyguardLock {
@@ -497,12 +500,12 @@ public class KeyguardManager {
          * Disable the keyguard from showing.  If the keyguard is currently
          * showing, hide it.  The keyguard will be prevented from showing again
          * until {@link #reenableKeyguard()} is called.
-         *
+         * <p>
+         * This only works if the keyguard is not secure.
+         * <p>
          * A good place to call this is from {@link android.app.Activity#onResume()}
          *
-         * Note: This call has no effect while any {@link android.app.admin.DevicePolicyManager}
-         * is enabled that requires a password.
-         *
+         * @see KeyguardManager#isKeyguardSecure()
          * @see #reenableKeyguard()
          */
         @RequiresPermission(Manifest.permission.DISABLE_KEYGUARD)
@@ -518,9 +521,6 @@ public class KeyguardManager {
          * call to {@link #disableKeyguard()} caused it to be hidden.
          *
          * A good place to call this is from {@link android.app.Activity#onPause()}
-         *
-         * Note: This call has no effect while any {@link android.app.admin.DevicePolicyManager}
-         * is enabled that requires a password.
          *
          * @see #disableKeyguard()
          */
@@ -620,20 +620,18 @@ public class KeyguardManager {
     }
 
     /**
-     * Enables you to lock or unlock the keyguard. Get an instance of this class by
-     * calling {@link android.content.Context#getSystemService(java.lang.String) Context.getSystemService()}.
-     * This class is wrapped by {@link android.app.KeyguardManager KeyguardManager}.
+     * Enables you to temporarily disable / reenable the keyguard (lock screen).
+     *
      * @param tag A tag that informally identifies who you are (for debugging who
      *   is disabling the keyguard).
      *
      * @return A {@link KeyguardLock} handle to use to disable and reenable the
      *   keyguard.
      *
-     * @deprecated Use {@link LayoutParams#FLAG_DISMISS_KEYGUARD}
-     *   and/or {@link LayoutParams#FLAG_SHOW_WHEN_LOCKED}
-     *   instead; this allows you to seamlessly hide the keyguard as your application
-     *   moves in and out of the foreground and does not require that any special
-     *   permissions be requested.
+     * @deprecated Use {@link android.R.attr#showWhenLocked} or {@link
+     *   android.app.Activity#setShowWhenLocked(boolean)} instead. This allows you to seamlessly
+     *   occlude and unocclude the keyguard as your application moves in and out of the foreground
+     *   and does not require that any special permissions be requested.
      */
     @Deprecated
     public KeyguardLock newKeyguardLock(String tag) {
@@ -641,9 +639,36 @@ public class KeyguardManager {
     }
 
     /**
-     * Return whether the keyguard is currently locked.
+     * Returns whether the lock screen (also known as Keyguard) is showing.
+     * <p>
+     * Specifically, this returns {@code true} in the following cases:
+     * <ul>
+     *   <li>The lock screen is showing in the foreground.</li>
+     *   <li>The lock screen is showing, but it is occluded by an activity that is showing on top of
+     *   it. A common example is the phone app receiving a call or making an emergency call.</li>
+     *   <li>The lock screen was showing but is temporarily disabled as a result of <a
+     *   href="https://developer.android.com/work/dpc/dedicated-devices/lock-task-mode">lock task
+     *   mode</a> or an app using the deprecated {@link KeyguardLock} API.</li>
+     * </ul>
+     * <p>
+     * "Showing" refers to a logical state of the UI, regardless of whether the screen happens to be
+     * on. When the power button is pressed on an unlocked device, the lock screen starts "showing"
+     * immediately when the screen turns off.
+     * <p>
+     * This method does not distinguish a lock screen that is requiring authentication (e.g. with
+     * PIN, pattern, password, or biometric) from a lock screen that is trivially dismissible (e.g.
+     * with swipe). It also does not distinguish a lock screen requesting a SIM card PIN from a
+     * normal device lock screen. Finally, it always returns the global lock screen state and does
+     * not consider the {@link Context}'s user specifically.
+     * <p>
+     * Note that {@code isKeyguardLocked()} is confusingly named and probably should be called
+     * {@code isKeyguardShowing()}. On many devices, the lock screen displays an <i>unlocked</i>
+     * padlock icon when it is trivially dismissible. As mentioned above, {@code isKeyguardLocked()}
+     * actually returns {@code true} in this case, not {@code false} as might be expected. {@link
+     * #isDeviceLocked()} is an alternative API that has slightly different semantics.
      *
-     * @return {@code true} if the keyguard is locked.
+     * @return {@code true} if the lock screen is showing
+     * @see #isDeviceLocked()
      */
     public boolean isKeyguardLocked() {
         try {
@@ -654,12 +679,24 @@ public class KeyguardManager {
     }
 
     /**
-     * Return whether the keyguard is secured by a PIN, pattern or password or a SIM card
-     * is currently locked.
+     * Returns whether the user has a secure lock screen or there is a locked SIM card.
+     * <p>
+     * Specifically, this returns {@code true} if at least one of the following is true:
+     * <ul>
+     *   <li>The {@link Context}'s user has a secure lock screen. A full user or a profile that uses
+     *   a separate challenge has a secure lock screen if its lock screen is set to PIN, pattern, or
+     *   password, as opposed to swipe or none. A profile that uses a unified challenge is
+     *   considered to have a secure lock screen if and only if its parent user has a secure lock
+     *   screen.</li>
+     *   <li>At least one SIM card is currently locked and requires a PIN.</li>
+     * </ul>
+     * <p>
+     * This method does not consider whether the lock screen is currently showing or not.
+     * <p>
+     * See also {@link #isDeviceSecure()} which excludes locked SIM cards.
      *
-     * <p>See also {@link #isDeviceSecure()} which ignores SIM locked states.
-     *
-     * @return {@code true} if a PIN, pattern or password is set or a SIM card is locked.
+     * @return {@code true} if the user has a secure lock screen or there is a locked SIM card
+     * @see #isDeviceSecure()
      */
     public boolean isKeyguardSecure() {
         try {
@@ -670,11 +707,11 @@ public class KeyguardManager {
     }
 
     /**
-     * If keyguard screen is showing or in restricted key input mode (i.e. in
-     * keyguard password emergency screen). When in such mode, certain keys,
-     * such as the Home key and the right soft keys, don't work.
+     * Returns whether the lock screen is showing.
+     * <p>
+     * This is exactly the same as {@link #isKeyguardLocked()}.
      *
-     * @return {@code true} if in keyguard restricted input mode.
+     * @return the value of {@link #isKeyguardLocked()}
      * @deprecated Use {@link #isKeyguardLocked()} instead.
      */
     public boolean inKeyguardRestrictedInputMode() {
@@ -682,14 +719,36 @@ public class KeyguardManager {
     }
 
     /**
-     * Returns whether the device is currently locked and requires a PIN, pattern or
-     * password to unlock.
+     * Returns whether the device is currently locked for the user.
+     * <p>
+     * This returns the device locked state for the {@link Context}'s user. If this user is the
+     * current user, then the device is considered "locked" when the lock screen is showing (i.e.
+     * {@link #isKeyguardLocked()} returns {@code true}) and is not trivially dismissible (e.g. with
+     * swipe), and the user has a PIN, pattern, or password.
+     * <p>
+     * Note: the above definition implies that a user with no PIN, pattern, or password is never
+     * considered locked, even if the lock screen is showing and requesting a SIM card PIN. The
+     * device PIN and SIM PIN are separate. Also, the user is not considered locked if face
+     * authentication has just completed or a trust agent is keeping the device unlocked, since in
+     * these cases the lock screen is dismissible with swipe.
+     * <p>
+     * For a user that is not the current user but can be switched to (usually this means "another
+     * full user"), and that has a PIN, pattern, or password, the device is always considered
+     * locked.
+     * <p>
+     * For a profile with a unified challenge, the device locked state is the same as that of the
+     * parent user.
+     * <p>
+     * For a profile with a separate challenge, the device becomes unlocked when the profile's PIN,
+     * pattern, password, or biometric is verified. It becomes locked when the parent user becomes
+     * locked, the screen turns off, the device reboots, the device policy controller locks the
+     * profile, or the timeout set by the device policy controller expires.
      *
-     * @return {@code true} if unlocking the device currently requires a PIN, pattern or
-     * password.
+     * @return {@code true} if the device is currently locked for the user
+     * @see #isKeyguardLocked()
      */
     public boolean isDeviceLocked() {
-        return isDeviceLocked(mContext.getUserId());
+        return isDeviceLocked(mContext.getUserId(), mContext.getDeviceId());
     }
 
     /**
@@ -699,23 +758,40 @@ public class KeyguardManager {
      */
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
     public boolean isDeviceLocked(int userId) {
+        return isDeviceLocked(userId, mContext.getDeviceId());
+    }
+
+    /**
+     * Per-user per-device version of {@link #isDeviceLocked()}.
+     *
+     * @hide
+     */
+    public boolean isDeviceLocked(@UserIdInt int userId, int deviceId) {
         try {
-            return mTrustManager.isDeviceLocked(userId, mContext.getAssociatedDisplayId());
+            return mTrustManager.isDeviceLocked(userId, deviceId);
         } catch (RemoteException e) {
             return false;
         }
     }
 
     /**
-     * Returns whether the device is secured with a PIN, pattern or
-     * password.
+     * Returns whether the user has a secure lock screen.
+     * <p>
+     * This returns {@code true} if the {@link Context}'s user has a secure lock screen. A full user
+     * or a profile that uses a separate challenge has a secure lock screen if its lock screen is
+     * set to PIN, pattern, or password, as opposed to swipe or none. A profile that uses a unified
+     * challenge is considered to have a secure lock screen if and only if its parent user has a
+     * secure lock screen.
+     * <p>
+     * This method does not consider whether the lock screen is currently showing or not.
+     * <p>
+     * See also {@link #isKeyguardSecure()} which includes locked SIM cards.
      *
-     * <p>See also {@link #isKeyguardSecure} which treats SIM locked states as secure.
-     *
-     * @return {@code true} if a PIN, pattern or password was set.
+     * @return {@code true} if the user has a secure lock screen
+     * @see #isKeyguardSecure()
      */
     public boolean isDeviceSecure() {
-        return isDeviceSecure(mContext.getUserId());
+        return isDeviceSecure(mContext.getUserId(), mContext.getDeviceId());
     }
 
     /**
@@ -725,16 +801,24 @@ public class KeyguardManager {
      */
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
     public boolean isDeviceSecure(int userId) {
+        return isDeviceSecure(userId, mContext.getDeviceId());
+    }
+
+    /**
+     * Per-user per-device version of {@link #isDeviceSecure()}.
+     *
+     * @hide
+     */
+    public boolean isDeviceSecure(@UserIdInt int userId, int deviceId) {
         try {
-            return mTrustManager.isDeviceSecure(userId, mContext.getAssociatedDisplayId());
+            return mTrustManager.isDeviceSecure(userId, deviceId);
         } catch (RemoteException e) {
             return false;
         }
     }
 
     /**
-     * If the device is currently locked (see {@link #isKeyguardLocked()}, requests the Keyguard to
-     * be dismissed.
+     * Requests that the Keyguard (lock screen) be dismissed if it is currently showing.
      * <p>
      * If the Keyguard is not secure or the device is currently in a trusted state, calling this
      * method will immediately dismiss the Keyguard without any user interaction.
@@ -745,8 +829,9 @@ public class KeyguardManager {
      * If the value set for the {@link Activity} attr {@link android.R.attr#turnScreenOn} is true,
      * the screen will turn on when the keyguard is dismissed.
      *
-     * @param activity The activity requesting the dismissal. The activity must be either visible
-     *                 by using {@link LayoutParams#FLAG_SHOW_WHEN_LOCKED} or must be in a state in
+     * @param activity The activity requesting the dismissal. The activity must either be visible
+     *                 by using {@link android.R.attr#showWhenLocked} or {@link
+     *                 android.app.Activity#setShowWhenLocked(boolean)}, or must be in a state in
      *                 which it would be visible if Keyguard would not be hiding it. If that's not
      *                 the case, the request will fail immediately and
      *                 {@link KeyguardDismissCallback#onDismissError} will be invoked.
@@ -761,8 +846,7 @@ public class KeyguardManager {
     }
 
     /**
-     * If the device is currently locked (see {@link #isKeyguardLocked()}, requests the Keyguard to
-     * be dismissed.
+     * Requests that the Keyguard (lock screen) be dismissed if it is currently showing.
      * <p>
      * If the Keyguard is not secure or the device is currently in a trusted state, calling this
      * method will immediately dismiss the Keyguard without any user interaction.
@@ -773,8 +857,9 @@ public class KeyguardManager {
      * If the value set for the {@link Activity} attr {@link android.R.attr#turnScreenOn} is true,
      * the screen will turn on when the keyguard is dismissed.
      *
-     * @param activity The activity requesting the dismissal. The activity must be either visible
-     *                 by using {@link LayoutParams#FLAG_SHOW_WHEN_LOCKED} or must be in a state in
+     * @param activity The activity requesting the dismissal. The activity must either be visible
+     *                 by using {@link android.R.attr#showWhenLocked} or {@link
+     *                 android.app.Activity#setShowWhenLocked(boolean)}, or must be in a state in
      *                 which it would be visible if Keyguard would not be hiding it. If that's not
      *                 the case, the request will fail immediately and
      *                 {@link KeyguardDismissCallback#onDismissError} will be invoked.
@@ -828,12 +913,12 @@ public class KeyguardManager {
      * @param callback Lets you know whether the operation was successful and
      *   it is safe to launch anything that would normally be considered safe
      *   once the user has gotten past the keyguard.
-
-     * @deprecated Use {@link LayoutParams#FLAG_DISMISS_KEYGUARD}
-     *   and/or {@link LayoutParams#FLAG_SHOW_WHEN_LOCKED}
-     *   instead; this allows you to seamlessly hide the keyguard as your application
-     *   moves in and out of the foreground and does not require that any special
-     *   permissions be requested.
+     *
+     * @deprecated Use {@link android.R.attr#showWhenLocked} or {@link
+     *   android.app.Activity#setShowWhenLocked(boolean)} to seamlessly occlude and unocclude the
+     *   keyguard as your application moves in and out of the foreground, without requiring any
+     *   special permissions. Use {@link #requestDismissKeyguard(android.app.Activity,
+     *   KeyguardDismissCallback)} to request dismissal of the keyguard.
      */
     @Deprecated
     @RequiresPermission(Manifest.permission.DISABLE_KEYGUARD)
@@ -883,17 +968,14 @@ public class KeyguardManager {
         if (!checkInitialLockMethodUsage()) {
             return false;
         }
+        Objects.requireNonNull(password, "Password cannot be null.");
         complexity = PasswordMetrics.sanitizeComplexityLevel(complexity);
-        // TODO: b/131755827 add devicePolicyManager support for Auto
-        DevicePolicyManager devicePolicyManager =
-                (DevicePolicyManager) mContext.getSystemService(Context.DEVICE_POLICY_SERVICE);
         PasswordMetrics adminMetrics =
-                devicePolicyManager.getPasswordMinimumMetrics(mContext.getUserId());
-        // Check if the password fits the mold of a pin or pattern.
-        boolean isPinOrPattern = lockType != PASSWORD;
-
-        return PasswordMetrics.validatePassword(
-                adminMetrics, complexity, isPinOrPattern, password).size() == 0;
+                mLockPatternUtils.getRequestedPasswordMetrics(mContext.getUserId());
+        try (LockscreenCredential credential = createLockscreenCredential(lockType, password)) {
+            return PasswordMetrics.validateCredential(adminMetrics, complexity,
+                    credential).size() == 0;
+        }
     }
 
     /**
@@ -912,11 +994,8 @@ public class KeyguardManager {
             return -1;
         }
         complexity = PasswordMetrics.sanitizeComplexityLevel(complexity);
-        // TODO: b/131755827 add devicePolicyManager support for Auto
-        DevicePolicyManager devicePolicyManager =
-                (DevicePolicyManager) mContext.getSystemService(Context.DEVICE_POLICY_SERVICE);
         PasswordMetrics adminMetrics =
-                devicePolicyManager.getPasswordMinimumMetrics(mContext.getUserId());
+                mLockPatternUtils.getRequestedPasswordMetrics(mContext.getUserId());
         PasswordMetrics minMetrics =
                 PasswordMetrics.applyComplexity(adminMetrics, isPin, complexity);
         return minMetrics.length;
@@ -1138,6 +1217,14 @@ public class KeyguardManager {
                 currentLockType, currentPassword);
         LockscreenCredential newCredential = createLockscreenCredential(
                 newLockType, newPassword);
+        PasswordMetrics adminMetrics =
+                mLockPatternUtils.getRequestedPasswordMetrics(mContext.getUserId());
+        List<PasswordValidationError> errors = PasswordMetrics.validateCredential(adminMetrics,
+                DevicePolicyManager.PASSWORD_COMPLEXITY_NONE, newCredential);
+        if (!errors.isEmpty()) {
+            Log.e(TAG, "New credential is not valid: " + errors.get(0));
+            return false;
+        }
         return mLockPatternUtils.setLockCredential(newCredential, currentCredential, userId);
     }
 

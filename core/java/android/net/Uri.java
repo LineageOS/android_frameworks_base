@@ -1790,8 +1790,8 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
      * or external sources like Bluetooth, NFC, or the Internet) should
      * be normalized before they are used to create an Intent.
      *
-     * <p class="note">This method does <em>not</em> validate bad URI's,
-     * or 'fix' poorly formatted URI's - so do not use it for input validation.
+     * <p class="note">This method does <em>not</em> validate bad URIs,
+     * or 'fix' poorly formatted URIs - so do not use it for input validation.
      * A Uri will always be returned, even if the Uri is badly formatted to
      * begin with and a scheme component cannot be found.
      *
@@ -1994,21 +1994,14 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
      */
     static abstract class AbstractPart {
 
-        // Possible values of mCanonicalRepresentation.
-        static final int REPRESENTATION_ENCODED = 1;
-        static final int REPRESENTATION_DECODED = 2;
-
         volatile String encoded;
         volatile String decoded;
-        private final int mCanonicalRepresentation;
 
         AbstractPart(String encoded, String decoded) {
             if (encoded != NotCachedHolder.NOT_CACHED) {
-                this.mCanonicalRepresentation = REPRESENTATION_ENCODED;
                 this.encoded = encoded;
                 this.decoded = NotCachedHolder.NOT_CACHED;
             } else if (decoded != NotCachedHolder.NOT_CACHED) {
-                this.mCanonicalRepresentation = REPRESENTATION_DECODED;
                 this.encoded = NotCachedHolder.NOT_CACHED;
                 this.decoded = decoded;
             } else {
@@ -2022,24 +2015,6 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
             @SuppressWarnings("StringEquality")
             boolean hasDecoded = decoded != NotCachedHolder.NOT_CACHED;
             return hasDecoded ? decoded : (decoded = decode(encoded));
-        }
-
-        final void writeTo(Parcel parcel) {
-            final String canonicalValue;
-            if (mCanonicalRepresentation == REPRESENTATION_ENCODED) {
-                canonicalValue = encoded;
-            } else if (mCanonicalRepresentation == REPRESENTATION_DECODED) {
-                canonicalValue = decoded;
-            } else {
-                throw new IllegalArgumentException("Unknown representation: "
-                    + mCanonicalRepresentation);
-            }
-            if (canonicalValue == NotCachedHolder.NOT_CACHED) {
-                throw new AssertionError("Canonical value not cached ("
-                    + mCanonicalRepresentation + ")");
-            }
-            parcel.writeInt(mCanonicalRepresentation);
-            parcel.writeString8(canonicalValue);
         }
     }
 
@@ -2067,20 +2042,6 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
             @SuppressWarnings("StringEquality")
             boolean hasEncoded = encoded != NotCachedHolder.NOT_CACHED;
             return hasEncoded ? encoded : (encoded = encode(decoded));
-        }
-
-        static Part readFrom(Parcel parcel) {
-            int representation = parcel.readInt();
-            String value = parcel.readString8();
-            switch (representation) {
-                case REPRESENTATION_ENCODED:
-                    return fromEncoded(value);
-                case REPRESENTATION_DECODED:
-                    return fromDecoded(value);
-                default:
-                    throw new IllegalArgumentException("Unknown representation: "
-                            + representation);
-            }
         }
 
         /**
@@ -2256,23 +2217,6 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
 
             // TODO: Should we reuse old PathSegments? Probably not.
             return appendEncodedSegment(oldPart, encoded);
-        }
-
-        static PathPart readFrom(Parcel parcel) {
-            int representation = parcel.readInt();
-            switch (representation) {
-                case REPRESENTATION_ENCODED:
-                    return fromEncoded(parcel.readString8());
-                case REPRESENTATION_DECODED:
-                    return fromDecoded(parcel.readString8());
-                default:
-                    throw new IllegalArgumentException("Unknown representation: " + representation);
-            }
-        }
-
-        static PathPart readFrom(boolean hasSchemeOrAuthority, Parcel parcel) {
-            final PathPart path = readFrom(parcel);
-            return hasSchemeOrAuthority ? makeAbsolute(path) : path;
         }
 
         /**

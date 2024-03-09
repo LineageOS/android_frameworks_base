@@ -41,9 +41,10 @@ android_test {
         "mockito-target-extended-minus-junit4",
         "platform-test-annotations",
         "services.core",
+        "service-permission.stubs.system_server",
         "servicestests-core-utils",
         "servicestests-utils-mockito-extended",
-        "truth-prebuilt",
+        "truth",
     ],
 
     libs: [
@@ -88,9 +89,10 @@ android_test {
         "mockito-target-extended-minus-junit4",
         "platform-test-annotations",
         "services.core",
+        "service-permission.stubs.system_server",
         "servicestests-core-utils",
         "servicestests-utils-mockito-extended",
-        "truth-prebuilt",
+        "truth",
         "SimpleImeTestingLib",
         "SimpleImeImsLib",
     ],

@@ -72,7 +72,6 @@ import androidx.annotation.DimenRes;
 
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
-import com.android.systemui.R;
 import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.flags.FeatureFlags;
@@ -84,6 +83,7 @@ import com.android.systemui.plugins.NavigationEdgeBackPlugin;
 import com.android.systemui.plugins.PluginListener;
 import com.android.systemui.plugins.PluginManager;
 import com.android.systemui.recents.OverviewProxyService;
+import com.android.systemui.res.R;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.android.systemui.shared.system.InputChannelCompat;
@@ -609,10 +609,15 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
      * @see NavigationModeController.ModeChangedListener#onNavigationModeChanged
      */
     public void onNavigationModeChanged(int mode) {
-        mUsingThreeButtonNav = QuickStepContract.isLegacyMode(mode);
-        mInGestureNavMode = QuickStepContract.isGesturalMode(mode);
-        updateIsEnabled();
-        updateCurrentUserResources();
+        Trace.beginSection("EdgeBackGestureHandler#onNavigationModeChanged");
+        try {
+            mUsingThreeButtonNav = QuickStepContract.isLegacyMode(mode);
+            mInGestureNavMode = QuickStepContract.isGesturalMode(mode);
+            updateIsEnabled();
+            updateCurrentUserResources();
+        } finally {
+            Trace.endSection();
+        }
     }
 
     public void onNavBarTransientStateChanged(boolean isTransient) {
@@ -1146,6 +1151,7 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
                             // Capture inputs
                             mInputMonitor.pilferPointers();
                             if (mBackAnimation != null) {
+                                mBackAnimation.onPilferPointers();
                                 // Notify FalsingManager that an intentional gesture has occurred.
                                 mFalsingManager.isFalseTouch(BACK_GESTURE);
                             }

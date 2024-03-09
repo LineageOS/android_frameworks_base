@@ -20,11 +20,9 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-import android.content.Context;
 import android.os.FileUtils;
 import android.util.IntArray;
 
-import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -102,9 +100,8 @@ public class BinderfsStatsReaderTest {
     private boolean mHasError;
 
     @Before
-    public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
-        mStatsDirectory = context.getDir("binder_logs", Context.MODE_PRIVATE);
+    public void setUp() throws Exception {
+        mStatsDirectory = Files.createTempDirectory("BinderfsStatsReaderTest").toFile();
         mFreezerBinderAsyncThreshold = 1024;
         mValidPids = IntArray.fromArray(new int[]{14505, 14461, 542, 540}, 4);
         mStatsPids = new IntArray();
@@ -175,7 +172,7 @@ public class BinderfsStatsReaderTest {
         Files.write(tempFile.toPath(), fileContents.getBytes());
         new BinderfsStatsReader(tempFile.toString()).handleFreeAsyncSpace(
                 // Check if the current process is a valid one
-                pid -> mValidPids.indexOf(pid) != -1,
+                mValidPids::contains,
 
                 // Check if the current process is running out of async binder space
                 (pid, free) -> {
@@ -186,7 +183,9 @@ public class BinderfsStatsReaderTest {
                 },
 
                 // Log the error if binderfs stats can't be accesses or correctly parsed
-                exception -> mHasError = true);
+                exception -> {
+                    mHasError = true;
+                });
         Files.delete(tempFile.toPath());
     }
 }

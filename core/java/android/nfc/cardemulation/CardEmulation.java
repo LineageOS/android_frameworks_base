@@ -16,16 +16,21 @@
 
 package android.nfc.cardemulation;
 
+import android.annotation.FlaggedApi;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.RequiresPermission;
 import android.annotation.SdkConstant;
 import android.annotation.SdkConstant.SdkConstantType;
+import android.annotation.SystemApi;
+import android.annotation.UserIdInt;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.nfc.Constants;
+import android.nfc.Flags;
 import android.nfc.INfcCardEmulation;
 import android.nfc.NfcAdapter;
 import android.os.RemoteException;
@@ -274,7 +279,7 @@ public final class CardEmulation {
             try {
                 preferForeground = Settings.Secure.getInt(
                         contextAsUser.getContentResolver(),
-                        Settings.Secure.NFC_PAYMENT_FOREGROUND) != 0;
+                        Constants.SETTINGS_SECURE_NFC_PAYMENT_FOREGROUND) != 0;
             } catch (SettingNotFoundException e) {
             }
             return preferForeground;
@@ -322,6 +327,24 @@ public final class CardEmulation {
         } else {
             return SELECTION_MODE_ASK_IF_CONFLICT;
         }
+    }
+    /**
+     * Sets whether the system should default to observe mode or not when
+     * the service is in the foreground or the default payment service.
+     *
+     * @param service The component name of the service
+     * @param enable Whether the servic should default to observe mode or not
+     * @return whether the change was successful.
+     */
+    @FlaggedApi(Flags.FLAG_NFC_OBSERVE_MODE)
+    public boolean setServiceObserveModeDefault(@NonNull ComponentName service, boolean enable) {
+        try {
+            return sService.setServiceObserveModeDefault(mContext.getUser().getIdentifier(),
+                    service, enable);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to reach CardEmulationService.");
+        }
+        return  false;
     }
 
     /**
@@ -594,9 +617,6 @@ public final class CardEmulation {
         if (activity == null || service == null) {
             throw new NullPointerException("activity or service or category is null");
         }
-        if (!activity.isResumed()) {
-            throw new IllegalArgumentException("Activity must be resumed.");
-        }
         try {
             return sService.setPreferredService(service);
         } catch (RemoteException e) {
@@ -628,9 +648,6 @@ public final class CardEmulation {
     public boolean unsetPreferredService(Activity activity) {
         if (activity == null) {
             throw new NullPointerException("activity is null");
-        }
-        if (!activity.isResumed()) {
-            throw new IllegalArgumentException("Activity must be resumed.");
         }
         try {
             return sService.unsetPreferredService();
@@ -882,9 +899,16 @@ public final class CardEmulation {
     }
 
     /**
+     * Retrieves list of services registered of the provided category for the provided user.
+     *
+     * @param category Category string, one of {@link #CATEGORY_PAYMENT} or {@link #CATEGORY_OTHER}
+     * @param userId the user handle of the user whose information is being requested.
      * @hide
      */
-    public List<ApduServiceInfo> getServices(String category, int userId) {
+    @SystemApi
+    @FlaggedApi(Flags.FLAG_ENABLE_NFC_MAINLINE)
+    @NonNull
+    public List<ApduServiceInfo> getServices(@NonNull String category, @UserIdInt int userId) {
         try {
             return sService.getServices(userId, category);
         } catch (RemoteException e) {
@@ -939,6 +963,39 @@ public final class CardEmulation {
         }
 
         return true;
+    }
+
+    /**
+     * Allows to set or unset preferred service (category other) to avoid  AID Collision.
+     *
+     * @param service The ComponentName of the service
+     * @param status  true to enable, false to disable
+     * @return set service for the category and true if service is already set return false.
+     *
+     * @hide
+     */
+    public boolean setServiceEnabledForCategoryOther(ComponentName service, boolean status) {
+        if (service == null) {
+            throw new NullPointerException("activity or service or category is null");
+        }
+        int userId = mContext.getUser().getIdentifier();
+
+        try {
+            return sService.setServiceEnabledForCategoryOther(userId, service, status);
+        } catch (RemoteException e) {
+            // Try one more time
+            recoverService();
+            if (sService == null) {
+                Log.e(TAG, "Failed to recover CardEmulationService.");
+                return false;
+            }
+            try {
+                return sService.setServiceEnabledForCategoryOther(userId, service, status);
+            } catch (RemoteException ee) {
+                Log.e(TAG, "Failed to reach CardEmulationService.");
+                return false;
+            }
+        }
     }
 
     void recoverService() {

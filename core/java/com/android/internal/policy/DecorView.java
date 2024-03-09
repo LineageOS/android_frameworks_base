@@ -290,11 +290,12 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
     };
     private Consumer<Boolean> mCrossWindowBlurEnabledListener;
 
+    private final WearGestureInterceptionDetector mWearGestureInterceptionDetector;
+
     DecorView(Context context, int featureId, PhoneWindow window,
             WindowManager.LayoutParams params) {
         super(context);
         mFeatureId = featureId;
-
         mShowInterpolator = AnimationUtils.loadInterpolator(context,
                 android.R.interpolator.linear_out_slow_in);
         mHideInterpolator = AnimationUtils.loadInterpolator(context,
@@ -314,6 +315,11 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
         updateLogTag(params);
 
         mLegacyNavigationBarBackgroundPaint.setColor(Color.BLACK);
+
+        mWearGestureInterceptionDetector =
+                WearGestureInterceptionDetector.isEnabled(context)
+                        ? new WearGestureInterceptionDetector(context, this)
+                        : null;
     }
 
     void setBackgroundFallback(@Nullable Drawable fallbackDrawable) {
@@ -541,6 +547,18 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
                     mWindow.closePanel(mFeatureId);
                     return true;
                 }
+            }
+        }
+
+        ViewRootImpl viewRootImpl = getViewRootImpl();
+        if (viewRootImpl != null && mWearGestureInterceptionDetector != null) {
+            boolean wasIntercepting = mWearGestureInterceptionDetector.isIntercepting();
+            boolean intercepting = mWearGestureInterceptionDetector.onInterceptTouchEvent(event);
+            if (wasIntercepting != intercepting) {
+                viewRootImpl.updateDecorViewGestureInterception(intercepting);
+            }
+            if (intercepting) {
+                return true;
             }
         }
 
@@ -2626,8 +2644,7 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
 
     @Override
     public String toString() {
-        return "DecorView@" + Integer.toHexString(this.hashCode()) + "["
-                + getTitleSuffix(mWindow.getAttributes()) + "]";
+        return super.toString() + "[" + getTitleSuffix(mWindow.getAttributes()) + "]";
     }
 
     private static class ColorViewState {

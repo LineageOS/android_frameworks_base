@@ -24,7 +24,7 @@ public class GlobalSettings {
     /**
      * These keys may be mentioned in the SETTINGS_TO_BACKUP arrays in SystemSettings
      * and SecureSettings as well.  This is because those tables drive both backup and
-     * restore, and restore needs to properly whitelist keys that used to live
+     * restore, and restore needs to properly allowlist keys that used to live
      * in those namespaces.
      *
      * NOTE: Settings are backed up and restored in the order they appear
@@ -69,6 +69,7 @@ public class GlobalSettings {
         Settings.Global.PRIVATE_DNS_SPECIFIER,
         Settings.Global.SOFT_AP_TIMEOUT_ENABLED,
         Settings.Global.ZEN_DURATION,
+        Settings.Global.REVERSE_CHARGING_AUTO_ON,
         Settings.Global.CHARGING_VIBRATION_ENABLED,
         Settings.Global.AWARE_ALLOWED,
         Settings.Global.CUSTOM_BUGREPORT_HANDLER_APP,                   // moved to secure
@@ -105,5 +106,11 @@ public class GlobalSettings {
         Settings.Global.HDR_FORCE_CONVERSION_TYPE,
         Settings.Global.Wearable.RTL_SWIPE_TO_DISMISS_ENABLED_DEV,
         Settings.Global.Wearable.REDUCE_MOTION,
+        Settings.Global.Wearable.WEAR_LAUNCHER_UI_MODE,
+        Settings.Global.Wearable.USER_HFP_CLIENT_SETTING,
+        Settings.Global.Wearable.RSB_WAKE_ENABLED,
+        Settings.Global.Wearable.SCREENSHOT_ENABLED,
+        Settings.Global.Wearable.SCREEN_UNLOCK_SOUND_ENABLED,
+        Settings.Global.Wearable.CHARGING_SOUNDS_ENABLED,
     };
 }

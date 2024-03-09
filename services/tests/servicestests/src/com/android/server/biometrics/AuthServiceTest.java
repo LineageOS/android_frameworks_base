@@ -23,6 +23,8 @@ import static android.hardware.biometrics.BiometricAuthenticator.TYPE_NONE;
 import static android.hardware.biometrics.BiometricConstants.BIOMETRIC_ERROR_CANCELED;
 import static android.hardware.biometrics.BiometricConstants.BIOMETRIC_SUCCESS;
 
+import static com.android.systemui.shared.Flags.FLAG_SIDEFPS_CONTROLLER_REFACTOR;
+
 import static junit.framework.Assert.assertEquals;
 
 import static org.junit.Assert.assertThrows;
@@ -41,6 +43,9 @@ import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.hardware.biometrics.AuthenticationStateListener;
+import android.hardware.biometrics.BiometricManager;
+import android.hardware.biometrics.Flags;
 import android.hardware.biometrics.IBiometricEnabledOnKeyguardCallback;
 import android.hardware.biometrics.IBiometricService;
 import android.hardware.biometrics.IBiometricServiceReceiver;
@@ -53,6 +58,7 @@ import android.hardware.iris.IIrisService;
 import android.os.Binder;
 import android.os.UserHandle;
 import android.platform.test.annotations.Presubmit;
+import android.platform.test.flag.junit.SetFlagsRule;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
@@ -84,6 +90,8 @@ public class AuthServiceTest {
     @Rule
     public MockitoRule mockitorule = MockitoJUnit.rule();
 
+    @Rule public final SetFlagsRule mSetFlagsRule = new SetFlagsRule();
+
     @Mock
     private Context mContext;
     @Mock
@@ -103,6 +111,7 @@ public class AuthServiceTest {
     @Mock
     IFaceService mFaceService;
     @Mock
+
     AppOpsManager mAppOpsManager;
     @Mock
     private VirtualDeviceManagerInternal mVdmInternal;
@@ -399,6 +408,23 @@ public class AuthServiceTest {
                 eq(TEST_OP_PACKAGE_NAME));
     }
 
+    @Test
+    public void testRegisterAuthenticationStateListener_callsFingerprintService()
+            throws Exception {
+        mSetFlagsRule.enableFlags(FLAG_SIDEFPS_CONTROLLER_REFACTOR);
+        setInternalAndTestBiometricPermissions(mContext, true /* hasPermission */);
+
+        mAuthService = new AuthService(mContext, mInjector);
+        mAuthService.onStart();
+
+        final AuthenticationStateListener listener = mock(AuthenticationStateListener.class);
+
+        mAuthService.mImpl.registerAuthenticationStateListener(listener);
+
+        waitForIdle();
+        verify(mFingerprintService).registerAuthenticationStateListener(
+                eq(listener));
+    }
 
     @Test
     public void testRegisterKeyguardCallback_callsBiometricServiceRegisterKeyguardCallback()
@@ -416,6 +442,37 @@ public class AuthServiceTest {
         waitForIdle();
         verify(mBiometricService).registerEnabledOnKeyguardCallback(
                 eq(callback));
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void testGetLastAuthenticationTime_flaggedOff_throwsUnsupportedOperationException()
+            throws Exception {
+        mSetFlagsRule.disableFlags(Flags.FLAG_LAST_AUTHENTICATION_TIME);
+        setInternalAndTestBiometricPermissions(mContext, true /* hasPermission */);
+
+        mAuthService = new AuthService(mContext, mInjector);
+        mAuthService.onStart();
+
+        mAuthService.mImpl.getLastAuthenticationTime(0,
+                BiometricManager.Authenticators.BIOMETRIC_STRONG);
+    }
+
+    @Test
+    public void testGetLastAuthenticationTime_flaggedOn_callsBiometricService()
+            throws Exception {
+        mSetFlagsRule.enableFlags(Flags.FLAG_LAST_AUTHENTICATION_TIME);
+        setInternalAndTestBiometricPermissions(mContext, true /* hasPermission */);
+
+        mAuthService = new AuthService(mContext, mInjector);
+        mAuthService.onStart();
+
+        final int userId = 0;
+        final int authenticators = BiometricManager.Authenticators.BIOMETRIC_STRONG;
+
+        mAuthService.mImpl.getLastAuthenticationTime(userId, authenticators);
+
+        waitForIdle();
+        verify(mBiometricService).getLastAuthenticationTime(eq(userId), eq(authenticators));
     }
 
     private static void setInternalAndTestBiometricPermissions(

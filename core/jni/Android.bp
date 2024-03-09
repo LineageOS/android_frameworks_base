@@ -15,7 +15,19 @@ license {
     ],
 }
 
-cc_library_shared {
+soong_config_module_type {
+    name: "cc_library_shared_for_libandroid_runtime",
+    module_type: "cc_library_shared",
+    config_namespace: "ANDROID",
+    bool_variables: [
+        "release_binder_death_recipient_weak_from_jni",
+    ],
+    properties: [
+        "cflags",
+    ],
+}
+
+cc_library_shared_for_libandroid_runtime {
     name: "libandroid_runtime",
     host_supported: true,
     cflags: [
@@ -31,11 +43,12 @@ cc_library_shared {
 
         "-Wall",
         "-Werror",
+        "-Wextra",
+        "-Wthread-safety",
         "-Wno-error=deprecated-declarations",
+        "-Wno-unused-parameter",
         "-Wunused",
         "-Wunreachable-code",
-
-        "-DNAMESPACE_FOR_HASH_FUNCTIONS=farmhash",
     ],
 
     cppflags: ["-Wno-conversion-null"],
@@ -43,6 +56,12 @@ cc_library_shared {
     product_variables: {
         eng: {
             cflags: ["-DNO_RESET_STACK_PROTECTOR"],
+        },
+    },
+
+    soong_config_variables: {
+        release_binder_death_recipient_weak_from_jni: {
+            cflags: ["-DBINDER_DEATH_RECIPIENT_WEAK_FROM_JNI"],
         },
     },
 
@@ -78,11 +97,13 @@ cc_library_shared {
         "liblog",
         "libminikin",
         "libz",
+        "server_configurable_flags",
     ],
 
     static_libs: [
         "libnativehelper_lazy",
         "libziparchive_for_incfs",
+        "libguiflags",
     ],
 
     export_include_dirs: [
@@ -123,6 +144,7 @@ cc_library_shared {
                 "android_database_SQLiteConnection.cpp",
                 "android_database_SQLiteGlobal.cpp",
                 "android_database_SQLiteDebug.cpp",
+                "android_database_SQLiteRawStatement.cpp",
                 "android_graphics_GraphicBuffer.cpp",
                 "android_graphics_SurfaceTexture.cpp",
                 "android_view_CompositionSamplingListener.cpp",
@@ -260,8 +282,6 @@ cc_library_shared {
                 "libscrypt_static",
                 "libstatssocket_lazy",
                 "libskia",
-                "libtextclassifier_hash_static",
-                "libexpresslog_jni",
             ],
 
             shared_libs: [
@@ -348,7 +368,6 @@ cc_library_shared {
                 "bionic_libc_platform_headers",
                 "dnsproxyd_protocol_headers",
                 "flatbuffer_headers",
-                "libtextclassifier_hash_headers",
                 "tensorflow_headers",
             ],
             runtime_libs: [
@@ -378,7 +397,6 @@ cc_library_shared {
                 "libbinary_parse",
                 "libdng_sdk",
                 "libft2",
-                "libhostgraphics",
                 "libhwui",
                 "libimage_type_recognition",
                 "libjpeg",
@@ -438,10 +456,5 @@ cc_library_shared {
                 "libvintf",
             ],
         },
-    },
-
-    // Workaround Clang LTO crash.
-    lto: {
-        never: true,
     },
 }

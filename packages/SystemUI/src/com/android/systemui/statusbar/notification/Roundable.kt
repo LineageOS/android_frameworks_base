@@ -3,10 +3,10 @@ package com.android.systemui.statusbar.notification
 import android.util.FloatProperty
 import android.view.View
 import androidx.annotation.FloatRange
-import com.android.systemui.R
 import com.android.systemui.flags.FeatureFlags
 import com.android.systemui.flags.Flags
-import com.android.systemui.flags.ViewRefactorFlag
+import com.android.systemui.flags.RefactorFlag
+import com.android.systemui.res.R
 import com.android.systemui.statusbar.notification.stack.AnimationProperties
 import com.android.systemui.statusbar.notification.stack.StackStateAnimator
 import kotlin.math.abs
@@ -27,37 +27,31 @@ interface Roundable {
 
     /** Current top roundness */
     @get:FloatRange(from = 0.0, to = 1.0)
-    @JvmDefault
     val topRoundness: Float
         get() = roundableState.topRoundness
 
     /** Current bottom roundness */
     @get:FloatRange(from = 0.0, to = 1.0)
-    @JvmDefault
     val bottomRoundness: Float
         get() = roundableState.bottomRoundness
 
     /** Max radius in pixel */
-    @JvmDefault
     val maxRadius: Float
         get() = roundableState.maxRadius
 
     /** Current top corner in pixel, based on [topRoundness] and [maxRadius] */
-    @JvmDefault
     val topCornerRadius: Float
         get() =
             if (roundableState.newHeadsUpAnim.isEnabled) roundableState.topCornerRadius
             else topRoundness * maxRadius
 
     /** Current bottom corner in pixel, based on [bottomRoundness] and [maxRadius] */
-    @JvmDefault
     val bottomCornerRadius: Float
         get() =
             if (roundableState.newHeadsUpAnim.isEnabled) roundableState.bottomCornerRadius
             else bottomRoundness * maxRadius
 
     /** Get and update the current radii */
-    @JvmDefault
     val updatedRadii: FloatArray
         get() =
             roundableState.radiiBuffer.also { radii ->
@@ -80,7 +74,6 @@ interface Roundable {
      * @param sourceType the source from which the request for roundness comes.
      * @return Whether the roundness was changed.
      */
-    @JvmDefault
     fun requestTopRoundness(
         @FloatRange(from = 0.0, to = 1.0) value: Float,
         sourceType: SourceType,
@@ -125,7 +118,6 @@ interface Roundable {
      * @param sourceType the source from which the request for roundness comes.
      * @return Whether the roundness was changed.
      */
-    @JvmDefault
     fun requestTopRoundness(
         @FloatRange(from = 0.0, to = 1.0) value: Float,
         sourceType: SourceType,
@@ -149,7 +141,6 @@ interface Roundable {
      * @param sourceType the source from which the request for roundness comes.
      * @return Whether the roundness was changed.
      */
-    @JvmDefault
     fun requestBottomRoundness(
         @FloatRange(from = 0.0, to = 1.0) value: Float,
         sourceType: SourceType,
@@ -194,7 +185,6 @@ interface Roundable {
      * @param sourceType the source from which the request for roundness comes.
      * @return Whether the roundness was changed.
      */
-    @JvmDefault
     fun requestBottomRoundness(
         @FloatRange(from = 0.0, to = 1.0) value: Float,
         sourceType: SourceType,
@@ -219,7 +209,6 @@ interface Roundable {
      * @param animate true if it should animate to that value.
      * @return Whether the roundness was changed.
      */
-    @JvmDefault
     fun requestRoundness(
         @FloatRange(from = 0.0, to = 1.0) top: Float,
         @FloatRange(from = 0.0, to = 1.0) bottom: Float,
@@ -246,7 +235,6 @@ interface Roundable {
      * @param sourceType the source from which the request for roundness comes.
      * @return Whether the roundness was changed.
      */
-    @JvmDefault
     fun requestRoundness(
         @FloatRange(from = 0.0, to = 1.0) top: Float,
         @FloatRange(from = 0.0, to = 1.0) bottom: Float,
@@ -270,7 +258,6 @@ interface Roundable {
      * @param sourceType the source from which the request for roundness comes.
      * @param animate true if it should animate to that value.
      */
-    @JvmDefault
     fun requestRoundnessReset(sourceType: SourceType, animate: Boolean) {
         requestRoundness(top = 0f, bottom = 0f, sourceType = sourceType, animate = animate)
     }
@@ -284,19 +271,16 @@ interface Roundable {
      *
      * @param sourceType the source from which the request for roundness comes.
      */
-    @JvmDefault
     fun requestRoundnessReset(sourceType: SourceType) {
         requestRoundnessReset(sourceType = sourceType, animate = roundableState.targetView.isShown)
     }
 
     /** Apply the roundness changes, usually means invalidate the [RoundableState.targetView]. */
-    @JvmDefault
     fun applyRoundnessAndInvalidate() {
         roundableState.targetView.invalidate()
     }
 
     /** @return true if top or bottom roundness is not zero. */
-    @JvmDefault
     fun hasRoundedCorner(): Boolean {
         return topRoundness != 0f || bottomRoundness != 0f
     }
@@ -307,7 +291,6 @@ interface Roundable {
      *
      * This method reuses the previous [radii] for performance reasons.
      */
-    @JvmDefault
     fun updateRadii(
         topCornerRadius: Float,
         bottomCornerRadius: Float,
@@ -340,7 +323,7 @@ constructor(
     internal var maxRadius = maxRadius
         private set
 
-    internal val newHeadsUpAnim = ViewRefactorFlag(featureFlags, Flags.IMPROVED_HUN_ANIMATIONS)
+    internal val newHeadsUpAnim = RefactorFlag.forView(Flags.IMPROVED_HUN_ANIMATIONS, featureFlags)
 
     /** Animatable for top roundness */
     private val topAnimatable = topAnimatable(roundable)

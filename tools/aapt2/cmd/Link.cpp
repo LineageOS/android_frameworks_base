@@ -35,6 +35,8 @@
 #include "android-base/expected.h"
 #include "android-base/file.h"
 #include "android-base/stringprintf.h"
+#include "androidfw/BigBufferStream.h"
+#include "androidfw/FileStream.h"
 #include "androidfw/IDiagnostics.h"
 #include "androidfw/Locale.h"
 #include "androidfw/StringPiece.h"
@@ -48,8 +50,6 @@
 #include "format/binary/XmlFlattener.h"
 #include "format/proto/ProtoDeserialize.h"
 #include "format/proto/ProtoSerialize.h"
-#include "io/BigBufferStream.h"
-#include "io/FileStream.h"
 #include "io/FileSystem.h"
 #include "io/Util.h"
 #include "io/ZipArchive.h"
@@ -66,14 +66,15 @@
 #include "optimize/ResourceDeduper.h"
 #include "optimize/VersionCollapser.h"
 #include "process/IResourceTableConsumer.h"
+#include "process/ProductFilter.h"
 #include "process/SymbolTable.h"
 #include "split/TableSplitter.h"
 #include "trace/TraceBuffer.h"
 #include "util/Files.h"
 #include "xml/XmlDom.h"
 
-using ::aapt::io::FileInputStream;
 using ::android::ConfigDescription;
+using ::android::FileInputStream;
 using ::android::StringPiece;
 using ::android::base::expected;
 using ::android::base::StringPrintf;
@@ -148,6 +149,7 @@ class LinkContext : public IAaptContext {
 
   void SetVerbose(bool val) {
     verbose_ = val;
+    diagnostics_->SetVerbose(val);
   }
 
   int GetMinSdkVersion() override {
@@ -261,7 +263,7 @@ static bool FlattenXml(IAaptContext* context, const xml::XmlResource& xml_res, S
         return false;
       }
 
-      io::BigBufferInputStream input_stream(&buffer);
+      android::BigBufferInputStream input_stream(&buffer);
       return io::CopyInputStreamToArchive(context, &input_stream, path, ArchiveEntry::kCompress,
                                           writer);
     } break;
@@ -282,7 +284,7 @@ static bool FlattenXml(IAaptContext* context, const xml::XmlResource& xml_res, S
 static std::unique_ptr<xml::XmlResource> LoadXml(const std::string& path,
                                                  android::IDiagnostics* diag) {
   TRACE_CALL();
-  FileInputStream fin(path);
+  android::FileInputStream fin(path);
   if (fin.HadError()) {
     diag->Error(android::DiagMessage(path) << "failed to load XML file: " << fin.GetError());
     return {};
@@ -387,7 +389,7 @@ ResourceFileFlattener::ResourceFileFlattener(const ResourceFileFlattenerOptions&
   // Build up the rules for degrading newer attributes to older ones.
   // NOTE(adamlesinski): These rules are hardcoded right now, but they should be
   // generated from the attribute definitions themselves (b/62028956).
-  if (const SymbolTable::Symbol* s = symm->FindById(R::attr::paddingHorizontal)) {
+  if (symm->FindById(R::attr::paddingHorizontal)) {
     std::vector<ReplacementAttr> replacements{
         {"paddingLeft", R::attr::paddingLeft, Attribute(android::ResTable_map::TYPE_DIMENSION)},
         {"paddingRight", R::attr::paddingRight, Attribute(android::ResTable_map::TYPE_DIMENSION)},
@@ -396,7 +398,7 @@ ResourceFileFlattener::ResourceFileFlattener(const ResourceFileFlattenerOptions&
         util::make_unique<DegradeToManyRule>(std::move(replacements));
   }
 
-  if (const SymbolTable::Symbol* s = symm->FindById(R::attr::paddingVertical)) {
+  if (symm->FindById(R::attr::paddingVertical)) {
     std::vector<ReplacementAttr> replacements{
         {"paddingTop", R::attr::paddingTop, Attribute(android::ResTable_map::TYPE_DIMENSION)},
         {"paddingBottom", R::attr::paddingBottom, Attribute(android::ResTable_map::TYPE_DIMENSION)},
@@ -405,7 +407,7 @@ ResourceFileFlattener::ResourceFileFlattener(const ResourceFileFlattenerOptions&
         util::make_unique<DegradeToManyRule>(std::move(replacements));
   }
 
-  if (const SymbolTable::Symbol* s = symm->FindById(R::attr::layout_marginHorizontal)) {
+  if (symm->FindById(R::attr::layout_marginHorizontal)) {
     std::vector<ReplacementAttr> replacements{
         {"layout_marginLeft", R::attr::layout_marginLeft,
          Attribute(android::ResTable_map::TYPE_DIMENSION)},
@@ -416,7 +418,7 @@ ResourceFileFlattener::ResourceFileFlattener(const ResourceFileFlattenerOptions&
         util::make_unique<DegradeToManyRule>(std::move(replacements));
   }
 
-  if (const SymbolTable::Symbol* s = symm->FindById(R::attr::layout_marginVertical)) {
+  if (symm->FindById(R::attr::layout_marginVertical)) {
     std::vector<ReplacementAttr> replacements{
         {"layout_marginTop", R::attr::layout_marginTop,
          Attribute(android::ResTable_map::TYPE_DIMENSION)},
@@ -685,7 +687,7 @@ bool ResourceFileFlattener::Flatten(ResourceTable* table, IArchiveWriter* archiv
 static bool WriteStableIdMapToPath(android::IDiagnostics* diag,
                                    const std::unordered_map<ResourceName, ResourceId>& id_map,
                                    const std::string& id_map_path) {
-  io::FileOutputStream fout(id_map_path);
+  android::FileOutputStream fout(id_map_path);
   if (fout.HadError()) {
     diag->Error(android::DiagMessage(id_map_path) << "failed to open: " << fout.GetError());
     return false;
@@ -1195,7 +1197,7 @@ class Linker {
           return false;
         }
 
-        io::BigBufferInputStream input_stream(&buffer);
+        android::BigBufferInputStream input_stream(&buffer);
         return io::CopyInputStreamToArchive(context_, &input_stream, kApkResourceTablePath,
                                             ArchiveEntry::kAlign, writer);
       } break;
@@ -1219,7 +1221,7 @@ class Linker {
     }
 
     std::string out_path;
-    std::unique_ptr<io::FileOutputStream> fout;
+    std::unique_ptr<android::FileOutputStream> fout;
     if (options_.generate_java_class_path) {
       out_path = options_.generate_java_class_path.value();
       file::AppendPath(&out_path, file::PackageToPath(out_package));
@@ -1231,7 +1233,7 @@ class Linker {
 
       file::AppendPath(&out_path, "R.java");
 
-      fout = util::make_unique<io::FileOutputStream>(out_path);
+      fout = util::make_unique<android::FileOutputStream>(out_path);
       if (fout->HadError()) {
         context_->GetDiagnostics()->Error(android::DiagMessage()
                                           << "failed writing to '" << out_path
@@ -1240,9 +1242,9 @@ class Linker {
       }
     }
 
-    std::unique_ptr<io::FileOutputStream> fout_text;
+    std::unique_ptr<android::FileOutputStream> fout_text;
     if (out_text_symbols_path) {
-      fout_text = util::make_unique<io::FileOutputStream>(out_text_symbols_path.value());
+      fout_text = util::make_unique<android::FileOutputStream>(out_text_symbols_path.value());
       if (fout_text->HadError()) {
         context_->GetDiagnostics()->Error(android::DiagMessage()
                                           << "failed writing to '" << out_text_symbols_path.value()
@@ -1384,7 +1386,7 @@ class Linker {
 
     file::AppendPath(&out_path, "Manifest.java");
 
-    io::FileOutputStream fout(out_path);
+    android::FileOutputStream fout(out_path);
     if (fout.HadError()) {
       context_->GetDiagnostics()->Error(android::DiagMessage() << "failed to open '" << out_path
                                                                << "': " << fout.GetError());
@@ -1410,7 +1412,7 @@ class Linker {
     }
 
     const std::string& out_path = out.value();
-    io::FileOutputStream fout(out_path);
+    android::FileOutputStream fout(out_path);
     if (fout.HadError()) {
       context_->GetDiagnostics()->Error(android::DiagMessage() << "failed to open '" << out_path
                                                                << "': " << fout.GetError());
@@ -1599,7 +1601,7 @@ class Linker {
       }
     }
 
-    std::unique_ptr<io::InputStream> input_stream = file->OpenInputStream();
+    std::unique_ptr<android::InputStream> input_stream = file->OpenInputStream();
     if (input_stream == nullptr) {
       context_->GetDiagnostics()->Error(android::DiagMessage(src) << "failed to open file");
       return false;
@@ -2127,7 +2129,7 @@ class Linker {
                                          << "can't select products when building static library");
       }
     } else {
-      ProductFilter product_filter(options_.products);
+      ProductFilter product_filter(options_.products, /* remove_default_config_values = */ false);
       if (!product_filter.Consume(context_, &final_table_)) {
         context_->GetDiagnostics()->Error(android::DiagMessage() << "failed stripping products");
         return 1;
@@ -2508,6 +2510,28 @@ int LinkCommand::Action(const std::vector<std::string>& args) {
     options_.split_constraints.push_back({});
     if (!ParseSplitParameter(split_arg, context.GetDiagnostics(), &options_.split_paths.back(),
         &options_.split_constraints.back())) {
+      return 1;
+    }
+  }
+
+  // Parse the feature flag values. An argument that starts with '@' points to a file to read flag
+  // values from.
+  std::vector<std::string> all_feature_flags_args;
+  for (const std::string& arg : feature_flags_args_) {
+    if (util::StartsWith(arg, "@")) {
+      const std::string path = arg.substr(1, arg.size() - 1);
+      std::string error;
+      if (!file::AppendArgsFromFile(path, &all_feature_flags_args, &error)) {
+        context.GetDiagnostics()->Error(android::DiagMessage(path) << error);
+        return 1;
+      }
+    } else {
+      all_feature_flags_args.push_back(arg);
+    }
+  }
+
+  for (const std::string& arg : all_feature_flags_args) {
+    if (ParseFeatureFlagsParameter(arg, context.GetDiagnostics(), &options_.feature_flag_values)) {
       return 1;
     }
   }

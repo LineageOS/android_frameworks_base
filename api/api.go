@@ -15,12 +15,13 @@
 package api
 
 import (
+	"fmt"
 	"sort"
+	"strings"
 
 	"github.com/google/blueprint/proptools"
 
 	"android/soong/android"
-	"android/soong/bazel"
 	"android/soong/genrule"
 	"android/soong/java"
 )
@@ -29,6 +30,8 @@ const art = "art.module.public.api"
 const conscrypt = "conscrypt.module.public.api"
 const i18n = "i18n.module.public.api"
 const virtualization = "framework-virtualization"
+const location = "framework-location"
+const nfc = "framework-nfc"
 
 var core_libraries_modules = []string{art, conscrypt, i18n}
 
@@ -40,7 +43,7 @@ var core_libraries_modules = []string{art, conscrypt, i18n}
 // APIs.
 // In addition, the modules in this list are allowed to contribute to test APIs
 // stubs.
-var non_updatable_modules = []string{virtualization}
+var non_updatable_modules = []string{virtualization, location, nfc}
 
 // The intention behind this soong plugin is to generate a number of "merged"
 // API-related modules that would otherwise require a large amount of very
@@ -61,7 +64,6 @@ type CombinedApisProperties struct {
 
 type CombinedApis struct {
 	android.ModuleBase
-	android.BazelModuleBase
 
 	properties CombinedApisProperties
 }
@@ -94,6 +96,7 @@ type libraryProps struct {
 	Sdk_version *string
 	Static_libs []string
 	Visibility  []string
+	Defaults    []string
 }
 
 type fgProps struct {
@@ -102,17 +105,12 @@ type fgProps struct {
 	Visibility []string
 }
 
-type Bazel_module struct {
-	Bp2build_available *bool
-}
-type bazelProperties struct {
-	*Bazel_module
-}
-
-var bp2buildNotAvailable = bazelProperties{
-	&Bazel_module{
-		Bp2build_available: proptools.BoolPtr(false),
-	},
+type defaultsProps struct {
+	Name                *string
+	Api_surface         *string
+	Api_contributions   []string
+	Defaults_visibility []string
+	Previous_api        *string
 }
 
 // Struct to pass parameters for the various merged [current|removed].txt file modules we create.
@@ -135,17 +133,19 @@ func createMergedTxt(ctx android.LoadHookContext, txt MergedTxtDefinition) {
 	metalavaCmd := "$(location metalava)"
 	// Silence reflection warnings. See b/168689341
 	metalavaCmd += " -J--add-opens=java.base/java.util=ALL-UNNAMED "
-	metalavaCmd += " --quiet --no-banner --format=v2 "
+	metalavaCmd += " --quiet merge-signatures --format=v2 "
 
 	filename := txt.TxtFilename
 	if txt.Scope != "public" {
 		filename = txt.Scope + "-" + filename
 	}
+	moduleName := ctx.ModuleName() + "-" + filename
+
 	props := genruleProps{}
-	props.Name = proptools.StringPtr(ctx.ModuleName() + "-" + filename)
+	props.Name = proptools.StringPtr(moduleName)
 	props.Tools = []string{"metalava"}
 	props.Out = []string{filename}
-	props.Cmd = proptools.StringPtr(metalavaCmd + "$(in) --api $(out)")
+	props.Cmd = proptools.StringPtr(metalavaCmd + "$(in) --out $(out)")
 	props.Srcs = append([]string{txt.BaseTxt}, createSrcs(txt.Modules, txt.ModuleTag)...)
 	props.Dists = []android.Dist{
 		{
@@ -160,37 +160,37 @@ func createMergedTxt(ctx android.LoadHookContext, txt MergedTxtDefinition) {
 		},
 	}
 	props.Visibility = []string{"//visibility:public"}
-	ctx.CreateModule(genrule.GenRuleFactory, &props, &bp2buildNotAvailable)
+	ctx.CreateModule(genrule.GenRuleFactory, &props)
 }
 
 func createMergedAnnotationsFilegroups(ctx android.LoadHookContext, modules, system_server_modules []string) {
-	for _, i := range []struct{
+	for _, i := range []struct {
 		name    string
 		tag     string
 		modules []string
 	}{
 		{
-			name: "all-modules-public-annotations",
-			tag:  "{.public.annotations.zip}",
+			name:    "all-modules-public-annotations",
+			tag:     "{.public.annotations.zip}",
 			modules: modules,
 		}, {
-			name: "all-modules-system-annotations",
-			tag:  "{.system.annotations.zip}",
+			name:    "all-modules-system-annotations",
+			tag:     "{.system.annotations.zip}",
 			modules: modules,
 		}, {
-			name: "all-modules-module-lib-annotations",
-			tag:  "{.module-lib.annotations.zip}",
+			name:    "all-modules-module-lib-annotations",
+			tag:     "{.module-lib.annotations.zip}",
 			modules: modules,
 		}, {
-			name: "all-modules-system-server-annotations",
-			tag:  "{.system-server.annotations.zip}",
+			name:    "all-modules-system-server-annotations",
+			tag:     "{.system-server.annotations.zip}",
 			modules: system_server_modules,
 		},
 	} {
 		props := fgProps{}
 		props.Name = proptools.StringPtr(i.name)
 		props.Srcs = createSrcs(i.modules, i.tag)
-		ctx.CreateModule(android.FileGroupFactory, &props, &bp2buildNotAvailable)
+		ctx.CreateModule(android.FileGroupFactory, &props)
 	}
 }
 
@@ -267,8 +267,10 @@ func createMergedFrameworkImpl(ctx android.LoadHookContext, modules []string) {
 }
 
 func createMergedFrameworkModuleLibStubs(ctx android.LoadHookContext, modules []string) {
-	// The user of this module compiles against the "core" SDK, so remove core libraries to avoid dupes.
+	// The user of this module compiles against the "core" SDK and against non-updatable modules,
+	// so remove to avoid dupes.
 	modules = removeAll(modules, core_libraries_modules)
+	modules = removeAll(modules, non_updatable_modules)
 	props := libraryProps{}
 	props.Name = proptools.StringPtr("framework-updatable-stubs-module_libs_api")
 	props.Static_libs = transformArray(modules, "", ".stubs.module_lib")
@@ -282,7 +284,7 @@ func createPublicStubsSourceFilegroup(ctx android.LoadHookContext, modules []str
 	props.Name = proptools.StringPtr("all-modules-public-stubs-source")
 	props.Srcs = createSrcs(modules, "{.public.stubs.source}")
 	props.Visibility = []string{"//frameworks/base"}
-	ctx.CreateModule(android.FileGroupFactory, &props, &bp2buildNotAvailable)
+	ctx.CreateModule(android.FileGroupFactory, &props)
 }
 
 func createMergedTxts(ctx android.LoadHookContext, bootclasspath, system_server_classpath []string) {
@@ -329,6 +331,56 @@ func createMergedTxts(ctx android.LoadHookContext, bootclasspath, system_server_
 	}
 }
 
+func createApiContributionDefaults(ctx android.LoadHookContext, modules []string) {
+	defaultsSdkKinds := []android.SdkKind{
+		android.SdkPublic, android.SdkSystem, android.SdkModule,
+	}
+	for _, sdkKind := range defaultsSdkKinds {
+		props := defaultsProps{}
+		props.Name = proptools.StringPtr(
+			sdkKind.DefaultJavaLibraryName() + "_contributions")
+		if sdkKind == android.SdkModule {
+			props.Name = proptools.StringPtr(
+				sdkKind.DefaultJavaLibraryName() + "_contributions_full")
+		}
+		props.Api_surface = proptools.StringPtr(sdkKind.String())
+		apiSuffix := ""
+		if sdkKind != android.SdkPublic {
+			apiSuffix = "." + strings.ReplaceAll(sdkKind.String(), "-", "_")
+		}
+		props.Api_contributions = transformArray(
+			modules, "", fmt.Sprintf(".stubs.source%s.api.contribution", apiSuffix))
+		props.Defaults_visibility = []string{"//visibility:public"}
+		props.Previous_api = proptools.StringPtr(":android.api.public.latest")
+		ctx.CreateModule(java.DefaultsFactory, &props)
+	}
+}
+
+func createFullApiLibraries(ctx android.LoadHookContext) {
+	javaLibraryNames := []string{
+		"android_stubs_current",
+		"android_system_stubs_current",
+		"android_test_stubs_current",
+		"android_test_frameworks_core_stubs_current",
+		"android_module_lib_stubs_current",
+		"android_system_server_stubs_current",
+	}
+
+	for _, libraryName := range javaLibraryNames {
+		props := libraryProps{}
+		props.Name = proptools.StringPtr(libraryName)
+		staticLib := libraryName + ".from-source"
+		if ctx.Config().BuildFromTextStub() {
+			staticLib = libraryName + ".from-text"
+		}
+		props.Static_libs = []string{staticLib}
+		props.Defaults = []string{"android.jar_defaults"}
+		props.Visibility = []string{"//visibility:public"}
+
+		ctx.CreateModule(java.LibraryFactory, &props)
+	}
+}
+
 func (a *CombinedApis) createInternalModules(ctx android.LoadHookContext) {
 	bootclasspath := a.properties.Bootclasspath
 	system_server_classpath := a.properties.System_server_classpath
@@ -347,6 +399,10 @@ func (a *CombinedApis) createInternalModules(ctx android.LoadHookContext) {
 	createMergedAnnotationsFilegroups(ctx, bootclasspath, system_server_classpath)
 
 	createPublicStubsSourceFilegroup(ctx, bootclasspath)
+
+	createApiContributionDefaults(ctx, bootclasspath)
+
+	createFullApiLibraries(ctx)
 }
 
 func combinedApisModuleFactory() android.Module {
@@ -354,53 +410,7 @@ func combinedApisModuleFactory() android.Module {
 	module.AddProperties(&module.properties)
 	android.InitAndroidModule(module)
 	android.AddLoadHook(module, func(ctx android.LoadHookContext) { module.createInternalModules(ctx) })
-	android.InitBazelModule(module)
 	return module
-}
-
-type bazelCombinedApisAttributes struct {
-	Scope bazel.StringAttribute
-	Base  bazel.LabelAttribute
-	Deps  bazel.LabelListAttribute
-}
-
-// combined_apis bp2build converter
-func (a *CombinedApis) ConvertWithBp2build(ctx android.TopDownMutatorContext) {
-	basePrefix := "non-updatable"
-	scopeToSuffix := map[string]string{
-		"public":        "-current.txt",
-		"system":        "-system-current.txt",
-		"module-lib":    "-module-lib-current.txt",
-		"system-server": "-system-server-current.txt",
-	}
-
-	for scopeName, suffix := range scopeToSuffix{
-		name := a.Name() + suffix
-
-		var scope bazel.StringAttribute
-		scope.SetValue(scopeName)
-
-		var base bazel.LabelAttribute
-		base.SetValue(android.BazelLabelForModuleDepSingle(ctx, basePrefix+suffix))
-
-		var deps bazel.LabelListAttribute
-		classpath := a.properties.Bootclasspath
-		if scopeName == "system-server" {
-			classpath = a.properties.System_server_classpath
-		}
-		deps = bazel.MakeLabelListAttribute(android.BazelLabelForModuleDeps(ctx, classpath))
-
-		attrs := bazelCombinedApisAttributes{
-			Scope: scope,
-			Base:  base,
-			Deps:  deps,
-		}
-		props := bazel.BazelTargetModuleProperties{
-			Rule_class:        "merged_txts",
-			Bzl_load_location: "//build/bazel/rules/java:merged_txts.bzl",
-		}
-		ctx.CreateBazelTargetModule(props, android.CommonAttributes{Name: name}, &attrs)
-	}
 }
 
 // Various utility methods below.

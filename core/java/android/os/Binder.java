@@ -30,9 +30,11 @@ import com.android.internal.os.BinderCallHeavyHitterWatcher;
 import com.android.internal.os.BinderCallHeavyHitterWatcher.BinderCallHeavyHitterListener;
 import com.android.internal.os.BinderInternal;
 import com.android.internal.os.BinderInternal.CallSession;
+import com.android.internal.os.SomeArgs;
 import com.android.internal.util.FastPrintWriter;
 import com.android.internal.util.FunctionalUtils.ThrowingRunnable;
 import com.android.internal.util.FunctionalUtils.ThrowingSupplier;
+import com.android.internal.util.Preconditions;
 
 import dalvik.annotation.optimization.CriticalNative;
 
@@ -46,6 +48,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.function.Supplier;
 
 /**
  * Base class for a remotable object, the core part of a lightweight
@@ -186,6 +189,8 @@ public class Binder implements IBinder {
     /**
      * Get the binder transaction observer for this process.
      *
+     * TODO(b/299356196): only applies to Java code, not C++/Rust
+     *
      * @hide
      */
     public static void setObserver(@Nullable BinderInternal.Observer observer) {
@@ -202,6 +207,8 @@ public class Binder implements IBinder {
      * that require a result must be sent as {@link IBinder#FLAG_ONEWAY} calls
      * which deliver results through a callback interface.
      *
+     * TODO(b/299355525): only applies to Java code, not C++/Rust
+     *
      * @hide
      */
     public static void setWarnOnBlocking(boolean warnOnBlocking) {
@@ -217,6 +224,8 @@ public class Binder implements IBinder {
      * upgraded. In particular, this <em>must never</em> be called for
      * interfaces hosted by package that could be upgraded or replaced,
      * otherwise you risk system instability if that remote interface wedges.
+     *
+     * TODO(b/299355525): only applies to Java code, not C++/Rust
      *
      * @hide
      */
@@ -283,6 +292,33 @@ public class Binder implements IBinder {
         sWarnOnBlockingOnCurrentThread.set(sWarnOnBlocking);
     }
 
+    private static ThreadLocal<SomeArgs> sIdentity$ravenwood;
+
+    @android.ravenwood.annotation.RavenwoodKeepWholeClass
+    private static class IdentitySupplier implements Supplier<SomeArgs> {
+        @Override
+        public SomeArgs get() {
+            final SomeArgs args = SomeArgs.obtain();
+            // Match IPCThreadState behavior
+            args.arg1 = Boolean.FALSE;
+            args.argi1 = android.os.Process.myUid();
+            args.argi2 = android.os.Process.myPid();
+            return args;
+        }
+    }
+
+    /** @hide */
+    @android.ravenwood.annotation.RavenwoodKeep
+    public static void init$ravenwood() {
+        sIdentity$ravenwood = ThreadLocal.withInitial(new IdentitySupplier());
+    }
+
+    /** @hide */
+    @android.ravenwood.annotation.RavenwoodKeep
+    public static void reset$ravenwood() {
+        sIdentity$ravenwood = null;
+    }
+
     /**
      * Raw native pointer to JavaBBinderHolder object. Owned by this Java object. Not null.
      */
@@ -306,7 +342,13 @@ public class Binder implements IBinder {
      * Warning: oneway transactions do not receive PID.
      */
     @CriticalNative
+    @android.ravenwood.annotation.RavenwoodReplace
     public static final native int getCallingPid();
+
+    /** @hide */
+    public static final int getCallingPid$ravenwood() {
+        return Preconditions.requireNonNullViaRavenwoodRule(sIdentity$ravenwood).get().argi2;
+    }
 
     /**
      * Return the Linux UID assigned to the process that sent you the
@@ -316,7 +358,13 @@ public class Binder implements IBinder {
      * incoming transaction, then its own UID is returned.
      */
     @CriticalNative
+    @android.ravenwood.annotation.RavenwoodReplace
     public static final native int getCallingUid();
+
+    /** @hide */
+    public static final int getCallingUid$ravenwood() {
+        return Preconditions.requireNonNullViaRavenwoodRule(sIdentity$ravenwood).get().argi1;
+    }
 
     /**
      * Returns {@code true} if the current thread is currently executing an
@@ -325,7 +373,33 @@ public class Binder implements IBinder {
      * @hide
      */
     @CriticalNative
-    public static final native boolean isDirectlyHandlingTransaction();
+    @android.ravenwood.annotation.RavenwoodReplace
+    public static final native boolean isDirectlyHandlingTransactionNative();
+
+    /** @hide */
+    public static final boolean isDirectlyHandlingTransactionNative$ravenwood() {
+        // Ravenwood doesn't support IPC
+        return false;
+    }
+
+    private static boolean sIsHandlingBinderTransaction = false;
+
+    /**
+     * @hide
+     */
+    @android.ravenwood.annotation.RavenwoodKeep
+    public static final boolean isDirectlyHandlingTransaction() {
+        return sIsHandlingBinderTransaction || isDirectlyHandlingTransactionNative();
+    }
+
+    /**
+     * This is Test API which will be used to override output of isDirectlyHandlingTransactionNative
+     * @hide
+     */
+    @android.ravenwood.annotation.RavenwoodKeep
+    public static void setIsDirectlyHandlingTransactionOverride(boolean isInTransaction) {
+        sIsHandlingBinderTransaction = isInTransaction;
+    }
 
     /**
     * Returns {@code true} if the current thread has had its identity
@@ -334,7 +408,14 @@ public class Binder implements IBinder {
     * @hide
     */
     @CriticalNative
+    @android.ravenwood.annotation.RavenwoodReplace
     private static native boolean hasExplicitIdentity();
+
+    /** @hide */
+    private static boolean hasExplicitIdentity$ravenwood() {
+        return Preconditions.requireNonNullViaRavenwoodRule(sIdentity$ravenwood).get().arg1
+                == Boolean.TRUE;
+    }
 
     /**
      * Return the Linux UID assigned to the process that sent the transaction
@@ -344,6 +425,7 @@ public class Binder implements IBinder {
      * executing an incoming transaction and the calling identity has not been
      * explicitly set with {@link #clearCallingIdentity()}
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public static final int getCallingUidOrThrow() {
         if (!isDirectlyHandlingTransaction() && !hasExplicitIdentity()) {
             throw new IllegalStateException(
@@ -405,7 +487,25 @@ public class Binder implements IBinder {
      * @see #restoreCallingIdentity(long)
      */
     @CriticalNative
+    @android.ravenwood.annotation.RavenwoodReplace
     public static final native long clearCallingIdentity();
+
+    /** @hide */
+    public static final long clearCallingIdentity$ravenwood() {
+        final SomeArgs args = Preconditions.requireNonNullViaRavenwoodRule(
+                sIdentity$ravenwood).get();
+        long res = ((long) args.argi1 << 32) | args.argi2;
+        if (args.arg1 == Boolean.TRUE) {
+            res |= (0x1 << 30);
+        } else {
+            res &= ~(0x1 << 30);
+        }
+        // Match IPCThreadState behavior
+        args.arg1 = Boolean.TRUE;
+        args.argi1 = android.os.Process.myUid();
+        args.argi2 = android.os.Process.myPid();
+        return res;
+    }
 
     /**
      * Restore the identity of the incoming IPC on the current thread
@@ -418,7 +518,17 @@ public class Binder implements IBinder {
      * @see #clearCallingIdentity
      */
     @CriticalNative
+    @android.ravenwood.annotation.RavenwoodReplace
     public static final native void restoreCallingIdentity(long token);
+
+    /** @hide */
+    public static final void restoreCallingIdentity$ravenwood(long token) {
+        final SomeArgs args = Preconditions.requireNonNullViaRavenwoodRule(
+                sIdentity$ravenwood).get();
+        args.arg1 = ((token & (0x1 << 30)) != 0) ? Boolean.TRUE : Boolean.FALSE;
+        args.argi1 = (int) (token >> 32);
+        args.argi2 = (int) (token & ~(0x1 << 30));
+    }
 
     /**
      * Convenience method for running the provided action enclosed in
@@ -615,7 +725,13 @@ public class Binder implements IBinder {
      * in order to prevent the process from holding on to objects longer than
      * it needs to.
      */
+    @android.ravenwood.annotation.RavenwoodReplace
     public static final native void flushPendingCommands();
+
+    /** @hide */
+    public static final void flushPendingCommands$ravenwood() {
+        // Ravenwood doesn't support IPC; ignored
+    }
 
     /**
      * Add the calling thread to the IPC thread pool. This function does
@@ -674,6 +790,7 @@ public class Binder implements IBinder {
      * <p>If you're creating a Binder token (a Binder object without an attached interface),
      * you should use {@link #Binder(String)} instead.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public Binder() {
         this(null);
     }
@@ -690,9 +807,12 @@ public class Binder implements IBinder {
      * Instead of creating multiple tokens with the same descriptor, consider adding a suffix to
      * help identify them.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public Binder(@Nullable String descriptor) {
         mObject = getNativeBBinderHolder();
-        NoImagePreloadHolder.sRegistry.registerNativeAllocation(this, mObject);
+        if (mObject != 0L) {
+            NoImagePreloadHolder.sRegistry.registerNativeAllocation(this, mObject);
+        }
 
         if (FIND_POTENTIAL_LEAKS) {
             final Class<? extends Binder> klass = getClass();
@@ -711,6 +831,7 @@ public class Binder implements IBinder {
      * will be implemented for you to return the given owner IInterface when
      * the corresponding descriptor is requested.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public void attachInterface(@Nullable IInterface owner, @Nullable String descriptor) {
         mOwner = owner;
         mDescriptor = descriptor;
@@ -719,6 +840,7 @@ public class Binder implements IBinder {
     /**
      * Default implementation returns an empty interface name.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public @Nullable String getInterfaceDescriptor() {
         return mDescriptor;
     }
@@ -727,6 +849,7 @@ public class Binder implements IBinder {
      * Default implementation always returns true -- if you got here,
      * the object is alive.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public boolean pingBinder() {
         return true;
     }
@@ -737,6 +860,7 @@ public class Binder implements IBinder {
      * Note that if you're calling on a local binder, this always returns true
      * because your process is alive if you're calling it.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public boolean isBinderAlive() {
         return true;
     }
@@ -746,6 +870,7 @@ public class Binder implements IBinder {
      * to return the associated {@link IInterface} if it matches the requested
      * descriptor.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public @Nullable IInterface queryLocalInterface(@NonNull String descriptor) {
         if (mDescriptor != null && mDescriptor.equals(descriptor)) {
             return mOwner;
@@ -944,6 +1069,7 @@ public class Binder implements IBinder {
      *
      * @hide
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public @Nullable String getTransactionName(int transactionCode) {
         return null;
     }
@@ -952,6 +1078,7 @@ public class Binder implements IBinder {
      * @hide
      */
     @VisibleForTesting
+    @android.ravenwood.annotation.RavenwoodKeep
     public final @Nullable String getTransactionTraceName(int transactionCode) {
         final boolean isInterfaceUserDefined = getMaxTransactionId() == 0;
         if (mTransactionTraceNames == null) {
@@ -989,6 +1116,7 @@ public class Binder implements IBinder {
         return transactionTraceName;
     }
 
+    @android.ravenwood.annotation.RavenwoodKeep
     private @NonNull String getSimpleDescriptor() {
         String descriptor = mDescriptor;
         if (descriptor == null) {
@@ -1008,6 +1136,7 @@ public class Binder implements IBinder {
      * @return The highest user-defined transaction id of all transactions.
      * @hide
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public int getMaxTransactionId() {
         return 0;
     }
@@ -1219,12 +1348,14 @@ public class Binder implements IBinder {
     /**
      * Local implementation is a no-op.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public void linkToDeath(@NonNull DeathRecipient recipient, int flags) {
     }
 
     /**
      * Local implementation is a no-op.
      */
+    @android.ravenwood.annotation.RavenwoodKeep
     public boolean unlinkToDeath(@NonNull DeathRecipient recipient, int flags) {
         return true;
     }
@@ -1252,7 +1383,12 @@ public class Binder implements IBinder {
         }
     }
 
+    @android.ravenwood.annotation.RavenwoodReplace
     private static native long getNativeBBinderHolder();
+
+    private static long getNativeBBinderHolder$ravenwood() {
+        return 0L;
+    }
 
     /**
      * By default, we use the calling UID since we can always trust it.
@@ -1316,6 +1452,8 @@ public class Binder implements IBinder {
             int callingUid) {
         // Make sure the observer won't change while processing a transaction.
         final BinderInternal.Observer observer = sObserver;
+
+        // TODO(b/299356196): observer should also observe transactions in native code
         final CallSession callSession =
                 observer != null ? observer.callStarted(this, code, UNSET_WORKSOURCE) : null;
         // Theoretically, we should call transact, which will call onTransact,
@@ -1338,7 +1476,7 @@ public class Binder implements IBinder {
 
         final boolean tracingEnabled = tagEnabled && transactionTraceName != null;
         try {
-            // TODO - this logic should not be in Java - it should be in native
+            // TODO(b/299356201) - this logic should not be in Java - it should be in native
             // code in libbinder so that it works for all binder users.
             final BinderCallHeavyHitterWatcher heavyHitterWatcher = sHeavyHitterWatcher;
             if (heavyHitterWatcher != null && callingUid != -1) {
@@ -1349,9 +1487,9 @@ public class Binder implements IBinder {
                 Trace.traceBegin(Trace.TRACE_TAG_AIDL, transactionTraceName);
             }
 
-            // TODO - this logic should not be in Java - it should be in native
-            // code in libbinder so that it works for all binder users. Further,
-            // this should not re-use flags.
+            // TODO(b/299353919) - this logic should not be in Java - it should be
+            // in native code in libbinder so that it works for all binder users.
+            // Further, this should not re-use flags.
             if ((flags & FLAG_COLLECT_NOTED_APP_OPS) != 0 && callingUid != -1) {
                 AppOpsManager.startNotedAppOpsCollection(callingUid);
                 try {

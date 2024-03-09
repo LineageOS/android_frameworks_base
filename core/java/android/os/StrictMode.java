@@ -1462,7 +1462,7 @@ public final class StrictMode {
 
         if (Build.IS_USER || DISABLE || SystemProperties.getBoolean(DISABLE_PROPERTY, false)) {
             // Detect nothing extra
-        } else if (Build.IS_USERDEBUG) {
+        } else if (Build.IS_USERDEBUG || Build.IS_ENG) {
             // Detect everything in bundled apps
             if (isBundledSystemApp(ai)) {
                 builder.detectAll();
@@ -1470,14 +1470,9 @@ public final class StrictMode {
                 if (SystemProperties.getBoolean(VISUAL_PROPERTY, false)) {
                     builder.penaltyFlashScreen();
                 }
-            }
-        } else if (Build.IS_ENG) {
-            // Detect everything in bundled apps
-            if (isBundledSystemApp(ai)) {
-                builder.detectAll();
-                builder.penaltyDropBox();
-                builder.penaltyLog();
-                builder.penaltyFlashScreen();
+                if (Build.IS_ENG) {
+                    builder.penaltyLog();
+                }
             }
         }
 
@@ -2023,9 +2018,13 @@ public final class StrictMode {
             return;
         }
 
+        // Temporarily disable checks so that explicit GC is allowed.
+        final int oldMask = getThreadPolicyMask();
+        setThreadPolicyMask(0);
         System.gc();
         System.runFinalization();
         System.gc();
+        setThreadPolicyMask(oldMask);
 
         // Note: classInstanceLimit is immutable, so this is lock-free
         // Create the classes array.
@@ -2372,14 +2371,14 @@ public final class StrictMode {
     }
 
     /** Assume locked until we hear otherwise */
-    private static volatile boolean sUserKeyUnlocked = false;
+    private static volatile boolean sCeStorageUnlocked = false;
 
-    private static boolean isUserKeyUnlocked(int userId) {
+    private static boolean isCeStorageUnlocked(int userId) {
         final IStorageManager storage = IStorageManager.Stub
                 .asInterface(ServiceManager.getService("mount"));
         if (storage != null) {
             try {
-                return storage.isUserKeyUnlocked(userId);
+                return storage.isCeStorageUnlocked(userId);
             } catch (RemoteException ignored) {
             }
         }
@@ -2392,13 +2391,13 @@ public final class StrictMode {
         // since any relocking of that user will always result in our
         // process being killed to release any CE FDs we're holding onto.
         if (userId == UserHandle.myUserId()) {
-            if (sUserKeyUnlocked) {
+            if (sCeStorageUnlocked) {
                 return;
-            } else if (isUserKeyUnlocked(userId)) {
-                sUserKeyUnlocked = true;
+            } else if (isCeStorageUnlocked(userId)) {
+                sCeStorageUnlocked = true;
                 return;
             }
-        } else if (isUserKeyUnlocked(userId)) {
+        } else if (isCeStorageUnlocked(userId)) {
             return;
         }
 
