@@ -105,8 +105,6 @@ public class WifiNl80211Manager {
 
     // Cached wificond binder handlers.
     private IWificond mWificond;
-    private Context mContext;
-    private InstantWifi mInstantWifi;
     private WificondEventHandler mWificondEventHandler = new WificondEventHandler();
     private HashMap<String, IClientInterface> mClientInterfaces = new HashMap<>();
     private HashMap<String, IApInterface> mApInterfaces = new HashMap<>();
@@ -115,6 +113,7 @@ public class WifiNl80211Manager {
     private HashMap<String, IPnoScanEvent> mPnoScanEventHandlers = new HashMap<>();
     private HashMap<String, IApInterfaceEventCallback> mApInterfaceListeners = new HashMap<>();
     private Runnable mDeathEventHandler;
+    private Object mLock = new Object();
     /**
      * Ensures that no more than one sendMgmtFrame operation runs concurrently.
      */
@@ -172,12 +171,6 @@ public class WifiNl80211Manager {
          * Called when a PNO scan request fails.
          */
         void onPnoRequestFailed();
-    }
-
-    /** @hide */
-    @VisibleForTesting
-    protected InstantWifi getInstantWifiMockable() {
-        return mInstantWifi;
     }
 
     /** @hide */
@@ -427,7 +420,6 @@ public class WifiNl80211Manager {
     public WifiNl80211Manager(Context context) {
         mAlarmManager = context.getSystemService(AlarmManager.class);
         mEventHandler = new Handler(context.getMainLooper());
-        mContext = context;
     }
 
     /**
@@ -443,7 +435,6 @@ public class WifiNl80211Manager {
         if (mWificond == null) {
             Log.e(TAG, "Failed to get reference to wificond");
         }
-        mContext = context;
     }
 
     /** @hide */
@@ -451,7 +442,6 @@ public class WifiNl80211Manager {
     public WifiNl80211Manager(Context context, IWificond wificond) {
         this(context);
         mWificond = wificond;
-        mContext = context;
     }
 
     /** @hide */
@@ -636,13 +626,15 @@ public class WifiNl80211Manager {
     @VisibleForTesting
     public void binderDied() {
         mEventHandler.post(() -> {
-            Log.e(TAG, "Wificond died!");
-            clearState();
-            // Invalidate the global wificond handle on death. Will be refreshed
-            // on the next setup call.
-            mWificond = null;
-            if (mDeathEventHandler != null) {
-                mDeathEventHandler.run();
+            synchronized (mLock) {
+                Log.e(TAG, "Wificond died!");
+                clearState();
+                // Invalidate the global wificond handle on death. Will be refreshed
+                // on the next setup call.
+                mWificond = null;
+                if (mDeathEventHandler != null) {
+                    mDeathEventHandler.run();
+                }
             }
         });
     }
@@ -755,9 +747,6 @@ public class WifiNl80211Manager {
             Log.e(TAG, "Failed to refresh wificond scanner due to remote exception");
         }
 
-        if (getInstantWifiMockable() == null) {
-            mInstantWifi = new InstantWifi(mContext, mAlarmManager, mEventHandler);
-        }
         return true;
     }
 
@@ -881,26 +870,28 @@ public class WifiNl80211Manager {
     * @return Returns true on success.
     */
     public boolean tearDownInterfaces() {
-        Log.d(TAG, "tearing down interfaces in wificond");
-        // Explicitly refresh the wificodn handler because |tearDownInterfaces()|
-        // could be used to cleanup before we setup any interfaces.
-        if (!retrieveWificondAndRegisterForDeath()) {
+        synchronized (mLock) {
+            Log.d(TAG, "tearing down interfaces in wificond");
+            // Explicitly refresh the wificond handler because |tearDownInterfaces()|
+            // could be used to cleanup before we setup any interfaces.
+            if (!retrieveWificondAndRegisterForDeath()) {
+                return false;
+            }
+
+            try {
+                for (Map.Entry<String, IWifiScannerImpl> entry : mWificondScanners.entrySet()) {
+                    entry.getValue().unsubscribeScanEvents();
+                    entry.getValue().unsubscribePnoScanEvents();
+                }
+                mWificond.tearDownInterfaces();
+                clearState();
+                return true;
+            } catch (RemoteException e) {
+                Log.e(TAG, "Failed to tear down interfaces due to remote exception");
+            }
+
             return false;
         }
-
-        try {
-            for (Map.Entry<String, IWifiScannerImpl> entry : mWificondScanners.entrySet()) {
-                entry.getValue().unsubscribeScanEvents();
-                entry.getValue().unsubscribePnoScanEvents();
-            }
-            mWificond.tearDownInterfaces();
-            clearState();
-            return true;
-        } catch (RemoteException e) {
-            Log.e(TAG, "Failed to tear down interfaces due to remote exception");
-        }
-
-        return false;
     }
 
     /** Helper function to look up the interface handle using name */
@@ -1085,10 +1076,6 @@ public class WifiNl80211Manager {
         if (settings == null) {
             return false;
         }
-        if (getInstantWifiMockable() != null) {
-            getInstantWifiMockable().overrideFreqsForSingleScanSettingsIfNecessary(settings,
-                    getInstantWifiMockable().getPredictedScanningChannels());
-        }
         try {
             return scannerImpl.scan(settings);
         } catch (RemoteException e1) {
@@ -1132,10 +1119,6 @@ public class WifiNl80211Manager {
                 extraScanningParams);
         if (settings == null) {
             return WifiScanner.REASON_INVALID_ARGS;
-        }
-        if (getInstantWifiMockable() != null) {
-            getInstantWifiMockable().overrideFreqsForSingleScanSettingsIfNecessary(settings,
-                    getInstantWifiMockable().getPredictedScanningChannels());
         }
         try {
             int status = scannerImpl.scanRequest(settings);

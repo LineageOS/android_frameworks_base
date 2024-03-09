@@ -28,6 +28,19 @@ license {
     ],
 }
 
+aconfig_declarations {
+    name: "hwui_flags",
+    package: "com.android.graphics.hwui.flags",
+    srcs: [
+        "aconfig/hwui_flags.aconfig",
+    ],
+}
+
+cc_aconfig_library {
+    name: "hwui_flags_cc_lib",
+    aconfig_declarations: "hwui_flags",
+}
+
 cc_defaults {
     name: "hwui_defaults",
     defaults: [
@@ -44,7 +57,7 @@ cc_defaults {
         "-DEGL_EGLEXT_PROTOTYPES",
         "-DGL_GLEXT_PROTOTYPES",
         "-DATRACE_TAG=ATRACE_TAG_VIEW",
-        "-DLOG_TAG=\"OpenGLRenderer\"",
+        "-DLOG_TAG=\"HWUI\"",
         "-Wall",
         "-Wthread-safety",
         "-Wno-unused-parameter",
@@ -65,14 +78,6 @@ cc_defaults {
         "external/skia/include/private",
         "external/skia/src/core",
     ],
-
-    product_variables: {
-        eng: {
-            lto: {
-                never: true,
-            },
-        },
-    },
 
     target: {
         android: {
@@ -130,6 +135,8 @@ cc_defaults {
                 "libcrypto",
                 "libsync",
                 "libui",
+                "aconfig_text_flags_c_lib",
+                "server_configurable_flags",
             ],
             static_libs: [
                 "libEGL_blobCache",
@@ -139,6 +146,7 @@ cc_defaults {
                 "libstatspull_lazy",
                 "libstatssocket_lazy",
                 "libtonemap",
+                "hwui_flags_cc_lib",
             ],
         },
         host: {
@@ -514,6 +522,7 @@ cc_defaults {
         "canvas/CanvasOpRasterizer.cpp",
         "effects/StretchEffect.cpp",
         "effects/GainmapRenderer.cpp",
+        "pipeline/skia/BackdropFilterDrawable.cpp",
         "pipeline/skia/HolePunch.cpp",
         "pipeline/skia/SkiaDisplayList.cpp",
         "pipeline/skia/SkiaRecordingCanvas.cpp",
@@ -536,6 +545,7 @@ cc_defaults {
         "utils/Blur.cpp",
         "utils/Color.cpp",
         "utils/LinearAllocator.cpp",
+        "utils/TypefaceUtils.cpp",
         "utils/VectorDrawableUtils.cpp",
         "AnimationContext.cpp",
         "Animator.cpp",
@@ -697,11 +707,13 @@ cc_test {
     ],
 
     static_libs: [
+        "libflagtest",
         "libgmock",
         "libhwui_static",
     ],
     shared_libs: [
         "libmemunreachable",
+        "server_configurable_flags",
     ],
     srcs: [
         "tests/unit/main.cpp",
@@ -741,6 +753,7 @@ cc_test {
         "tests/unit/TestUtilsTests.cpp",
         "tests/unit/ThreadBaseTests.cpp",
         "tests/unit/TypefaceTests.cpp",
+        "tests/unit/UnderlineTest.cpp",
         "tests/unit/VectorDrawableTests.cpp",
         "tests/unit/WebViewFunctorManagerTests.cpp",
     ],

@@ -24,12 +24,14 @@ import static android.Manifest.permission.USE_BIOMETRIC;
 import static android.Manifest.permission.USE_BIOMETRIC_INTERNAL;
 import static android.Manifest.permission.USE_FINGERPRINT;
 import static android.hardware.biometrics.BiometricConstants.BIOMETRIC_LOCKOUT_NONE;
+import static android.hardware.biometrics.Flags.FLAG_ADD_KEY_AGREEMENT_CRYPTO_OBJECT;
 import static android.hardware.fingerprint.FingerprintSensorProperties.TYPE_POWER_BUTTON;
 
 import static com.android.internal.util.FrameworkStatsLog.AUTH_DEPRECATED_APIUSED__DEPRECATED_API__API_FINGERPRINT_MANAGER_AUTHENTICATE;
 import static com.android.internal.util.FrameworkStatsLog.AUTH_DEPRECATED_APIUSED__DEPRECATED_API__API_FINGERPRINT_MANAGER_HAS_ENROLLED_FINGERPRINTS;
 import static com.android.internal.util.FrameworkStatsLog.AUTH_DEPRECATED_APIUSED__DEPRECATED_API__API_FINGERPRINT_MANAGER_IS_HARDWARE_DETECTED;
 
+import android.annotation.FlaggedApi;
 import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -76,6 +78,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 import javax.crypto.Cipher;
+import javax.crypto.KeyAgreement;
 import javax.crypto.Mac;
 
 /**
@@ -312,6 +315,16 @@ public class FingerprintManager implements BiometricAuthenticator, BiometricFing
         public PresentationSession getPresentationSession() {
             return super.getPresentationSession();
         }
+
+        /**
+         * Get {@link KeyAgreement} object.
+         * @return {@link KeyAgreement} object or null if this doesn't contain one.
+         * @hide
+         */
+        @FlaggedApi(FLAG_ADD_KEY_AGREEMENT_CRYPTO_OBJECT)
+        public KeyAgreement getKeyAgreement() {
+            return super.getKeyAgreement();
+        }
     }
 
     /**
@@ -449,6 +462,14 @@ public class FingerprintManager implements BiometricAuthenticator, BiometricFing
          * Invoked when a fingerprint has been detected.
          */
         void onFingerprintDetected(int sensorId, int userId, boolean isStrongBiometric);
+
+        /**
+         * An error has occurred with fingerprint detection.
+         *
+         * This callback signifies that this operation has been completed, and
+         * no more callbacks should be expected.
+         */
+        default void onDetectionError(int errorMsgId) {}
     }
 
     /**
@@ -962,6 +983,7 @@ public class FingerprintManager implements BiometricAuthenticator, BiometricFing
         }
     }
 
+    // TODO(b/288175061): remove with Flags.FLAG_SIDEFPS_CONTROLLER_REFACTOR
     /**
      * @hide
      */
@@ -1471,6 +1493,9 @@ public class FingerprintManager implements BiometricAuthenticator, BiometricFing
                     ? mRemoveTracker.mSingleFingerprint : null;
             mRemovalCallback.onRemovalError(fp, clientErrMsgId,
                     getErrorString(mContext, errMsgId, vendorCode));
+        } else if (mFingerprintDetectionCallback != null) {
+            mFingerprintDetectionCallback.onDetectionError(errMsgId);
+            mFingerprintDetectionCallback = null;
         }
     }
 

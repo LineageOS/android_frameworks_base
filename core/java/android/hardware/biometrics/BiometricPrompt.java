@@ -20,8 +20,11 @@ import static android.Manifest.permission.TEST_BIOMETRIC;
 import static android.Manifest.permission.USE_BIOMETRIC;
 import static android.Manifest.permission.USE_BIOMETRIC_INTERNAL;
 import static android.hardware.biometrics.BiometricManager.Authenticators;
+import static android.hardware.biometrics.Flags.FLAG_ADD_KEY_AGREEMENT_CRYPTO_OBJECT;
+import static android.hardware.biometrics.Flags.FLAG_GET_OP_ID_CRYPTO_OBJECT;
 
 import android.annotation.CallbackExecutor;
+import android.annotation.FlaggedApi;
 import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -53,6 +56,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 import javax.crypto.Cipher;
+import javax.crypto.KeyAgreement;
 import javax.crypto.Mac;
 
 /**
@@ -466,6 +470,19 @@ public class BiometricPrompt implements BiometricAuthenticator, BiometricConstan
         // LINT.ThenChange(frameworks/base/core/java/android/hardware/biometrics/PromptInfo.java)
 
         /**
+         * Set if emergency call button should show, for example if biometrics are
+         * required to access the dialer app
+         * @param showEmergencyCallButton if true, shows emergency call button
+         * @return This builder.
+         * @hide
+         */
+        @NonNull
+        public Builder setShowEmergencyCallButton(boolean showEmergencyCallButton) {
+            mPromptInfo.setShowEmergencyCallButton(showEmergencyCallButton);
+            return this;
+        }
+
+        /**
          * Creates a {@link BiometricPrompt}.
          *
          * @return An instance of {@link BiometricPrompt}.
@@ -735,7 +752,7 @@ public class BiometricPrompt implements BiometricAuthenticator, BiometricConstan
      * A wrapper class for the cryptographic operations supported by BiometricPrompt.
      *
      * <p>Currently the framework supports {@link Signature}, {@link Cipher}, {@link Mac},
-     * {@link IdentityCredential}, and {@link PresentationSession}.
+     * {@link IdentityCredential}, {@link PresentationSession} and {@link KeyAgreement}.
      *
      * <p>Cryptographic operations in Android can be split into two categories: auth-per-use and
      * time-based. This is specified during key creation via the timeout parameter of the
@@ -780,11 +797,16 @@ public class BiometricPrompt implements BiometricAuthenticator, BiometricConstan
             super(session);
         }
 
+        @FlaggedApi(FLAG_ADD_KEY_AGREEMENT_CRYPTO_OBJECT)
+        public CryptoObject(@NonNull KeyAgreement keyAgreement) {
+            super(keyAgreement);
+        }
+
         /**
          * Get {@link Signature} object.
          * @return {@link Signature} object or null if this doesn't contain one.
          */
-        public Signature getSignature() {
+        public @Nullable Signature getSignature() {
             return super.getSignature();
         }
 
@@ -792,7 +814,7 @@ public class BiometricPrompt implements BiometricAuthenticator, BiometricConstan
          * Get {@link Cipher} object.
          * @return {@link Cipher} object or null if this doesn't contain one.
          */
-        public Cipher getCipher() {
+        public @Nullable Cipher getCipher() {
             return super.getCipher();
         }
 
@@ -800,7 +822,7 @@ public class BiometricPrompt implements BiometricAuthenticator, BiometricConstan
          * Get {@link Mac} object.
          * @return {@link Mac} object or null if this doesn't contain one.
          */
-        public Mac getMac() {
+        public @Nullable Mac getMac() {
             return super.getMac();
         }
 
@@ -820,6 +842,23 @@ public class BiometricPrompt implements BiometricAuthenticator, BiometricConstan
          */
         public @Nullable PresentationSession getPresentationSession() {
             return super.getPresentationSession();
+        }
+
+        /**
+         * Get {@link KeyAgreement} object.
+         * @return {@link KeyAgreement} object or null if this doesn't contain one.
+         */
+        @FlaggedApi(FLAG_ADD_KEY_AGREEMENT_CRYPTO_OBJECT)
+        public @Nullable KeyAgreement getKeyAgreement() {
+            return super.getKeyAgreement();
+        }
+
+        /**
+         * Get the operation handle associated with this object or 0 if none.
+         */
+        @FlaggedApi(FLAG_GET_OP_ID_CRYPTO_OBJECT)
+        public long getOperationHandle() {
+            return super.getOpId();
         }
     }
 

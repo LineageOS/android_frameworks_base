@@ -12,7 +12,7 @@ android_test {
 
     srcs: [
         "src/**/*.java",
-        ":extended-mockito-rule-sources",
+        "src/**/*.kt",
     ],
 
     libs: [
@@ -21,9 +21,13 @@ android_test {
 
     static_libs: [
         "androidx.test.ext.junit",
+        "androidx.test.rules",
+        "flag-junit",
         "frameworks-base-testutils",
         "junit",
         "junit-params",
+        "kotlin-test",
+        "mockito-kotlin2",
         "mockingservicestests-utils-mockito",
         "platform-compat-test-rules",
         "platform-test-annotations",
@@ -31,6 +35,7 @@ android_test {
         "services.core",
         "servicestests-utils",
         "testables",
+        "TestParameterInjector",
     ],
 
     defaults: [

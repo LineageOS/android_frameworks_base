@@ -36,6 +36,7 @@ per-file GameMode* = file:/GAME_MANAGER_OWNERS
 per-file GameState* = file:/GAME_MANAGER_OWNERS
 per-file IGameManager* = file:/GAME_MANAGER_OWNERS
 per-file IGameMode* = file:/GAME_MANAGER_OWNERS
+per-file BackgroundStartPrivileges.java = file:/BAL_OWNERS
 
 # ActivityThread
 per-file ActivityThread.java = file:/services/core/java/com/android/server/am/OWNERS
@@ -54,6 +55,9 @@ per-file IBackupAgent.aidl = file:/services/backup/OWNERS
 per-file Broadcast* = file:/BROADCASTS_OWNERS
 per-file ReceiverInfo* = file:/BROADCASTS_OWNERS
 
+# GrammaticalInflectionManager
+per-file *GrammaticalInflection* = file:/services/core/java/com/android/server/grammaticalinflection/OWNERS
+
 # KeyguardManager
 per-file KeyguardManager.java = file:/services/core/java/com/android/server/locksettings/OWNERS
 
@@ -63,10 +67,12 @@ per-file *Locale* = file:/services/core/java/com/android/server/locales/OWNERS
 # Multiuser
 per-file *User* = file:/MULTIUSER_OWNERS
 
-# Notification, DND, Status bar
+# Notification, DND, Status bar, UiModeManager
 per-file *Notification* = file:/packages/SystemUI/OWNERS
 per-file *Zen* = file:/packages/SystemUI/OWNERS
 per-file *StatusBar* = file:/packages/SystemUI/OWNERS
+per-file *UiModeManager* = file:/packages/SystemUI/OWNERS
+per-file notification.aconfig = file:/packages/SystemUI/OWNERS
 
 # PackageManager
 per-file ApplicationPackageManager.java = file:/services/core/java/com/android/server/pm/OWNERS
@@ -78,6 +84,9 @@ per-file EphemeralResolveInfo.aidl = file:/services/core/java/com/android/server
 per-file IEphemeralResolver.aidl = file:/services/core/java/com/android/server/pm/OWNERS
 per-file IInstantAppResolver.aidl = file:/services/core/java/com/android/server/pm/OWNERS
 per-file InstantAppResolveInfo.aidl = file:/services/core/java/com/android/server/pm/OWNERS
+
+# Pinner
+per-file pinner-client.aconfig = file:/core/java/android/app/pinner/OWNERS
 
 # ResourcesManager
 per-file ResourcesManager.java = file:RESOURCES_OWNERS

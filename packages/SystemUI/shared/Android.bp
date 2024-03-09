@@ -38,6 +38,7 @@ java_library {
 
 android_library {
     name: "SystemUISharedLib",
+    use_resource_processor: true,
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
@@ -46,10 +47,13 @@ android_library {
         ":wm_shell_util-sources",
     ],
     static_libs: [
+        "BiometricsSharedLib",
         "PluginCoreLib",
         "SystemUIAnimationLib",
         "SystemUIPluginLib",
         "SystemUIUnfoldLib",
+        "SystemUISharedLib-Keyguard",
+        "tracinglib",
         "androidx.dynamicanimation_dynamicanimation",
         "androidx.concurrent_concurrent-futures",
         "androidx.lifecycle_lifecycle-runtime-ktx",
@@ -66,7 +70,7 @@ android_library {
     ],
     min_sdk_version: "current",
     plugins: ["dagger2-compiler"],
-    kotlincflags: ["-Xjvm-default=enable"],
+    kotlincflags: ["-Xjvm-default=all"],
 }
 
 java_library {

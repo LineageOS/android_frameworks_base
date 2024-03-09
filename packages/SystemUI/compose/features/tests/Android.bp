@@ -24,6 +24,7 @@ package {
 // TODO(b/230606318): Make those host tests instead of device tests.
 android_test {
     name: "SystemUIComposeFeaturesTests",
+    use_resource_processor: true,
     manifest: "AndroidManifest.xml",
     test_suites: ["device-tests"],
     sdk_version: "current",
@@ -44,5 +45,5 @@ android_test {
         "androidx.compose.ui_ui-test-manifest",
     ],
 
-    kotlincflags: ["-Xjvm-default=enable"],
+    kotlincflags: ["-Xjvm-default=all"],
 }

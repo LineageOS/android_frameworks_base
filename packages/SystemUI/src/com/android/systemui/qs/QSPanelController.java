@@ -19,7 +19,7 @@ package com.android.systemui.qs;
 import static com.android.systemui.classifier.Classifier.QS_SWIPE_SIDE;
 import static com.android.systemui.media.dagger.MediaModule.QS_PANEL;
 import static com.android.systemui.qs.QSPanel.QS_SHOW_BRIGHTNESS;
-import static com.android.systemui.qs.dagger.QSFragmentModule.QS_USING_MEDIA_PLAYER;
+import static com.android.systemui.qs.dagger.QSScopeModule.QS_USING_MEDIA_PLAYER;
 
 import android.provider.Settings;
 import android.view.MotionEvent;
@@ -35,11 +35,13 @@ import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.qs.customize.QSCustomizerController;
 import com.android.systemui.qs.dagger.QSScope;
 import com.android.systemui.qs.logging.QSLogger;
+import com.android.systemui.scene.shared.flag.SceneContainerFlags;
 import com.android.systemui.settings.brightness.BrightnessController;
 import com.android.systemui.settings.brightness.BrightnessMirrorHandler;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
+import com.android.systemui.statusbar.policy.SplitShadeStateController;
 
 import lineageos.providers.LineageSettings;
 
@@ -61,6 +63,8 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
     private final StatusBarKeyguardViewManager mStatusBarKeyguardViewManager;
     private boolean mListening;
 
+    private final boolean mSceneContainerEnabled;
+
     private View.OnTouchListener mTileLayoutTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
@@ -81,9 +85,11 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
             QSLogger qsLogger, BrightnessController.Factory brightnessControllerFactory,
             BrightnessSliderController.Factory brightnessSliderFactory,
             FalsingManager falsingManager,
-            StatusBarKeyguardViewManager statusBarKeyguardViewManager) {
+            StatusBarKeyguardViewManager statusBarKeyguardViewManager,
+            SplitShadeStateController splitShadeStateController,
+            SceneContainerFlags sceneContainerFlags) {
         super(view, qsHost, qsCustomizerController, usingMediaPlayer, mediaHost,
-                metricsLogger, uiEventLogger, qsLogger, dumpManager);
+                metricsLogger, uiEventLogger, qsLogger, dumpManager, splitShadeStateController);
         mQsCustomizerController = qsCustomizerController;
         mQsTileRevealControllerFactory = qsTileRevealControllerFactory;
         mFalsingManager = falsingManager;
@@ -94,6 +100,7 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
         mBrightnessController = brightnessControllerFactory.create(mBrightnessSliderController);
         mBrightnessMirrorHandler = new BrightnessMirrorHandler(mBrightnessController);
         mStatusBarKeyguardViewManager = statusBarKeyguardViewManager;
+        mSceneContainerEnabled = sceneContainerFlags.isEnabled();
     }
 
     @Override
@@ -127,6 +134,7 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
         mView.getContentObserver().onChange(true,
                 Settings.Secure.getUriFor(QS_SHOW_BRIGHTNESS));
         mView.updateResources();
+        mView.setSceneContainerEnabled(mSceneContainerEnabled);
         if (mView.isListening()) {
             refreshAllTiles();
         }

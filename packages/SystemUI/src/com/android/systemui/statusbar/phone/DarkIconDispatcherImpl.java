@@ -23,7 +23,6 @@ import android.graphics.Rect;
 import android.util.ArrayMap;
 import android.widget.ImageView;
 
-import com.android.systemui.R;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dump.DumpManager;
 
@@ -48,6 +47,11 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
     private final ArrayMap<Object, DarkReceiver> mReceivers = new ArrayMap<>();
 
     private int mIconTint = DEFAULT_ICON_TINT;
+    private int mContrastTint = DEFAULT_INVERSE_ICON_TINT;
+
+    private int mDarkModeContrastColor = DEFAULT_ICON_TINT;
+    private int mLightModeContrastColor = DEFAULT_INVERSE_ICON_TINT;
+
     private float mDarkIntensity;
     private int mDarkModeIconColorSingleTone;
     private int mLightModeIconColorSingleTone;
@@ -62,8 +66,10 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
             Context context,
             LightBarTransitionsController.Factory lightBarTransitionsControllerFactory,
             DumpManager dumpManager) {
-        mDarkModeIconColorSingleTone = context.getColor(R.color.dark_mode_icon_color_single_tone);
-        mLightModeIconColorSingleTone = context.getColor(R.color.light_mode_icon_color_single_tone);
+        mDarkModeIconColorSingleTone = context.getColor(
+                com.android.settingslib.R.color.dark_mode_icon_color_single_tone);
+        mLightModeIconColorSingleTone = context.getColor(
+                com.android.settingslib.R.color.light_mode_icon_color_single_tone);
 
         mTransitionsController = lightBarTransitionsControllerFactory.create(this);
 
@@ -82,6 +88,7 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
     public void addDarkReceiver(DarkReceiver receiver) {
         mReceivers.put(receiver, receiver);
         receiver.onDarkChanged(mTintAreas, mDarkIntensity, mIconTint);
+        receiver.onDarkChangedWithContrast(mTintAreas, mIconTint, mContrastTint);
     }
 
     public void addDarkReceiver(ImageView imageView) {
@@ -89,6 +96,7 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
                 ColorStateList.valueOf(getTint(mTintAreas, imageView, mIconTint)));
         mReceivers.put(imageView, receiver);
         receiver.onDarkChanged(mTintAreas, mDarkIntensity, mIconTint);
+        receiver.onDarkChangedWithContrast(mTintAreas, mIconTint, mContrastTint);
     }
 
     public void removeDarkReceiver(DarkReceiver object) {
@@ -101,6 +109,7 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
 
     public void applyDark(DarkReceiver object) {
         mReceivers.get(object).onDarkChanged(mTintAreas, mDarkIntensity, mIconTint);
+        mReceivers.get(object).onDarkChangedWithContrast(mTintAreas, mIconTint, mContrastTint);
     }
 
     /**
@@ -124,8 +133,13 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
     @Override
     public void applyDarkIntensity(float darkIntensity) {
         mDarkIntensity = darkIntensity;
-        mIconTint = (int) ArgbEvaluator.getInstance().evaluate(darkIntensity,
+        ArgbEvaluator evaluator = ArgbEvaluator.getInstance();
+
+        mIconTint = (int) evaluator.evaluate(darkIntensity,
                 mLightModeIconColorSingleTone, mDarkModeIconColorSingleTone);
+        mContrastTint = (int) evaluator
+                .evaluate(darkIntensity, mLightModeContrastColor, mDarkModeContrastColor);
+
         applyIconTint();
     }
 
@@ -138,6 +152,7 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
         mDarkChangeFlow.setValue(new DarkChange(mTintAreas, mDarkIntensity, mIconTint));
         for (int i = 0; i < mReceivers.size(); i++) {
             mReceivers.valueAt(i).onDarkChanged(mTintAreas, mDarkIntensity, mIconTint);
+            mReceivers.valueAt(i).onDarkChangedWithContrast(mTintAreas, mIconTint, mContrastTint);
         }
     }
 
@@ -145,6 +160,16 @@ public class DarkIconDispatcherImpl implements SysuiDarkIconDispatcher,
     public void dump(PrintWriter pw, String[] args) {
         pw.println("DarkIconDispatcher: ");
         pw.println("  mIconTint: 0x" + Integer.toHexString(mIconTint));
+        pw.println("  mContrastTint: 0x" + Integer.toHexString(mContrastTint));
+
+        pw.println("  mDarkModeIconColorSingleTone: 0x"
+                + Integer.toHexString(mDarkModeIconColorSingleTone));
+        pw.println("  mLightModeIconColorSingleTone: 0x"
+                + Integer.toHexString(mLightModeIconColorSingleTone));
+
+        pw.println("  mDarkModeContrastColor: 0x" + Integer.toHexString(mDarkModeContrastColor));
+        pw.println("  mLightModeContrastColor: 0x" + Integer.toHexString(mLightModeContrastColor));
+
         pw.println("  mDarkIntensity: " + mDarkIntensity + "f");
         pw.println("  mTintAreas: " + mTintAreas);
     }

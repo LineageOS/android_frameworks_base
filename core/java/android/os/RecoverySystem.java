@@ -57,6 +57,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.security.GeneralSecurityException;
 import java.security.PublicKey;
 import java.security.SignatureException;
@@ -166,6 +168,7 @@ public class RecoverySystem {
             RESUME_ON_REBOOT_REBOOT_ERROR_LSKF_NOT_CAPTURED,
             RESUME_ON_REBOOT_REBOOT_ERROR_SLOT_MISMATCH,
             RESUME_ON_REBOOT_REBOOT_ERROR_PROVIDER_PREPARATION_FAILURE})
+    @Retention(RetentionPolicy.SOURCE)
     public @interface ResumeOnRebootRebootErrorCode {}
 
     /**
@@ -933,6 +936,12 @@ public class RecoverySystem {
         rebootWipeUserData(context, shutdown, reason, force, false /* wipeEuicc */);
     }
 
+    /** {@hide} */
+    public static void rebootWipeUserData(Context context, boolean shutdown, String reason,
+            boolean force, boolean wipeEuicc) throws IOException {
+        rebootWipeUserData(context, shutdown, reason, force, wipeEuicc, false /* keepMemtagMode */);
+    }
+
     /**
      * Reboots the device and wipes the user data and cache
      * partitions.  This is sometimes called a "factory reset", which
@@ -948,6 +957,7 @@ public class RecoverySystem {
      * @param force     whether the {@link UserManager.DISALLOW_FACTORY_RESET} user restriction
      *                  should be ignored
      * @param wipeEuicc whether wipe the euicc data
+     * @param keepMemtagMode whether to tell recovery to keep currently configured memtag mode
      *
      * @throws IOException  if writing the recovery command file
      * fails, or if the reboot itself fails.
@@ -956,7 +966,7 @@ public class RecoverySystem {
      * @hide
      */
     public static void rebootWipeUserData(Context context, boolean shutdown, String reason,
-            boolean force, boolean wipeEuicc) throws IOException {
+            boolean force, boolean wipeEuicc, boolean keepMemtagMode) throws IOException {
         UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
         if (!force && um.hasUserRestriction(UserManager.DISALLOW_FACTORY_RESET)) {
             throw new SecurityException("Wiping data is not allowed for this user.");
@@ -996,8 +1006,13 @@ public class RecoverySystem {
             reasonArg = "--reason=" + sanitizeArg(reason + "," + timeStamp);
         }
 
+        String memtagArg = null;
+        if (keepMemtagMode) {
+            memtagArg = "--keep_memtag_mode";
+        }
+
         final String localeArg = "--locale=" + Locale.getDefault().toLanguageTag() ;
-        bootCommand(context, shutdownArg, "--wipe_data", reasonArg, localeArg);
+        bootCommand(context, shutdownArg, "--wipe_data", reasonArg, localeArg, memtagArg);
     }
 
     /**

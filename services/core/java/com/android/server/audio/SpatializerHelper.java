@@ -19,6 +19,9 @@ package com.android.server.audio;
 import static android.media.AudioManager.AUDIO_DEVICE_CATEGORY_HEADPHONES;
 import static android.media.AudioManager.AUDIO_DEVICE_CATEGORY_UNKNOWN;
 import static android.media.AudioSystem.isBluetoothDevice;
+import static android.media.AudioSystem.isBluetoothLeDevice;
+
+import static com.android.media.audio.Flags.dsaOverBtLeAudio;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -39,10 +42,9 @@ import android.media.ISpatializerHeadTrackingCallback;
 import android.media.ISpatializerHeadTrackingModeCallback;
 import android.media.ISpatializerOutputCallback;
 import android.media.MediaMetrics;
-import android.media.SpatializationLevel;
-import android.media.SpatializationMode;
 import android.media.Spatializer;
-import android.media.SpatializerHeadTrackingMode;
+import android.media.audio.common.HeadTracking;
+import android.media.audio.common.Spatialization;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.text.TextUtils;
@@ -84,22 +86,22 @@ public class SpatializerHelper {
 
     /*package*/ static final SparseIntArray SPAT_MODE_FOR_DEVICE_TYPE = new SparseIntArray(14) {
         {
-            append(AudioDeviceInfo.TYPE_BUILTIN_SPEAKER, SpatializationMode.SPATIALIZER_TRANSAURAL);
-            append(AudioDeviceInfo.TYPE_WIRED_HEADSET, SpatializationMode.SPATIALIZER_BINAURAL);
-            append(AudioDeviceInfo.TYPE_WIRED_HEADPHONES, SpatializationMode.SPATIALIZER_BINAURAL);
+            append(AudioDeviceInfo.TYPE_BUILTIN_SPEAKER, Spatialization.Mode.TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_WIRED_HEADSET, Spatialization.Mode.BINAURAL);
+            append(AudioDeviceInfo.TYPE_WIRED_HEADPHONES, Spatialization.Mode.BINAURAL);
             // assumption for A2DP: mostly headsets
-            append(AudioDeviceInfo.TYPE_BLUETOOTH_A2DP, SpatializationMode.SPATIALIZER_BINAURAL);
-            append(AudioDeviceInfo.TYPE_DOCK, SpatializationMode.SPATIALIZER_TRANSAURAL);
-            append(AudioDeviceInfo.TYPE_USB_ACCESSORY, SpatializationMode.SPATIALIZER_TRANSAURAL);
-            append(AudioDeviceInfo.TYPE_USB_DEVICE, SpatializationMode.SPATIALIZER_TRANSAURAL);
-            append(AudioDeviceInfo.TYPE_USB_HEADSET, SpatializationMode.SPATIALIZER_BINAURAL);
-            append(AudioDeviceInfo.TYPE_LINE_ANALOG, SpatializationMode.SPATIALIZER_TRANSAURAL);
-            append(AudioDeviceInfo.TYPE_LINE_DIGITAL, SpatializationMode.SPATIALIZER_TRANSAURAL);
-            append(AudioDeviceInfo.TYPE_AUX_LINE, SpatializationMode.SPATIALIZER_TRANSAURAL);
-            append(AudioDeviceInfo.TYPE_BLE_HEADSET, SpatializationMode.SPATIALIZER_BINAURAL);
-            append(AudioDeviceInfo.TYPE_BLE_SPEAKER, SpatializationMode.SPATIALIZER_TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_BLUETOOTH_A2DP, Spatialization.Mode.BINAURAL);
+            append(AudioDeviceInfo.TYPE_DOCK, Spatialization.Mode.TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_USB_ACCESSORY, Spatialization.Mode.TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_USB_DEVICE, Spatialization.Mode.TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_USB_HEADSET, Spatialization.Mode.BINAURAL);
+            append(AudioDeviceInfo.TYPE_LINE_ANALOG, Spatialization.Mode.TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_LINE_DIGITAL, Spatialization.Mode.TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_AUX_LINE, Spatialization.Mode.TRANSAURAL);
+            append(AudioDeviceInfo.TYPE_BLE_HEADSET, Spatialization.Mode.BINAURAL);
+            append(AudioDeviceInfo.TYPE_BLE_SPEAKER, Spatialization.Mode.TRANSAURAL);
             // assumption that BLE broadcast would be mostly consumed on headsets
-            append(AudioDeviceInfo.TYPE_BLE_BROADCAST, SpatializationMode.SPATIALIZER_BINAURAL);
+            append(AudioDeviceInfo.TYPE_BLE_BROADCAST, Spatialization.Mode.BINAURAL);
         }
     };
 
@@ -226,12 +228,12 @@ public class SpatializerHelper {
                 ArrayList<Integer> list = new ArrayList<>(0);
                 for (byte value : values) {
                     switch (value) {
-                        case SpatializerHeadTrackingMode.OTHER:
-                        case SpatializerHeadTrackingMode.DISABLED:
+                        case HeadTracking.Mode.OTHER:
+                        case HeadTracking.Mode.DISABLED:
                             // not expected here, skip
                             break;
-                        case SpatializerHeadTrackingMode.RELATIVE_WORLD:
-                        case SpatializerHeadTrackingMode.RELATIVE_SCREEN:
+                        case HeadTracking.Mode.RELATIVE_WORLD:
+                        case HeadTracking.Mode.RELATIVE_SCREEN:
                             list.add(headTrackingModeTypeToSpatializerInt(value));
                             break;
                         default:
@@ -254,10 +256,10 @@ public class SpatializerHelper {
             byte[] spatModes = spat.getSupportedModes();
             for (byte mode : spatModes) {
                 switch (mode) {
-                    case SpatializationMode.SPATIALIZER_BINAURAL:
+                    case Spatialization.Mode.BINAURAL:
                         mBinauralSupported = true;
                         break;
-                    case SpatializationMode.SPATIALIZER_TRANSAURAL:
+                    case Spatialization.Mode.TRANSAURAL:
                         mTransauralSupported = true;
                         break;
                     default:
@@ -274,8 +276,8 @@ public class SpatializerHelper {
             // initialize list of compatible devices
             for (int i = 0; i < SPAT_MODE_FOR_DEVICE_TYPE.size(); i++) {
                 int mode = SPAT_MODE_FOR_DEVICE_TYPE.valueAt(i);
-                if ((mode == (int) SpatializationMode.SPATIALIZER_BINAURAL && mBinauralSupported)
-                        || (mode == (int) SpatializationMode.SPATIALIZER_TRANSAURAL
+                if ((mode == (int) Spatialization.Mode.BINAURAL && mBinauralSupported)
+                        || (mode == (int) Spatialization.Mode.TRANSAURAL
                             && mTransauralSupported)) {
                     mSACapableDeviceTypes.add(SPAT_MODE_FOR_DEVICE_TYPE.keyAt(i));
                 }
@@ -565,7 +567,7 @@ public class SpatializerHelper {
         }
         if (updatedDevice != null) {
             onRoutingUpdated();
-            mDeviceBroker.persistAudioDeviceSettings();
+            mDeviceBroker.postPersistAudioDeviceSettings();
             logDeviceState(updatedDevice, "addCompatibleAudioDevice");
         }
     }
@@ -577,9 +579,9 @@ public class SpatializerHelper {
 
         int spatMode = SPAT_MODE_FOR_DEVICE_TYPE.get(device.getDeviceType(),
                 Integer.MIN_VALUE);
-        device.setSAEnabled(spatMode == SpatializationMode.SPATIALIZER_BINAURAL
+        device.setSAEnabled(spatMode == Spatialization.Mode.BINAURAL
                 ? mBinauralEnabledDefault
-                : spatMode == SpatializationMode.SPATIALIZER_TRANSAURAL
+                : spatMode == Spatialization.Mode.TRANSAURAL
                         ? mTransauralEnabledDefault
                         : false);
         device.setHeadTrackerEnabled(mHeadTrackingEnabledDefault);
@@ -615,7 +617,7 @@ public class SpatializerHelper {
         if (deviceState != null && deviceState.isSAEnabled()) {
             deviceState.setSAEnabled(false);
             onRoutingUpdated();
-            mDeviceBroker.persistAudioDeviceSettings();
+            mDeviceBroker.postPersistAudioDeviceSettings();
             logDeviceState(deviceState, "removeCompatibleAudioDevice");
         }
     }
@@ -629,9 +631,9 @@ public class SpatializerHelper {
         if (isBluetoothDevice(internalDeviceType)) return deviceType;
 
         final int spatMode = SPAT_MODE_FOR_DEVICE_TYPE.get(deviceType, Integer.MIN_VALUE);
-        if (spatMode == SpatializationMode.SPATIALIZER_TRANSAURAL) {
+        if (spatMode == Spatialization.Mode.TRANSAURAL) {
             return AudioDeviceInfo.TYPE_BUILTIN_SPEAKER;
-        } else if (spatMode == SpatializationMode.SPATIALIZER_BINAURAL) {
+        } else if (spatMode == Spatialization.Mode.BINAURAL) {
             return AudioDeviceInfo.TYPE_WIRED_HEADPHONES;
         }
         return AudioDeviceInfo.TYPE_UNKNOWN;
@@ -690,8 +692,7 @@ public class SpatializerHelper {
             // since their physical characteristics are unknown
             if (deviceState.getAudioDeviceCategory() == AUDIO_DEVICE_CATEGORY_UNKNOWN
                     || deviceState.getAudioDeviceCategory() == AUDIO_DEVICE_CATEGORY_HEADPHONES) {
-                available = (spatMode == SpatializationMode.SPATIALIZER_BINAURAL)
-                        && mBinauralSupported;
+                available = (spatMode == Spatialization.Mode.BINAURAL) && mBinauralSupported;
             } else {
                 available = false;
             }
@@ -718,7 +719,7 @@ public class SpatializerHelper {
                             ada.getAddress());
             initSAState(deviceState);
             mDeviceBroker.addOrUpdateDeviceSAStateInInventory(deviceState);
-            mDeviceBroker.persistAudioDeviceSettings();
+            mDeviceBroker.postPersistAudioDeviceSettings();
             logDeviceState(deviceState, "addWirelessDeviceIfNew"); // may be updated later.
         }
     }
@@ -804,8 +805,8 @@ public class SpatializerHelper {
         // not be included.
         final byte modeForDevice = (byte) SPAT_MODE_FOR_DEVICE_TYPE.get(ada.getType(),
                 /*default when type not found*/ -1);
-        if ((modeForDevice == SpatializationMode.SPATIALIZER_BINAURAL && mBinauralSupported)
-                || (modeForDevice == SpatializationMode.SPATIALIZER_TRANSAURAL
+        if ((modeForDevice == Spatialization.Mode.BINAURAL && mBinauralSupported)
+                || (modeForDevice == Spatialization.Mode.TRANSAURAL
                         && mTransauralSupported)) {
             return true;
         }
@@ -1015,6 +1016,11 @@ public class SpatializerHelper {
         if (mSpat == null) {
             mSpatCallback = new SpatializerCallback();
             mSpat = AudioSystem.getSpatializer(mSpatCallback);
+            if (mSpat == null) {
+                Log.e(TAG, "createSpat(): No Spatializer found");
+                postReset();
+                return;
+            }
             try {
                 //TODO: register heatracking callback only when sensors are registered
                 if (mIsHeadTrackingSupported) {
@@ -1208,7 +1214,7 @@ public class SpatializerHelper {
         }
         Log.i(TAG, "setHeadTrackerEnabled enabled:" + enabled + " device:" + ada);
         deviceState.setHeadTrackerEnabled(enabled);
-        mDeviceBroker.persistAudioDeviceSettings();
+        mDeviceBroker.postPersistAudioDeviceSettings();
         logDeviceState(deviceState, "setHeadTrackerEnabled");
 
         // check current routing to see if it affects the headtracking mode
@@ -1250,7 +1256,7 @@ public class SpatializerHelper {
         if (deviceState != null) {
             if (!deviceState.hasHeadTracker()) {
                 deviceState.setHasHeadTracker(true);
-                mDeviceBroker.persistAudioDeviceSettings();
+                mDeviceBroker.postPersistAudioDeviceSettings();
                 logDeviceState(deviceState, "setHasHeadTracker");
             }
             return deviceState.isHeadTrackerEnabled();
@@ -1479,7 +1485,7 @@ public class SpatializerHelper {
     }
 
     synchronized void onInitSensors() {
-        final boolean init = mFeatureEnabled && (mSpatLevel != SpatializationLevel.NONE);
+        final boolean init = mFeatureEnabled && (mSpatLevel != Spatialization.Level.NONE);
         final String action = init ? "initializing" : "releasing";
         if (mSpat == null) {
             logloge("not " + action + " sensors, null spatializer");
@@ -1545,13 +1551,13 @@ public class SpatializerHelper {
     // SDK <-> AIDL converters
     private static int headTrackingModeTypeToSpatializerInt(byte mode) {
         switch (mode) {
-            case SpatializerHeadTrackingMode.OTHER:
+            case HeadTracking.Mode.OTHER:
                 return Spatializer.HEAD_TRACKING_MODE_OTHER;
-            case SpatializerHeadTrackingMode.DISABLED:
+            case HeadTracking.Mode.DISABLED:
                 return Spatializer.HEAD_TRACKING_MODE_DISABLED;
-            case SpatializerHeadTrackingMode.RELATIVE_WORLD:
+            case HeadTracking.Mode.RELATIVE_WORLD:
                 return Spatializer.HEAD_TRACKING_MODE_RELATIVE_WORLD;
-            case SpatializerHeadTrackingMode.RELATIVE_SCREEN:
+            case HeadTracking.Mode.RELATIVE_SCREEN:
                 return Spatializer.HEAD_TRACKING_MODE_RELATIVE_DEVICE;
             default:
                 throw (new IllegalArgumentException("Unexpected head tracking mode:" + mode));
@@ -1561,13 +1567,13 @@ public class SpatializerHelper {
     private static byte spatializerIntToHeadTrackingModeType(int sdkMode) {
         switch (sdkMode) {
             case Spatializer.HEAD_TRACKING_MODE_OTHER:
-                return SpatializerHeadTrackingMode.OTHER;
+                return HeadTracking.Mode.OTHER;
             case Spatializer.HEAD_TRACKING_MODE_DISABLED:
-                return SpatializerHeadTrackingMode.DISABLED;
+                return HeadTracking.Mode.DISABLED;
             case Spatializer.HEAD_TRACKING_MODE_RELATIVE_WORLD:
-                return SpatializerHeadTrackingMode.RELATIVE_WORLD;
+                return HeadTracking.Mode.RELATIVE_WORLD;
             case Spatializer.HEAD_TRACKING_MODE_RELATIVE_DEVICE:
-                return SpatializerHeadTrackingMode.RELATIVE_SCREEN;
+                return HeadTracking.Mode.RELATIVE_SCREEN;
             default:
                 throw (new IllegalArgumentException("Unexpected head tracking mode:" + sdkMode));
         }
@@ -1575,11 +1581,11 @@ public class SpatializerHelper {
 
     private static int spatializationLevelToSpatializerInt(byte level) {
         switch (level) {
-            case SpatializationLevel.NONE:
+            case Spatialization.Level.NONE:
                 return Spatializer.SPATIALIZER_IMMERSIVE_LEVEL_NONE;
-            case SpatializationLevel.SPATIALIZER_MULTICHANNEL:
+            case Spatialization.Level.MULTICHANNEL:
                 return Spatializer.SPATIALIZER_IMMERSIVE_LEVEL_MULTICHANNEL;
-            case SpatializationLevel.SPATIALIZER_MCHAN_BED_PLUS_OBJECTS:
+            case Spatialization.Level.BED_PLUS_OBJECTS:
                 return Spatializer.SPATIALIZER_IMMERSIVE_LEVEL_MCHAN_BED_PLUS_OBJECTS;
             default:
                 throw (new IllegalArgumentException("Unexpected spatializer level:" + level));
@@ -1627,35 +1633,102 @@ public class SpatializerHelper {
     }
 
     private int getHeadSensorHandleUpdateTracker() {
-        int headHandle = -1;
+        Sensor htSensor = null;
         if (sRoutingDevices.isEmpty()) {
             logloge("getHeadSensorHandleUpdateTracker: no device, no head tracker");
-            return headHandle;
+            return  -1;
         }
         final AudioDeviceAttributes currentDevice = sRoutingDevices.get(0);
-        UUID routingDeviceUuid = mAudioService.getDeviceSensorUuid(currentDevice);
+        List<String> deviceAddresses = mAudioService.getDeviceAddresses(currentDevice);
+
         // We limit only to Sensor.TYPE_HEAD_TRACKER here to avoid confusion
         // with gaming sensors. (Note that Sensor.TYPE_ROTATION_VECTOR
         // and Sensor.TYPE_GAME_ROTATION_VECTOR are supported internally by
         // SensorPoseProvider).
         // Note: this is a dynamic sensor list right now.
         List<Sensor> sensors = mSensorManager.getDynamicSensorList(Sensor.TYPE_HEAD_TRACKER);
-        for (Sensor sensor : sensors) {
-            final UUID uuid = sensor.getUuid();
-            if (uuid.equals(routingDeviceUuid)) {
-                headHandle = sensor.getHandle();
-                if (!setHasHeadTracker(currentDevice)) {
-                    headHandle = -1;
+        for (String address : deviceAddresses) {
+            UUID routingDeviceUuid = UuidUtils.uuidFromAudioDeviceAttributes(
+                    new AudioDeviceAttributes(currentDevice.getInternalType(), address));
+            if (dsaOverBtLeAudio()) {
+                for (Sensor sensor : sensors) {
+                    final UUID uuid = sensor.getUuid();
+                    if (uuid.equals(routingDeviceUuid)) {
+                        htSensor = sensor;
+                        HeadtrackerInfo info = new HeadtrackerInfo(sensor);
+                        if (isBluetoothLeDevice(currentDevice.getInternalType())) {
+                            if (info.getMajorVersion() == 2) {
+                                // Version 2 is used only by LE Audio profile
+                                break;
+                            }
+                            // we do not break, as this could be a match on the A2DP sensor
+                            // for a dual mode headset.
+                        } else if (info.getMajorVersion() == 1) {
+                            // Version 1 is used only by A2DP profile
+                            break;
+                        }
+                    }
+                    if (htSensor == null && uuid.equals(UuidUtils.STANDALONE_UUID)) {
+                        htSensor = sensor;
+                        // we do not break, perhaps we find a head tracker on device.
+                    }
                 }
-                break;
-            }
-            if (uuid.equals(UuidUtils.STANDALONE_UUID)) {
-                headHandle = sensor.getHandle();
-                // we do not break, perhaps we find a head tracker on device.
+                if (htSensor != null) {
+                    if (htSensor.getUuid().equals(UuidUtils.STANDALONE_UUID)) {
+                        break;
+                    }
+                    if (setHasHeadTracker(currentDevice)) {
+                        break;
+                    } else {
+                        htSensor = null;
+                    }
+                }
+            } else {
+                for (Sensor sensor : sensors) {
+                    final UUID uuid = sensor.getUuid();
+                    if (uuid.equals(routingDeviceUuid)) {
+                        htSensor = sensor;
+                        if (!setHasHeadTracker(currentDevice)) {
+                            htSensor = null;
+                        }
+                        break;
+                    }
+                    if (uuid.equals(UuidUtils.STANDALONE_UUID)) {
+                        htSensor = sensor;
+                        // we do not break, perhaps we find a head tracker on device.
+                    }
+                }
+                if (htSensor != null) {
+                    break;
+                }
             }
         }
-        return headHandle;
+        return htSensor != null ? htSensor.getHandle() : -1;
     }
+
+    /**
+     * Contains the information parsed from the head tracker sensor version.
+     * See platform/hardware/libhardware/modules/sensors/dynamic_sensor/HidRawSensor.h
+     * for the definition of version and capability fields.
+     */
+    private static class HeadtrackerInfo {
+        private final int mVersion;
+        HeadtrackerInfo(Sensor sensor) {
+            mVersion = sensor.getVersion();
+        }
+        int getMajorVersion() {
+            return (mVersion & 0xFF000000) >> 24;
+        }
+        int getMinorVersion() {
+            return (mVersion & 0xFF0000) >> 16;
+        }
+        boolean hasAclTransport() {
+            return getMajorVersion() == 2 ? ((mVersion & 0x1) != 0) : false;
+        }
+        boolean hasIsoTransport() {
+            return getMajorVersion() == 2 ? ((mVersion & 0x2) != 0) : false;
+        }
+    };
 
     private int getScreenSensorHandle() {
         int screenHandle = -1;

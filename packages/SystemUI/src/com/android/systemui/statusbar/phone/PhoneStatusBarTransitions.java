@@ -22,7 +22,7 @@ import android.animation.ObjectAnimator;
 import android.content.res.Resources;
 import android.view.View;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 import org.lineageos.internal.statusbar.NetworkTraffic;
 

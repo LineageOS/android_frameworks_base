@@ -16,6 +16,8 @@
 
 package android.appwidget;
 
+import static android.appwidget.flags.Flags.remoteAdapterConversion;
+
 import android.annotation.BroadcastBehavior;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -52,6 +54,7 @@ import android.widget.RemoteViews;
 
 import com.android.internal.appwidget.IAppWidgetService;
 import com.android.internal.os.BackgroundThread;
+import com.android.internal.util.FunctionalUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -557,16 +560,40 @@ public class AppWidgetManager {
                             }
                         }).toArray(ComponentName[]::new));
             } catch (Exception e) {
-                Log.e(TAG, "Nofity service of inheritance info", e);
+                Log.e(TAG, "Notify service of inheritance info", e);
             }
         });
     }
 
-    private boolean isPostingTaskToBackground(@Nullable RemoteViews views) {
-        return Looper.myLooper() == Looper.getMainLooper()
-                && RemoteViews.isAdapterConversionEnabled()
+    private void tryAdapterConversion(
+            FunctionalUtils.RemoteExceptionIgnoringConsumer<RemoteViews> action,
+            RemoteViews original, String failureMsg) {
+        if (remoteAdapterConversion()
                 && (mHasPostedLegacyLists = mHasPostedLegacyLists
-                        || (views != null && views.hasLegacyLists()));
+                        || (original != null && original.hasLegacyLists()))) {
+            final RemoteViews viewsCopy = new RemoteViews(original);
+            Runnable updateWidgetWithTask = () -> {
+                try {
+                    viewsCopy.collectAllIntents().get();
+                    action.acceptOrThrow(viewsCopy);
+                } catch (Exception e) {
+                    Log.e(TAG, failureMsg, e);
+                }
+            };
+
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                createUpdateExecutorIfNull().execute(updateWidgetWithTask);
+                return;
+            }
+
+            updateWidgetWithTask.run();
+        } else {
+            try {
+                action.acceptOrThrow(original);
+            } catch (RemoteException re) {
+                throw re.rethrowFromSystemServer();
+            }
+        }
     }
 
     /**
@@ -593,23 +620,8 @@ public class AppWidgetManager {
             return;
         }
 
-        if (isPostingTaskToBackground(views)) {
-            createUpdateExecutorIfNull().execute(() -> {
-                try {
-                    mService.updateAppWidgetIds(mPackageName, appWidgetIds, views);
-                } catch (RemoteException e) {
-                    Log.e(TAG, "Error updating app widget views in background", e);
-                }
-            });
-
-            return;
-        }
-
-        try {
-            mService.updateAppWidgetIds(mPackageName, appWidgetIds, views);
-        } catch (RemoteException e) {
-            throw e.rethrowFromSystemServer();
-        }
+        tryAdapterConversion(view -> mService.updateAppWidgetIds(mPackageName, appWidgetIds,
+                view), views, "Error updating app widget views in background");
     }
 
     /**
@@ -714,23 +726,9 @@ public class AppWidgetManager {
             return;
         }
 
-        if (isPostingTaskToBackground(views)) {
-            createUpdateExecutorIfNull().execute(() -> {
-                try {
-                    mService.partiallyUpdateAppWidgetIds(mPackageName, appWidgetIds, views);
-                } catch (RemoteException e) {
-                    Log.e(TAG, "Error partially updating app widget views in background", e);
-                }
-            });
-
-            return;
-        }
-
-        try {
-            mService.partiallyUpdateAppWidgetIds(mPackageName, appWidgetIds, views);
-        } catch (RemoteException e) {
-            throw e.rethrowFromSystemServer();
-        }
+        tryAdapterConversion(view -> mService.partiallyUpdateAppWidgetIds(mPackageName,
+                appWidgetIds, view), views,
+                "Error partially updating app widget views in background");
     }
 
     /**
@@ -782,23 +780,8 @@ public class AppWidgetManager {
             return;
         }
 
-        if (isPostingTaskToBackground(views)) {
-            createUpdateExecutorIfNull().execute(() -> {
-                try {
-                    mService.updateAppWidgetProvider(provider, views);
-                } catch (RemoteException e) {
-                    Log.e(TAG, "Error updating app widget view using provider in background", e);
-                }
-            });
-
-            return;
-        }
-
-        try {
-            mService.updateAppWidgetProvider(provider, views);
-        } catch (RemoteException e) {
-            throw e.rethrowFromSystemServer();
-        }
+        tryAdapterConversion(view -> mService.updateAppWidgetProvider(provider, view), views,
+                "Error updating app widget view using provider in background");
     }
 
     /**
@@ -843,22 +826,20 @@ public class AppWidgetManager {
             return;
         }
 
-        if (!RemoteViews.isAdapterConversionEnabled()) {
+        if (remoteAdapterConversion()) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                mHasPostedLegacyLists = true;
+                createUpdateExecutorIfNull().execute(() -> notifyCollectionWidgetChange(
+                        appWidgetIds, viewId));
+            } else {
+                notifyCollectionWidgetChange(appWidgetIds, viewId);
+            }
+        } else {
             try {
                 mService.notifyAppWidgetViewDataChanged(mPackageName, appWidgetIds, viewId);
             } catch (RemoteException re) {
                 throw re.rethrowFromSystemServer();
             }
-
-            return;
-        }
-
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            mHasPostedLegacyLists = true;
-            createUpdateExecutorIfNull().execute(() -> notifyCollectionWidgetChange(appWidgetIds,
-                    viewId));
-        } else {
-            notifyCollectionWidgetChange(appWidgetIds, viewId);
         }
     }
 

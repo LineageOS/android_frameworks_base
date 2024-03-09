@@ -630,7 +630,6 @@ void FilterClientCallbackImpl::getMediaEvent(const jobjectArray& arr, const int 
 
     const DemuxFilterMediaEvent &mediaEvent = event.get<DemuxFilterEvent::Tag::media>();
     ScopedLocalRef<jobject> audioDescriptor(env);
-    gAudioPresentationFields.init(env);
     ScopedLocalRef presentationsJObj(env, JAudioPresentationInfo::asJobject(
         env, gAudioPresentationFields));
     switch (mediaEvent.extraMetaData.getTag()) {
@@ -1466,6 +1465,10 @@ int JTuner::shareFrontend(int feId) {
         ALOGE("Cannot share frontend:%d because this session is already holding %d",
               feId, mFeClient->getId());
         return (int)Result::INVALID_STATE;
+    }
+
+    if (mDemuxClient != NULL) {
+        mDemuxClient->setFrontendDataSourceById(feId);
     }
 
     mSharedFeId = feId;
@@ -3727,6 +3730,7 @@ static void android_media_tv_Tuner_native_init(JNIEnv *env) {
     gFields.linearBlockInitID = env->GetMethodID(linearBlockClazz, "<init>", "()V");
     gFields.linearBlockSetInternalStateID =
             env->GetMethodID(linearBlockClazz, "setInternalStateLocked", "(JZ)V");
+    gAudioPresentationFields.init(env);
 }
 
 static void android_media_tv_Tuner_native_setup(JNIEnv *env, jobject thiz) {

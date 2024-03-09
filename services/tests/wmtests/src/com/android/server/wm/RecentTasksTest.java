@@ -91,6 +91,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Build/Install/Run:
@@ -563,6 +564,38 @@ public class RecentTasksTest extends WindowTestsBase {
     }
 
     @Test
+    public void testTasksWithCorrectOrderOfLastActiveTime() {
+        mRecentTasks.setOnlyTestVisibleRange();
+        mRecentTasks.unloadUserDataFromMemoryLocked(TEST_USER_0_ID);
+
+        // Setup some tasks for the user
+        mTaskPersister.mUserTaskIdsOverride = new SparseBooleanArray();
+        mTaskPersister.mUserTaskIdsOverride.put(1, true);
+        mTaskPersister.mUserTaskIdsOverride.put(2, true);
+        mTaskPersister.mUserTaskIdsOverride.put(3, true);
+        mTaskPersister.mUserTasksOverride = new ArrayList<>();
+        mTaskPersister.mUserTasksOverride.add(createTaskBuilder(".UserTask1").build());
+        mTaskPersister.mUserTasksOverride.add(createTaskBuilder(".UserTask2").build());
+        mTaskPersister.mUserTasksOverride.add(createTaskBuilder(".UserTask3").build());
+
+        // Assert no user tasks are initially loaded
+        assertThat(mRecentTasks.usersWithRecentsLoadedLocked()).hasLength(0);
+
+        // Load tasks
+        mRecentTasks.loadUserRecentsLocked(TEST_USER_0_ID);
+        assertThat(mRecentTasks.usersWithRecentsLoadedLocked()).asList().contains(TEST_USER_0_ID);
+
+        // Sort the time descendingly so the order should be in-sync with task recency (most
+        // recent to least recent)
+        List<Task> tasksSortedByTime = mRecentTasks.getRawTasks().stream()
+                .sorted((o1, o2) -> Long.compare(o2.lastActiveTime, o1.lastActiveTime))
+                .collect(Collectors.toList());
+
+        assertTrue("Task order is not in sync with its recency",
+                mRecentTasks.getRawTasks().equals(tasksSortedByTime));
+    }
+
+    @Test
     public void testOrderedIteration() {
         mRecentTasks.setOnlyTestVisibleRange();
         Task task1 = createTaskBuilder(".Task1").build();
@@ -1030,14 +1063,25 @@ public class RecentTasksTest extends WindowTestsBase {
 
         // If the task has a non-stopped activity, the removal will wait for its onDestroy.
         final Task task = tasks.get(0);
+        final ActivityRecord bottom = new ActivityBuilder(mAtm).setTask(task).build();
         final ActivityRecord top = new ActivityBuilder(mAtm).setTask(task).build();
-        top.lastVisibleTime = 123;
+        bottom.lastVisibleTime = top.lastVisibleTime = 123;
         top.setState(ActivityRecord.State.RESUMED, "test");
         mRecentTasks.removeTasksByPackageName(task.getBasePackageName(), TEST_USER_0_ID);
         assertTrue(task.mKillProcessesOnDestroyed);
         top.setState(ActivityRecord.State.DESTROYING, "test");
+        bottom.destroyed("test");
+        assertTrue("Wait for all destroyed", task.mKillProcessesOnDestroyed);
         top.destroyed("test");
-        assertFalse(task.mKillProcessesOnDestroyed);
+        assertFalse("Consume kill", task.mKillProcessesOnDestroyed);
+
+        // If the process is died, the state should be cleared.
+        final Task lastTask = tasks.get(0);
+        lastTask.intent.setComponent(top.mActivityComponent);
+        lastTask.addChild(top);
+        lastTask.mKillProcessesOnDestroyed = true;
+        top.handleAppDied();
+        assertFalse(lastTask.mKillProcessesOnDestroyed);
     }
 
     @Test
@@ -1400,7 +1444,7 @@ public class RecentTasksTest extends WindowTestsBase {
         });
         assertSecurityException(expectCallable,
                 () -> mAtm.startActivityFromRecents(0, new Bundle()));
-        assertSecurityException(expectCallable, () -> mAtm.getTaskSnapshot(0, true, false));
+        assertSecurityException(expectCallable, () -> mAtm.getTaskSnapshot(0, true));
         assertSecurityException(expectCallable, () -> mAtm.registerTaskStackListener(null));
         assertSecurityException(expectCallable,
                 () -> mAtm.unregisterTaskStackListener(null));

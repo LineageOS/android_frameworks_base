@@ -117,15 +117,12 @@ public class GraphicsEnvironment {
     private static final String ANGLE_GL_DRIVER_CHOICE_NATIVE = "native";
     private static final String SYSTEM_ANGLE_STRING = "system";
 
-    private static final String PROPERTY_RO_ANGLE_SUPPORTED = "ro.gfx.angle.supported";
-
     private ClassLoader mClassLoader;
     private String mLibrarySearchPaths;
     private String mLibraryPermittedPaths;
     private GameManager mGameManager;
 
     private int mAngleOptInIndex = -1;
-    private boolean mEnabledByGameMode = false;
     private boolean mShouldUseAngle = false;
 
     /**
@@ -176,23 +173,6 @@ public class GraphicsEnvironment {
      */
     public void toggleAngleAsSystemDriver(boolean enabled) {
         nativeToggleAngleAsSystemDriver(enabled);
-    }
-
-    /**
-     * Query to determine if the Game Mode has enabled ANGLE.
-     */
-    private boolean isAngleEnabledByGameMode(Context context, String packageName) {
-        try {
-            final boolean gameModeEnabledAngle =
-                    (mGameManager != null) && mGameManager.isAngleEnabled(packageName);
-            Log.v(TAG, "ANGLE GameManagerService for " + packageName + ": " + gameModeEnabledAngle);
-            return gameModeEnabledAngle;
-        } catch (SecurityException e) {
-            Log.e(TAG, "Caught exception while querying GameManagerService if ANGLE is enabled "
-                    + "for package: " + packageName);
-        }
-
-        return false;
     }
 
     /**
@@ -423,8 +403,7 @@ public class GraphicsEnvironment {
      * 2) The per-application switch (i.e. Settings.Global.ANGLE_GL_DRIVER_SELECTION_PKGS and
      *    Settings.Global.ANGLE_GL_DRIVER_SELECTION_VALUES; which corresponds to the
      *    “angle_gl_driver_selection_pkgs” and “angle_gl_driver_selection_values” settings); if it
-     *    forces a choice;
-     * 3) Use ANGLE if isAngleEnabledByGameMode() returns true;
+     *    forces a choice.
      */
     private String queryAngleChoiceInternal(Context context, Bundle bundle,
                                                        String packageName) {
@@ -458,18 +437,15 @@ public class GraphicsEnvironment {
         Log.v(TAG, "  angle_gl_driver_selection_pkgs=" + optInPackages);
         Log.v(TAG, "  angle_gl_driver_selection_values=" + optInValues);
 
-        mEnabledByGameMode = isAngleEnabledByGameMode(context, packageName);
-
         // Make sure we have good settings to use
-        if (optInPackages.size() != optInValues.size()) {
+        if (optInPackages.size() == 0 || optInPackages.size() != optInValues.size()) {
             Log.v(TAG,
                     "Global.Settings values are invalid: "
                         + "number of packages: "
                             + optInPackages.size() + ", "
                         + "number of values: "
                             + optInValues.size());
-            return mEnabledByGameMode ? ANGLE_GL_DRIVER_CHOICE_ANGLE
-                    : ANGLE_GL_DRIVER_CHOICE_DEFAULT;
+            return ANGLE_GL_DRIVER_CHOICE_DEFAULT;
         }
 
         // See if this application is listed in the per-application settings list
@@ -477,8 +453,7 @@ public class GraphicsEnvironment {
 
         if (pkgIndex < 0) {
             Log.v(TAG, packageName + " is not listed in per-application setting");
-            return mEnabledByGameMode ? ANGLE_GL_DRIVER_CHOICE_ANGLE
-                    : ANGLE_GL_DRIVER_CHOICE_DEFAULT;
+            return ANGLE_GL_DRIVER_CHOICE_DEFAULT;
         }
         mAngleOptInIndex = pkgIndex;
 
@@ -492,12 +467,9 @@ public class GraphicsEnvironment {
             return ANGLE_GL_DRIVER_CHOICE_ANGLE;
         } else if (optInValue.equals(ANGLE_GL_DRIVER_CHOICE_NATIVE)) {
             return ANGLE_GL_DRIVER_CHOICE_NATIVE;
-        } else {
-            // The user either chose default or an invalid value; go with the default driver or what
-            // the game mode indicates
-            return mEnabledByGameMode ? ANGLE_GL_DRIVER_CHOICE_ANGLE
-                    : ANGLE_GL_DRIVER_CHOICE_DEFAULT;
         }
+        // The user either chose default or an invalid value; go with the default driver.
+        return ANGLE_GL_DRIVER_CHOICE_DEFAULT;
     }
 
     /**
@@ -646,8 +618,7 @@ public class GraphicsEnvironment {
     }
 
     /**
-     * Attempt to set up ANGLE from system, if the apk can be found, pass ANGLE details to
-     * the C++ GraphicsEnv class.
+     * Set up ANGLE from system.
      *
      * @param context - Context of the application.
      * @param bundle - Bundle of the application.
@@ -656,14 +627,8 @@ public class GraphicsEnvironment {
      *         false: can not set up to use system ANGLE because it doesn't exist.
      */
     private boolean setupAngleFromSystem(Context context, Bundle bundle, String packageName) {
-        final boolean systemAngleSupported = SystemProperties
-                                             .getBoolean(PROPERTY_RO_ANGLE_SUPPORTED, false);
-        if (!systemAngleSupported) {
-            return false;
-        }
-
-        // If we make it to here, system ANGLE will be used.  Call nativeSetAngleInfo() with
-        // the application package name and ANGLE features to use.
+        // System ANGLE always exists, call nativeSetAngleInfo() with the application package
+        // name and ANGLE features to use.
         final String[] features = getAngleEglFeatures(context, bundle);
         nativeSetAngleInfo(SYSTEM_ANGLE_STRING, false, packageName, features);
         return true;

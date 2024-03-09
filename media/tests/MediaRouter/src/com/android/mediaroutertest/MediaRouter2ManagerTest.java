@@ -64,6 +64,7 @@ import com.android.compatibility.common.util.PollingCheck;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -454,6 +455,7 @@ public class MediaRouter2ManagerTest {
         assertThat(onTransferFailedLatch.await(TIMEOUT_MS, TimeUnit.MILLISECONDS)).isTrue();
     }
 
+    @Ignore // TODO(b/291800179): Diagnose flakiness and re-enable.
     @Test
     public void testRouterRelease_managerGetRoutingSessions() throws Exception {
         CountDownLatch transferLatch = new CountDownLatch(1);
@@ -918,7 +920,7 @@ public class MediaRouter2ManagerTest {
         CountDownLatch addedLatch = new CountDownLatch(1);
         CountDownLatch preferenceLatch = new CountDownLatch(1);
 
-        // A dummy callback is required to send route feature info.
+        // A placeholder callback is required to send route feature info.
         RouteCallback routeCallback = new RouteCallback() {};
         MediaRouter2Manager.Callback managerCallback =
                 new MediaRouter2Manager.Callback() {

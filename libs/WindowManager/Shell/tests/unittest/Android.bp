@@ -35,6 +35,7 @@ android_test {
     static_libs: [
         "WindowManager-Shell",
         "junit",
+        "flag-junit-base",
         "androidx.test.runner",
         "androidx.test.rules",
         "androidx.test.ext.junit",
@@ -45,10 +46,11 @@ android_test {
         "kotlinx-coroutines-core",
         "mockito-kotlin2",
         "mockito-target-extended-minus-junit4",
-        "truth-prebuilt",
+        "truth",
         "testables",
         "platform-test-annotations",
         "servicestests-utils",
+        "com_android_wm_shell_flags_lib",
     ],
 
     libs: [
@@ -62,7 +64,7 @@ android_test {
         "libstaticjvmtiagent",
     ],
 
-    kotlincflags: ["-Xjvm-default=enable"],
+    kotlincflags: ["-Xjvm-default=all"],
 
     plugins: ["dagger2-compiler"],
 

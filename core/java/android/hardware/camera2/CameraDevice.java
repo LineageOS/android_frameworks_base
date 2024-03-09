@@ -16,6 +16,7 @@
 
 package android.hardware.camera2;
 
+import android.annotation.FlaggedApi;
 import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -27,6 +28,8 @@ import android.hardware.camera2.params.SessionConfiguration;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.os.Handler;
 import android.view.Surface;
+
+import com.android.internal.camera.flags.Flags;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -541,14 +544,6 @@ public abstract class CameraDevice implements AutoCloseable {
      *   or configuring it to use one of the supported
      *   {@link android.media.CamcorderProfile CamcorderProfiles}.</li>
      *
-     * <li>For efficient YUV processing with {@link android.renderscript}:
-     *   Create a RenderScript
-     *   {@link android.renderscript.Allocation Allocation} with a supported YUV
-     *   type, the IO_INPUT flag, and one of the sizes returned by
-     *   {@link StreamConfigurationMap#getOutputSizes(Class) getOutputSizes(Allocation.class)},
-     *   Then obtain the Surface with
-     *   {@link android.renderscript.Allocation#getSurface}.</li>
-     *
      * <li>For access to RAW, uncompressed YUV, or compressed JPEG data in the application: Create an
      *   {@link android.media.ImageReader} object with one of the supported output formats given by
      *   {@link StreamConfigurationMap#getOutputFormats()}, setting its size to one of the
@@ -902,7 +897,7 @@ public abstract class CameraDevice implements AutoCloseable {
      * supported sizes.
      * Camera clients that register a Jpeg/R output within a stream combination that doesn't fit
      * in the mandatory stream table above can call
-     * {@link CameraDevice#isSessionConfigurationSupported} to ensure that this particular
+     * {@link CameraManager#isSessionConfigurationWithParametersSupported} to ensure that this particular
      * configuration is supported.</p>
      *
      * <h5>STREAM_USE_CASE capability additional guaranteed configurations</h5>
@@ -975,8 +970,8 @@ public abstract class CameraDevice implements AutoCloseable {
      *
      * <p>Since the capabilities of camera devices vary greatly, a given camera device may support
      * target combinations with sizes outside of these guarantees, but this can only be tested for
-     * by calling {@link #isSessionConfigurationSupported} or attempting to create a session with
-     * such targets.</p>
+     * by calling {@link CameraManager#isSessionConfigurationWithParametersSupported} or attempting
+     * to create a session with such targets.</p>
      *
      * <p>Exception on 176x144 (QCIF) resolution:
      * Camera devices usually have a fixed capability for downscaling from larger resolution to
@@ -1411,13 +1406,44 @@ public abstract class CameraDevice implements AutoCloseable {
      * @throws CameraAccessException if the camera device is no longer connected or has
      *                               encountered a fatal error
      * @throws IllegalStateException if the camera device has been closed
+     * @deprecated Please use {@link CameraManager#isSessionConfigurationWithParametersSupported}
+     * to check whether a SessionConfiguration is supported by the device.
      */
+    @Deprecated
     public boolean isSessionConfigurationSupported(
             @NonNull SessionConfiguration sessionConfig) throws CameraAccessException {
         throw new UnsupportedOperationException("Subclasses must override this method");
     }
 
-    /**
+  /**
+   * <p>Get camera characteristics for a particular session configuration by the camera device.</p>
+   *
+   * <p>The camera characteristics returned here is typically more limited than the characteristics
+   * returned from {@link CameraManager#getCameraCharacteristics}. The keys that have more limited
+   * values are listed in
+   * {@link CameraCharacteristics#getAvailableSessionCharacteristicsKeys}. </p>
+   *
+   * <p>Other than that, the characteristics returned here can be used in the same way as those
+   * returned from {@link CameraManager#getCameraCharacteristics}.</p>
+   *
+   * @param sessionConfig : The session configuration for which characteristics are fetched.
+   * @return CameraCharacteristics specific to a given session configuration.
+   * @throws UnsupportedOperationException if the query operation is not supported by the camera
+   *                                       device
+   * @throws IllegalArgumentException if the session configuration is invalid
+   * @throws CameraAccessException if the camera device is no longer connected or has
+   *                               encountered a fatal error
+   * @throws IllegalStateException if the camera device has been closed
+   * @see android.hardware.camera2.CameraCharacteristics#getAvailableSessionCharacteristicsKeys
+   */
+    @NonNull
+    @FlaggedApi(Flags.FLAG_FEATURE_COMBINATION_QUERY)
+    public CameraCharacteristics getSessionCharacteristics(
+            @NonNull SessionConfiguration sessionConfig) throws CameraAccessException {
+        throw new UnsupportedOperationException("Subclasses must override this method");
+    }
+
+  /**
      * A callback objects for receiving updates about the state of a camera device.
      *
      * <p>A callback instance must be provided to the {@link CameraManager#openCamera} method to

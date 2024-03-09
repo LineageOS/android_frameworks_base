@@ -17,8 +17,10 @@
 package com.android.server.audio;
 
 import static android.Manifest.permission.MODIFY_AUDIO_SETTINGS_PRIVILEGED;
-import static android.Manifest.permission.REMOTE_AUDIO_PLAYBACK;
 import static android.app.BroadcastOptions.DELIVERY_GROUP_POLICY_MOST_RECENT;
+import static android.media.audio.Flags.autoPublicVolumeApiHardening;
+import static android.media.audio.Flags.automaticBtDeviceType;
+import static android.media.audio.Flags.focusFreezeTestApi;
 import static android.media.AudioDeviceInfo.TYPE_BLE_HEADSET;
 import static android.media.AudioDeviceInfo.TYPE_BLE_SPEAKER;
 import static android.media.AudioDeviceInfo.TYPE_BLUETOOTH_A2DP;
@@ -30,7 +32,6 @@ import static android.media.AudioManager.DEVICE_OUT_BLUETOOTH_A2DP;
 import static android.media.AudioManager.RINGER_MODE_NORMAL;
 import static android.media.AudioManager.RINGER_MODE_SILENT;
 import static android.media.AudioManager.RINGER_MODE_VIBRATE;
-import static android.media.AudioManager.STREAM_MUSIC;
 import static android.media.AudioManager.STREAM_SYSTEM;
 import static android.os.Process.FIRST_APPLICATION_UID;
 import static android.os.Process.INVALID_UID;
@@ -38,12 +39,17 @@ import static android.provider.Settings.Secure.VOLUME_HUSH_MUTE;
 import static android.provider.Settings.Secure.VOLUME_HUSH_OFF;
 import static android.provider.Settings.Secure.VOLUME_HUSH_VIBRATE;
 
+import static com.android.internal.annotations.VisibleForTesting.Visibility.PACKAGE;
+import static com.android.media.audio.Flags.alarmMinVolumeZero;
+import static com.android.media.audio.Flags.bluetoothMacAddressAnonymization;
+import static com.android.media.audio.Flags.disablePrescaleAbsoluteVolume;
 import static com.android.server.audio.SoundDoseHelper.ACTION_CHECK_MUSIC_ACTIVE;
 import static com.android.server.utils.EventLogger.Event.ALOGE;
 import static com.android.server.utils.EventLogger.Event.ALOGI;
 import static com.android.server.utils.EventLogger.Event.ALOGW;
 
 import android.Manifest;
+import android.annotation.EnforcePermission;
 import android.annotation.IntDef;
 import android.annotation.IntRange;
 import android.annotation.NonNull;
@@ -73,13 +79,14 @@ import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.hardware.SensorPrivacyManager;
 import android.hardware.SensorPrivacyManagerInternal;
+import android.hardware.display.DisplayManager;
+import android.hardware.display.DisplayManager.DisplayListener;
 import android.hardware.hdmi.HdmiAudioSystemClient;
 import android.hardware.hdmi.HdmiClient;
 import android.hardware.hdmi.HdmiControlManager;
@@ -90,6 +97,7 @@ import android.hardware.usb.UsbManager;
 import android.hidl.manager.V1_0.IServiceManager;
 import android.media.AudioAttributes;
 import android.media.AudioAttributes.AttributeSystemUsage;
+import android.media.AudioDescriptor;
 import android.media.AudioDeviceAttributes;
 import android.media.AudioDeviceInfo;
 import android.media.AudioDeviceVolumeManager;
@@ -102,9 +110,11 @@ import android.media.AudioManager.AudioDeviceCategory;
 import android.media.AudioManagerInternal;
 import android.media.AudioMixerAttributes;
 import android.media.AudioPlaybackConfiguration;
+import android.media.AudioProfile;
 import android.media.AudioRecordingConfiguration;
 import android.media.AudioRoutesInfo;
 import android.media.AudioSystem;
+import android.media.AudioTrack;
 import android.media.BluetoothProfileConnectionInfo;
 import android.media.IAudioDeviceVolumeDispatcher;
 import android.media.IAudioFocusDispatcher;
@@ -116,6 +126,7 @@ import android.media.ICapturePresetDevicesRoleDispatcher;
 import android.media.ICommunicationDeviceDispatcher;
 import android.media.IDeviceVolumeBehaviorDispatcher;
 import android.media.IDevicesForAttributesCallback;
+import android.media.ILoudnessCodecUpdatesDispatcher;
 import android.media.IMuteAwaitConnectionCallback;
 import android.media.IPlaybackConfigDispatcher;
 import android.media.IPreferredMixerAttributesDispatcher;
@@ -130,14 +141,19 @@ import android.media.IStrategyNonDefaultDevicesDispatcher;
 import android.media.IStrategyPreferredDevicesDispatcher;
 import android.media.IStreamAliasingDispatcher;
 import android.media.IVolumeController;
+import android.media.LoudnessCodecConfigurator;
+import android.media.LoudnessCodecInfo;
+import android.media.MediaCodec;
 import android.media.MediaMetrics;
 import android.media.MediaRecorder.AudioSource;
 import android.media.PlayerBase;
 import android.media.Spatializer;
+import android.media.Utils;
 import android.media.VolumeInfo;
 import android.media.VolumePolicy;
 import android.media.audiofx.AudioEffect;
 import android.media.audiopolicy.AudioMix;
+import android.media.audiopolicy.AudioMixingRule;
 import android.media.audiopolicy.AudioPolicy;
 import android.media.audiopolicy.AudioPolicyConfig;
 import android.media.audiopolicy.AudioProductStrategy;
@@ -148,6 +164,7 @@ import android.media.permission.SafeCloseable;
 import android.media.projection.IMediaProjection;
 import android.media.projection.IMediaProjectionCallback;
 import android.media.projection.IMediaProjectionManager;
+import android.media.session.MediaSessionManager;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
@@ -190,6 +207,7 @@ import android.util.PrintWriterPrinter;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Toast;
@@ -220,6 +238,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -231,7 +250,6 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.UUID;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -262,6 +280,8 @@ public class AudioService extends IAudioService.Stub
     private final SystemServerAdapter mSystemServer;
     private final SettingsAdapter mSettings;
     private final AudioPolicyFacade mAudioPolicy;
+
+    private final MusicFxHelper mMusicFxHelper;
 
     /** Debug audio mode */
     protected static final boolean DEBUG_MODE = false;
@@ -303,6 +323,9 @@ public class AudioService extends IAudioService.Stub
     private final ContentResolver mContentResolver;
     private final AppOpsManager mAppOps;
 
+    /** do not use directly, use getMediaSessionManager() which handles lazy initialization */
+    @Nullable private volatile MediaSessionManager mMediaSessionManager;
+
     // the platform type affects volume and silent mode behavior
     private final int mPlatformType;
 
@@ -339,7 +362,7 @@ public class AudioService extends IAudioService.Stub
     }
 
     /*package*/ boolean isPlatformAutomotive() {
-        return mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
+        return mPlatformType == AudioSystem.PLATFORM_AUTOMOTIVE;
     }
 
     /** The controller for the volume UI. */
@@ -365,7 +388,7 @@ public class AudioService extends IAudioService.Stub
     private static final int MSG_SET_ALL_VOLUMES = 10;
     private static final int MSG_UNLOAD_SOUND_EFFECTS = 15;
     private static final int MSG_SYSTEM_READY = 16;
-    private static final int MSG_UNMUTE_STREAM = 18;
+    private static final int MSG_UNMUTE_STREAM_ON_SINGLE_VOL_DEVICE = 18;
     private static final int MSG_DYN_POLICY_MIX_STATE_UPDATE = 19;
     private static final int MSG_INDICATE_SYSTEM_READY = 20;
     private static final int MSG_ACCESSORY_PLUG_MEDIA_UNMUTE = 21;
@@ -399,11 +422,17 @@ public class AudioService extends IAudioService.Stub
     private static final int MSG_RESET_SPATIALIZER = 50;
     private static final int MSG_NO_LOG_FOR_PLAYER_I = 51;
     private static final int MSG_DISPATCH_PREFERRED_MIXER_ATTRIBUTES = 52;
-    private static final int MSG_LOWER_VOLUME_TO_RS1 = 53;
     private static final int MSG_CONFIGURATION_CHANGED = 54;
+    private static final int MSG_BROADCAST_MASTER_MUTE = 55;
 
-    /** Messages handled by the {@link SoundDoseHelper}. */
+    /**
+     * Messages handled by the {@link SoundDoseHelper}, do not exceed
+     * {@link MUSICFX_HELPER_MSG_START}.
+     */
     /*package*/ static final int SAFE_MEDIA_VOLUME_MSG_START = 1000;
+
+    /** Messages handled by the {@link MusicFxHelper}. */
+    /*package*/ static final int MUSICFX_HELPER_MSG_START = 1100;
 
     // start of messages handled under wakelock
     //   these messages can only be queued, i.e. sent with queueMsgUnderWakeLock(),
@@ -926,6 +955,10 @@ public class AudioService extends IAudioService.Stub
 
     private final SoundDoseHelper mSoundDoseHelper;
 
+    private final LoudnessCodecHelper mLoudnessCodecHelper;
+
+    private final HardeningEnforcer mHardeningEnforcer;
+
     private final Object mSupportedSystemUsagesLock = new Object();
     @GuardedBy("mSupportedSystemUsagesLock")
     private @AttributeSystemUsage int[] mSupportedSystemUsages =
@@ -982,6 +1015,39 @@ public class AudioService extends IAudioService.Stub
 
     @GuardedBy("mSettingsLock")
     private boolean mRttEnabled = false;
+
+    private AtomicBoolean mMasterMute = new AtomicBoolean(false);
+
+    private DisplayManager mDisplayManager;
+
+    private DisplayListener mDisplayListener =
+      new DisplayListener() {
+        @Override
+        public void onDisplayAdded(int displayId) {}
+
+        @Override
+        public void onDisplayRemoved(int displayId) {}
+
+        @Override
+        public void onDisplayChanged(int displayId) {
+            if (displayId != Display.DEFAULT_DISPLAY) {
+                return;
+            }
+            int displayState = mDisplayManager.getDisplay(Display.DEFAULT_DISPLAY).getState();
+            if (displayState == Display.STATE_ON) {
+                if (mMonitorRotation) {
+                    RotationHelper.enable();
+                }
+                AudioSystem.setParameters("screen_state=on");
+            } else {
+                if (mMonitorRotation) {
+                    //reduce wakeups (save current) by only listening when display is on
+                    RotationHelper.disable();
+                }
+                AudioSystem.setParameters("screen_state=off");
+            }
+        }
+      };
 
     ///////////////////////////////////////////////////////////////////////////
     // Construction
@@ -1130,6 +1196,19 @@ public class AudioService extends IAudioService.Stub
             MAX_STREAM_VOLUME[AudioSystem.STREAM_ALARM] = maxAlarmVolume;
         }
 
+        if (alarmMinVolumeZero()) {
+            try {
+                int minAlarmVolume = mContext.getResources().getInteger(
+                        com.android.internal.R.integer.config_audio_alarm_min_vol);
+                if (minAlarmVolume <= MAX_STREAM_VOLUME[AudioSystem.STREAM_ALARM]) {
+                    MIN_STREAM_VOLUME[AudioSystem.STREAM_ALARM] = minAlarmVolume;
+                } else {
+                    Log.e(TAG, "Error min alarm volume greater than max alarm volume");
+                }
+            } catch (Resources.NotFoundException e) {
+                Log.e(TAG, "Error querying for alarm min volume ", e);
+            }
+        }
         int defaultAlarmVolume = SystemProperties.getInt("ro.config.alarm_vol_default", -1);
         if (defaultAlarmVolume != -1 &&
                 defaultAlarmVolume <= MAX_STREAM_VOLUME[AudioSystem.STREAM_ALARM]) {
@@ -1227,6 +1306,8 @@ public class AudioService extends IAudioService.Stub
         readPersistedSettings();
         readUserRestrictions();
 
+        mLoudnessCodecHelper = new LoudnessCodecHelper(this);
+
         mPlaybackMonitor =
                 new PlaybackActivityMonitor(context, MAX_STREAM_VOLUME[AudioSystem.STREAM_ALARM],
                         device -> onMuteAwaitConnectionTimeout(device));
@@ -1263,6 +1344,12 @@ public class AudioService extends IAudioService.Stub
                 0 /* arg1 */, 0 /* arg2 */, null /* obj */, 0 /* delay */);
         queueMsgUnderWakeLock(mAudioHandler, MSG_INIT_SPATIALIZER,
                 0 /* arg1 */, 0 /* arg2 */, null /* obj */, 0 /* delay */);
+
+        mDisplayManager = context.getSystemService(DisplayManager.class);
+
+        mMusicFxHelper = new MusicFxHelper(mContext, mAudioHandler);
+
+        mHardeningEnforcer = new HardeningEnforcer(mContext, isPlatformAutomotive());
     }
 
     private void initVolumeStreamStates() {
@@ -1312,19 +1399,21 @@ public class AudioService extends IAudioService.Stub
                 sRingerAndZenModeMutedStreams, "onInitStreamsAndVolumes"));
         setRingerModeInt(getRingerModeInternal(), false);
 
-        final float[] preScale = new float[3];
-        preScale[0] = mContext.getResources().getFraction(
-                com.android.internal.R.fraction.config_prescaleAbsoluteVolume_index1,
-                1, 1);
-        preScale[1] = mContext.getResources().getFraction(
-                com.android.internal.R.fraction.config_prescaleAbsoluteVolume_index2,
-                1, 1);
-        preScale[2] = mContext.getResources().getFraction(
-                com.android.internal.R.fraction.config_prescaleAbsoluteVolume_index3,
-                1, 1);
-        for (int i = 0; i < preScale.length; i++) {
-            if (0.0f <= preScale[i] && preScale[i] <= 1.0f) {
-                mPrescaleAbsoluteVolume[i] = preScale[i];
+        if (!disablePrescaleAbsoluteVolume()) {
+            final float[] preScale = new float[3];
+            preScale[0] = mContext.getResources().getFraction(
+                    com.android.internal.R.fraction.config_prescaleAbsoluteVolume_index1,
+                    1, 1);
+            preScale[1] = mContext.getResources().getFraction(
+                    com.android.internal.R.fraction.config_prescaleAbsoluteVolume_index2,
+                    1, 1);
+            preScale[2] = mContext.getResources().getFraction(
+                    com.android.internal.R.fraction.config_prescaleAbsoluteVolume_index3,
+                    1, 1);
+            for (int i = 0; i < preScale.length; i++) {
+                if (0.0f <= preScale[i] && preScale[i] <= 1.0f) {
+                    mPrescaleAbsoluteVolume[i] = preScale[i];
+                }
             }
         }
 
@@ -1332,7 +1421,6 @@ public class AudioService extends IAudioService.Stub
 
         // check on volume initialization
         checkVolumeRangeInitialization("AudioService()");
-
     }
 
     private SubscriptionManager.OnSubscriptionsChangedListener mSubscriptionChangedListener =
@@ -1344,6 +1432,14 @@ public class AudioService extends IAudioService.Stub
                             0, 0, null, 0);
                 }
             };
+
+    private MediaSessionManager getMediaSessionManager() {
+        if (mMediaSessionManager == null) {
+            mMediaSessionManager = (MediaSessionManager) mContext
+                    .getSystemService(Context.MEDIA_SESSION_SERVICE);
+        }
+        return mMediaSessionManager;
+    }
 
     /**
      * Initialize intent receives and settings observers for this service.
@@ -1359,8 +1455,10 @@ public class AudioService extends IAudioService.Stub
                 new IntentFilter(BluetoothHeadset.ACTION_AUDIO_STATE_CHANGED);
         intentFilter.addAction(BluetoothHeadset.ACTION_ACTIVE_DEVICE_CHANGED);
         intentFilter.addAction(Intent.ACTION_DOCK_EVENT);
-        intentFilter.addAction(Intent.ACTION_SCREEN_ON);
-        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        if (mDisplayManager == null) {
+            intentFilter.addAction(Intent.ACTION_SCREEN_ON);
+            intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
+        }
         intentFilter.addAction(Intent.ACTION_USER_SWITCHED);
         intentFilter.addAction(Intent.ACTION_USER_BACKGROUND);
         intentFilter.addAction(Intent.ACTION_USER_FOREGROUND);
@@ -1388,6 +1486,10 @@ public class AudioService extends IAudioService.Stub
             Log.e(TAG, "initExternalEventReceivers cannot create SubscriptionManager!");
         } else {
             subscriptionManager.addOnSubscriptionsChangedListener(mSubscriptionChangedListener);
+        }
+
+        if (mDisplayManager != null) {
+            mDisplayManager.registerDisplayListener(mDisplayListener, mAudioHandler);
         }
     }
 
@@ -2465,13 +2567,11 @@ public class AudioService extends IAudioService.Stub
         return true;
     }
 
+    @android.annotation.EnforcePermission(android.Manifest.permission.WRITE_SETTINGS)
     /** @see AudioManager#setEncodedSurroundMode(int) */
     @Override
     public boolean setEncodedSurroundMode(@AudioManager.EncodedSurroundOutputMode int mode) {
-        if (mContext.checkCallingOrSelfPermission(android.Manifest.permission.WRITE_SETTINGS)
-                != PackageManager.PERMISSION_GRANTED) {
-            throw new SecurityException("Missing WRITE_SETTINGS permission");
-        }
+        setEncodedSurroundMode_enforcePermission();
 
         final long token = Binder.clearCallingIdentity();
         try {
@@ -2747,21 +2847,18 @@ public class AudioService extends IAudioService.Stub
         }
         final int currentUser = getCurrentUserId();
 
+        if (mUseFixedVolume) {
+            AudioSystem.setMasterVolume(1.0f);
+        }
+
         // Check the current user restriction.
         boolean masterMute =
                 mUserManagerInternal.getUserRestriction(currentUser,
                         UserManager.DISALLOW_UNMUTE_DEVICE)
                         || mUserManagerInternal.getUserRestriction(currentUser,
                         UserManager.DISALLOW_ADJUST_VOLUME);
-        if (mUseFixedVolume) {
-            masterMute = false;
-            AudioSystem.setMasterVolume(1.0f);
-        }
-        if (DEBUG_VOL) {
-            Log.d(TAG, String.format("Master mute %s, user=%d", masterMute, currentUser));
-        }
-        AudioSystem.setMasterMute(masterMute);
-        broadcastMasterMuteStatus(masterMute);
+        setMasterMuteInternalNoCallerCheck(
+                masterMute, /* flags =*/ 0, currentUser, "readUserRestrictions");
 
         mMicMuteFromRestrictions = mUserManagerInternal.getUserRestriction(
                 currentUser, UserManager.DISALLOW_UNMUTE_MICROPHONE);
@@ -2869,11 +2966,11 @@ public class AudioService extends IAudioService.Stub
         super.removePreferredDevicesForStrategy_enforcePermission();
 
         final String logString =
-                String.format("removePreferredDeviceForStrategy strat:%d", strategy);
+                String.format("removePreferredDevicesForStrategy strat:%d", strategy);
         sDeviceLogger.enqueue(new EventLogger.StringEvent(logString).printLog(TAG));
 
         final int status = mDeviceBroker.removePreferredDevicesForStrategySync(strategy);
-        if (status != AudioSystem.SUCCESS) {
+        if (status != AudioSystem.SUCCESS && status != AudioSystem.BAD_VALUE) {
             Log.e(TAG, String.format("Error %d in %s)", status, logString));
         }
         return status;
@@ -2957,7 +3054,7 @@ public class AudioService extends IAudioService.Stub
         }
 
         final int status = mDeviceBroker.removeDeviceAsNonDefaultForStrategySync(strategy, device);
-        if (status != AudioSystem.SUCCESS) {
+        if (status != AudioSystem.SUCCESS && status != AudioSystem.BAD_VALUE) {
             Log.e(TAG, String.format("Error %d in %s)", status, logString));
         }
         return status;
@@ -3077,7 +3174,7 @@ public class AudioService extends IAudioService.Stub
         sDeviceLogger.enqueue(new EventLogger.StringEvent(logString).printLog(TAG));
 
         final int status = mDeviceBroker.clearPreferredDevicesForCapturePresetSync(capturePreset);
-        if (status != AudioSystem.SUCCESS) {
+        if (status != AudioSystem.SUCCESS && status != AudioSystem.BAD_VALUE) {
             Log.e(TAG, String.format("Error %d in %s", status, logString));
         }
         return status;
@@ -3372,6 +3469,10 @@ public class AudioService extends IAudioService.Stub
      * Part of service interface, check permissions here */
     public void adjustStreamVolumeWithAttribution(int streamType, int direction, int flags,
             String callingPackage, String attributionTag) {
+        if (mHardeningEnforcer.blockVolumeMethod(
+                HardeningEnforcer.METHOD_AUDIO_MANAGER_ADJUST_STREAM_VOLUME)) {
+            return;
+        }
         if ((streamType == AudioManager.STREAM_ACCESSIBILITY) && !canChangeAccessibilityVolume()) {
             Log.w(TAG, "Trying to call adjustStreamVolume() for a11y without"
                     + "CHANGE_ACCESSIBILITY_VOLUME / callingPackage=" + callingPackage);
@@ -3463,7 +3564,7 @@ public class AudioService extends IAudioService.Stub
             return;
         }
 
-        mSoundDoseHelper.invalidatPendingVolumeCommand();
+        mSoundDoseHelper.invalidatePendingVolumeCommand();
 
         flags &= ~AudioManager.FLAG_FIXED_VOLUME;
         if (streamTypeAlias == AudioSystem.STREAM_MUSIC && isFixedVolumeDevice(device)) {
@@ -3536,7 +3637,7 @@ public class AudioService extends IAudioService.Stub
 
         if (adjustVolume && (direction != AudioManager.ADJUST_SAME)
                 && (keyEventMode != AudioDeviceVolumeManager.ADJUST_MODE_END)) {
-            mAudioHandler.removeMessages(MSG_UNMUTE_STREAM);
+            mAudioHandler.removeMessages(MSG_UNMUTE_STREAM_ON_SINGLE_VOL_DEVICE);
 
             if (isMuteAdjust && !mFullVolumeDevices.contains(device)) {
                 boolean state;
@@ -3563,8 +3664,9 @@ public class AudioService extends IAudioService.Stub
                         muteAliasStreams(streamTypeAlias, false);
                     } else if (direction == AudioManager.ADJUST_LOWER) {
                         if (mIsSingleVolume) {
-                            sendMsg(mAudioHandler, MSG_UNMUTE_STREAM, SENDMSG_QUEUE,
-                                    streamTypeAlias, flags, null, UNMUTE_STREAM_DELAY);
+                            sendMsg(mAudioHandler, MSG_UNMUTE_STREAM_ON_SINGLE_VOL_DEVICE,
+                                    SENDMSG_QUEUE, streamTypeAlias, flags, null,
+                                    UNMUTE_STREAM_DELAY);
                         }
                     }
                 }
@@ -3625,16 +3727,21 @@ public class AudioService extends IAudioService.Stub
             synchronized (mHdmiClientLock) {
                 if (mHdmiManager != null) {
                     // At most one of mHdmiPlaybackClient and mHdmiTvClient should be non-null
-                    HdmiClient fullVolumeHdmiClient = mHdmiPlaybackClient;
+                    HdmiClient hdmiClient = mHdmiPlaybackClient;
                     if (mHdmiTvClient != null) {
-                        fullVolumeHdmiClient = mHdmiTvClient;
+                        hdmiClient = mHdmiTvClient;
                     }
 
-                    if (fullVolumeHdmiClient != null
+                    boolean playbackDeviceConditions = mHdmiPlaybackClient != null
+                            && isFullVolumeDevice(device);
+                    boolean tvConditions = mHdmiTvClient != null
+                            && mHdmiSystemAudioSupported
+                            && !isAbsoluteVolumeDevice(device)
+                            && !isA2dpAbsoluteVolumeDevice(device);
+
+                    if ((playbackDeviceConditions || tvConditions)
                             && mHdmiCecVolumeControlEnabled
-                            && streamTypeAlias == AudioSystem.STREAM_MUSIC
-                            // vol change on a full volume device
-                            && isFullVolumeDevice(device)) {
+                            && streamTypeAlias == AudioSystem.STREAM_MUSIC) {
                         int keyCode = KeyEvent.KEYCODE_UNKNOWN;
                         switch (direction) {
                             case AudioManager.ADJUST_RAISE:
@@ -3658,14 +3765,14 @@ public class AudioService extends IAudioService.Stub
                             try {
                                 switch (keyEventMode) {
                                     case AudioDeviceVolumeManager.ADJUST_MODE_NORMAL:
-                                        fullVolumeHdmiClient.sendVolumeKeyEvent(keyCode, true);
-                                        fullVolumeHdmiClient.sendVolumeKeyEvent(keyCode, false);
+                                        hdmiClient.sendVolumeKeyEvent(keyCode, true);
+                                        hdmiClient.sendVolumeKeyEvent(keyCode, false);
                                         break;
                                     case AudioDeviceVolumeManager.ADJUST_MODE_START:
-                                        fullVolumeHdmiClient.sendVolumeKeyEvent(keyCode, true);
+                                        hdmiClient.sendVolumeKeyEvent(keyCode, true);
                                         break;
                                     case AudioDeviceVolumeManager.ADJUST_MODE_END:
-                                        fullVolumeHdmiClient.sendVolumeKeyEvent(keyCode, false);
+                                        hdmiClient.sendVolumeKeyEvent(keyCode, false);
                                         break;
                                     default:
                                         Log.e(TAG, "Invalid keyEventMode " + keyEventMode);
@@ -3728,21 +3835,24 @@ public class AudioService extends IAudioService.Stub
     }
 
     // Called after a delay when volume down is pressed while muted
-    private void onUnmuteStream(int stream, int flags) {
+    private void onUnmuteStreamOnSingleVolDevice(int streamAlias, int flags) {
         boolean wasMuted;
         // Locking mSettingsLock to avoid inversion when calling vss.mute -> vss.doMute ->
         // vss.updateVolumeGroupIndex
         synchronized (mSettingsLock) {
             synchronized (VolumeStreamState.class) {
-                final VolumeStreamState streamState = mStreamStates[stream];
+                final VolumeStreamState streamState = mStreamStates[streamAlias];
                 // if unmuting causes a change, it was muted
-                wasMuted = streamState.mute(false, "onUnmuteStream");
-
-                final int device = getDeviceForStream(stream);
+                wasMuted = streamState.mute(false, "onUnmuteStreamOnSingleVolDevice");
+                if (wasMuted) {
+                    // Unmute all aliasted streams
+                    muteAliasStreams(streamAlias, false);
+                }
+                final int device = getDeviceForStream(streamAlias);
                 final int index = streamState.getIndex(device);
-                sendVolumeUpdate(stream, index, index, flags, device);
+                sendVolumeUpdate(streamAlias, index, index, flags, device);
             }
-            if (stream == AudioSystem.STREAM_MUSIC && wasMuted) {
+            if (streamAlias == AudioSystem.STREAM_MUSIC && wasMuted) {
                 synchronized (mHdmiClientLock) {
                     maybeSendSystemAudioStatusCommand(true);
                 }
@@ -3916,7 +4026,8 @@ public class AudioService extends IAudioService.Stub
             }
             setStreamVolume(groupedStream, index, flags, /*device*/ null,
                     callingPackage, callingPackage,
-                    attributionTag, Binder.getCallingUid(), true /*hasModifyAudioSettings*/);
+                    attributionTag, Binder.getCallingUid(), true /*hasModifyAudioSettings*/,
+                    true /*canChangeMuteAndUpdateController*/);
         }
     }
 
@@ -4035,7 +4146,9 @@ public class AudioService extends IAudioService.Stub
             setStreamVolumeWithAttributionInt(vi.getStreamType(),
                     mStreamStates[vi.getStreamType()].getMinIndex(),
                     /*flags*/ 0,
-                    ada, callingPackage, null);
+                    ada, callingPackage, null,
+                    //TODO handle unmuting of current audio device
+                    false /*canChangeMuteAndUpdateController*/);
             return;
         }
 
@@ -4061,7 +4174,8 @@ public class AudioService extends IAudioService.Stub
             }
         }
         setStreamVolumeWithAttributionInt(vi.getStreamType(), index, /*flags*/ 0,
-                ada, callingPackage, null);
+                ada, callingPackage, null,
+                false /*canChangeMuteAndUpdateController*/);
     }
 
     /** Retain API for unsupported app usage */
@@ -4139,8 +4253,12 @@ public class AudioService extends IAudioService.Stub
      * Part of service interface, check permissions here */
     public void setStreamVolumeWithAttribution(int streamType, int index, int flags,
             String callingPackage, String attributionTag) {
+        if (mHardeningEnforcer.blockVolumeMethod(
+                HardeningEnforcer.METHOD_AUDIO_MANAGER_SET_STREAM_VOLUME)) {
+            return;
+        }
         setStreamVolumeWithAttributionInt(streamType, index, flags, /*device*/ null,
-                callingPackage, attributionTag);
+                callingPackage, attributionTag, true /*canChangeMuteAndUpdateController*/);
     }
 
     /**
@@ -4153,10 +4271,18 @@ public class AudioService extends IAudioService.Stub
      *               for which volume is being changed
      * @param callingPackage client side-provided package name of caller, not to be trusted
      * @param attributionTag client side-provided attribution name, not to be trusted
+     * @param canChangeMuteAndUpdateController true if the calling method is a path where
+     *          the volume change is allowed to update the mute state as well as update
+     *          the volume controller (the UI). This is intended to be true for a call coming
+     *          from AudioManager.setStreamVolume (which is here
+     *          {@link #setStreamVolumeForUid(int, int, int, String, int, int, UserHandle, int)},
+     *          and false when coming from AudioDeviceVolumeManager.setDeviceVolume (which is here
+     *          {@link #setDeviceVolume(VolumeInfo, AudioDeviceAttributes, String)}
      */
     protected void setStreamVolumeWithAttributionInt(int streamType, int index, int flags,
-            @Nullable AudioDeviceAttributes device,
-            String callingPackage, String attributionTag) {
+            @Nullable AudioDeviceAttributes ada,
+            String callingPackage, String attributionTag,
+            boolean canChangeMuteAndUpdateController) {
         if ((streamType == AudioManager.STREAM_ACCESSIBILITY) && !canChangeAccessibilityVolume()) {
             Log.w(TAG, "Trying to call setStreamVolume() for a11y without"
                     + " CHANGE_ACCESSIBILITY_VOLUME  callingPackage=" + callingPackage);
@@ -4179,14 +4305,18 @@ public class AudioService extends IAudioService.Stub
             return;
         }
 
-        if (device == null) {
+        if (ada == null) {
             // call was already logged in setDeviceVolume()
+            final int deviceType = getDeviceForStream(streamType);
             sVolumeLogger.enqueue(new VolumeEvent(VolumeEvent.VOL_SET_STREAM_VOL, streamType,
-                    index/*val1*/, flags/*val2*/, callingPackage));
+                    index/*val1*/, flags/*val2*/, getStreamVolume(streamType, deviceType) /*val3*/,
+                    callingPackage));
+            ada = new AudioDeviceAttributes(deviceType /*nativeType*/, "" /*address*/);
         }
-        setStreamVolume(streamType, index, flags, device,
+        setStreamVolume(streamType, index, flags, ada,
                 callingPackage, callingPackage, attributionTag,
-                Binder.getCallingUid(), callingOrSelfHasAudioSettingsPermission());
+                Binder.getCallingUid(), callingOrSelfHasAudioSettingsPermission(),
+                canChangeMuteAndUpdateController);
     }
 
     @android.annotation.EnforcePermission(android.Manifest.permission.ACCESS_ULTRASOUND)
@@ -4229,7 +4359,9 @@ public class AudioService extends IAudioService.Stub
         }
     }
 
-    /*package*/ int getBluetoothContextualVolumeStream() {
+    /** only public for mocking/spying, do not call outside of AudioService */
+    @VisibleForTesting
+    public int getBluetoothContextualVolumeStream() {
         return getBluetoothContextualVolumeStream(mMode.get());
     }
 
@@ -4285,6 +4417,9 @@ public class AudioService extends IAudioService.Stub
         if (mMediaPlaybackActive.getAndSet(mediaActive) != mediaActive && mediaActive) {
             mSoundDoseHelper.scheduleMusicActiveCheck();
         }
+
+        mLoudnessCodecHelper.updateCodecParameters(configs);
+
         // Update playback active state for all apps in audio mode stack.
         // When the audio mode owner becomes active, replace any delayed MSG_UPDATE_AUDIO_MODE
         // and request an audio mode update immediately. Upon any other change, queue the message
@@ -4365,6 +4500,18 @@ public class AudioService extends IAudioService.Stub
                 null /* playbackConfigs */, configs /* recordConfigs */);
         mDeviceBroker.updateCommunicationRouteClientsActivity(
                 null /* playbackConfigs */, configs /* recordConfigs */);
+    }
+
+    private void dumpFlags(PrintWriter pw) {
+        pw.println("\nFun with Flags: ");
+        pw.println("\tandroid.media.audio.Flags.autoPublicVolumeApiHardening:"
+                + autoPublicVolumeApiHardening());
+        pw.println("\tandroid.media.audio.Flags.focusFreezeTestApi:"
+                + focusFreezeTestApi());
+        pw.println("\tcom.android.media.audio.Flags.bluetoothMacAddressAnonymization:"
+                + bluetoothMacAddressAnonymization());
+        pw.println("\tcom.android.media.audio.Flags.disablePrescaleAbsoluteVolume:"
+                + disablePrescaleAbsoluteVolume());
     }
 
     private void dumpAudioMode(PrintWriter pw) {
@@ -4475,7 +4622,9 @@ public class AudioService extends IAudioService.Stub
     private void setStreamVolume(int streamType, int index, int flags,
             @Nullable AudioDeviceAttributes ada,
             String callingPackage, String caller, String attributionTag, int uid,
-            boolean hasModifyAudioSettings) {
+            boolean hasModifyAudioSettings,
+            boolean canChangeMuteAndUpdateController) {
+
         if (DEBUG_VOL) {
             Log.d(TAG, "setStreamVolume(stream=" + streamType+", index=" + index
                     + ", dev=" + ada
@@ -4521,7 +4670,7 @@ public class AudioService extends IAudioService.Stub
             return;
         }
 
-        mSoundDoseHelper.invalidatPendingVolumeCommand();
+        mSoundDoseHelper.invalidatePendingVolumeCommand();
 
         oldIndex = streamState.getIndex(device);
 
@@ -4578,7 +4727,7 @@ public class AudioService extends IAudioService.Stub
             onSetStreamVolume(streamType, index, flags, device, caller, hasModifyAudioSettings,
                     // ada is non-null when called from setDeviceVolume,
                     // which shouldn't update the mute state
-                    ada == null /*canChangeMute*/);
+                    canChangeMuteAndUpdateController /*canChangeMute*/);
             index = mStreamStates[streamType].getIndex(device);
         }
 
@@ -4588,7 +4737,7 @@ public class AudioService extends IAudioService.Stub
                 maybeSendSystemAudioStatusCommand(false);
             }
         }
-        if (ada == null) {
+        if (canChangeMuteAndUpdateController) {
             // only non-null when coming here from setDeviceVolume
             // TODO change test to check early if device is current device or not
             sendVolumeUpdate(streamType, oldIndex, index, flags, device);
@@ -4780,16 +4929,10 @@ public class AudioService extends IAudioService.Stub
     // UI update and Broadcast Intent
     private void sendMasterMuteUpdate(boolean muted, int flags) {
         mVolumeController.postMasterMuteChanged(updateFlagsForTvPlatform(flags));
-        broadcastMasterMuteStatus(muted);
+        sendMsg(mAudioHandler, MSG_BROADCAST_MASTER_MUTE,
+                SENDMSG_QUEUE, muted ? 1 : 0, 0, null, 0);
     }
 
-    private void broadcastMasterMuteStatus(boolean muted) {
-        Intent intent = new Intent(AudioManager.MASTER_MUTE_CHANGED_ACTION);
-        intent.putExtra(AudioManager.EXTRA_MASTER_VOLUME_MUTED, muted);
-        intent.addFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT
-                | Intent.FLAG_RECEIVER_REPLACE_PENDING);
-        sendStickyBroadcastToAll(intent);
-    }
 
     /**
      * Sets the stream state's index, and posts a message to set system volume.
@@ -4956,18 +5099,21 @@ public class AudioService extends IAudioService.Stub
                 != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-        setMasterMuteInternalNoCallerCheck(mute, flags, userId);
+        setMasterMuteInternalNoCallerCheck(mute, flags, userId, "setMasterMute");
     }
 
-    private void setMasterMuteInternalNoCallerCheck(boolean mute, int flags, int userId) {
+    private void setMasterMuteInternalNoCallerCheck(
+            boolean mute, int flags, int userId, String eventSource) {
         if (DEBUG_VOL) {
-            Log.d(TAG, String.format("Master mute %s, %d, user=%d", mute, flags, userId));
+            Log.d(TAG, TextUtils.formatSimple("Master mute %s, flags 0x%x, userId=%d from %s",
+                    mute, flags, userId, eventSource));
         }
+
         if (!isPlatformAutomotive() && mUseFixedVolume) {
             // If using fixed volume, we don't mute.
             // TODO: remove the isPlatformAutomotive check here.
             // The isPlatformAutomotive check is added for safety but may not be necessary.
-            return;
+            mute = false;
         }
         // For automotive,
         // - the car service is always running as system user
@@ -4976,8 +5122,10 @@ public class AudioService extends IAudioService.Stub
         // Therefore, the getCurrentUser() is always different to the foreground user.
         if ((isPlatformAutomotive() && userId == UserHandle.USER_SYSTEM)
                 || (getCurrentUserId() == userId)) {
-            if (mute != AudioSystem.getMasterMute()) {
-                AudioSystem.setMasterMute(mute);
+            if (mute != mMasterMute.getAndSet(mute)) {
+                sVolumeLogger.enqueue(new VolumeEvent(
+                        VolumeEvent.VOL_MASTER_MUTE, mute));
+                mAudioSystem.setMasterMute(mute);
                 sendMasterMuteUpdate(mute, flags);
             }
         }
@@ -4985,13 +5133,14 @@ public class AudioService extends IAudioService.Stub
 
     /** get global mute state. */
     public boolean isMasterMute() {
-        return AudioSystem.getMasterMute();
+        return mMasterMute.get();
     }
 
     @android.annotation.EnforcePermission(android.Manifest.permission.MODIFY_AUDIO_ROUTING)
     /** @see AudioManager#setMasterMute(boolean, int) */
     public void setMasterMute(boolean mute, int flags, String callingPackage, int userId,
             String attributionTag) {
+
         super.setMasterMute_enforcePermission();
 
         setMasterMuteInternal(mute, flags, callingPackage,
@@ -5002,6 +5151,10 @@ public class AudioService extends IAudioService.Stub
     public int getStreamVolume(int streamType) {
         ensureValidStreamType(streamType);
         int device = getDeviceForStream(streamType);
+        return getStreamVolume(streamType, device);
+    }
+
+    private int getStreamVolume(int streamType, int device) {
         synchronized (VolumeStreamState.class) {
             int index = mStreamStates[streamType].getIndex(device);
 
@@ -5357,6 +5510,10 @@ public class AudioService extends IAudioService.Stub
     }
 
     public void setRingerModeExternal(int ringerMode, String caller) {
+        if (mHardeningEnforcer.blockVolumeMethod(
+                HardeningEnforcer.METHOD_AUDIO_MANAGER_SET_RINGER_MODE)) {
+            return;
+        }
         if (isAndroidNPlus(caller) && wouldToggleZenMode(ringerMode)
                 && !mNm.isNotificationPolicyAccessGrantedForPackage(caller)) {
             throw new SecurityException("Not allowed to change Do Not Disturb state");
@@ -6109,6 +6266,35 @@ public class AudioService extends IAudioService.Stub
                 AudioDeviceVolumeManager.ADJUST_MODE_NORMAL);
     }
 
+    /**
+      * @see AudioManager#adjustVolume(int, int)
+      * This method is redirected from AudioManager to AudioService for API hardening rules
+      * enforcement then to MediaSession for implementation.
+      */
+    @Override
+    public void adjustVolume(int direction, int flags) {
+        if (mHardeningEnforcer.blockVolumeMethod(
+                HardeningEnforcer.METHOD_AUDIO_MANAGER_ADJUST_VOLUME)) {
+            return;
+        }
+        getMediaSessionManager().dispatchAdjustVolume(AudioManager.USE_DEFAULT_STREAM_TYPE,
+                    direction, flags);
+    }
+
+    /**
+     * @see AudioManager#adjustSuggestedStreamVolume(int, int, int)
+     * This method is redirected from AudioManager to AudioService for API hardening rules
+     * enforcement then to MediaSession for implementation.
+     */
+    @Override
+    public void adjustSuggestedStreamVolume(int direction, int suggestedStreamType, int flags) {
+        if (mHardeningEnforcer.blockVolumeMethod(
+                HardeningEnforcer.METHOD_AUDIO_MANAGER_ADJUST_SUGGESTED_STREAM_VOLUME)) {
+            return;
+        }
+        getMediaSessionManager().dispatchAdjustVolume(suggestedStreamType, direction, flags);
+    }
+
     /** @see AudioManager#setStreamVolumeForUid(int, int, int, String, int, int, int) */
     @Override
     public void setStreamVolumeForUid(int streamType, int index, int flags,
@@ -6120,7 +6306,8 @@ public class AudioService extends IAudioService.Stub
 
         setStreamVolume(streamType, index, flags, /*device*/ null,
                 packageName, packageName, null, uid,
-                hasAudioSettingsPermission(uid, pid));
+                hasAudioSettingsPermission(uid, pid),
+                true /*canChangeMuteAndUpdateController*/);
     }
 
     //==========================================================================================
@@ -6598,7 +6785,8 @@ public class AudioService extends IAudioService.Stub
         return mContentResolver;
     }
 
-    /*package*/ SettingsAdapter getSettings() {
+    @VisibleForTesting(visibility = PACKAGE)
+    public SettingsAdapter getSettings() {
         return mSettings;
     }
 
@@ -7353,7 +7541,7 @@ public class AudioService extends IAudioService.Stub
 
         sVolumeLogger.enqueue(new EventLogger.StringEvent("setDeviceVolumeBehavior: dev:"
                 + AudioSystem.getOutputDeviceName(device.getInternalType()) + " addr:"
-                + device.getAddress() + " behavior:"
+                + Utils.anonymizeBluetoothAddress(device.getAddress()) + " behavior:"
                 + AudioDeviceVolumeManager.volumeBehaviorName(deviceVolumeBehavior)
                 + " pack:" + pkgName).printLog(TAG));
         if (pkgName == null) {
@@ -7506,6 +7694,13 @@ public class AudioService extends IAudioService.Stub
     @Retention(RetentionPolicy.SOURCE)
     public @interface ConnectionState {}
 
+    /**
+     * Default SAD for a TV using ARC, used when the Amplifier didn't report any SADs.
+     * Represents 2-channel LPCM including all defined sample rates and bit depths.
+     * For the format definition, see Table 34 in the CEA standard CEA-861-D.
+     */
+    private static final byte[] DEFAULT_ARC_AUDIO_DESCRIPTOR = new byte[]{0x09, 0x7f, 0x07};
+
     @android.annotation.EnforcePermission(android.Manifest.permission.MODIFY_AUDIO_ROUTING)
     /**
      * see AudioManager.setWiredDeviceConnectionState()
@@ -7516,6 +7711,27 @@ public class AudioService extends IAudioService.Stub
         Objects.requireNonNull(attributes);
 
         attributes = retrieveBluetoothAddress(attributes);
+
+        // When using ARC, a TV should use default 2 channel LPCM if the Amplifier didn't
+        // report any SADs. See section 13.15.3 of the HDMI-CEC spec version 1.4b.
+        if (attributes.getType() == AudioDeviceInfo.TYPE_HDMI_ARC
+                && attributes.getRole() == AudioDeviceAttributes.ROLE_OUTPUT
+                && attributes.getAudioDescriptors().isEmpty()) {
+            attributes = new AudioDeviceAttributes(
+                    attributes.getRole(),
+                    attributes.getType(),
+                    attributes.getAddress(),
+                    attributes.getName(),
+                    attributes.getAudioProfiles(),
+                    new ArrayList<AudioDescriptor>(Collections.singletonList(
+                            new AudioDescriptor(
+                                    AudioDescriptor.STANDARD_EDID,
+                                    AudioProfile.AUDIO_ENCAPSULATION_TYPE_NONE,
+                                    DEFAULT_ARC_AUDIO_DESCRIPTOR
+                            )
+                    ))
+            );
+        }
 
         if (state != CONNECTION_STATE_CONNECTED
                 && state != CONNECTION_STATE_DISCONNECTED) {
@@ -7595,15 +7811,13 @@ public class AudioService extends IAudioService.Stub
     public @interface BtProfile {}
 
 
+    @android.annotation.EnforcePermission(android.Manifest.permission.BLUETOOTH_STACK)
     /**
      * See AudioManager.handleBluetoothActiveDeviceChanged(...)
      */
     public void handleBluetoothActiveDeviceChanged(BluetoothDevice newDevice,
             BluetoothDevice previousDevice, @NonNull BluetoothProfileConnectionInfo info) {
-        if (mContext.checkCallingOrSelfPermission(android.Manifest.permission.BLUETOOTH_STACK)
-                != PackageManager.PERMISSION_GRANTED) {
-            throw new SecurityException("Bluetooth is the only caller allowed");
-        }
+        handleBluetoothActiveDeviceChanged_enforcePermission();
         if (info == null) {
             throw new IllegalArgumentException("Illegal null BluetoothProfileConnectionInfo for"
                     + " device " + previousDevice + " -> " + newDevice);
@@ -8503,7 +8717,7 @@ public class AudioService extends IAudioService.Stub
             if (index == 0) {
                 // 0% for volume 0
                 index = 0;
-            } else if (index > 0 && index <= 3) {
+            } else if (!disablePrescaleAbsoluteVolume() && index > 0 && index <= 3) {
                 // Pre-scale for volume steps 1 2 and 3
                 index = (int) (mIndexMax * mPrescaleAbsoluteVolume[index - 1]) / 10;
             } else {
@@ -8656,13 +8870,18 @@ public class AudioService extends IAudioService.Stub
                 // fire changed intents for all streams, but only when the device it changed on
                 //  is the current device
                 if ((index != oldIndex) && isCurrentDevice) {
-                    mVolumeChanged.putExtra(AudioManager.EXTRA_VOLUME_STREAM_VALUE, index);
-                    mVolumeChanged.putExtra(AudioManager.EXTRA_PREV_VOLUME_STREAM_VALUE, oldIndex);
-                    mVolumeChanged.putExtra(AudioManager.EXTRA_VOLUME_STREAM_TYPE_ALIAS,
-                            mStreamVolumeAlias[mStreamType]);
-                    AudioService.sVolumeLogger.enqueue(new VolChangedBroadcastEvent(
-                            mStreamType, mStreamVolumeAlias[mStreamType], index));
-                    sendBroadcastToAll(mVolumeChanged, mVolumeChangedOptions);
+                    // for single volume devices, only send the volume change broadcast
+                    // on the alias stream
+                    if (!mIsSingleVolume || (mStreamVolumeAlias[mStreamType] == mStreamType)) {
+                        mVolumeChanged.putExtra(AudioManager.EXTRA_VOLUME_STREAM_VALUE, index);
+                        mVolumeChanged.putExtra(AudioManager.EXTRA_PREV_VOLUME_STREAM_VALUE,
+                                oldIndex);
+                        mVolumeChanged.putExtra(AudioManager.EXTRA_VOLUME_STREAM_TYPE_ALIAS,
+                                mStreamVolumeAlias[mStreamType]);
+                        AudioService.sVolumeLogger.enqueue(new VolChangedBroadcastEvent(
+                                mStreamType, mStreamVolumeAlias[mStreamType], index, oldIndex));
+                        sendBroadcastToAll(mVolumeChanged, mVolumeChangedOptions);
+                    }
                 }
             }
             return changed;
@@ -9279,8 +9498,8 @@ public class AudioService extends IAudioService.Stub
                     onAccessoryPlugMediaUnmute(msg.arg1);
                     break;
 
-                case MSG_UNMUTE_STREAM:
-                    onUnmuteStream(msg.arg1, msg.arg2);
+                case MSG_UNMUTE_STREAM_ON_SINGLE_VOL_DEVICE:
+                    onUnmuteStreamOnSingleVolDevice(msg.arg1, msg.arg2);
                     break;
 
                 case MSG_DYN_POLICY_MIX_STATE_UPDATE:
@@ -9320,6 +9539,10 @@ public class AudioService extends IAudioService.Stub
 
                 case MSG_BROADCAST_MICROPHONE_MUTE:
                     mSystemServer.sendMicrophoneMuteChangedIntent();
+                    break;
+
+                case MSG_BROADCAST_MASTER_MUTE:
+                    mSystemServer.broadcastMasterMuteStatus(msg.arg1 == 1);
                     break;
 
                 case MSG_CHECK_MODE_FOR_UID:
@@ -9418,19 +9641,26 @@ public class AudioService extends IAudioService.Stub
                     onDispatchPreferredMixerAttributesChanged(msg.getData(), msg.arg1);
                     break;
 
-                case MSG_LOWER_VOLUME_TO_RS1:
-                    onLowerVolumeToRs1();
-                    break;
-
                 case MSG_CONFIGURATION_CHANGED:
                     onConfigurationChanged();
                     break;
 
+                case MusicFxHelper.MSG_EFFECT_CLIENT_GONE:
+                    mMusicFxHelper.handleMessage(msg);
+                    break;
+
+                case SoundDoseHelper.MSG_CONFIGURE_SAFE_MEDIA:
+                case SoundDoseHelper.MSG_CONFIGURE_SAFE_MEDIA_FORCED:
+                case SoundDoseHelper.MSG_PERSIST_SAFE_VOLUME_STATE:
+                case SoundDoseHelper.MSG_PERSIST_MUSIC_ACTIVE_MS:
+                case SoundDoseHelper.MSG_PERSIST_CSD_VALUES:
+                case SoundDoseHelper.MSG_CSD_UPDATE_ATTENUATION:
+                case SoundDoseHelper.MSG_LOWER_VOLUME_TO_RS1:
+                    mSoundDoseHelper.handleMessage(msg);
+                    break;
+
                 default:
-                    if (msg.what >= SAFE_MEDIA_VOLUME_MSG_START) {
-                        // msg could be for the SoundDoseHelper
-                        mSoundDoseHelper.handleMessage(msg);
-                    }
+                    Log.e(TAG, "Unsupported msgId " + msg.what);
             }
         }
     }
@@ -9510,7 +9740,7 @@ public class AudioService extends IAudioService.Stub
     private void avrcpSupportsAbsoluteVolume(String address, boolean support) {
         // address is not used for now, but may be used when multiple a2dp devices are supported
         sVolumeLogger.enqueue(new EventLogger.StringEvent("avrcpSupportsAbsoluteVolume addr="
-                + address + " support=" + support).printLog(TAG));
+                + Utils.anonymizeBluetoothAddress(address) + " support=" + support).printLog(TAG));
         mDeviceBroker.setAvrcpAbsoluteVolumeSupported(support);
         setAvrcpAbsoluteVolumeSupported(support);
     }
@@ -9615,14 +9845,14 @@ public class AudioService extends IAudioService.Stub
                         0,
                         null, 0);
             } else if (action.equals(Intent.ACTION_USER_SWITCHED)) {
-                if (mUserSwitchedReceived) {
+                // the current audio focus owner is likely no longer valid
+                final boolean audioDiscarded = mMediaFocusControl.maybeDiscardAudioFocusOwner();
+                if (audioDiscarded && mUserSwitchedReceived) {
                     // attempt to stop music playback for background user except on first user
                     // switch (i.e. first boot)
                     mDeviceBroker.postBroadcastBecomingNoisy();
                 }
                 mUserSwitchedReceived = true;
-                // the current audio focus owner is no longer valid
-                mMediaFocusControl.discardAudioFocusOwner();
 
                 if (mSupportsMicPrivacyToggle) {
                     mMicMuteFromPrivacyToggle = mSensorPrivacyManagerInternal
@@ -9665,7 +9895,7 @@ public class AudioService extends IAudioService.Stub
                 }
             } else if (action.equals(AudioEffect.ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION) ||
                     action.equals(AudioEffect.ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION)) {
-                handleAudioEffectBroadcast(context, intent);
+                mMusicFxHelper.handleAudioEffectBroadcast(context, intent);
             } else if (action.equals(Intent.ACTION_PACKAGES_SUSPENDED)) {
                 final int[] suspendedUids = intent.getIntArrayExtra(Intent.EXTRA_CHANGED_UID_LIST);
                 final String[] suspendedPackages =
@@ -9713,32 +9943,12 @@ public class AudioService extends IAudioService.Stub
                         newRestrictions.getBoolean(UserManager.DISALLOW_ADJUST_VOLUME)
                                 || newRestrictions.getBoolean(UserManager.DISALLOW_UNMUTE_DEVICE);
                 if (wasRestricted != isRestricted) {
-                    setMasterMuteInternalNoCallerCheck(isRestricted, /* flags =*/ 0, userId);
+                    setMasterMuteInternalNoCallerCheck(
+                            isRestricted, /* flags =*/ 0, userId, "onUserRestrictionsChanged");
                 }
             }
         }
     } // end class AudioServiceUserRestrictionsListener
-
-    private void handleAudioEffectBroadcast(Context context, Intent intent) {
-        String target = intent.getPackage();
-        if (target != null) {
-            Log.w(TAG, "effect broadcast already targeted to " + target);
-            return;
-        }
-        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-        // TODO this should target a user-selected panel
-        List<ResolveInfo> ril = context.getPackageManager().queryBroadcastReceivers(
-                intent, 0 /* flags */);
-        if (ril != null && ril.size() != 0) {
-            ResolveInfo ri = ril.get(0);
-            if (ri != null && ri.activityInfo != null && ri.activityInfo.packageName != null) {
-                intent.setPackage(ri.activityInfo.packageName);
-                context.sendBroadcastAsUser(intent, UserHandle.ALL);
-                return;
-            }
-        }
-        Log.w(TAG, "couldn't find receiver package for effect intent");
-    }
 
     private void killBackgroundUserProcessesWithRecordAudioPermission(UserInfo oldUser) {
         PackageManager pm = mContext.getPackageManager();
@@ -9971,6 +10181,14 @@ public class AudioService extends IAudioService.Stub
         return mMediaFocusControl.abandonAudioFocus(fd, clientId, aa, callingPackageName);
     }
 
+    /** see {@link AudioManager#getFocusDuckedUidsForTest()} */
+    @Override
+    @EnforcePermission("android.permission.QUERY_AUDIO_STATE")
+    public @NonNull List<Integer> getFocusDuckedUidsForTest() {
+        super.getFocusDuckedUidsForTest_enforcePermission();
+        return mPlaybackMonitor.getFocusDuckedUids();
+    }
+
     public void unregisterAudioFocusClient(String clientId) {
         new MediaMetrics.Item(mMetricsId + "focus")
                 .set(MediaMetrics.Property.CLIENT_NAME, clientId)
@@ -9987,6 +10205,68 @@ public class AudioService extends IAudioService.Stub
         return mMediaFocusControl.getFocusRampTimeMs(focusGain, attr);
     }
 
+    /**
+     * Test method to return the duration of the fade out applied on the players of a focus loser
+     * @see AudioManager#getFocusFadeOutDurationForTest()
+     * @return the fade out duration, in ms
+     */
+    @EnforcePermission("android.permission.QUERY_AUDIO_STATE")
+    public long getFocusFadeOutDurationForTest() {
+        super.getFocusFadeOutDurationForTest_enforcePermission();
+        return mMediaFocusControl.getFocusFadeOutDurationForTest();
+    }
+
+    /**
+     * Test method to return the length of time after a fade out before the focus loser is unmuted
+     * (and is faded back in).
+     * @see AudioManager#getFocusUnmuteDelayAfterFadeOutForTest()
+     * @return the time gap after a fade out completion on focus loss, and fade in start, in ms
+     */
+    @Override
+    @EnforcePermission("android.permission.QUERY_AUDIO_STATE")
+    public long getFocusUnmuteDelayAfterFadeOutForTest() {
+        super.getFocusUnmuteDelayAfterFadeOutForTest_enforcePermission();
+        return mMediaFocusControl.getFocusUnmuteDelayAfterFadeOutForTest();
+    }
+
+    /**
+     * Test method to start preventing applications from requesting audio focus during a test,
+     * which could interfere with the testing of the functionality/behavior under test.
+     * Calling this method needs to be paired with a call to {@link #exitAudioFocusFreezeForTest}
+     * when the testing is done. If this is not the case (e.g. in case of a test crash),
+     * a death observer mechanism will ensure the system is not left in a bad state, but this should
+     * not be relied on when implementing tests.
+     * @see AudioManager#enterAudioFocusFreezeForTest(List)
+     * @param cb IBinder to track the death of the client of this method
+     * @param exemptedUids a list of UIDs that are exempt from the freeze. This would for instance
+     *                     be those of the test runner and other players used in the test
+     * @return true if the focus freeze mode is successfully entered, false if there was an issue,
+     *     such as another freeze currently used.
+     */
+    @Override
+    @EnforcePermission("android.permission.MODIFY_AUDIO_SETTINGS_PRIVILEGED")
+    public boolean enterAudioFocusFreezeForTest(IBinder cb, int[] exemptedUids) {
+        super.enterAudioFocusFreezeForTest_enforcePermission();
+        Objects.requireNonNull(exemptedUids);
+        Objects.requireNonNull(cb);
+        return mMediaFocusControl.enterAudioFocusFreezeForTest(cb, exemptedUids);
+    }
+
+    /**
+     * Test method to end preventing applications from requesting audio focus during a test.
+     * @see AudioManager#exitAudioFocusFreezeForTest()
+     * @param cb IBinder identifying the client of this method
+     * @return true if the focus freeze mode is successfully exited, false if there was an issue,
+     *     such as the freeze already having ended, or not started.
+     */
+    @Override
+    @EnforcePermission("android.permission.MODIFY_AUDIO_SETTINGS_PRIVILEGED")
+    public boolean exitAudioFocusFreezeForTest(IBinder cb) {
+        super.exitAudioFocusFreezeForTest_enforcePermission();
+        Objects.requireNonNull(cb);
+        return mMediaFocusControl.exitAudioFocusFreezeForTest(cb);
+    }
+
     /** only public for mocking/spying, do not call outside of AudioService */
     @VisibleForTesting
     public boolean hasAudioFocusUsers() {
@@ -9994,6 +10274,7 @@ public class AudioService extends IAudioService.Stub
     }
 
     /** see {@link AudioManager#getFadeOutDurationOnFocusLossMillis(AudioAttributes)} */
+    @Override
     public long getFadeOutDurationOnFocusLossMillis(AudioAttributes aa) {
         if (!enforceQueryAudioStateForTest("fade out duration")) {
             return 0;
@@ -10324,6 +10605,9 @@ public class AudioService extends IAudioService.Stub
     }
 
     private boolean isBluetoothPrividged() {
+        if (!bluetoothMacAddressAnonymization()) {
+            return true;
+        }
         return PackageManager.PERMISSION_GRANTED == mContext.checkCallingOrSelfPermission(
                 android.Manifest.permission.BLUETOOTH_CONNECT)
                 || Binder.getCallingUid() == Process.SYSTEM_UID;
@@ -10354,11 +10638,11 @@ public class AudioService extends IAudioService.Stub
     AudioDeviceAttributes retrieveBluetoothAddressUncheked(@NonNull AudioDeviceAttributes ada) {
         Objects.requireNonNull(ada);
         if (AudioSystem.isBluetoothDevice(ada.getInternalType())) {
-            String anonymizedAddress = anonymizeBluetoothAddress(ada.getAddress());
+            String anonymizedAddress = Utils.anonymizeBluetoothAddress(ada.getAddress());
             for (AdiDeviceState ads : mDeviceBroker.getImmutableDeviceInventory()) {
                 if (!(AudioSystem.isBluetoothDevice(ads.getInternalDeviceType())
                         && (ada.getInternalType() == ads.getInternalDeviceType())
-                        && anonymizedAddress.equals(anonymizeBluetoothAddress(
+                        && anonymizedAddress.equals(Utils.anonymizeBluetoothAddress(
                                 ads.getDeviceAddress())))) {
                     continue;
                 }
@@ -10367,19 +10651,6 @@ public class AudioService extends IAudioService.Stub
             }
         }
         return ada;
-    }
-
-    /**
-     * Convert a Bluetooth MAC address to an anonymized one when exposed to a non privileged app
-     * Must match the implementation of BluetoothUtils.toAnonymizedAddress()
-     * @param address Mac address to be anonymized
-     * @return anonymized mac address
-     */
-    static String anonymizeBluetoothAddress(String address) {
-        if (address == null || address.length() != "AA:BB:CC:DD:EE:FF".length()) {
-            return null;
-        }
-        return "XX:XX:XX:XX" + address.substring("XX:XX:XX:XX".length());
     }
 
     private List<AudioDeviceAttributes> anonymizeAudioDeviceAttributesList(
@@ -10405,7 +10676,7 @@ public class AudioService extends IAudioService.Stub
             return ada;
         }
         AudioDeviceAttributes res = new AudioDeviceAttributes(ada);
-        res.setAddress(anonymizeBluetoothAddress(ada.getAddress()));
+        res.setAddress(Utils.anonymizeBluetoothAddress(ada.getAddress()));
         return res;
     }
 
@@ -10415,6 +10686,50 @@ public class AudioService extends IAudioService.Stub
         }
 
         return anonymizeAudioDeviceAttributesUnchecked(ada);
+    }
+
+    // ========================================================================================
+    // LoudnessCodecConfigurator
+
+    @Override
+    public void registerLoudnessCodecUpdatesDispatcher(ILoudnessCodecUpdatesDispatcher dispatcher) {
+        mLoudnessCodecHelper.registerLoudnessCodecUpdatesDispatcher(dispatcher);
+    }
+
+    @Override
+    public void unregisterLoudnessCodecUpdatesDispatcher(
+            ILoudnessCodecUpdatesDispatcher dispatcher) {
+        mLoudnessCodecHelper.unregisterLoudnessCodecUpdatesDispatcher(dispatcher);
+    }
+
+    /** @see LoudnessCodecConfigurator#setAudioTrack(AudioTrack) */
+    @Override
+    public void startLoudnessCodecUpdates(int piid, List<LoudnessCodecInfo> codecInfoList) {
+        mLoudnessCodecHelper.startLoudnessCodecUpdates(piid, codecInfoList);
+    }
+
+    /** @see LoudnessCodecConfigurator#setAudioTrack(AudioTrack) */
+    @Override
+    public void stopLoudnessCodecUpdates(int piid) {
+        mLoudnessCodecHelper.stopLoudnessCodecUpdates(piid);
+    }
+
+    /** @see LoudnessCodecConfigurator#addMediaCodec(MediaCodec) */
+    @Override
+    public void addLoudnessCodecInfo(int piid, int mediaCodecHash, LoudnessCodecInfo codecInfo) {
+        mLoudnessCodecHelper.addLoudnessCodecInfo(piid, mediaCodecHash, codecInfo);
+    }
+
+    /** @see LoudnessCodecConfigurator#removeMediaCodec(MediaCodec) */
+    @Override
+    public void removeLoudnessCodecInfo(int piid, LoudnessCodecInfo codecInfo) {
+        mLoudnessCodecHelper.removeLoudnessCodecInfo(piid, codecInfo);
+    }
+
+    /** @see LoudnessCodecConfigurator#getLoudnessCodecParams(AudioTrack, MediaCodec) */
+    @Override
+    public PersistableBundle getLoudnessParams(int piid, LoudnessCodecInfo codecInfo) {
+        return mLoudnessCodecHelper.getLoudnessParams(piid, codecInfo);
     }
 
     //==========================================================================================
@@ -10726,9 +11041,10 @@ public class AudioService extends IAudioService.Stub
         }
     }
 
+    @android.annotation.EnforcePermission(android.Manifest.permission.REMOTE_AUDIO_PLAYBACK)
     @Override
     public void setRingtonePlayer(IRingtonePlayer player) {
-        mContext.enforceCallingOrSelfPermission(REMOTE_AUDIO_PLAYBACK, null);
+        setRingtonePlayer_enforcePermission();
         mRingtonePlayer = player;
     }
 
@@ -10755,29 +11071,9 @@ public class AudioService extends IAudioService.Stub
     }
 
     /*package*/ void postLowerVolumeToRs1() {
-        sendMsg(mAudioHandler, MSG_LOWER_VOLUME_TO_RS1, SENDMSG_QUEUE,
+        sendMsg(mAudioHandler, SoundDoseHelper.MSG_LOWER_VOLUME_TO_RS1, SENDMSG_QUEUE,
                 // no params, no delay
                 0, 0, null, 0);
-    }
-
-    /**
-     * Called when handling MSG_LOWER_VOLUME_TO_RS1
-     */
-    private void onLowerVolumeToRs1() {
-        final ArrayList<AudioDeviceAttributes> devices = getDevicesForAttributesInt(
-                new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).build(), true);
-        final int nativeDeviceType;
-        final AudioDeviceAttributes ada;
-        if (!devices.isEmpty()) {
-            ada = devices.get(0);
-            nativeDeviceType = ada.getInternalType();
-        } else {
-            nativeDeviceType = AudioSystem.DEVICE_OUT_USB_HEADSET;
-            ada = new AudioDeviceAttributes(AudioSystem.DEVICE_OUT_USB_HEADSET, "");
-        }
-        final int index = mSoundDoseHelper.safeMediaVolumeIndex(nativeDeviceType);
-        setStreamVolumeWithAttributionInt(STREAM_MUSIC, index, /*flags*/ 0, ada,
-                "com.android.server.audio", "AudioService");
     }
 
     @Override
@@ -10856,13 +11152,19 @@ public class AudioService extends IAudioService.Stub
 
     @Override
     @android.annotation.EnforcePermission(MODIFY_AUDIO_SETTINGS_PRIVILEGED)
-    public void setBluetoothAudioDeviceCategory(@NonNull String address, boolean isBle,
+    public void setBluetoothAudioDeviceCategory_legacy(@NonNull String address, boolean isBle,
             @AudioDeviceCategory int btAudioDeviceCategory) {
-        super.setBluetoothAudioDeviceCategory_enforcePermission();
+        super.setBluetoothAudioDeviceCategory_legacy_enforcePermission();
+        if (automaticBtDeviceType()) {
+            // do nothing
+            return;
+        }
 
         final String addr = Objects.requireNonNull(address);
 
-        AdiDeviceState deviceState = mDeviceBroker.findBtDeviceStateForAddress(addr, isBle);
+        AdiDeviceState deviceState = mDeviceBroker.findBtDeviceStateForAddress(addr,
+                (isBle ? AudioSystem.DEVICE_OUT_BLE_HEADSET
+                        : AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP));
 
         int internalType = !isBle ? DEVICE_OUT_BLUETOOTH_A2DP
                 : ((btAudioDeviceCategory == AUDIO_DEVICE_CATEGORY_HEADPHONES)
@@ -10878,7 +11180,7 @@ public class AudioService extends IAudioService.Stub
         deviceState.setAudioDeviceCategory(btAudioDeviceCategory);
 
         mDeviceBroker.addOrUpdateBtAudioDeviceCategoryInInventory(deviceState);
-        mDeviceBroker.persistAudioDeviceSettings();
+        mDeviceBroker.postPersistAudioDeviceSettings();
 
         mSpatializerHelper.refreshDevice(deviceState.getAudioDeviceAttributes());
         mSoundDoseHelper.setAudioDeviceCategory(addr, internalType,
@@ -10888,16 +11190,77 @@ public class AudioService extends IAudioService.Stub
     @Override
     @android.annotation.EnforcePermission(MODIFY_AUDIO_SETTINGS_PRIVILEGED)
     @AudioDeviceCategory
-    public int getBluetoothAudioDeviceCategory(@NonNull String address, boolean isBle) {
-        super.getBluetoothAudioDeviceCategory_enforcePermission();
+    public int getBluetoothAudioDeviceCategory_legacy(@NonNull String address, boolean isBle) {
+        super.getBluetoothAudioDeviceCategory_legacy_enforcePermission();
+        if (automaticBtDeviceType()) {
+            return AUDIO_DEVICE_CATEGORY_UNKNOWN;
+        }
 
         final AdiDeviceState deviceState = mDeviceBroker.findBtDeviceStateForAddress(
-                Objects.requireNonNull(address), isBle);
+                Objects.requireNonNull(address), (isBle ? AudioSystem.DEVICE_OUT_BLE_HEADSET
+                        : AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP));
         if (deviceState == null) {
             return AUDIO_DEVICE_CATEGORY_UNKNOWN;
         }
 
         return deviceState.getAudioDeviceCategory();
+    }
+
+    @Override
+    @android.annotation.EnforcePermission(MODIFY_AUDIO_SETTINGS_PRIVILEGED)
+    public boolean setBluetoothAudioDeviceCategory(@NonNull String address,
+            @AudioDeviceCategory int btAudioDeviceCategory) {
+        super.setBluetoothAudioDeviceCategory_enforcePermission();
+        if (!automaticBtDeviceType()) {
+            return false;
+        }
+
+        final String addr = Objects.requireNonNull(address);
+        if (isBluetoothAudioDeviceCategoryFixed(addr)) {
+            Log.w(TAG, "Cannot set fixed audio device type for address "
+                    + Utils.anonymizeBluetoothAddress(address));
+            return false;
+        }
+
+        mDeviceBroker.addAudioDeviceWithCategoryInInventoryIfNeeded(address, btAudioDeviceCategory);
+
+        return true;
+    }
+
+    @Override
+    @android.annotation.EnforcePermission(MODIFY_AUDIO_SETTINGS_PRIVILEGED)
+    @AudioDeviceCategory
+    public int getBluetoothAudioDeviceCategory(@NonNull String address) {
+        super.getBluetoothAudioDeviceCategory_enforcePermission();
+        if (!automaticBtDeviceType()) {
+            return AUDIO_DEVICE_CATEGORY_UNKNOWN;
+        }
+
+        return mDeviceBroker.getAndUpdateBtAdiDeviceStateCategoryForAddress(address);
+    }
+
+    @Override
+    @android.annotation.EnforcePermission(MODIFY_AUDIO_SETTINGS_PRIVILEGED)
+    @AudioDeviceCategory
+    public boolean isBluetoothAudioDeviceCategoryFixed(@NonNull String address) {
+        super.isBluetoothAudioDeviceCategoryFixed_enforcePermission();
+        if (!automaticBtDeviceType()) {
+            return false;
+        }
+
+        return mDeviceBroker.isBluetoothAudioDeviceCategoryFixed(address);
+    }
+
+    /** Update the sound dose and spatializer state based on the new AdiDeviceState. */
+    @VisibleForTesting(visibility = PACKAGE)
+    public void onUpdatedAdiDeviceState(AdiDeviceState deviceState) {
+        if (deviceState == null) {
+            return;
+        }
+        mSpatializerHelper.refreshDevice(deviceState.getAudioDeviceAttributes());
+        mSoundDoseHelper.setAudioDeviceCategory(deviceState.getDeviceAddress(),
+                deviceState.getInternalDeviceType(),
+                deviceState.getAudioDeviceCategory() == AUDIO_DEVICE_CATEGORY_HEADPHONES);
     }
 
     //==========================================================================================
@@ -11076,6 +11439,10 @@ public class AudioService extends IAudioService.Stub
 
     private void updateA11yVolumeAlias(boolean a11VolEnabled) {
         if (DEBUG_VOL) Log.d(TAG, "Accessibility volume enabled = " + a11VolEnabled);
+        if (mIsSingleVolume) {
+            if (DEBUG_VOL) Log.d(TAG, "Accessibility volume is not set on single volume device");
+            return;
+        }
         if (sIndependentA11yVolume != a11VolEnabled) {
             sIndependentA11yVolume = a11VolEnabled;
             // update the volume mapping scheme
@@ -11117,6 +11484,8 @@ public class AudioService extends IAudioService.Stub
     static final int LOG_NB_EVENTS_DYN_POLICY = 10;
     static final int LOG_NB_EVENTS_SPATIAL = 30;
     static final int LOG_NB_EVENTS_SOUND_DOSE = 30;
+
+    static final int LOG_NB_EVENTS_LOUDNESS_CODEC = 30;
 
     static final EventLogger
             sLifecycleLogger = new EventLogger(LOG_NB_EVENTS_LIFECYCLE,
@@ -11224,6 +11593,7 @@ public class AudioService extends IAudioService.Stub
         } else {
             pw.println("\nMessage handler is null");
         }
+        dumpFlags(pw);
         mMediaFocusControl.dump(pw);
         dumpStreamStates(pw);
         dumpVolumeGroups(pw);
@@ -11255,6 +11625,14 @@ public class AudioService extends IAudioService.Stub
         pw.print("  adjust-only absolute volume devices="); pw.println(dumpDeviceTypes(
                 getAbsoluteVolumeDevicesWithBehavior(
                         AudioManager.DEVICE_VOLUME_BEHAVIOR_ABSOLUTE_ADJUST_ONLY)));
+        pw.print("  pre-scale for bluetooth absolute volume ");
+        if (disablePrescaleAbsoluteVolume()) {
+            pw.println("= disabled");
+        } else {
+            pw.println("=" + mPrescaleAbsoluteVolume[0]
+                    + ", " + mPrescaleAbsoluteVolume[1]
+                    + ", " + mPrescaleAbsoluteVolume[2]);
+        }
         pw.print("  mExtVolumeController="); pw.println(mExtVolumeController);
         pw.print("  mHdmiAudioSystemClient="); pw.println(mHdmiAudioSystemClient);
         pw.print("  mHdmiPlaybackClient="); pw.println(mHdmiPlaybackClient);
@@ -11264,10 +11642,11 @@ public class AudioService extends IAudioService.Stub
             pw.print("  mHdmiCecVolumeControlEnabled="); pw.println(mHdmiCecVolumeControlEnabled);
         }
         pw.print("  mIsCallScreeningModeSupported="); pw.println(mIsCallScreeningModeSupported);
-        pw.print("  mic mute FromSwitch=" + mMicMuteFromSwitch
+        pw.println("  mic mute FromSwitch=" + mMicMuteFromSwitch
                         + " FromRestrictions=" + mMicMuteFromRestrictions
                         + " FromApi=" + mMicMuteFromApi
                         + " from system=" + mMicMuteFromSystemCached);
+        pw.print("  mMasterMute="); pw.println(mMasterMute.get());
         dumpAccessibilityServiceUids(pw);
         dumpAssistantServicesUids(pw);
 
@@ -11306,6 +11685,10 @@ public class AudioService extends IAudioService.Stub
         pw.println("isSpatializerEnabled:" + isSpatializerEnabled() + " (routing dependent)");
         mSpatializerHelper.dump(pw);
         sSpatialLogger.dump(pw);
+
+        pw.println("\n");
+        pw.println("\nLoudness alignment:");
+        mLoudnessCodecHelper.dump(pw);
 
         mAudioSystem.dump(pw);
     }
@@ -12064,6 +12447,49 @@ public class AudioService extends IAudioService.Stub
         }
     }
 
+    /**
+     * Update {@link AudioMixingRule}-s for already registered {@link AudioMix}-es.
+     *
+     * @param mixesToUpdate - array of already registered {@link AudioMix}-es to update.
+     * @param updatedMixingRules - array of {@link AudioMixingRule}-s corresponding to
+     *                           {@code mixesToUpdate} mixes. The array must be same size as
+     *                           {@code mixesToUpdate} and i-th {@link AudioMixingRule} must
+     *                           correspond to i-th {@link AudioMix} from mixesToUpdate array.
+     * @param pcb - {@link IAudioPolicyCallback} corresponding to the registered
+     *              {@link AudioPolicy} all {@link AudioMix}-es for {@code mixesToUpdate}
+     *              are part of.
+     * @return {@link AudioManager#SUCCESS} iff the mixing rules were updated successfully,
+     *     {@link AudioManager#ERROR} otherwise.
+     */
+    @android.annotation.EnforcePermission(android.Manifest.permission.MODIFY_AUDIO_ROUTING)
+    public int updateMixingRulesForPolicy(
+            @NonNull AudioMix[] mixesToUpdate,
+            @NonNull AudioMixingRule[] updatedMixingRules,
+            @NonNull IAudioPolicyCallback pcb) {
+        super.updateMixingRulesForPolicy_enforcePermission();
+        Objects.requireNonNull(mixesToUpdate);
+        Objects.requireNonNull(updatedMixingRules);
+        Objects.requireNonNull(pcb);
+        if (mixesToUpdate.length != updatedMixingRules.length) {
+            Log.e(TAG, "Provided list of audio mixes to update and corresponding mixing rules "
+                    + "have mismatching length (mixesToUpdate.length = " + mixesToUpdate.length
+                    + ", updatedMixingRules.length = " + updatedMixingRules.length +  ").");
+            return AudioManager.ERROR;
+        }
+        if (DEBUG_AP) {
+            Log.d(TAG, "updateMixingRules for " + pcb.asBinder() + "with mix rules: ");
+        }
+        synchronized (mAudioPolicies) {
+            final AudioPolicyProxy app =
+                    checkUpdateForPolicy(pcb, "Cannot add AudioMix in audio policy");
+            if (app == null) {
+                return AudioManager.ERROR;
+            }
+            return app.updateMixingRules(mixesToUpdate, updatedMixingRules) == AudioSystem.SUCCESS
+                    ? AudioManager.SUCCESS : AudioManager.ERROR;
+        }
+    }
+
     /** see AudioPolicy.setUidDeviceAffinity() */
     public int setUidDeviceAffinity(IAudioPolicyCallback pcb, int uid,
             @NonNull int[] deviceTypes, @NonNull String[] deviceAddresses) {
@@ -12801,6 +13227,35 @@ public class AudioService extends IAudioService.Stub
 
         }
 
+        @AudioSystem.AudioSystemError int updateMixingRules(
+                                        @NonNull AudioMix[] mixesToUpdate,
+                                        @NonNull AudioMixingRule[] updatedMixingRules) {
+            Objects.requireNonNull(mixesToUpdate);
+            Objects.requireNonNull(updatedMixingRules);
+
+            if (mixesToUpdate.length != updatedMixingRules.length) {
+                Log.e(TAG, "Provided list of audio mixes to update and corresponding mixing rules "
+                        + "have mismatching length (mixesToUpdate.length = " + mixesToUpdate.length
+                        + ", updatedMixingRules.length = " + updatedMixingRules.length +  ").");
+                return AudioSystem.BAD_VALUE;
+            }
+
+            synchronized (mMixes) {
+                try (SafeCloseable unused = ClearCallingIdentityContext.create()) {
+                    int ret = mAudioSystem.updateMixingRules(mixesToUpdate, updatedMixingRules);
+                    if (ret == AudioSystem.SUCCESS) {
+                        for (int i = 0; i < mixesToUpdate.length; i++) {
+                            AudioMix audioMixToUpdate = mixesToUpdate[i];
+                            AudioMixingRule audioMixingRule = updatedMixingRules[i];
+                            mMixes.stream().filter(audioMixToUpdate::equals).findAny().ifPresent(
+                                    mix -> mix.setAudioMixingRule(audioMixingRule));
+                        }
+                    }
+                    return ret;
+                }
+            }
+        }
+
         int setUidDeviceAffinities(int uid, @NonNull int[] types, @NonNull String[] addresses) {
             final Integer Uid = new Integer(uid);
             if (mUidDeviceAffinities.remove(Uid) != null) {
@@ -13319,8 +13774,13 @@ public class AudioService extends IAudioService.Stub
         return activeAssistantUids;
     }
 
-    UUID getDeviceSensorUuid(AudioDeviceAttributes device) {
-        return mDeviceBroker.getDeviceSensorUuid(device);
+    List<String> getDeviceAddresses(AudioDeviceAttributes device) {
+        return mDeviceBroker.getDeviceAddresses(device);
+    }
+
+    @VisibleForTesting(visibility = VisibleForTesting.Visibility.PACKAGE)
+    MusicFxHelper getMusicFxHelper() {
+        return mMusicFxHelper;
     }
 
     //======================
