@@ -544,6 +544,13 @@ public class PipTouchHandler {
             return true;
         }
 
+        // Ignore the motion event When the entry animation is waiting to be started
+        if (!mTouchState.isUserInteracting() && mPipTaskOrganizer.isEntryScheduled()) {
+            ProtoLog.wtf(ShellProtoLogGroup.WM_SHELL_PICTURE_IN_PICTURE,
+                    "%s: Waiting to start the entry animation, skip the motion event.", TAG);
+            return true;
+        }
+
         // Update the touch state
         mTouchState.onTouchEvent(ev);
 
@@ -772,13 +779,10 @@ public class PipTouchHandler {
     }
 
     /**
-     * Resizes the pip window and updates user resized bounds
-     *
-     * @param bounds target bounds to resize to
-     * @param snapFraction snap fraction to apply after resizing
+     * Sets the user resize bounds tracked by {@link PipResizeGestureHandler}
      */
-    void userResizeTo(Rect bounds, float snapFraction) {
-        mPipResizeGestureHandler.userResizeTo(bounds, snapFraction);
+    void setUserResizeBounds(Rect bounds) {
+        mPipResizeGestureHandler.setUserResizeBounds(bounds);
     }
 
     /**

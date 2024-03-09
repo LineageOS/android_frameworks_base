@@ -45,7 +45,7 @@ import com.android.internal.util.IndentingPrintWriter;
 import com.android.internal.util.Preconditions;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.server.LocalServices;
-import com.android.server.PersistentDataBlockManagerInternal;
+import com.android.server.pdb.PersistentDataBlockManagerInternal;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -509,10 +509,10 @@ class LockSettingsStorage {
         final UserInfo parentInfo = um.getProfileParent(userId);
 
         if (parentInfo == null) {
-            // This user owns its lock settings files - safe to delete them
+            // Delete files specific to non-profile users.
             deleteFile(getRebootEscrowFile(userId));
         } else {
-            // Managed profile
+            // Delete files specific to profile users.
             removeChildProfileLock(userId);
         }
 

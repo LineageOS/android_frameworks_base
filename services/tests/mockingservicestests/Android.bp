@@ -46,6 +46,8 @@ android_test {
         "androidx.test.espresso.core",
         "androidx.test.espresso.contrib",
         "androidx.test.ext.truth",
+        "backup_flags_lib",
+        "flag-junit",
         "frameworks-base-testutils",
         "hamcrest-library",
         "kotlin-test",
@@ -67,7 +69,7 @@ android_test {
         "servicestests-core-utils",
         "servicestests-utils-mockito-extended",
         "testables",
-        "truth-prebuilt",
+        "truth",
         // TODO: remove once Android migrates to JUnit 4.12, which provides assertThrows
         "testng",
         "compatibility-device-util-axt",
@@ -113,16 +115,5 @@ java_library {
     ],
     libs: [
         "android.test.runner",
-    ],
-}
-
-filegroup {
-    name: "extended-mockito-rule-sources",
-    srcs: [
-        "src/com/android/server/ExtendedMockitoRule.java",
-        "src/com/android/server/Visitor.java",
-    ],
-    visibility: [
-        "//frameworks/base/services/tests/displayservicetests",
     ],
 }

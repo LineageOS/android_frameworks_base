@@ -150,7 +150,7 @@ static jstring getJavaInternedString(JNIEnv *env, const String8 &string) {
         return gStringOffsets.emptyString;
     }
 
-    ScopedLocalRef<jstring> javaString(env, env->NewStringUTF(string.string()));
+    ScopedLocalRef<jstring> javaString(env, env->NewStringUTF(string.c_str()));
     jstring internedString = (jstring)
             env->CallObjectMethod(javaString.get(), gStringOffsets.intern);
     return internedString;
@@ -263,6 +263,18 @@ static void nativeGetRuntimeSensors(JNIEnv *env, jclass clazz, jlong sensorManag
 static jboolean nativeIsDataInjectionEnabled(JNIEnv *_env, jclass _this, jlong sensorManager) {
     SensorManager* mgr = reinterpret_cast<SensorManager*>(sensorManager);
     return mgr->isDataInjectionEnabled();
+}
+
+static jboolean nativeIsReplayDataInjectionEnabled(JNIEnv *_env, jclass _this,
+                                                   jlong sensorManager) {
+    SensorManager *mgr = reinterpret_cast<SensorManager *>(sensorManager);
+    return mgr->isReplayDataInjectionEnabled();
+}
+
+static jboolean nativeIsHalBypassReplayDataInjectionEnabled(JNIEnv *_env, jclass _this,
+                                                            jlong sensorManager) {
+    SensorManager *mgr = reinterpret_cast<SensorManager *>(sensorManager);
+    return mgr->isHalBypassReplayDataInjectionEnabled();
 }
 
 static jint nativeCreateDirectChannel(JNIEnv *_env, jclass _this, jlong sensorManager,
@@ -532,6 +544,11 @@ static const JNINativeMethod gSystemSensorManagerMethods[] = {
         {"nativeGetRuntimeSensors", "(JILjava/util/List;)V", (void *)nativeGetRuntimeSensors},
 
         {"nativeIsDataInjectionEnabled", "(J)Z", (void *)nativeIsDataInjectionEnabled},
+
+        {"nativeIsReplayDataInjectionEnabled", "(J)Z", (void *)nativeIsReplayDataInjectionEnabled},
+
+        {"nativeIsHalBypassReplayDataInjectionEnabled", "(J)Z",
+         (void *)nativeIsHalBypassReplayDataInjectionEnabled},
 
         {"nativeCreateDirectChannel", "(JIJIILandroid/hardware/HardwareBuffer;)I",
          (void *)nativeCreateDirectChannel},

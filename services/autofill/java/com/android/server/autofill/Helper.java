@@ -97,7 +97,7 @@ public final class Helper {
         rView.visitUris(uri -> {
             int uriOwnerId = android.content.ContentProvider.getUserIdFromUri(uri, userId);
             boolean allowed = uriOwnerId == userId;
-            permissionsOk.set(allowed && permissionsOk.get());
+            permissionsOk.set(allowed & permissionsOk.get());
         });
 
         return permissionsOk.get();

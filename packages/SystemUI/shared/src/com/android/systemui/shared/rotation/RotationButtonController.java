@@ -281,14 +281,14 @@ public class RotationButtonController {
         TaskStackChangeListeners.getInstance().unregisterTaskStackListener(mTaskStackListener);
     }
 
-    public void setRotationLockedAtAngle(int rotationSuggestion) {
+    public void setRotationLockedAtAngle(int rotationSuggestion, String caller) {
         final Boolean isLocked = isRotationLocked();
         if (isLocked == null) {
             // Ignore if we can't read the setting for the current user
             return;
         }
         RotationPolicy.setRotationLockAtAngle(mContext, /* enabled= */ isLocked,
-                /* rotation= */ rotationSuggestion);
+                /* rotation= */ rotationSuggestion, caller);
     }
 
     /**
@@ -487,7 +487,8 @@ public class RotationButtonController {
         if (rotationLocked || mRotationButton.isVisible()) {
             // Do not allow a change in rotation to set user rotation when docked.
             if (shouldOverrideUserLockPrefs(rotation) && rotationLocked && !mDocked) {
-                setRotationLockedAtAngle(rotation);
+                setRotationLockedAtAngle(rotation, /* caller= */
+                        "RotationButtonController#onRotationWatcherChanged");
             }
             setRotateSuggestionButtonState(false /* visible */, true /* forced */);
         }
@@ -591,7 +592,8 @@ public class RotationButtonController {
     private void onRotateSuggestionClick(View v) {
         mUiEventLogger.log(RotationButtonEvent.ROTATION_SUGGESTION_ACCEPTED);
         incrementNumAcceptedRotationSuggestionsIfNeeded();
-        setRotationLockedAtAngle(mLastRotationSuggestion);
+        setRotationLockedAtAngle(mLastRotationSuggestion,
+                /* caller= */ "RotationButtonController#onRotateSuggestionClick");
         Log.i(TAG, "onRotateSuggestionClick() mLastRotationSuggestion=" + mLastRotationSuggestion);
         v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
     }
@@ -699,13 +701,18 @@ public class RotationButtonController {
 
         @Override
         public void onActivityRequestedOrientationChanged(int taskId, int requestedOrientation) {
-            // Only hide the icon if the top task changes its requestedOrientation
-            // Launcher can alter its requestedOrientation while it's not on top, don't hide on this
-            Optional.ofNullable(ActivityManagerWrapper.getInstance())
-                    .map(ActivityManagerWrapper::getRunningTask)
-                    .ifPresent(a -> {
-                        if (a.id == taskId) setRotateSuggestionButtonState(false /* visible */);
-                    });
+            mBgExecutor.execute(() -> {
+                // Only hide the icon if the top task changes its requestedOrientation Launcher can
+                // alter its requestedOrientation while it's not on top, don't hide on this
+                Optional.ofNullable(ActivityManagerWrapper.getInstance())
+                        .map(ActivityManagerWrapper::getRunningTask)
+                        .ifPresent(a -> {
+                            if (a.id == taskId) {
+                                mMainThreadHandler.post(() ->
+                                        setRotateSuggestionButtonState(false /* visible */));
+                            }
+                        });
+            });
         }
     }
 

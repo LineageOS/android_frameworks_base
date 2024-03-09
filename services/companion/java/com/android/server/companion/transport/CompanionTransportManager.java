@@ -16,9 +16,7 @@
 
 package com.android.server.companion.transport;
 
-import static android.Manifest.permission.DELIVER_COMPANION_MESSAGES;
-
-import static com.android.server.companion.transport.Transport.MESSAGE_REQUEST_PERMISSION_RESTORE;
+import static android.companion.CompanionDeviceManager.MESSAGE_REQUEST_PERMISSION_RESTORE;
 
 import android.annotation.NonNull;
 import android.annotation.SuppressLint;
@@ -140,7 +138,6 @@ public class CompanionTransportManager {
 
     public void attachSystemDataTransport(String packageName, int userId, int associationId,
             ParcelFileDescriptor fd) {
-        mContext.enforceCallingOrSelfPermission(DELIVER_COMPANION_MESSAGES, TAG);
         synchronized (mTransports) {
             if (mTransports.contains(associationId)) {
                 detachSystemDataTransport(packageName, userId, associationId);
@@ -154,7 +151,6 @@ public class CompanionTransportManager {
     }
 
     public void detachSystemDataTransport(String packageName, int userId, int associationId) {
-        mContext.enforceCallingOrSelfPermission(DELIVER_COMPANION_MESSAGES, TAG);
         synchronized (mTransports) {
             final Transport transport = mTransports.get(associationId);
             if (transport != null) {

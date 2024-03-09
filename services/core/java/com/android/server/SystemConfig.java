@@ -35,7 +35,6 @@ import android.os.VintfRuntimeInfo;
 import android.os.incremental.IncrementalManager;
 import android.os.storage.StorageManager;
 import android.permission.PermissionManager.SplitPermissionInfo;
-import android.sysprop.ApexProperties;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -341,6 +340,10 @@ public class SystemConfig {
     // A map of preloaded package names and the path to its app metadata file path.
     private final ArrayMap<String, String> mAppMetadataFilePaths = new ArrayMap<>();
 
+    // A set of pre-installed package names that requires strict signature verification once
+    // updated to avoid cached/potentially tampered results.
+    private final Set<String> mPreinstallPackagesWithStrictSignatureCheck = new ArraySet<>();
+
     /**
      * Map of system pre-defined, uniquely named actors; keys are namespace,
      * value maps actor name to package name.
@@ -541,6 +544,10 @@ public class SystemConfig {
 
     public ArrayMap<String, String> getAppMetadataFilePaths() {
         return mAppMetadataFilePaths;
+    }
+
+    public Set<String> getPreinstallPackagesWithStrictSignatureCheck() {
+        return mPreinstallPackagesWithStrictSignatureCheck;
     }
 
     /**
@@ -1208,8 +1215,7 @@ public class SystemConfig {
                             boolean systemExt = permFile.toPath().startsWith(
                                     Environment.getSystemExtDirectory().toPath() + "/");
                             boolean apex = permFile.toPath().startsWith(
-                                    Environment.getApexDirectory().toPath() + "/")
-                                    && ApexProperties.updatable().orElse(false);
+                                    Environment.getApexDirectory().toPath() + "/");
                             if (vendor) {
                                 readPrivAppPermissions(parser,
                                         mPermissionAllowlist.getVendorPrivilegedAppAllowlist());
@@ -1485,6 +1491,17 @@ public class SystemConfig {
                                     + " at " + parser.getPositionDescription());
                         } else {
                             mAppMetadataFilePaths.put(packageName, path);
+                        }
+                    } break;
+                    case "require-strict-signature": {
+                        if (android.security.Flags.extendVbChainToUpdatedApk()) {
+                            String packageName = parser.getAttributeValue(null, "package");
+                            if (TextUtils.isEmpty(packageName)) {
+                                Slog.w(TAG, "<" + name + "> without valid package in " + permFile
+                                        + " at " + parser.getPositionDescription());
+                            } else {
+                                mPreinstallPackagesWithStrictSignatureCheck.add(packageName);
+                            }
                         }
                     } break;
                     default: {
@@ -1827,6 +1844,9 @@ public class SystemConfig {
                         soname, soname, new String[0], true);
                 mSharedLibraries.put(entry.name, entry);
             }
+        } catch (FileNotFoundException e) {
+            // Expected for /vendor/etc/public.libraries.txt on some devices
+            Slog.d(TAG, listFile + " does not exist");
         } catch (IOException e) {
             Slog.w(TAG, "Failed to read public libraries file " + listFile, e);
         }

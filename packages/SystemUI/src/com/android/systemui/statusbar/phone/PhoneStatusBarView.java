@@ -20,13 +20,13 @@ package com.android.systemui.statusbar.phone;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Insets;
 import android.graphics.Rect;
 import android.inputmethodservice.InputMethodService;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.Pair;
 import android.view.ContextThemeWrapper;
 import android.view.Display;
 import android.view.DisplayCutout;
@@ -45,7 +45,7 @@ import com.android.internal.policy.SystemBarUtils;
 import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.Gefingerpoken;
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.shared.rotation.FloatingRotationButton;
@@ -348,13 +348,12 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
     }
 
     private void updateSafeInsets() {
-        Pair<Integer, Integer> insets = mContentInsetsProvider
+        Insets insets = mContentInsetsProvider
                 .getStatusBarContentInsetsForCurrentRotation();
-
         setPadding(
-                insets.first,
-                getPaddingTop(),
-                insets.second,
+                insets.left,
+                insets.top,
+                insets.right,
                 getPaddingBottom());
 
         // Apply negative paddings to centered area layout so that we'll actually be on the center.

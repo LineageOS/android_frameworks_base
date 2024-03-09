@@ -25,6 +25,7 @@ import android.app.backup.FullBackup;
 import android.app.backup.FullBackupDataOutput;
 import android.app.backup.WallpaperBackupHelper;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
@@ -60,6 +61,7 @@ public class SystemBackupAgent extends BackupAgentHelper {
     private static final String PEOPLE_HELPER = "people";
     private static final String APP_LOCALES_HELPER = "app_locales";
     private static final String APP_GENDER_HELPER = "app_gender";
+    private static final String COMPANION_HELPER = "companion";
     private static final String NETWORK_POLICY_HELPER = "network_policy";
 
     // These paths must match what the WallpaperManagerService uses.  The leaf *_FILENAME
@@ -96,6 +98,7 @@ public class SystemBackupAgent extends BackupAgentHelper {
                     NOTIFICATION_HELPER,
                     SYNC_SETTINGS_HELPER,
                     APP_LOCALES_HELPER,
+                    COMPANION_HELPER,
                     NETWORK_POLICY_HELPER);
 
     /** Helpers that are enabled for full, non-system users. */
@@ -126,11 +129,14 @@ public class SystemBackupAgent extends BackupAgentHelper {
         addHelperIfEligibleForUser(USAGE_STATS_HELPER, new UsageStatsBackupHelper(mUserId));
         addHelperIfEligibleForUser(SHORTCUT_MANAGER_HELPER, new ShortcutBackupHelper(mUserId));
         addHelperIfEligibleForUser(ACCOUNT_MANAGER_HELPER, new AccountManagerBackupHelper(mUserId));
-        addHelperIfEligibleForUser(SLICES_HELPER, new SliceBackupHelper(this));
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_SLICES_DISABLED)) {
+            addHelperIfEligibleForUser(SLICES_HELPER, new SliceBackupHelper(this));
+        }
         addHelperIfEligibleForUser(PEOPLE_HELPER, new PeopleBackupHelper(mUserId));
         addHelperIfEligibleForUser(APP_LOCALES_HELPER, new AppSpecificLocalesBackupHelper(mUserId));
         addHelperIfEligibleForUser(APP_GENDER_HELPER,
                 new AppGrammaticalGenderBackupHelper(mUserId));
+        addHelperIfEligibleForUser(COMPANION_HELPER, new CompanionBackupHelper(mUserId));
         addHelperIfEligibleForUser(NETWORK_POLICY_HELPER, new NetworkPolicyBackupHelper(mUserId));
     }
 

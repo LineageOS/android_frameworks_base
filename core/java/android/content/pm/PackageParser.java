@@ -1446,7 +1446,7 @@ public class PackageParser {
                     verified.getPublicKeys(),
                     verified.getPastSigningCertificates());
         } else {
-            if (!Signature.areExactMatch(pkg.mSigningDetails.signatures,
+            if (!Signature.areExactArraysMatch(pkg.mSigningDetails.signatures,
                     verified.getSignatures())) {
                 throw new PackageParserException(
                         INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES,
@@ -1457,8 +1457,8 @@ public class PackageParser {
 
     private static AssetManager newConfiguredAssetManager() {
         AssetManager assetManager = new AssetManager();
-        assetManager.setConfiguration(0, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                Build.VERSION.RESOURCES_SDK_INT);
+        assetManager.setConfiguration(0, 0, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 0, Build.VERSION.RESOURCES_SDK_INT);
         return assetManager;
     }
 
@@ -6430,7 +6430,7 @@ public class PackageParser {
                     }
                 }
             } else {
-                return Signature.areEffectiveMatch(oldDetails.signatures, signatures);
+                return Signature.areEffectiveArraysMatch(oldDetails.signatures, signatures);
             }
             return false;
         }
@@ -6578,7 +6578,7 @@ public class PackageParser {
 
         /** Returns true if the signatures in this and other match exactly. */
         public boolean signaturesMatchExactly(SigningDetails other) {
-            return Signature.areExactMatch(this.signatures, other.signatures);
+            return Signature.areExactArraysMatch(this.signatures, other.signatures);
         }
 
         @Override
@@ -6630,7 +6630,7 @@ public class PackageParser {
             SigningDetails that = (SigningDetails) o;
 
             if (signatureSchemeVersion != that.signatureSchemeVersion) return false;
-            if (!Signature.areExactMatch(signatures, that.signatures)) return false;
+            if (!Signature.areExactArraysMatch(signatures, that.signatures)) return false;
             if (publicKeys != null) {
                 if (!publicKeys.equals((that.publicKeys))) {
                     return false;
@@ -6639,7 +6639,8 @@ public class PackageParser {
                 return false;
             }
 
-            // can't use Signature.areExactMatch() because order matters with the past signing certs
+            // can't use Signature.areExactArraysMatch() because order matters with the past
+            // signing certs
             if (!Arrays.equals(pastSigningCertificates, that.pastSigningCertificates)) {
                 return false;
             }
@@ -7967,7 +7968,7 @@ public class PackageParser {
             ai.enabled = true;
         } else if (state.getEnabledState()
                 == PackageManager.COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED) {
-            ai.enabled = (flags&PackageManager.GET_DISABLED_UNTIL_USED_COMPONENTS) != 0;
+            ai.enabled = (flags & PackageManager.GET_DISABLED_UNTIL_USED_COMPONENTS) != 0;
         } else if (state.getEnabledState() == PackageManager.COMPONENT_ENABLED_STATE_DISABLED
                 || state.getEnabledState()
                 == PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER) {
@@ -8973,8 +8974,8 @@ public class PackageParser {
             }
 
             AssetManager assets = new AssetManager();
-            assets.setConfiguration(0, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                    Build.VERSION.RESOURCES_SDK_INT);
+            assets.setConfiguration(0, 0, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, Build.VERSION.RESOURCES_SDK_INT);
             assets.setApkAssets(apkAssets, false /*invalidateCaches*/);
 
             mCachedAssetManager = assets;
@@ -9048,8 +9049,8 @@ public class PackageParser {
 
         private static AssetManager createAssetManagerWithAssets(ApkAssets[] apkAssets) {
             final AssetManager assets = new AssetManager();
-            assets.setConfiguration(0, 0, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                    Build.VERSION.RESOURCES_SDK_INT);
+            assets.setConfiguration(0, 0, null, null, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, Build.VERSION.RESOURCES_SDK_INT);
             assets.setApkAssets(apkAssets, false /*invalidateCaches*/);
             return assets;
         }

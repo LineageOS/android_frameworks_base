@@ -68,6 +68,7 @@ class InstallingSession {
     final MoveInfo mMoveInfo;
     final IPackageInstallObserver2 mObserver;
     int mInstallFlags;
+    final int mDevelopmentInstallFlags;
     @NonNull
     final InstallSource mInstallSource;
     final String mVolumeUuid;
@@ -93,8 +94,6 @@ class InstallingSession {
     private final UserHandle mUser;
     @NonNull
     final PackageManagerService mPm;
-    final InstallPackageHelper mInstallPackageHelper;
-    final RemovePackageHelper mRemovePackageHelper;
     final boolean mIsInherit;
     final int mSessionId;
     final int mRequireUserAction;
@@ -102,17 +101,16 @@ class InstallingSession {
 
     // For move install
     InstallingSession(OriginInfo originInfo, MoveInfo moveInfo, IPackageInstallObserver2 observer,
-            int installFlags, InstallSource installSource, String volumeUuid,
-            UserHandle user, String packageAbiOverride, int packageSource,
+            int installFlags, int developmentInstallFlags, InstallSource installSource,
+            String volumeUuid, UserHandle user, String packageAbiOverride, int packageSource,
             PackageLite packageLite, PackageManagerService pm) {
         mPm = pm;
         mUser = user;
-        mInstallPackageHelper = new InstallPackageHelper(mPm);
-        mRemovePackageHelper = new RemovePackageHelper(mPm);
         mOriginInfo = originInfo;
         mMoveInfo = moveInfo;
         mObserver = observer;
         mInstallFlags = installFlags;
+        mDevelopmentInstallFlags = developmentInstallFlags;
         mInstallSource = Preconditions.checkNotNull(installSource);
         mVolumeUuid = volumeUuid;
         mPackageAbiOverride = packageAbiOverride;
@@ -140,8 +138,6 @@ class InstallingSession {
             PackageLite packageLite, PackageManagerService pm) {
         mPm = pm;
         mUser = user;
-        mInstallPackageHelper = new InstallPackageHelper(mPm);
-        mRemovePackageHelper = new RemovePackageHelper(mPm);
         mOriginInfo = OriginInfo.fromStagedFile(stagedDir);
         mMoveInfo = null;
         mInstallReason = fixUpInstallReason(
@@ -149,6 +145,7 @@ class InstallingSession {
         mInstallScenario = sessionParams.installScenario;
         mObserver = observer;
         mInstallFlags = sessionParams.installFlags;
+        mDevelopmentInstallFlags = sessionParams.developmentInstallFlags;
         mInstallSource = installSource;
         mVolumeUuid = sessionParams.volumeUuid;
         mPackageAbiOverride = sessionParams.abiOverride;
@@ -239,7 +236,7 @@ class InstallingSession {
         // state can change within this delay and hence we need to re-verify certain conditions.
         boolean isStaged = (mInstallFlags & INSTALL_STAGED) != 0;
         if (isStaged) {
-            Pair<Integer, String> ret = mInstallPackageHelper.verifyReplacingVersionCode(
+            Pair<Integer, String> ret = mPm.verifyReplacingVersionCode(
                     pkgLite, mRequiredInstalledVersionCode, mInstallFlags);
             mRet = ret.first;
             if (mRet != INSTALL_SUCCEEDED) {
@@ -537,40 +534,39 @@ class InstallingSession {
                 }
             }
         } else {
-            mInstallPackageHelper.installPackagesTraced(installRequests);
+            mPm.installPackagesTraced(installRequests);
 
             for (InstallRequest request : installRequests) {
-                request.onInstallCompleted();
                 doPostInstall(request);
             }
         }
         for (InstallRequest request : installRequests) {
-            mInstallPackageHelper.restoreAndPostInstall(request);
+            mPm.restoreAndPostInstall(request);
         }
     }
 
     private void doPostInstall(InstallRequest request) {
         if (mMoveInfo != null) {
             if (request.getReturnCode() == PackageManager.INSTALL_SUCCEEDED) {
-                mRemovePackageHelper.cleanUpForMoveInstall(mMoveInfo.mFromUuid,
+                mPm.cleanUpForMoveInstall(mMoveInfo.mFromUuid,
                         mMoveInfo.mPackageName, mMoveInfo.mFromCodePath);
             } else {
-                mRemovePackageHelper.cleanUpForMoveInstall(mMoveInfo.mToUuid,
+                mPm.cleanUpForMoveInstall(mMoveInfo.mToUuid,
                         mMoveInfo.mPackageName, mMoveInfo.mFromCodePath);
             }
         } else {
             if (request.getReturnCode() != PackageManager.INSTALL_SUCCEEDED) {
-                mRemovePackageHelper.removeCodePath(request.getCodeFile());
+                mPm.removeCodePath(request.getCodeFile());
             }
         }
     }
 
     private void cleanUpForFailedInstall(InstallRequest request) {
         if (request.isInstallMove()) {
-            mRemovePackageHelper.cleanUpForMoveInstall(request.getMoveToUuid(),
+            mPm.cleanUpForMoveInstall(request.getMoveToUuid(),
                     request.getMovePackageName(), request.getMoveFromCodePath());
         } else {
-            mRemovePackageHelper.removeCodePath(request.getCodeFile());
+            mPm.removeCodePath(request.getCodeFile());
         }
     }
 
@@ -592,6 +588,10 @@ class InstallingSession {
                     "Only a non-staged install of a single APEX is supported");
         }
         InstallRequest request = requests.get(0);
+        boolean force =
+                (request.getDevelopmentInstallFlags()
+                        & PackageManager.INSTALL_DEVELOPMENT_FORCE_NON_STAGED_APEX_UPDATE)
+                        != 0;
         try {
             // Should directory scanning logic be moved to ApexManager for better test coverage?
             final File dir = request.getOriginInfo().mResolvedFile;
@@ -608,7 +608,7 @@ class InstallingSession {
                         PackageManagerException.INTERNAL_ERROR_APEX_MORE_THAN_ONE_FILE);
             }
             try (PackageParser2 packageParser = mPm.mInjector.getScanningPackageParser()) {
-                ApexInfo apexInfo = mPm.mApexManager.installPackage(apexes[0]);
+                ApexInfo apexInfo = mPm.mApexManager.installPackage(apexes[0], force);
                 // APEX has been handled successfully by apexd. Let's continue the install flow
                 // so it will be scanned and registered with the system.
                 // TODO(b/225756739): Improve atomicity of rebootless APEX install.

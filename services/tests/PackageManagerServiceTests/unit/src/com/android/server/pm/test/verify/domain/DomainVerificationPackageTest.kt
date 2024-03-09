@@ -36,29 +36,28 @@ import android.os.Process
 import android.util.ArraySet
 import android.util.SparseArray
 import android.util.Xml
+import com.android.internal.pm.parsing.pkg.AndroidPackageInternal
+import com.android.internal.pm.pkg.component.ParsedActivityImpl
+import com.android.internal.pm.pkg.component.ParsedIntentInfoImpl
 import com.android.server.pm.Computer
-import com.android.server.pm.parsing.pkg.AndroidPackageInternal
-import com.android.server.pm.pkg.AndroidPackage
 import com.android.server.pm.pkg.PackageStateInternal
 import com.android.server.pm.pkg.PackageUserStateInternal
-import com.android.server.pm.pkg.component.ParsedActivityImpl
-import com.android.server.pm.pkg.component.ParsedIntentInfoImpl
 import com.android.server.pm.verify.domain.DomainVerificationService
 import com.android.server.testutils.mock
 import com.android.server.testutils.mockThrowOnUnmocked
 import com.android.server.testutils.spy
 import com.android.server.testutils.whenever
 import com.google.common.truth.Truth.assertThat
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.security.PublicKey
+import java.util.UUID
 import org.junit.Test
 import org.mockito.ArgumentMatchers.any
 import org.mockito.ArgumentMatchers.anyInt
 import org.mockito.ArgumentMatchers.anyLong
 import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mockito.doReturn
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
-import java.security.PublicKey
-import java.util.UUID
 
 class DomainVerificationPackageTest {
 
@@ -1084,12 +1083,12 @@ class DomainVerificationPackageTest {
         whenever(this.domainSetId) { domainSetId }
         whenever(getUserStateOrDefault(0)) { PackageUserStateInternal.DEFAULT }
         whenever(getUserStateOrDefault(10)) { PackageUserStateInternal.DEFAULT }
-        whenever(userStates) {
+        doReturn(
             SparseArray<PackageUserStateInternal>().apply {
                 this[0] = PackageUserStateInternal.DEFAULT
                 this[1] = PackageUserStateInternal.DEFAULT
             }
-        }
+        ).whenever(this).userStates
         whenever(isSystem) { isSystemApp }
 
         val mockSigningDetails = SigningDetails(arrayOf(spy(Signature(signature)) {

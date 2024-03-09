@@ -33,11 +33,11 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QS;
 import com.android.systemui.plugins.qs.QSContainerController;
 import com.android.systemui.qs.QSDetailClipper;
 import com.android.systemui.qs.QSUtils;
+import com.android.systemui.res.R;
 import com.android.systemui.statusbar.phone.LightBarController;
 
 /**
@@ -131,8 +131,10 @@ public class QSCustomizer extends LinearLayout {
             setVisibility(View.VISIBLE);
             long duration = mClipper.animateCircularClip(
                     mX, mY, true, new ExpandAnimatorListener(tileAdapter));
-            mQsContainerController.setCustomizerAnimating(true);
-            mQsContainerController.setCustomizerShowing(true, duration);
+            if (mQsContainerController != null) {
+                mQsContainerController.setCustomizerAnimating(true);
+                mQsContainerController.setCustomizerShowing(true, duration);
+            }
         }
     }
 
@@ -146,8 +148,10 @@ public class QSCustomizer extends LinearLayout {
             mClipper.showBackground();
             isShown = true;
             setCustomizing(true);
-            mQsContainerController.setCustomizerAnimating(false);
-            mQsContainerController.setCustomizerShowing(true);
+            if (mQsContainerController != null) {
+                mQsContainerController.setCustomizerAnimating(false);
+                mQsContainerController.setCustomizerShowing(true);
+            }
         }
     }
 
@@ -165,8 +169,10 @@ public class QSCustomizer extends LinearLayout {
             } else {
                 setVisibility(View.GONE);
             }
-            mQsContainerController.setCustomizerAnimating(animate);
-            mQsContainerController.setCustomizerShowing(false, duration);
+            if (mQsContainerController != null) {
+                mQsContainerController.setCustomizerAnimating(animate);
+                mQsContainerController.setCustomizerShowing(false, duration);
+            }
         }
     }
 
@@ -176,7 +182,9 @@ public class QSCustomizer extends LinearLayout {
 
     void setCustomizing(boolean customizing) {
         mCustomizing = customizing;
-        mQs.notifyCustomizeChanged();
+        if (mQs != null) {
+            mQs.notifyCustomizeChanged();
+        }
     }
 
     public boolean isCustomizing() {
@@ -204,15 +212,21 @@ public class QSCustomizer extends LinearLayout {
                 setCustomizing(true);
             }
             mOpening = false;
-            mQsContainerController.setCustomizerAnimating(false);
+            if (mQsContainerController != null) {
+                mQsContainerController.setCustomizerAnimating(false);
+            }
             mRecyclerView.setAdapter(mTileAdapter);
         }
 
         @Override
         public void onAnimationCancel(Animator animation) {
             mOpening = false;
-            mQs.notifyCustomizeChanged();
-            mQsContainerController.setCustomizerAnimating(false);
+            if (mQs != null) {
+                mQs.notifyCustomizeChanged();
+            }
+            if (mQsContainerController != null) {
+                mQsContainerController.setCustomizerAnimating(false);
+            }
         }
     }
 
@@ -222,7 +236,9 @@ public class QSCustomizer extends LinearLayout {
             if (!isShown) {
                 setVisibility(View.GONE);
             }
-            mQsContainerController.setCustomizerAnimating(false);
+            if (mQsContainerController != null) {
+                mQsContainerController.setCustomizerAnimating(false);
+            }
         }
 
         @Override
@@ -230,7 +246,9 @@ public class QSCustomizer extends LinearLayout {
             if (!isShown) {
                 setVisibility(View.GONE);
             }
-            mQsContainerController.setCustomizerAnimating(false);
+            if (mQsContainerController != null) {
+                mQsContainerController.setCustomizerAnimating(false);
+            }
         }
     };
 

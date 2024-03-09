@@ -20,6 +20,7 @@ package {
 
 android_test {
     name: "AccessibilityMenuServiceTests",
+    use_resource_processor: true,
     certificate: "platform",
     libs: [
         "android.test.runner",
@@ -31,7 +32,7 @@ android_test {
         "androidx.test.ext.junit",
         "compatibility-device-util-axt",
         "platform-test-annotations",
-        "truth-prebuilt",
+        "truth",
     ],
     srcs: [
         "src/**/*.java",

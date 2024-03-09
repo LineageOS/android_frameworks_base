@@ -27,7 +27,7 @@ import androidx.preference.PreferenceScreen;
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
 import com.android.systemui.Dependency;
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 import com.android.systemui.demomode.DemoModeController;
 import com.android.systemui.fragments.FragmentService;
 import com.android.systemui.util.settings.GlobalSettings;

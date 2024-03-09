@@ -26,6 +26,7 @@ import android.media.IDevicesForAttributesCallback;
 import android.media.ISoundDose;
 import android.media.ISoundDoseCallback;
 import android.media.audiopolicy.AudioMix;
+import android.media.audiopolicy.AudioMixingRule;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
@@ -601,6 +602,21 @@ public class AudioSystemAdapter implements AudioSystem.RoutingUpdateCallback,
     }
 
     /**
+     * Update already {@link AudioMixingRule}-s for already registered {@link AudioMix}-es.
+     *
+     * @param mixes              - array of registered {@link AudioMix}-es to update.
+     * @param updatedMixingRules - array of {@link AudioMixingRule}-s corresponding to
+     *                           {@code mixesToUpdate} mixes. The array must be same size as
+     *                           {@code mixesToUpdate} and i-th {@link AudioMixingRule} must
+     *                           correspond to i-th {@link AudioMix} from mixesToUpdate array.
+     */
+    public int updateMixingRules(@NonNull AudioMix[] mixes,
+            @NonNull AudioMixingRule[] updatedMixingRules) {
+        invalidateRoutingCache();
+        return AudioSystem.updatePolicyMixes(mixes, updatedMixingRules);
+    }
+
+    /**
      * Same as {@link AudioSystem#setUidDeviceAffinities(int, int[], String[])}
      * @param uid
      * @param types
@@ -682,6 +698,15 @@ public class AudioSystemAdapter implements AudioSystem.RoutingUpdateCallback,
     public int clearPreferredMixerAttributes(
             @NonNull AudioAttributes attributes, int portId, int uid) {
         return AudioSystem.clearPreferredMixerAttributes(attributes, portId, uid);
+    }
+
+    /**
+     * Sets master mute state in audio flinger
+     * @param mute the mute state to set
+     * @return operation status
+     */
+    public int setMasterMute(boolean mute) {
+        return AudioSystem.setMasterMute(mute);
     }
 
     /**
