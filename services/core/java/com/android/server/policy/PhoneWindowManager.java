@@ -917,7 +917,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     toggleTorch();
                     break;
                 case MSG_CAMERA_LONG_PRESS:
-                    KeyEvent event = (KeyEvent) msg.obj;
                     mIsLongPress = true;
                     break;
             }
