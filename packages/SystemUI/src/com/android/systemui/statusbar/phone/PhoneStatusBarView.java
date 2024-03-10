@@ -361,9 +361,9 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
         LayoutParams centeredAreaParams =
                 (LayoutParams) findViewById(R.id.centered_area).getLayoutParams();
         centeredAreaParams.leftMargin =
-                winRotation == Surface.ROTATION_0 ? -insets.first : 0;
+                winRotation == Surface.ROTATION_0 ? -insets.left : 0;
         centeredAreaParams.rightMargin =
-                winRotation == Surface.ROTATION_0 ? -insets.second : 0;
+                winRotation == Surface.ROTATION_0 ? -insets.right : 0;
     }
 
     public ClockController getClockController() {
