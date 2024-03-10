@@ -2306,7 +2306,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // Delay handling home if a double-tap is possible.
                 if (mHomeDoubleTapAction != Action.NOTHING) {
                     mHandler.removeCallbacks(mHomeDoubleTapTimeoutRunnable); // just in case
-                    mHomeDoubleTapPending = true;
+                    //mPendingHomeKeyEvent = null;
                     mHandler.postDelayed(mHomeDoubleTapTimeoutRunnable,
                             ViewConfiguration.getDoubleTapTimeout());
                     return true;
