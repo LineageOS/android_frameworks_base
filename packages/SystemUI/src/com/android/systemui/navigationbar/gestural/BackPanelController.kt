@@ -683,7 +683,10 @@ internal constructor(
     private fun setTriggerLongSwipe(enabled: Boolean) {
         if (triggerLongSwipe != enabled) {
             triggerLongSwipe = enabled
-            vibratorHelper.vibrate(VIBRATE_ACTIVATED_EFFECT)
+            vibratorHelper.performHapticFeedback(
+                    mView,
+                    HapticFeedbackConstants.GESTURE_THRESHOLD_ACTIVATE
+            )
             updateRestingArrowDimens()
             // Whenever the trigger back state changes
             // the existing translation animation should be cancelled
