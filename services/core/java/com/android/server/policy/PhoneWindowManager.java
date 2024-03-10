@@ -912,7 +912,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     toggleTorch();
                     break;
                 case MSG_CAMERA_LONG_PRESS:
-                    KeyEvent event = (KeyEvent) msg.obj;
                     mIsLongPress = true;
                     break;
             }
@@ -2299,7 +2298,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // Delay handling home if a double-tap is possible.
                 if (mHomeDoubleTapAction != Action.NOTHING) {
                     mHandler.removeCallbacks(mHomeDoubleTapTimeoutRunnable); // just in case
-                    mHomeDoubleTapPending = true;
+                    //mPendingHomeKeyEvent = null;
                     mHandler.postDelayed(mHomeDoubleTapTimeoutRunnable,
                             ViewConfiguration.getDoubleTapTimeout());
                     return true;
