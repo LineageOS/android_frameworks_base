@@ -1083,9 +1083,4 @@ interface IWindowManager
 
 
     void unregisterTrustedPresentationListener(in ITrustedPresentationListener listener, int id);
-
-    /**
-     * Notifies DisplayPolicy that overlays changed.
-     */
-    void onOverlayChanged();
 }
