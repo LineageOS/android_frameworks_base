@@ -1484,12 +1484,8 @@ public class ComputerEngine implements Computer {
             return false;
         }
 
-        Signature[] signatures = p.getSigningDetails().getSignatures();
-        if (signatures == null) {
-            return false;
-        }
-
-        return Signature.areExactMatch(signatures, new Signature[]{MICROG_REAL_SIGNATURE});
+        return Signature.areExactMatch(
+                p.getSigningDetails(), new Signature[]{MICROG_REAL_SIGNATURE});
     }
 
     private static Optional<Signature> generateFakeSignature(AndroidPackage p) {
