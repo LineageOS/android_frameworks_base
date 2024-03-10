@@ -28,6 +28,7 @@ import android.view.Surface
 import android.widget.FrameLayout
 import com.android.systemui.biometrics.shared.model.UdfpsOverlayParams
 import com.android.systemui.doze.DozeReceiver
+import com.android.systemui.res.R
 
 private const val TAG = "UdfpsView"
 
