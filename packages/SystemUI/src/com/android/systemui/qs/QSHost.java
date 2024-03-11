@@ -55,6 +55,7 @@ public interface QSHost {
     Context getUserContext();
     int getUserId();
     Collection<QSTile> getTiles();
+    com.android.systemui.statusbar.policy.KeyguardStateController getKeyguardStateController();
     void addCallback(Callback callback);
     void removeCallback(Callback callback);
     void removeTile(String tileSpec);

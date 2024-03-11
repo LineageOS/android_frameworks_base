@@ -78,6 +78,8 @@ constructor(
         }
     }
 
+    override fun getKeyguardStateController() = qsTileHost.keyguardStateController
+
     override fun getSpecs(): List<String> {
         return if (useNewHost) {
             interactor.currentTilesSpecs.map { it.spec }
