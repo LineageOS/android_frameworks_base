@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6b2a47c_8ee2a569",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2024-03-14T16:06:31Z",
+      "side": 1,
+      "message": "Fixes this with slightly modern QtiTelephony.apk\n\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: FATAL EXCEPTION: main\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: Process: com.qti.phone, PID: 3309\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: java.lang.NullPointerException: Attempt to get length of null array\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat com.qti.phone.nruwbicon.NrUwbIconUtils.extractValidBands(NrUwbIconUtils.java:95)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat com.qti.phone.nruwbicon.NrUwbConfigsController.getNrUltraWidebandIconBandsForNsa(NrUwbConfigsController.java:196)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat com.qti.phone.nruwbicon.NrUwbConfigsController.createConfigEntityBySubId(NrUwbConfigsController.java:95)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat com.qti.phone.nruwbicon.NrUwbConfigsController.handleNrUwbConfigsUpdate(NrUwbConfigsController.java:78)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat com.qti.phone.nruwbicon.NrUwbConfigsController.handleMessage(NrUwbConfigsController.java:59)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat android.os.Handler.dispatchMessage(Handler.java:106)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat android.os.Looper.loopOnce(Looper.java:205)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat android.os.Looper.loop(Looper.java:294)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat android.app.ActivityThread.main(ActivityThread.java:8248)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat java.lang.reflect.Method.invoke(Native Method)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)\n03-14 14:42:49.345  3309  3309 E AndroidRuntime: \tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)",
+      "revId": "2bbdce5e266268e7daf359bbd9c964b56e71407f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
