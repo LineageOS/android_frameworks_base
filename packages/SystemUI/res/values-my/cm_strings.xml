@@ -19,19 +19,50 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="clock">နာရီ</string>
+    <string name="global_action_restart_more">အစမှ ပြန်စတင်မည် \u2026</string>
+    <string name="global_action_restart_system">စနစ်</string>
+    <string name="global_action_restart_recovery">ပြန်လည်ရယူခြင်း</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">ဒေါင်းလုပ်မုဒ်</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">အစမှ ပြန်စတင်နေသည် \u2026</string>
+    <string name="global_action_restart_recovery_progress">ပြန်လည်ဆယ်ယူခြင်းမုဒ်ကို ပြန်စတင်နေသည် \u2026</string>
+    <string name="global_action_restart_bootloader_progress">Bootloader မုဒ်ကို ပြန်စတင်နေသည် \u2026</string>
+    <string name="global_action_restart_download_progress">ဒေါင်းလုပ်မုဒ်ကို ပြန်စတင်နေသည် \u2026</string>
+    <string name="global_action_restart_fastboot_progress">Fastbootd မုဒ်ကို ပြန်စတင်နေသည် \u2026</string>
+    <string name="global_action_current_user">လက်ရှိ</string>
+    <string name="global_action_users">အသုံးပြုသူများ</string>
     <string name="quick_settings_ambient_display_label">ဝန်းကျင်ပြသချက်</string>
     <string name="accessibility_quick_settings_ambient_display_off">အလင်းရောင်ရရှိမှုအပေါ်မူတည်၍ အလင်းအမှောင်ချိန်ညှိပေးခြင်းကို ပိတ်မည်</string>
     <string name="accessibility_quick_settings_ambient_display_on">အလင်းရောင်ရရှိမှုအပေါ်မူတည်၍ အလင်းအမှောင်ချိန်ညှိပေးခြင်းကို ဖွင့်မည်။</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">ဘက်ထရီချွေတာချိန်တွင် AOD ကိုပိတ်မည်\n</string>
     <string name="quick_settings_caffeine_label">ကဖင်းမုဒ်</string>
     <string name="accessibility_quick_settings_caffeine_off">ကဖင်းစနစ်ပိတ်မည်</string>
     <string name="accessibility_quick_settings_caffeine_on">ကဖင်းစနစ်ဖွင့်မည်။</string>
     <string name="quick_settings_heads_up_label">ကြိုတင်အသိပေးချက်</string>
     <string name="accessibility_quick_settings_heads_up_off">ကြိုတင်အသိပေးချက်ပိတ်မည်။</string>
     <string name="accessibility_quick_settings_heads_up_on">ကြိုတင်အသိပေးချက်ဖွင့်မည်။</string>
+    <string name="quick_settings_powershare_label">ကြိုးမဲ့အားသွင်းစနစ်မျှဝေသုံးခြင်း</string>
+    <string name="quick_settings_powershare_off_powersave_label">ဘက်ထရီချွေတာချိန်တွင်\n ကြိုးမဲ့အားသွင်းစနစ်မျှဝေသုံးခြင်းကိုပိတ်မည်</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ဘက်ထရီအားနည်းချိန်တွင်\n ကြိုးမဲ့အားသွင်းစနစ်မျှဝေသုံးခြင်းကိုပိတ်မည်</string>
+    <string name="quick_settings_powershare_enabled_label">ကြိုးမဲ့အားသွင်းစနစ်မျှဝေသုံးခြင်းအားပိတ်မည်</string>
+    <string name="quick_settings_reading_mode">စာဖတ်စနစ်</string>
+    <string name="accessibility_quick_settings_reading_mode_on">စာဖတ်စနစ်ဖွင့်မည်</string>
+    <string name="accessibility_quick_settings_reading_mode_off">စာဖတ်စနစ်ပိတ်မည်</string>
     <string name="quick_settings_sync_label">ဆင့်ခ်</string>
     <string name="accessibility_quick_settings_sync_off">ဆင့်ခ်ပိတ်ထားသည်</string>
     <string name="accessibility_quick_settings_sync_on">ဆင့်ခ် ဖွင့်မည်။</string>
+    <string name="quick_settings_profiles_label">စနစ်ပုံစံများ</string>
+    <string name="accessibility_quick_settings_profiles_off">စနစ်ပုံစံပိတ်</string>
+    <string name="accessibility_quick_settings_profiles">စနစ်ပုံစံ: <xliff:g id="profile" example="Default">%s</xliff:g></string>
     <string name="quick_settings_usb_tether_label">USBမှတဆင့်ချိတ်ဆက်ခြင်း</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026ကိုချိတ်ဆက်မည်</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> ကိုချိတ်ဆက်ရန် သင်၏အချက်အလက်များကိုဖြည့်ပါ။</string>
+    <string name="vpn_credentials_username">အသုံးပြုသူအမည်</string>
+    <string name="vpn_credentials_password">လျှို့ဝှက်နံပါတ်</string>
+    <string name="vpn_credentials_dialog_connect">ချိတ်ဆက်မည်</string>
     <string name="accessibility_dpad_left">Cursor ဘယ်ဖက်</string>
     <string name="accessibility_dpad_right">Coursor ညာဖက်</string>
 </resources>
