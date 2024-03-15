@@ -35,10 +35,10 @@
     <string name="status_bar_icons_title">状态栏图标</string>
     <string name="drag_or_tap_to_add_tiles">按住并拖动或点击添加图块</string>
     <string name="quick_settings_ambient_display_label">主动显示</string>
-    <string name="accessibility_quick_settings_ambient_display_off">关闭环境显示。</string>
-    <string name="accessibility_quick_settings_ambient_display_on">开启环境显示。</string>
+    <string name="accessibility_quick_settings_ambient_display_off">关闭主动显示。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">开启主动显示。</string>
     <string name="quick_settings_aod_label">息屏常亮</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD 关闭\n省电模式</string>
+    <string name="quick_settings_aod_off_powersave_label">息屏显示关闭\n省电模式</string>
     <string name="quick_settings_caffeine_label">保持亮屏</string>
     <string name="accessibility_quick_settings_caffeine_off">保持亮屏关闭。</string>
     <string name="accessibility_quick_settings_caffeine_on">保持亮屏开启。</string>
