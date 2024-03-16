@@ -45,10 +45,10 @@
     <string name="quick_settings_heads_up_label">Heads up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up tắt.</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads up bật.</string>
-    <string name="quick_settings_powershare_label">Sạc ngược không dây</string>
-    <string name="quick_settings_powershare_off_powersave_label">Tắt Sạc ngược không dây\nTiết kiệm pin</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Tắt Sạc ngược không dây\nPin quá yếu</string>
-    <string name="quick_settings_powershare_enabled_label">Đã bật Sạc ngược không dây</string>
+    <string name="quick_settings_powershare_label">PowerShare không dây</string>
+    <string name="quick_settings_powershare_off_powersave_label">Tắt PowerShare không dây\nTiết kiệm pin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Tắt PowerShare không dây\nPin Yếu</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare không dây đã bật</string>
     <string name="quick_settings_reading_mode">Chế độ đọc</string>
     <string name="accessibility_quick_settings_reading_mode_on">Chế độ đọc đang bật.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Chế độ đọc đang tắt.</string>

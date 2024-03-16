@@ -45,6 +45,10 @@
     <string name="quick_settings_heads_up_label">Skjáupplýsingar</string>
     <string name="accessibility_quick_settings_heads_up_off">Slökkt á skjáupplýsingum.</string>
     <string name="accessibility_quick_settings_heads_up_on">Kveikt á skjáupplýsingum.</string>
+    <string name="quick_settings_powershare_label">Þráðlaust PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Þráðlaust PowerShare slökkt\nRafhlöðusparnaður</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Þráðlaust PowerShare slökkt\nOf lítið á rafhlöðu</string>
+    <string name="quick_settings_powershare_enabled_label">Þráðlaust PowerShare er virkt</string>
     <string name="quick_settings_reading_mode">Leshamur</string>
     <string name="accessibility_quick_settings_reading_mode_on">Leshamur á.</string>
     <string name="accessibility_quick_settings_reading_mode_off">Leshamur af.</string>
