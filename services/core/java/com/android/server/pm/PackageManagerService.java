@@ -25877,10 +25877,20 @@ public class PackageManagerService extends IPackageManager.Stub
         }
     }
 
-    private void applyMimeGroupChanges(String packageName, String mimeGroup) {
+    private void applyMimeGroupChanges(String packageName, String mimeGroup,
+            List<Integer> packageUids) {
         if (mComponentResolver.updateMimeGroup(packageName, mimeGroup)) {
-            Binder.withCleanCallingIdentity(() ->
-                    clearPackagePreferredActivities(packageName, UserHandle.USER_ALL));
+            Binder.withCleanCallingIdentity(() -> {
+                clearPackagePreferredActivities(packageName, UserHandle.USER_ALL);
+                // Send the ACTION_PACKAGE_CHANGED when the mimeGroup has changes
+                final ArrayList<String> components = new ArrayList<>(
+                        Collections.singletonList(packageName));
+                final String reason = "The mimeGroup is changed";
+                for (int i = 0; i < packageUids.size(); i++) {
+                    sendPackageChangedBroadcast(packageName, true /* dontKillApp */,
+                            components, packageUids.get(i), reason);
+                }
+            });
         }
 
         mPmInternal.writeSettings(false);
@@ -25891,8 +25901,20 @@ public class PackageManagerService extends IPackageManager.Stub
         boolean changed = mSettings.mPackages.get(packageName)
                 .setMimeGroup(mimeGroup, mimeTypes);
 
+        final List<Integer> packageUids = new ArrayList<Integer>();
+        final PackageSetting ps = mSettings.getPackageLPr(packageName);
         if (changed) {
-            applyMimeGroupChanges(packageName, mimeGroup);
+            final int appId = ps.appId;
+            final int[] userIds = resolveUserIds(UserHandle.USER_ALL);
+            for (int i = 0; i < userIds.length; i++) {
+                final int userId = userIds[i];
+                if (ps.getInstalled(userId)) {
+                    packageUids.add(UserHandle.getUid(userId, appId));
+                }
+            }
+        }
+        if (changed) {
+            applyMimeGroupChanges(packageName, mimeGroup, packageUids);
         }
     }
 
