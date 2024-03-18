@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41072f77_b77793c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2024-03-18T22:27:41Z",
+      "side": 1,
+      "message": "Should we completely ignore isLargeScreen or is that used somewhere else for the default value?",
+      "revId": "ee534ae6ed216d8d63a1e98a8bca38bd49238a1b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
