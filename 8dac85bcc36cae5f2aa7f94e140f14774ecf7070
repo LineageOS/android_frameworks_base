@@ -22,6 +22,30 @@
       },
       "revId": "8dac85bcc36cae5f2aa7f94e140f14774ecf7070",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee9ea7e3_2f2dfeeb",
+        "filename": "services/core/java/com/android/server/policy/PhoneWindowManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2309,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-03-20T15:09:27Z",
+      "side": 1,
+      "message": "I just don\u0027t know if I resolved all the conflicts correctly in that part of the code, I wanted someone else to take a look",
+      "parentUuid": "85e94400_23f23cd4",
+      "range": {
+        "startLine": 2309,
+        "startChar": 20,
+        "endLine": 2309,
+        "endChar": 50
+      },
+      "revId": "8dac85bcc36cae5f2aa7f94e140f14774ecf7070",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
