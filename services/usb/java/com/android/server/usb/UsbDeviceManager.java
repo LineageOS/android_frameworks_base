@@ -1055,7 +1055,9 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                     UsbPort port = (UsbPort) args.arg1;
                     UsbPortStatus status = (UsbPortStatus) args.arg2;
 
-                    if (status != null) {
+                    final boolean isDataForcedOff = status != null && status.getUsbDataStatus()
+                            == UsbPortStatus.DATA_STATUS_DISABLED_FORCE;
+                    if (status != null && !isDataForcedOff) {
                         mHostConnected = status.getCurrentDataRole() == DATA_ROLE_HOST;
                         mSourcePower = status.getCurrentPowerRole() == POWER_ROLE_SOURCE;
                         mSinkPower = status.getCurrentPowerRole() == POWER_ROLE_SINK;
@@ -1085,6 +1087,12 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                         mPowerBrickConnectionStatus = UsbPortStatus.POWER_BRICK_STATUS_UNKNOWN;
                     }
 
+                    if (isDataForcedOff) {
+                        mConnected = false;
+                        setEnabledFunctions(UsbManager.FUNCTION_NONE, false,
+                                /* operationId */ sUsbOperationCount.incrementAndGet());
+                    }
+
                     if (mHostConnected) {
                         if (!mUsbAccessoryConnected) {
                             mInHostModeWithNoAccessoryConnected = true;
@@ -1103,7 +1111,7 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                     args.recycle();
                     updateUsbNotification(false);
                     if (mBootCompleted) {
-                        if (mHostConnected || prevHostConnected) {
+                        if (mHostConnected || prevHostConnected || isDataForcedOff) {
                             updateUsbStateBroadcastIfNeeded(getAppliedFunctions(mCurrentFunctions));
                         }
                     } else {
