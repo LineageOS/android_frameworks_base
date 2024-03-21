@@ -39,8 +39,11 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
 
     private final NetworkPolicyManagerService mInterface;
     private final WifiManager mWifiManager;
+    private final NetworkPolicyManager mPolicyManager;
 
     NetworkPolicyManagerShellCommand(Context context, NetworkPolicyManagerService service) {
+        mPolicyManager = (NetworkPolicyManager) context
+                .getSystemService(Context.NETWORK_POLICY_SERVICE);
         mInterface = service;
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
     }
@@ -283,8 +286,7 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         if (uids.length == 0) {
             pw.println("none");
         } else {
-            for (int i = 0; i < uids.length; i++) {
-                int uid = uids[i];
+            for (int uid : uids) {
                 pw.print(uid);
                 pw.print(' ');
             }
@@ -364,6 +366,14 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         if (uid < 0) {
             return uid;
         }
+        if (policy == POLICY_REJECT_ALL) {
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_WIFI);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_CELLULAR);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_VPN);
+        }
+        mPolicyManager.addUidPolicy(uid, policy);
+        mInterface.addUidPolicy(uid, policy);
         mInterface.setUidPolicy(uid, policy);
         return 0;
     }
@@ -379,6 +389,14 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
             pw.print("Error: UID "); pw.print(uid); pw.print(' '); pw.println(errorMessage);
             return -1;
         }
+        if (expectedPolicy == POLICY_REJECT_ALL) {
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_WIFI);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_CELLULAR);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_VPN);
+        }
+        mPolicyManager.removeUidPolicy(uid, expectedPolicy);
+        mInterface.removeUidPolicy(uid, expectedPolicy);
         mInterface.setUidPolicy(uid, POLICY_NONE);
         return 0;
     }
