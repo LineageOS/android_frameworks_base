@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "357cf902_19ea7d3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-03-21T20:14:43Z",
+      "side": 1,
+      "message": "If it\u0027s the same change on multiple branches, keep the change-id the same",
+      "revId": "4ead63a7b91e7d54e043e266efe1ababdd1467ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
