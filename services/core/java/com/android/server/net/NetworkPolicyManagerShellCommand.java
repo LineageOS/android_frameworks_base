@@ -20,9 +20,16 @@ import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
+<<<<<<< HEAD   (53c23f Close AccountManagerService.session after timeout.)
 import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
+=======
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_CELLULAR;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
+>>>>>>> CHANGE (123013 Add CLI command to restrict all network usage and allow rest)
 
 import android.content.Context;
 import android.net.NetworkPolicyManager;
@@ -39,8 +46,11 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
 
     private final NetworkPolicyManagerService mInterface;
     private final WifiManager mWifiManager;
+    private final NetworkPolicyManager mPolicyManager;
 
     NetworkPolicyManagerShellCommand(Context context, NetworkPolicyManagerService service) {
+        mPolicyManager = (NetworkPolicyManager) context
+                .getSystemService(Context.NETWORK_POLICY_SERVICE);
         mInterface = service;
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
     }
@@ -283,8 +293,7 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         if (uids.length == 0) {
             pw.println("none");
         } else {
-            for (int i = 0; i < uids.length; i++) {
-                int uid = uids[i];
+            for (int uid : uids) {
                 pw.print(uid);
                 pw.print(' ');
             }
@@ -364,6 +373,14 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         if (uid < 0) {
             return uid;
         }
+        if (policy == POLICY_REJECT_ALL) {
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_WIFI);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_CELLULAR);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_VPN);
+        }
+        mPolicyManager.addUidPolicy(uid, policy);
+        mInterface.addUidPolicy(uid, policy);
         mInterface.setUidPolicy(uid, policy);
         return 0;
     }
@@ -379,8 +396,24 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
             pw.print("Error: UID "); pw.print(uid); pw.print(' '); pw.println(errorMessage);
             return -1;
         }
+        if (expectedPolicy == POLICY_REJECT_ALL) {
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_WIFI);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_CELLULAR);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_VPN);
+        }
+        mPolicyManager.removeUidPolicy(uid, expectedPolicy);
+        mInterface.removeUidPolicy(uid, expectedPolicy);
         mInterface.setUidPolicy(uid, POLICY_NONE);
         return 0;
+    }
+
+    private int addRestrictNetworkUsageBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_ALL);
+    }
+
+    private int removeRestrictNetworkUsageBlacklist() throws RemoteException {
+        return resetUidPolicy("not blacklisted", POLICY_REJECT_ALL);
     }
 
     private int addRestrictBackgroundWhitelist() throws RemoteException {
@@ -388,7 +421,15 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
     }
 
     private int removeRestrictBackgroundWhitelist() throws RemoteException {
-        return resetUidPolicy("not whitelisted", POLICY_ALLOW_METERED_BACKGROUND);
+        return resetUidPolicy("not blacklisted", POLICY_ALLOW_METERED_BACKGROUND);
+    }
+
+    private int addRestrictWiFiDataBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_WIFI);
+    }
+
+    private int removeRestrictWiFiDataBlacklist() throws RemoteException {
+        return resetUidPolicy("not blacklisted", POLICY_REJECT_WIFI);
     }
 
     private int addRestrictBackgroundBlacklist() throws RemoteException {
@@ -415,6 +456,7 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         return resetUidPolicy("not blacklisted", POLICY_REJECT_METERED_BACKGROUND);
     }
 
+<<<<<<< HEAD   (53c23f Close AccountManagerService.session after timeout.)
     private int removeRestrictNetworkUsageBlacklist() throws RemoteException {
         return resetUidPolicy("not blacklisted", POLICY_REJECT_ALL);
     }
@@ -425,6 +467,18 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
 
     private int removeRestrictCellularDataBlacklist() throws RemoteException {
         return resetUidPolicy("not blacklisted", POLICY_REJECT_CELLULAR);
+=======
+    private int addRestrictCellularDataBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_CELLULAR);
+    }
+
+    private int removeRestrictCellularDataBlacklist() throws RemoteException {
+        return resetUidPolicy("not blacklisted", POLICY_REJECT_CELLULAR);
+    }
+
+    private int addRestrictVpnDataBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_VPN);
+>>>>>>> CHANGE (123013 Add CLI command to restrict all network usage and allow rest)
     }
 
     private int removeRestrictVpnDataBlacklist() throws RemoteException {
