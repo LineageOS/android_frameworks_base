@@ -39,8 +39,11 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
 
     private final NetworkPolicyManagerService mInterface;
     private final WifiManager mWifiManager;
+    private final NetworkPolicyManager mPolicyManager;
 
     NetworkPolicyManagerShellCommand(Context context, NetworkPolicyManagerService service) {
+        mPolicyManager = (NetworkPolicyManager) context
+                .getSystemService(Context.NETWORK_POLICY_SERVICE);
         mInterface = service;
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
     }
@@ -281,8 +284,7 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         if (uids.length == 0) {
             pw.println("none");
         } else {
-            for (int i = 0; i < uids.length; i++) {
-                int uid = uids[i];
+            for (int uid : uids) {
                 pw.print(uid);
                 pw.print(' ');
             }
@@ -355,7 +357,27 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         if (uid < 0) {
             return uid;
         }
-        mInterface.setUidPolicy(uid, policy);
+        final int actualPolicy = mInterface.getUidPolicy(uid);
+        if (policy == POLICY_REJECT_ALL) {
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_WIFI);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_CELLULAR);
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_VPN);
+        } else if (policy == POLICY_REJECT_CELLULAR) {
+            // Restrict Mobile data will also restrict Background data
+            mPolicyManager.addUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+        }
+        mPolicyManager.addUidPolicy(uid, policy);
+        mInterface.addUidPolicy(uid, policy);
+        // Background data depends on whether Mobile data is enabled
+        // Update the interface only if the actual policy is not to restrict mobile data
+        // and restrict network usage
+        if (policy == POLICY_REJECT_METERED_BACKGROUND &&
+                (actualPolicy == POLICY_REJECT_CELLULAR || actualPolicy == POLICY_REJECT_ALL)) {
+            return 0;
+        } else {
+            mInterface.setUidPolicy(uid, policy);
+        }
         return 0;
     }
 
@@ -364,14 +386,30 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
         if (uid < 0) {
             return uid;
         }
-        int actualPolicy = mInterface.getUidPolicy(uid);
+        final int actualPolicy = mInterface.getUidPolicy(uid);
         if (actualPolicy != expectedPolicy) {
             final PrintWriter pw = getOutPrintWriter();
             pw.print("Error: UID "); pw.print(uid); pw.print(' '); pw.println(errorMessage);
             return -1;
         }
+        if (expectedPolicy == POLICY_REJECT_ALL) {
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_WIFI);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_METERED_BACKGROUND);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_CELLULAR);
+            mPolicyManager.removeUidPolicy(uid, POLICY_REJECT_VPN);
+        }
+        mPolicyManager.removeUidPolicy(uid, expectedPolicy);
+        mInterface.removeUidPolicy(uid, expectedPolicy);
         mInterface.setUidPolicy(uid, POLICY_NONE);
         return 0;
+    }
+
+    private int addRestrictNetworkUsageBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_ALL);
+    }
+
+    private int removeRestrictNetworkUsageBlacklist() throws RemoteException {
+        return resetUidPolicy("not blacklisted", POLICY_REJECT_ALL);
     }
 
     private int addRestrictBackgroundWhitelist() throws RemoteException {
@@ -379,43 +417,35 @@ class NetworkPolicyManagerShellCommand extends ShellCommand {
     }
 
     private int removeRestrictBackgroundWhitelist() throws RemoteException {
-        return resetUidPolicy("not whitelisted", POLICY_ALLOW_METERED_BACKGROUND);
-    }
-
-    private int addRestrictBackgroundBlacklist() throws RemoteException {
-        return setUidPolicy(POLICY_REJECT_METERED_BACKGROUND);
-    }
-
-    private int addRestrictNetworkUsageBlacklist() throws RemoteException {
-        return setUidPolicy(POLICY_REJECT_ALL);
+        return resetUidPolicy("not blacklisted", POLICY_ALLOW_METERED_BACKGROUND);
     }
 
     private int addRestrictWiFiDataBlacklist() throws RemoteException {
         return setUidPolicy(POLICY_REJECT_WIFI);
     }
 
-    private int addRestrictCellularDataBlacklist() throws RemoteException {
-        return setUidPolicy(POLICY_REJECT_CELLULAR);
+    private int removeRestrictWiFiDataBlacklist() throws RemoteException {
+        return resetUidPolicy("not blacklisted", POLICY_REJECT_WIFI);
     }
 
-    private int addRestrictVpnDataBlacklist() throws RemoteException {
-        return setUidPolicy(POLICY_REJECT_VPN);
+    private int addRestrictBackgroundBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_METERED_BACKGROUND);
     }
 
     private int removeRestrictBackgroundBlacklist() throws RemoteException {
         return resetUidPolicy("not blacklisted", POLICY_REJECT_METERED_BACKGROUND);
     }
 
-    private int removeRestrictNetworkUsageBlacklist() throws RemoteException {
-        return resetUidPolicy("not blacklisted", POLICY_REJECT_ALL);
-    }
-
-    private int removeRestrictWiFiDataBlacklist() throws RemoteException {
-        return resetUidPolicy("not blacklisted", POLICY_REJECT_WIFI);
+    private int addRestrictCellularDataBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_CELLULAR);
     }
 
     private int removeRestrictCellularDataBlacklist() throws RemoteException {
         return resetUidPolicy("not blacklisted", POLICY_REJECT_CELLULAR);
+    }
+
+    private int addRestrictVpnDataBlacklist() throws RemoteException {
+        return setUidPolicy(POLICY_REJECT_VPN);
     }
 
     private int removeRestrictVpnDataBlacklist() throws RemoteException {
