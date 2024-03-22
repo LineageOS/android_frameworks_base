@@ -16,6 +16,24 @@
       "message": "If it\u0027s the same change on multiple branches, keep the change-id the same",
       "revId": "4ead63a7b91e7d54e043e266efe1ababdd1467ab",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b275b523_2c3e62a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2024-03-22T00:41:51Z",
+      "side": 1,
+      "message": "They are slightly different in code and will conflict if cherry pick is performed",
+      "parentUuid": "357cf902_19ea7d3a",
+      "revId": "4ead63a7b91e7d54e043e266efe1ababdd1467ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
