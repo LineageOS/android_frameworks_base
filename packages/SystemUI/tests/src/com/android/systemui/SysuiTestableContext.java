@@ -14,15 +14,20 @@
 
 package com.android.systemui;
 
+import android.annotation.NonNull;
 import android.content.Context;
 import android.testing.LeakCheck;
 import android.testing.TestableContext;
 import android.util.ArrayMap;
 import android.view.Display;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SysuiTestableContext extends TestableContext implements SysUiServiceProvider {
 
     private ArrayMap<Class<?>, Object> mComponents;
+    private final Map<UserHandle, Context> mContextForUser = new HashMap<>();
 
     public SysuiTestableContext(Context base) {
         super(base);
@@ -58,5 +63,23 @@ public class SysuiTestableContext extends TestableContext implements SysUiServic
         SysuiTestableContext context =
                 new SysuiTestableContext(getBaseContext().createDisplayContext(display));
         return context;
+    }
+
+    /**
+     * Sets a Context object that will be returned as the result of {@link #createContextAsUser}
+     * for a specific {@code user}.
+     */
+    public void prepareCreateContextAsUser(UserHandle user, Context context) {
+        mContextForUser.put(user, context);
+    }
+
+    @Override
+    @NonNull
+    public Context createContextAsUser(UserHandle user, int flags) {
+        Context userContext = mContextForUser.get(user);
+        if (userContext != null) {
+            return userContext;
+        }
+        return super.createContextAsUser(user, flags);
     }
 }

@@ -26,6 +26,7 @@ import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.widget.ImageResolver;
 import com.android.internal.widget.LocalImageResolver;
 import com.android.internal.widget.MessagingMessage;
@@ -54,12 +55,17 @@ public class NotificationInlineImageResolver implements ImageResolver {
      * @param imageCache The implementation of internal cache.
      */
     public NotificationInlineImageResolver(Context context, ImageCache imageCache) {
-        mContext = context.getApplicationContext();
+        mContext = context;
         mImageCache = imageCache;
 
         if (mImageCache != null) {
             mImageCache.setImageResolver(this);
         }
+    }
+
+    @VisibleForTesting
+    public Context getContext() {
+        return mContext;
     }
 
     /**
