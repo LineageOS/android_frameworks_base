@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18624ac_7aded997",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsView.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-03-22T12:41:32Z",
+      "side": 1,
+      "message": "Isn\u0027t it better to inline here? At the light of the change we all have been picking?",
+      "range": {
+        "startLine": 81,
+        "startChar": 32,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "d1799cd09b3af7c557d8a1a80ceeb98e1a193fae",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
