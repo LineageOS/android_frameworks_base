@@ -16,6 +16,24 @@
       "message": "are you ok with my changes?",
       "revId": "4e2703b791beb9b40ba2d8b78e947c05140513ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89964b97_a2c3462e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31334
+      },
+      "writtenOn": "2024-03-24T10:49:46Z",
+      "side": 1,
+      "message": "No problem.",
+      "parentUuid": "c7db83e5_85e34b32",
+      "revId": "4e2703b791beb9b40ba2d8b78e947c05140513ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
