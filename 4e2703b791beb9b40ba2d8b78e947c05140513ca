@@ -51,6 +51,41 @@
       "message": "+v them?",
       "revId": "4e2703b791beb9b40ba2d8b78e947c05140513ca",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c45b8d7_0feb44b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31334
+      },
+      "writtenOn": "2024-03-24T11:22:49Z",
+      "side": 1,
+      "message": "No, tested failed on device. During a normal back gesture, mCurrentTracker.reset() resets the current tracker.",
+      "parentUuid": "a60980f1_50678cb8",
+      "revId": "4e2703b791beb9b40ba2d8b78e947c05140513ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2195f47b_33b69d87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31334
+      },
+      "writtenOn": "2024-03-24T11:22:49Z",
+      "side": 1,
+      "message": "Not work with finishBackNavigation(false)",
+      "revId": "4e2703b791beb9b40ba2d8b78e947c05140513ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
