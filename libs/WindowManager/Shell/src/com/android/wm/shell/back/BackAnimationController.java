@@ -738,6 +738,14 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
         boolean triggerBack = activeTouchTracker.getTriggerBack();
         ProtoLog.d(WM_SHELL_BACK_PREVIEW, "onGestureFinished() mTriggerBack == %s", triggerBack);
 
+        if (mTriggerLongSwipe) {
+            // Let key event handlers deal with back long swipe gesture
+            sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
+            sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
+            resetTouchTracker();
+            return;
+        }
+
         mBackGestureStarted = false;
         activeTouchTracker.setState(TouchTracker.TouchTrackerState.FINISHED);
 
@@ -758,12 +766,6 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
                 injectBackKey();
             }
             finishBackNavigation(triggerBack);
-            return;
-        }
-        if (mTriggerLongSwipe) {
-            // Let key event handlers deal with back long swipe gesture
-            sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
-            sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
             return;
         }
 
