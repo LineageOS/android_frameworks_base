@@ -16,6 +16,23 @@
       "message": "Send key event before setting gesture to finished. Tested without no problems.",
       "revId": "ab72f55599c88ad8b4d6a556bfbb440d523bba00",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6304cf87_d49611f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-03-24T14:36:20Z",
+      "side": 1,
+      "message": "uh, just saying but you didn\u0027t change the patch contents, just the commit msg alone.",
+      "revId": "ab72f55599c88ad8b4d6a556bfbb440d523bba00",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
