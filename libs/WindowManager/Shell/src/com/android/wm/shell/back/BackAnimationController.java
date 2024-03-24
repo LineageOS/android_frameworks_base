@@ -746,6 +746,14 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
             return;
         }
 
+        if (mTriggerLongSwipe) {
+            // Let key event handlers deal with back long swipe gesture
+            sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
+            sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
+            finishBackNavigation(false);
+            return;
+        }
+
         if (mBackNavigationInfo == null) {
             // No focus window found or core are running recents animation, inject back key as
             // legacy behavior, or new back gesture was started while previous has not finished yet
@@ -758,12 +766,6 @@ public class BackAnimationController implements RemoteCallable<BackAnimationCont
                 injectBackKey();
             }
             finishBackNavigation(triggerBack);
-            return;
-        }
-        if (mTriggerLongSwipe) {
-            // Let key event handlers deal with back long swipe gesture
-            sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
-            sendEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK, KeyEvent.FLAG_LONG_SWIPE);
             return;
         }
 
