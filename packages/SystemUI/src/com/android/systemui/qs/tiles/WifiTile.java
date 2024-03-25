@@ -41,9 +41,8 @@ import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.qs.QSIconView;
 import com.android.systemui.plugins.qs.QSTile;
-import com.android.systemui.plugins.qs.QSTile.SignalState;
+import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
-import com.android.systemui.qs.AlphaControlledSignalTileView;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.QsEventLogger;
 import com.android.systemui.qs.logging.QSLogger;
@@ -58,7 +57,7 @@ import com.android.systemui.statusbar.connectivity.WifiIndicators;
 import javax.inject.Inject;
 
 /** Quick settings tile: Wifi **/
-public class WifiTile extends QSTileImpl<SignalState> {
+public class WifiTile extends QSTileImpl<BooleanState> {
 
     public static final String TILE_SPEC = "wifi";
 
@@ -66,7 +65,7 @@ public class WifiTile extends QSTileImpl<SignalState> {
 
     protected final NetworkController mController;
     private final AccessPointController mWifiController;
-    private final QSTile.SignalState mStateBeforeClick = newTileState();
+    private final QSTile.BooleanState mStateBeforeClick = newTileState();
 
     protected final WifiSignalCallback mSignalCallback = new WifiSignalCallback();
     private boolean mExpectDisabled;
@@ -94,13 +93,8 @@ public class WifiTile extends QSTileImpl<SignalState> {
     }
 
     @Override
-    public SignalState newTileState() {
-        return new SignalState();
-    }
-
-    @Override
-    public QSIconView createTileView(Context context) {
-        return new AlphaControlledSignalTileView(context);
+    public BooleanState newTileState() {
+        return new BooleanState();
     }
 
     @Override
@@ -145,7 +139,7 @@ public class WifiTile extends QSTileImpl<SignalState> {
     }
 
     @Override
-    protected void handleUpdateState(SignalState state, Object arg) {
+    protected void handleUpdateState(BooleanState state, Object arg) {
         if (DEBUG) Log.d(TAG, "handleUpdateState arg=" + arg);
         final CallbackInfo cb = mSignalCallback.mInfo;
         if (mExpectDisabled) {
@@ -160,18 +154,11 @@ public class WifiTile extends QSTileImpl<SignalState> {
                 && (cb.ssid != null || cb.wifiSignalIconId != WifiIcons.QS_WIFI_NO_NETWORK);
         boolean wifiNotConnected = (cb.ssid == null)
                 && (cb.wifiSignalIconId == WifiIcons.QS_WIFI_NO_NETWORK);
-        if (state.slash == null) {
-            state.slash = new SlashState();
-            state.slash.rotation = 6;
-        }
-        state.slash.isSlashed = false;
         boolean isTransient = transientEnabling || cb.isTransient;
         state.secondaryLabel = getSecondaryLabel(isTransient, cb.statusLabel);
         state.state = Tile.STATE_ACTIVE;
         state.dualTarget = true;
         state.value = transientEnabling || cb.enabled;
-        state.activityIn = cb.enabled && cb.activityIn;
-        state.activityOut = cb.enabled && cb.activityOut;
         final StringBuffer minimalContentDescription = new StringBuffer();
         final StringBuffer minimalStateDescription = new StringBuffer();
         final Resources r = mContext.getResources();
@@ -180,7 +167,6 @@ public class WifiTile extends QSTileImpl<SignalState> {
                     com.android.internal.R.drawable.ic_signal_wifi_transient_animation);
             state.label = r.getString(R.string.quick_settings_wifi_label);
         } else if (!state.value) {
-            state.slash.isSlashed = true;
             state.state = Tile.STATE_INACTIVE;
             state.icon = ResourceIcon.get(WifiIcons.QS_WIFI_DISABLED);
             state.label = r.getString(R.string.quick_settings_wifi_label);
@@ -244,8 +230,6 @@ public class WifiTile extends QSTileImpl<SignalState> {
         int wifiSignalIconId;
         @Nullable
         String ssid;
-        boolean activityIn;
-        boolean activityOut;
         @Nullable
         String wifiSignalContentDescription;
         boolean isTransient;
@@ -259,8 +243,6 @@ public class WifiTile extends QSTileImpl<SignalState> {
                     .append(",connected=").append(connected)
                     .append(",wifiSignalIconId=").append(wifiSignalIconId)
                     .append(",ssid=").append(ssid)
-                    .append(",activityIn=").append(activityIn)
-                    .append(",activityOut=").append(activityOut)
                     .append(",wifiSignalContentDescription=").append(wifiSignalContentDescription)
                     .append(",isTransient=").append(isTransient)
                     .append(']').toString();
@@ -280,8 +262,6 @@ public class WifiTile extends QSTileImpl<SignalState> {
             mInfo.connected = indicators.qsIcon.visible;
             mInfo.wifiSignalIconId = indicators.qsIcon.icon;
             mInfo.ssid = indicators.description;
-            mInfo.activityIn = indicators.activityIn;
-            mInfo.activityOut = indicators.activityOut;
             mInfo.wifiSignalContentDescription = indicators.qsIcon.contentDescription;
             mInfo.isTransient = indicators.isTransient;
             mInfo.statusLabel = indicators.statusLabel;
