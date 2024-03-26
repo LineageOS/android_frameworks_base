@@ -62,7 +62,7 @@ class FingerprintInteractiveToAuthProviderImpl @Inject constructor(
 
     override fun getVendorExtension(userId: Int): AuthenticateReason.Vendor? = null
 
-    private fun isEnabled(userId: Int): Boolean {
+    override fun isEnabled(userId: Int): Boolean {
         var value = Settings.Secure.getIntForUser(
             context.contentResolver,
             Settings.Secure.SFPS_PERFORMANT_AUTH_ENABLED,
