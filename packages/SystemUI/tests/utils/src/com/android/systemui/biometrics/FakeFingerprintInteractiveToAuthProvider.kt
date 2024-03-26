@@ -16,15 +16,41 @@
 
 package com.android.systemui.biometrics
 
+import android.content.Context
 import android.hardware.biometrics.common.AuthenticateReason
+import android.provider.Settings
 import kotlinx.coroutines.flow.MutableStateFlow
+import org.lineageos.platform.internal.R
+import org.mockito.Mockito
 
 class FakeFingerprintInteractiveToAuthProvider : FingerprintInteractiveToAuthProvider {
     override val enabledForCurrentUser: MutableStateFlow<Boolean> = MutableStateFlow(false)
 
+    private val mockContext = Mockito.mock(Context::class.java)
+
+    private val defaultValue = if (mockContext.resources.getBoolean(
+                    R.bool.config_fingerprintWakeAndUnlock)) {
+        1
+    } else {
+        0
+    }
+
     private val userIdToExtension = mutableMapOf<Int, AuthenticateReason.Vendor>()
+
     override fun getVendorExtension(userId: Int): AuthenticateReason.Vendor? =
-        userIdToExtension[userId]
+            userIdToExtension[userId]
+
+    override fun isEnabled(userId: Int): Boolean {
+        var value = Settings.Secure.getIntForUser(
+                mockContext.contentResolver, Settings.Secure.SFPS_PERFORMANT_AUTH_ENABLED,
+                -1,
+                userId,
+        )
+        if (value == -1) {
+            value = defaultValue
+        }
+        return value == 0
+    }
 
     fun setVendorExtension(userId: Int, extension: AuthenticateReason.Vendor) {
         userIdToExtension[userId] = extension
