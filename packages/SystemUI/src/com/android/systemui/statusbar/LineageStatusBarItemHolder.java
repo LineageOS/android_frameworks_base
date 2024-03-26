@@ -20,13 +20,12 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.View.OnSystemUiVisibilityChangeListener;
 import android.widget.RelativeLayout;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 import org.lineageos.internal.statusbar.LineageStatusBarItem;
 
