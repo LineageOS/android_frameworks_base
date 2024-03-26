@@ -17,13 +17,16 @@ package com.android.systemui.tuner;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.preference.PreferenceFragment;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 public class StatusBarTuner extends PreferenceFragment {
+
+    private MetricsLogger mMetricsLogger;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -31,14 +34,20 @@ public class StatusBarTuner extends PreferenceFragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mMetricsLogger = new MetricsLogger();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
-        MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, true);
+        mMetricsLogger.visibility(MetricsEvent.TUNER, true);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, false);
+        mMetricsLogger.visibility(MetricsEvent.TUNER, false);
     }
 }
