@@ -36,4 +36,9 @@ interface FingerprintInteractiveToAuthProvider {
      * @return Vendor extension if needed for authentication.
      */
     fun getVendorExtension(userId: Int): AuthenticateReason.Vendor?
+
+    /**
+     * Same as enabledForCurrentUser, except without Flow<T>.
+     */
+    fun isEnabled(userId: Int): Boolean
 }
