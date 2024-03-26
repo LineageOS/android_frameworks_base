@@ -36,4 +36,10 @@ interface FingerprintInteractiveToAuthProvider {
      * @return Vendor extension if needed for authentication.
      */
     fun getVendorExtension(userId: Int): AuthenticateReason.Vendor?
+
+    /**
+     * @param userId the user Id.
+     * @return true if the InteractiveToAuthFeature is enabled, false if disabled.
+     */
+    fun isEnabled(userId: Int): Boolean
 }
