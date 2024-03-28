@@ -51,6 +51,24 @@
       "message": "differences to adapt to different surrounding code does still not require a new change-id. same change? same id. that way it\u0027s trackable across branches",
       "revId": "4ead63a7b91e7d54e043e266efe1ababdd1467ab",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc379b1_a4cbedb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29350
+      },
+      "writtenOn": "2024-03-28T19:13:50Z",
+      "side": 1,
+      "message": "I have kept the change-id of the branches lineage-18.1 to lineage-21.0. However, I accidentally hard reset lineage-17.1, losing this commit, so I can\u0027t put this patch with the same change-id as the other patches. And this patch code is not the same as the other versions so it cannot be cherry-picked.",
+      "parentUuid": "b275b523_2c3e62a6",
+      "revId": "4ead63a7b91e7d54e043e266efe1ababdd1467ab",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
