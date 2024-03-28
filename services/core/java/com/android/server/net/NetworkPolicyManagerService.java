@@ -1326,7 +1326,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
             final String action = intent.getAction();
             final int uid = intent.getIntExtra(EXTRA_UID, -1);
-            if (uid == -1) return;
+            if (uid < 0) return;
 
             if (intent.getBooleanExtra(EXTRA_REPLACING, false)) {
                 if (LOGV) Slog.v(TAG, "ACTION_PACKAGE_ADDED Not new app, skip it uid=" + uid);
@@ -1355,7 +1355,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             // on background handler thread, and UID_REMOVED is protected
 
             final int uid = intent.getIntExtra(EXTRA_UID, -1);
-            if (uid == -1) return;
+            if (uid < 0) return;
 
             // remove any policy and update rules to clean up
             Slog.i(TAG, "ACTION_UID_REMOVED for uid=" + uid);
@@ -1376,7 +1376,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
             final String action = intent.getAction();
             final int userId = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, -1);
-            if (userId == -1) return;
+            if (userId < 0) return;
 
             switch (action) {
                 case ACTION_USER_REMOVED:
@@ -3180,9 +3180,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     public void setUidPolicy(int uid, int policy) {
         setUidPolicy_enforcePermission();
 
-        if (!UserHandle.isApp(uid)) {
-            throw new IllegalArgumentException("cannot apply policy to UID " + uid);
-        }
         synchronized (mUidRulesFirstLock) {
             final long token = Binder.clearCallingIdentity();
             try {
@@ -3202,10 +3199,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     public void addUidPolicy(int uid, int policy) {
         addUidPolicy_enforcePermission();
 
-        if (!UserHandle.isApp(uid)) {
-            throw new IllegalArgumentException("cannot apply policy to UID " + uid);
-        }
-
         synchronized (mUidRulesFirstLock) {
             final int oldPolicy = mUidPolicy.get(uid, POLICY_NONE);
             policy |= oldPolicy;
@@ -3220,10 +3213,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     @Override
     public void removeUidPolicy(int uid, int policy) {
         removeUidPolicy_enforcePermission();
-
-        if (!UserHandle.isApp(uid)) {
-            throw new IllegalArgumentException("cannot apply policy to UID " + uid);
-        }
 
         synchronized (mUidRulesFirstLock) {
             final int oldPolicy = mUidPolicy.get(uid, POLICY_NONE);
