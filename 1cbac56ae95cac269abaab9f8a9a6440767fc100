@@ -16,6 +16,23 @@
       "message": "Removing V+1 since I\u0027ve only tested the WiFi tile for now.",
       "revId": "1cbac56ae95cac269abaab9f8a9a6440767fc100",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e872d2f6_8abf0402",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14010
+      },
+      "writtenOn": "2024-03-29T15:10:49Z",
+      "side": 1,
+      "message": "They both work fine.",
+      "revId": "1cbac56ae95cac269abaab9f8a9a6440767fc100",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
