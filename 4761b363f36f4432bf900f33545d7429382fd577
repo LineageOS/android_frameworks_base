@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a9cbc3_4a69f0be",
+        "filename": "packages/SettingsLib/src/com/android/settingslib/media/InfoMediaManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-03-30T10:18:16Z",
+      "side": 1,
+      "message": "no need for () here.",
+      "revId": "4761b363f36f4432bf900f33545d7429382fd577",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
