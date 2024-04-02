@@ -40,7 +40,7 @@ public class GlobalActionsPowerDialog {
         ViewGroup listView = (ViewGroup) LayoutInflater.from(context).inflate(
                 com.android.systemui.res.R.layout.global_actions_power_dialog_flow, null);
 
-        Flow flow = listView.findViewById(com.android.systemui.R.id.power_flow);
+        Flow flow = listView.findViewById(com.android.systemui.res.R.id.power_flow);
 
         for (int i = 0; i < adapter.getCount(); i++) {
             View action = adapter.getView(i, null, listView);

@@ -144,17 +144,17 @@ public class ShutdownUi {
         if (reason != null && reason.startsWith(PowerManager.REBOOT_RECOVERY_UPDATE)) {
             return R.string.reboot_to_update_reboot;
         } else if (reason != null && !custom && reason.equals(PowerManager.REBOOT_RECOVERY)) {
-            return com.android.systemui.R.string.global_action_restart_progress;
+            return com.android.systemui.res.R.string.global_action_restart_progress;
         } else if (reason != null && reason.equals(PowerManager.REBOOT_RECOVERY)) {
-            return com.android.systemui.R.string.global_action_restart_recovery_progress;
+            return com.android.systemui.res.R.string.global_action_restart_recovery_progress;
         } else if (reason != null && reason.equals(PowerManager.REBOOT_BOOTLOADER)) {
-            return com.android.systemui.R.string.global_action_restart_bootloader_progress;
+            return com.android.systemui.res.R.string.global_action_restart_bootloader_progress;
         } else if (reason != null && reason.equals(PowerManager.REBOOT_DOWNLOAD)) {
-            return com.android.systemui.R.string.global_action_restart_download_progress;
+            return com.android.systemui.res.R.string.global_action_restart_download_progress;
         } else if (reason != null && reason.equals(PowerManager.REBOOT_FASTBOOT)) {
-            return com.android.systemui.R.string.global_action_restart_fastboot_progress;
+            return com.android.systemui.res.R.string.global_action_restart_fastboot_progress;
         } else if (isReboot) {
-            return com.android.systemui.R.string.global_action_restart_progress;
+            return com.android.systemui.res.R.string.global_action_restart_progress;
         } else {
             return R.string.shutdown_progress;
         }

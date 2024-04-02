@@ -1038,7 +1038,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     final class RestartAction extends SinglePressAction implements LongPressAction {
         RestartAction() {
             super(R.drawable.ic_restart, shouldShowRestartSubmenu()
-                    ? com.android.systemui.R.string.global_action_restart_more
+                    ? com.android.systemui.res.R.string.global_action_restart_more
                     : R.string.global_action_restart);
         }
 
@@ -1086,7 +1086,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     private final class RestartSystemAction extends SinglePressAction implements LongPressAction {
         public RestartSystemAction() {
             super(R.drawable.ic_restart,
-                    com.android.systemui.R.string.global_action_restart_system);
+                    com.android.systemui.res.R.string.global_action_restart_system);
         }
 
         @Override
@@ -1116,8 +1116,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
     private final class RestartRecoveryAction extends SinglePressAction {
         private RestartRecoveryAction() {
-            super(com.android.systemui.R.drawable.ic_lock_restart_recovery,
-                    com.android.systemui.R.string.global_action_restart_recovery);
+            super(com.android.systemui.res.R.drawable.ic_lock_restart_recovery,
+                    com.android.systemui.res.R.string.global_action_restart_recovery);
         }
 
         @Override
@@ -1138,8 +1138,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
     private final class RestartBootloaderAction extends SinglePressAction {
         private RestartBootloaderAction() {
-            super(com.android.systemui.R.drawable.ic_lock_restart_bootloader,
-                    com.android.systemui.R.string.global_action_restart_bootloader);
+            super(com.android.systemui.res.R.drawable.ic_lock_restart_bootloader,
+                    com.android.systemui.res.R.string.global_action_restart_bootloader);
         }
 
         @Override
@@ -1160,8 +1160,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
     private final class RestartFastbootAction extends SinglePressAction {
         private RestartFastbootAction() {
-            super(com.android.systemui.R.drawable.ic_lock_restart_fastboot,
-                    com.android.systemui.R.string.global_action_restart_fastboot);
+            super(com.android.systemui.res.R.drawable.ic_lock_restart_fastboot,
+                    com.android.systemui.res.R.string.global_action_restart_fastboot);
         }
 
         @Override
@@ -1182,8 +1182,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
     private final class RestartDownloadAction extends SinglePressAction {
         private RestartDownloadAction() {
-            super(com.android.systemui.R.drawable.ic_lock_restart_bootloader,
-                    com.android.systemui.R.string.global_action_restart_download);
+            super(com.android.systemui.res.R.drawable.ic_lock_restart_bootloader,
+                    com.android.systemui.res.R.string.global_action_restart_download);
         }
 
         @Override
