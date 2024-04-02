@@ -286,7 +286,7 @@ public class DozeSensors {
                         false /* requiresAod */
                 ),
         };
-        if (resources.getBoolean(com.android.systemui.R.bool.doze_proximity_sensor_supported)) {
+        if (resources.getBoolean(com.android.systemui.res.R.bool.doze_proximity_sensor_supported)) {
             setProxListening(false);  // Don't immediately start listening when we register.
             mProximitySensor.register(
                     proximityEvent -> {
