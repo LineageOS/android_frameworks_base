@@ -2424,8 +2424,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
     private final class DeviceControlsAction extends SinglePressAction {
         private DeviceControlsAction() {
-            super(com.android.systemui.R.drawable.controls_icon,
-                    com.android.systemui.R.string.quick_controls_title);
+            super(com.android.systemui.res.R.drawable.controls_icon,
+                    com.android.systemui.res.R.string.quick_controls_title);
         }
 
         @Override
