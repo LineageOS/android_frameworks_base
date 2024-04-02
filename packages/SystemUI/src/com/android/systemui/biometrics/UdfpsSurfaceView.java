@@ -30,7 +30,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 /**
  * Surface View for providing the Global High-Brightness Mode (GHBM) illumination for UDFPS.
