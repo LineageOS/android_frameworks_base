@@ -25,8 +25,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.android.systemui.Dependency;
-import com.android.systemui.R;
 import com.android.systemui.plugins.DarkIconDispatcher;
+import com.android.systemui.res.R;
 import com.android.systemui.statusbar.policy.Clock;
 
 import lineageos.providers.LineageSettings;
