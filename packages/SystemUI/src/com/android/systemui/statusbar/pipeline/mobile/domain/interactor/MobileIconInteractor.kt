@@ -301,7 +301,7 @@ class MobileIconInteractorImpl(
                 isInService,
             ) { isDefaultDataEnabled, isDefaultConnectionFailed, isInService ->
                 val mobileIconIgnoresIWlan = context.resources.getBoolean(
-                        com.android.systemui.R.bool.config_mobileIconIgnoresIWlan)
+                        com.android.systemui.res.R.bool.config_mobileIconIgnoresIWlan)
                 (!isDefaultDataEnabled && !mobileIconIgnoresIWlan) || isDefaultConnectionFailed ||
                         !isInService
             }
