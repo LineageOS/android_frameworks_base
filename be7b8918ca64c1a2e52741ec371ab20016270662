@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1973274f_7ea7a058",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 22465
+      },
+      "writtenOn": "2024-04-07T21:46:51Z",
+      "side": 0,
+      "message": "If we want to keep the icon disabled if no bluetooth a2dp devices are available, we can keep this condition with an \u0026\u0026 with the new one.",
+      "range": {
+        "startLine": 1395,
+        "startChar": 69,
+        "endLine": 1395,
+        "endChar": 93
+      },
+      "revId": "be7b8918ca64c1a2e52741ec371ab20016270662",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
