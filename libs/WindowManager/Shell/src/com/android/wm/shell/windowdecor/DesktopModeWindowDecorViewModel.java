@@ -382,6 +382,7 @@ public class DesktopModeWindowDecorViewModel implements WindowDecorViewModel {
         private final DragPositioningCallback mDragPositioningCallback;
         private final DragDetector mDragDetector;
         private final GestureDetector mGestureDetector;
+        private final int mDisplayId;
 
         private boolean mIsDragging;
         private boolean mHasLongClicked;
@@ -396,6 +397,7 @@ public class DesktopModeWindowDecorViewModel implements WindowDecorViewModel {
             mDragPositioningCallback = dragPositioningCallback;
             mDragDetector = new DragDetector(this);
             mGestureDetector = new GestureDetector(mContext, this);
+            mDisplayId = taskInfo.displayId;
         }
 
         @Override
@@ -409,7 +411,7 @@ public class DesktopModeWindowDecorViewModel implements WindowDecorViewModel {
                     mTaskOperations.closeTask(mTaskToken);
                 }
             } else if (id == R.id.back_button) {
-                mTaskOperations.injectBackKey();
+                mTaskOperations.injectBackKey(mDisplayId);
             } else if (id == R.id.caption_handle || id == R.id.open_menu_button) {
                 if (!decoration.isHandleMenuActive()) {
                     moveTaskToFront(mTaskOrganizer.getRunningTaskInfo(mTaskId));
