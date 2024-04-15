@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Firewall</string>
     <string name="screenshot_delete_label">Delete</string>
     <string name="screenshot_delete_description">Delete screenshot</string>
+    <string name="screenrecord_delete_label">Delete</string>
+    <string name="screenrecord_delete_description">Screen recording deleted</string>
+    <string name="screenrecord_stopdot_label">Show stop dot</string>
+    <string name="screenrecord_stopdot_summary">Long press to move it</string>
+    <string name="screenrecord_lowquality_label">Lower quality</string>
+    <string name="screenrecord_lowquality_summary">For smaller file size</string>
+    <string name="screenrecord_longer_timeout_switch_label">Larger file size limit</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limit recording size to 15 GB</string>
+    <string name="screenrecord_skip_time_label">Skip timer</string>
+    <string name="screenrecord_skip_time_summary">Remove the 3 seconds wait</string>
+    <string name="screenrecord_hevc_switch_label">HEVC encoding</string>
+    <string name="screenrecord_hevc_switch_summary">Use the more efficient HEVC encoder</string>
 </resources>

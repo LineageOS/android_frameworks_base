@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">ファイアウォール</string>
     <string name="screenshot_delete_label">削除</string>
     <string name="screenshot_delete_description">スクリーンショットを削除</string>
+    <string name="screenrecord_delete_label">削除</string>
+    <string name="screenrecord_delete_description">画面録画を削除しました</string>
+    <string name="screenrecord_stopdot_label">停止ドットを表示</string>
+    <string name="screenrecord_stopdot_summary">長押しで移動</string>
+    <string name="screenrecord_lowquality_label">低品質にする</string>
+    <string name="screenrecord_lowquality_summary">低品質にしてファイルサイズを縮小します</string>
+    <string name="screenrecord_longer_timeout_switch_label">ファイルサイズの上限を上げる</string>
+    <string name="screenrecord_longer_timeout_switch_summary">最大録画サイズを15GBにします</string>
+    <string name="screenrecord_skip_time_label">タイマーをスキップ</string>
+    <string name="screenrecord_skip_time_summary">3秒間の待機を削除します</string>
+    <string name="screenrecord_hevc_switch_label">HEVC エンコーディング</string>
+    <string name="screenrecord_hevc_switch_summary">より効率的な HEVC エンコーダを使用します</string>
 </resources>

@@ -67,4 +67,5 @@
     <string name="accessibility_dpad_right">Kursor kanan</string>
     <string name="status_bar_firewall">Firewall</string>
     <string name="screenshot_delete_label">Hapus</string>
+    <string name="screenrecord_delete_label">Hapus</string>
 </resources>

@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Pare-feu</string>
     <string name="screenshot_delete_label">Supprimer</string>
     <string name="screenshot_delete_description">Supprimer la capture d\'écran</string>
+    <string name="screenrecord_delete_label">Supprimer</string>
+    <string name="screenrecord_delete_description">Enregistrement d\'écran supprimé</string>
+    <string name="screenrecord_stopdot_label">Afficher le bouton d\'arrêt</string>
+    <string name="screenrecord_stopdot_summary">Appui long pour le déplacer</string>
+    <string name="screenrecord_lowquality_label">Diminuer la qualité</string>
+    <string name="screenrecord_lowquality_summary">Pour une taille de fichier plus petite</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limite de taille de fichier plus grande</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limiter la taille d\'enregistrement à 15 Go</string>
+    <string name="screenrecord_skip_time_label">Passer le minuteur</string>
+    <string name="screenrecord_skip_time_summary">Retirer les 3 secondes d\'attente</string>
+    <string name="screenrecord_hevc_switch_label">Encodage HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Utiliser l\'encodeur HEVC le plus efficace</string>
 </resources>

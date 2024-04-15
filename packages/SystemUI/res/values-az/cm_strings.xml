@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Firewall</string>
     <string name="screenshot_delete_label">Sil</string>
     <string name="screenshot_delete_description">Ekran şəklini sil</string>
+    <string name="screenrecord_delete_label">Sil</string>
+    <string name="screenrecord_delete_description">Ekran yazısı silindi</string>
+    <string name="screenrecord_stopdot_label">Dayandırma nöqtəsini göstər</string>
+    <string name="screenrecord_stopdot_summary">Hərəkət etdirmək üçün uzun basın</string>
+    <string name="screenrecord_lowquality_label">Aşağı keyfiyyət</string>
+    <string name="screenrecord_lowquality_summary">Daha kiçik fayl ölçüsü üçün</string>
+    <string name="screenrecord_longer_timeout_switch_label">Daha böyük fayl ölçüsü limiti</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Yazma ölçüsünü 15 GB-la məhdudlaşdır</string>
+    <string name="screenrecord_skip_time_label">Taymeri ötür</string>
+    <string name="screenrecord_skip_time_summary">3 saniyə gözləməni sil</string>
+    <string name="screenrecord_hevc_switch_label">HEVC kodlaşdırma</string>
+    <string name="screenrecord_hevc_switch_summary">Daha səmərəli HEVC kodlaşdırıcını istifadə et</string>
 </resources>

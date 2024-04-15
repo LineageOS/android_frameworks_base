@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Tallafoc</string>
     <string name="screenshot_delete_label">Suprimeix</string>
     <string name="screenshot_delete_description">Suprimeix la captura</string>
+    <string name="screenrecord_delete_label">Suprimeix</string>
+    <string name="screenrecord_delete_description">S\'ha eliminat la gravació de pantalla</string>
+    <string name="screenrecord_stopdot_label">Mostra el punt d\'aturada</string>
+    <string name="screenrecord_stopdot_summary">Mantingueu-lo premut per moure\'l</string>
+    <string name="screenrecord_lowquality_label">Qualitat més baixa</string>
+    <string name="screenrecord_lowquality_summary">Per a una mida de fitxer més petita</string>
+    <string name="screenrecord_longer_timeout_switch_label">Límit de mida de fitxer més gran</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limita la mida de la gravació a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Omet el temporitzador</string>
+    <string name="screenrecord_skip_time_summary">Elimina l\'espera de 3 segons</string>
+    <string name="screenrecord_hevc_switch_label">Codificació HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Utilitza el codificador HEVC més eficient</string>
 </resources>

@@ -70,4 +70,5 @@
     <string name="status_bar_firewall">Firewall</string>
     <string name="screenshot_delete_label">Smazat</string>
     <string name="screenshot_delete_description">Smazat snímky obrazovky</string>
+    <string name="screenrecord_delete_label">Smazat</string>
 </resources>

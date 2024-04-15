@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Zapora sieciowa</string>
     <string name="screenshot_delete_label">Usuń</string>
     <string name="screenshot_delete_description">Usuń zrzut ekranu</string>
+    <string name="screenrecord_delete_label">Usuń</string>
+    <string name="screenrecord_delete_description">Usunięto nagranie ekranu</string>
+    <string name="screenrecord_stopdot_label">Pokaż kropkę zatrzymującą</string>
+    <string name="screenrecord_stopdot_summary">Przytrzymaj, aby ją przenieść</string>
+    <string name="screenrecord_lowquality_label">Niższa jakość</string>
+    <string name="screenrecord_lowquality_summary">Dla mniejszego rozmiaru pliku</string>
+    <string name="screenrecord_longer_timeout_switch_label">Większy limit rozmiaru pliku</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Ogranicz rozmiar nagrywania do 15 GB</string>
+    <string name="screenrecord_skip_time_label">Pomiń minutnik</string>
+    <string name="screenrecord_skip_time_summary">Usuń 3 sekundy oczekiwania</string>
+    <string name="screenrecord_hevc_switch_label">Kodowanie HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Używaj skuteczniejszego kodera HEVC</string>
 </resources>

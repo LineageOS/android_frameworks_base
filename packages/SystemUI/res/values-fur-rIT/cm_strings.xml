@@ -70,4 +70,5 @@
     <string name="status_bar_firewall">Firewall</string>
     <string name="screenshot_delete_label">Elimine</string>
     <string name="screenshot_delete_description">Elimine schermade</string>
+    <string name="screenrecord_delete_label">Elimine</string>
 </resources>

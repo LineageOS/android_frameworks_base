@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Firewall</string>
     <string name="screenshot_delete_label">Verwijder</string>
     <string name="screenshot_delete_description">Verwijder screenshot</string>
+    <string name="screenrecord_delete_label">Verwijder</string>
+    <string name="screenrecord_delete_description">Schermopname verwijderd</string>
+    <string name="screenrecord_stopdot_label">Toon stop knop</string>
+    <string name="screenrecord_stopdot_summary">Druk lang om te verplaatsen </string>
+    <string name="screenrecord_lowquality_label">Lagere kwaliteit</string>
+    <string name="screenrecord_lowquality_summary">Voor kleinere bestandsgrootte</string>
+    <string name="screenrecord_longer_timeout_switch_label">Grotere limiet bestandsgrootte</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Beperk opnamegrootte tot 15 GB</string>
+    <string name="screenrecord_skip_time_label">Sla timer over</string>
+    <string name="screenrecord_skip_time_summary">Verwijder de 3 seconden wachttijd</string>
+    <string name="screenrecord_hevc_switch_label">HEVC codering</string>
+    <string name="screenrecord_hevc_switch_summary">Gebruik de efficiëntere HEVC-encoder</string>
 </resources>

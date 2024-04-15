@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Τείχος προστασίας</string>
     <string name="screenshot_delete_label">Διαγραφή</string>
     <string name="screenshot_delete_description">Διαγραφή στιγμιότυπου οθόνης</string>
+    <string name="screenrecord_delete_label">Διαγραφή</string>
+    <string name="screenrecord_delete_description">Η εγγραφή οθόνης διαγράφηκε</string>
+    <string name="screenrecord_stopdot_label">Εμφάνιση κουκίδας παύσης</string>
+    <string name="screenrecord_stopdot_summary">Παρατεταμένο πάτημα για μετακίνηση</string>
+    <string name="screenrecord_lowquality_label">Μείωση ποιότητας</string>
+    <string name="screenrecord_lowquality_summary">Για μικρότερο μέγεθος αρχείου</string>
+    <string name="screenrecord_longer_timeout_switch_label">Μεγαλύτερο όριο μεγέθους αρχείου</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Περιορισμός μεγέθους εγγραφής στα 15 GB</string>
+    <string name="screenrecord_skip_time_label">Παράλειψη αντίστροφης μέτρησης</string>
+    <string name="screenrecord_skip_time_summary">Αφαίρεση της αναμονής 3 δευτερολέπτων</string>
+    <string name="screenrecord_hevc_switch_label">Κωδικοποίηση HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Χρησιμοποιήστε τον πιο αποδοτικό κωδικοποιητή HEVC</string>
 </resources>

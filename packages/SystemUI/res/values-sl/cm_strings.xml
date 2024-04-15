@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Požarni zid</string>
     <string name="screenshot_delete_label">Izbriši</string>
     <string name="screenshot_delete_description">Izbriši zaslonsko sliko</string>
+    <string name="screenrecord_delete_label">Izbriši</string>
+    <string name="screenrecord_delete_description">Posnetek zaslona izbrisan</string>
+    <string name="screenrecord_stopdot_label">Prikaži piko za ustavitev</string>
+    <string name="screenrecord_stopdot_summary">Pridržite, da jo premaknete</string>
+    <string name="screenrecord_lowquality_label">Nižja kakovost</string>
+    <string name="screenrecord_lowquality_summary">Za manjšo velikost datoteke</string>
+    <string name="screenrecord_longer_timeout_switch_label">Omejitev večje velikosti datoteke</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Omeji velikost posnetka na 15 GB</string>
+    <string name="screenrecord_skip_time_label">Preskoči odštevalnik</string>
+    <string name="screenrecord_skip_time_summary">Odstrani 3 sekunde čakanja</string>
+    <string name="screenrecord_hevc_switch_label">HEVC kodiranje</string>
+    <string name="screenrecord_hevc_switch_summary">Uporabi bolj učinkovit HEVC kodirnik</string>
 </resources>

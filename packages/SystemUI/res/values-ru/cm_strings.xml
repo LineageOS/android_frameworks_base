@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">Брандмауэр</string>
     <string name="screenshot_delete_label">Удалить</string>
     <string name="screenshot_delete_description">Удалить скриншот</string>
+    <string name="screenrecord_delete_label">Удалить</string>
+    <string name="screenrecord_delete_description">Запись экрана удалена</string>
+    <string name="screenrecord_stopdot_label">Показать кнопку остановки</string>
+    <string name="screenrecord_stopdot_summary">Удерживайте для перемещения</string>
+    <string name="screenrecord_lowquality_label">Низкое качество</string>
+    <string name="screenrecord_lowquality_summary">Для уменьшения размера файла</string>
+    <string name="screenrecord_longer_timeout_switch_label">Ограничение на размер файла</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Ограничить размер записи до 15 ГБ</string>
+    <string name="screenrecord_skip_time_label">Пропустить таймер</string>
+    <string name="screenrecord_skip_time_summary">Убрать 3-х секундное ожидание</string>
+    <string name="screenrecord_hevc_switch_label">Кодирование HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Использовать более эффективный кодер HEVC</string>
 </resources>

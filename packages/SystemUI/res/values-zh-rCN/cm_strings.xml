@@ -70,4 +70,16 @@
     <string name="status_bar_firewall">防火墙</string>
     <string name="screenshot_delete_label">删除</string>
     <string name="screenshot_delete_description">删除屏幕截图</string>
+    <string name="screenrecord_delete_label">删除</string>
+    <string name="screenrecord_delete_description">屏幕录制已删除</string>
+    <string name="screenrecord_stopdot_label">显示停止按钮</string>
+    <string name="screenrecord_stopdot_summary">长按以移动</string>
+    <string name="screenrecord_lowquality_label">低画质</string>
+    <string name="screenrecord_lowquality_summary">以压缩文件体积</string>
+    <string name="screenrecord_longer_timeout_switch_label">更大的文件体积限制</string>
+    <string name="screenrecord_longer_timeout_switch_summary">限制录屏文件体积上限为15GB</string>
+    <string name="screenrecord_skip_time_label">跳过倒计时</string>
+    <string name="screenrecord_skip_time_summary">关闭3秒倒计时</string>
+    <string name="screenrecord_hevc_switch_label">HEVC编码</string>
+    <string name="screenrecord_hevc_switch_summary">使用效率更高的HEVC编码器</string>
 </resources>

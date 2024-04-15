@@ -70,4 +70,5 @@
     <string name="status_bar_firewall">방화벽</string>
     <string name="screenshot_delete_label">삭제</string>
     <string name="screenshot_delete_description">스크린샷 삭제</string>
+    <string name="screenrecord_delete_label">삭제</string>
 </resources>
