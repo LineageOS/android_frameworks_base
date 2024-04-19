@@ -51,6 +51,23 @@
       "parentUuid": "f5f1210b_bfe31780",
       "revId": "af8a9afe622570015d9e11c691129fe8dfc1a5e6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca425d8_37d38a64",
+        "filename": "core/java/com/android/internal/widget/LocalImageResolver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-04-19T17:32:29Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "af8a9afe622570015d9e11c691129fe8dfc1a5e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
