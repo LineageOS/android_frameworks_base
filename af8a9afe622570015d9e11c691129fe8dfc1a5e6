@@ -68,6 +68,24 @@
       "message": "line length",
       "revId": "af8a9afe622570015d9e11c691129fe8dfc1a5e6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "046330af_d8615443",
+        "filename": "core/java/com/android/internal/widget/LocalImageResolver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 20364
+      },
+      "writtenOn": "2024-04-19T17:42:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca425d8_37d38a64",
+      "revId": "af8a9afe622570015d9e11c691129fe8dfc1a5e6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
