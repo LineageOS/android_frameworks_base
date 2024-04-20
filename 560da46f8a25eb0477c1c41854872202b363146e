@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80f8193c_277696dc",
+        "filename": "core/java/com/android/internal/widget/LocalImageResolver.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-04-20T11:01:22Z",
+      "side": 1,
+      "message": "nope. one doesn\u0027t just reduce the amount of spaces. A line break on the too long line is the proper way",
+      "range": {
+        "startLine": 240,
+        "startChar": 10,
+        "endLine": 242,
+        "endChar": 11
+      },
+      "revId": "560da46f8a25eb0477c1c41854872202b363146e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
