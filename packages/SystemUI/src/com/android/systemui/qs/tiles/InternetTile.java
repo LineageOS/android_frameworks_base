@@ -124,6 +124,11 @@ public class InternetTile extends QSTileImpl<QSTile.BooleanState> {
     }
 
     @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
+    @Override
     protected void handleClick(@Nullable View view) {
         mHandler.post(() -> mInternetDialogFactory.create(true,
                 mAccessPointController.canConfigMobileData(),

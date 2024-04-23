@@ -88,6 +88,11 @@ public class WorkModeTile extends QSTileImpl<BooleanState> implements
     }
 
     @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
+    @Override
     public void handleClick(@Nullable View view) {
         mProfileController.setWorkModeEnabled(!mState.value);
     }

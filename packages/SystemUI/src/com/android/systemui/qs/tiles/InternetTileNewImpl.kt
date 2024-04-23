@@ -84,6 +84,8 @@ constructor(
         return QSTile.BooleanState().also { it.forceExpandIcon = true }
     }
 
+    override fun isAllowedWhenLocked(action: Action) = false
+
     override fun handleClick(view: View?) {
         mainHandler.post {
             internetDialogFactory.create(

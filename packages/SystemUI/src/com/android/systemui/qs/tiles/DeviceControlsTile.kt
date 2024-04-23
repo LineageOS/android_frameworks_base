@@ -100,6 +100,8 @@ class DeviceControlsTile @Inject constructor(
         }
     }
 
+    override fun isAllowedWhenLocked(action: Action) = false
+
     override fun handleClick(view: View?) {
         if (state.state == Tile.STATE_UNAVAILABLE) {
             return

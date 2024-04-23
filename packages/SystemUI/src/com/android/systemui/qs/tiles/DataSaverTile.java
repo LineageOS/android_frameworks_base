@@ -86,6 +86,12 @@ public class DataSaverTile extends QSTileImpl<BooleanState> implements
     public Intent getLongClickIntent() {
         return new Intent(Settings.ACTION_DATA_SAVER_SETTINGS);
     }
+
+    @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
     @Override
     protected void handleClick(@Nullable View view) {
         if (mState.value

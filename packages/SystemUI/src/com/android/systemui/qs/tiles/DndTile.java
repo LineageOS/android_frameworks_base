@@ -147,6 +147,11 @@ public class DndTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
+    @Override
     protected void handleClick(@Nullable View view) {
         // Zen is currently on
         if (mState.value) {

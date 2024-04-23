@@ -120,6 +120,11 @@ public class NfcTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
+    @Override
     protected void handleClick(@Nullable View view) {
         if (getAdapter() == null) {
             return;

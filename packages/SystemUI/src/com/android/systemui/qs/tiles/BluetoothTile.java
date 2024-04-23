@@ -109,6 +109,11 @@ public class BluetoothTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
+    @Override
     protected void handleClick(@Nullable View view) {
         if (mFeatureFlags.isEnabled(Flags.BLUETOOTH_QS_TILE_DIALOG)) {
             mDialogViewModel.showDialog(mContext, view);

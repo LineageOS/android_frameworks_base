@@ -103,6 +103,11 @@ public class WifiTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
+    @Override
     protected void handleClick(@Nullable View view) {
         // Secondary clicks are header clicks, just toggle.
         mState.copyTo(mStateBeforeClick);

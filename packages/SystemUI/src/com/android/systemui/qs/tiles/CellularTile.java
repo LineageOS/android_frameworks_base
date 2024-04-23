@@ -112,6 +112,11 @@ public class CellularTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isAllowedWhenLocked(QSTileImpl.Action action) {
+        return false;
+    }
+
+    @Override
     protected void handleClick(@Nullable View view) {
         if (getState().state == Tile.STATE_UNAVAILABLE) {
             return;
