@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11de481f_91ada577",
+        "filename": "core/java/com/android/internal/widget/LocalImageResolver.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-04-25T22:06:59Z",
+      "side": 1,
+      "message": "so we\u0027re back to line length now...",
+      "revId": "ea6859f3b19906defcc928214aea6ff9fc70dd43",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
