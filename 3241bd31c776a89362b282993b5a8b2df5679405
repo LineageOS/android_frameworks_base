@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26700522_92b822d8",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1433,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-04-26T17:47:21Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "3241bd31c776a89362b282993b5a8b2df5679405",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
