@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c2cef07_00af79cf",
+        "filename": "core/jni/android_media_AudioSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-04-26T17:49:59Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "5fe95d109096d80a357c1000c6678d5ff264a97e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f10281ff_cc176278",
+        "filename": "core/jni/android_media_AudioSystem.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-04-26T17:49:59Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "5fe95d109096d80a357c1000c6678d5ff264a97e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7805060f_ba9f873f",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-04-26T17:49:59Z",
+      "side": 1,
+      "message": "same indentation as line before",
+      "revId": "5fe95d109096d80a357c1000c6678d5ff264a97e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
