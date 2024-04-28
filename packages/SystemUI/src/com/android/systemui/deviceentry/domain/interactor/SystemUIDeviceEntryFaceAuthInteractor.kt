@@ -274,17 +274,9 @@ constructor(
     override val detectionStatus = repository.detectionStatus
 
     private fun runFaceAuth(uiEvent: FaceAuthUiEvent, fallbackToDetect: Boolean) {
-        if (repository.isLockedOut.value) {
-            faceAuthenticationStatusOverride.value =
-                ErrorFaceAuthenticationStatus(
-                    BiometricFaceConstants.FACE_ERROR_LOCKOUT_PERMANENT,
-                    context.resources.getString(R.string.keyguard_face_unlock_unavailable)
-                )
-        } else {
-            faceAuthenticationStatusOverride.value = null
-            faceAuthenticationLogger.authRequested(uiEvent)
-            repository.requestAuthenticate(uiEvent, fallbackToDetection = fallbackToDetect)
-        }
+        faceAuthenticationStatusOverride.value = null
+        faceAuthenticationLogger.authRequested(uiEvent)
+        repository.requestAuthenticate(uiEvent, fallbackToDetection = fallbackToDetect)
     }
 
     override fun isFaceAuthEnabledAndEnrolled(): Boolean =
