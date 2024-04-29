@@ -186,7 +186,7 @@ public class ImageExporterTest extends SysuiTestCase {
     @Test
     public void testMediaStoreMetadata() {
         String name = ImageExporter.createFilename(CAPTURE_TIME, CompressFormat.PNG,
-                Display.DEFAULT_DISPLAY, null));
+                Display.DEFAULT_DISPLAY, null);
         ContentValues values = ImageExporter.createMetadata(CAPTURE_TIME, CompressFormat.PNG, name);
         assertEquals("Pictures/Screenshots",
                 values.getAsString(MediaStore.MediaColumns.RELATIVE_PATH));
