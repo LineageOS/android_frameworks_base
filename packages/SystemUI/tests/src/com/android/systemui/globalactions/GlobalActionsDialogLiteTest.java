@@ -366,10 +366,10 @@ public class GlobalActionsDialogLiteTest extends SysuiTestCase {
         doReturn(true).when(mGlobalActionsDialogLite).shouldShowAction(any());
         doReturn(false).when(mKeyguardStateController).isShowing();
         String[] actions = {
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_EMERGENCY,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_LOCKDOWN,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_POWER,
-                GlobalActionsDialogLite.GLOBAL_ACTION_KEY_RESTART,
+                GLOBAL_ACTION_KEY_EMERGENCY,
+                GLOBAL_ACTION_KEY_LOCKDOWN,
+                GLOBAL_ACTION_KEY_POWER,
+                GLOBAL_ACTION_KEY_RESTART,
         };
         doReturn(actions).when(mGlobalActionsDialogLite).getDefaultActions();
         GlobalActionsDialogLite.ActionsDialogLite dialog = mGlobalActionsDialogLite.createDialog();
