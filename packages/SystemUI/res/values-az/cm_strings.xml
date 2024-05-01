@@ -18,7 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="status_bar_icons_title">Status çubuğu nişanları</string>
+    <string name="status_bar_icons_title">Status çubuğu ikonları</string>
     <string name="clock">Saat</string>
     <string name="global_action_restart_more">Yenidən başlat\u2026</string>
     <string name="global_action_restart_system">Sistem</string>
@@ -38,7 +38,7 @@
     <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD bağlıdır\nBatereyaya qənaət</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD bağlıdır\nBatareyaya qənaət</string>
     <string name="quick_settings_caffeine_label">Kofein</string>
     <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır.</string>
     <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır.</string>
@@ -46,8 +46,8 @@
     <string name="accessibility_quick_settings_heads_up_off">Açılan başlıqlar bağlıdır.</string>
     <string name="accessibility_quick_settings_heads_up_on">Açılan başlıqlar açıqdır.</string>
     <string name="quick_settings_powershare_label">Naqilsiz Enerji Paylaşma</string>
-    <string name="quick_settings_powershare_off_powersave_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereyaya qənaət</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereya səviyyəsi aşağıdır</string>
+    <string name="quick_settings_powershare_off_powersave_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatareyaya qənaət</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatareya səviyyəsi aşağıdır</string>
     <string name="quick_settings_powershare_enabled_label">Naqilsiz Enerji Paylaşma fəaldır</string>
     <string name="quick_settings_reading_mode">Oxuma rejimi</string>
     <string name="accessibility_quick_settings_reading_mode_on">Oxuma rejimi açıqdır.</string>
