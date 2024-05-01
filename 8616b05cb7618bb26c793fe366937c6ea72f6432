@@ -16,6 +16,23 @@
       "message": "Resolved",
       "revId": "8616b05cb7618bb26c793fe366937c6ea72f6432",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c93665_a98db2b0",
+        "filename": "packages/SystemUI/src/com/android/systemui/volume/VolumeDialogImpl.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1435,
+      "author": {
+        "id": 13028
+      },
+      "writtenOn": "2024-05-01T09:40:03Z",
+      "side": 1,
+      "message": "closing bracket on own line? no. Just move it to the end of the previous line",
+      "revId": "8616b05cb7618bb26c793fe366937c6ea72f6432",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
