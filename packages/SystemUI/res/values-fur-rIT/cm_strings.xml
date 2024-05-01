@@ -71,4 +71,15 @@
     <string name="screenshot_delete_label">Elimine</string>
     <string name="screenshot_delete_description">Elimine schermade</string>
     <string name="screenrecord_delete_label">Elimine</string>
+    <string name="screenrecord_delete_description">Regjistrazion schermi eliminade</string>
+    <string name="screenrecord_stopdot_label">Mostre il pont par fermâ</string>
+    <string name="screenrecord_stopdot_summary">Fache a dilunc par spostâlu</string>
+    <string name="screenrecord_lowquality_label">Basse cualitât</string>
+    <string name="screenrecord_lowquality_summary">Par files di dimensions plui piçulis</string>
+    <string name="screenrecord_longer_timeout_switch_label">Massime dimension dal file</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limite la dimension de regjistrazion a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Salte temporizadôr</string>
+    <string name="screenrecord_skip_time_summary">Gjave i 3 seconts di spiete</string>
+    <string name="screenrecord_hevc_switch_label">Codifiche HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Dopre il codificadôr plui eficient HEVC</string>
 </resources>

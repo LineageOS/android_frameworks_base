@@ -72,7 +72,13 @@
     <string name="screenshot_delete_description">Screenshot löschen</string>
     <string name="screenrecord_delete_label">Löschen</string>
     <string name="screenrecord_delete_description">Bildschirmaufnahme gelöscht</string>
+    <string name="screenrecord_stopdot_label">Stopp-Punkt anzeigen</string>
+    <string name="screenrecord_stopdot_summary">Gedrückt halten zum Verschieben</string>
     <string name="screenrecord_lowquality_label">Niedrigere Qualität</string>
+    <string name="screenrecord_lowquality_summary">Zum Verringern der Dateigröße</string>
+    <string name="screenrecord_longer_timeout_switch_label">Max. Dateigröße erhöhen</string>
     <string name="screenrecord_longer_timeout_switch_summary">Aufnahmegröße auf 15 GB begrenzen</string>
+    <string name="screenrecord_skip_time_label">Timer überspringen</string>
     <string name="screenrecord_hevc_switch_label">HEVC-Kodierung</string>
+    <string name="screenrecord_hevc_switch_summary">Effizienteren HEVC-Codec verwenden</string>
 </resources>
