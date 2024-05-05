@@ -69,6 +69,11 @@ public class FakeBatteryController extends BaseLeakChecker<BatteryStateChangeCal
     }
 
     @Override
+    public boolean isPresent() {
+        return true;
+    }
+
+    @Override
     public boolean isPowerSave() {
         return mPowerSaveMode;
     }
