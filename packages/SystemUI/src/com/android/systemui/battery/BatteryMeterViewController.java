@@ -117,6 +117,13 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 }
 
                 @Override
+                public void onBatteryPresentChanged(boolean batteryPresent) {
+                    mView.setBatteryPresence(batteryPresent);
+                    mView.setVisibility(!batteryPresent || mBatteryHidden
+                            ? View.GONE : View.VISIBLE);
+                }
+
+                @Override
                 public void dump(@NonNull PrintWriter pw, @NonNull String[] args) {
                     pw.print(super.toString());
                     pw.println(" location=" + mLocation);
