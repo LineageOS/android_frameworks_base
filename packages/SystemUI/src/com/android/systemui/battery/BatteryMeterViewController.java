@@ -164,6 +164,9 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
         mView.setBatteryEstimateFetcher(mBatteryController::getEstimatedTimeRemainingString);
         mView.setDisplayShieldEnabled(
                 getContext().getResources().getBoolean(R.bool.flag_battery_shield_icon));
+        if (!mBatteryController.isPresent()) {
+            mView.setVisibility(View.GONE);
+        }
 
         mSlotBattery = getResources().getString(com.android.internal.R.string.status_bar_battery);
         mSettingObserver = new SettingObserver(mMainHandler);
