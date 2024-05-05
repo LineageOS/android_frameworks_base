@@ -79,10 +79,7 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 ArraySet<String> icons = StatusBarIconController.getIconHideList(
                         getContext(), newValue);
                 mBatteryHidden = icons.contains(mSlotBattery);
-                mView.setVisibility(mBatteryHidden ? View.GONE : View.VISIBLE);
-                if (!mBatteryHidden) {
-                    mView.updateBatteryStyle();
-                }
+                updateBatteryView();
             }
         }
     };
@@ -139,6 +136,7 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
     private boolean mIsSubscribedForTunerUpdates;
 
     private boolean mBatteryHidden;
+    private boolean mBatteryPresent;
 
     @Inject
     public BatteryMeterViewController(
@@ -165,8 +163,11 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
         mView.setDisplayShieldEnabled(
                 getContext().getResources().getBoolean(R.bool.flag_battery_shield_icon));
 
+        mBatteryPresent = batteryController.isPresent();
         mSlotBattery = getResources().getString(com.android.internal.R.string.status_bar_battery);
         mSettingObserver = new SettingObserver(mMainHandler);
+
+        updateBatteryView();
     }
 
     @Override
@@ -190,6 +191,16 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
 
         mUserTracker.removeCallback(mUserChangedCallback);
         mContentResolver.unregisterContentObserver(mSettingObserver);
+    }
+
+    private void updateBatteryView() {
+        // Hide view for battery-less devices by default, but respect icon hide list
+        boolean shouldHide = !mBatteryPresent && mBatteryHidden;
+
+        mView.setVisibility(shouldHide ? View.GONE : View.VISIBLE);
+        if (!shouldHide) {
+            mView.updateBatteryStyle();
+        }
     }
 
     /**
