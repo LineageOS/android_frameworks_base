@@ -85,6 +85,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
 
     protected int mLevel;
     protected boolean mPluggedIn;
+    protected boolean mPresent;
     private int mPluggedChargingSource;
     protected boolean mCharging;
     private boolean mStateUnknown = false;
@@ -159,6 +160,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
         pw.println("BatteryController state:");
         pw.print("  mLevel="); pw.println(mLevel);
         pw.print("  mPluggedIn="); pw.println(mPluggedIn);
+        pw.print("  mPresent="); pw.println(mPresent);
         pw.print("  mCharging="); pw.println(mCharging);
         pw.print("  mCharged="); pw.println(mCharged);
         pw.print("  mIsOverheated="); pw.println(mIsOverheated);
@@ -226,8 +228,8 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
                 fireWirelessChargingChanged();
             }
 
-            boolean present = intent.getBooleanExtra(EXTRA_PRESENT, true);
-            boolean unknown = !present;
+            mPresent = intent.getBooleanExtra(EXTRA_PRESENT, true);
+            boolean unknown = !mPresent;
             if (unknown != mStateUnknown) {
                 mStateUnknown = unknown;
                 fireBatteryUnknownStateChanged();
@@ -288,6 +290,11 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
     @Override
     public boolean isPluggedIn() {
         return mPluggedIn;
+    }
+
+    @Override
+    public boolean isPresent() {
+        return mPresent;
     }
 
     @Override
