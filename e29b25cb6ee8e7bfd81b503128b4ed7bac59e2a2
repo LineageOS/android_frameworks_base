@@ -106,6 +106,24 @@
       "parentUuid": "8a81b7f4_b42de338",
       "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1cb5b3c_141bbb2c",
+        "filename": "packages/SystemUI/src/com/android/systemui/battery/BatteryMeterViewController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2024-05-06T12:21:56Z",
+      "side": 1,
+      "message": "\u003e How come?!?\n\nBy `!true \u0026\u0026 true` being `false`?",
+      "parentUuid": "e59944dd_e63c7cbf",
+      "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
