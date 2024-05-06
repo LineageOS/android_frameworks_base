@@ -52,6 +52,24 @@
       "parentUuid": "5055628d_1a01b503",
       "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352ffced_263bd126",
+        "filename": "packages/SystemUI/src/com/android/systemui/battery/BatteryMeterViewController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-05-06T11:38:51Z",
+      "side": 1,
+      "message": "`boolean shouldShow \u003d mBatteryPresent || !mBatteryHidden` won\u0027t work.\n\n\u003e it will be shown whenever a battery is present, regardless of the setting\n\nWe want to respect the setting, always.",
+      "parentUuid": "9b3633ba_22f054a7",
+      "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
