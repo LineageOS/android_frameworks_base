@@ -70,6 +70,24 @@
       "parentUuid": "9b3633ba_22f054a7",
       "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a81b7f4_b42de338",
+        "filename": "packages/SystemUI/src/com/android/systemui/battery/BatteryMeterViewController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2024-05-06T11:57:33Z",
+      "side": 1,
+      "message": "\u003e We want to respect the setting, always.\n\nIn that case, as mentioned, the current logic is wrong: with `mBatteryHidden` being `true` and `mBatteryPresent` being `true`, `shouldHide` becomes `false`.\n\nAs mentioned, my suggestion would be `boolean shouldShow \u003d mBatteryPresent \u0026\u0026 !mBatteryHidden`:\n- without battery, no icon is shown\n- with battery, icon follows the setting\n\nIf you want to show the icon if enabled even if there\u0027s no battery (why?), then you don\u0027t need `mBatteryPresent` in the equation. But the commit message explicitly says that\u0027s not wanted behavior...",
+      "parentUuid": "352ffced_263bd126",
+      "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
