@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ad15f89_283559f2",
+        "filename": "packages/SystemUI/src/com/android/systemui/battery/BatteryMeterViewController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2024-05-06T04:57:06Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be || instead of \u0026\u0026?",
+      "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
