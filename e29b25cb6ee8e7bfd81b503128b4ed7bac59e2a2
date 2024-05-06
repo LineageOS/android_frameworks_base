@@ -34,6 +34,24 @@
       "parentUuid": "8ad15f89_283559f2",
       "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b3633ba_22f054a7",
+        "filename": "packages/SystemUI/src/com/android/systemui/battery/BatteryMeterViewController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2024-05-06T11:17:45Z",
+      "side": 1,
+      "message": "Maybe the logic would be easier to follow when inverting it:\n\n```\nboolean shouldShow \u003d mBatteryPresent \u0026\u0026 !mBatteryHidden\n```\n\n(I realize that I applied || logic there)\n\nWhen converting the existing logic verbatim, you\u0027d end up with\n\n```\nboolean shouldShow \u003d !(!mBatteryPresent \u0026\u0026 mBatteryHidden)\n```\n\nwhich equals\n\n```\nboolean shouldShow \u003d mBatteryPresent || !mBatteryHidden\n```\n\nwhich means\n- it will be shown whenever a battery is present, regardless of the setting\n- it will be shown if the icon is enabled even without battery\n\nOr am I missing something here?",
+      "parentUuid": "5055628d_1a01b503",
+      "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
