@@ -529,7 +529,9 @@ public class NavigationBarView extends FrameLayout {
     }
 
     public KeyButtonDrawable getBackDrawable() {
-        KeyButtonDrawable drawable = getDrawable(R.drawable.ic_sysbar_back);
+        KeyButtonDrawable drawable = QuickStepContract.isSwipeUpMode(mNavBarMode)
+                ? getDrawable(R.drawable.ic_sysbar_back_quick_step)
+                : getDrawable(R.drawable.ic_sysbar_back);
         orientBackButton(drawable);
         return drawable;
     }
