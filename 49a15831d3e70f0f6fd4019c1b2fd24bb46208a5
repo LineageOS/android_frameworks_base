@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78ce2737_83487d6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31334
+      },
+      "writtenOn": "2024-05-10T14:54:13Z",
+      "side": 1,
+      "message": "Maybe we should not change the value here, but I did not have other good idea.",
+      "revId": "49a15831d3e70f0f6fd4019c1b2fd24bb46208a5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
