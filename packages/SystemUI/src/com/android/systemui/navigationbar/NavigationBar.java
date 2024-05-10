@@ -383,6 +383,7 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
         @Override
         public void onPrioritizedRotation(@Surface.Rotation int rotation) {
             mStartingQuickSwitchRotation = rotation;
+            mCurrentRotation = mView.getDisplay().getRotation();
             if (rotation == -1) {
                 mShowOrientedHandleForImmersiveMode = false;
             }
