@@ -124,6 +124,24 @@
       "parentUuid": "e59944dd_e63c7cbf",
       "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "487d254c_542efb33",
+        "filename": "packages/SystemUI/src/com/android/systemui/battery/BatteryMeterViewController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-05-11T09:50:44Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d1cb5b3c_141bbb2c",
+      "revId": "e29b25cb6ee8e7bfd81b503128b4ed7bac59e2a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
