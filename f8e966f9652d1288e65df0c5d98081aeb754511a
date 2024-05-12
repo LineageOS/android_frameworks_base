@@ -16,6 +16,24 @@
       "message": "I guess it\u0027s better like this?",
       "revId": "f8e966f9652d1288e65df0c5d98081aeb754511a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed8d4ffa_64930949",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1063
+      },
+      "writtenOn": "2024-05-12T11:03:01Z",
+      "side": 1,
+      "message": "Yes, that one looks better indeed.",
+      "parentUuid": "5e4416af_7ce54bc5",
+      "revId": "f8e966f9652d1288e65df0c5d98081aeb754511a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
