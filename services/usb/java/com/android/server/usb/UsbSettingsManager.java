@@ -16,6 +16,8 @@
 
 package com.android.server.usb;
 
+import static android.provider.Settings.Secure.USER_SETUP_COMPLETE;
+
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -36,6 +38,7 @@ import android.os.Binder;
 import android.os.Environment;
 import android.os.Process;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AtomicFile;
 import android.util.Log;
 import android.util.Slog;
@@ -756,8 +759,26 @@ class UsbSettingsManager {
             defaultPackage = mDevicePreferenceMap.get(new DeviceFilter(device));
         }
 
+        if (shouldRestrictOverlayActivities()) {
+            return;
+        }
+
         // Start activity with registered intent
         resolveActivity(intent, matches, defaultPackage, device, null);
+    }
+
+    private boolean shouldRestrictOverlayActivities() {
+        if (Settings.Secure.getIntForUser(
+                mContext.getContentResolver(),
+                USER_SETUP_COMPLETE,
+                /* defaultValue= */ 1,
+                UserHandle.CURRENT.getIdentifier())
+                == 0) {
+            Slog.d(TAG, "restricting usb overlay activities as setup is not complete");
+            return true;
+        }
+
+        return false;
     }
 
     public void deviceDetached(UsbDevice device) {
