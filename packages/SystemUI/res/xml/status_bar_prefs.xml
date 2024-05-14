@@ -98,6 +98,11 @@
 
     <!-- other weird signal stuff -->
 
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:icon="@drawable/ic_statusbar_vpn"
+        android:key="vpn"
+        android:title="@string/legacy_vpn_name" />
+
     <com.android.systemui.tuner.BatteryPreference
         android:icon="@*android:drawable/ic_battery"
         android:title="@string/battery"
