@@ -32,6 +32,8 @@
     <string name="global_action_restart_fastboot_progress">Újraindítás Fastbootd-módba\u2026</string>
     <string name="global_action_current_user">Jelenlegi</string>
     <string name="global_action_users">Felhasználók</string>
+    <string name="status_bar_icons_title">Az állapotsor ikonjai</string>
+    <string name="drag_or_tap_to_add_tiles">Tartsa nyomva és húzza, vagy érintse meg a csempék hozzáadásához</string>
     <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
     <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
@@ -65,4 +67,19 @@
     <string name="vpn_credentials_dialog_connect">Kapcsolódás</string>
     <string name="accessibility_dpad_left">Kurzor balra</string>
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
+    <string name="status_bar_firewall">Tűzfal</string>
+    <string name="screenshot_delete_label">Törlés</string>
+    <string name="screenshot_delete_description">A képernyőkép törlése</string>
+    <string name="screenrecord_delete_label">Törlés</string>
+    <string name="screenrecord_delete_description">A képernyőfelvétel törölve</string>
+    <string name="screenrecord_stopdot_label">Látható megállítógomb</string>
+    <string name="screenrecord_stopdot_summary">Áthelyezéshez nyomja hosszan</string>
+    <string name="screenrecord_lowquality_label">Gyengébb minőség</string>
+    <string name="screenrecord_lowquality_summary">... hogy kisebbek legyenek a fájlok</string>
+    <string name="screenrecord_longer_timeout_switch_label">A nagy fájlméret felső határa</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Max.15GB felvételi fájlméret</string>
+    <string name="screenrecord_skip_time_label">Időzítés átugása</string>
+    <string name="screenrecord_skip_time_summary">A 3 másodperces késleltetés kikapcsolása</string>
+    <string name="screenrecord_hevc_switch_label">HEVC-kódolás</string>
+    <string name="screenrecord_hevc_switch_summary">Használja a hatékonyabb HEVC-kódolót</string>
 </resources>

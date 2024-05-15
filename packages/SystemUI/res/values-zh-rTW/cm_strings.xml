@@ -71,4 +71,15 @@
     <string name="screenshot_delete_label">刪除</string>
     <string name="screenshot_delete_description">刪除螢幕截圖</string>
     <string name="screenrecord_delete_label">刪除</string>
+    <string name="screenrecord_delete_description">螢幕錄影已刪除</string>
+    <string name="screenrecord_stopdot_label">顯示停止按鈕</string>
+    <string name="screenrecord_stopdot_summary">可長按移動按鈕</string>
+    <string name="screenrecord_lowquality_label">降低畫質</string>
+    <string name="screenrecord_lowquality_summary">減少檔案大小</string>
+    <string name="screenrecord_longer_timeout_switch_label">更大的檔案大小限制</string>
+    <string name="screenrecord_longer_timeout_switch_summary">錄影大小限制 15 GB</string>
+    <string name="screenrecord_skip_time_label">關閉倒數</string>
+    <string name="screenrecord_skip_time_summary">跳過三秒的倒數時間</string>
+    <string name="screenrecord_hevc_switch_label">HEVC 編碼</string>
+    <string name="screenrecord_hevc_switch_summary">使用效率更高的 HEVC 編碼</string>
 </resources>
