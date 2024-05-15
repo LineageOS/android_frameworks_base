@@ -28,31 +28,37 @@
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Reiniciando\u2026</string>
     <string name="global_action_restart_recovery_progress">Reiniciando no modo de recuperação\u2026</string>
-    <string name="global_action_restart_bootloader_progress">Reiniciando no modo de bootloader\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Reiniciando no modo bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Reiniciando no modo de download\u2026</string>
     <string name="global_action_restart_fastboot_progress">Reiniciando no modo fastbootd\u2026</string>
     <string name="global_action_current_user">Atual</string>
     <string name="global_action_users">Usuários</string>
     <string name="drag_or_tap_to_add_tiles">Segure e arraste ou toque para adicionar blocos</string>
     <string name="quick_settings_ambient_display_label">Tela ambiente</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativado.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desativado\nEconomia de bateria</string>
     <string name="quick_settings_caffeine_label">Cafeína</string>
-    <string name="accessibility_quick_settings_caffeine_off">Cafeína desligado.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Cafeína ligado.</string>
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up desligado.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up ligado.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada.</string>
+    <string name="quick_settings_heads_up_label">Notificações pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up desativadas.</string>
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desligado\nEconomia de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare desligado\nBateria muito fraca</string>
+    <string name="quick_settings_powershare_enabled_label">O Wireless PowerShare está ativado</string>
     <string name="quick_settings_reading_mode">Modo de leitura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modo de leitura ligado</string>
     <string name="accessibility_quick_settings_reading_mode_off">Modo de leitura desligado</string>
     <string name="quick_settings_sync_label">Sincronização</string>
-    <string name="accessibility_quick_settings_sync_off">Sincronização desligada.</string>
-    <string name="accessibility_quick_settings_sync_on">Sincronização ligada.</string>
-    <string name="quick_settings_profiles_label">Perfis de sistema</string>
-    <string name="accessibility_quick_settings_profiles_off">Perfis desligados.</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronização desativada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronização ativada.</string>
+    <string name="quick_settings_profiles_label">Perfis do sistema</string>
+    <string name="accessibility_quick_settings_profiles_off">Perfis desativados.</string>
     <string name="accessibility_quick_settings_profiles">Perfil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
-    <string name="quick_settings_usb_tether_label">Compartilhamento USB</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Conectar-se a\u2026</string>
     <string name="vpn_credentials_hint">Por favor, insira as suas credenciais para conectar-se a <xliff:g id="name">%s</xliff:g></string>
@@ -62,4 +68,6 @@
     <string name="accessibility_dpad_left">Cursor à esquerda</string>
     <string name="accessibility_dpad_right">Cursor à direita</string>
     <string name="status_bar_firewall">Firewall</string>
+    <string name="screenshot_delete_label">Excluir</string>
+    <string name="screenshot_delete_description">Excluir captura de tela</string>
 </resources>
