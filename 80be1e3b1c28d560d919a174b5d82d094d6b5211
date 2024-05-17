@@ -16,6 +16,23 @@
       "message": "Nick: yes, transitionPeriods isn\u0027t used in the other file but apparently the googlers intended that to be configurable so i made all three visible",
       "revId": "80be1e3b1c28d560d919a174b5d82d094d6b5211",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "583070ce_682169b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-05-17T23:24:42Z",
+      "side": 1,
+      "message": "this looks janky I agree, but it is intentional?\n\n@luca.stefani.ge1@gmail.com any opinion? I like the new one better personally",
+      "revId": "80be1e3b1c28d560d919a174b5d82d094d6b5211",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
