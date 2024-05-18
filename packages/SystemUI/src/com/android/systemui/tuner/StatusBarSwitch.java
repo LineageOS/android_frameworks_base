@@ -22,7 +22,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -32,7 +32,7 @@ import com.android.systemui.tuner.TunerService.Tunable;
 
 import java.util.Set;
 
-public class StatusBarSwitch extends SwitchPreference implements Tunable {
+public class StatusBarSwitch extends SwitchPreferenceCompat implements Tunable {
 
     private Set<String> mHideList;
 
