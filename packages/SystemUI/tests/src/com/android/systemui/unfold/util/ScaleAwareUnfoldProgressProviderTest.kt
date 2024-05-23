@@ -124,10 +124,10 @@ class ScaleAwareUnfoldProgressProviderTest : SysuiTestCase() {
             }
 
         // It uses [TestableSettingsProvider] and it will be cleared after the test
-        Settings.Global.putString(
+        Settings.Global.putFloat(
             contentResolver,
             Settings.Global.ANIMATOR_DURATION_SCALE,
-            durationScale.toString()
+            durationScale
         )
 
         animatorDurationScaleListenerCaptor.value.dispatchChange(/* selfChange= */false)

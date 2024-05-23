@@ -19,6 +19,7 @@ package com.android.systemui.unfold
 import android.hardware.devicestate.DeviceStateManager
 import android.hardware.devicestate.DeviceStateManager.FoldStateListener
 import android.os.PowerManager
+import android.provider.Settings
 import android.testing.AndroidTestingRunner
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
@@ -108,6 +109,8 @@ class FoldAodAnimationControllerTest : SysuiTestCase() {
         val withDeps = KeyguardInteractorFactory.create(featureFlags = FakeFeatureFlags())
         val keyguardInteractor = withDeps.keyguardInteractor
         keyguardRepository = withDeps.repository
+
+        globalSettings.putFloat(Settings.Global.ANIMATOR_DURATION_SCALE, 1f)
 
         // Needs to be run on the main thread
         runBlocking(IMMEDIATE) {

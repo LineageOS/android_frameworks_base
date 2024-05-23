@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.phone
 
 import android.os.Handler
 import android.os.PowerManager
+import android.provider.Settings
 import android.testing.AndroidTestingRunner
 import android.testing.TestableLooper.RunWithLooper
 import android.view.Display
@@ -83,6 +84,7 @@ class UnlockedScreenOffAnimationControllerTest : SysuiTestCase() {
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
+        globalSettings.putFloat(Settings.Global.ANIMATOR_DURATION_SCALE, 1f)
         controller = UnlockedScreenOffAnimationController(
                 context,
                 wakefulnessLifecycle,

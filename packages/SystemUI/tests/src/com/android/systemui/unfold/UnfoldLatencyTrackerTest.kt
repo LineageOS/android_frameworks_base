@@ -190,10 +190,10 @@ class UnfoldLatencyTrackerTest : SysuiTestCase() {
             }
 
         // It uses [TestableSettingsProvider] and it will be cleared after the test
-        Settings.Global.putString(
+        Settings.Global.putFloat(
             context.contentResolver,
             Settings.Global.ANIMATOR_DURATION_SCALE,
-            durationScale.toString()
+            durationScale
         )
     }
 }
