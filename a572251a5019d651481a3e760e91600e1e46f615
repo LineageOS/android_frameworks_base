@@ -16,6 +16,23 @@
       "message": "Fixes this. https://gitlab.com/LineageOS/issues/android/-/issues/6747",
       "revId": "a572251a5019d651481a3e760e91600e1e46f615",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a36c8696_dfc8db32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-05-25T11:43:20Z",
+      "side": 1,
+      "message": "let\u0027s try to get AOSP acknowledge the change, but this looks correct",
+      "revId": "a572251a5019d651481a3e760e91600e1e46f615",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
