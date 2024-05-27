@@ -16,6 +16,41 @@
       "message": "fix it in kernel?",
       "revId": "414f53a48a9d97481520d499198100a11581d697",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dac94056_8d7224d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19390
+      },
+      "writtenOn": "2024-05-27T00:01:31Z",
+      "side": 1,
+      "message": "https://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/policy/PhoneWindowManager.java;l\u003d6163\n\nNo, it isn\u0027t a kernel problem.\nTo my knowledge, and considering the comment highlighted above, looks like half the \"HDMI-interacting\" stack deals with it expecting only numbers and half of it following the new state conventions.\n\nFeel free to correct me if I\u0027m wrong.",
+      "parentUuid": "3b29ed3e_baa80c1b",
+      "revId": "414f53a48a9d97481520d499198100a11581d697",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "947fde9b_4c131df8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19390
+      },
+      "writtenOn": "2024-05-27T00:01:31Z",
+      "side": 1,
+      "message": "@priv.luk@gmail.com https://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/policy/PhoneWindowManager.java;l\u003d6163\n\nIt doesn\u0027t look like a kernel problem.\nTo my knowledge, and considering the comment highlighted above, looks like half the \"HDMI-interacting\" stack deals with it expecting only numbers and half of it following the new state conventions.\n\nFeel free to correct me if I\u0027m wrong.",
+      "revId": "414f53a48a9d97481520d499198100a11581d697",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
