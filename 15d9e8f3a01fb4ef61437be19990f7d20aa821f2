@@ -16,6 +16,24 @@
       "message": "ideally you\u0027d also move it to `if (userSwitcherName !\u003d null)` scope, but probably not worth it anyway.",
       "revId": "15d9e8f3a01fb4ef61437be19990f7d20aa821f2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5e999ff_f53c7d5b",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardStatusBarView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2024-05-29T13:52:52Z",
+      "side": 1,
+      "message": "Yep better leave it as it is",
+      "parentUuid": "7733b80c_9e4c61f1",
+      "revId": "15d9e8f3a01fb4ef61437be19990f7d20aa821f2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
