@@ -1347,7 +1347,11 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
          * @param scheme name or {@code null} if this is a relative Uri
          */
         public Builder scheme(String scheme) {
-            this.scheme = scheme;
+            if (scheme != null) {
+                this.scheme = scheme.replace("://", "");
+            } else {
+                this.scheme = null;
+            }
             return this;
         }
 
