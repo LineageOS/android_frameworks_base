@@ -1209,7 +1209,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         
     private final class RestartSystemUIAction extends SinglePressAction {
         private RestartSystemUIAction() {
-            super(com.android.systemui.res.R.drawable.ic_restart_systemui, com.android.systemui.res.R.string.global_action_restart_systemui);
+            super(com.android.systemui.res.R.drawable.ic_restart_systemui,
+                    com.android.systemui.res.R.string.global_action_restart_systemui);
         }
 
           @Override
