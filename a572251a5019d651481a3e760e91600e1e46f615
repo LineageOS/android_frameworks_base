@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98bd18b8_19a59465",
+        "filename": "packages/SystemUI/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 0,
+      "message": "not sure why you removed the resources xml",
+      "revId": "a572251a5019d651481a3e760e91600e1e46f615",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2545c6a4_a1c06159",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 1,
+      "message": "So - with Luk, \"we don\u0027t want this\" - the user should never have to restart systemUI, if the device has that severe of problems, it shouldn\u0027t be shipping, plus it\u0027s got awful UX because most people would have no clue what that even means.\n\nPlus soft-reboots sometimes in themselves create weird situations.\n\nBUT - thank you for trying, and I\u0027ve left review so you can understand better next time what to look out for.",
+      "revId": "87c697bd24d537becbdae3c0b2618ed8b38ab948",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b3dfa1b_12b5ca6d",
+        "filename": "GlobalActionsDialogLite.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 1,
+      "message": "You added this for no reason",
+      "revId": "87c697bd24d537becbdae3c0b2618ed8b38ab948",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a005dd3b_f50d2fa8",
+        "filename": "cm_strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 1,
+      "message": "You added this for no reason",
+      "revId": "87c697bd24d537becbdae3c0b2618ed8b38ab948",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a0db32_720909d5",
+        "filename": "packages/SystemUI/res/drawable/ic_restart_systemui.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 1,
+      "message": "yeah not so sure about that lol - at minimum Lineage one needs to be appended but not sure that\u0027s right.",
+      "revId": "87c697bd24d537becbdae3c0b2618ed8b38ab948",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e92c338_b1c89e44",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "87c697bd24d537becbdae3c0b2618ed8b38ab948",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d87d39a1_a7902792",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "87c697bd24d537becbdae3c0b2618ed8b38ab948",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18b6a02_a32c187d",
+        "filename": "packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialogLite.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-06-01T19:39:43Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "87c697bd24d537becbdae3c0b2618ed8b38ab948",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
