@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "120ec1f9_2b308600",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33806
+      },
+      "writtenOn": "2024-06-01T05:14:41Z",
+      "side": 1,
+      "message": "This is actually my first time using Gerrit, so hopefully I did everything correctly!\n\nThe patch simply adds in a \"restart systemui\" function to the extended power menu, same as many (most) AOSP or LOS-based ROMs currently.\n\nI\u0027m currently testing it by flashing on husky,",
+      "revId": "795a46f8e899d18e3fded2dd407d428f368a6dee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7634961_d75454c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33806
+      },
+      "writtenOn": "2024-06-01T05:14:41Z",
+      "side": 1,
+      "message": "I am dumb and put my strings in the wrong place, oops. Will correct.",
+      "revId": "795a46f8e899d18e3fded2dd407d428f368a6dee",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
