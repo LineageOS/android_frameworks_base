@@ -194,6 +194,8 @@
 
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot">Screenshot</string>
+    <!-- Power menu item for restarting SystemUI [CHAR LIMIT=20] -->
+    <string name="global_action_restart_systemui">SystemUI</string>
     <!-- Message shown in power menu when Extend Unlock has been disabled [CHAR_LIMIT=NONE] -->
     <string name="global_action_smart_lock_disabled">Extend Unlock disabled</string>
 
