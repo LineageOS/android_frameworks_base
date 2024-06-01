@@ -29,4 +29,15 @@
     <string name="quick_settings_reading_mode">Modalidade letura</string>
     <string name="quick_settings_profiles_label">Profilos de sistema</string>
     <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="screenrecord_delete_description">Registratzione de ischermu cantzellada</string>
+    <string name="screenrecord_stopdot_label">Mustra su butone de firmada</string>
+    <string name="screenrecord_stopdot_summary">Toca e mantene pro ddu mòvere</string>
+    <string name="screenrecord_lowquality_label">Calidade bàscia</string>
+    <string name="screenrecord_lowquality_summary">Pro una mannària de archìviu prus minore</string>
+    <string name="screenrecord_longer_timeout_switch_label">Lìmite de mannària de archìviu prus mannu</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Lìmita sa mannària de sa registratzione a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Omite su temporizadore</string>
+    <string name="screenrecord_skip_time_summary">Cantzella s\'atesa de 3 segundos</string>
+    <string name="screenrecord_hevc_switch_label">Codìfica HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Imprea su codificadore HEVC prus efitziente</string>
 </resources>
