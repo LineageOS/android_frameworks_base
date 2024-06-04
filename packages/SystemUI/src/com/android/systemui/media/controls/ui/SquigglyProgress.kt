@@ -52,11 +52,11 @@ class SquigglyProgress : Drawable() {
     private var lastFrameTime = -1L
 
     /* distance over which amplitude drops to zero, measured in wavelengths */
-    var transitionPeriods = 1.5f
+    private val transitionPeriods = 1.5f
     /* wave endpoint as percentage of bar when play position is zero */
-    var minWaveEndpoint = 0.2f
+    private val minWaveEndpoint = 0.2f
     /* wave endpoint as percentage of bar when play position matches wave endpoint */
-    var matchedWaveEndpoint = 0.6f
+    private val matchedWaveEndpoint = 0.6f
 
     // Horizontal length of the sine wave
     var waveLength = 0f
