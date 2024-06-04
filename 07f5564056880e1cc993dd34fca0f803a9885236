@@ -16,6 +16,23 @@
       "message": "forgot to +2 this, indeed that\u0027s better and more natural",
       "revId": "07f5564056880e1cc993dd34fca0f803a9885236",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dba65f9_2213377f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33818
+      },
+      "writtenOn": "2024-06-04T03:42:06Z",
+      "side": 1,
+      "message": "This is a bad change. The squiggly part of the line is used to signify the part of the progress bar that the knob has already touched. Having it extend in front of the knob literally makes no sense, because that part of the bar has not been interacted with yet.",
+      "revId": "07f5564056880e1cc993dd34fca0f803a9885236",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
