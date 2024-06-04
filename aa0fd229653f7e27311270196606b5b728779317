@@ -16,6 +16,24 @@
       "message": "I made this change because it wasn\u0027t a continious line. The fading-out squigglyness which eventually is a straight line also indicates that it eventually will play this part. It\u0027s not like the entire remaining line is now squiggly.",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719c0b72_1be3a9ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33818
+      },
+      "writtenOn": "2024-06-04T11:25:43Z",
+      "side": 1,
+      "message": "I hear you. That said, think of it as a paper shredder. The part that passes through the razor (Which could be thought as the knob, in this instance) gets torn into threads (which can be thought as the squiggly part of the bar), while the rest of the paper remains straight and intact (basically the flat part).",
+      "parentUuid": "c4efd8b3_4307ecbb",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
