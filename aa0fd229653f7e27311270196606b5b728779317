@@ -122,6 +122,24 @@
       "parentUuid": "56f9bed8_18690ea1",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5708f295_5f2135f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33818
+      },
+      "writtenOn": "2024-06-05T13:49:35Z",
+      "side": 1,
+      "message": "I mostly agree. Android 12 was like that, if you recall. But the fact that you yourself claim that “the squiggly part’s only purpose is feedback concerning how much I’ve *already* listened to” kinda supports my point of not extending it past the knob.",
+      "parentUuid": "12967830_f54d2c88",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
