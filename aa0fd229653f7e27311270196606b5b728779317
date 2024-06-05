@@ -104,6 +104,24 @@
       "parentUuid": "d5fb23c6_ba1cce62",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78dfa75d_815bb13f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33818
+      },
+      "writtenOn": "2024-06-05T13:45:53Z",
+      "side": 1,
+      "message": "The transition is already smooth, though. If you watch closely, the squiggly part always originates from the middle of the knob.",
+      "parentUuid": "56f9bed8_18690ea1",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
