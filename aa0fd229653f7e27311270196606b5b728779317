@@ -52,6 +52,23 @@
       "parentUuid": "719c0b72_1be3a9ea",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12967830_f54d2c88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-06-05T07:27:08Z",
+      "side": 1,
+      "message": "I\u0027m indifferent about it, repurposing my reply on discord\n\nI don\u0027t really get why the squiggle itself should/has any real meaning, aside a UI feedback of the \"how much did I listen\", the vertical thing is the actual UI element that gives the position feedback",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
