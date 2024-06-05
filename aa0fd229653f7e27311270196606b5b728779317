@@ -229,6 +229,24 @@
       "message": "imho: The only acceptable way to have the previous behavior back is to have the left side of the line to always be attached to the vertical center of the thumb, and apply the squiggle starting from there (think of it as a \"tail\" of the thumb, a tail doesn\u0027t move from the join)",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f53ce93_55aae09a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33818
+      },
+      "writtenOn": "2024-06-05T17:03:00Z",
+      "side": 1,
+      "message": "I wholeheartedly agree. I’ve been thinking about it ever since Android 13 came out. If I knew how to work on Android’s UI, I’d have tried implementing it myself.",
+      "parentUuid": "548dfb9a_23d5eba6",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
