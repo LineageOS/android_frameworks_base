@@ -371,6 +371,24 @@
       "message": "There is no need to turn this into a facebook post and collecting +1s. Keep in mind you are sending an email to each reviewer with each comment you are leaving here.",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "016e8e69_36af1b61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33818
+      },
+      "writtenOn": "2024-06-05T19:03:36Z",
+      "side": 1,
+      "message": "No, that’s not my aim at all. Whether I get a +1 or a -1 is of no importance at all. You are free to downvote me as well, if you think I am upvote-farming. But it is important to discuss with others, no? That’s why I am replying to everyone. I am very new to Gerrit, so I don’t know how the community here works.\n\nBut I guess I’ll stop replying if it is becoming an annoyance to everyone.",
+      "parentUuid": "d5ba87c4_5fa61751",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
