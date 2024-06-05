@@ -194,6 +194,24 @@
       "parentUuid": "f7d2a481_3ac00c8a",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d26d88a_ca004d87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2024-06-05T15:22:13Z",
+      "side": 1,
+      "message": "Fair, I think this just comes down to personal prefernces, the imgur links in the original commit came from my screenshots so that makes my position clear. marking this as resolved, I guess we wait for majority votes :3",
+      "parentUuid": "ac33b821_1c2f69dc",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
