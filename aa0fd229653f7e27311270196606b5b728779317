@@ -69,6 +69,23 @@
       "message": "I\u0027m indifferent about it, repurposing my reply on discord\n\nI don\u0027t really get why the squiggle itself should/has any real meaning, aside a UI feedback of the \"how much did I listen\", the vertical thing is the actual UI element that gives the position feedback",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5fb23c6_ba1cce62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2024-06-05T07:28:01Z",
+      "side": 1,
+      "message": "I agree with Xori. The squiggle is meant to show the part of the song that has already been played. Extending it more than the vertical line/knob does not make sense as that part of the song has not been reached yet. The paper shredder analogy describes this perfectly. While some people might say the squiggle does not matter as the vertical line/knob thing shows the progression of the song, if that were the case, the whole line could be a squiggle with no real meaning. This (the squiggle) is supposed to show the progression of the song along with the knob as that is how it was intended.",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
