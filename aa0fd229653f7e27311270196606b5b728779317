@@ -158,6 +158,24 @@
       "parentUuid": "f937f56a_6050ed96",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d2a481_3ac00c8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27025
+      },
+      "writtenOn": "2024-06-05T15:03:40Z",
+      "side": 1,
+      "message": "https://imgur.com/a/vn4smvb not really, in various points of the seek bar i have seen the squiggle not align properly",
+      "parentUuid": "78dfa75d_815bb13f",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
