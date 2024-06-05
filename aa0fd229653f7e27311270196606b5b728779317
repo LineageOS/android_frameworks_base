@@ -34,6 +34,24 @@
       "parentUuid": "c4efd8b3_4307ecbb",
       "revId": "aa0fd229653f7e27311270196606b5b728779317",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f937f56a_6050ed96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2024-06-05T06:41:56Z",
+      "side": 1,
+      "message": "Makes sense. I guess we\u0027ll let majority vote decide.",
+      "parentUuid": "719c0b72_1be3a9ea",
+      "revId": "aa0fd229653f7e27311270196606b5b728779317",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
