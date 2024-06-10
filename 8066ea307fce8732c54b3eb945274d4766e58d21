@@ -51,6 +51,24 @@
       "message": "Consider icons only\nBefore: https://imgur.com/9fhr5f6\nAfter: https://imgur.com/2Zn4IYC",
       "revId": "8066ea307fce8732c54b3eb945274d4766e58d21",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2c23cf_3a6ccdf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2024-06-10T17:43:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73e07691_3c284ccc",
+      "revId": "8066ea307fce8732c54b3eb945274d4766e58d21",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
