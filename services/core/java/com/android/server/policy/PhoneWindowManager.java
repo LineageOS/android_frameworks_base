@@ -5184,7 +5184,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 shouldTurnOnTv = true;
             } else if (down && (isWakeKey || keyCode == KeyEvent.KEYCODE_WAKEUP)
                     && isWakeKeyWhenScreenOff(keyCode)) {
-                wakeUpFromWakeKey(event, false);
+                wakeUpFromWakeKey(event);
                 shouldTurnOnTv = true;
             }
             if (shouldTurnOnTv) {
@@ -6311,11 +6311,25 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         wakeUpFromWakeKey(
                 event.getEventTime(),
                 event.getKeyCode(),
-                event.getAction() == KeyEvent.ACTION_DOWN);
+                event.getAction() == KeyEvent.ACTION_DOWN,
+                false);
+    }
+
+    private void wakeUpFromWakeKey(KeyEvent event, boolean withProximityCheck) {
+        wakeUpFromWakeKey(
+                event.getEventTime(),
+                event.getKeyCode(),
+                event.getAction() == KeyEvent.ACTION_DOWN,
+                withProximityCheck);
     }
 
     private void wakeUpFromWakeKey(long eventTime, int keyCode, boolean isDown) {
-        if (mWindowWakeUpPolicy.wakeUpFromKey(eventTime, keyCode, isDown)) {
+        wakeUpFromWakeKey(eventTime, keyCode, isDown, false);
+    }
+
+    private void wakeUpFromWakeKey(long eventTime, int keyCode, boolean isDown,
+            boolean withProximityCheck) {
+        if (mWindowWakeUpPolicy.wakeUpFromKey(eventTime, keyCode, isDown, withProximityCheck)) {
             final boolean keyCanLaunchHome = keyCode == KEYCODE_HOME || keyCode == KEYCODE_POWER;
             // Start HOME with "reason" extra if sleeping for more than mWakeUpToLastStateTimeout
             if (shouldWakeUpWithHomeIntent() &&  keyCanLaunchHome) {
