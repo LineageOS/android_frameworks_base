@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed76a63_45a14e4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-06-15T21:37:19Z",
+      "side": 1,
+      "message": "This could just be partially reverted to remove the resource part and keep the prop",
+      "revId": "3df2f3e62b6abb49fa4d47d940cc8950a1936710",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
