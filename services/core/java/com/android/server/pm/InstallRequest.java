@@ -42,6 +42,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.SharedLibraryInfo;
 import android.content.pm.SigningDetails;
 import android.content.pm.parsing.PackageLite;
+import android.content.pm.verify.domain.DomainSet;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Process;
@@ -155,6 +156,9 @@ final class InstallRequest {
     @NonNull
     private final ArrayList<String> mWarnings = new ArrayList<>();
 
+    @Nullable
+    private DomainSet mPreVerifiedDomains;
+
     // New install
     InstallRequest(InstallingSession params) {
         mUserId = params.getUser().getIdentifier();
@@ -172,6 +176,7 @@ final class InstallRequest {
         mIsInstallInherit = params.mIsInherit;
         mSessionId = params.mSessionId;
         mRequireUserAction = params.mRequireUserAction;
+        mPreVerifiedDomains = params.mPreVerifiedDomains;
     }
 
     // Install existing package as user
@@ -294,13 +299,13 @@ final class InstallRequest {
     @Nullable
     public File getOldCodeFile() {
         return (mRemovedInfo != null && mRemovedInfo.mArgs != null)
-                ? mRemovedInfo.mArgs.mCodeFile : null;
+                ? mRemovedInfo.mArgs.getCodeFile() : null;
     }
 
     @Nullable
     public String[] getOldInstructionSet() {
         return (mRemovedInfo != null && mRemovedInfo.mArgs != null)
-                ? mRemovedInfo.mArgs.mInstructionSets : null;
+                ? mRemovedInfo.mArgs.getInstructionSets() : null;
     }
 
     public UserHandle getUser() {
@@ -687,6 +692,14 @@ final class InstallRequest {
         }
     }
 
+    public void setPostInstallRunnable(Runnable runnable) {
+        mPostInstallRunnable = runnable;
+    }
+
+    public boolean hasPostInstallRunnable() {
+        return mPostInstallRunnable != null;
+    }
+
     public void runPostInstallRunnable() {
         if (mPostInstallRunnable != null) {
             mPostInstallRunnable.run();
@@ -748,6 +761,7 @@ final class InstallRequest {
 
     public void setNewUsers(int[] newUsers) {
         mNewUsers = newUsers;
+        populateBroadcastUsers();
     }
 
     public void setOriginPackage(String originPackage) {
@@ -824,10 +838,11 @@ final class InstallRequest {
     }
 
     /**
-     *  Determine the set of users who are adding this package for the first time vs. those who are
-     *  seeing an update.
+     *  Determine the set of users who are adding this package for the first time (aka "new" users)
+     *  vs. those who are seeing an update (aka "update" users). The lists can be calculated as soon
+     *  as the "new" users are set.
      */
-    public void populateBroadcastUsers() {
+    private void populateBroadcastUsers() {
         assertScanResultExists();
         mFirstTimeBroadcastUserIds = EMPTY_INT_ARRAY;
         mFirstTimeBroadcastInstantUserIds = EMPTY_INT_ARRAY;
@@ -873,6 +888,11 @@ final class InstallRequest {
                 }
             }
         }
+    }
+
+    @Nullable
+    public DomainSet getPreVerifiedDomains() {
+        return mPreVerifiedDomains;
     }
 
     public void addWarning(@NonNull String warning) {

@@ -618,7 +618,7 @@ public final class KeyGenParameterSpec implements AlgorithmParameterSpec, UserAu
      * @see #isMgf1DigestsSpecified()
      */
     @NonNull
-    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER)
+    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER_V2)
     public @KeyProperties.DigestEnum Set<String> getMgf1Digests() {
         if (mMgf1Digests.isEmpty()) {
             throw new IllegalStateException("Mask generation function (MGF) not specified");
@@ -633,7 +633,7 @@ public final class KeyGenParameterSpec implements AlgorithmParameterSpec, UserAu
      * @see #getMgf1Digests()
      */
     @NonNull
-    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER)
+    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER_V2)
     public boolean isMgf1DigestsSpecified() {
         return !mMgf1Digests.isEmpty();
     }
@@ -910,7 +910,7 @@ public final class KeyGenParameterSpec implements AlgorithmParameterSpec, UserAu
     /**
      * Returns whether this key is critical to the device encryption flow.
      *
-     * @see android.security.KeyStore#FLAG_CRITICAL_TO_DEVICE_ENCRYPTION
+     * @see Builder#setCriticalToDeviceEncryption(boolean)
      * @hide
      */
     public boolean isCriticalToDeviceEncryption() {
@@ -1292,7 +1292,7 @@ public final class KeyGenParameterSpec implements AlgorithmParameterSpec, UserAu
          * <p>See {@link KeyProperties}.{@code DIGEST} constants.
          */
         @NonNull
-        @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER)
+        @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER_V2)
         public Builder setMgf1Digests(@NonNull @KeyProperties.DigestEnum String... mgf1Digests) {
             mMgf1Digests = Set.of(mgf1Digests);
             return this;

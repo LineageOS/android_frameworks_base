@@ -21,6 +21,7 @@ java_library {
 
     libs: [
         "app-compat-annotations",
+        "error_prone_annotations",
         "framework",
         "services.core",
         "unsupportedappusage",
@@ -28,6 +29,7 @@ java_library {
 
     static_libs: [
         "modules-utils-fastxmlserializer",
+        "service-jobscheduler-alarm.flags-aconfig-java",
         "service-jobscheduler-job.flags-aconfig-java",
     ],
 

@@ -26,6 +26,7 @@ import static com.android.media.audio.Flags.dsaOverBtLeAudio;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.media.AudioAttributes;
@@ -813,7 +814,7 @@ public class SpatializerHelper {
         return false;
     }
 
-    private boolean isSADevice(AdiDeviceState deviceState) {
+    /*package*/ boolean isSADevice(AdiDeviceState deviceState) {
         return deviceState.getDeviceType() == getCanonicalDeviceType(deviceState.getDeviceType(),
                 deviceState.getInternalDeviceType()) && isDeviceCompatibleWithSpatializationModes(
                 deviceState.getAudioDeviceAttributes());
@@ -1611,6 +1612,9 @@ public class SpatializerHelper {
         pw.println("\tsupports binaural:" + mBinauralSupported + " / transaural:"
                 + mTransauralSupported);
         pw.println("\tmSpatOutput:" + mSpatOutput);
+        pw.println("\thas FEATURE_AUDIO_SPATIAL_HEADTRACKING_LOW_LATENCY:"
+                + mAudioService.mContext.getPackageManager().hasSystemFeature(
+                PackageManager.FEATURE_AUDIO_SPATIAL_HEADTRACKING_LOW_LATENCY));
     }
 
     private static String spatStateString(int state) {
@@ -1639,8 +1643,7 @@ public class SpatializerHelper {
             return  -1;
         }
         final AudioDeviceAttributes currentDevice = sRoutingDevices.get(0);
-        List<String> deviceAddresses = mAudioService.getDeviceAddresses(currentDevice);
-
+        List<String> deviceAddresses = mAudioService.getDeviceIdentityAddresses(currentDevice);
         // We limit only to Sensor.TYPE_HEAD_TRACKER here to avoid confusion
         // with gaming sensors. (Note that Sensor.TYPE_ROTATION_VECTOR
         // and Sensor.TYPE_GAME_ROTATION_VECTOR are supported internally by

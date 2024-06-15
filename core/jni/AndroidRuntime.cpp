@@ -152,8 +152,6 @@ extern int register_android_os_MessageQueue(JNIEnv* env);
 extern int register_android_os_Parcel(JNIEnv* env);
 extern int register_android_os_PerformanceHintManager(JNIEnv* env);
 extern int register_android_os_SELinux(JNIEnv* env);
-extern int register_android_os_VintfObject(JNIEnv *env);
-extern int register_android_os_VintfRuntimeInfo(JNIEnv *env);
 extern int register_android_os_storage_StorageManager(JNIEnv* env);
 extern int register_android_os_SystemProperties(JNIEnv *env);
 extern int register_android_os_SystemClock(JNIEnv* env);
@@ -220,6 +218,9 @@ extern int register_com_android_internal_util_VirtualRefBasePtr(JNIEnv *env);
 extern int register_android_window_WindowInfosListener(JNIEnv* env);
 extern int register_android_window_ScreenCapture(JNIEnv* env);
 extern int register_jni_common(JNIEnv* env);
+extern int register_android_tracing_PerfettoDataSource(JNIEnv* env);
+extern int register_android_tracing_PerfettoDataSourceInstance(JNIEnv* env);
+extern int register_android_tracing_PerfettoProducer(JNIEnv* env);
 
 // Namespace for Android Runtime flags applied during boot time.
 static const char* RUNTIME_NATIVE_BOOT_NAMESPACE = "runtime_native_boot";
@@ -653,6 +654,8 @@ int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv, bool zygote, bool p
             sizeof("-Xps-save-resolved-classes-delay-ms:")-1 + PROPERTY_VALUE_MAX];
     char profileMinSavePeriodOptsBuf[sizeof("-Xps-min-save-period-ms:")-1 + PROPERTY_VALUE_MAX];
     char profileMinFirstSaveOptsBuf[sizeof("-Xps-min-first-save-ms:") - 1 + PROPERTY_VALUE_MAX];
+    char profileInlineCacheThresholdOptsBuf[
+            sizeof("-Xps-inline-cache-threshold:") - 1 + PROPERTY_VALUE_MAX];
     char madviseWillNeedFileSizeVdex[
             sizeof("-XMadviseWillNeedVdexFileSize:")-1 + PROPERTY_VALUE_MAX];
     char madviseWillNeedFileSizeOdex[
@@ -897,6 +900,9 @@ int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv, bool zygote, bool p
 
     parseRuntimeOption("dalvik.vm.ps-min-first-save-ms", profileMinFirstSaveOptsBuf,
             "-Xps-min-first-save-ms:");
+
+    parseRuntimeOption("dalvik.vm.ps-inline-cache-threshold", profileInlineCacheThresholdOptsBuf,
+            "-Xps-inline-cache-threshold:");
 
     property_get("ro.config.low_ram", propBuf, "");
     if (strcmp(propBuf, "true") == 0) {
@@ -1537,8 +1543,6 @@ static const RegJNIRec gRegJNI[] = {
         REG_JNI(register_android_os_NativeHandle),
         REG_JNI(register_android_os_ServiceManager),
         REG_JNI(register_android_os_storage_StorageManager),
-        REG_JNI(register_android_os_VintfObject),
-        REG_JNI(register_android_os_VintfRuntimeInfo),
         REG_JNI(register_android_service_DataLoaderService),
         REG_JNI(register_android_view_DisplayEventReceiver),
         REG_JNI(register_android_view_Surface),
@@ -1670,6 +1674,10 @@ static const RegJNIRec gRegJNI[] = {
         REG_JNI(register_android_window_WindowInfosListener),
         REG_JNI(register_android_window_ScreenCapture),
         REG_JNI(register_jni_common),
+
+        REG_JNI(register_android_tracing_PerfettoDataSource),
+        REG_JNI(register_android_tracing_PerfettoDataSourceInstance),
+        REG_JNI(register_android_tracing_PerfettoProducer),
 };
 
 /*
