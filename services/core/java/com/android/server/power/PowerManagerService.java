@@ -120,6 +120,7 @@ import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.display.BrightnessSynchronizer;
+import com.android.internal.foldables.FoldGracePeriodProvider;
 import com.android.internal.os.BackgroundThread;
 import com.android.internal.util.DumpUtils;
 import com.android.internal.util.FrameworkStatsLog;
@@ -143,6 +144,7 @@ import com.android.server.power.batterysaver.BatterySaverController;
 import com.android.server.power.batterysaver.BatterySaverPolicy;
 import com.android.server.power.batterysaver.BatterySaverStateMachine;
 import com.android.server.power.batterysaver.BatterySavingStats;
+import com.android.server.power.feature.PowerManagerFlags;
 
 import dalvik.annotation.optimization.NeverCompile;
 
@@ -322,6 +324,7 @@ public final class PowerManagerService extends SystemService
     private final Context mContext;
     private final ServiceThread mHandlerThread;
     private final Handler mHandler;
+    private final FoldGracePeriodProvider mFoldGracePeriodProvider;
     private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
     @Nullable
     private final BatterySaverStateMachine mBatterySaverStateMachine;
@@ -340,6 +343,8 @@ public final class PowerManagerService extends SystemService
     private final DeviceConfigParameterProvider mDeviceConfigProvider;
     // True if battery saver is supported on this device.
     private final boolean mBatterySaverSupported;
+
+    private final PowerManagerFlags mFeatureFlags;
 
     private boolean mDisableScreenWakeLocksWhileCached;
 
@@ -1042,6 +1047,10 @@ public final class PowerManagerService extends SystemService
             return new InattentiveSleepWarningController();
         }
 
+        FoldGracePeriodProvider createFoldGracePeriodProvider() {
+            return new FoldGracePeriodProvider();
+        }
+
         public SystemPropertiesWrapper createSystemPropertiesWrapper() {
             return new SystemPropertiesWrapper() {
                 @Override
@@ -1107,6 +1116,10 @@ public final class PowerManagerService extends SystemService
 
         DeviceConfigParameterProvider createDeviceConfigParameterProvider() {
             return new DeviceConfigParameterProvider(DeviceConfigInterface.REAL);
+        }
+
+        PowerManagerFlags getFlags() {
+            return new PowerManagerFlags();
         }
     }
 
@@ -1187,6 +1200,7 @@ public final class PowerManagerService extends SystemService
         mNativeWrapper = injector.createNativeWrapper();
         mSystemProperties = injector.createSystemPropertiesWrapper();
         mClock = injector.createClock();
+        mFeatureFlags = injector.getFlags();
         mInjector = injector;
 
         mHandlerThread = new ServiceThread(TAG,
@@ -1195,6 +1209,7 @@ public final class PowerManagerService extends SystemService
         mHandler = injector.createHandler(mHandlerThread.getLooper(),
                 new PowerManagerHandlerCallback());
         mConstants = new Constants(mHandler);
+        mFoldGracePeriodProvider = injector.createFoldGracePeriodProvider();
         mAmbientDisplayConfiguration = mInjector.createAmbientDisplayConfiguration(context);
         mAmbientDisplaySuppressionController =
                 mInjector.createAmbientDisplaySuppressionController(
@@ -4624,8 +4639,8 @@ public final class PowerManagerService extends SystemService
 
     private boolean setPowerModeInternal(int mode, boolean enabled) {
         // Maybe filter the event.
-        if (mBatterySaverStateMachine == null || (mode == Mode.LAUNCH && enabled
-                && mBatterySaverStateMachine.getBatterySaverController().isLaunchBoostDisabled())) {
+        if (mode == Mode.LAUNCH && enabled && mBatterySaverStateMachine != null
+                && mBatterySaverStateMachine.getBatterySaverController().isLaunchBoostDisabled()) {
             return false;
         }
         return mNativeWrapper.nativeSetPowerMode(mode, enabled);
@@ -5026,6 +5041,7 @@ public final class PowerManagerService extends SystemService
         mAmbientDisplaySuppressionController.dump(pw);
 
         mLowPowerStandbyController.dump(pw);
+        mFeatureFlags.dump(pw);
     }
 
     private void dumpProto(FileDescriptor fd) {
@@ -7231,8 +7247,15 @@ public final class PowerManagerService extends SystemService
                                 + ") doesn't exist");
                     }
                     if ((flags & PowerManager.GO_TO_SLEEP_FLAG_SOFT_SLEEP) != 0) {
-                        if (powerGroup.hasWakeLockKeepingScreenOnLocked()) {
-                            continue;
+                        if (mFoldGracePeriodProvider.isEnabled()) {
+                            if (!powerGroup.hasWakeLockKeepingScreenOnLocked()) {
+                                mNotifier.showDismissibleKeyguard();
+                            }
+                            continue; // never actually goes to sleep for SOFT_SLEEP
+                        } else {
+                            if (powerGroup.hasWakeLockKeepingScreenOnLocked()) {
+                                continue;
+                            }
                         }
                     }
                     if (isNoDoze) {

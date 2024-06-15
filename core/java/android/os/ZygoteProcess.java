@@ -71,7 +71,7 @@ import java.util.UUID;
  */
 public class ZygoteProcess {
 
-    private static final int ZYGOTE_CONNECT_TIMEOUT_MS = 20000;
+    private static final int ZYGOTE_CONNECT_TIMEOUT_MS = 60000;
 
     /**
      * Use a relatively short delay, because for app zygote, this is in the critical path of
@@ -425,6 +425,8 @@ public class ZygoteProcess {
                 throw new ZygoteStartFailedEx("Embedded newlines not allowed");
             } else if (arg.indexOf('\r') >= 0) {
                 throw new ZygoteStartFailedEx("Embedded carriage returns not allowed");
+            } else if (arg.indexOf('\u0000') >= 0) {
+                throw new ZygoteStartFailedEx("Embedded nulls not allowed");
             }
         }
 
@@ -965,6 +967,14 @@ public class ZygoteProcess {
             return true;
         }
 
+        for (/* NonNull */ String s : mApiDenylistExemptions) {
+            // indexOf() is intrinsified and faster than contains().
+            if (s.indexOf('\n') >= 0 || s.indexOf('\r') >= 0 || s.indexOf('\u0000') >= 0) {
+                Slog.e(LOG_TAG, "Failed to set API denylist exemptions: Bad character");
+                mApiDenylistExemptions = Collections.emptyList();
+                return false;
+            }
+        }
         try {
             state.mZygoteOutputWriter.write(Integer.toString(mApiDenylistExemptions.size() + 1));
             state.mZygoteOutputWriter.newLine();

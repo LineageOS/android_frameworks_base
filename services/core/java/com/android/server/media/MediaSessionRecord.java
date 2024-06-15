@@ -29,6 +29,7 @@ import android.annotation.Nullable;
 import android.annotation.RequiresPermission;
 import android.app.ActivityManager;
 import android.app.ActivityManagerInternal;
+import android.app.ForegroundServiceDelegationOptions;
 import android.app.PendingIntent;
 import android.app.compat.CompatChanges;
 import android.compat.annotation.ChangeId;
@@ -95,7 +96,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * MediaSession wrapper class instead.
  */
 // TODO(jaewan): Do not call service method directly -- introduce listener instead.
-public class MediaSessionRecord implements IBinder.DeathRecipient, MediaSessionRecordImpl {
+public class MediaSessionRecord extends MediaSessionRecordImpl implements IBinder.DeathRecipient {
 
     /**
      * {@link android.media.session.MediaSession#setMediaButtonBroadcastReceiver(
@@ -182,6 +183,8 @@ public class MediaSessionRecord implements IBinder.DeathRecipient, MediaSessionR
     private final Context mContext;
     private final boolean mVolumeAdjustmentForRemoteGroupSessions;
 
+    private final ForegroundServiceDelegationOptions mForegroundServiceDelegationOptions;
+
     private final Object mLock = new Object();
     private final CopyOnWriteArrayList<ISessionControllerCallbackHolder>
             mControllerCallbackHolders = new CopyOnWriteArrayList<>();
@@ -220,10 +223,19 @@ public class MediaSessionRecord implements IBinder.DeathRecipient, MediaSessionR
 
     private int mPolicies;
 
-    public MediaSessionRecord(int ownerPid, int ownerUid, int userId, String ownerPackageName,
-            ISessionCallback cb, String tag, Bundle sessionInfo,
-            MediaSessionService service, Looper handlerLooper, int policies)
+    public MediaSessionRecord(
+            int ownerPid,
+            int ownerUid,
+            int userId,
+            String ownerPackageName,
+            ISessionCallback cb,
+            String tag,
+            Bundle sessionInfo,
+            MediaSessionService service,
+            Looper handlerLooper,
+            int policies)
             throws RemoteException {
+        mUniqueId = sNextMediaSessionRecordId.getAndIncrement();
         mOwnerPid = ownerPid;
         mOwnerUid = ownerUid;
         mUserId = userId;
@@ -244,8 +256,30 @@ public class MediaSessionRecord implements IBinder.DeathRecipient, MediaSessionR
         mVolumeAdjustmentForRemoteGroupSessions = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_volumeAdjustmentForRemoteGroupSessions);
 
+        mForegroundServiceDelegationOptions = createForegroundServiceDelegationOptions();
+
         // May throw RemoteException if the session app is killed.
         mSessionCb.mCb.asBinder().linkToDeath(this, 0);
+    }
+
+    private ForegroundServiceDelegationOptions createForegroundServiceDelegationOptions() {
+        return new ForegroundServiceDelegationOptions.Builder()
+                .setClientPid(mOwnerPid)
+                .setClientUid(getUid())
+                .setClientPackageName(getPackageName())
+                .setClientAppThread(null)
+                .setSticky(false)
+                .setClientInstanceName(
+                        "MediaSessionFgsDelegate_"
+                                + getUid()
+                                + "_"
+                                + mOwnerPid
+                                + "_"
+                                + getPackageName())
+                .setForegroundServiceTypes(0)
+                .setDelegationService(
+                        ForegroundServiceDelegationOptions.DELEGATION_SERVICE_MEDIA_PLAYBACK)
+                .build();
     }
 
     /**
@@ -678,7 +712,12 @@ public class MediaSessionRecord implements IBinder.DeathRecipient, MediaSessionR
 
     @Override
     public String toString() {
-        return mPackageName + "/" + mTag + " (userId=" + mUserId + ")";
+        return mPackageName + "/" + mTag + "/" + getUniqueId() + " (userId=" + mUserId + ")";
+    }
+
+    @Override
+    public ForegroundServiceDelegationOptions getForegroundServiceDelegationOptions() {
+        return mForegroundServiceDelegationOptions;
     }
 
     private void postAdjustLocalVolume(final int stream, final int direction, final int flags,
@@ -1114,7 +1153,7 @@ public class MediaSessionRecord implements IBinder.DeathRecipient, MediaSessionR
             mIsActive = active;
             long token = Binder.clearCallingIdentity();
             try {
-                mService.onSessionActiveStateChanged(MediaSessionRecord.this);
+                mService.onSessionActiveStateChanged(MediaSessionRecord.this, mPlaybackState);
             } finally {
                 Binder.restoreCallingIdentity(token);
             }
@@ -1273,7 +1312,7 @@ public class MediaSessionRecord implements IBinder.DeathRecipient, MediaSessionR
             final long token = Binder.clearCallingIdentity();
             try {
                 mService.onSessionPlaybackStateChanged(
-                        MediaSessionRecord.this, shouldUpdatePriority);
+                        MediaSessionRecord.this, shouldUpdatePriority, mPlaybackState);
             } finally {
                 Binder.restoreCallingIdentity(token);
             }

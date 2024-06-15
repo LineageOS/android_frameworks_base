@@ -77,6 +77,7 @@ import com.android.internal.os.BackgroundThread;
 import com.android.internal.os.RuntimeInit;
 import com.android.internal.util.FastPrintWriter;
 import com.android.internal.util.HexDump;
+import com.android.internal.util.Preconditions;
 
 import dalvik.system.BlockGuard;
 import dalvik.system.CloseGuard;
@@ -154,6 +155,7 @@ import java.util.function.Consumer;
  * android.os.Binder} calls, it's still ultimately a best effort mechanism. Notably, disk or network
  * access from JNI calls won't necessarily trigger it.
  */
+@android.ravenwood.annotation.RavenwoodKeepPartialClass
 public final class StrictMode {
     private static final String TAG = "StrictMode";
     private static final boolean LOG_V = Log.isLoggable(TAG, Log.VERBOSE);
@@ -1267,6 +1269,7 @@ public final class StrictMode {
     }
 
     /** @hide */
+    @android.ravenwood.annotation.RavenwoodReplace
     public static void setThreadPolicyMask(@ThreadPolicyMask int threadPolicyMask) {
         // In addition to the Java-level thread-local in Dalvik's
         // BlockGuard, we also need to keep a native thread-local in
@@ -1277,6 +1280,12 @@ public final class StrictMode {
 
         // And set the Android native version...
         Binder.setThreadStrictModePolicy(threadPolicyMask);
+    }
+
+    /** @hide */
+    public static void setThreadPolicyMask$ravenwood(@ThreadPolicyMask int threadPolicyMask) {
+        // Ravenwood currently doesn't support any detection modes
+        Preconditions.checkFlagsArgument(threadPolicyMask, 0);
     }
 
     // Sets the policy in Dalvik/libcore (BlockGuard)
@@ -1321,6 +1330,7 @@ public final class StrictMode {
      * @hide
      */
     @UnsupportedAppUsage
+    @android.ravenwood.annotation.RavenwoodReplace
     public static @ThreadPolicyMask int getThreadPolicyMask() {
         final BlockGuard.Policy policy = BlockGuard.getThreadPolicy();
         if (policy instanceof AndroidBlockGuardPolicy) {
@@ -1328,6 +1338,12 @@ public final class StrictMode {
         } else {
             return 0;
         }
+    }
+
+    /** @hide */
+    public static @ThreadPolicyMask int getThreadPolicyMask$ravenwood() {
+        // Ravenwood currently doesn't support any detection modes
+        return 0;
     }
 
     /** Returns the current thread's policy. */
@@ -1359,6 +1375,7 @@ public final class StrictMode {
     }
 
     /** @hide */
+    @android.ravenwood.annotation.RavenwoodKeep
     public static @ThreadPolicyMask int allowThreadDiskWritesMask() {
         int oldPolicyMask = getThreadPolicyMask();
         int newPolicyMask = oldPolicyMask & ~(DETECT_THREAD_DISK_WRITE | DETECT_THREAD_DISK_READ);
@@ -1383,6 +1400,7 @@ public final class StrictMode {
     }
 
     /** @hide */
+    @android.ravenwood.annotation.RavenwoodKeep
     public static @ThreadPolicyMask int allowThreadDiskReadsMask() {
         int oldPolicyMask = getThreadPolicyMask();
         int newPolicyMask = oldPolicyMask & ~(DETECT_THREAD_DISK_READ);
@@ -2373,13 +2391,29 @@ public final class StrictMode {
     /** Assume locked until we hear otherwise */
     private static volatile boolean sCeStorageUnlocked = false;
 
+    /**
+     * Avoid (potentially) costly and repeated lookups to the same mount service.
+     * Note that we don't use the Singleton wrapper as lookup may fail early during boot.
+     */
+    private static volatile IStorageManager sStorageManager;
+
     private static boolean isCeStorageUnlocked(int userId) {
-        final IStorageManager storage = IStorageManager.Stub
+        IStorageManager storage = sStorageManager;
+        if (storage == null) {
+            storage = IStorageManager.Stub
                 .asInterface(ServiceManager.getService("mount"));
+            // As the queried handle may be null early during boot, only stash valid handles,
+            // avoiding races with concurrent service queries.
+            if (storage != null) {
+                sStorageManager = storage;
+            }
+        }
         if (storage != null) {
             try {
                 return storage.isCeStorageUnlocked(userId);
             } catch (RemoteException ignored) {
+                // Conservatively clear the ref, allowing refresh if the remote process restarts.
+                sStorageManager = null;
             }
         }
         return false;
@@ -2435,11 +2469,12 @@ public final class StrictMode {
 
     /** @hide */
     public static void onVmPolicyViolation(Violation violation, boolean forceDeath) {
-        final boolean penaltyDropbox = (sVmPolicy.mask & PENALTY_DROPBOX) != 0;
-        final boolean penaltyDeath = ((sVmPolicy.mask & PENALTY_DEATH) != 0) || forceDeath;
-        final boolean penaltyLog = (sVmPolicy.mask & PENALTY_LOG) != 0;
+        final VmPolicy vmPolicy = getVmPolicy();
+        final boolean penaltyDropbox = (vmPolicy.mask & PENALTY_DROPBOX) != 0;
+        final boolean penaltyDeath = ((vmPolicy.mask & PENALTY_DEATH) != 0) || forceDeath;
+        final boolean penaltyLog = (vmPolicy.mask & PENALTY_LOG) != 0;
 
-        final int penaltyMask = (sVmPolicy.mask & PENALTY_ALL);
+        final int penaltyMask = (vmPolicy.mask & PENALTY_ALL);
         final ViolationInfo info = new ViolationInfo(violation, penaltyMask);
 
         // Erase stuff not relevant for process-wide violations
@@ -2492,10 +2527,10 @@ public final class StrictMode {
 
         // If penaltyDeath, we can't guarantee this callback finishes before the process dies for
         // all executors. penaltyDeath supersedes penaltyCallback.
-        if (sVmPolicy.mListener != null && sVmPolicy.mCallbackExecutor != null) {
-            final OnVmViolationListener listener = sVmPolicy.mListener;
+        if (vmPolicy.mListener != null && vmPolicy.mCallbackExecutor != null) {
+            final OnVmViolationListener listener = vmPolicy.mListener;
             try {
-                sVmPolicy.mCallbackExecutor.execute(
+                vmPolicy.mCallbackExecutor.execute(
                         () -> {
                             // Lift violated policy to prevent infinite recursion.
                             VmPolicy oldPolicy = allowVmViolations();

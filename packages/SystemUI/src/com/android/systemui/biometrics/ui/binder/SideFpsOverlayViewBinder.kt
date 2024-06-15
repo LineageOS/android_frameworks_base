@@ -50,10 +50,12 @@ import com.android.systemui.util.kotlin.sample
 import dagger.Lazy
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
 /** Binds the side fingerprint sensor indicator view to [SideFpsOverlayViewModel]. */
+@OptIn(ExperimentalCoroutinesApi::class)
 @SysUISingleton
 class SideFpsOverlayViewBinder
 @Inject
@@ -113,19 +115,15 @@ constructor(
     }
 
     private var overlayView: View? = null
-    private var lottie: LottieAnimationView? = null
 
     /** Show the side fingerprint sensor indicator */
     private fun show() {
-        overlayView?.let {
-            if (it.isAttachedToWindow) {
-                lottie = it.requireViewById<LottieAnimationView>(R.id.sidefps_animation)
-                lottie?.pauseAnimation()
-                windowManager.get().removeView(it)
-            }
+        if (overlayView?.isAttachedToWindow == true) {
+            return
         }
 
         overlayView = layoutInflater.get().inflate(R.layout.sidefps_view, null, false)
+
         val overlayViewModel =
             SideFpsOverlayViewModel(
                 applicationContext,
@@ -163,8 +161,10 @@ constructor(
 
                 val lottie = it.requireViewById<LottieAnimationView>(R.id.sidefps_animation)
                 lottie.addLottieOnCompositionLoadedListener { composition: LottieComposition ->
-                    viewModel.setLottieBounds(composition.bounds)
-                    overlayView.visibility = View.VISIBLE
+                    if (overlayView.visibility != View.VISIBLE) {
+                        viewModel.setLottieBounds(composition.bounds)
+                        overlayView.visibility = View.VISIBLE
+                    }
                 }
                 it.alpha = 0f
                 val overlayShowAnimator =

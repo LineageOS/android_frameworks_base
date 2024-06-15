@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package {
+    default_team: "trendy_team_system_ui_please_use_a_more_specific_subteam_if_possible_",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "frameworks_base_packages_SystemUI_license"
@@ -23,7 +24,7 @@ package {
 
 android_library {
 
-    name: "SystemUIAnimationLib",
+    name: "PlatformAnimationLib",
     use_resource_processor: true,
 
     srcs: [
@@ -43,7 +44,9 @@ android_library {
         "androidx.core_core-animation-nodeps",
         "androidx.core_core-ktx",
         "androidx.annotation_annotation",
+        "com_android_systemui_flags_lib",
         "SystemUIShaderLib",
+        "WindowManager-Shell-shared",
         "animationlib",
     ],
 

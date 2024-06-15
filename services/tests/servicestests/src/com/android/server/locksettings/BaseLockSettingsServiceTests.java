@@ -48,7 +48,6 @@ import android.os.UserManager;
 import android.os.storage.IStorageManager;
 import android.os.storage.StorageManager;
 import android.provider.Settings;
-import android.security.KeyStore;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
@@ -102,7 +101,6 @@ public abstract class BaseLockSettingsServiceTests {
     IActivityManager mActivityManager;
     DevicePolicyManager mDevicePolicyManager;
     DevicePolicyManagerInternal mDevicePolicyManagerInternal;
-    KeyStore mKeyStore;
     MockSyntheticPasswordManager mSpManager;
     IAuthSecret mAuthSecretService;
     WindowManagerInternal mMockWindowManager;
@@ -165,7 +163,6 @@ public abstract class BaseLockSettingsServiceTests {
                 new LockSettingsServiceTestable.MockInjector(
                         mContext,
                         mStorage,
-                        mKeyStore,
                         mActivityManager,
                         setUpStorageManagerMock(),
                         mSpManager,
@@ -270,6 +267,9 @@ public abstract class BaseLockSettingsServiceTests {
     }
 
     protected void setSecureFrpMode(boolean secure) {
+        if (android.security.Flags.frpEnforcement()) {
+            mStorage.setTestFactoryResetProtectionState(secure);
+        }
         Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 Settings.Secure.SECURE_FRP_MODE, secure ? 1 : 0, UserHandle.USER_SYSTEM);
     }
@@ -305,9 +305,9 @@ public abstract class BaseLockSettingsServiceTests {
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();
             mStorageManager.unlockCeStorage(/* userId= */ (int) args[0],
-                    /* secret= */ (byte[]) args[2]);
+                    /* secret= */ (byte[]) args[1]);
             return null;
-        }).when(sm).unlockCeStorage(anyInt(), anyInt(), any());
+        }).when(sm).unlockCeStorage(anyInt(), any());
 
         doAnswer(invocation -> {
             Object[] args = invocation.getArguments();

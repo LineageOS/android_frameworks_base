@@ -15,6 +15,7 @@
 //
 
 package {
+    default_team: "trendy_team_system_ui_please_use_a_more_specific_subteam_if_possible_",
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
@@ -37,6 +38,7 @@ android_app {
         "androidx.preference_preference",
         "androidx.viewpager_viewpager",
         "SettingsLibDisplayUtils",
+        "SettingsLibSettingsTheme",
         "com_android_a11y_menu_flags_lib",
     ],
 

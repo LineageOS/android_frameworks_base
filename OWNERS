@@ -32,6 +32,7 @@ per-file **.bp,**.mk = hansson@google.com, joeo@google.com, lamontjones@google.c
 per-file TestProtoLibraries.bp = file:platform/platform_testing:/libraries/health/OWNERS
 per-file TestProtoLibraries.bp = file:platform/tools/tradefederation:/OWNERS
 
+per-file INPUT_OWNERS = file:/INPUT_OWNERS
 per-file ZYGOTE_OWNERS = file:/ZYGOTE_OWNERS
 per-file SQLITE_OWNERS = file:/SQLITE_OWNERS
 
@@ -39,3 +40,7 @@ per-file *ravenwood* = file:ravenwood/OWNERS
 per-file *Ravenwood* = file:ravenwood/OWNERS
 
 per-file PERFORMANCE_OWNERS = file:/PERFORMANCE_OWNERS
+
+per-file PACKAGE_MANAGER_OWNERS = file:/PACKAGE_MANAGER_OWNERS
+
+per-file WEAR_OWNERS = file:/WEAR_OWNERS

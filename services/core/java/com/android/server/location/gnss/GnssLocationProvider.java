@@ -67,6 +67,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationRequest;
 import android.location.LocationResult;
+import android.location.LocationResult.BadLocationException;
 import android.location.flags.Flags;
 import android.location.provider.ProviderProperties;
 import android.location.provider.ProviderRequest;
@@ -1391,7 +1392,12 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
 
         location.setExtras(mLocationExtras.getBundle());
 
-        reportLocation(LocationResult.wrap(location).validate());
+        try {
+            reportLocation(LocationResult.wrap(location).validate());
+        } catch (BadLocationException e) {
+            Log.e(TAG, "Dropping invalid location: " + e);
+            return;
+        }
 
         if (mStarted) {
             mGnssMetrics.logReceivedLocationStatus(hasLatLong);
@@ -1763,7 +1769,12 @@ public class GnssLocationProvider extends AbstractLocationProvider implements
                 }
             }
 
-            reportLocation(LocationResult.wrap(locations).validate());
+            try {
+                reportLocation(LocationResult.wrap(locations).validate());
+            } catch (BadLocationException e) {
+                Log.e(TAG, "Dropping invalid locations: " + e);
+                return;
+            }
         }
 
         Runnable[] listeners;

@@ -30,6 +30,7 @@ import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
@@ -82,16 +83,18 @@ constructor(
      */
     val showIndicatorForDeviceEntry: Flow<Boolean> =
         combine(showIndicatorForPrimaryBouncer, showIndicatorForAlternateBouncer) {
-            showForPrimaryBouncer,
-            showForAlternateBouncer ->
-            showForPrimaryBouncer || showForAlternateBouncer
-        }
+                showForPrimaryBouncer,
+                showForAlternateBouncer ->
+                showForPrimaryBouncer || showForAlternateBouncer
+            }
+            .distinctUntilChanged()
 
     private fun shouldShowIndicatorForPrimaryBouncer(): Boolean {
         val sfpsEnabled: Boolean =
             context.resources.getBoolean(R.bool.config_show_sidefps_hint_on_bouncer)
         val sfpsDetectionRunning = keyguardUpdateMonitor.isFingerprintDetectionRunning
         val isUnlockingWithFpAllowed = keyguardUpdateMonitor.isUnlockingWithFingerprintAllowed
+
         return primaryBouncerInteractor.isBouncerShowing() &&
             sfpsEnabled &&
             sfpsDetectionRunning &&

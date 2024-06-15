@@ -136,6 +136,7 @@ public class Watchdog implements Dumpable {
         "media.swcodec", // /apex/com.android.media.swcodec/bin/mediaswcodec
         "media.transcoding", // Media transcoding service
         "com.android.bluetooth",  // Bluetooth service
+        "/apex/com.android.art/bin/artd",  // ART daemon
         "/apex/com.android.os.statsd/bin/statsd",  // Stats daemon
     };
 
@@ -171,6 +172,7 @@ public class Watchdog implements Dumpable {
     public static final String[] AIDL_INTERFACE_PREFIXES_OF_INTEREST = new String[] {
             "android.hardware.audio.core.IModule/",
             "android.hardware.audio.core.IConfig/",
+            "android.hardware.audio.effect.IFactory/",
             "android.hardware.biometrics.face.IFace/",
             "android.hardware.biometrics.fingerprint.IFingerprint/",
             "android.hardware.bluetooth.IBluetoothHci/",

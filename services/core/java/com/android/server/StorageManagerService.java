@@ -48,6 +48,7 @@ import static com.android.internal.util.XmlUtils.writeStringAttribute;
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
+import android.annotation.EnforcePermission;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UserIdInt;
@@ -1076,6 +1077,7 @@ class StorageManagerService extends IStorageManager.Stub
             final UserManager userManager = mContext.getSystemService(UserManager.class);
             final List<UserInfo> users = userManager.getUsers();
 
+            extendWatchdogTimeout("#onReset might be slow");
             mStorageSessionController.onReset(mVold, () -> {
                 mHandler.removeCallbacksAndMessages(null);
             });
@@ -1356,8 +1358,8 @@ class StorageManagerService extends IStorageManager.Stub
 
         final int flags = StorageManager.FLAG_STORAGE_DE | StorageManager.FLAG_STORAGE_CE;
         for (UserInfo user : users) {
-            prepareUserStorageInternal(fromVolumeUuid, user.id, user.serialNumber, flags);
-            prepareUserStorageInternal(toVolumeUuid, user.id, user.serialNumber, flags);
+            prepareUserStorageInternal(fromVolumeUuid, user.id, flags);
+            prepareUserStorageInternal(toVolumeUuid, user.id, flags);
         }
     }
 
@@ -3233,12 +3235,12 @@ class StorageManagerService extends IStorageManager.Stub
 
     @android.annotation.EnforcePermission(android.Manifest.permission.STORAGE_INTERNAL)
     @Override
-    public void createUserStorageKeys(int userId, int serialNumber, boolean ephemeral) {
+    public void createUserStorageKeys(int userId, boolean ephemeral) {
 
         super.createUserStorageKeys_enforcePermission();
 
         try {
-            mVold.createUserStorageKeys(userId, serialNumber, ephemeral);
+            mVold.createUserStorageKeys(userId, ephemeral);
             // Since the user's CE key was just created, the user's CE storage is now unlocked.
             synchronized (mLock) {
                 mCeUnlockedUsers.append(userId);
@@ -3278,12 +3280,11 @@ class StorageManagerService extends IStorageManager.Stub
     /* Only for use by LockSettingsService */
     @android.annotation.EnforcePermission(android.Manifest.permission.STORAGE_INTERNAL)
     @Override
-    public void unlockCeStorage(@UserIdInt int userId, int serialNumber, byte[] secret)
-            throws RemoteException {
+    public void unlockCeStorage(@UserIdInt int userId, byte[] secret) throws RemoteException {
         super.unlockCeStorage_enforcePermission();
 
         if (StorageManager.isFileEncrypted()) {
-            mVold.unlockCeStorage(userId, serialNumber, HexDump.toHexString(secret));
+            mVold.unlockCeStorage(userId, HexDump.toHexString(secret));
         }
         synchronized (mLock) {
             mCeUnlockedUsers.append(userId);
@@ -3350,27 +3351,27 @@ class StorageManagerService extends IStorageManager.Stub
                 continue;
             }
 
-            prepareUserStorageInternal(vol.fsUuid, user.id, user.serialNumber, flags);
+            prepareUserStorageInternal(vol.fsUuid, user.id, flags);
         }
     }
 
     @android.annotation.EnforcePermission(android.Manifest.permission.STORAGE_INTERNAL)
     @Override
-    public void prepareUserStorage(String volumeUuid, int userId, int serialNumber, int flags) {
+    public void prepareUserStorage(String volumeUuid, int userId, int flags) {
 
         super.prepareUserStorage_enforcePermission();
 
         try {
-            prepareUserStorageInternal(volumeUuid, userId, serialNumber, flags);
+            prepareUserStorageInternal(volumeUuid, userId, flags);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void prepareUserStorageInternal(String volumeUuid, int userId, int serialNumber,
-            int flags) throws Exception {
+    private void prepareUserStorageInternal(String volumeUuid, int userId, int flags)
+            throws Exception {
         try {
-            mVold.prepareUserStorage(volumeUuid, userId, serialNumber, flags);
+            mVold.prepareUserStorage(volumeUuid, userId, flags);
             // After preparing user storage, we should check if we should mount data mirror again,
             // and we do it for user 0 only as we only need to do once for all users.
             if (volumeUuid != null) {
@@ -3597,6 +3598,13 @@ class StorageManagerService extends IStorageManager.Stub
         }
 
         return mInternalStorageSize;
+    }
+
+    @EnforcePermission(android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE)
+    @Override
+    public int getInternalStorageRemainingLifetime() throws RemoteException {
+        super.getInternalStorageRemainingLifetime_enforcePermission();
+        return mVold.getStorageRemainingLifetime();
     }
 
     /**
@@ -5043,9 +5051,9 @@ class StorageManagerService extends IStorageManager.Stub
 
         @Override
         public IFsveritySetupAuthToken createFsveritySetupAuthToken(ParcelFileDescriptor authFd,
-                int appUid, @UserIdInt int userId) throws IOException {
+                int uid) throws IOException {
             try {
-                return mInstaller.createFsveritySetupAuthToken(authFd, appUid, userId);
+                return mInstaller.createFsveritySetupAuthToken(authFd, uid);
             } catch (Installer.InstallerException e) {
                 throw new IOException(e);
             }

@@ -30,6 +30,7 @@ import static android.app.WindowConfiguration.WINDOWING_MODE_UNDEFINED;
 import static android.app.usage.UsageStatsManager.REASON_MAIN_FORCED_BY_USER;
 import static android.app.usage.UsageStatsManager.REASON_SUB_FORCED_SYSTEM_FLAG_UNDEFINED;
 import static android.content.pm.PackageManager.MATCH_ANY_USER;
+import static android.os.PowerWhitelistManager.TEMPORARY_ALLOWLIST_TYPE_FOREGROUND_SERVICE_ALLOWED;
 import static android.os.Process.INVALID_UID;
 import static android.view.Display.INVALID_DISPLAY;
 import static android.window.DisplayAreaOrganizer.FEATURE_UNDEFINED;
@@ -401,7 +402,7 @@ final class ActivityManagerShellCommand extends ShellCommand {
                 case "get-bg-restriction-level":
                     return runGetBgRestrictionLevel(pw);
                 case "observe-foreground-process":
-                    return runGetCurrentForegroundProcess(pw, mInternal, mTaskInterface);
+                    return runGetCurrentForegroundProcess(pw, mInternal);
                 case "reset-dropbox-rate-limiter":
                     return runResetDropboxRateLimiter();
                 case "list-displays-for-starting-users":
@@ -555,6 +556,13 @@ final class ActivityManagerShellCommand extends ShellCommand {
                 } else if (opt.equals("--dismiss-keyguard-if-insecure")
                       || opt.equals("--dismiss-keyguard")) {
                     mDismissKeyguardIfInsecure = true;
+                } else if (opt.equals("--allow-fgs-start-reason")) {
+                    final int reasonCode = Integer.parseInt(getNextArgRequired());
+                    mBroadcastOptions = BroadcastOptions.makeBasic();
+                    mBroadcastOptions.setTemporaryAppAllowlist(10_000,
+                            TEMPORARY_ALLOWLIST_TYPE_FOREGROUND_SERVICE_ALLOWED,
+                            reasonCode,
+                            "");
                 } else {
                     return false;
                 }
@@ -2238,6 +2246,7 @@ final class ActivityManagerShellCommand extends ShellCommand {
 
         pw.println("Performing idle maintenance...");
         mInterface.sendIdleJobTrigger();
+        mInternal.performIdleMaintenance();
         return 0;
     }
 
@@ -3681,11 +3690,10 @@ final class ActivityManagerShellCommand extends ShellCommand {
         return -1;
     }
 
-    private int runGetCurrentForegroundProcess(PrintWriter pw,
-            IActivityManager iam, IActivityTaskManager iatm)
+    private int runGetCurrentForegroundProcess(PrintWriter pw, IActivityManager iam)
             throws RemoteException {
 
-        ProcessObserver observer = new ProcessObserver(pw, iam, iatm, mInternal);
+        ProcessObserver observer = new ProcessObserver(pw, iam);
         iam.registerProcessObserver(observer);
 
         final InputStream mInput = getRawInputStream();
@@ -3720,15 +3728,10 @@ final class ActivityManagerShellCommand extends ShellCommand {
 
         private PrintWriter mPw;
         private IActivityManager mIam;
-        private IActivityTaskManager mIatm;
-        private ActivityManagerService mInternal;
 
-        ProcessObserver(PrintWriter mPw, IActivityManager mIam,
-                IActivityTaskManager mIatm, ActivityManagerService ams) {
+        ProcessObserver(PrintWriter mPw, IActivityManager mIam) {
             this.mPw = mPw;
             this.mIam = mIam;
-            this.mIatm = mIatm;
-            this.mInternal = ams;
         }
 
         @Override
@@ -3748,6 +3751,11 @@ final class ActivityManagerShellCommand extends ShellCommand {
                     mPw.flush();
                 }
             }
+        }
+
+        @Override
+        public void onProcessStarted(int pid, int processUid, int packageUid, String packageName,
+                String processName) {
         }
 
         @Override
