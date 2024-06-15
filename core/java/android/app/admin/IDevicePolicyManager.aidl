@@ -626,5 +626,5 @@ interface IDevicePolicyManager {
     void setMaxPolicyStorageLimit(String packageName, int storageLimit);
     int getMaxPolicyStorageLimit(String packageName);
 
-    boolean requireSecureKeyguard(int userHandle);1
+    boolean requireSecureKeyguard(int userHandle);
 }
