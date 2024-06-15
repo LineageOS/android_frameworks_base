@@ -74,7 +74,9 @@ import android.hardware.display.DisplayManagerGlobal;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.keymaster.HardwareAuthenticatorType;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.RemoteException;
 import android.os.UserManager;
 import android.platform.test.annotations.Presubmit;
@@ -83,6 +85,8 @@ import android.security.GateKeeper;
 import android.security.KeyStore;
 import android.security.authorization.IKeystoreAuthorization;
 import android.service.gatekeeper.IGateKeeperService;
+import android.testing.AndroidTestingRunner;
+import android.testing.TestableLooper;
 import android.view.Display;
 import android.view.DisplayInfo;
 import android.view.WindowManager;
@@ -100,6 +104,7 @@ import com.android.server.biometrics.sensors.LockoutTracker;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.AdditionalMatchers;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
@@ -110,6 +115,8 @@ import java.util.Random;
 
 @Presubmit
 @SmallTest
+@RunWith(AndroidTestingRunner.class)
+@TestableLooper.RunWithLooper()
 public class BiometricServiceTest {
 
     @Rule
@@ -171,12 +178,17 @@ public class BiometricServiceTest {
     private UserManager mUserManager;
     @Mock
     private BiometricCameraManager mBiometricCameraManager;
+    @Mock
+    private BiometricHandlerProvider mBiometricHandlerProvider;
 
     @Mock
     private IKeystoreAuthorization mKeystoreAuthService;
 
     @Mock
     private IGateKeeperService mGateKeeperService;
+
+    @Mock
+    private BiometricNotificationLogger mNotificationLogger;
 
     BiometricContextProvider mBiometricContextProvider;
 
@@ -233,7 +245,16 @@ public class BiometricServiceTest {
         when(mInjector.getBiometricContext(any())).thenReturn(mBiometricContextProvider);
         when(mInjector.getKeystoreAuthorizationService()).thenReturn(mKeystoreAuthService);
         when(mInjector.getGateKeeperService()).thenReturn(mGateKeeperService);
+        when(mInjector.getNotificationLogger()).thenReturn(mNotificationLogger);
         when(mGateKeeperService.getSecureUserId(anyInt())).thenReturn(42L);
+
+        if (com.android.server.biometrics.Flags.deHidl()) {
+            when(mBiometricHandlerProvider.getBiometricCallbackHandler()).thenReturn(
+                    new Handler(TestableLooper.get(this).getLooper()));
+        } else {
+            when(mBiometricHandlerProvider.getBiometricCallbackHandler()).thenReturn(
+                    new Handler(Looper.getMainLooper()));
+        }
 
         final String[] config = {
                 "0:2:15",  // ID0:Fingerprint:Strong
@@ -312,7 +333,7 @@ public class BiometricServiceTest {
         when(mTrustManager.isDeviceSecure(anyInt(), anyInt()))
                 .thenReturn(false);
 
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         invokeAuthenticate(mBiometricService.mImpl, mReceiver1, false /* requireConfirmation */,
@@ -333,7 +354,7 @@ public class BiometricServiceTest {
         when(mTrustManager.isDeviceSecure(anyInt(), anyInt()))
                 .thenReturn(true);
 
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         invokeAuthenticate(mBiometricService.mImpl, mReceiver1, false /* requireConfirmation */,
@@ -360,7 +381,7 @@ public class BiometricServiceTest {
     @Test
     public void testAuthenticate_withoutHardware_returnsErrorHardwareNotPresent() throws
             Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         invokeAuthenticate(mBiometricService.mImpl, mReceiver1, false /* requireConfirmation */,
@@ -377,7 +398,7 @@ public class BiometricServiceTest {
     public void testAuthenticate_withoutEnrolled_returnsErrorNoBiometrics() throws Exception {
         when(mFingerprintAuthenticator.isHardwareDetected(any())).thenReturn(true);
 
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
         mBiometricService.mImpl.registerAuthenticator(0 /* id */,
                 TYPE_FINGERPRINT, Authenticators.BIOMETRIC_STRONG,
@@ -451,7 +472,7 @@ public class BiometricServiceTest {
         when(mFingerprintAuthenticator.hasEnrolledTemplates(anyInt(), any())).thenReturn(true);
         when(mFingerprintAuthenticator.isHardwareDetected(any())).thenReturn(false);
 
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
         mBiometricService.mImpl.registerAuthenticator(0 /* id */,
                 TYPE_FINGERPRINT, Authenticators.BIOMETRIC_STRONG,
@@ -1374,7 +1395,7 @@ public class BiometricServiceTest {
 
     @Test
     public void testCanAuthenticate_onlyCredentialRequested() throws Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         // Credential requested but not set up
@@ -1428,7 +1449,7 @@ public class BiometricServiceTest {
 
     @Test
     public void testCanAuthenticate_whenNoBiometricSensor() throws Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         // When only biometric is requested
@@ -1515,7 +1536,7 @@ public class BiometricServiceTest {
 
     @Test
     public void testRegisterAuthenticator_updatesStrengths() throws Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         verify(mBiometricService.mBiometricStrengthController).startListening();
@@ -1533,7 +1554,7 @@ public class BiometricServiceTest {
 
     @Test
     public void testWithDowngradedAuthenticator() throws Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         final int testId = 0;
@@ -1639,7 +1660,7 @@ public class BiometricServiceTest {
 
     @Test(expected = IllegalStateException.class)
     public void testRegistrationWithDuplicateId_throwsIllegalStateException() throws Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         mBiometricService.mImpl.registerAuthenticator(
@@ -1653,7 +1674,7 @@ public class BiometricServiceTest {
     @Test(expected = IllegalArgumentException.class)
     public void testRegistrationWithNullAuthenticator_throwsIllegalArgumentException()
             throws Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         mBiometricService.mImpl.registerAuthenticator(
@@ -1665,7 +1686,7 @@ public class BiometricServiceTest {
     @Test
     public void testRegistrationHappyPath_isOk() throws Exception {
         // This is being tested in many of the other cases, but here's the base case.
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         for (String s : mInjector.getConfiguration(null)) {
@@ -1751,7 +1772,7 @@ public class BiometricServiceTest {
         final IBiometricEnabledOnKeyguardCallback callback =
                 mock(IBiometricEnabledOnKeyguardCallback.class);
 
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
 
         when(mUserManager.getAliveUsers()).thenReturn(aliveUsers);
         when(mBiometricService.mSettingObserver.getEnabledOnKeyguard(userInfo1.id))
@@ -1775,7 +1796,7 @@ public class BiometricServiceTest {
             throws RemoteException {
         mSetFlagsRule.disableFlags(Flags.FLAG_LAST_AUTHENTICATION_TIME);
 
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.mImpl.getLastAuthenticationTime(0, Authenticators.BIOMETRIC_STRONG);
     }
 
@@ -1799,7 +1820,7 @@ public class BiometricServiceTest {
         when(mKeystoreAuthService.getLastAuthTime(eq(secureUserId), eq(hardwareAuthenticators)))
                 .thenReturn(expectedResult);
 
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
 
         final long result = mBiometricService.mImpl.getLastAuthenticationTime(userId,
                 Authenticators.BIOMETRIC_STRONG | Authenticators.DEVICE_CREDENTIAL);
@@ -1822,7 +1843,7 @@ public class BiometricServiceTest {
 
     // TODO: Reconcile the registration strength with the injector
     private void setupAuthForOnly(int modality, int strength, boolean enrolled) throws Exception {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         when(mBiometricService.mSettingObserver.getEnabledForApps(anyInt())).thenReturn(true);
@@ -1855,7 +1876,7 @@ public class BiometricServiceTest {
     // TODO: Reduce duplicated code, currently we cannot start the BiometricService in setUp() for
     // all tests.
     private void setupAuthForMultiple(int[] modalities, int[] strengths) throws RemoteException {
-        mBiometricService = new BiometricService(mContext, mInjector);
+        mBiometricService = new BiometricService(mContext, mInjector, mBiometricHandlerProvider);
         mBiometricService.onStart();
 
         when(mBiometricService.mSettingObserver.getEnabledForApps(anyInt())).thenReturn(true);
@@ -1993,8 +2014,12 @@ public class BiometricServiceTest {
         return requestWrapper.eligibleSensors.get(0).getCookie();
     }
 
-    private static void waitForIdle() {
-        InstrumentationRegistry.getInstrumentation().waitForIdleSync();
+    private void waitForIdle() {
+        if (com.android.server.biometrics.Flags.deHidl()) {
+            TestableLooper.get(this).processAllMessages();
+        } else {
+            InstrumentationRegistry.getInstrumentation().waitForIdleSync();
+        }
     }
 
     private byte[] generateRandomHAT() {

@@ -40,13 +40,13 @@ import android.os.UserManager;
 import android.platform.test.annotations.Postsubmit;
 import android.platform.test.annotations.RequiresFlagsEnabled;
 import android.provider.Settings;
-import android.test.suitebuilder.annotation.LargeTest;
-import android.test.suitebuilder.annotation.MediumTest;
 import android.util.ArraySet;
 import android.util.Slog;
 
 import androidx.annotation.Nullable;
 import androidx.test.InstrumentationRegistry;
+import androidx.test.filters.LargeTest;
+import androidx.test.filters.MediumTest;
 import androidx.test.filters.SmallTest;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -224,6 +224,8 @@ public final class UserManagerTest {
                 .isEqualTo(cloneUserProperties.getCrossProfileContentSharingStrategy());
         assertThrows(SecurityException.class, cloneUserProperties::getDeleteAppWithParent);
         assertThrows(SecurityException.class, cloneUserProperties::getAlwaysVisible);
+        assertThat(typeProps.getProfileApiVisibility()).isEqualTo(
+                cloneUserProperties.getProfileApiVisibility());
         compareDrawables(mUserManager.getUserBadge(),
                 Resources.getSystem().getDrawable(userTypeDetails.getBadgePlain()));
 
@@ -346,7 +348,10 @@ public final class UserManagerTest {
         assertThrows(SecurityException.class, privateProfileUserProperties::getDeleteAppWithParent);
         assertThrows(SecurityException.class,
                 privateProfileUserProperties::getAllowStoppingUserWithDelayedLocking);
-
+        assertThat(typeProps.getProfileApiVisibility()).isEqualTo(
+                privateProfileUserProperties.getProfileApiVisibility());
+        assertThat(typeProps.areItemsRestrictedOnHomeScreen())
+                .isEqualTo(privateProfileUserProperties.areItemsRestrictedOnHomeScreen());
         compareDrawables(mUserManager.getUserBadge(),
                 Resources.getSystem().getDrawable(userTypeDetails.getBadgePlain()));
 
@@ -1722,6 +1727,21 @@ public final class UserManagerTest {
         assertThat(mUserManager.getSeedAccountOptions() == null).isTrue();
 
         mUserManager.removeUser(userInfo.id);
+    }
+
+    @Test
+    @RequiresFlagsEnabled(android.multiuser.Flags.FLAG_ENABLE_HIDING_PROFILES)
+    public void testGetProfileIdsExcludingHidden() throws Exception {
+        int mainUserId = mUserManager.getMainUser().getIdentifier();
+        final UserInfo profile = createProfileForUser("Profile",
+                UserManager.USER_TYPE_PROFILE_PRIVATE, mainUserId);
+
+        final int[] allProfiles = mUserManager.getProfileIds(mainUserId, /* enabledOnly */ false);
+        final int[] profilesExcludingHidden = mUserManager.getProfileIdsExcludingHidden(
+                mainUserId, /* enabledOnly */ false);
+
+        assertThat(allProfiles).asList().contains(profile.id);
+        assertThat(profilesExcludingHidden).asList().doesNotContain(profile.id);
     }
 
     private String generateLongString() {

@@ -92,7 +92,7 @@ class UserDataPreparer {
                 volumeUuid, userId, flags, isNewUser);
         try {
             // Prepare CE and/or DE storage.
-            storage.prepareUserStorage(volumeUuid, userId, userSerial, flags);
+            storage.prepareUserStorage(volumeUuid, userId, flags);
 
             // Ensure that the data directories of a removed user with the same ID are not being
             // reused.  New users must get fresh data directories, to avoid leaking data.
@@ -141,7 +141,7 @@ class UserDataPreparer {
                 // If internal storage of the system user fails to prepare on first boot, then
                 // things are *really* broken, so we might as well reboot to recovery right away.
                 try {
-                    Log.wtf(TAG, "prepareUserData failed for user " + userId, e);
+                    Log.e(TAG, "prepareUserData failed for user " + userId, e);
                     if (isNewUser && userId == UserHandle.USER_SYSTEM && volumeUuid == null) {
                         RecoverySystem.rebootPromptAndWipeUserData(mContext,
                                 "failed to prepare internal storage for system user");

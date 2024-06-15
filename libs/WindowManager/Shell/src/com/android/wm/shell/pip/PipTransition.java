@@ -68,13 +68,14 @@ import com.android.wm.shell.ShellTaskOrganizer;
 import com.android.wm.shell.common.pip.PipBoundsAlgorithm;
 import com.android.wm.shell.common.pip.PipBoundsState;
 import com.android.wm.shell.common.pip.PipDisplayLayoutState;
+import com.android.wm.shell.common.pip.PipMenuController;
 import com.android.wm.shell.common.pip.PipUtils;
 import com.android.wm.shell.protolog.ShellProtoLogGroup;
+import com.android.wm.shell.shared.TransitionUtil;
 import com.android.wm.shell.splitscreen.SplitScreenController;
 import com.android.wm.shell.sysui.ShellInit;
 import com.android.wm.shell.transition.CounterRotatorHelper;
 import com.android.wm.shell.transition.Transitions;
-import com.android.wm.shell.util.TransitionUtil;
 
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
@@ -285,12 +286,6 @@ public class PipTransition extends PipTransitionController {
         // For transition that we don't animate, but contains the PIP leash, we need to update the
         // PIP surface, otherwise it will be reset after the transition.
         if (currentPipTaskChange != null) {
-            // Set the "end" bounds of pip. The default setup uses the start bounds. Since this is
-            // changing the *finish*Transaction, we need to use the end bounds. This will also
-            // make sure that the fade-in animation (below) uses the end bounds as well.
-            if (!currentPipTaskChange.getEndAbsBounds().isEmpty()) {
-                mPipBoundsState.setBounds(currentPipTaskChange.getEndAbsBounds());
-            }
             updatePipForUnhandledTransition(currentPipTaskChange, startTransaction,
                     finishTransaction);
         }
@@ -987,10 +982,12 @@ public class PipTransition extends PipTransitionController {
                     0 /* startingAngle */, rotationDelta);
             if (sourceHintRect == null) {
                 // We use content overlay when there is no source rect hint to enter PiP use bounds
-                // animation.
+                // animation. We also temporarily disallow app icon overlay and use color overlay
+                // instead when in fixed rotation enter PiP in button nav with no sourceRectHint.
+                // TODO(b/319286295): Fix App Icon Overlay animation in fixed rotation in btn nav.
                 // TODO(b/272819817): cleanup the null-check and extra logging.
                 final boolean hasTopActivityInfo = taskInfo.topActivityInfo != null;
-                if (hasTopActivityInfo) {
+                if (hasTopActivityInfo && mFixedRotationState != FIXED_ROTATION_TRANSITION) {
                     animator.setAppIconContentOverlay(
                             mContext, currentBounds, destinationBounds, taskInfo.topActivityInfo,
                             mPipBoundsState.getLauncherState().getAppIconSizePx());
@@ -1040,6 +1037,7 @@ public class PipTransition extends PipTransitionController {
     private void computeEnterPipRotatedBounds(int rotationDelta, int startRotation, int endRotation,
             TaskInfo taskInfo, Rect outDestinationBounds, @Nullable Rect outSourceHintRect) {
         mPipDisplayLayoutState.rotateTo(endRotation);
+        mPipBoundsState.updateMinMaxSize(mPipBoundsState.getAspectRatio());
 
         final Rect displayBounds = mPipDisplayLayoutState.getDisplayBounds();
         outDestinationBounds.set(mPipBoundsAlgorithm.getEntryDestinationBounds());

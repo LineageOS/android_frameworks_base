@@ -22,6 +22,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.multiuser.Flags;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
@@ -59,6 +60,10 @@ public class EditUserPhotoController {
     private static final String IMAGES_DIR = "multi_user";
     private static final String NEW_USER_PHOTO_FILE_NAME = "NewUserPhoto.png";
 
+    private static final String AVATAR_PICKER_ACTION = "com.android.avatarpicker"
+            + ".FULL_SCREEN_ACTIVITY";
+    static final String EXTRA_IS_USER_NEW = "is_user_new";
+
     private final Activity mActivity;
     private final ActivityStarter mActivityStarter;
     private final ImageView mImageView;
@@ -68,9 +73,13 @@ public class EditUserPhotoController {
     private Bitmap mNewUserPhotoBitmap;
     private Drawable mNewUserPhotoDrawable;
     private String mCachedDrawablePath;
-
     public EditUserPhotoController(Activity activity, ActivityStarter activityStarter,
             ImageView view, Bitmap savedBitmap, Drawable savedDrawable, String fileAuthority) {
+        this(activity, activityStarter, view, savedBitmap, savedDrawable, fileAuthority, true);
+    }
+    public EditUserPhotoController(Activity activity, ActivityStarter activityStarter,
+            ImageView view, Bitmap savedBitmap, Drawable savedDrawable, String fileAuthority,
+            boolean isUserNew) {
         mActivity = activity;
         mActivityStarter = activityStarter;
         mFileAuthority = fileAuthority;
@@ -78,7 +87,7 @@ public class EditUserPhotoController {
         mImagesDir = new File(activity.getCacheDir(), IMAGES_DIR);
         mImagesDir.mkdir();
         mImageView = view;
-        mImageView.setOnClickListener(v -> showAvatarPicker());
+        mImageView.setOnClickListener(v -> showAvatarPicker(isUserNew));
 
         mNewUserPhotoBitmap = savedBitmap;
         mNewUserPhotoDrawable = savedDrawable;
@@ -105,7 +114,6 @@ public class EditUserPhotoController {
                 onPhotoCropped(data.getData());
                 return true;
             }
-
         }
         return false;
     }
@@ -114,8 +122,15 @@ public class EditUserPhotoController {
         return mNewUserPhotoDrawable;
     }
 
-    private void showAvatarPicker() {
-        Intent intent = new Intent(mImageView.getContext(), AvatarPickerActivity.class);
+    private void showAvatarPicker(boolean isUserNew) {
+        Intent intent;
+        if (Flags.avatarSync()) {
+            intent = new Intent(AVATAR_PICKER_ACTION);
+            intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.putExtra(EXTRA_IS_USER_NEW, isUserNew);
+        } else {
+            intent = new Intent(mImageView.getContext(), AvatarPickerActivity.class);
+        }
         intent.putExtra(AvatarPickerActivity.EXTRA_FILE_AUTHORITY, mFileAuthority);
         mActivityStarter.startActivityForResult(intent, REQUEST_CODE_PICK_AVATAR);
     }

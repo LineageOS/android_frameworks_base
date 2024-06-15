@@ -23,9 +23,6 @@ import android.annotation.AnimRes;
 import android.annotation.FlaggedApi;
 import android.annotation.InterpolatorRes;
 import android.annotation.TestApi;
-import android.compat.annotation.ChangeId;
-import android.compat.annotation.EnabledSince;
-import android.compat.annotation.Overridable;
 import android.compat.annotation.UnsupportedAppUsage;
 import android.content.Context;
 import android.content.res.Resources;
@@ -54,18 +51,6 @@ public class AnimationUtils {
      */
     private static final int TOGETHER = 0;
     private static final int SEQUENTIALLY = 1;
-
-     /**
-     * For apps targeting {@link android.os.Build.VERSION_CODES#VANILLA_ICE_CREAM} and above,
-     * this change ID enables to use expectedPresentationTime instead of the frameTime
-     * for the frame start time .
-     *
-     * @hide
-     */
-    @ChangeId
-    @EnabledSince(targetSdkVersion = android.os.Build.VERSION_CODES.VANILLA_ICE_CREAM)
-    @Overridable
-    public static final long OVERRIDE_ENABLE_EXPECTED_PRSENTATION_TIME = 278730197L;
 
     private static boolean sExpectedPresentationTimeFlagValue;
     static {
@@ -200,7 +185,7 @@ public class AnimationUtils {
     @FlaggedApi(FLAG_EXPECTED_PRESENTATION_TIME_READ_ONLY)
     public static long getExpectedPresentationTimeNanos() {
         if (!sExpectedPresentationTimeFlagValue) {
-            return SystemClock.uptimeMillis();
+            return SystemClock.uptimeMillis() * TimeUtils.NANOS_PER_MS;
         }
 
         AnimationState state = sAnimationState.get();

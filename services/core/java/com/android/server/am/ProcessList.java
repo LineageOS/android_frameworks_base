@@ -94,7 +94,6 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DropBoxManager;
-import android.os.Flags;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -349,7 +348,7 @@ public final class ProcessList {
     // LMK_PROCKILL
     // LMK_UPDATE_PROPS
     // LMK_KILL_OCCURRED
-    // LMK_STATE_CHANGED
+    // LMK_START_MONITORING
     static final byte LMK_TARGET = 0;
     static final byte LMK_PROCPRIO = 1;
     static final byte LMK_PROCREMOVE = 2;
@@ -359,7 +358,6 @@ public final class ProcessList {
     static final byte LMK_PROCKILL = 6; // Note: this is an unsolicited command
     static final byte LMK_UPDATE_PROPS = 7;
     static final byte LMK_KILL_OCCURRED = 8; // Msg to subscribed clients on kill occurred event
-    static final byte LMK_STATE_CHANGED = 9; // Msg to subscribed clients on state changed
     static final byte LMK_START_MONITORING = 9; // Start monitoring if delayed earlier
 
     // Low Memory Killer Daemon command codes.
@@ -370,6 +368,12 @@ public final class ProcessList {
 
     // lmkd reconnect delay in msecs
     private static final long LMKD_RECONNECT_DELAY_MS = 1000;
+
+    /**
+     * The cuttoff adj for the freezer, app processes with adj greater than this value will be
+     * eligible for the freezer.
+     */
+    static final int FREEZER_CUTOFF_ADJ = CACHED_APP_MIN_ADJ;
 
     /**
      * Apps have no access to the private data directories of any other app, even if the other
@@ -959,14 +963,6 @@ public final class ProcessList {
                                         LmkdStatsReporter.logKillOccurred(inputData,
                                                 foregroundServices.first,
                                                 foregroundServices.second);
-                                        return true;
-                                    case LMK_STATE_CHANGED:
-                                        if (receivedLen
-                                                != LmkdStatsReporter.STATE_CHANGED_MSG_SIZE) {
-                                            return false;
-                                        }
-                                        final int state = inputData.readInt();
-                                        LmkdStatsReporter.logStateChanged(state);
                                         return true;
                                     default:
                                         return false;
@@ -1945,7 +1941,8 @@ public final class ProcessList {
                 mService.mNativeDebuggingApp = null;
             }
 
-            if (app.info.isEmbeddedDexUsed()) {
+            if (app.info.isEmbeddedDexUsed()
+                    || (app.processInfo != null && app.processInfo.useEmbeddedDex)) {
                 runtimeFlags |= Zygote.ONLY_USE_SYSTEM_OAT_FILES;
             }
 
@@ -2153,6 +2150,7 @@ public final class ProcessList {
                     mService.forceStopPackageLocked(app.info.packageName,
                             UserHandle.getAppId(app.uid),
                             false, false, true, false, false, false, app.userId, "start failure");
+                    app.doEarlyCleanupIfNecessaryLocked();
                 }
             }
         };
@@ -2481,7 +2479,6 @@ public final class ProcessList {
                         app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,
                         app.info.dataDir, null, app.info.packageName,
                         app.getDisabledCompatChanges(),
-                        bindOverrideSysprops,
                         new String[]{PROC_START_SEQ_IDENT + app.getStartSeq()});
             } else if (hostingRecord.usesAppZygote()) {
                 final AppZygote appZygote = createAppZygoteForProcessIfNeeded(app);
@@ -2493,7 +2490,7 @@ public final class ProcessList {
                         app.info.dataDir, null, app.info.packageName,
                         /*zygotePolicyFlags=*/ ZYGOTE_POLICY_FLAG_EMPTY, isTopApp,
                         app.getDisabledCompatChanges(), pkgDataInfoMap, allowlistedAppDataInfoMap,
-                        false, false, bindOverrideSysprops,
+                        false, false, false,
                         new String[]{PROC_START_SEQ_IDENT + app.getStartSeq()});
             } else {
                 regularZygote = true;
@@ -2782,6 +2779,7 @@ public final class ProcessList {
             }
             noteAppKill(app, ApplicationExitInfo.REASON_OTHER,
                     ApplicationExitInfo.SUBREASON_INVALID_START, reason);
+            app.doEarlyCleanupIfNecessaryLocked();
             return false;
         }
         mService.mBatteryStatsService.noteProcessStart(app.processName, app.info.uid);
@@ -2852,6 +2850,7 @@ public final class ProcessList {
                         ? PROC_START_TIMEOUT_WITH_WRAPPER : PROC_START_TIMEOUT);
             }
         }
+        dispatchProcessStarted(app, pid);
         checkSlow(app.getStartTime(), "startProcess: done updating pids map");
         return true;
     }
@@ -2935,7 +2934,11 @@ public final class ProcessList {
         return true;
     }
 
-    private static void freezeBinderAndPackageCgroup(ArrayList<Pair<ProcessRecord, Boolean>> procs,
+    private static boolean unfreezePackageCgroup(int packageUID) {
+        return freezePackageCgroup(packageUID, false);
+    }
+
+    private static void freezeBinderAndPackageCgroup(List<Pair<ProcessRecord, Boolean>> procs,
                                                      int packageUID) {
         // Freeze all binder processes under the target UID (whose cgroup is about to be frozen).
         // Since we're going to kill these, we don't need to unfreze them later.
@@ -2943,12 +2946,9 @@ public final class ProcessList {
         // processes (forks) should not be Binder users.
         int N = procs.size();
         for (int i = 0; i < N; i++) {
-            final int uid = procs.get(i).first.uid;
             final int pid = procs.get(i).first.getPid();
             int nRetries = 0;
-            // We only freeze the cgroup of the target package, so we do not need to freeze the
-            // Binder interfaces of dependant processes in other UIDs.
-            if (pid > 0 && uid == packageUID) {
+            if (pid > 0) {
                 try {
                     int rc;
                     do {
@@ -2962,10 +2962,17 @@ public final class ProcessList {
         }
 
         // We freeze the entire UID (parent) cgroup so that newly-specialized processes also freeze
-        // despite being added to a new child cgroup. The cgroups of package dependant processes are
-        // not frozen, since it's possible this would freeze processes with no dependency on the
-        // package being killed here.
+        // despite being added to a child cgroup created after this call that would otherwise be
+        // unfrozen.
         freezePackageCgroup(packageUID, true);
+    }
+
+    private static List<Pair<ProcessRecord, Boolean>> getUIDSublist(
+            List<Pair<ProcessRecord, Boolean>> procs, int startIdx) {
+        final int uid = procs.get(startIdx).first.uid;
+        int endIdx = startIdx + 1;
+        while (endIdx < procs.size() && procs.get(endIdx).first.uid == uid) ++endIdx;
+        return procs.subList(startIdx, endIdx);
     }
 
     @GuardedBy({"mService", "mProcLock"})
@@ -3063,25 +3070,36 @@ public final class ProcessList {
             }
         }
 
-        final int packageUID = UserHandle.getUid(userId, appId);
-        final boolean doFreeze = appId >= Process.FIRST_APPLICATION_UID
-                              && appId <= Process.LAST_APPLICATION_UID;
-        if (doFreeze) {
-            freezeBinderAndPackageCgroup(procs, packageUID);
+        final boolean killingUserApp = appId >= Process.FIRST_APPLICATION_UID
+                                    && appId <= Process.LAST_APPLICATION_UID;
+
+        if (killingUserApp) {
+            procs.sort((o1, o2) -> Integer.compare(o1.first.uid, o2.first.uid));
         }
 
-        int N = procs.size();
-        for (int i=0; i<N; i++) {
-            final Pair<ProcessRecord, Boolean> proc = procs.get(i);
-            removeProcessLocked(proc.first, callerWillRestart, allowRestart || proc.second,
-                    reasonCode, subReason, reason, !doFreeze /* async */);
+        int idx = 0;
+        while (idx < procs.size()) {
+            final List<Pair<ProcessRecord, Boolean>> uidProcs = getUIDSublist(procs, idx);
+            final int packageUID = uidProcs.get(0).first.uid;
+
+            // Do not freeze for system apps or for dependencies of the targeted package, but
+            // make sure to freeze the targeted package for all users if called with USER_ALL.
+            final boolean doFreeze = killingUserApp && UserHandle.getAppId(packageUID) == appId;
+
+            if (doFreeze) freezeBinderAndPackageCgroup(uidProcs, packageUID);
+
+            for (Pair<ProcessRecord, Boolean> proc : uidProcs) {
+                removeProcessLocked(proc.first, callerWillRestart, allowRestart || proc.second,
+                        reasonCode, subReason, reason, !doFreeze /* async */);
+            }
+            killAppZygotesLocked(packageName, appId, userId, false /* force */);
+
+            if (doFreeze) unfreezePackageCgroup(packageUID);
+
+            idx += uidProcs.size();
         }
-        killAppZygotesLocked(packageName, appId, userId, false /* force */);
         mService.updateOomAdjLocked(OOM_ADJ_REASON_PROCESS_END);
-        if (doFreeze) {
-            freezePackageCgroup(packageUID, false);
-        }
-        return N > 0;
+        return procs.size() > 0;
     }
 
     @GuardedBy("mService")
@@ -4731,7 +4749,7 @@ public final class ProcessList {
                 pw.print("state: cur="); pw.print(makeProcStateString(state.getCurProcState()));
                 pw.print(" set="); pw.print(makeProcStateString(state.getSetProcState()));
                 // These values won't be collected if the flag is enabled.
-                if (!Flags.removeAppProfilerPssCollection()) {
+                if (service.mAppProfiler.isProfilingPss()) {
                     pw.print(" lastPss=");
                     DebugUtils.printSizeValue(pw, r.mProfile.getLastPss() * 1024);
                     pw.print(" lastSwapPss=");
@@ -4956,6 +4974,10 @@ public final class ProcessList {
             mService.mUiHandler.obtainMessage(DISPATCH_PROCESS_DIED_UI_MSG, pid, uid,
                     null).sendToTarget();
         }
+    }
+
+    void dispatchProcessStarted(ProcessRecord app, int pid) {
+        // TODO(b/323959187) Add the implementation.
     }
 
     void dispatchProcessDied(int pid, int uid) {

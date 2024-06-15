@@ -28,6 +28,7 @@ import static android.os.UserHandle.PER_USER_RANGE;
 
 import android.annotation.BytesLong;
 import android.annotation.CallbackExecutor;
+import android.annotation.FlaggedApi;
 import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -58,6 +59,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.Environment;
 import android.os.FileUtils;
+import android.os.Flags;
 import android.os.Handler;
 import android.os.IInstalld;
 import android.os.IVold;
@@ -1393,7 +1395,7 @@ public class StorageManager {
                 // Package name can be null if the activity thread is running but the app
                 // hasn't bound yet. In this case we fall back to the first package in the
                 // current UID. This works for runtime permissions as permission state is
-                // per UID and permission realted app ops are updated for all UID packages.
+                // per UID and permission related app ops are updated for all UID packages.
                 String[] packageNames = ActivityThread.getPackageManager().getPackagesForUid(
                         android.os.Process.myUid());
                 if (packageNames == null || packageNames.length <= 0) {
@@ -1602,14 +1604,13 @@ public class StorageManager {
      * This is only intended to be called by UserManagerService, as part of creating a user.
      *
      * @param userId ID of the user
-     * @param serialNumber serial number of the user
      * @param ephemeral whether the user is ephemeral
      * @throws RuntimeException on error.  The user's keys already existing is considered an error.
      * @hide
      */
-    public void createUserStorageKeys(int userId, int serialNumber, boolean ephemeral) {
+    public void createUserStorageKeys(int userId, boolean ephemeral) {
         try {
-            mStorageManager.createUserStorageKeys(userId, serialNumber, ephemeral);
+            mStorageManager.createUserStorageKeys(userId, ephemeral);
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }
@@ -1653,9 +1654,9 @@ public class StorageManager {
     }
 
     /** {@hide} */
-    public void prepareUserStorage(String volumeUuid, int userId, int serialNumber, int flags) {
+    public void prepareUserStorage(String volumeUuid, int userId, int flags) {
         try {
-            mStorageManager.prepareUserStorage(volumeUuid, userId, serialNumber, flags);
+            mStorageManager.prepareUserStorage(volumeUuid, userId, flags);
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }
@@ -1668,12 +1669,6 @@ public class StorageManager {
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }
-    }
-
-    /** {@hide} */
-    @TestApi
-    public static boolean isUserKeyUnlocked(int userId) {
-        return isCeStorageUnlocked(userId);
     }
 
     /**
@@ -2946,4 +2941,24 @@ public class StorageManager {
     /** @hide */
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
     public static final int CRYPT_TYPE_DEFAULT = 1;
+
+    /**
+     * Returns the remaining lifetime of the internal storage device, as an integer percentage. For
+     * example, 90 indicates that 90% of the storage device's useful lifetime remains. If no
+     * information is available, -1 is returned.
+     *
+     * @return Percentage of the remaining useful lifetime of the internal storage device.
+     *
+     * @hide
+     */
+    @FlaggedApi(Flags.FLAG_STORAGE_LIFETIME_API)
+    @SystemApi
+    @RequiresPermission(android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE)
+    public int getInternalStorageRemainingLifetime() {
+        try {
+            return mStorageManager.getInternalStorageRemainingLifetime();
+        } catch (RemoteException e) {
+            throw e.rethrowFromSystemServer();
+        }
+    }
 }

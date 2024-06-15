@@ -401,7 +401,7 @@ public final class KeyProtection implements ProtectionParameter, UserAuthArgs {
      * @see #isMgf1DigestsSpecified()
      */
     @NonNull
-    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER)
+    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER_V2)
     public @KeyProperties.DigestEnum Set<String> getMgf1Digests() {
         if (mMgf1Digests.isEmpty()) {
             throw new IllegalStateException("Mask generation function (MGF) not specified");
@@ -416,7 +416,7 @@ public final class KeyProtection implements ProtectionParameter, UserAuthArgs {
      * @see #getMgf1Digests()
      */
     @NonNull
-    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER)
+    @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER_V2)
     public boolean isMgf1DigestsSpecified() {
         return !mMgf1Digests.isEmpty();
     }
@@ -569,7 +569,7 @@ public final class KeyProtection implements ProtectionParameter, UserAuthArgs {
     /**
      * Return whether this key is critical to the device encryption flow.
      *
-     * @see android.security.KeyStore#FLAG_CRITICAL_TO_DEVICE_ENCRYPTION
+     * @see Builder#setCriticalToDeviceEncryption(boolean)
      * @hide
      */
     public boolean isCriticalToDeviceEncryption() {
@@ -799,7 +799,7 @@ public final class KeyProtection implements ProtectionParameter, UserAuthArgs {
          * <p>See {@link KeyProperties}.{@code DIGEST} constants.
          */
         @NonNull
-        @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER)
+        @FlaggedApi(android.security.Flags.FLAG_MGF1_DIGEST_SETTER_V2)
         public Builder setMgf1Digests(@Nullable @KeyProperties.DigestEnum String... mgf1Digests) {
             mMgf1Digests = Set.of(mgf1Digests);
             return this;
@@ -1105,9 +1105,10 @@ public final class KeyProtection implements ProtectionParameter, UserAuthArgs {
          * Set whether this key is critical to the device encryption flow
          *
          * This is a special flag only available to system servers to indicate the current key
-         * is part of the device encryption flow.
+         * is part of the device encryption flow. Setting this flag causes the key to not
+         * be cryptographically bound to the LSKF even if the key is otherwise authentication
+         * bound.
          *
-         * @see android.security.KeyStore#FLAG_CRITICAL_TO_DEVICE_ENCRYPTION
          * @hide
          */
         public Builder setCriticalToDeviceEncryption(boolean critical) {

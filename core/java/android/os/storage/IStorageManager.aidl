@@ -134,16 +134,16 @@ interface IStorageManager {
     @EnforcePermission("MOUNT_UNMOUNT_FILESYSTEMS")
     void setDebugFlags(int flags, int mask) = 60;
     @EnforcePermission("STORAGE_INTERNAL")
-    void createUserStorageKeys(int userId, int serialNumber, boolean ephemeral) = 61;
+    void createUserStorageKeys(int userId, boolean ephemeral) = 61;
     @EnforcePermission("STORAGE_INTERNAL")
     void destroyUserStorageKeys(int userId) = 62;
     @EnforcePermission("STORAGE_INTERNAL")
-    void unlockCeStorage(int userId, int serialNumber, in byte[] secret) = 63;
+    void unlockCeStorage(int userId, in byte[] secret) = 63;
     @EnforcePermission("STORAGE_INTERNAL")
     void lockCeStorage(int userId) = 64;
     boolean isCeStorageUnlocked(int userId) = 65;
     @EnforcePermission("STORAGE_INTERNAL")
-    void prepareUserStorage(in String volumeUuid, int userId, int serialNumber, int flags) = 66;
+    void prepareUserStorage(in String volumeUuid, int userId, int flags) = 66;
     @EnforcePermission("STORAGE_INTERNAL")
     void destroyUserStorage(in String volumeUuid, int userId, int flags) = 67;
     @EnforcePermission("STORAGE_INTERNAL")
@@ -175,4 +175,12 @@ interface IStorageManager {
     void setCloudMediaProvider(in String authority) = 96;
     String getCloudMediaProvider() = 97;
     long getInternalStorageBlockDeviceSize() = 98;
+    /**
+     * Returns the remaining lifetime of the internal storage device, as an
+     * integer percentage. For example, 90 indicates that 90% of the storage
+     * device's useful lifetime remains. If no information is available, -1
+     * is returned.
+     */
+    @EnforcePermission("READ_PRIVILEGED_PHONE_STATE")
+    int getInternalStorageRemainingLifetime() = 99;
 }

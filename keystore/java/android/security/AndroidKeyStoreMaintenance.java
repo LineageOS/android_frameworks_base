@@ -18,6 +18,7 @@ package android.security;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.ServiceSpecificException;
 import android.os.StrictMode;
@@ -216,6 +217,50 @@ public class AndroidKeyStoreMaintenance {
         } catch (Exception e) {
             Log.e(TAG, "Can not connect to keystore", e);
             return SYSTEM_ERROR;
+        }
+    }
+
+    /**
+     * Returns the list of Application UIDs that have auth-bound keys that are bound to
+     * the given SID. This enables warning the user when they are about to invalidate
+     * a SID (for example, removing the LSKF).
+     *
+     * @param userId - The ID of the user the SID is associated with.
+     * @param userSecureId - The SID in question.
+     *
+     * @return A list of app UIDs.
+     */
+    public static long[] getAllAppUidsAffectedBySid(int userId, long userSecureId)
+            throws KeyStoreException {
+        StrictMode.noteDiskWrite();
+        try {
+            return getService().getAppUidsAffectedBySid(userId, userSecureId);
+        } catch (RemoteException | NullPointerException e) {
+            throw new KeyStoreException(SYSTEM_ERROR,
+                    "Failure to connect to Keystore while trying to get apps affected by SID.");
+        } catch (ServiceSpecificException e) {
+            throw new KeyStoreException(e.errorCode,
+                    "Keystore error while trying to get apps affected by SID.");
+        }
+    }
+
+    /**
+    * Deletes all keys in all KeyMint devices.
+    * Called by RecoverySystem before rebooting to recovery in order to delete all KeyMint keys,
+    * including synthetic password protector keys (used by LockSettingsService), as well as keys
+    * protecting DE and metadata encryption keys (used by vold). This ensures that FBE-encrypted
+    * data is unrecoverable even if the data wipe in recovery is interrupted or skipped.
+    */
+    public static void deleteAllKeys() throws KeyStoreException {
+        StrictMode.noteDiskWrite();
+        try {
+            getService().deleteAllKeys();
+        } catch (RemoteException | NullPointerException e) {
+            throw new KeyStoreException(SYSTEM_ERROR,
+                    "Failure to connect to Keystore while trying to delete all keys.");
+        } catch (ServiceSpecificException e) {
+            throw new KeyStoreException(e.errorCode,
+                    "Keystore error while trying to delete all keys.");
         }
     }
 }
