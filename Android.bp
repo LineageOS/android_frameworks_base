@@ -402,6 +402,7 @@ java_defaults {
         "framework-updatable-stubs-module_libs_api",
         "unsupportedappusage",
     ],
+    impl_only_static_libs: ["org.lineageos.platform.resources"],
     sdk_version: "core_platform",
     static_libs: [
         "android.hardware.common.fmq-V1-java",
@@ -427,7 +428,6 @@ java_defaults {
         "audiopolicy-aidl-java",
         "sounddose-aidl-java",
         "modules-utils-expresslog",
-        "org.lineageos.platform.resources"
     ],
 }
 
