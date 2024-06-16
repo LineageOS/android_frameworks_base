@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e15e99a2_14f0a3d0",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-06-16T00:46:59Z",
+      "side": 0,
+      "message": "The issue is that this was deleted",
+      "range": {
+        "startLine": 833,
+        "startChar": 37,
+        "endLine": 833,
+        "endChar": 72
+      },
+      "revId": "a7d252879a097f7a2869918f9f4f63e9a9f07433",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
