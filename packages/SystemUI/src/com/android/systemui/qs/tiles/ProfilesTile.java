@@ -42,7 +42,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.internal.logging.MetricsLogger;
-import com.android.systemui.animation.DialogLaunchAnimator;
+import com.android.systemui.animation.DialogTransitionAnimator;
 import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.ActivityStarter;
@@ -81,7 +81,7 @@ public class ProfilesTile extends QSTileImpl<State> {
     private boolean mListening;
 
     private final ActivityStarter mActivityStarter;
-    private final DialogLaunchAnimator mDialogLaunchAnimator;
+    private final DialogTransitionAnimator mDialogTransitionAnimator;
     private final KeyguardDismissUtil mKeyguardDismissUtil;
     private final KeyguardStateController mKeyguardStateController;
     private final ProfileManager mProfileManager;
@@ -100,14 +100,14 @@ public class ProfilesTile extends QSTileImpl<State> {
             StatusBarStateController statusBarStateController,
             ActivityStarter activityStarter,
             QSLogger qsLogger,
-            DialogLaunchAnimator dialogLaunchAnimator,
+            DialogTransitionAnimator dialogTransitionAnimator,
             KeyguardDismissUtil keyguardDismissUtil,
             KeyguardStateController keyguardStateController
     ) {
         super(host, uiEventLogger, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
         mActivityStarter = activityStarter;
-        mDialogLaunchAnimator = dialogLaunchAnimator;
+        mDialogTransitionAnimator = dialogTransitionAnimator;
         mKeyguardDismissUtil = keyguardDismissUtil;
         mKeyguardStateController = keyguardStateController;
         mProfileManager = ProfileManager.getInstance(mContext);
@@ -135,7 +135,7 @@ public class ProfilesTile extends QSTileImpl<State> {
         mUiHandler.post(() -> mKeyguardDismissUtil.executeWhenUnlocked(() -> {
             ProfilesDialog dialog = new ProfilesDialog(mContext);
             if (view != null && !mKeyguardStateController.isShowing()) {
-                mDialogLaunchAnimator.showFromView(dialog, view);
+                mDialogTransitionAnimator.showFromView(dialog, view);
             } else {
                 dialog.show();
             }
