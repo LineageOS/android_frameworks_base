@@ -118,7 +118,7 @@ public class ScreenMediaRecorder extends MediaProjection.Callback {
         mMaxRefreshRate = mContext.getResources().getInteger(
                 com.android.systemui.res.R.integer.config_screenRecorderMaxFramerate);
         mAvcProfileLevel = mContext.getResources().getString(
-                R.string.config_screenRecorderAVCProfileLevel);
+                com.android.systemui.res.R.string.config_screenRecorderAVCProfileLevel);
     }
 
     public void setLowQuality(boolean low) {
