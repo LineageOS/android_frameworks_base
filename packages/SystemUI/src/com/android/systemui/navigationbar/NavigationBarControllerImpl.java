@@ -283,8 +283,8 @@ public class NavigationBarControllerImpl implements
 
     /** @return {@code true} if taskbar is enabled, false otherwise */
     private boolean initializeTaskbarIfNecessary() {
-        boolean taskbarEnabled = supportsTaskbar() && shouldCreateNavBarAndTaskBar(
-                mContext.getDisplayId());
+        boolean taskbarEnabled = supportsTaskbar() &&
+                shouldCreateNavBarAndTaskBar(mContext, mContext.getDisplayId());
 
         if (taskbarEnabled) {
             Trace.beginSection("NavigationBarController#initializeTaskbarIfNecessary");
