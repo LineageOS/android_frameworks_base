@@ -115,6 +115,11 @@ ScopedLocalRef<jobject> android_view_KeyEvent_obtainAsCopy(JNIEnv* env, const Ke
     return eventObj;
 }
 
+jobject android_view_KeyEvent_fromNative(JNIEnv* env, const KeyEvent& event)
+{
+    return android_view_KeyEvent_obtainAsCopy(env, event).release();
+}
+
 KeyEvent android_view_KeyEvent_obtainAsCopy(JNIEnv* env, jobject eventObj) {
     jint id = env->GetIntField(eventObj, gKeyEventClassInfo.mId);
     jint deviceId = env->GetIntField(eventObj, gKeyEventClassInfo.mDeviceId);
@@ -138,6 +143,11 @@ KeyEvent android_view_KeyEvent_obtainAsCopy(JNIEnv* env, jobject eventObj) {
     event.initialize(id, deviceId, source, ui::LogicalDisplayId{displayId}, *hmac, action, flags,
                      keyCode, scanCode, metaState, repeatCount, downTime, eventTime);
     return event;
+}
+
+KeyEvent android_view_KeyEvent_toNative(JNIEnv* env, jobject eventObj)
+{
+    return android_view_KeyEvent_obtainAsCopy(env, eventObj);
 }
 
 status_t android_view_KeyEvent_recycle(JNIEnv* env, jobject eventObj) {
