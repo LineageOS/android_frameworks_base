@@ -294,7 +294,7 @@ public class NavigationBarControllerImplTest extends SysuiTestCase {
     @Test
     public void testConfigurationChange_taskbarNotInitialized() {
         Configuration configuration = mContext.getResources().getConfiguration();
-        mNavigationBarController.mIsLargeScreen = true;
+        mNavigationBarController.mTaskbarShowing = true;
         mNavigationBarController.onConfigChanged(configuration);
         verify(mTaskbarDelegate, never()).onConfigurationChanged(configuration);
     }
@@ -302,7 +302,7 @@ public class NavigationBarControllerImplTest extends SysuiTestCase {
     @Test
     public void testConfigurationChange_taskbarInitialized() {
         Configuration configuration = mContext.getResources().getConfiguration();
-        mNavigationBarController.mIsLargeScreen = true;
+        mNavigationBarController.mTaskbarShowing = true;
         when(mTaskbarDelegate.isInitialized()).thenReturn(true);
         mNavigationBarController.onConfigChanged(configuration);
         verify(mTaskbarDelegate, times(1)).onConfigurationChanged(configuration);
@@ -310,14 +310,14 @@ public class NavigationBarControllerImplTest extends SysuiTestCase {
 
     @Test
     public void testShouldRenderTaskbar_taskbarNotRenderedOnPhone() {
-        mNavigationBarController.mIsLargeScreen = false;
+        mNavigationBarController.mTaskbarShowing = false;
         mNavigationBarController.mIsPhone = true;
         assertFalse(mNavigationBarController.supportsTaskbar());
     }
 
     @Test
     public void testShouldRenderTaskbar_taskbarRenderedOnTabletOrUnfolded() {
-        mNavigationBarController.mIsLargeScreen = true;
+        mNavigationBarController.mTaskbarShowing = true;
         mNavigationBarController.mIsPhone = false;
         assertTrue(mNavigationBarController.supportsTaskbar());
     }
@@ -326,7 +326,7 @@ public class NavigationBarControllerImplTest extends SysuiTestCase {
     public void testShouldRenderTaskbar_taskbarRenderedInFoldedState() {
         assumeTrue(enableTaskbarNavbarUnification());
 
-        mNavigationBarController.mIsLargeScreen = false;
+        mNavigationBarController.mTaskbarShowing = false;
         mNavigationBarController.mIsPhone = false;
         assertTrue(mNavigationBarController.supportsTaskbar());
     }
