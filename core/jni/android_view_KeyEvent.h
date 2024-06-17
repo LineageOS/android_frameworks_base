@@ -31,10 +31,13 @@ class KeyEvent;
  * Returns NULL on error. */
 extern ScopedLocalRef<jobject> android_view_KeyEvent_obtainAsCopy(JNIEnv* env,
                                                                   const KeyEvent& event);
+extern jobject android_view_KeyEvent_fromNative(JNIEnv* env,
+                                                const KeyEvent& event);
 
 /* Copies the contents of a DVM KeyEvent object to a native KeyEvent instance.
  * Returns non-zero on error. */
 extern KeyEvent android_view_KeyEvent_obtainAsCopy(JNIEnv* env, jobject eventObj);
+extern KeyEvent android_view_KeyEvent_toNative(JNIEnv* env, jobject event);
 
 /* Recycles a DVM KeyEvent object.
  * Key events should only be recycled if they are owned by the system since user
