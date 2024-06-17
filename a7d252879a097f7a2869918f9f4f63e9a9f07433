@@ -22,6 +22,30 @@
       },
       "revId": "a7d252879a097f7a2869918f9f4f63e9a9f07433",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558df90f_808904c8",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenshot/ScreenshotView.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 833,
+      "author": {
+        "id": 33840
+      },
+      "writtenOn": "2024-06-17T15:02:59Z",
+      "side": 0,
+      "message": "If you don\u0027t mind, could you try this commit?\n\nhttps://github.com/someone5678/LineageOS-android_frameworks_base/commit/f1bfbc3e1d125c1482e101ed962dde626e7619ad\n\nBy restoring code and small adaptation, delete action chip is working in QPR3 again. Locally tested on my device.",
+      "parentUuid": "e15e99a2_14f0a3d0",
+      "range": {
+        "startLine": 833,
+        "startChar": 37,
+        "endLine": 833,
+        "endChar": 72
+      },
+      "revId": "a7d252879a097f7a2869918f9f4f63e9a9f07433",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
