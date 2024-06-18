@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e64f1c66_c0ec4060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31496
+      },
+      "writtenOn": "2024-06-18T06:07:25Z",
+      "side": 1,
+      "message": "```\nframeworks/base/packages/SystemUI/src/com/android/systemui/screenshot/SaveImageInBackgroundTask.java:236: error: cannot find symbol\n                Icon.createWithResource(mContext.getResources(), R.drawable.ic_screenshot_delete),\n                ^\n  symbol:   variable Icon\n  location: class SaveImageInBackgroundTask\n1 error\n```",
+      "revId": "c1efcb0fd001563fefdf1fd06e38cc2202eb77b9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
