@@ -408,7 +408,16 @@ public class LightsService extends SystemService {
             try {
                 if (mVintfLights != null) {
                     HwLightState lightState = new HwLightState();
-                    lightState.color = color;
+                    if (mBrightnessLevel > 0 && mBrightnessLevel <= 0xFF) {
+                        int colorAlpha = color >>> 24;
+                        if (colorAlpha == 0x00) {
+                            colorAlpha = 0xFF;
+                        }
+                        colorAlpha = (colorAlpha * mBrightnessLevel) / 0xFF;
+                        lightState.color = (colorAlpha << 24) + (color & 0x00FFFFFF);
+                    } else {
+                        lightState.color = color;
+                    }
                     lightState.flashMode = (byte) mode;
                     lightState.flashOnMs = onMS;
                     lightState.flashOffMs = offMS;
