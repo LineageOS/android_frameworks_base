@@ -16,6 +16,23 @@
       "message": "ah, I want a way to force disable that for some devices where it doesn\u0027t work on...",
       "revId": "059325b87a6a44f506fa879dc506431460e4da60",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "992b390b_2bff387c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 37
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2024-06-21T14:28:50Z",
+      "side": 1,
+      "message": "The dialog become too big now. Text for hevc toggle isn\u0027t completly visible in 6.4 inch display.",
+      "revId": "059325b87a6a44f506fa879dc506431460e4da60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
