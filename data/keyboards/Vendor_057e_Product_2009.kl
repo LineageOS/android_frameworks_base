@@ -19,14 +19,14 @@
 
 # Mapping according to https://developer.android.com/training/game-controllers/controller-input.html
 
-# Button labeled as "B" but should really produce keycode "A"
-key 0x130    BUTTON_A
-# Button labeled as "A" but should really produce keycode "B"
-key 0x131    BUTTON_B
-# Button labeled as "X" but should really product keycode "Y"
-key 0x133    BUTTON_Y
-# Button labeled as "Y" but should really produce keycode "X"
-key 0x134    BUTTON_X
+# Button labeled as "B"
+key 0x130    BUTTON_B
+# Button labeled as "A"
+key 0x131    BUTTON_A
+# Button labeled as "X"
+key 0x133    BUTTON_X
+# Button labeled as "Y"
+key 0x134    BUTTON_Y
 
 # Button labeled as "L"
 key 0x136    BUTTON_L1
