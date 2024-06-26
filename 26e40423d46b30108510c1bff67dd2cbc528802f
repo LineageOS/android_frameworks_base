@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23384603_d1537caa",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2024-06-26T03:03:59Z",
+      "side": 1,
+      "message": "Java integer is 32-bits, so please use logical right shift,\n```\nint colorAlpha \u003d (color \u0026 0xFF000000) \u003e\u003e\u003e 24;\n```\nor shift and mask.\n```\nint colorAlpha \u003d (color \u003e\u003e 24) \u0026 0xFF;\n```\nThe latter is better.",
+      "range": {
+        "startLine": 412,
+        "startChar": 24,
+        "endLine": 412,
+        "endChar": 68
+      },
+      "revId": "26e40423d46b30108510c1bff67dd2cbc528802f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
