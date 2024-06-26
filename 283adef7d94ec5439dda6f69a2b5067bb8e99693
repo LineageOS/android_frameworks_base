@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b81eeb10_3c5be993",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-06-26T03:24:54Z",
+      "side": 1,
+      "message": "Mirroring my comment from the joycon keylayout change for documentation purposes. I still don\u0027t like changing the aosp standards as was documented in this keylayout. But since the joycon keylayout was changed to use buttons as labelled instead of the standardized layout, this change needs to be merged as well to keep consistency across the Lineage product.",
+      "revId": "283adef7d94ec5439dda6f69a2b5067bb8e99693",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
