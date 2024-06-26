@@ -94,6 +94,30 @@
       },
       "revId": "26e40423d46b30108510c1bff67dd2cbc528802f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20cfd670_f6def7d6",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2024-06-26T07:12:24Z",
+      "side": 1,
+      "message": "arithmetic right shift bug.\n```\njshell\u003e int color \u003d 0xFE000000; int colorAlpha \u003d (color \u0026 0xFF000000) \u003e\u003e 24;\ncolorAlpha \u003d\u003d\u003e -2\njshell\u003e int color \u003d 0xFE000000; int colorAlpha \u003d (color \u0026 0xFF000000) \u003e\u003e\u003e 24;\ncolorAlpha \u003d\u003d\u003e 254\njshell\u003e int color \u003d 0xFE000000; int colorAlpha \u003d (color \u003e\u003e 24) \u0026 0xFF;\ncolorAlpha \u003d\u003d\u003e 254\n```",
+      "parentUuid": "bdedd0d7_f71fa1bc",
+      "range": {
+        "startLine": 412,
+        "startChar": 24,
+        "endLine": 412,
+        "endChar": 68
+      },
+      "revId": "26e40423d46b30108510c1bff67dd2cbc528802f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
