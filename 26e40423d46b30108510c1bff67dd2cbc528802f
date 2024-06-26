@@ -70,6 +70,30 @@
       },
       "revId": "26e40423d46b30108510c1bff67dd2cbc528802f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdedd0d7_f71fa1bc",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-06-26T07:00:51Z",
+      "side": 1,
+      "message": "what bug? `\u003e\u003e\u003e` is used by android.graphics.Color so I\u0027d expect it to work?",
+      "parentUuid": "71baa60a_f5f2796c",
+      "range": {
+        "startLine": 412,
+        "startChar": 24,
+        "endLine": 412,
+        "endChar": 68
+      },
+      "revId": "26e40423d46b30108510c1bff67dd2cbc528802f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
