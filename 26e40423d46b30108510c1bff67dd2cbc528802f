@@ -118,6 +118,30 @@
       },
       "revId": "26e40423d46b30108510c1bff67dd2cbc528802f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "266d584d_47a2bece",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2024-06-26T07:58:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "20cfd670_f6def7d6",
+      "range": {
+        "startLine": 412,
+        "startChar": 24,
+        "endLine": 412,
+        "endChar": 68
+      },
+      "revId": "26e40423d46b30108510c1bff67dd2cbc528802f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
