@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e371b7ed_a8b136f1",
+        "filename": "services/core/java/com/android/server/lights/LightsService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 14962
+      },
+      "writtenOn": "2024-06-26T08:04:34Z",
+      "side": 1,
+      "message": "I missed patchset 2. This works.",
+      "range": {
+        "startLine": 412,
+        "startChar": 24,
+        "endLine": 412,
+        "endChar": 54
+      },
+      "revId": "3e39d48f004ee398276ff3d3a53e3577d123f9c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
