@@ -636,6 +636,16 @@ public class AccountManagerService
                                             META_KEY_FOR_AUTHENTICATOR_UID_FOR_TYPE_PREFIX + type,
                                             uid}
                                     );
+                        } else if (knownUid != null && !uid.equals(knownUid.toString())) {
+                            Slog.w(TAG, "authenticator no longer exist for type " + type);
+                            obsoleteAuthType.add(type);
+                            db.delete(
+                                    TABLE_META,
+                                    META_KEY + "=? AND " + META_VALUE + "=?",
+                                    new String[] {
+                                            META_KEY_FOR_AUTHENTICATOR_UID_FOR_TYPE_PREFIX + type,
+                                            uid}
+                                    );
                         }
                     }
                 }
