@@ -17,6 +17,7 @@ package com.android.systemui.display.ui.viewmodel
 
 import android.app.Dialog
 import android.content.Context
+import android.os.SystemProperties
 import com.android.server.policy.feature.flags.Flags
 import com.android.systemui.CoreStartable
 import com.android.systemui.biometrics.Utils
@@ -89,6 +90,12 @@ constructor(
 
     private fun showDialog(pendingDisplay: PendingDisplay, concurrentDisplaysInProgess: Boolean) {
         hideDialog()
+
+        if (SystemProperties.getBoolean(DISABLE_MIRRORING_CONFIRMATION_DIALOG, false)) {
+            scope.launch(bgDispatcher) { pendingDisplay.enable() }
+            return
+        }
+
         dialog =
             bottomSheetFactory
                 .createDialog(
@@ -117,5 +124,10 @@ constructor(
         @IntoMap
         @ClassKey(ConnectingDisplayViewModel::class)
         fun bindsConnectingDisplayViewModel(impl: ConnectingDisplayViewModel): CoreStartable
+    }
+
+    companion object {
+        private const val DISABLE_MIRRORING_CONFIRMATION_DIALOG =
+            "persist.sysui.disable_mirroring_confirmation_dialog"
     }
 }
