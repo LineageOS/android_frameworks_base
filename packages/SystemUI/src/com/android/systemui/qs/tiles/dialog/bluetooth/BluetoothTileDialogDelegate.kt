@@ -120,7 +120,7 @@ internal constructor(
         SystemUIDialog.registerDismissListener(dialog, dismissListener)
         uiEventLogger.log(BluetoothTileDialogUiEvent.BLUETOOTH_TILE_DIALOG_SHOWN)
 
-        layoutInflater.inflate(R.layout.bluetooth_tile_dialog, null).apply {
+        LayoutInflater.from(dialog.context).inflate(R.layout.bluetooth_tile_dialog, null).apply {
             accessibilityPaneTitle = context.getText(R.string.accessibility_desc_quick_settings)
             dialog.setContentView(this)
         }
