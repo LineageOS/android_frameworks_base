@@ -532,10 +532,10 @@ public final class PointerIcon implements Parcelable {
     }
 
     private static void validateHotSpot(Bitmap bitmap, float hotSpotX, float hotSpotY) {
-        if (hotSpotX < 0 || hotSpotX >= bitmap.getWidth()) {
+        if (hotSpotX < 0 || hotSpotX > bitmap.getWidth()) {
             throw new IllegalArgumentException("x hotspot lies outside of the bitmap area");
         }
-        if (hotSpotY < 0 || hotSpotY >= bitmap.getHeight()) {
+        if (hotSpotY < 0 || hotSpotY > bitmap.getHeight()) {
             throw new IllegalArgumentException("y hotspot lies outside of the bitmap area");
         }
     }
