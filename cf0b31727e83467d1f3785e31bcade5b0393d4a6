@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88608475_d8d258d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-07-07T07:28:59Z",
+      "side": 1,
+      "message": "actually, I think I\u0027ll just enable vector cursors",
+      "revId": "cf0b31727e83467d1f3785e31bcade5b0393d4a6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
