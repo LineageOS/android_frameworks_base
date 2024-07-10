@@ -33,6 +33,42 @@
       "message": "The dialog become too big now. Text for hevc toggle isn\u0027t completly visible in 6.4 inch display.",
       "revId": "059325b87a6a44f506fa879dc506431460e4da60",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d64e6e4_58fae46a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 37
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2024-07-10T14:48:15Z",
+      "side": 1,
+      "message": "The solution to this would probably be adding everything in a ScrollView",
+      "parentUuid": "992b390b_2bff387c",
+      "revId": "059325b87a6a44f506fa879dc506431460e4da60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a7adfaf_8a83198d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 37
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2024-07-10T14:48:15Z",
+      "side": 1,
+      "message": "Do you mean a config bool or a real check to see if HEVC is supported?",
+      "parentUuid": "c997c028_5c7b060c",
+      "revId": "059325b87a6a44f506fa879dc506431460e4da60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
