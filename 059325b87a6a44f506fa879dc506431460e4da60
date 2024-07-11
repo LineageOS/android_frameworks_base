@@ -69,6 +69,24 @@
       "parentUuid": "c997c028_5c7b060c",
       "revId": "059325b87a6a44f506fa879dc506431460e4da60",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93375274_3a4e1b84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 37
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32245
+      },
+      "writtenOn": "2024-07-11T15:58:17Z",
+      "side": 1,
+      "message": "first one must be okay\nsecond one is okay too if it works for my device...",
+      "parentUuid": "5a7adfaf_8a83198d",
+      "revId": "059325b87a6a44f506fa879dc506431460e4da60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
