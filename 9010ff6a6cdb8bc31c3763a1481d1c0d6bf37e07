@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c52558a_2aced0a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32245
+      },
+      "writtenOn": "2024-07-12T06:37:05Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ll try it out tonight",
+      "revId": "9010ff6a6cdb8bc31c3763a1481d1c0d6bf37e07",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
