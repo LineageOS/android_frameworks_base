@@ -44,6 +44,7 @@ import com.android.systemui.mediaprojection.SessionCreationSource;
 import com.android.systemui.mediaprojection.devicepolicy.ScreenCaptureDevicePolicyResolver;
 import com.android.systemui.mediaprojection.devicepolicy.ScreenCaptureDisabledDialog;
 import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.res.R;
 import com.android.systemui.settings.UserContextProvider;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
@@ -77,6 +78,7 @@ public class RecordingController
     private final UserTracker mUserTracker;
     private final MediaProjectionMetricsLogger mMediaProjectionMetricsLogger;
     private final SystemUIDialog.Factory mDialogFactory;
+    private final boolean mIsHEVCAllowed;
 
     protected static final String INTENT_UPDATE_STATE =
             "com.android.systemui.screenrecord.UPDATE_STATE";
@@ -133,6 +135,8 @@ public class RecordingController
         mUserTracker = userTracker;
         mMediaProjectionMetricsLogger = mediaProjectionMetricsLogger;
         mDialogFactory = dialogFactory;
+        mIsHEVCAllowed = context.getResources().getBoolean(
+                R.bool.config_screenRecordHEVC);
 
         BroadcastOptions options = BroadcastOptions.makeBasic();
         options.setInteractive(true);
@@ -296,6 +300,10 @@ public class RecordingController
                 cb.onRecordingEnd();
             }
         }
+    }
+
+    public boolean isHEVCAllowed() {
+        return mIsHEVCAllowed;
     }
 
     @Override
