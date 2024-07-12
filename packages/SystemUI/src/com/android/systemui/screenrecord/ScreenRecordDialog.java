@@ -75,6 +75,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
 
     private final RecordingController mController;
     private final UserContextProvider mUserContextProvider;
+    private final boolean mIsHEVCAllowed;
     @Nullable
     private final Runnable mOnStartRecordingClicked;
     private Switch mTapsSwitch;
@@ -94,6 +95,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         mController = controller;
         mUserContextProvider = userContextProvider;
         mOnStartRecordingClicked = onStartRecordingClicked;
+        mIsHEVCAllowed = controller.isHEVCAllowed();
     }
 
     @Override
@@ -123,6 +125,13 @@ public class ScreenRecordDialog extends SystemUIDialog {
             requestScreenCapture(/* captureTarget= */ null);
             dismiss();
         });
+
+        if (!mIsHEVCAllowed) {
+            View hevcView = findViewById(R.id.show_hevc);
+            if (hevcView != null) {
+                hevcView.setVisibility(View.GONE);
+            }
+        }
 
         mAudioSwitch = findViewById(R.id.screenrecord_audio_switch);
         mTapsSwitch = findViewById(R.id.screenrecord_taps_switch);
@@ -168,7 +177,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         boolean lowQuality = mLowQualitySwitch.isChecked();
         boolean longerDuration = mLongerSwitch.isChecked();
         boolean skipTime = mSkipSwitch.isChecked();
-        boolean hevc = mHEVCSwitch.isChecked();
+        boolean hevc = mIsHEVCAllowed && mHEVCSwitch.isChecked();
         ScreenRecordingAudioSource audioMode = mAudioSwitch.isChecked()
                 ? (ScreenRecordingAudioSource) mOptions.getSelectedItem()
                 : NONE;
@@ -214,7 +223,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         Prefs.putInt(userContext, PREFS + PREF_AUDIO, mAudioSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
         Prefs.putInt(userContext, PREFS + PREF_SKIP, mSkipSwitch.isChecked() ? 1 : 0);
-        Prefs.putInt(userContext, PREFS + PREF_HEVC, mHEVCSwitch.isChecked() ? 1 : 0);
+        Prefs.putInt(userContext, PREFS + PREF_HEVC, mIsHEVCAllowed && mHEVCSwitch.isChecked() ? 1 : 0);
     }
 
     private void loadPrefs() {
@@ -226,6 +235,6 @@ public class ScreenRecordDialog extends SystemUIDialog {
         mAudioSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_AUDIO, 0) == 1);
         mOptions.setSelection(Prefs.getInt(userContext, PREFS + PREF_AUDIO_SOURCE, 0));
         mSkipSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_SKIP, 0) == 1);
-        mHEVCSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_HEVC, 1) == 1);
+        mHEVCSwitch.setChecked(mIsHEVCAllowed && Prefs.getInt(userContext, PREFS + PREF_HEVC, 1) == 1);
     }
 }
