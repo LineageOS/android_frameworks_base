@@ -68,6 +68,7 @@ class ScreenRecordPermissionDialogDelegate(
         R.color.screenrecord_icon_color
     ),
     SystemUIDialog.Delegate {
+    private val isHevcAllowed: Boolean = controller.isHevcAllowed()
     private lateinit var tapsSwitch: Switch
     private lateinit var tapsSwitchContainer: ViewGroup
     private lateinit var tapsView: View
@@ -166,6 +167,11 @@ class ScreenRecordPermissionDialogDelegate(
         tapsView = dialog.requireViewById(R.id.show_taps)
         updateTapsViewVisibility()
 
+        if (!isHevcAllowed) {
+            val hevcView: View = dialog.requireViewById(R.id.show_hevc)
+            hevcView.visibility = GONE
+        }
+
         options = dialog.requireViewById(R.id.screen_recording_options)
         val a: ArrayAdapter<*> =
             ScreenRecordingAdapter(
@@ -219,7 +225,7 @@ class ScreenRecordPermissionDialogDelegate(
         val showStopDot = stopDotSwitch.isChecked
         val lowQuality = lowQualitySwitch.isChecked
         val longerDuration = longerDurationSwitch.isChecked
-        val hevc = hevcSwitch.isChecked
+        val hevc = isHevcAllowed && hevcSwitch.isChecked
         val startIntent =
             PendingIntent.getForegroundService(
                 userContext,
@@ -258,7 +264,7 @@ class ScreenRecordPermissionDialogDelegate(
         Prefs.putInt(userContext, PREF_AUDIO, if (audioSwitch.isChecked) 1 else 0)
         Prefs.putInt(userContext, PREF_AUDIO_SOURCE, options.selectedItemPosition)
         Prefs.putInt(userContext, PREF_SKIP, if (skipTimeSwitch.isChecked) 1 else 0)
-        Prefs.putInt(userContext, PREF_HEVC, if (hevcSwitch.isChecked) 1 else 0)
+        Prefs.putInt(userContext, PREF_HEVC, if (isHevcAllowed && hevcSwitch.isChecked) 1 else 0)
     }
 
     private fun loadPrefs() {
@@ -270,7 +276,7 @@ class ScreenRecordPermissionDialogDelegate(
         audioSwitch.isChecked = Prefs.getInt(userContext, PREF_AUDIO, 0) == 1
         options.setSelection(Prefs.getInt(userContext, PREF_AUDIO_SOURCE, 0))
         skipTimeSwitch.isChecked = Prefs.getInt(userContext, PREF_SKIP, 0) == 1
-        hevcSwitch.isChecked = Prefs.getInt(userContext, PREF_HEVC, 1) == 1
+        hevcSwitch.isChecked = isHevcAllowed && Prefs.getInt(userContext, PREF_HEVC, 1) == 1
     }
 
     private inner class CaptureTargetResultReceiver() :
