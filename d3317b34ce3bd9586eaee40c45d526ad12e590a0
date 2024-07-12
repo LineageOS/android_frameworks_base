@@ -35,6 +35,23 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "733eaa1e_53bd55d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-07-12T15:27:21Z",
+      "side": 1,
+      "message": "wouldn\u0027t it be enough to check if hevc hw encoder is available?",
+      "revId": "d3317b34ce3bd9586eaee40c45d526ad12e590a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c1fbd47_92ff8c2e",
