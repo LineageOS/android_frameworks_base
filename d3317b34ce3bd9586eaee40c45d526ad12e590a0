@@ -88,6 +88,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcfccaed_adb82be3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-07-13T14:24:12Z",
+      "side": 1,
+      "message": "how? I tried it myself and https://gist.github.com/luk1337/28f9f7853ccde55f84043d20d9976229 is very minimal...?",
+      "parentUuid": "0731f97c_195273e3",
+      "revId": "d3317b34ce3bd9586eaee40c45d526ad12e590a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c1fbd47_92ff8c2e",
