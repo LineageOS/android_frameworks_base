@@ -111,6 +111,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9144bfc8_b4528209",
+        "filename": "packages/SystemUI/res/values/lineage_config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2024-07-13T14:08:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c1fbd47_92ff8c2e",
+      "range": {
+        "startLine": 75,
+        "startChar": 16,
+        "endLine": 75,
+        "endChar": 39
+      },
+      "revId": "d3317b34ce3bd9586eaee40c45d526ad12e590a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42f3043e_09bec068",
@@ -124,6 +148,30 @@
       "writtenOn": "2024-07-12T12:57:42Z",
       "side": 1,
       "message": "mIsHevcAllowed",
+      "range": {
+        "startLine": 81,
+        "startChar": 26,
+        "endLine": 81,
+        "endChar": 40
+      },
+      "revId": "d3317b34ce3bd9586eaee40c45d526ad12e590a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a1ce2e6_76f4ffaf",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/RecordingController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2024-07-13T14:08:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42f3043e_09bec068",
       "range": {
         "startLine": 81,
         "startChar": 26,
@@ -157,6 +205,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a02cc2d6_4f5a77e0",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/RecordingController.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2024-07-13T14:08:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca684453_d40bc816",
+      "range": {
+        "startLine": 305,
+        "startChar": 19,
+        "endLine": 305,
+        "endChar": 32
+      },
+      "revId": "d3317b34ce3bd9586eaee40c45d526ad12e590a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dfbf0e2_9a51be54",
@@ -180,6 +252,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fdf822a_55ec16e8",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordDialog.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2024-07-13T14:08:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dfbf0e2_9a51be54",
+      "range": {
+        "startLine": 78,
+        "startChar": 26,
+        "endLine": 78,
+        "endChar": 40
+      },
+      "revId": "d3317b34ce3bd9586eaee40c45d526ad12e590a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "568ad12b_e5a893a8",
@@ -193,6 +289,30 @@
       "writtenOn": "2024-07-12T12:57:42Z",
       "side": 1,
       "message": "isHevcAllowed",
+      "range": {
+        "startLine": 71,
+        "startChar": 16,
+        "endLine": 71,
+        "endChar": 29
+      },
+      "revId": "d3317b34ce3bd9586eaee40c45d526ad12e590a0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bd51570_f1365908",
+        "filename": "packages/SystemUI/src/com/android/systemui/screenrecord/ScreenRecordPermissionDialogDelegate.kt",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 26671
+      },
+      "writtenOn": "2024-07-13T14:08:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568ad12b_e5a893a8",
       "range": {
         "startLine": 71,
         "startChar": 16,
