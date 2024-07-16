@@ -68,4 +68,15 @@
     <string name="accessibility_dpad_left">Cursor a la esquierda</string>
     <string name="accessibility_dpad_right">Cursor a la derecha</string>
     <string name="status_bar_firewall">Tornafuéu</string>
+    <string name="screenrecord_delete_description">Desanicióse la grabación de la pantalla</string>
+    <string name="screenrecord_stopdot_label">Amosar el puntu de parada</string>
+    <string name="screenrecord_stopdot_summary">Tenlu primíu pa movelu</string>
+    <string name="screenrecord_lowquality_label">Calidá baxa</string>
+    <string name="screenrecord_lowquality_summary">Pa consiguir ficheros de menos tamañu</string>
+    <string name="screenrecord_longer_timeout_switch_label">Llende de tamañu aumentada</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Llenda\'l tamañu de la grabación a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Saltar el temporizador</string>
+    <string name="screenrecord_skip_time_summary">Quita la espera de 3 segundos</string>
+    <string name="screenrecord_hevc_switch_label">Codificación HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Usa un codificador HEVC más eficiente</string>
 </resources>

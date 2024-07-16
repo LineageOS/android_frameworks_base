@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">Verwijder de 3 seconden wachttijd</string>
     <string name="screenrecord_hevc_switch_label">HEVC codering</string>
     <string name="screenrecord_hevc_switch_summary">Gebruik de efficiëntere HEVC-encoder</string>
+    <string name="battery_notification_channel_tv">Batterij waarschuwing</string>
 </resources>

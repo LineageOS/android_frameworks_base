@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">Убрать 3-х секундное ожидание</string>
     <string name="screenrecord_hevc_switch_label">Кодирование HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Использовать более эффективный кодер HEVC</string>
+    <string name="battery_notification_channel_tv">Предупреждение батареи</string>
 </resources>
