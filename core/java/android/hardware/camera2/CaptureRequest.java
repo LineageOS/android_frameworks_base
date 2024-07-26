@@ -236,7 +236,7 @@ public final class CaptureRequest extends CameraMetadata<CaptureRequest.Key<?>>
     private static final ArraySet<Surface> mEmptySurfaceSet = new ArraySet<Surface>();
 
     private String mLogicalCameraId;
-    @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
+    @UnsupportedAppUsage
     private CameraMetadataNative mLogicalCameraSettings;
     private final HashMap<String, CameraMetadataNative> mPhysicalCameraSettings =
             new HashMap<String, CameraMetadataNative>();
