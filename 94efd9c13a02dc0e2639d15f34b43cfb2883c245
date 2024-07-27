@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f2b5ff3_22b8f3e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20370
+      },
+      "writtenOn": "2024-07-27T09:55:34Z",
+      "side": 1,
+      "message": "works for me on rhodep, thanks",
+      "revId": "94efd9c13a02dc0e2639d15f34b43cfb2883c245",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
