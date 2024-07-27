@@ -71,6 +71,12 @@
         com.android.systemui/com.android.systemui.tv.usb.TvUsbConfirmActivity
     </string>
 
+    <!-- Name of the activity or service that prompts the user to reject, accept, or allowlist
+         an adb host's public key, when an unwhitelisted host connects to the local adbd.
+         Can be customized for other product types -->
+    <string name="config_customAdbPublicKeyConfirmationComponent"
+            >com.android.systemui/com.android.systemui.tv.usb.TvUsbDebuggingActivity</string>
+
     <!-- Android TV does not have a Recents UI by default. -->
     <bool name="config_hasRecents">false</bool>
 </resources>
