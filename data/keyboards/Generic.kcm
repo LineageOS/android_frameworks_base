@@ -563,7 +563,7 @@ key BUTTON_START {
 }
 
 key BUTTON_SELECT {
-    base:                               fallback MENU
+    base:                               fallback BACK
 }
 
 key BUTTON_MODE {
