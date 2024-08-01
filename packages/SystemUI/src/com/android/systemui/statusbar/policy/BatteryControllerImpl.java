@@ -264,8 +264,8 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
                 fireWirelessChargingChanged();
             }
 
-            mPresent = intent.getBooleanExtra(EXTRA_PRESENT, true);
             boolean unknown = !mPresent;
+            mPresent = intent.getBooleanExtra(EXTRA_PRESENT, true);
             if (unknown != mStateUnknown) {
                 mStateUnknown = unknown;
                 fireBatteryUnknownStateChanged();

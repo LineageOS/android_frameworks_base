@@ -102,6 +102,14 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 @Override
                 public void onBatteryUnknownStateChanged(boolean isUnknown) {
                     mView.onBatteryUnknownStateChanged(isUnknown);
+
+                    if (mBatteryController.isPresent()) {
+                        mView.setBatteryPresence(true);
+                        mView.setVisibility(mBatteryHidden ? View.GONE : View.VISIBLE);
+                        if (!mBatteryHidden) {
+                            mView.updateBatteryStyle();
+                        }
+                    }
                 }
 
                 @Override
