@@ -163,6 +163,9 @@ public interface BatteryController extends DemoMode,
 
         default void onIsOverheatedChanged(boolean isOverheated) {
         }
+
+        default void onBatteryPresentChanged(boolean batteryPresent) {
+        }
     }
 
     /**
