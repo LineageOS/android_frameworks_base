@@ -85,7 +85,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
 
     protected int mLevel;
     protected boolean mPluggedIn;
-    protected boolean mPresent;
+    protected boolean mPresent = true;
     private int mPluggedChargingSource;
     protected boolean mCharging;
     private boolean mStateUnknown = false;
@@ -197,6 +197,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
         cb.onBatteryUnknownStateChanged(mStateUnknown);
         cb.onWirelessChargingChanged(mWirelessCharging);
         cb.onIsOverheatedChanged(mIsOverheated);
+        cb.onBatteryPresentChanged(mPresent);
     }
 
     @Override
@@ -228,7 +229,12 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
                 fireWirelessChargingChanged();
             }
 
-            mPresent = intent.getBooleanExtra(EXTRA_PRESENT, true);
+            boolean present = intent.getBooleanExtra(EXTRA_PRESENT, true);
+            if (present != mPresent) {
+                mPresent = present;
+                fireBatteryPresentChanged();
+            }
+
             boolean unknown = !mPresent;
             if (unknown != mStateUnknown) {
                 mStateUnknown = unknown;
@@ -437,6 +443,15 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
             final int n = mChangeCallbacks.size();
             for (int i = 0; i < n; i++) {
                 mChangeCallbacks.get(i).onIsOverheatedChanged(mIsOverheated);
+            }
+        }
+    }
+
+    private void fireBatteryPresentChanged() {
+        synchronized (mChangeCallbacks) {
+            final int n = mChangeCallbacks.size();
+            for (int i = 0; i < n; i++) {
+                mChangeCallbacks.get(i).onBatteryPresentChanged(mPresent);
             }
         }
     }
