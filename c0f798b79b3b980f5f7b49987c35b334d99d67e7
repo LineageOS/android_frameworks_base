@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed3a0b4c_245f50a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-08-01T20:21:15Z",
+      "side": 1,
+      "message": "Yea, this is nicer. I also thought about this, but the proposed change ended up fine in my tests.",
+      "revId": "c0f798b79b3b980f5f7b49987c35b334d99d67e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
