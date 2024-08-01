@@ -117,6 +117,13 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 }
 
                 @Override
+                public void onBatteryPresentChanged(boolean batteryPresent) {
+                    mView.setBatteryPresence(batteryPresent);
+                    mView.setVisibility(!batteryPresent || mBatteryHidden
+                            ? View.GONE : View.VISIBLE);
+                }
+
+                @Override
                 public void dump(@NonNull PrintWriter pw, @NonNull String[] args) {
                     pw.print(super.toString());
                     pw.println(" location=" + mLocation);
@@ -162,12 +169,8 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
         mBatteryController = batteryController;
 
         mView.setBatteryEstimateFetcher(mBatteryController::getEstimatedTimeRemainingString);
-        mView.setBatteryPresence(mBatteryController.isPresent());
         mView.setDisplayShieldEnabled(
                 getContext().getResources().getBoolean(R.bool.flag_battery_shield_icon));
-        if (!mBatteryController.isPresent()) {
-            mView.setVisibility(View.GONE);
-        }
 
         mSlotBattery = getResources().getString(com.android.internal.R.string.status_bar_battery);
         mSettingObserver = new SettingObserver(mMainHandler);

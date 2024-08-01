@@ -228,6 +228,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
         cb.onWirelessChargingChanged(mWirelessCharging);
         cb.onIsBatteryDefenderChanged(mIsBatteryDefender);
         cb.onIsIncompatibleChargingChanged(mIsIncompatibleCharging);
+        cb.onBatteryPresentChanged(mPresent);
     }
 
     @Override
@@ -264,7 +265,12 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
                 fireWirelessChargingChanged();
             }
 
-            mPresent = intent.getBooleanExtra(EXTRA_PRESENT, true);
+            boolean present = intent.getBooleanExtra(EXTRA_PRESENT, true);
+            if (present != mPresent) {
+                mPresent = present;
+                fireBatteryPresentChanged();
+            }
+
             boolean unknown = !mPresent;
             if (unknown != mStateUnknown) {
                 mStateUnknown = unknown;
@@ -489,6 +495,11 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
     private void fireIsIncompatibleChargingChanged() {
         dispatchSafeChange(
                 (callback) -> callback.onIsIncompatibleChargingChanged(mIsIncompatibleCharging));
+    }
+
+    private void fireBatteryPresentChanged() {
+        dispatchSafeChange(
+                (callback) -> callback.onBatteryPresentChanged(mPresent));
     }
 
     @Override
