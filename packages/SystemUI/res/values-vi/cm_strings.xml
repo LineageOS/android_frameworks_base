@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">Loại bỏ 3 giây đếm ngược</string>
     <string name="screenrecord_hevc_switch_label">Mã hóa HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Sử dụng bộ mã hóa HEVC hiệu quả hơn</string>
+    <string name="battery_notification_channel_tv">Cảnh báo pin</string>
 </resources>

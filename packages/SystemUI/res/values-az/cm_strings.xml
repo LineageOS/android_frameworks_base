@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">3 saniyə gözləməni sil</string>
     <string name="screenrecord_hevc_switch_label">HEVC kodlaşdırma</string>
     <string name="screenrecord_hevc_switch_summary">Daha səmərəli HEVC kodlaşdırıcını istifadə et</string>
+    <string name="battery_notification_channel_tv">Batareya xəbərdarlığı</string>
 </resources>

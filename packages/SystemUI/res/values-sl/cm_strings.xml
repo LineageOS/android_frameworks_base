@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">Odstrani 3 sekunde čakanja</string>
     <string name="screenrecord_hevc_switch_label">HEVC kodiranje</string>
     <string name="screenrecord_hevc_switch_summary">Uporabi bolj učinkovit HEVC kodirnik</string>
+    <string name="battery_notification_channel_tv">Opozorilo baterije</string>
 </resources>
