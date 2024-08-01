@@ -71,4 +71,16 @@
     <string name="screenshot_delete_label">Elimina</string>
     <string name="screenshot_delete_description">Elimina schermata</string>
     <string name="screenrecord_delete_label">Elimina</string>
+    <string name="screenrecord_delete_description">Registrazione schermo eliminata</string>
+    <string name="screenrecord_stopdot_label">Mostra il pulsante di stop</string>
+    <string name="screenrecord_stopdot_summary">Tieni premuto per muoverlo</string>
+    <string name="screenrecord_lowquality_label">Bassa qualità</string>
+    <string name="screenrecord_lowquality_summary">Per file di dimensioni minori</string>
+    <string name="screenrecord_longer_timeout_switch_label">Massima dimensione del file</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limita la dimensione della registrazione a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Salta il conto alla rovescia</string>
+    <string name="screenrecord_skip_time_summary">Rimuove i 3 secondi di attesa</string>
+    <string name="screenrecord_hevc_switch_label">Codifica HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Usa la più efficiente codifica HEVC</string>
+    <string name="battery_notification_channel_tv">Avviso batteria</string>
 </resources>

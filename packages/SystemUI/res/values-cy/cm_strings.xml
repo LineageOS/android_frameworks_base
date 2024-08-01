@@ -70,4 +70,5 @@
     <string name="screenshot_delete_label">Dileu</string>
     <string name="screenshot_delete_description">Dileu sgrinlun</string>
     <string name="screenrecord_delete_label">Dileu</string>
+    <string name="battery_notification_channel_tv">Rhybudd batri</string>
 </resources>

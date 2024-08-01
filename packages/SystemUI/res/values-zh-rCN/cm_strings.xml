@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">关闭3秒倒计时</string>
     <string name="screenrecord_hevc_switch_label">HEVC编码</string>
     <string name="screenrecord_hevc_switch_summary">使用效率更高的HEVC编码器</string>
+    <string name="battery_notification_channel_tv">电量警告</string>
 </resources>
