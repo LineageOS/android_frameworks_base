@@ -45,10 +45,10 @@
     <string name="quick_settings_heads_up_label">ヘッドアップ</string>
     <string name="accessibility_quick_settings_heads_up_off">ヘッドアップはOFFです。</string>
     <string name="accessibility_quick_settings_heads_up_on">ヘッドアップはONです。</string>
-    <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>
-    <string name="quick_settings_powershare_off_powersave_label">ワイヤレス PowerShare OFF\nバッテリー節約</string>
-    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレス PowerShare OFF\nバッテリー残量低下</string>
-    <string name="quick_settings_powershare_enabled_label">ワイヤレス PowerShare は有効です</string>
+    <string name="quick_settings_powershare_label">ワイヤレスバッテリー共有</string>
+    <string name="quick_settings_powershare_off_powersave_label">ワイヤレスバッテリー共有 OFF\nバッテリー節約</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレスバッテリー共有 OFF\nバッテリー残量低下</string>
+    <string name="quick_settings_powershare_enabled_label">ワイヤレスバッテリー共有は有効です</string>
     <string name="quick_settings_reading_mode">読書モード</string>
     <string name="accessibility_quick_settings_reading_mode_on">読書モードは ON です。</string>
     <string name="accessibility_quick_settings_reading_mode_off">読書モードは OFF です。</string>
