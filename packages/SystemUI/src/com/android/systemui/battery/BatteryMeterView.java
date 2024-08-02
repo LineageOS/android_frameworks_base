@@ -90,7 +90,7 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     private int mShowPercentMode = MODE_DEFAULT;
     private String mEstimateText = null;
     private boolean mPluggedIn;
-    private boolean mPresent;
+    private boolean mPresent = true;
     private boolean mPowerSaveEnabled;
     private boolean mIsBatteryDefender;
     private boolean mIsIncompatibleCharging;

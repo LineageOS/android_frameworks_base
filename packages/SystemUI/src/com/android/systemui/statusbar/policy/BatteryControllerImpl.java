@@ -93,7 +93,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
 
     protected int mLevel;
     protected boolean mPluggedIn;
-    protected boolean mPresent;
+    protected boolean mPresent = true;
     private int mPluggedChargingSource;
     protected boolean mCharging;
     private boolean mStateUnknown = false;
