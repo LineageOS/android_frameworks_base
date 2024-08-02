@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f646f8d_ab8187e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2024-08-02T07:59:24Z",
+      "side": 1,
+      "message": "Compiles fine. But battery disappearing on boot just like previous commits.",
+      "revId": "80628f32ba427722716ef0ab8e8a908ab010ba6d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
