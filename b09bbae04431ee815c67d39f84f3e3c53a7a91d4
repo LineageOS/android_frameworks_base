@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b50ee9d3_4db967dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31334
+      },
+      "writtenOn": "2024-08-02T17:23:58Z",
+      "side": 1,
+      "message": "Verified on apollon. Battery icon didn\u0027t disappear on lock screen.",
+      "revId": "b09bbae04431ee815c67d39f84f3e3c53a7a91d4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
