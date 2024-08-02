@@ -34,6 +34,24 @@
       "parentUuid": "ed3a0b4c_245f50a0",
       "revId": "c0f798b79b3b980f5f7b49987c35b334d99d67e7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b708f832_810e2712",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2024-08-02T03:39:05Z",
+      "side": 1,
+      "message": "do we need this for 20 aswell?. I\u0027m getting no battery icon after updating to build with previous changes in 20.",
+      "parentUuid": "6f1d79b8_17d689c9",
+      "revId": "c0f798b79b3b980f5f7b49987c35b334d99d67e7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
