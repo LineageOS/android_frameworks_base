@@ -16,6 +16,23 @@
       "message": "reference: https://wiki.lineageos.org/signing_builds#using-a-migration-build",
       "revId": "b561938ebf36b21a928bb15185efd4f77f4799b1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803ea8dd_8d506aa1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19282
+      },
+      "writtenOn": "2024-08-07T10:49:23Z",
+      "side": 1,
+      "message": "Had this around locally and thought maybe it helps.\nTo note, I last tested this before the QPR3 merge.",
+      "revId": "b561938ebf36b21a928bb15185efd4f77f4799b1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
