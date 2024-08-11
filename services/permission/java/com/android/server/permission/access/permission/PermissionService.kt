@@ -97,6 +97,8 @@ import com.android.server.pm.permission.LegacyPermissionState
 import com.android.server.pm.permission.Permission as LegacyPermission2
 import com.android.server.pm.permission.PermissionManagerServiceInterface
 import com.android.server.pm.permission.PermissionManagerServiceInternal
+import com.android.server.pm.permission.SpecialRuntimePermUtils
+import com.android.server.pm.permission.SpecialRuntimePermUtils.isSpecialRuntimePermission
 import com.android.server.pm.pkg.AndroidPackage
 import com.android.server.pm.pkg.PackageState
 import java.io.FileDescriptor
@@ -1013,7 +1015,8 @@ class PermissionService(private val service: AccessCheckingService) :
                 }
             }
             permission.isRuntime -> {
-                if (androidPackage.targetSdkVersion < Build.VERSION_CODES.M) {
+                if (androidPackage.targetSdkVersion < Build.VERSION_CODES.M
+                        && !isSpecialRuntimePermission(permissionName)) {
                     // If a permission review is required for legacy apps we represent
                     // their permissions as always granted
                     return
@@ -2507,7 +2510,17 @@ class PermissionService(private val service: AccessCheckingService) :
                 params.allowlistedRestrictedPermissions,
                 userId,
             )
-            setRequestedPermissionStates(packageState, userId, params.permissionStates)
+            val permissionStates = ArrayMap(params.permissionStates)
+            if (params.isNewlyInstalledInUserId(userId)) {
+                SpecialRuntimePermUtils.getAll().forEach { perm ->
+                    if (!permissionStates.contains(perm)) {
+                        if (SpecialRuntimePermUtils.shouldAutoGrant(context, androidPackage.packageName, userId, perm)) {
+                            permissionStates.set(perm, PackageInstaller.SessionParams.PERMISSION_STATE_GRANTED)
+                        }
+                    }
+                }
+            }
+            setRequestedPermissionStates(packageState, userId, permissionStates)
         }
     }
 
