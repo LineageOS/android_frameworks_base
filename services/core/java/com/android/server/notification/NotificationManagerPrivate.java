@@ -25,4 +25,5 @@ import android.annotation.Nullable;
 interface NotificationManagerPrivate {
     @Nullable
     NotificationRecord getNotificationByKey(String key);
+    long getNotificationSoundTimeout(String pkg, int uid);
 }
