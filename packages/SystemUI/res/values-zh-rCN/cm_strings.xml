@@ -46,8 +46,8 @@
     <string name="accessibility_quick_settings_heads_up_off">浮动通知关。</string>
     <string name="accessibility_quick_settings_heads_up_on">浮动通知开。</string>
     <string name="quick_settings_powershare_label">无线反充</string>
-    <string name="quick_settings_powershare_off_powersave_label">无线反充 关闭\n省电模式</string>
-    <string name="quick_settings_powershare_off_low_battery_label">无线反充 关闭\n电量过低</string>
+    <string name="quick_settings_powershare_off_powersave_label">无线反充已关闭\n省电模式</string>
+    <string name="quick_settings_powershare_off_low_battery_label">无线反充已关闭\n电量过低</string>
     <string name="quick_settings_powershare_enabled_label">无线反充已启用</string>
     <string name="quick_settings_reading_mode">阅读模式</string>
     <string name="accessibility_quick_settings_reading_mode_on">开启阅读模式。</string>
