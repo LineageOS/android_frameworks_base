@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">Αφαίρεση της αναμονής 3 δευτερολέπτων</string>
     <string name="screenrecord_hevc_switch_label">Κωδικοποίηση HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Χρησιμοποιήστε τον πιο αποδοτικό κωδικοποιητή HEVC</string>
+    <string name="battery_notification_channel_tv">Προειδοποίηση μπαταρίας</string>
 </resources>

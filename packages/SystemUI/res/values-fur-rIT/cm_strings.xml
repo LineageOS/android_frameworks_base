@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">Gjave i 3 seconts di spiete</string>
     <string name="screenrecord_hevc_switch_label">Codifiche HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Dopre il codificadôr plui eficient HEVC</string>
+    <string name="battery_notification_channel_tv">Avîs batarie</string>
 </resources>
