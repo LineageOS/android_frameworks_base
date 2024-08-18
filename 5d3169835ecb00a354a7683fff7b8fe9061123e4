@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "063f8db8_84a95830",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26777
+      },
+      "writtenOn": "2024-08-18T04:49:21Z",
+      "side": 1,
+      "message": "Why not make this some sort of option that could be switch on/off in say the Status Bar section of the Settings? At the same time implement an option to restore to pre-Android 13 behavior?",
+      "revId": "5d3169835ecb00a354a7683fff7b8fe9061123e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
