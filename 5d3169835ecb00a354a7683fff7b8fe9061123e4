@@ -52,6 +52,24 @@
       "parentUuid": "1fc19149_429d5f44",
       "revId": "5d3169835ecb00a354a7683fff7b8fe9061123e4",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6f19a4_4d2aa513",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24262
+      },
+      "writtenOn": "2024-08-18T05:56:27Z",
+      "side": 1,
+      "message": "Battery icons make a practical difference (ease of readability, width), same as brightness sliders (can\u0027t accidentially change brightness, space freed up in qs). This change is really purely visual, I wouldn\u0027t say it\u0027s the same.",
+      "parentUuid": "4fb27c1e_38f40597",
+      "revId": "5d3169835ecb00a354a7683fff7b8fe9061123e4",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
