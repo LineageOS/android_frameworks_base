@@ -2862,10 +2862,15 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     }
                 } else if (TAG_UID_POLICY.equals(tag)) {
                     int uid = readUidAttribute(in, forRestore, userId);
+                    final int oldPolicy = mUidPolicy.get(uid, POLICY_NONE);
                     final int policy = readIntAttribute(in, ATTR_POLICY);
 
                     if (UserHandle.isApp(uid)) {
-                        setUidPolicyUncheckedUL(uid, policy, false);
+                        if (forRestore) {
+                            setUidPolicyUncheckedUL(uid, oldPolicy, policy, true);
+                        } else {
+                            setUidPolicyUncheckedUL(uid, policy, false);
+                        }
                     } else {
                         Slog.w(TAG, "unable to apply policy to UID " + uid + "; ignoring");
                     }
@@ -2876,8 +2881,13 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     // TODO: set for other users during upgrade
                     // app policy is deprecated so this is only used in pre system user split.
                     final int uid = UserHandle.getUid(UserHandle.USER_SYSTEM, appId);
+                    final int oldPolicy = mUidPolicy.get(uid, POLICY_NONE);
                     if (UserHandle.isApp(uid)) {
-                        setUidPolicyUncheckedUL(uid, policy, false);
+                        if (forRestore) {
+                            setUidPolicyUncheckedUL(uid, oldPolicy, policy, true);
+                        } else {
+                            setUidPolicyUncheckedUL(uid, policy, false);
+                        }
                     } else {
                         Slog.w(TAG, "unable to apply policy to UID " + uid + "; ignoring");
                     }
@@ -2911,7 +2921,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 final int newPolicy = policy | POLICY_ALLOW_METERED_BACKGROUND;
                 if (LOGV)
                     Log.v(TAG, "new policy for " + uid + ": " + uidPoliciesToString(newPolicy));
-                setUidPolicyUncheckedUL(uid, newPolicy, false);
+                if (forRestore) {
+                    setUidPolicyUncheckedUL(uid, policy, newPolicy, true);
+                } else {
+                    setUidPolicyUncheckedUL(uid, newPolicy, false);
+                }
             } else {
                 Slog.w(TAG, "unable to update policy on UID " + uid);
             }
