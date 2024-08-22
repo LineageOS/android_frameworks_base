@@ -6517,8 +6517,8 @@
     </string>
     <bool name="config_fillSecondaryBuiltInDisplayCutout">false</bool>
     <bool name="config_maskSecondaryBuiltInDisplayCutout">false</bool>
-    <string-array name="config_secondaryBuiltInDisplayCutoutSideOverride" translatable="false">
-    </string-array>
+    <integer-array name="config_secondaryBuiltInDisplayCutoutSideOverride">
+    </integer-array>
 
     <!-- An array contains unique ids of all built-in displays and the unique id of a display can be
          obtained from {@link Display#getUniqueId}. This array should be set for multi-display
