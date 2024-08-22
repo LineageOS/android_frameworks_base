@@ -16,6 +16,24 @@
       "message": "Is this fixing AOSP commit or ours?",
       "revId": "c0a0a1fc585e21e9f667ae953ef05527d8eb57d6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35732d1d_d01fb3b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2024-08-22T10:37:08Z",
+      "side": 1,
+      "message": "Definitely not ours because one can\u0027t change framework-res resources without causing problems.\n\n@webgeek1234@gmail.com does a full `m` build work with this?",
+      "parentUuid": "b9801cda_3fb5097c",
+      "revId": "c0a0a1fc585e21e9f667ae953ef05527d8eb57d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
