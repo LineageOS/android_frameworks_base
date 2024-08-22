@@ -34,6 +34,23 @@
       "parentUuid": "b9801cda_3fb5097c",
       "revId": "c0a0a1fc585e21e9f667ae953ef05527d8eb57d6",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "560f3c09_e309d974",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-08-22T17:07:34Z",
+      "side": 1,
+      "message": "It\u0027s fixing https://android.googlesource.com/platform/frameworks/base/+/ef7c09a43b71e5ad775f394c9537322196ffb0e0. This commit changed the main display resource to an int array, but didn\u0027t change the secondary display resource. But the code itself expects both to be int arrays. Yes it compiles, but I\u0027m still in the process of testing if it fixes my problem on the secondary display of a fold device.",
+      "revId": "c0a0a1fc585e21e9f667ae953ef05527d8eb57d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
