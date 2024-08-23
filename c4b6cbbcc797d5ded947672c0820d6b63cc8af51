@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fec0e88_35d88967",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-08-23T06:26:23Z",
+      "side": 1,
+      "message": "Verified on zeekr. Prior to this change, setting a secondary cutout resulted in gross miscalculations in secondary logical display size, causing display elements to be very out of sorts. If secondary display cutout masking was enabled, the secondary display failed to init entirely. After this change, the secondary display size is calculated properly. Using the mask also works as expected. This change has been approved for merging to aosp, but as of posting has not yet been merged.",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
