@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86bf9415_1d64d545",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-08-23T06:19:07Z",
+      "side": 1,
+      "message": "Verified on zeekr. Prior to this change, if the device was folded and the secondary display was active, the internal panel would not turn on when unfolding the device, but android acted like the internal display was active. After this change, the internal panel turns on during unfolding as expected.",
+      "revId": "b4b2aec337789d9b81ef347c6577d432013bb3e1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
