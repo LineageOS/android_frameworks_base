@@ -79,6 +79,8 @@
     <string name="screenrecord_longer_timeout_switch_label">Max. Dateigröße erhöhen</string>
     <string name="screenrecord_longer_timeout_switch_summary">Aufnahmegröße auf 15 GB begrenzen</string>
     <string name="screenrecord_skip_time_label">Timer überspringen</string>
+    <string name="screenrecord_skip_time_summary">3 Sekunden Wartezeit deaktivieren</string>
     <string name="screenrecord_hevc_switch_label">HEVC-Kodierung</string>
     <string name="screenrecord_hevc_switch_summary">Effizienteren HEVC-Codec verwenden</string>
+    <string name="battery_notification_channel_tv">Akkuwarnung</string>
 </resources>

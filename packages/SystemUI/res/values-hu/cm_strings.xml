@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">A 3 másodperces késleltetés kikapcsolása</string>
     <string name="screenrecord_hevc_switch_label">HEVC-kódolás</string>
     <string name="screenrecord_hevc_switch_summary">Használja a hatékonyabb HEVC-kódolót</string>
+    <string name="battery_notification_channel_tv">Akkumulátor-figyelmeztetés</string>
 </resources>
