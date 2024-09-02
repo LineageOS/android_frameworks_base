@@ -67,6 +67,7 @@
     <string name="vpn_credentials_dialog_connect">Cysylltu</string>
     <string name="accessibility_dpad_left">Pwyntydd chwith</string>
     <string name="accessibility_dpad_right">Pwyntydd de</string>
+    <string name="status_bar_firewall">Mur gwarchod</string>
     <string name="screenshot_delete_label">Dileu</string>
     <string name="screenshot_delete_description">Dileu sgrinlun</string>
     <string name="screenrecord_delete_label">Dileu</string>
