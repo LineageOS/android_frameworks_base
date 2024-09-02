@@ -71,4 +71,5 @@
     <string name="screenshot_delete_label">삭제</string>
     <string name="screenshot_delete_description">스크린샷 삭제</string>
     <string name="screenrecord_delete_label">삭제</string>
+    <string name="screenrecord_delete_description">화면 녹화 영상이 삭제되었습니다.</string>
 </resources>
