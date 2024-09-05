@@ -4929,8 +4929,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     @GuardedBy("mUidRulesFirstLock")
     private int updateBlockedReasonsForRestrictedModeUL(int uid) {
+        final boolean isBlockedOnAllNetworks = isUidBlockedOnAllNetworks(uid);
         final boolean hasRestrictedModeAccess = hasRestrictedModeAccess(uid)
-                || !isUidBlockedOnAllNetworks(uid);
+                || !isBlockedOnAllNetworks;
         final int oldEffectiveBlockedReasons;
         final int newEffectiveBlockedReasons;
         final int uidRules;
@@ -4960,6 +4961,21 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     newEffectiveBlockedReasons, oldEffectiveBlockedReasons);
 
             postUidRulesChangedMsg(uid, uidRules);
+        }
+        // The result of this method is used solely to determine whether the UID belongs on the
+        // restricted mode allowlist. If the UID is blocked on all networks, that should never
+        // be the case. However, the blocked state that we assign here determines other things,
+        // like whether an app with ACCESS_NETWORK_STATE can actually see the active network.
+        // As of calyxos#1266, we have been working around this problem, but only for apps
+        // without the INTERNET permission, for which the user has no network toggle available.
+        // TODO: Now that we have decoupled the blocked state from a UID's actual placement on
+        // the restricted mode allowlist (via the lines below), consider looking into a workaround
+        // for apps that *do* have INTERNET permission but have their network toggle turned off,
+        // so that we do not slightly privilege apps with neither INTERNET nor toggle. We might
+        // not be able to do the same thing, though, or the firewall icon may not show such apps
+        // as blocked; further research required.
+        if (isBlockedOnAllNetworks) {
+            return BLOCKED_REASON_RESTRICTED_MODE;
         }
         return newEffectiveBlockedReasons;
     }
