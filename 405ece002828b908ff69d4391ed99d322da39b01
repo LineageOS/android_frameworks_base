@@ -50,6 +50,24 @@
       "message": "I think you should fix car system UI directly, also true on car?",
       "revId": "405ece002828b908ff69d4391ed99d322da39b01",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c66edc8_78e80ea3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2024-09-10T15:13:29Z",
+      "side": 1,
+      "message": "For transparency (since we discussed in Discord):\n\n```\npackages/apps/Car/SystemUI/src/com/android/systemui/car/bluetooth/CarBatteryController.java:41: error: CarBatteryController is not abstract and does not override abstract method isPresent() in BatteryController\npublic class CarBatteryController extends BroadcastReceiver implements BatteryController {\n       ^\n1 error\n21:46:24 ninja failed with: exit status 1\n\n#### failed to build some targets (38:00 (mm:ss)) ####\n```\n\nWe would have to fork packages/apps/Car/SystemUI if we wanted to fix it there. But even if we did, I\u0027m not sure what else to do there but just return true.",
+      "parentUuid": "91e5975c_709487fa",
+      "revId": "405ece002828b908ff69d4391ed99d322da39b01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
