@@ -22,6 +22,30 @@
       },
       "revId": "f5923caac936cd96a13758c4d0f4ab290a6ad679",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b3b9d67_0bc9e7ff",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/policy/BatteryController.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-09-10T06:00:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "464b82f8_127165ae",
+      "range": {
+        "startLine": 87,
+        "startChar": 48,
+        "endLine": 87,
+        "endChar": 49
+      },
+      "revId": "f5923caac936cd96a13758c4d0f4ab290a6ad679",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
