@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94e44045_40800dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2024-09-10T06:23:53Z",
+      "side": 1,
+      "message": "* lineage_gsi_car_arm64:\n```\n[ 99% 18137/18153] Install: /mnt/out/out/lineage-21/target/product/generic_arm64/system/system_ext/priv-app/CarSystemUI/oat/arm64/CarSystemUI.odex (priority: 6)\n[...]\n[100% 18153/18153] Install system fs image: /mnt/out/out/lineage-21/target/product/generic_arm64/system.img (priority: 2)\n\n#### build completed successfully (06:55 (mm:ss)) ####\n```",
+      "revId": "405ece002828b908ff69d4391ed99d322da39b01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
