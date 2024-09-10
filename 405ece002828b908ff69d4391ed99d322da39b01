@@ -33,6 +33,23 @@
       "message": "What\u0027s the error?",
       "revId": "405ece002828b908ff69d4391ed99d322da39b01",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91e5975c_709487fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-09-10T08:17:11Z",
+      "side": 1,
+      "message": "I think you should fix car system UI directly, also true on car?",
+      "revId": "405ece002828b908ff69d4391ed99d322da39b01",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
