@@ -33,6 +33,41 @@
       "message": "Well, we\u0027ve got normal aosp marination continuing here. Author of the original change agreed it was an issue (see change on aosp gerrit). So do we need to continue holding this here?",
       "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e1ba6bf_c6529789",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2024-09-11T10:17:59Z",
+      "side": 1,
+      "message": "Uhh, my",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66520df6_c7ea1379",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2024-09-11T10:17:59Z",
+      "side": 1,
+      "message": "My concerns with these with just wrt modifiying `framework-res` in general.\n\nhttps://github.com/LMODroid/platform_frameworks_base/commit/4337f194d727d8d840c3322a1ba388648d02afc4 for example as to what might cause trouble.",
+      "parentUuid": "cd11abe2_fe882398",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
