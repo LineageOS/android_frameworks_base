@@ -68,6 +68,24 @@
       "parentUuid": "cd11abe2_fe882398",
       "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a4f40d_0cd30bf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2024-09-11T10:19:11Z",
+      "side": 1,
+      "message": "Well those apps are more or less incorrect and should be smali patched",
+      "parentUuid": "66520df6_c7ea1379",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
