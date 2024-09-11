@@ -138,6 +138,42 @@
       "message": "https://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/java/android/view/DisplayCutout.java#L1161-L1163\nThe code is here, fwiw. It\u0027s reading the array of arrays at\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/java/android/view/DisplayCutout.java#L1161-L1163\nThe first element is\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/res/res/values/config.xml#L4072-L4079\nan int array. The second element is\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/res/res/values/config.xml#L6461-L6462\na string array. And as seen in the code, it tries to read that as an int array. If anything is using that, it\u0027s getting the same crash that I see on zeekr and the display would be unusable. I sincerely hope nothing shipping is setting those secondary cutouts.",
       "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f993bee8_084b378a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2024-09-11T18:36:36Z",
+      "side": 1,
+      "message": "Yes, I intentionally hard blocked it because it looks like my concerns aren\u0027t being understood.\n\nI\u0027m not saying your fix is wrong. See comment below.",
+      "parentUuid": "9d233b7b_c042d5a7",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1e02cc_f0940688",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2024-09-11T18:36:36Z",
+      "side": 1,
+      "message": "I have already seen this in the chat. My comments aren\u0027t about anything using this specific array.\n\nThey\u0027re about any proprietary apk which relies on `framework-res` resources. This patch affects the entire platform, it _might_ change IDs, and that _may_ lead to crashes on such devices. \n\nIt\u0027s solely due to doing any edits to `framework-res`. There\u0027s a reason we don\u0027t edit it.\n\nNow maybe I\u0027m being overly cautious, but I\u0027d rather not have the nightlies after this just break. At least not when what I\u0027m trying to say isn\u0027t coming across at all.\n\n\nSo,\n\n1. Does this change affect the IDs of resources in `framework-res`?\n2. What devices would this affect?",
+      "parentUuid": "eae37fac_36526c72",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
