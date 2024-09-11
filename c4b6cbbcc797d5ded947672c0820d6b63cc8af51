@@ -121,6 +121,23 @@
       "message": "This hard blocks at least zeekr, potentially smith as well. I can\u0027t ship the former until the rest of moto sm8475 gets pushed, but I\u0027m still trying to get it out on 21. But without this, if I do a cutout on the external display, sf init for that display just crashes. Meaning I\u0027d have to ship with elements under the cameras, which just isn\u0027t sane.\n\nI don\u0027t think anything shipping can be using the resource, because the code that uses it just crashes. The code wants a int array and the current aosp resource is a string. That\u0027s never going to work.",
       "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae37fac_36526c72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-09-11T17:38:42Z",
+      "side": 1,
+      "message": "https://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/java/android/view/DisplayCutout.java#L1161-L1163\nThe code is here, fwiw. It\u0027s reading the array of arrays at\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/java/android/view/DisplayCutout.java#L1161-L1163\nThe first element is\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/res/res/values/config.xml#L4072-L4079\nan int array. The second element is\nhttps://github.com/LineageOS/android_frameworks_base/blob/lineage-21.0/core/res/res/values/config.xml#L6461-L6462\na string array. And as seen in the code, it tries to read that as an int array. If anything is using that, it\u0027s getting the same crash that I see on zeekr and the display would be unusable. I sincerely hope nothing shipping is setting those secondary cutouts.",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
