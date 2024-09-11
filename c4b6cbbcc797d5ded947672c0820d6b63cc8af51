@@ -104,6 +104,23 @@
       "parentUuid": "92a4f40d_0cd30bf5",
       "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d233b7b_c042d5a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2024-09-11T17:24:40Z",
+      "side": 1,
+      "message": "This hard blocks at least zeekr, potentially smith as well. I can\u0027t ship the former until the rest of moto sm8475 gets pushed, but I\u0027m still trying to get it out on 21. But without this, if I do a cutout on the external display, sf init for that display just crashes. Meaning I\u0027d have to ship with elements under the cameras, which just isn\u0027t sane.\n\nI don\u0027t think anything shipping can be using the resource, because the code that uses it just crashes. The code wants a int array and the current aosp resource is a string. That\u0027s never going to work.",
+      "revId": "c4b6cbbcc797d5ded947672c0820d6b63cc8af51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
