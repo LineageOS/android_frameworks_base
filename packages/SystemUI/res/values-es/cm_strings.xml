@@ -18,6 +18,8 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">Reloj</string>
+    <string name="global_action_restart_more">Reiniciar\u2026</string>
     <string name="global_action_restart_system">Sistema</string>
     <string name="global_action_restart_recovery">Recuperación</string>
     <string name="global_action_restart_bootloader">Gestor de arranque</string>
@@ -29,6 +31,7 @@
     <string name="global_action_restart_download_progress">Reiniciando en modo descarga\u2026</string>
     <string name="global_action_restart_fastboot_progress">Reiniciando en modo fastbootd\u2026</string>
     <string name="global_action_current_user">Actual</string>
+    <string name="global_action_users">Usuarios</string>
     <string name="status_bar_icons_title">Iconos de la barra de estado</string>
     <string name="drag_or_tap_to_add_tiles">Mantén pulsado &amp; arrastra o toca para añadir mosaicos</string>
     <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
@@ -64,8 +67,20 @@
     <string name="vpn_credentials_dialog_connect">Conectar</string>
     <string name="accessibility_dpad_left">Cursor izquierdo</string>
     <string name="accessibility_dpad_right">Cursor derecho</string>
+    <string name="status_bar_firewall">Cortafuegos</string>
+    <string name="screenshot_delete_label">Eliminar</string>
+    <string name="screenshot_delete_description">Eliminar captura de pantalla</string>
+    <string name="screenrecord_delete_label">Eliminar</string>
     <string name="screenrecord_delete_description">Grabación de pantalla eliminada</string>
     <string name="screenrecord_stopdot_label">Indicar punto de parada</string>
     <string name="screenrecord_stopdot_summary">Mantén presionado para moverlo</string>
     <string name="screenrecord_lowquality_label">Baja calidad</string>
+    <string name="screenrecord_lowquality_summary">Para un menor tamaño de archivo</string>
+    <string name="screenrecord_longer_timeout_switch_label">Límite de tamaño de archivo más grande</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limitar tamaño de grabación a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Omitir temporizador</string>
+    <string name="screenrecord_skip_time_summary">Eliminar la espera de 3 segundos</string>
+    <string name="screenrecord_hevc_switch_label">Codificación HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Usar el codificador HEVC más eficiente</string>
+    <string name="battery_notification_channel_tv">Advertencia de batería</string>
 </resources>

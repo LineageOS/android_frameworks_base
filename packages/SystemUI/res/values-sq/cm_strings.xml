@@ -82,4 +82,5 @@
     <string name="screenrecord_skip_time_summary">Hiqni pritjen prej 3 sekondash</string>
     <string name="screenrecord_hevc_switch_label">Kodimi HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Përdorni koduesin më efikas HEVC</string>
+    <string name="battery_notification_channel_tv">Paralajmërim për baterinë</string>
 </resources>
