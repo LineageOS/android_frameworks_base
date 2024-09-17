@@ -43,16 +43,15 @@
           -->
     </string-array>
 
-    <!-- Brightness range min for UDFPS dimming -->
-    <integer name="config_udfpsDimmingBrightnessMin">0</integer>
+     <!-- Minimum amount of dim possible for the UDFPS dim layer.
+          The value is 0.0 if the maximum brightness is the same
+          as the brightness achieved with HBM -->
+    <item type="dimen" name="config_udfpsDimmingMinFloat">0.0</item>
 
-    <!-- Brightness range max for UDFPS dimming -->
-    <integer name="config_udfpsDimmingBrightnessMax">0</integer>
-
-    <!-- The amount of delay to add when disabling the dimming.
-         This is used to prevent flickers due to the dimming being disabled
-         before the screen has had chance to switch out of HBM mode -->
-    <integer name="config_udfpsDimmingDisableDelay">0</integer>
+     <!-- Maximum amount of dim possible for the UDFPS dim layer.
+          The value is always less than 1.0 and should compensate
+          for the brightness achieved by the minimum brightness setting -->
+    <item type="dimen" name="config_udfpsDimmingMaxFloat">0.84</item>
 
     <!-- Doze: does the double tap sensor need a proximity check? -->
     <bool name="doze_double_tap_proximity_check">false</bool>
