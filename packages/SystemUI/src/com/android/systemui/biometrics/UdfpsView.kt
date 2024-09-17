@@ -75,14 +75,22 @@ class UdfpsView(
     // Don't propagate any touch events to the child views.
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         return (animationViewController == null || !animationViewController!!.shouldPauseAuth())
+        Log.e(TAG, "onInterceptTouchEvent")
     }
 
     override fun onFinishInflate() {
         ghbmView = findViewById(R.id.hbm_view)
+        Log.e(TAG, "onFinishInflate")
     }
 
     override fun dozeTimeTick() {
         animationViewController?.dozeTimeTick()
+        Log.e(TAG, "dozeTimeTick")
+        val gView = ghbmView
+        if (gView != null) {
+            //gView.setGhbmIlluminationListener(this::doIlluminate)
+            gView.visibility = VISIBLE
+        }
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -90,20 +98,22 @@ class UdfpsView(
 
         // Updates sensor rect in relation to the overlay view
         animationViewController?.onSensorRectUpdated(RectF(sensorRect))
+        Log.e(TAG, "onLayout")
     }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        Log.v(TAG, "onAttachedToWindow")
+        Log.e(TAG, "onAttachedToWindow")
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        Log.v(TAG, "onDetachedFromWindow")
+        Log.e(TAG, "onDetachedFromWindow")
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        Log.e(TAG, "onDraw")
         if (!isDisplayConfigured) {
             if (!debugMessage.isNullOrEmpty()) {
                 canvas.drawText(debugMessage!!, 0f, 160f, debugTextPaint)
@@ -114,6 +124,7 @@ class UdfpsView(
     fun configureDisplay(onDisplayConfigured: Runnable) {
         isDisplayConfigured = true
         animationViewController?.onDisplayConfiguring()
+        Log.e(TAG, "configureDisplay")
         val gView = ghbmView
         if (gView != null) {
             gView.setGhbmIlluminationListener(this::doIlluminate)
@@ -125,6 +136,7 @@ class UdfpsView(
     }
 
     private fun doIlluminate(surface: Surface?, onDisplayConfigured: Runnable?) {
+        Log.e(TAG, "doIlluminate")
         if (ghbmView != null && surface == null) {
             Log.e(TAG, "doIlluminate | surface must be non-null for GHBM")
         }
@@ -136,6 +148,7 @@ class UdfpsView(
     }
 
     fun unconfigureDisplay() {
+        Log.e(TAG, "unconfigureDisplay")
         isDisplayConfigured = false
         animationViewController?.onDisplayUnconfigured()
         ghbmView?.let { view ->
