@@ -139,6 +139,10 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
     private var overlayViewLegacy: UdfpsView? = null
         private set
     private var overlayTouchView: UdfpsTouchOverlay? = null
+    val isEnrollment = when (requestReason) {
+        REASON_ENROLL_FIND_SENSOR, REASON_ENROLL_ENROLLING -> true
+        else -> false
+    }
 
     /**
      * Get the current UDFPS overlay touch view which is a different View depending on whether
@@ -158,8 +162,14 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
 
     private var overlayTouchListener: TouchExplorationStateChangeListener? = null
 
-    private val frameworkDimming = context.getResources().getBoolean(
-        R.bool.config_udfpsFrameworkDimming)
+    private val useFrameworkDimming = context.resources.getBoolean(
+        com.android.systemui.res.R.bool.config_udfpsFrameworkDimming)
+
+    private val udfpsHelper: UdfpsHelper? = if (useFrameworkDimming) {
+        UdfpsHelper(context, windowManager, shadeInteractor, transitionInteractor, this)
+    } else
+        null
+
     private val coreLayoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.TYPE_NAVIGATION_BAR_PANEL,
         0 /* flags set in computeLayoutParams() */,
@@ -171,22 +181,12 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
         layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS
         flags = (Utils.FINGERPRINT_OVERLAY_LAYOUT_PARAM_FLAGS or
                 WindowManager.LayoutParams.FLAG_SPLIT_TOUCH)
-        if (frameworkDimming) {
-            flags = flags or WindowManager.LayoutParams.FLAG_DIM_BEHIND
-        }
         privateFlags = WindowManager.LayoutParams.PRIVATE_FLAG_TRUSTED_OVERLAY
         dimAmount = 0.0f
         // Avoid announcing window title.
         accessibilityTitle = " "
         inputFeatures = WindowManager.LayoutParams.INPUT_FEATURE_SPY
     }
-
-    var dimAmount
-        get() = coreLayoutParams.dimAmount
-        set(value) {
-            coreLayoutParams.dimAmount = value
-            windowManager.updateViewLayout(getTouchOverlay(), coreLayoutParams)
-        }
 
     /** If the overlay is currently showing. */
     val isShowing: Boolean
@@ -316,6 +316,7 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
                 }
             }
         } else {
+            udfpsHelper?.addDimLayer()
             windowManager.addView(
                     view,
                     coreLayoutParams.updateDimensions(animation)
@@ -430,6 +431,7 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
         if (DeviceEntryUdfpsRefactor.isEnabled) {
             udfpsDisplayModeProvider.disable(null)
         }
+        udfpsHelper?.removeDimLayer()
         getTouchOverlay()?.apply {
             if (udfpsViewPerformance()) {
                 if (this.parent != null) {
