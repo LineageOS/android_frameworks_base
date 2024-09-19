@@ -154,6 +154,7 @@ import android.compat.annotation.ChangeId;
 import android.compat.annotation.EnabledAfter;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.ContentProvider;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.IIntentReceiver;
@@ -9071,7 +9072,14 @@ public class PackageManagerService extends IPackageManager.Stub
         if (!mUserManager.exists(userId)) return null;
         final int callingUid = Binder.getCallingUid();
         flags = updateFlagsForComponent(flags, userId);
-        final ProviderInfo providerInfo = mComponentResolver.queryProvider(name, flags, userId);
+
+        // Callers of this API may not always separate the userID and authority. Let's parse it
+        // before resolving
+        String authorityWithoutUserId = ContentProvider.getAuthorityWithoutUserId(name);
+        userId = ContentProvider.getUserIdFromAuthority(name, userId);
+
+        final ProviderInfo providerInfo = mComponentResolver.queryProvider(
+                authorityWithoutUserId, flags, userId);
         boolean checkedGrants = false;
         if (providerInfo != null) {
             // Looking for cross-user grants before enforcing the typical cross-users permissions
