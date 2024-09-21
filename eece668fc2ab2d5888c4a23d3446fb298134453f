@@ -16,6 +16,23 @@
       "message": "@althafvly@gmail.com, https://review.lineageos.org/398896 was not proper. Are you guys still able to reproduce the \"missing battery icon\" issues?",
       "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "287f6f08_9424ffc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-09-21T15:15:23Z",
+      "side": 1,
+      "message": "This fixes unknown battery icon being shown in the QS panel on battery-less devices. Also looks fine on devices with battery, both on upgrade and after factory reset.",
+      "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
