@@ -18,6 +18,23 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d50268a3_f4fc71e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2024-09-24T15:49:45Z",
+      "side": 1,
+      "message": "```+-keep class com.android.systemui.statusbar.phone.ExpandableIndicator {\n+    *;\n+}```\n\n\nFor some reason it seems proguard strips the ExpandableIndicator class now, so we might need this in proguard.flags now.",
+      "revId": "907c995d02875e376bf9b752fb32142b677bd658",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df931001_3ea2ac09",
