@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d630493_fe930b86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2024-09-24T15:43:53Z",
+      "side": 1,
+      "message": "screenrecord_skip_time_switch_container should be removed following AOSP layout changes.",
+      "revId": "456fe3cbf09145f576040586487f8f9f920fbbde",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
