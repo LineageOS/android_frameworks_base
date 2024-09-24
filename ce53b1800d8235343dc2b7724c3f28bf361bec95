@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f71c0e0a_f58abe92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 22465
+      },
+      "writtenOn": "2024-09-24T16:42:10Z",
+      "side": 1,
+      "message": "This is *probably* not needed due to https://android.googlesource.com/platform/frameworks/base/+/6f83d172a26d74a59474d017c8d07e6ec196de.",
+      "revId": "ce53b1800d8235343dc2b7724c3f28bf361bec95",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
