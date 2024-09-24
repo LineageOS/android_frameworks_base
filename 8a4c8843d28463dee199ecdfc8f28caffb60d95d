@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f0dae79_27f84ac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2024-09-24T15:40:32Z",
+      "side": 1,
+      "message": "screenrecord_lowquality_switch_container should be removed following AOSP layout changes.",
+      "revId": "8a4c8843d28463dee199ecdfc8f28caffb60d95d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
