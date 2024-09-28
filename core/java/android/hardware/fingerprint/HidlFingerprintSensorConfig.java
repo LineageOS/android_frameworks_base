@@ -17,7 +17,9 @@
 package android.hardware.fingerprint;
 
 import android.annotation.NonNull;
+import android.annotation.Nullable;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.hardware.biometrics.BiometricAuthenticator;
 import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.common.CommonProps;
@@ -25,9 +27,13 @@ import android.hardware.biometrics.common.SensorStrength;
 import android.hardware.biometrics.fingerprint.FingerprintSensorType;
 import android.hardware.biometrics.fingerprint.SensorLocation;
 import android.hardware.biometrics.fingerprint.SensorProps;
+import android.util.Slog;
 
 import com.android.internal.R;
 import com.android.internal.util.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Parse HIDL fingerprint sensor config and map it to SensorProps.aidl to match AIDL.
@@ -35,6 +41,8 @@ import com.android.internal.util.ArrayUtils;
  * @hide
  */
 public final class HidlFingerprintSensorConfig extends SensorProps {
+    private static final String TAG = "HidlFingerprintSensorConfig";
+
     private int mSensorId;
     private int mModality;
     private int mStrength;
@@ -70,6 +78,10 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
         halControlsIllumination = false;
         sensorLocations = new SensorLocation[1];
 
+        // Non-empty workaroundLocations indicates that the sensor is SFPS.
+        final List<SensorLocation> workaroundLocations =
+                getWorkaroundSensorProps(context);
+
         final int[] udfpsProps = context.getResources().getIntArray(
                 com.android.internal.R.array.config_udfps_sensor_props);
         final boolean isUdfps = !ArrayUtils.isEmpty(udfpsProps);
@@ -87,6 +99,9 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
 
         if (isUdfps && udfpsProps.length == 3) {
             setSensorLocation(udfpsProps[0], udfpsProps[1], udfpsProps[2]);
+        } else if (!workaroundLocations.isEmpty()) {
+            sensorLocations = new SensorLocation[workaroundLocations.size()];
+            workaroundLocations.toArray(sensorLocations);
         } else {
             setSensorLocation(540 /* sensorLocationX */, 1636 /* sensorLocationY */,
                     130 /* sensorRadius */);
@@ -101,6 +116,48 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
         sensorLocations[0].sensorLocationX = sensorLocationX;
         sensorLocations[0].sensorLocationY = sensorLocationY;
         sensorLocations[0].sensorRadius = sensorRadius;
+    }
+
+    // TODO(b/174868353): workaround for gaps in HAL interface (remove and get directly from HAL)
+    // reads values via an overlay instead of querying the HAL
+    @NonNull
+    public static List<SensorLocation> getWorkaroundSensorProps(@NonNull Context context) {
+        final List<SensorLocation> sensorLocations = new ArrayList<>();
+
+        final TypedArray sfpsProps = context.getResources().obtainTypedArray(
+                com.android.internal.R.array.config_sfps_sensor_props);
+        for (int i = 0; i < sfpsProps.length(); i++) {
+            final int id = sfpsProps.getResourceId(i, -1);
+            if (id > 0) {
+                final SensorLocation location = parseSensorLocation(
+                        context.getResources().obtainTypedArray(id));
+                if (location != null) {
+                    sensorLocations.add(location);
+                }
+            }
+        }
+        sfpsProps.recycle();
+
+        return sensorLocations;
+    }
+
+    @Nullable
+    private static SensorLocation parseSensorLocation(@Nullable TypedArray array) {
+        if (array == null) {
+            return null;
+        }
+
+        try {
+            SensorLocation sensorLocation = new SensorLocation();
+            sensorLocation.display = array.getString(0);
+            sensorLocation.sensorLocationX = array.getInt(1, 0);
+            sensorLocation.sensorLocationY = array.getInt(2, 0);
+            sensorLocation.sensorRadius = array.getInt(3, 0);
+            return sensorLocation;
+        } catch (Exception e) {
+            Slog.w(TAG, "malformed sensor location", e);
+        }
+        return null;
     }
 
     private byte authenticatorStrengthToPropertyStrength(
