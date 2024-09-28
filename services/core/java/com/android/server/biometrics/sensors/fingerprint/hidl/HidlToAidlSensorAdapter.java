@@ -20,6 +20,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.Context;
 import android.content.pm.UserInfo;
+import android.hardware.biometrics.SensorLocationInternal;
 import android.hardware.biometrics.fingerprint.ISession;
 import android.hardware.biometrics.fingerprint.SensorProps;
 import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
@@ -49,6 +50,7 @@ import com.android.server.biometrics.sensors.fingerprint.aidl.FingerprintProvide
 import com.android.server.biometrics.sensors.fingerprint.aidl.Sensor;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Convert HIDL sensor configurations to an AIDL Sensor.
@@ -78,11 +80,12 @@ public class HidlToAidlSensorAdapter extends Sensor implements IHwBinder.DeathRe
             @NonNull SensorProps prop,
             @NonNull LockoutResetDispatcher lockoutResetDispatcher,
             @NonNull BiometricContext biometricContext,
+            @NonNull List<SensorLocationInternal> workaroundLocations,
             boolean resetLockoutRequiresHardwareAuthToken,
             @NonNull Runnable internalCleanupRunnable) {
         this(provider, context, handler, prop, lockoutResetDispatcher, biometricContext,
-                resetLockoutRequiresHardwareAuthToken, internalCleanupRunnable,
-                new AuthSessionCoordinator(), null /* daemon */,
+                workaroundLocations, resetLockoutRequiresHardwareAuthToken,
+                internalCleanupRunnable, new AuthSessionCoordinator(), null /* daemon */,
                 null /* onEnrollSuccessCallback */);
     }
 
@@ -92,13 +95,14 @@ public class HidlToAidlSensorAdapter extends Sensor implements IHwBinder.DeathRe
             @NonNull SensorProps prop,
             @NonNull LockoutResetDispatcher lockoutResetDispatcher,
             @NonNull BiometricContext biometricContext,
+            @NonNull List<SensorLocationInternal> workaroundLocations,
             boolean resetLockoutRequiresHardwareAuthToken,
             @NonNull Runnable internalCleanupRunnable,
             @NonNull AuthSessionCoordinator authSessionCoordinator,
             @Nullable IBiometricsFingerprint daemon,
             @Nullable AidlResponseHandler.AidlResponseHandlerCallback aidlResponseHandlerCallback) {
         super(provider, context, handler, getFingerprintSensorPropertiesInternal(prop,
-                        new ArrayList<>(), resetLockoutRequiresHardwareAuthToken),
+                        workaroundLocations, resetLockoutRequiresHardwareAuthToken),
                 biometricContext, null /* session */);
         mLockoutResetDispatcher = lockoutResetDispatcher;
         mInternalCleanupRunnable = internalCleanupRunnable;
