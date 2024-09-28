@@ -228,8 +228,10 @@ public class FingerprintProvider implements IBinder.DeathRecipient, ServiceProvi
             GestureAvailabilityDispatcher gestureAvailabilityDispatcher) {
         if (!resetLockoutRequiresHardwareAuthToken) {
             Slog.d(getTag(), "Adding HIDL configs");
+            final List<SensorLocationInternal> workaroundLocations =
+                    getWorkaroundSensorProps(mContext);
             for (SensorProps sensorConfig: props) {
-                addHidlSensors(sensorConfig, gestureAvailabilityDispatcher,
+                addHidlSensors(sensorConfig, gestureAvailabilityDispatcher, workaroundLocations,
                         resetLockoutRequiresHardwareAuthToken);
             }
         } else {
@@ -245,10 +247,12 @@ public class FingerprintProvider implements IBinder.DeathRecipient, ServiceProvi
 
     private void addHidlSensors(@NonNull SensorProps prop,
             @NonNull GestureAvailabilityDispatcher gestureAvailabilityDispatcher,
+            @NonNull List<SensorLocationInternal> workaroundLocations,
             boolean resetLockoutRequiresHardwareAuthToken) {
         final int sensorId = prop.commonProps.sensorId;
         final Sensor sensor = new HidlToAidlSensorAdapter(this, mContext, mHandler, prop,
-                mLockoutResetDispatcher, mBiometricContext, resetLockoutRequiresHardwareAuthToken,
+                mLockoutResetDispatcher, mBiometricContext, workaroundLocations,
+                resetLockoutRequiresHardwareAuthToken,
                 () -> scheduleInternalCleanup(sensorId, ActivityManager.getCurrentUser(),
                         null /* callback */));
         sensor.init(gestureAvailabilityDispatcher, mLockoutResetDispatcher);
