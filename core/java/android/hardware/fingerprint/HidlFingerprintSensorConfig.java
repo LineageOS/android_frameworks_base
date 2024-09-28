@@ -16,6 +16,8 @@
 
 package android.hardware.fingerprint;
 
+import static com.android.server.biometrics.sensors.fingerprint.aidl.FingerprintProvider.getWorkaroundSensorProps;
+
 import android.annotation.NonNull;
 import android.content.Context;
 import android.hardware.biometrics.BiometricAuthenticator;
@@ -28,6 +30,8 @@ import android.hardware.biometrics.fingerprint.SensorProps;
 
 import com.android.internal.R;
 import com.android.internal.util.ArrayUtils;
+
+import java.util.List;
 
 /**
  * Parse HIDL fingerprint sensor config and map it to SensorProps.aidl to match AIDL.
@@ -70,6 +74,10 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
         halControlsIllumination = false;
         sensorLocations = new SensorLocation[1];
 
+        // Non-empty workaroundLocations indicates that the sensor is SFPS.
+        final List<SensorLocationInternal> workaroundLocations =
+                getWorkaroundSensorProps(context);
+
         final int[] udfpsProps = context.getResources().getIntArray(
                 com.android.internal.R.array.config_udfps_sensor_props);
         final boolean isUdfps = !ArrayUtils.isEmpty(udfpsProps);
@@ -87,6 +95,15 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
 
         if (isUdfps && udfpsProps.length == 3) {
             setSensorLocation(udfpsProps[0], udfpsProps[1], udfpsProps[2]);
+        } else if (!workaroundLocations.isEmpty()) {
+            sensorLocations = new SensorLocation[workaroundLocations.length];
+            for (int i = 0; i < workaroundLocations.length; i++) {
+                sensorLocations[i] = new SensorLocation();
+                sensorLocations[i].display = workaroundLocations[i].displayId;
+                sensorLocations[i].sensorLocationX = workaroundLocations[i].sensorLocationX;
+                sensorLocations[i].sensorLocationY = workaroundLocations[i].sensorLocationY;
+                sensorLocations[i].sensorRadius = workaroundLocations[i].sensorRadius;
+            }
         } else {
             setSensorLocation(540 /* sensorLocationX */, 1636 /* sensorLocationY */,
                     130 /* sensorRadius */);
