@@ -126,7 +126,7 @@ public class FingerprintUpdateActiveUserClient extends StartUserClient<ISession,
                     ? sessionAdapter.getAuthenticatorIdForUpdateClient() : 0L);
             mUserStartedCallback.onUserStarted(targetId, null, 0);
             mCallback.onClientFinished(this, true /* success */);
-        } catch (RemoteException e) {
+        } catch (Exception e) {
             Slog.e(TAG, "Failed to setActiveGroup: " + e);
             mCallback.onClientFinished(this, false /* success */);
         }
