@@ -41,7 +41,7 @@
     <string name="quick_settings_aod_off_powersave_label">AOD fikur\nKursim baterie</string>
     <string name="quick_settings_caffeine_label">Kafeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Kafeina fikur.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Kafeina ndezur.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafeina fikur.</string>
     <string name="quick_settings_heads_up_label">Heads up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads-up fikur.</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads-up ndezur.</string>
