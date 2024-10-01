@@ -72,4 +72,15 @@
     <string name="screenshot_delete_description">스크린샷 삭제</string>
     <string name="screenrecord_delete_label">삭제</string>
     <string name="screenrecord_delete_description">화면 녹화 영상이 삭제되었습니다.</string>
+    <string name="screenrecord_stopdot_label">정지 버튼 표시</string>
+    <string name="screenrecord_stopdot_summary">정지 버튼을 길게 눌러 이동</string>
+    <string name="screenrecord_lowquality_label">낮은 품질</string>
+    <string name="screenrecord_lowquality_summary">파일 용량 축소</string>
+    <string name="screenrecord_longer_timeout_switch_label">파일 크기 제한 확장</string>
+    <string name="screenrecord_longer_timeout_switch_summary">녹화 크기 제한을 15GB로 변경</string>
+    <string name="screenrecord_skip_time_label">타이머 건너뛰기</string>
+    <string name="screenrecord_skip_time_summary">화면 녹화 전 3초 대기 시간 제거</string>
+    <string name="screenrecord_hevc_switch_label">HEVC 인코딩</string>
+    <string name="screenrecord_hevc_switch_summary">더 효율적인 HEVC 인코더 사용</string>
+    <string name="battery_notification_channel_tv">배터리 경고</string>
 </resources>
