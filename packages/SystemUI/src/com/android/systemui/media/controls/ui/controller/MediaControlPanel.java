@@ -648,7 +648,8 @@ public class MediaControlPanel {
                         mLoadingEffect::finish,
                         TURBULENCE_NOISE_PLAY_DURATION
                 );
-            } else {
+            } else if (mContext.getResources().getBoolean(
+                        com.android.systemui.res.R.bool.config_turbulenceNoise)) {
                 mTurbulenceNoiseController.play(
                         Type.SIMPLEX_NOISE,
                         mTurbulenceNoiseAnimationConfig
