@@ -4670,14 +4670,19 @@ public class PermissionManagerService extends IPermissionManager.Stub {
             return true;
         }
         if (requireFullPermission) {
-            return hasPermission(Manifest.permission.INTERACT_ACROSS_USERS_FULL);
+            return hasPermission(Manifest.permission.INTERACT_ACROSS_USERS_FULL, callingUid);
         }
-        return hasPermission(android.Manifest.permission.INTERACT_ACROSS_USERS_FULL)
-                || hasPermission(Manifest.permission.INTERACT_ACROSS_USERS);
+        return hasPermission(android.Manifest.permission.INTERACT_ACROSS_USERS_FULL, callingUid)
+            || hasPermission(Manifest.permission.INTERACT_ACROSS_USERS, callingUid);
     }
 
     private boolean hasPermission(String permission) {
         return mContext.checkCallingOrSelfPermission(permission)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private boolean hasPermission(String permission, int uid) {
+        return mContext.checkPermission(permission, /* pid= */ -1, uid)
                 == PackageManager.PERMISSION_GRANTED;
     }
 
