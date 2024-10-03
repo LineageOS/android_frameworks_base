@@ -145,13 +145,15 @@ final class ResilientAtomicFile implements Closeable {
                 finalizeOutStream(reserveOutStream);
             }
 
-            // Protect both main and reserve using fs-verity.
-            try (ParcelFileDescriptor mainPfd = ParcelFileDescriptor.dup(mainInStream.getFD());
-                 ParcelFileDescriptor copyPfd = ParcelFileDescriptor.dup(reserveInStream.getFD())) {
-                FileIntegrity.setUpFsVerity(mainPfd);
-                FileIntegrity.setUpFsVerity(copyPfd);
-            } catch (IOException e) {
-                Slog.e(LOG_TAG, "Failed to verity-protect " + mDebugName, e);
+            if (PackageManagerServiceUtils.isApkVerityEnabled()) {
+                // Protect both main and reserve using fs-verity.
+                try (ParcelFileDescriptor mainPfd = ParcelFileDescriptor.dup(mainInStream.getFD());
+                     ParcelFileDescriptor copyPfd = ParcelFileDescriptor.dup(reserveInStream.getFD())) {
+                    FileIntegrity.setUpFsVerity(mainPfd);
+                    FileIntegrity.setUpFsVerity(copyPfd);
+                } catch (IOException e) {
+                    Slog.e(LOG_TAG, "Failed to verity-protect " + mDebugName, e);
+                }
             }
         } catch (IOException e) {
             Slog.e(LOG_TAG, "Failed to write reserve copy " + mDebugName + ": " + mReserveCopy, e);
