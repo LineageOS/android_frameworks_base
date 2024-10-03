@@ -570,7 +570,10 @@ public class MediaControlPanel {
             mMediaViewController.refreshState();
         }
 
-        if (shouldPlayTurbulenceNoise()) {
+        final boolean isTurbulenceNoiseEnabled = mContext.getResources().getBoolean(
+                R.bool.config_turbulenceNoise);
+
+        if (isTurbulenceNoiseEnabled && shouldPlayTurbulenceNoise()) {
             // Need to create the config here to get the correct view size and color.
             if (mTurbulenceNoiseAnimationConfig == null) {
                 mTurbulenceNoiseAnimationConfig =
