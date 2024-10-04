@@ -40,6 +40,7 @@ import java.util.List;
  * @hide
  */
 public final class HidlFingerprintSensorConfig extends SensorProps {
+    private String mDisplayId;
     private int mSensorId;
     private int mModality;
     private int mStrength;
@@ -54,6 +55,7 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
         if (elems.length < 3) {
             throw new IllegalArgumentException();
         }
+        mDisplayId = context.getDisplay().getUniqueId();
         mSensorId = Integer.parseInt(elems[0]);
         mModality = Integer.parseInt(elems[1]);
         mStrength = Integer.parseInt(elems[2]);
@@ -108,7 +110,7 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
     private void setSensorLocation(int sensorLocationX,
             int sensorLocationY, int sensorRadius) {
         sensorLocations[0] = new SensorLocation();
-        sensorLocations[0].display = "";
+        sensorLocations[0].display = mDisplayId;
         sensorLocations[0].sensorLocationX = sensorLocationX;
         sensorLocations[0].sensorLocationY = sensorLocationY;
         sensorLocations[0].sensorRadius = sensorRadius;
