@@ -23,6 +23,7 @@ import static com.android.systemui.statusbar.phone.BarTransitions.MODE_LIGHTS_OU
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSPARENT;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.util.Log;
 import android.view.InsetsFlags;
@@ -119,6 +120,8 @@ public class LightBarController implements
     private String mLastNavigationBarAppearanceChangedLog;
     private StringBuilder mLogStringBuilder = null;
 
+    private Context mContext;
+
     @Inject
     public LightBarController(
             Context ctx,
@@ -129,6 +132,7 @@ public class LightBarController implements
             StatusBarModeRepositoryStore statusBarModeRepository,
             DumpManager dumpManager,
             DisplayTracker displayTracker) {
+        mContext = ctx;
         mJavaAdapter = javaAdapter;
         mStatusBarIconController = (SysuiDarkIconDispatcher) darkIconDispatcher;
         mBatteryController = batteryController;
@@ -212,7 +216,7 @@ public class LightBarController implements
             final boolean ignoreScrimForce = mDirectReplying && mNavbarColorManagedByIme;
             final boolean darkForScrim = mForceDarkForScrim && !ignoreScrimForce;
             final boolean lightForScrim = mForceLightForScrim && !ignoreScrimForce;
-            final boolean darkForQs = (mQsCustomizing || mQsExpanded) && !mBouncerVisible;
+            final boolean darkForQs = isNightMode() && (!mQsCustomizing && !mQsExpanded) && mBouncerVisible;
             final boolean darkForTop = darkForQs || mGlobalActionsVisible;
             mNavigationLight =
                     ((mHasLightNavigationBar && !darkForScrim) || lightForScrim) && !darkForTop;
@@ -242,6 +246,11 @@ public class LightBarController implements
         mAppearance = appearance;
         mNavigationBarMode = navigationBarMode;
         mNavbarColorManagedByIme = navbarColorManagedByIme;
+    }
+
+    private boolean isNightMode() {
+        return (mContext.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
     }
 
     public void onNavigationBarModeChanged(int newBarMode) {
