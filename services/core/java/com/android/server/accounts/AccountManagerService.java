@@ -5017,6 +5017,9 @@ public class AccountManagerService
                 if (resolveInfo == null) {
                     return false;
                 }
+                if ("content".equals(intent.getScheme())) {
+                    return false;
+                }
                 ActivityInfo targetActivityInfo = resolveInfo.activityInfo;
                 int targetUid = targetActivityInfo.applicationInfo.uid;
                 PackageManagerInternal pmi = LocalServices.getService(PackageManagerInternal.class);
