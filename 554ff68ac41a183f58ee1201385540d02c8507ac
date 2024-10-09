@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18690e73_1b9eb90b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2024-10-09T04:21:56Z",
+      "side": 1,
+      "message": "\"QS light menu has been dropped due to fact that it conflicted with security bulletin merges every month, if someone wishes to port this feature in a less intrusive manner, we are always open to reviewing contributions!\" I don\u0027t think the plan should be to merge it like this towards the end of each Lineage version.",
+      "revId": "554ff68ac41a183f58ee1201385540d02c8507ac",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
