@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9be88caf_cf9e9168",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-10-12T07:03:24Z",
+      "side": 1,
+      "message": "Weirdly, with android-14, when i was testing this, the fingerprint icon used to appear bright when the dim layer is visible. It doesn\u0027t do this anymore since android-15 (maybe because of pixelpitch)",
+      "revId": "072bd60f0c1aabd0fc26385ae7019a8ca48d5e6f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
