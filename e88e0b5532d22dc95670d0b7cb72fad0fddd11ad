@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d64ece0_8e8c597c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-10-13T03:39:01Z",
+      "side": 1,
+      "message": "With PS 3, the UDFPS is functional, however with UdfpsExtension, only the touched layer shows up.\n\n#define UDFPS_LAYER_NAME \"UdfpsControllerOverlay\"\n#define UDFPS_TOUCHED_LAYER_NAME \"SurfaceView[UdfpsControllerOverlay](BLAST)\"\n\nCurenly, the latter shows up but the former doesn\u0027t show up. Reverting to PS 2 make the former show up but breaks the latter.",
+      "revId": "e88e0b5532d22dc95670d0b7cb72fad0fddd11ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
