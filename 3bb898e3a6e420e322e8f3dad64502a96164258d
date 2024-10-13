@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c91efe7a_598342a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28223
+      },
+      "writtenOn": "2024-10-13T23:31:54Z",
+      "side": 1,
+      "message": "Would be nice to have it merged since there have been a few complaints since QPR2. Regarding Luk\u0027s comment on Discord I think it should be opt-in by maintainers instead of trying to figure out a way to detect it.",
+      "revId": "3bb898e3a6e420e322e8f3dad64502a96164258d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
