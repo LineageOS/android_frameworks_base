@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8791ea45_003ebb2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-14T17:56:10Z",
+      "side": 1,
+      "message": "battery icon is missing when showing the battery pill after plugging usb in.",
+      "revId": "b9777882f8dbd308a2e97e2b8768fedd01e1bc71",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
