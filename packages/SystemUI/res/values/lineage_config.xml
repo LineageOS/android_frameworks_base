@@ -18,42 +18,6 @@
     <!-- Color of the UDFPS pressed view -->
     <color name="config_udfpsColor">#ffffffff</color>
 
-    <!-- Whether to enable framework dimming for UDFPS -->
-    <bool name="config_udfpsFrameworkDimming">false</bool>
-
-    <!-- Array of brightness-alpha LUT for framework dimming -->
-    <string-array name="config_udfpsDimmingBrightnessAlphaArray" translatable="false">
-          <!-- Example:
-          <item>0,255</item>
-          <item>1,234</item>
-          <item>3,227</item>
-          <item>8,208</item>
-          <item>16,192</item>
-          <item>27,176</item>
-          <item>41,160</item>
-          <item>61,144</item>
-          <item>80,128</item>
-          <item>104,112</item>
-          <item>130,96</item>
-          <item>158,80</item>
-          <item>188,64</item>
-          <item>221,48</item>
-          <item>250,36</item>
-          <item>255,33</item>
-          -->
-    </string-array>
-
-    <!-- Brightness range min for UDFPS dimming -->
-    <integer name="config_udfpsDimmingBrightnessMin">0</integer>
-
-    <!-- Brightness range max for UDFPS dimming -->
-    <integer name="config_udfpsDimmingBrightnessMax">0</integer>
-
-    <!-- The amount of delay to add when disabling the dimming.
-         This is used to prevent flickers due to the dimming being disabled
-         before the screen has had chance to switch out of HBM mode -->
-    <integer name="config_udfpsDimmingDisableDelay">0</integer>
-
     <!-- Doze: does the double tap sensor need a proximity check? -->
     <bool name="doze_double_tap_proximity_check">false</bool>
 
