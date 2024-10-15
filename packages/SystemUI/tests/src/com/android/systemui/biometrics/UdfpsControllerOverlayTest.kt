@@ -55,6 +55,7 @@ import com.android.systemui.power.shared.model.WakefulnessState
 import com.android.systemui.res.R
 import com.android.systemui.scene.domain.interactor.SceneInteractor
 import com.android.systemui.scene.domain.interactor.sceneInteractor
+import com.android.systemui.shade.domain.interactor.ShadeInteractor
 import com.android.systemui.statusbar.policy.KeyguardStateController
 import com.android.systemui.testKosmos
 import com.google.common.truth.Truth.assertThat
@@ -99,6 +100,7 @@ class UdfpsControllerOverlayTest : SysuiTestCase() {
     @Mock private lateinit var promptUdfpsTouchOverlayViewModel: PromptUdfpsTouchOverlayViewModel
     @Mock private lateinit var keyguardTransitionRepository: FakeKeyguardTransitionRepository
     private lateinit var keyguardTransitionInteractor: KeyguardTransitionInteractor
+    @Mock private lateinit var shadeInteractor: ShadeInteractor
     @Mock private lateinit var udfpsOverlayInteractor: UdfpsOverlayInteractor
     private lateinit var powerRepository: FakePowerRepository
     private lateinit var powerInteractor: PowerInteractor
@@ -133,6 +135,7 @@ class UdfpsControllerOverlayTest : SysuiTestCase() {
     private fun withReason(@RequestReason reason: Int, block: () -> Unit = {}) {
         controllerOverlay =
             UdfpsControllerOverlay(
+                context,
                 inflater,
                 windowManager,
                 accessibilityManager,
@@ -147,6 +150,7 @@ class UdfpsControllerOverlayTest : SysuiTestCase() {
                 { deviceEntryUdfpsTouchOverlayViewModel },
                 { defaultUdfpsTouchOverlayViewModel },
                 { promptUdfpsTouchOverlayViewModel },
+                shadeInteractor,
                 udfpsOverlayInteractor,
                 powerInteractor,
                 testScope,
