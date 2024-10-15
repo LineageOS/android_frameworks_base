@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff4e0f92_c859389e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-10-15T15:49:28Z",
+      "side": 1,
+      "message": "- Obtained brightness as Float instead of int to reduce inaccuracies\n- The array should hold well even if all the minimum and maximum brightness were changed.\n- The default array was obtained from stock realme GT 2 Pro (ferrari) by observing dumpsys SurfaceFlinger with brightness slider changes",
+      "revId": "1ab493634a7f3ec32beb8116413fb38b40021248",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
