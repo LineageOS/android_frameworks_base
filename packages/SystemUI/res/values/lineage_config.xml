@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2018-2022 The LineageOS Project
+     Copyright (C) 2018-2024 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,6 +17,40 @@
 <resources>
     <!-- Color of the UDFPS pressed view -->
     <color name="config_udfpsColor">#ffffffff</color>
+
+    <!-- Whether to enable framework dimming for UDFPS -->
+    <bool name="config_udfpsFrameworkDimming">false</bool>
+
+    <!-- Array of brightness-alpha LUT for framework dimming -->
+    <string-array name="config_udfpsDimmingBrightnessAlphaArray" translatable="false">
+          <item>0,255</item>
+          <item>1,248</item>
+          <item>2,242</item>
+          <item>3,238</item>
+          <item>4,236</item>
+          <item>6,236</item>
+          <item>10,234</item>
+          <item>20,228</item>
+          <item>30,222</item>
+          <item>45,217</item>
+          <item>70,209</item>
+          <item>100,200</item>
+          <item>150,191</item>
+          <item>227,178</item>
+          <item>300,167</item>
+          <item>400,154</item>
+          <item>500,143</item>
+          <item>600,133</item>
+          <item>800,117</item>
+          <item>1023,109</item>
+          <item>1130,95</item>
+          <item>1211,89</item>
+          <item>1394,79</item>
+          <item>1598,69</item>
+          <item>1817,53</item>
+          <item>2047,46</item>
+          <item>4095,0</item>
+    </string-array>
 
     <!-- Doze: does the double tap sensor need a proximity check? -->
     <bool name="doze_double_tap_proximity_check">false</bool>
