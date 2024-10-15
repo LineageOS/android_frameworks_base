@@ -18,6 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="status_bar_icons_title">Deilbhíní barra stádais</string>
     <string name="clock">Clog</string>
     <string name="global_action_restart_more">Atosaigh\u2026</string>
     <string name="global_action_restart_system">Córas</string>
@@ -27,9 +28,15 @@
     <string name="global_action_restart_fastboot">Fastbootd</string>
     <string name="global_action_restart_progress">Ag atosú\u2026</string>
     <string name="global_action_restart_recovery_progress">Ag atosú go mód athshlánaithe\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Ag atosú go mód an bootloader\u2026</string>
     <string name="global_action_restart_download_progress">Ag atosú go mód íoslódála\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Ag atosú go mód fastbootd\u2026</string>
     <string name="global_action_current_user">Reatha</string>
     <string name="global_action_users">Úsáideoirí</string>
+    <string name="drag_or_tap_to_add_tiles">Coinnigh &amp; tarraing nó tapáil chun tíleanna a chur leis</string>
+    <string name="quick_settings_ambient_display_label">Taispeántas comhthimpeallach</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Taispeántas comhthimpeallach múchta.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Taispeántas comhthimpeallach ar.</string>
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD as \n sábháil Ceallraí</string>
     <string name="quick_settings_caffeine_label">Caiféin</string>
@@ -38,6 +45,29 @@
     <string name="quick_settings_heads_up_label">Cinn suas</string>
     <string name="accessibility_quick_settings_heads_up_off">Cinn suas as.</string>
     <string name="accessibility_quick_settings_heads_up_on">Cinn suas ar.</string>
+    <string name="quick_settings_powershare_label">PowerShare Gan Sreang</string>
+    <string name="quick_settings_powershare_off_powersave_label">Gan Sreang PowerShare múchta\n Coigilt ceallraí</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Gan sreang PowerShare as\nCeallraí ró-íseal</string>
+    <string name="quick_settings_powershare_enabled_label">Tá PowerShare gan sreang cumasaithe</string>
+    <string name="quick_settings_reading_mode">Mód léamh</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mód léamh air.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mód léamh múchta.</string>
+    <string name="quick_settings_sync_label">Sionc</string>
+    <string name="accessibility_quick_settings_sync_off">Sionc as.</string>
+    <string name="accessibility_quick_settings_sync_on">Sionc air.</string>
+    <string name="quick_settings_profiles_label">Próifílí córais</string>
+    <string name="accessibility_quick_settings_profiles_off">Próifílí múchta.</string>
+    <string name="accessibility_quick_settings_profiles">Próifíl: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Ceanglóir USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ceangail le\u2026</string>
+    <string name="vpn_credentials_hint">Cuir isteach do chuid dintiúir maidir le nascadh le <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Ainm úsáideora</string>
+    <string name="vpn_credentials_password">Pasfhocal</string>
+    <string name="vpn_credentials_dialog_connect">Ceangal</string>
     <string name="accessibility_dpad_left">Cúrsóir ar chlé</string>
     <string name="accessibility_dpad_right">Cúrsóir ar dheis</string>
+    <string name="status_bar_firewall">Balla dóiteáin</string>
+    <string name="screenshot_delete_label">Scrios</string>
+    <string name="screenshot_delete_description">Scrios seat scáileáin</string>
 </resources>
