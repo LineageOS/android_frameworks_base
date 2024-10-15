@@ -18,6 +18,7 @@ package com.android.systemui.biometrics
 
 import android.annotation.SuppressLint
 import android.annotation.UiThread
+import android.content.Context
 import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.hardware.biometrics.BiometricRequestConstants.REASON_AUTH_BP
@@ -55,6 +56,7 @@ import com.android.systemui.keyguard.shared.model.KeyguardState
 import com.android.systemui.power.domain.interactor.PowerInteractor
 import com.android.systemui.res.R
 import com.android.systemui.scene.domain.interactor.SceneInteractor
+import com.android.systemui.shade.domain.interactor.ShadeInteractor
 import com.android.systemui.scene.shared.flag.SceneContainerFlag
 import com.android.systemui.scene.shared.model.Scenes
 import com.android.systemui.statusbar.policy.KeyguardStateController
@@ -76,6 +78,7 @@ private const val TAG = "UdfpsControllerOverlay"
 @UiThread
 class UdfpsControllerOverlay
 constructor(
+    private val context: Context,
     private val inflater: LayoutInflater,
     private val windowManager: WindowManager,
     private val accessibilityManager: AccessibilityManager,
@@ -90,6 +93,7 @@ constructor(
     private val deviceEntryUdfpsTouchOverlayViewModel: Lazy<DeviceEntryUdfpsTouchOverlayViewModel>,
     private val defaultUdfpsTouchOverlayViewModel: Lazy<DefaultUdfpsTouchOverlayViewModel>,
     private val promptUdfpsTouchOverlayViewModel: Lazy<PromptUdfpsTouchOverlayViewModel>,
+    private val shadeInteractor: ShadeInteractor,
     private val udfpsOverlayInteractor: UdfpsOverlayInteractor,
     private val powerInteractor: PowerInteractor,
     @Application private val scope: CoroutineScope,
@@ -134,6 +138,16 @@ constructor(
 
     private var overlayTouchListener: TouchExplorationStateChangeListener? = null
     private var overlayAttachStateListener: OnAttachStateChangeListener? = null
+
+    private val useFrameworkDimming = context.resources.getBoolean(
+        com.android.systemui.res.R.bool.config_udfpsFrameworkDimming
+    )
+
+    private val udfpsHelper: UdfpsHelper? = if (useFrameworkDimming) {
+        UdfpsHelper(context, windowManager, shadeInteractor, requestReason)
+    } else {
+        null
+    }
 
     private val coreLayoutParams =
         WindowManager.LayoutParams(
@@ -267,6 +281,7 @@ constructor(
     }
 
     private fun addViewNowOrLater(view: View, animation: UdfpsAnimationViewController<*>?) {
+        udfpsHelper?.addDimLayer()
         addViewRunnable =
             kotlinx.coroutines.Runnable {
                 Trace.setCounter("UdfpsAddView", 1)
@@ -321,6 +336,7 @@ constructor(
         }
         udfpsOverlayInteractor.stopHandlingTouches()
         udfpsDisplayModeProvider.disable(null)
+        udfpsHelper?.removeDimLayer()
         getTouchOverlay()?.apply {
             if (this.parent != null) {
                 if (Build.IS_DEBUGGABLE) {
