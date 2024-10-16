@@ -85,6 +85,24 @@
       "message": "Just bring back reverted commit https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/398896  \n\nand everything is fine. Almost all devices ships with battery - it should be true by default.",
       "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1367331_3e44e444",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-10-16T17:44:27Z",
+      "side": 1,
+      "message": "That doesn\u0027t work for battery-less devices, so either revert everything or fix what is broken.",
+      "parentUuid": "caf51e51_bf1b7c2d",
+      "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
