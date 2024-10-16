@@ -103,6 +103,24 @@
       "parentUuid": "caf51e51_bf1b7c2d",
       "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b24e7198_df0b7c05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2024-10-16T18:07:34Z",
+      "side": 1,
+      "message": "agree with reverting all changes and apply once everything is fixed.",
+      "parentUuid": "f1367331_3e44e444",
+      "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
