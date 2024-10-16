@@ -19,6 +19,8 @@ package com.android.systemui.media;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManagerNative;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -63,11 +65,19 @@ public class MediaProjectionPermissionActivity extends Activity
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        mPackageName = getCallingPackage();
+        try {
+            IBinder activityToken = getActivityToken();
+            mPackageName = ActivityManagerNative.getDefault().getLaunchedFromPackage(
+                        activityToken);
+        } catch (RemoteException re) {
+            // Couldn't figure out caller details
+            Log.w(getClass().getSimpleName(), "Unable to get caller identity \n" + re);
+        }
+
         IBinder b = ServiceManager.getService(MEDIA_PROJECTION_SERVICE);
         mService = IMediaProjectionManager.Stub.asInterface(b);
 
-        if (mPackageName == null) {
+        if (getCallingPackage() == null) {
             finish();
             return;
         }
