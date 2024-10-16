@@ -50,6 +50,24 @@
       "message": "Battery icon is going missing again.",
       "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e13a451_d7fa78f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18796
+      },
+      "writtenOn": "2024-10-16T16:04:11Z",
+      "side": 1,
+      "message": "@bgcngm@gmail.com To reproduce upgrade from an older build without usb plugged.",
+      "parentUuid": "76c25e5b_1b491f28",
+      "revId": "eece668fc2ab2d5888c4a23d3446fb298134453f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
