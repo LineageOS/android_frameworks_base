@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ccaabda_e1641ba9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2024-10-18T03:11:30Z",
+      "side": 1,
+      "message": "Tested this on realme GT 2 Pro (ferrari) and it works fairly well. The current issues are:\n* There is slight wallpaper distortion on touch down (which we had before).\n* UI elements appearing dark, more so on low brightness conditions which seems inevitable.\n* The dimming array could be slightly better (Based on the noticeable brightness shifts on operating the QS) but its certainly improved.\n* Dim layer is not brought up on doze pulse.",
+      "revId": "96b02efae1e8c9ccca9efcb226bc49deb44ea3b6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
