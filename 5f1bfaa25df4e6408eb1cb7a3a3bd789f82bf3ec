@@ -16,6 +16,24 @@
       "message": "Might look nicer if previous impl is reverted. Then we can pick the new one alone for lineage-22.",
       "revId": "5f1bfaa25df4e6408eb1cb7a3a3bd789f82bf3ec",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f2b582a_863b2ec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-10-19T10:17:48Z",
+      "side": 1,
+      "message": "Well, nevermind. It doesn\u0027t revert cleanly anymore probably due to QPR merges.",
+      "parentUuid": "021e7a51_aee8b945",
+      "revId": "5f1bfaa25df4e6408eb1cb7a3a3bd789f82bf3ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
