@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "021e7a51_aee8b945",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-10-19T10:15:20Z",
+      "side": 1,
+      "message": "Might look nicer if previous impl is reverted. Then we can pick the new one alone for lineage-22.",
+      "revId": "5f1bfaa25df4e6408eb1cb7a3a3bd789f82bf3ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
