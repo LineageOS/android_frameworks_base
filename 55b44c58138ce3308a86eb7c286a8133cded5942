@@ -34,6 +34,24 @@
       "parentUuid": "e0ce0534_24e9bba0",
       "revId": "55b44c58138ce3308a86eb7c286a8133cded5942",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43345e55_b1c5a12a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-10-22T22:06:06Z",
+      "side": 1,
+      "message": "Will keep it unsquashed for now.",
+      "parentUuid": "ce63d0f7_93bd12c8",
+      "revId": "55b44c58138ce3308a86eb7c286a8133cded5942",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
