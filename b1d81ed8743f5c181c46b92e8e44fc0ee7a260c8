@@ -16,6 +16,24 @@
       "message": "Requires https://review.calyxos.org/c/CalyxOS/platform_frameworks_base/+/31115",
       "revId": "b1d81ed8743f5c181c46b92e8e44fc0ee7a260c8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdaf84ba_5c548571",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-10-22T22:08:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef6a62f8_be46e04f",
+      "revId": "b1d81ed8743f5c181c46b92e8e44fc0ee7a260c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
