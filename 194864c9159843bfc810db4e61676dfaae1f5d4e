@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5648f5e_280b2385",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-10-24T12:00:20Z",
+      "side": 1,
+      "message": "You can exclude https://review.lineageos.org/q/Iaa995505aa580020906f38177ea16713a79997ad from the revert. It was always a separate patch and it\u0027s unrelated with the statusbar icon.",
+      "revId": "194864c9159843bfc810db4e61676dfaae1f5d4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
