@@ -82,11 +82,6 @@ public interface BatteryController extends DemoMode,
     }
 
     /**
-     * Returns {@code true} if there's a battery present in the device.
-     */
-    default boolean isPresent() { return true; }
-
-    /**
      * Returns {@code true} if the device is currently in power save mode.
      */
     boolean isPowerSave();
@@ -168,9 +163,6 @@ public interface BatteryController extends DemoMode,
         }
 
         default void onIsIncompatibleChargingChanged(boolean isIncompatibleCharging) {
-        }
-
-        default void onBatteryPresentChanged(boolean batteryPresent) {
         }
 
         @Override
