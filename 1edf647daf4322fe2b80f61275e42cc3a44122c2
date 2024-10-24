@@ -34,6 +34,24 @@
       "parentUuid": "2f10c8ef_b6742b0f",
       "revId": "1edf647daf4322fe2b80f61275e42cc3a44122c2",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c9d2a50_ea21b7e0",
+        "filename": "packages/SystemUI/proguard.flags",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 21290
+      },
+      "writtenOn": "2024-10-24T20:43:09Z",
+      "side": 1,
+      "message": "From my understanding TV uses layout-land-television and thus com.android.systemui.statusbar.phone.ExpandableIndicator won\u0027t appear in it\u0027s layout. So it should be fine as is.",
+      "parentUuid": "6a7720aa_6abad27d",
+      "revId": "1edf647daf4322fe2b80f61275e42cc3a44122c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
