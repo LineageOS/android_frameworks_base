@@ -17,7 +17,10 @@
 package com.android.statementservice.domain
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.content.pm.verify.domain.DomainVerificationManager
+import android.net.ConnectivityManager.BLOCKED_REASON_APP_BACKGROUND
+import android.net.ConnectivityManager.BLOCKED_REASON_NONE
 import android.net.Network
 import android.util.Log
 import androidx.collection.LruCache
@@ -92,6 +95,15 @@ class DomainVerifier private constructor(
         val assetMatcher = synchronized(targetAssetCache) { targetAssetCache[packageName] }
             .takeIf { it!!.isPresent }
             ?: return Triple(WorkResult.failure(), VerifyStatus.FAILURE_PACKAGE_MANAGER, null)
+        val packageUid = appContext.packageManager.getPackageUid(
+            packageName,
+            PackageManager.PackageInfoFlags.of(0)
+        )
+        // Fail if no blocked reason is set or for any reason other than APP_BACKGROUND and NONE
+        if (DomainVerificationUtils.getUidBlockedReasons(packageUid)
+            ?.and(BLOCKED_REASON_APP_BACKGROUND.inv())?.and(BLOCKED_REASON_NONE.inv()) != 0) {
+            return Triple(WorkResult.failure(), VerifyStatus.NO_RESPONSE, null)
+        }
         return verifyHost(host, assetMatcher.get(), network)
     }
 
