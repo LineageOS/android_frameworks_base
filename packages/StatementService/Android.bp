@@ -31,8 +31,8 @@ android_app {
         proguard_flags_files: ["proguard.flags"],
     },
     target_sdk_version: "29",
-    sdk_version: "system_current",
-    product_specific: true,
+    platform_apis: true,
+    system_ext_specific: true,
     privileged: true,
     required: [
         "privapp_whitelist_com.android.statementservice",

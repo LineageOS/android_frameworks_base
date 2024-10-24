@@ -43,6 +43,7 @@ class BootCompletedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != Intent.ACTION_BOOT_COMPLETED) return
         val workManager = WorkManager.getInstance(context)
+        DomainVerificationUtils.registerNetworkPolicyListener(context)
         DomainVerificationUtils.schedulePeriodicCheckUnlocked(workManager)
         workManager.beginUniqueWork(
             PACKAGE_BOOT_REQUEST_KEY,

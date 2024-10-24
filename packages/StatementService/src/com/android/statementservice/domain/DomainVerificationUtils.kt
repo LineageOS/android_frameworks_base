@@ -16,6 +16,8 @@
 
 package com.android.statementservice.domain
 
+import android.content.Context
+import android.net.NetworkPolicyManager
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
@@ -35,6 +37,9 @@ object DomainVerificationUtils {
     private const val PERIODIC_UPDATE_HOURS = 720L
 
     private const val UPDATE_WORKER_ENABLED = false
+
+    private val uidBlockedReasons = mutableMapOf<Int, Int>()
+    private var networkPolicyListener: NetworkPolicyManager.Listener? = null
 
     /**
      * In a majority of cases, the initial requests will be enough to verify domains, since they
@@ -112,5 +117,32 @@ object DomainVerificationUtils {
                     }
             }
         }
+    }
+
+    fun getUidBlockedReasons(uid: Int) : Int? {
+        return uidBlockedReasons[uid]
+    }
+
+    fun registerNetworkPolicyListener(context: Context) {
+        if (networkPolicyListener != null) {
+            unregisterNetworkPolicyListener(context)
+        }
+        networkPolicyListener = object : NetworkPolicyManager.Listener() {
+            override fun onBlockedReasonChanged(
+                uid: Int,
+                oldBlockedReasons: Int,
+                newBlockedReasons: Int
+            ) {
+                uidBlockedReasons[uid] = newBlockedReasons
+            }
+        }
+        val networkPolicyManager = context.getSystemService(NetworkPolicyManager::class.java)
+        networkPolicyManager?.registerListener(networkPolicyListener)
+    }
+
+    private fun unregisterNetworkPolicyListener(context: Context) {
+        val networkPolicyManager = context.getSystemService(NetworkPolicyManager::class.java)
+        networkPolicyManager?.unregisterListener(networkPolicyListener)
+        networkPolicyListener = null
     }
 }
