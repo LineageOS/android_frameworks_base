@@ -1,0 +1,313 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "331ad35c_39348b9d",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsControllerOverlay.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n            com.android.systemui.res.R.bool.config_udfpsFrameworkDimming\n    )\n```",
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e66e3e_bcddd607",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsControllerOverlay.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n    } else {\n        null\n    }\n```",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 12
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5b4057b_b6b8f444",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n    private var view \u003d View(context).apply {\n```",
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d7f6c4d_029c17ab",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n    private val displayManager \u003d getSystemService(DisplayManager::class.java)\n```",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 75
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a780771f_f06d51ca",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n    private val isKeyguard \u003d requestReason \u003d\u003d REASON_AUTH_KEYGUARD\n```",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 5
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7086da10_a6db1e33",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n    private var newIsQsExpanded \u003d false\n```",
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f670ec4_6e2474e5",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n        val lowerEntry \u003d brightnessAlphaMap.entries\n            .lastOrNull { it.key \u003c\u003d brightness } ?: return 0f\n        val upperEntry \u003d brightnessAlphaMap.entries\n            .firstOrNull { it.key \u003e\u003d brightness } ?: return 0f\n        val (lowerBrightness, lowerAlpha) \u003d lowerEntry\n        val (upperBrightness, upperAlpha) \u003d upperEntry\n\n        return interpolate(\n            brightness.toFloat(),\n            lowerBrightness,\n            upperBrightness,\n            lowerAlpha,\n            upperAlpha\n        ).div(255.0f)\n```",
+      "range": {
+        "startLine": 91,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 9
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aac7d09_14012305",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n        0 /* flags are set in computeLayoutParams() */,\n```",
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae40090_4661db60",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n        title \u003d \"Dim Layer for UDFPS\"\n```\n\nand apply same change in fw/native",
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5611a07b_e3655d71",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n        flags \u003d Utils.FINGERPRINT_OVERLAY_LAYOUT_PARAM_FLAGS or\n                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE\n```",
+      "range": {
+        "startLine": 141,
+        "startChar": 8,
+        "endLine": 142,
+        "endChar": 62
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4eba5da_db29a9e3",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n            transitionInteractor.anyStateToLockscreenTransition.collect {\n                if (it.transitionState \u003d\u003d TransitionState.STARTED) {\n                    view.visibility \u003d View.VISIBLE\n                }\n            }\n```",
+      "range": {
+        "startLine": 178,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 17
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb0b013d_534b43f4",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n            transitionInteractor.fromLockscreenTransition.collect {\n                if (it.transitionState \u003d\u003d TransitionState.FINISHED) {\n                    view.visibility \u003d View.GONE\n                }\n            }\n```",
+      "range": {
+        "startLine": 189,
+        "startChar": 12,
+        "endLine": 194,
+        "endChar": 17
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c0d4213_10d6cddb",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n        override fun onDisplayAdded(displayId: Int) {}\n```",
+      "range": {
+        "startLine": 199,
+        "startChar": 52,
+        "endLine": 200,
+        "endChar": 9
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "213f5e1a_cd05e8e5",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "```suggestion\n        override fun onDisplayRemoved(displayId: Int) {}\n```",
+      "range": {
+        "startLine": 209,
+        "startChar": 8,
+        "endLine": 210,
+        "endChar": 9
+      },
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f583c703_0ec62f45",
+        "filename": "packages/SystemUI/src/com/android/systemui/biometrics/UdfpsHelper.kt",
+        "patchSetId": 21
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2024-10-24T20:43:28Z",
+      "side": 1,
+      "message": "would import androidx.core.view.isVisible and use view.isVisible \u003d true/false.",
+      "revId": "fb150065c64cf213d11a066ebe2d73f16c38a672",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
