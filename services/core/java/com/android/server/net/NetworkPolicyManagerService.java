@@ -3258,9 +3258,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             }
         }
 
-        // There is nothing to migrate if coming from pre-12 or from nothing.
+        // There is nothing to migrate if coming from pre-12, from nothing, or from a restore.
         final boolean isMigratingFromAtLeastAndroid12 = version >= VERSION_SUPPORTED_CARRIER_USAGE;
-        if (lineageVersion < LINEAGE_VERSION_REINSTATED_POLICY_REJECT_ALL
+        if (!forRestore && lineageVersion < LINEAGE_VERSION_REINSTATED_POLICY_REJECT_ALL
                 && isMigratingFromAtLeastAndroid12) {
             migrateToPolicyRejectAll();
         }
