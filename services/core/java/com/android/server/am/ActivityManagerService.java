@@ -17870,8 +17870,7 @@ public final class ActivityManagerService extends ActivityManagerNative
                             + ") when registering receiver " + receiver);
                 }
                 if (callerApp.info.uid != Process.SYSTEM_UID &&
-                        !callerApp.pkgList.containsKey(callerPackage) &&
-                        !"android".equals(callerPackage)) {
+                        !callerApp.pkgList.containsKey(callerPackage)) {
                     throw new SecurityException("Given caller package " + callerPackage
                             + " is not running in process " + callerApp);
                 }
