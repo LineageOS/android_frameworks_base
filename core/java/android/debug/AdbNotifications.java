@@ -18,6 +18,7 @@ package android.debug;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.app.ActivityOptions;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -81,8 +82,13 @@ public final class AdbNotifications {
         PendingIntent pIntent = null;
         if (resolveInfo != null) {
             intent.setPackage(resolveInfo.activityInfo.packageName);
+            ActivityOptions activityOptions = ActivityOptions.makeBasic();
+            activityOptions.setPendingIntentCreatorBackgroundActivityStartMode(
+                    ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED);
+
             pIntent = PendingIntent.getActivityAsUser(context, 0, intent,
-                    PendingIntent.FLAG_IMMUTABLE, null, UserHandle.CURRENT);
+                    PendingIntent.FLAG_IMMUTABLE, activityOptions.toBundle(),
+                    UserHandle.CURRENT);
         }
 
 
