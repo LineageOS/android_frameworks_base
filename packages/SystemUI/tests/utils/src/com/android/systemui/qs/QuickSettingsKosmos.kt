@@ -45,6 +45,7 @@ import com.android.systemui.settings.userTracker
 import com.android.systemui.shade.data.repository.shadeDialogContextInteractor
 import com.android.systemui.statusbar.phone.systemUIDialogDotFactory
 import com.android.systemui.statusbar.policy.deviceProvisionedController
+import com.android.systemui.statusbar.policy.keyguardStateController
 import com.android.systemui.statusbar.policy.securityController
 import com.android.systemui.supervision.data.repository.supervisionRepository
 import com.android.systemui.user.data.repository.userSwitcherRepository
@@ -86,6 +87,7 @@ var Kosmos.footerActionsInteractor: FooterActionsInteractor by Fixture {
         metricsLogger = metricsLogger,
         uiEventLogger = uiEventLogger,
         deviceProvisionedController = deviceProvisionedController,
+        keyguardStateController = keyguardStateController,
         qsSecurityFooterUtils = qsSecurityFooterUtils,
         fgsManagerController = fgsManagerController,
         userSwitcherInteractor = userSwitcherInteractor,
