@@ -56,6 +56,7 @@ import com.android.systemui.settings.UserTracker
 import com.android.systemui.statusbar.policy.DeviceProvisionedController
 import com.android.systemui.statusbar.policy.FakeSecurityController
 import com.android.systemui.statusbar.policy.FakeUserInfoController
+import com.android.systemui.statusbar.policy.KeyguardStateController
 import com.android.systemui.statusbar.policy.SecurityController
 import com.android.systemui.statusbar.policy.UserInfoController
 import com.android.systemui.statusbar.policy.UserSwitcherController
@@ -123,6 +124,7 @@ class FooterActionsTestUtils(
         metricsLogger: MetricsLogger = FakeMetricsLogger(),
         uiEventLogger: UiEventLogger = UiEventLoggerFake(),
         deviceProvisionedController: DeviceProvisionedController = mock(),
+        keyguardStateController: KeyguardStateController = mock(),
         qsSecurityFooterUtils: QSSecurityFooterUtils = mock(),
         fgsManagerController: FgsManagerController = mock(),
         userSwitcherInteractor: UserSwitcherInteractor = mock(),
@@ -139,6 +141,7 @@ class FooterActionsTestUtils(
             metricsLogger,
             uiEventLogger,
             deviceProvisionedController,
+            keyguardStateController,
             qsSecurityFooterUtils,
             fgsManagerController,
             userSwitcherInteractor,
