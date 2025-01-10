@@ -416,13 +416,7 @@ public class StatusBarIconView extends AnimatedImageView {
             }
         }
 
-        CharSequence title = n.extras.getCharSequence(Notification.EXTRA_TITLE);
-        CharSequence ticker = n.tickerText;
-
-        CharSequence desc = !TextUtils.isEmpty(ticker) ? ticker
-                : !TextUtils.isEmpty(title) ? title : "";
-
-        return c.getString(R.string.accessibility_desc_notification_icon, appName, desc);
+        return c.getString(R.string.accessibility_desc_notification_icon, appName, "");
     }
 
     static class GlobalSettingsObserver extends ContentObserver {
