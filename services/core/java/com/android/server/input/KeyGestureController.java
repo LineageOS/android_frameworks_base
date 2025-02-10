@@ -250,6 +250,9 @@ final class KeyGestureController {
     // Click volume down + power for partial screenshot
     private boolean mClickPartialScreenshot;
 
+    // Volume Up and Down to mute on Android TV
+    boolean mVolUpAndDownMute;
+
     // List of currently registered key gesture event listeners keyed by process pid
     @GuardedBy("mKeyGestureEventListenerRecords")
     private final SparseArray<KeyGestureEventListenerRecord>
@@ -330,6 +333,9 @@ final class KeyGestureController {
         mClickPartialScreenshot = LineageSettings.System.getIntForUser(resolver,
                 LineageSettings.System.CLICK_PARTIAL_SCREENSHOT, 0,
                 UserHandle.USER_CURRENT) == 1;
+        mVolUpAndDownMute = LineageSettings.System.getIntForUser(resolver,
+                LineageSettings.System.VOLUME_UP_AND_DOWN_MUTE, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     private void initKeyCombinationRules() {
@@ -388,32 +394,65 @@ final class KeyGestureController {
             }
         }
 
-        mKeyCombinationManager.addRule(
-                new KeyCombinationManager.TwoKeysCombinationRule(KeyEvent.KEYCODE_VOLUME_DOWN,
-                        KeyEvent.KEYCODE_VOLUME_UP) {
-                    @Override
-                    public boolean preCondition() {
-                        return mAccessibilityShortcutController.isAccessibilityShortcutAvailable(
-                                mWindowManagerCallbacks.isKeyguardLocked(DEFAULT_DISPLAY));
-                    }
+        if (mHasFeatureLeanback) {
+            mKeyCombinationManager.addRule(
+                    new KeyCombinationManager.TwoKeysCombinationRule(KeyEvent.KEYCODE_VOLUME_DOWN,
+                            KeyEvent.KEYCODE_VOLUME_UP) {
+                        @Override
+                        public boolean preCondition() {
+                            return mVolUpAndDownMute;
+                        }
+                        @Override
+                        public void execute() {
+                            InputManager im = mContext.getSystemService(InputManager.class);
+                            long now = SystemClock.uptimeMillis();
+                            final KeyEvent downEvent = new KeyEvent(now, now, KeyEvent.ACTION_DOWN,
+                                    KeyEvent.KEYCODE_VOLUME_MUTE, 0, 0,
+                                    KeyCharacterMap.VIRTUAL_KEYBOARD, 0, KeyEvent.FLAG_FROM_SYSTEM,
+                                    InputDevice.SOURCE_KEYBOARD);
+                            final KeyEvent upEvent = KeyEvent.changeAction(downEvent,
+                                    KeyEvent.ACTION_UP);
 
-                    @Override
-                    public void execute() {
-                        handleMultiKeyGesture(
-                                new int[]{KeyEvent.KEYCODE_VOLUME_DOWN, KeyEvent.KEYCODE_VOLUME_UP},
-                                KeyGestureEvent.KEY_GESTURE_TYPE_ACCESSIBILITY_SHORTCUT_CHORD,
-                                KeyGestureEvent.ACTION_GESTURE_START, 0);
-                    }
+                            im.injectInputEvent(downEvent,
+                                    InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+                            im.injectInputEvent(upEvent,
+                                    InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+                        }
+                        @Override
+                        public void cancel() {
+                        }
+                    });
+        } else {
+            mKeyCombinationManager.addRule(
+                    new KeyCombinationManager.TwoKeysCombinationRule(KeyEvent.KEYCODE_VOLUME_DOWN,
+                            KeyEvent.KEYCODE_VOLUME_UP) {
+                        @Override
+                        public boolean preCondition() {
+                            return mAccessibilityShortcutController
+                                    .isAccessibilityShortcutAvailable(
+                                    mWindowManagerCallbacks.isKeyguardLocked(DEFAULT_DISPLAY));
+                        }
 
-                    @Override
-                    public void cancel() {
-                        handleMultiKeyGesture(
-                                new int[]{KeyEvent.KEYCODE_VOLUME_DOWN, KeyEvent.KEYCODE_VOLUME_UP},
-                                KeyGestureEvent.KEY_GESTURE_TYPE_ACCESSIBILITY_SHORTCUT_CHORD,
-                                KeyGestureEvent.ACTION_GESTURE_COMPLETE,
-                                KeyGestureEvent.FLAG_CANCELLED);
-                    }
-                });
+                        @Override
+                        public void execute() {
+                            handleMultiKeyGesture(
+                                    new int[]{KeyEvent.KEYCODE_VOLUME_DOWN,
+                                            KeyEvent.KEYCODE_VOLUME_UP},
+                                    KeyGestureEvent.KEY_GESTURE_TYPE_ACCESSIBILITY_SHORTCUT_CHORD,
+                                    KeyGestureEvent.ACTION_GESTURE_START, 0);
+                        }
+
+                        @Override
+                        public void cancel() {
+                            handleMultiKeyGesture(
+                                    new int[]{KeyEvent.KEYCODE_VOLUME_DOWN,
+                                            KeyEvent.KEYCODE_VOLUME_UP},
+                                    KeyGestureEvent.KEY_GESTURE_TYPE_ACCESSIBILITY_SHORTCUT_CHORD,
+                                    KeyGestureEvent.ACTION_GESTURE_COMPLETE,
+                                    KeyGestureEvent.FLAG_CANCELLED);
+                        }
+                    });
+        }
 
         // Volume up + power can either be the "ringer toggle chord" or as another way to
         // launch GlobalActions. This behavior can change at runtime so we must check behavior
@@ -1768,6 +1807,9 @@ final class KeyGestureController {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(LineageSettings.System.getUriFor(
                             LineageSettings.System.CLICK_PARTIAL_SCREENSHOT), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(LineageSettings.System.getUriFor(
+                    LineageSettings.System.VOLUME_UP_AND_DOWN_MUTE), false, this,
                     UserHandle.USER_ALL);
         }
 
