@@ -31,12 +31,15 @@ import android.annotation.Nullable;
 import android.content.Context;
 import android.hardware.biometrics.fingerprint.V2_1.FingerprintError;
 import android.hardware.fingerprint.Fingerprint;
+import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.android.internal.annotations.GuardedBy;
 import com.android.server.biometrics.sensors.BiometricUtils;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -48,10 +51,11 @@ public class FingerprintUtils implements BiometricUtils<Fingerprint> {
     // Map<SensorId, FingerprintUtils>
     private static SparseArray<FingerprintUtils> sInstances;
     private static final String LEGACY_FINGERPRINT_FILE = "settings_fingerprint.xml";
+    private static final String TAG = "FingerprintUtils";
 
     @GuardedBy("this")
     private final SparseArray<FingerprintUserState> mUserStates;
-    private final String mFileName;
+    private String mFileName;
 
     /**
      * Retrieves an instance for the specified sensorId.
@@ -160,6 +164,25 @@ public class FingerprintUtils implements BiometricUtils<Fingerprint> {
         synchronized (this) {
             FingerprintUserState state = mUserStates.get(userId);
             if (state == null) {
+                if (mFileName.matches("settings_fingerprint_\\d+.xml")) {
+                    // Check if this file is empty or does not exist
+                    File legacyFile = new File(Environment.getUserSystemDirectory(userId),
+                            LEGACY_FINGERPRINT_FILE);
+                    File file = new File(Environment.getUserSystemDirectory(userId), mFileName);
+                    if (legacyFile.length() > 0 && file.length() == 0) {
+                        Log.i(TAG, "Migration needed for " + mFileName);
+                        if (file.exists()) {
+                            // File exists and the length is 0, delete it
+                            if (!file.delete()) {
+                                Log.i(TAG, "Failed to delete empty file: " + file);
+                            }
+                        }
+                        if (!legacyFile.renameTo(file)) {
+                            Log.i(TAG, "Failed to rename file: " + legacyFile + " to " + file);
+                            mFileName = LEGACY_FINGERPRINT_FILE;
+                        }
+                    }
+                }
                 state = new FingerprintUserState(ctx, userId, mFileName);
                 mUserStates.put(userId, state);
             }
