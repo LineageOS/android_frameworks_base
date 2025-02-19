@@ -104,6 +104,7 @@ class FingerprintRepositoryImplTest : SysuiTestCase() {
                         ),
                         FingerprintSensorProperties.TYPE_REAR,
                         false /* halControlsIllumination */,
+                        false /* halHandlesDisplayTouches */,
                         true /* resetLockoutRequiresHardwareAuthToken */,
                         listOf<SensorLocationInternal>(
                             SensorLocationInternal(

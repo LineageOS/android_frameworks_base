@@ -68,6 +68,7 @@ public final class HidlFingerprintSensorConfig extends SensorProps {
         commonProps.maxEnrollmentsPerUser = context.getResources().getInteger(
                 R.integer.config_fingerprintMaxTemplatesPerUser);
         halControlsIllumination = false;
+        halHandlesDisplayTouches = false;
         sensorLocations = new SensorLocation[1];
 
         final int[] udfpsProps = context.getResources().getIntArray(

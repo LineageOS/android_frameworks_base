@@ -1201,6 +1201,7 @@ public class AuthService extends SystemService {
             return new FingerprintSensorPropertiesInternal(sensorId,
                     Utils.authenticatorStrengthToPropertyStrength(strength), maxEnrollmentsPerUser,
                     componentInfo, sensorType, true /* halControlsIllumination */,
+                    false /* halHandlesDisplayTouches */,
                     resetLockoutRequiresHardwareAuthToken,
                     List.of(new SensorLocationInternal("" /* display */, udfpsProps[0],
                             udfpsProps[1], udfpsProps[2])));
