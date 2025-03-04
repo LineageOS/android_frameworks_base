@@ -17869,7 +17869,7 @@ public final class ActivityManagerService extends ActivityManagerNative
                             + " (pid=" + Binder.getCallingPid()
                             + ") when registering receiver " + receiver);
                 }
-                if (callerApp.info.uid != Process.SYSTEM_UID &&
+                if (!UserHandle.isCore(callerApp.info.uid) &&
                         !callerApp.pkgList.containsKey(callerPackage)) {
                     throw new SecurityException("Given caller package " + callerPackage
                             + " is not running in process " + callerApp);
