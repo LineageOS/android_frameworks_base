@@ -25,7 +25,7 @@ public class AppOpItem {
     private int mUid;
     private String mPackageName;
     private long mTimeStartedElapsed;
-    private StringBuilder mState;
+    private String mState;
     private boolean mIsDisabled;
 
     public AppOpItem(int code, int uid, String packageName, long timeStartedElapsed) {
@@ -38,7 +38,8 @@ public class AppOpItem {
                 .append("Op code=").append(code).append(", ")
                 .append("UID=").append(uid).append(", ")
                 .append("Package name=").append(packageName).append(", ")
-                .append("Paused=");
+                .append("Paused=")
+                .toString();
     }
 
     public int getCode() {
@@ -67,6 +68,6 @@ public class AppOpItem {
 
     @Override
     public String toString() {
-        return mState.append(mIsDisabled).append(")").toString();
+        return mState + mIsDisabled + ")";
     }
 }
