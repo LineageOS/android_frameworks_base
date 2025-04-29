@@ -318,7 +318,7 @@ open class DisplayCutoutBaseView : View, RegionInterceptableView {
     }
 
     companion object {
-        const val HIDDEN_CAMERA_PROTECTION_SCALE = 0.5f
+        const val HIDDEN_CAMERA_PROTECTION_SCALE = 0.0f
 
         @JvmStatic
         protected fun transformPhysicalToLogicalCoordinates(
