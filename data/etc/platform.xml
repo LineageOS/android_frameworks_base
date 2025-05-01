@@ -173,6 +173,7 @@
     <assign-permission name="android.permission.LOG_FOREGROUND_RESOURCE_USE" uid="media" />
     <assign-permission name="android.permission.ACCESS_LOCAL_NETWORK" uid="media"
         featureFlag="android.permission.flags.access_local_network_permission_enabled" />
+    <assign-permission name="android.permission.CAPTURE_AUDIO_OUTPUT" uid="media" />
 
     <assign-permission name="android.permission.INTERNET" uid="media" />
 
