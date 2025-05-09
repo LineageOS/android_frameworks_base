@@ -338,6 +338,8 @@ public final class DeviceAdminInfo implements Parcelable {
         } catch (NameNotFoundException e) {
             throw new XmlPullParserException(
                     "Unable to create context for: " + mActivityInfo.packageName);
+        } catch (OutOfMemoryError e) {
+            throw new XmlPullParserException("Out of memory when parsing", null, e);
         } finally {
             if (parser != null) parser.close();
         }
