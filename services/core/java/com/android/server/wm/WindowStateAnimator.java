@@ -68,6 +68,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.view.WindowManagerPolicy;
 import android.content.pm.ActivityInfo;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
@@ -1929,6 +1930,10 @@ class WindowStateAnimator {
             Animation a = null;
             if (anim != 0) {
                 a = anim != -1 ? AnimationUtils.loadAnimation(mContext, anim) : null;
+            } else if (!isEntrance && mWin.isForceHiddenNonSystemOverlayWindow()) {
+                a = new AlphaAnimation(1f, 0f);
+                a.setDuration(mContext.getResources().getInteger(
+                        com.android.internal.R.integer.config_shortAnimTime));
             } else {
                 switch (transit) {
                     case WindowManagerPolicy.TRANSIT_ENTER:
