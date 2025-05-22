@@ -3682,10 +3682,10 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (!isUidValidForAllowlistRulesUL(uid)) {
             notifyApp = false;
         } else {
-            final boolean wasDenied = oldPolicy == POLICY_REJECT_METERED_BACKGROUND;
-            final boolean isDenied = policy == POLICY_REJECT_METERED_BACKGROUND;
-            final boolean wasAllowed = oldPolicy == POLICY_ALLOW_METERED_BACKGROUND;
-            final boolean isAllowed = policy == POLICY_ALLOW_METERED_BACKGROUND;
+            final boolean wasDenied = (oldPolicy & POLICY_REJECT_METERED_BACKGROUND) != 0;
+            final boolean isDenied = (policy & POLICY_REJECT_METERED_BACKGROUND) != 0;
+            final boolean wasAllowed = (oldPolicy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
+            final boolean isAllowed = (policy & POLICY_ALLOW_METERED_BACKGROUND) != 0;
             final boolean wasBlocked = wasDenied || (mRestrictBackground && !wasAllowed);
             final boolean isBlocked = isDenied || (mRestrictBackground && !isAllowed);
             if ((wasAllowed && (!isAllowed || isDenied))
@@ -4095,7 +4095,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             } finally {
                 Binder.restoreCallingIdentity(token);
             }
-            if (policy == POLICY_REJECT_METERED_BACKGROUND) {
+            if ((policy & POLICY_REJECT_METERED_BACKGROUND) != 0) {
                 // App is restricted.
                 return RESTRICT_BACKGROUND_STATUS_ENABLED;
             }
