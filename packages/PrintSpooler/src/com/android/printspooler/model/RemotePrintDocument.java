@@ -359,7 +359,7 @@ public final class RemotePrintDocument {
         try {
             file = mDocumentInfo.fileProvider.acquireFile(null);
             in = new FileInputStream(file);
-            out = contentResolver.openOutputStream(uri);
+            out = contentResolver.openOutputStream(uri, "wt");
             final byte[] buffer = new byte[8192];
             while (true) {
                 final int readByteCount = in.read(buffer);
