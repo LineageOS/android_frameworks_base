@@ -18,6 +18,8 @@ package com.android.keyguard;
 
 import static android.app.slice.Slice.HINT_LIST_ITEM;
 
+import static com.android.systemui.util.kotlin.JavaAdapterKt.collectFlow;
+
 import android.app.PendingIntent;
 import android.net.Uri;
 import android.os.Handler;
@@ -42,10 +44,16 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.keyguard.KeyguardSliceProvider;
+import com.android.systemui.keyguard.domain.interactor.KeyguardInteractor;
 import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.power.domain.interactor.PowerInteractor;
+import com.android.systemui.power.shared.model.ScreenPowerState;
 import com.android.systemui.settings.DisplayTracker;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.util.ViewController;
+
+import kotlin.coroutines.CoroutineContext;
+import kotlin.coroutines.EmptyCoroutineContext;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -70,6 +78,8 @@ public class KeyguardSliceViewController extends ViewController<KeyguardSliceVie
     private Uri mKeyguardSliceUri;
     private Slice mSlice;
     private Map<View, PendingIntent> mClickActions;
+    private KeyguardInteractor mKeyguardInteractor;
+    private PowerInteractor mPowerInteractor;
 
     ConfigurationController.ConfigurationListener mConfigurationListener =
             new ConfigurationController.ConfigurationListener() {
@@ -109,7 +119,9 @@ public class KeyguardSliceViewController extends ViewController<KeyguardSliceVie
             ActivityStarter activityStarter,
             ConfigurationController configurationController,
             DumpManager dumpManager,
-            DisplayTracker displayTracker) {
+            DisplayTracker displayTracker,
+            KeyguardInteractor keyguardInteractor,
+            PowerInteractor powerInteractor) {
         super(keyguardSliceView);
         mHandler = handler;
         mBgHandler = bgHandler;
@@ -117,6 +129,28 @@ public class KeyguardSliceViewController extends ViewController<KeyguardSliceVie
         mConfigurationController = configurationController;
         mDumpManager = dumpManager;
         mDisplayTracker = displayTracker;
+        mKeyguardInteractor = keyguardInteractor;
+        mPowerInteractor = powerInteractor;
+    }
+
+    @Override
+    public void onInit() {
+        setupUri(null);
+        startCoroutines(EmptyCoroutineContext.INSTANCE);
+    }
+
+    void startCoroutines(CoroutineContext context) {
+        collectFlow(mView, mKeyguardInteractor.getDozeTimeTick(),
+                (Long millis) -> {
+                    refresh();
+                }, context);
+
+        collectFlow(mView, mPowerInteractor.getScreenPowerState(),
+                (ScreenPowerState powerState) -> {
+                    if (powerState == ScreenPowerState.SCREEN_TURNING_ON) {
+                        refresh();
+                    }
+                }, context);
     }
 
     @Override
