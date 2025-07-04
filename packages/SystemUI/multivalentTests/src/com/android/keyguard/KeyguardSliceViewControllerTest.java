@@ -73,7 +73,7 @@ public class KeyguardSliceViewControllerTest extends SysuiTestCase {
         when(mView.getContext()).thenReturn(mContext);
         mController = new KeyguardSliceViewController(mHandler, mBgHandler, mView,
                 mActivityStarter, mConfigurationController, mDumpManager,
-                mDisplayTracker);
+                mDisplayTracker, null, null);
         mController.setupUri(KeyguardSliceProvider.KEYGUARD_SLICE_URI);
     }
 
