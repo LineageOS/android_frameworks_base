@@ -383,11 +383,12 @@ public abstract class ContentProvider implements ComponentCallbacks2 {
                 throws FileNotFoundException {
             uri = validateIncomingUri(uri);
             uri = maybeGetUriWithoutUserId(uri);
-            enforceFilePermission(callingPkg, uri, mode, null);
+            final String updateMode = validateFileMode(mode);
+            enforceFilePermission(callingPkg, uri, updateMode, null);
             final String original = setCallingPackage(callingPkg);
             try {
                 return ContentProvider.this.openAssetFile(
-                        uri, mode, CancellationSignal.fromTransport(cancellationSignal));
+                        uri, updateMode, CancellationSignal.fromTransport(cancellationSignal));
             } finally {
                 setCallingPackage(original);
             }
@@ -463,6 +464,25 @@ public abstract class ContentProvider implements ComponentCallbacks2 {
             } finally {
                 setCallingPackage(original);
             }
+        }
+
+        private String validateFileMode(String mode) {
+            // We currently only support the following modes: r, w, wt, wa, rw, rwt
+            // Note: ideally, we should check against the allowed modes and throw a
+            // SecurityException if the mode doesn't match any of them but to avoid app compat
+            // issues, we're silently dropping bits which allow modifying files when the write bit
+            // is not specified.
+            if (mode != null && mode.indexOf('w') == -1) {
+                // Don't allow truncation without write
+                if (mode.indexOf('t') != -1) {
+                    mode = mode.replace("t", "");
+                }
+                // Don't allow appending without write
+                if (mode.indexOf('a') != -1) {
+                    mode = mode.replace("a", "");
+                }
+            }
+            return mode;
         }
 
         private void enforceFilePermission(String callingPkg, Uri uri, String mode,
