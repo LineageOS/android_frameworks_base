@@ -113,17 +113,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Switch
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/bluetooth_toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="68dp"
                 android:gravity="start|center_vertical"
                 android:paddingEnd="40dp"
                 android:contentDescription="@string/turn_on_bluetooth"
-                android:switchMinWidth="@dimen/settingslib_switch_track_width"
-                android:theme="@style/MainSwitch.Settingslib"
-                android:thumb="@drawable/settingslib_switch_thumb"
-                android:track="@drawable/settingslib_switch_track"
+                android:theme="@style/Theme.Material3.DynamicColors.DayNight"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bluetooth_toggle_title"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -154,7 +151,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bluetooth_toggle_title" />
 
-            <Switch
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/bluetooth_auto_on_toggle"
                 android:layout_width="wrap_content"
                 android:layout_height="68dp"
@@ -162,10 +159,7 @@
                 android:gravity="start|center_vertical"
                 android:paddingEnd="40dp"
                 android:contentDescription="@string/turn_on_bluetooth_auto_tomorrow"
-                android:switchMinWidth="@dimen/settingslib_switch_track_width"
-                android:theme="@style/MainSwitch.Settingslib"
-                android:thumb="@drawable/settingslib_switch_thumb"
-                android:track="@drawable/settingslib_switch_track"
+                android:theme="@style/Theme.Material3.DynamicColors.DayNight"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/bluetooth_auto_on_toggle_title"
                 app:layout_constraintTop_toBottomOf="@+id/bluetooth_toggle" />
