@@ -177,16 +177,14 @@
                         android:layout_width="@dimen/settingslib_switch_track_width"
                         android:layout_height="48dp"
                         android:layout_gravity="end|center_vertical">
-                        <Switch
+                        <com.google.android.material.materialswitch.MaterialSwitch
                             android:id="@+id/mobile_toggle"
                             android:contentDescription="@string/mobile_data_settings_title"
                             android:switchMinWidth="@dimen/settingslib_switch_track_width"
                             android:layout_gravity="center"
-                            android:layout_width="@dimen/settingslib_switch_track_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:track="@drawable/settingslib_track_selector"
-                            android:thumb="@drawable/settingslib_thumb_selector"
-                            android:theme="@style/MainSwitch.Settingslib"/>
+                            android:theme="@style/Theme.Material3.DynamicColors.DayNight"/>
                     </FrameLayout>
 
                 </LinearLayout>
@@ -233,16 +231,14 @@
                         android:layout_height="48dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp">
-                        <Switch
+                        <com.google.android.material.materialswitch.MaterialSwitch
                             android:id="@+id/wifi_toggle"
                             android:contentDescription="@string/turn_on_wifi"
                             android:switchMinWidth="@dimen/settingslib_switch_track_width"
                             android:layout_gravity="center"
-                            android:layout_width="@dimen/settingslib_switch_track_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:track="@drawable/settingslib_track_selector"
-                            android:thumb="@drawable/settingslib_thumb_selector"
-                            android:theme="@style/MainSwitch.Settingslib"/>
+                            android:theme="@style/Theme.Material3.DynamicColors.DayNight"/>
                     </FrameLayout>
 
                 </LinearLayout>

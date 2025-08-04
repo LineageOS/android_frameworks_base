@@ -44,10 +44,10 @@ import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.MainThread;
@@ -155,9 +155,9 @@ public class InternetDialogDelegateLegacy implements
     private TextView mMobileTitleText;
     private TextView mMobileSummaryText;
     private TextView mAirplaneModeSummaryText;
-    private Switch mMobileDataToggle;
+    private CompoundButton mMobileDataToggle;
     private View mMobileToggleDivider;
-    private Switch mWiFiToggle;
+    private CompoundButton mWiFiToggle;
     private Button mDoneButton;
 
     @VisibleForTesting
