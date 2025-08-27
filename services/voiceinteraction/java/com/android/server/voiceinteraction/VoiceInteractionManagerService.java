@@ -1232,10 +1232,11 @@ public class VoiceInteractionManagerService extends SystemService {
                                 switchImplementationIfNeededLocked(true);
                             }
                         }
-                        return;
                     }
 
-                    if (curAssistant != null) {
+                    // If interactor isn't null, then we would have done the needed checks already
+                    // in the above code.
+                    if (curInteractor == null && curAssistant != null) {
                         int change = isPackageDisappearing(curAssistant.getPackageName());
                         if (change == PACKAGE_PERMANENT_CHANGE) {
                             // If the currently set assistant is being removed, then we should
