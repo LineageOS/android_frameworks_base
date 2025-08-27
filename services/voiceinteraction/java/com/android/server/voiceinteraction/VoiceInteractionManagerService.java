@@ -506,12 +506,20 @@ public class VoiceInteractionManagerService extends SystemService {
                         }
                     }
                 }
-                if (numAvailable > 1) {
-                    Slog.w(TAG, "more than one voice recognition service found, picking first");
+
+                // If prefPackage isn't found then only default to system recognizer.
+                // prefPackage could be either the current recognizer or the default recognizer.
+                for (int i = 0; i < numAvailable; i++) {
+                    ServiceInfo serviceInfo = available.get(i).serviceInfo;
+                    if ((serviceInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+                        continue;
+                    }
+                    return new ComponentName(serviceInfo.packageName, serviceInfo.name);
                 }
 
-                ServiceInfo serviceInfo = available.get(0).serviceInfo;
-                return new ComponentName(serviceInfo.packageName, serviceInfo.name);
+                Slog.w(TAG, "no auto selectable voice recognition services found for user "
+                        + userHandle);
+                return null;
             }
         }
 
