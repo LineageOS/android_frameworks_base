@@ -17,6 +17,8 @@
 package com.android.systemui.screencapture.record.smallscreen.ui.compose
 
 import android.content.res.Resources
+import android.media.MediaCodecList
+import android.media.MediaFormat
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.Crossfade
@@ -194,7 +196,7 @@ fun RecordDetailsSettings(
                 modifier = Modifier,
             )
             RichSwitch(
-                visible = true,
+                visible = hasHevcHwEncoder(),
                 icon =
                     loadIcon(
                         viewModel = drawableLoaderViewModel,
@@ -363,4 +365,19 @@ private fun SettingsRow(
             content = content,
         )
     }
+}
+
+private fun hasHevcHwEncoder(): Boolean {
+    val mediaCodecList = MediaCodecList(MediaCodecList.REGULAR_CODECS)
+    for (codecInfo in mediaCodecList.codecInfos) {
+        if (!codecInfo.isEncoder || !codecInfo.isHardwareAccelerated) {
+            continue
+        }
+        for (type in codecInfo.supportedTypes) {
+            if (type.equals(MediaFormat.MIMETYPE_VIDEO_HEVC, ignoreCase = true)) {
+                return true
+            }
+        }
+    }
+    return false
 }
