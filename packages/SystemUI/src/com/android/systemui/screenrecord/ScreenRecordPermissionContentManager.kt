@@ -20,6 +20,8 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.hardware.display.DisplayManager
+import android.media.MediaCodecList
+import android.media.MediaFormat
 import android.media.projection.StopReason
 import android.os.Build
 import android.os.Bundle
@@ -192,6 +194,12 @@ class ScreenRecordPermissionContentManager(
             audioSwitch.isChecked = true
         }
 
+        // Disable HEVC when hardware accelerated codec is not available
+        if (!hasHevcHwEncoder()) {
+            Prefs.putInt(containerView.context, PREF_HEVC, 0)
+            containerView.requireViewById<View>(R.id.show_hevc).visibility = View.GONE
+        }
+
         // disable redundant Touch & Hold accessibility action for Switch Access
         options.accessibilityDelegate =
             object : View.AccessibilityDelegate() {
@@ -254,6 +262,24 @@ class ScreenRecordPermissionContentManager(
             },
             { screenRecordingStartStopRepository.stopRecording(StopReason.STOP_UNKNOWN) },
         )
+    }
+
+    private fun hasHevcHwEncoder(): Boolean {
+        val mediaCodecList = MediaCodecList(MediaCodecList.REGULAR_CODECS)
+
+        for (codecInfo in mediaCodecList.getCodecInfos()) {
+            if (!codecInfo.isEncoder() || !codecInfo.isHardwareAccelerated()) {
+                continue
+            }
+
+            for (type in codecInfo.getSupportedTypes()) {
+                if (type.equals(MediaFormat.MIMETYPE_VIDEO_HEVC, ignoreCase = true)) {
+                    return true
+                }
+            }
+        }
+
+        return false
     }
 
     private inner class CaptureTargetResultReceiver :
