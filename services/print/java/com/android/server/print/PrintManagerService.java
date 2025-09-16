@@ -24,6 +24,7 @@ import android.annotation.NonNull;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.content.ComponentName;
+import android.content.ContentProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -204,7 +205,7 @@ public final class PrintManagerService extends SystemService {
             final long identity = Binder.clearCallingIdentity();
             try {
                 Icon icon = userState.getCustomPrinterIcon(printerId);
-                return validateIconUserBoundary(icon);
+                return validateIconUserBoundary(icon, resolvedUserId);
             } finally {
                 Binder.restoreCallingIdentity(identity);
             }
@@ -217,24 +218,16 @@ public final class PrintManagerService extends SystemService {
          * @param icon
          * @return icon (validated)
          */
-        private Icon validateIconUserBoundary(Icon icon) {
+        private Icon validateIconUserBoundary(Icon icon, int resolvedCallingId) {
             // Refer to Icon#getUriString for context. The URI string is invalid for icons of
             // incompatible types.
             if (icon != null && (icon.getType() == Icon.TYPE_URI)) {
-                String encodedUser = icon.getUri().getEncodedUserInfo();
-
-                // If there is no encoded user, the URI is calling into the calling user space
-                if (encodedUser != null) {
-                    int userId = Integer.parseInt(encodedUser);
-                    // resolve encoded user
-                    final int resolvedUserId = resolveCallingUserEnforcingPermissions(userId);
-
-                    synchronized (mLock) {
-                        // Only the current group members can get the printer icons.
-                        if (resolveCallingProfileParentLocked(resolvedUserId)
-                                != getCurrentUserId()) {
-                            return null;
-                        }
+                final int iconUserId = ContentProvider.getUserIdFromAuthority(
+                        icon.getUri().getAuthority(), resolvedCallingId);
+                synchronized (mLock) {
+                    // Only the current group members can get the printer icons.
+                    if (resolveCallingProfileParentLocked(iconUserId) != getCurrentUserId()) {
+                        return null;
                     }
                 }
             }
