@@ -33,6 +33,7 @@ import android.content.Context;
 import android.media.RemoteDisplay;
 import android.os.Handler;
 import android.util.Slog;
+import dalvik.system.PathClassLoader;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -41,6 +42,9 @@ import java.lang.reflect.Method;
 class ExtendedRemoteDisplayHelper {
     private static final String TAG = "ExtendedRemoteDisplayHelper";
     private static final boolean DEBUG = false;
+
+    private static final String WFD_COMMON_JAR = "/system_ext/framework/WfdCommon.jar";
+    private static final String EXTDISP_WFD_CLASS = "com.qualcomm.wfd.ExtendedRemoteDisplay";
 
     // ExtendedRemoteDisplay class
     // ExtendedRemoteDisplay is an enhanced RemoteDisplay.
@@ -59,29 +63,51 @@ class ExtendedRemoteDisplayHelper {
     static {
         // Check availability of ExtendedRemoteDisplay runtime
         try {
-            sExtRemoteDisplayClass = Class.forName("com.qualcomm.wfd.ExtendedRemoteDisplay");
+            sExtRemoteDisplayClass = Class.forName(EXTDISP_WFD_CLASS);
         } catch (Throwable t) {
-            Slog.i(TAG, "ExtendedRemoteDisplay: not available");
+            if (DEBUG) {
+                Slog.i(TAG, "ExtendedRemoteDisplay: failed to find on the boot classpath, " +
+                    "checking for [" + WFD_COMMON_JAR + "]");
+            }
+
+            try {
+                final PathClassLoader wfdCommonJarClassLoader = new PathClassLoader(
+                        WFD_COMMON_JAR, ClassLoader.getSystemClassLoader());
+                sExtRemoteDisplayClass = wfdCommonJarClassLoader.loadClass(EXTDISP_WFD_CLASS);
+            } catch (Throwable anotherT) {
+                Slog.i(TAG, "ExtendedRemoteDisplay: not available");
+            }
         }
 
         if (sExtRemoteDisplayClass != null) {
             // If ExtendedRemoteDisplay is available find the methods
             Slog.i(TAG, "ExtendedRemoteDisplay: is available, finding methods");
+
+            final Class listenArgs[] = { String.class, RemoteDisplay.Listener.class,
+                    Handler.class, Context.class };
             try {
-                Class args[] = { String.class, RemoteDisplay.Listener.class,
-                        Handler.class, Context.class };
                 sExtRemoteDisplayListen =
-                        sExtRemoteDisplayClass.getDeclaredMethod("listen", args);
+                        sExtRemoteDisplayClass.getDeclaredMethod("listen", listenArgs);
             } catch (Throwable t) {
-                Slog.i(TAG, "ExtendedRemoteDisplay.listen: not available");
+                try {
+                    sExtRemoteDisplayListen =
+                            sExtRemoteDisplayClass.getMethod("listen", listenArgs);
+                } catch (Throwable anotherT) {
+                    Slog.i(TAG, "ExtendedRemoteDisplay.listen: not available");
+                }
             }
 
+            final Class disposeArgs[] = {};
             try {
-                Class args[] = {};
                 sExtRemoteDisplayDispose =
-                        sExtRemoteDisplayClass.getDeclaredMethod("dispose", args);
+                        sExtRemoteDisplayClass.getDeclaredMethod("dispose", disposeArgs);
             } catch (Throwable t) {
-                Slog.i(TAG, "ExtendedRemoteDisplay.dispose: not available");
+                try {
+                    sExtRemoteDisplayDispose =
+                            sExtRemoteDisplayClass.getMethod("dispose", disposeArgs);
+                } catch (Throwable anotherT) {
+                    Slog.i(TAG, "ExtendedRemoteDisplay.dispose: not available");
+                }
             }
         }
     }
