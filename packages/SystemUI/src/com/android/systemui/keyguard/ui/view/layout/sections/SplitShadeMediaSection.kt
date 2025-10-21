@@ -29,6 +29,7 @@ import androidx.constraintlayout.widget.ConstraintSet.START
 import androidx.constraintlayout.widget.ConstraintSet.TOP
 import com.android.systemui.customization.clocks.R as clocksR
 import com.android.systemui.keyguard.shared.model.KeyguardSection
+import com.android.systemui.keyguard.ui.viewmodel.KeyguardSmartspaceViewModel
 import com.android.systemui.media.controls.ui.controller.KeyguardMediaController
 import com.android.systemui.res.R
 import com.android.systemui.scene.shared.flag.SceneContainerFlag
@@ -41,6 +42,7 @@ class SplitShadeMediaSection
 constructor(
     @ShadeDisplayAware private val context: Context,
     private val keyguardMediaController: KeyguardMediaController,
+    private val smartspaceViewModel: KeyguardSmartspaceViewModel,
 ) : KeyguardSection() {
     private val mediaContainerId = R.id.status_view_media_container
 
@@ -68,7 +70,11 @@ constructor(
         constraintSet.apply {
             constrainWidth(mediaContainerId, MATCH_CONSTRAINT)
             constrainHeight(mediaContainerId, WRAP_CONTENT)
-            connect(mediaContainerId, TOP, R.id.smart_space_barrier_bottom, BOTTOM)
+            if (smartspaceViewModel.isSmartspaceEnabled) {
+                connect(mediaContainerId, TOP, R.id.smart_space_barrier_bottom, BOTTOM)
+            } else {
+                connect(mediaContainerId, TOP, R.id.keyguard_slice_view, BOTTOM)
+            }
             connect(mediaContainerId, START, PARENT_ID, START)
             connect(mediaContainerId, END, R.id.split_shade_guideline, END)
         }
