@@ -32,6 +32,7 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.service.oemlock.IOemLockService;
+import android.service.persistentdata.PersistentDataBlockManager;
 import android.util.Slog;
 
 import com.android.server.LocalServices;
@@ -175,6 +176,10 @@ public class OemLockService extends SystemService {
 
             final long token = Binder.clearCallingIdentity();
             try {
+                if (isFactoryResetProtectionActive()) {
+                    throw new SecurityException("OEM unlock disallowed while FRP is active");
+                }
+
                 if (!isOemUnlockAllowedByAdmin()) {
                     throw new SecurityException("Admin does not allow OEM unlock");
                 }
@@ -251,6 +256,13 @@ public class OemLockService extends SystemService {
             Slog.i(TAG, "Update OEM Unlock bit in pst partition to " + allowed);
             pdbmi.forceOemUnlockEnabled(allowed);
         }
+    }
+
+    private boolean isFactoryResetProtectionActive() {
+        final PersistentDataBlockManager pdbm = (PersistentDataBlockManager)
+                mContext.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
+        if (pdbm == null) return false;
+        return pdbm.isFactoryResetProtectionActive();
     }
 
     private boolean isOemUnlockAllowedByAdmin() {
