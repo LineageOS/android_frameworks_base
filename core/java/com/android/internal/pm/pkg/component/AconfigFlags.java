@@ -114,7 +114,8 @@ public class AconfigFlags {
     }
 
     private static boolean useNewStorage() {
-        return newStoragePublicApi() && Flags.useNewAconfigStorage();
+        return newStoragePublicApi() && Flags.useNewAconfigStorage() &&
+                Environment.getMetadataDirectory().exists();
     }
 
     private void loadServerOverrides() {
