@@ -284,6 +284,11 @@ public final class UsageEvents implements Parcelable {
             mParcel.setDataPosition(0);
             mParcel.appendFrom(in, in.dataPosition(), listByteLength);
             mParcel.setDataSize(mParcel.dataPosition());
+            if (positionInParcel > mParcel.dataSize()) {
+                throw new IllegalArgumentException(
+                        "Obtained an invalid position value(" + positionInParcel
+                        + ") from Parcel.");
+            }
             mParcel.setDataPosition(positionInParcel);
         }
     }
