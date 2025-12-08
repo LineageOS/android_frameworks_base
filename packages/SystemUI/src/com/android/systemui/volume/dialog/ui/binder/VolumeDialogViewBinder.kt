@@ -18,6 +18,7 @@ package com.android.systemui.volume.dialog.ui.binder
 
 import android.app.Dialog
 import android.content.Context
+import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -188,7 +189,17 @@ constructor(
         dialog: Dialog,
         visibilityModel: Flow<VolumeDialogVisibilityModel>,
     ) {
-        view.applyAnimationProgress(FRACTION_HIDE)
+        val isLeft =
+            dialog.window?.let { window ->
+                val absGravity = Gravity.getAbsoluteGravity(
+                    window.attributes.gravity,
+                    view.layoutDirection
+                )
+                (absGravity and Gravity.LEFT) == Gravity.LEFT ||
+                    (absGravity and Gravity.START) == Gravity.START
+            } ?: false
+
+        view.applyAnimationProgress(FRACTION_HIDE, isLeft)
         val animationValueHolder = FloatValueHolder(FRACTION_HIDE)
         val animation: SpringAnimation =
             SpringAnimation(animationValueHolder)
@@ -198,7 +209,7 @@ constructor(
                         .setDampingRatio(SPRING_DAMPING_RATIO)
                 )
                 .setMinimumVisibleChange(ANIMATION_MINIMUM_VISIBLE_CHANGE)
-                .addUpdateListener { _, value, _ -> view.applyAnimationProgress(value) }
+                .addUpdateListener { _, value, _ -> view.applyAnimationProgress(value, isLeft) }
         var junkListener: DynamicAnimation.OnAnimationUpdateListener? = null
 
         visibilityModel
@@ -232,10 +243,18 @@ constructor(
 
     /**
      * @param fraction in range [0, 1]. 0 corresponds to the dialog being hidden and 1 - visible.
+     * @param isLeft whether the dialog is positioned on the left side of the screen.
      */
-    private fun View.applyAnimationProgress(fraction: Float) {
+    private fun View.applyAnimationProgress(fraction: Float, isLeft: Boolean) {
         alpha = ceil(fraction)
-        translationX = lerp(width, 0, fraction).toFloat()
+
+        val startTranslationX = if (isLeft) {
+            -width.toFloat()
+        } else {
+            width.toFloat()
+        }
+
+        translationX = lerp(startTranslationX, 0f, fraction)
     }
 
     private suspend fun View.applyVerticalOffset(offsetPx: Float, shouldAnimate: Boolean) {

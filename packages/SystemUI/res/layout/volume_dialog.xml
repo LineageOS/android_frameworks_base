@@ -19,10 +19,9 @@
     android:id="@+id/volume_dialog"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layout_gravity="right"
     android:alpha="0"
     android:clipChildren="false"
-    android:minWidth="@dimen/volume_dialog_window_width">
+    android:minWidth="@dimen/volume_dialog_width">
 
     <View
         android:id="@+id/volume_dialog_background"
@@ -58,12 +57,15 @@
         android:layout_width="@dimen/volume_dialog_slider_width"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/volume_dialog_slider_vertical_margin"
+        android:layout_marginStart="@dimen/volume_dialog_window_margin"
         android:layout_marginEnd="@dimen/volume_dialog_window_margin"
         android:layout_marginBottom="@dimen/volume_dialog_slider_vertical_margin"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_max="@dimen/volume_dialog_slider_height"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintVertical_bias="0.5"/>
 
     <LinearLayout
@@ -98,7 +100,7 @@
         android:orientation="horizontal"
         android:showDividers="middle|beginning|end"
         app:layout_constraintBottom_toBottomOf="@id/volume_dialog_main_slider_container"
-        app:layout_constraintRight_toLeftOf="@id/volume_dialog_background"
+        app:layout_constraintStart_toEndOf="@id/volume_dialog_background"
         app:layout_constraintTop_toTopOf="@id/volume_dialog_main_slider_container"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
