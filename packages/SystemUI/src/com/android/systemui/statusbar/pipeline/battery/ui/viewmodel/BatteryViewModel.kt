@@ -37,6 +37,7 @@ import com.android.systemui.statusbar.pipeline.battery.shared.ui.BatteryColors
 import com.android.systemui.statusbar.pipeline.battery.shared.ui.BatteryGlyph
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import java.text.NumberFormat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -57,6 +58,9 @@ sealed class BatteryViewModel(
 
     val isCharging: Boolean by interactor.isCharging.hydratedStateOf(initialValue = false)
 
+    val isBatteryPercentSettingEnabled: Boolean by
+        interactor.showPercentNextToIcon.hydratedStateOf(initialValue = false)
+
     /** A [List<BatteryGlyph>] representation of the current [level] */
     private val levelGlyphs: Flow<List<BatteryGlyph>> =
         interactor.level.map { it?.glyphRepresentation() ?: emptyList() }
@@ -70,10 +74,7 @@ sealed class BatteryViewModel(
             }
         }
 
-    /**
-     * For everything except the BatteryNextToPercentViewModel, this is the glyphs of the battery
-     * percent
-     */
+    /** A [List<BatteryGlyph>] representation of the battery percent. */
     open val glyphList: List<BatteryGlyph> by _glyphList.hydratedStateOf(initialValue = emptyList())
 
     /** The current attribution, if any */
@@ -184,6 +185,20 @@ sealed class BatteryViewModel(
             }
             .hydratedStateOf(traceName = "timeRemainingEstimate", initialValue = null)
 
+    val batteryPercent: String? by
+        interactor.level
+            .map { level ->
+                if (level == null) {
+                    null
+                } else {
+                    NumberFormat.getPercentInstance().format(level / 100f)
+                }
+            }
+            .hydratedStateOf(
+                traceName = "batteryPercent",
+                initialValue = null,
+            )
+
     /** Base factory class so implementations can take any kind of view model */
     interface Factory {
         fun create(): BatteryViewModel
@@ -195,7 +210,7 @@ sealed class BatteryViewModel(
     constructor(interactor: BatteryInteractor, @Application context: Context) :
         BatteryViewModel(
             interactor = interactor,
-            shouldShowPercent = interactor.isBatteryPercentSettingEnabled,
+            shouldShowPercent = interactor.showPercentInsideIcon,
             context = context,
         ) {
 
@@ -215,7 +230,7 @@ sealed class BatteryViewModel(
         BatteryViewModel(
             interactor = interactor,
             shouldShowPercent =
-                combine(interactor.isCharging, interactor.isBatteryPercentSettingEnabled) {
+                combine(interactor.isCharging, interactor.showPercentNextToIcon) {
                     charging,
                     settingEnabled ->
                     charging || settingEnabled
