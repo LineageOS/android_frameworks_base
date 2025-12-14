@@ -17,15 +17,23 @@
 package com.android.systemui.statusbar.pipeline.battery.domain.interactor
 
 import com.android.systemui.dagger.SysUISingleton
+import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.statusbar.pipeline.battery.data.repository.BatteryRepository
 import javax.inject.Inject
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @SysUISingleton
-class BatteryInteractor @Inject constructor(repo: BatteryRepository) {
+class BatteryInteractor @Inject constructor(
+    private val repo: BatteryRepository,
+    @Background private val appScope: CoroutineScope,
+) {
     /** The current level in the range of [0-100], or null if we don't know the level yet */
     val level =
         combine(repo.isStateUnknown, repo.level) { unknown, level ->
@@ -71,8 +79,20 @@ class BatteryInteractor @Inject constructor(repo: BatteryRepository) {
     /** @see [BatteryRepository.isPowerSaveEnabled] */
     val powerSave = repo.isPowerSaveEnabled
 
-    /** @see [BatteryRepository.isShowBatteryPercentSettingEnabled] */
-    val isBatteryPercentSettingEnabled = repo.isShowBatteryPercentSettingEnabled
+    /** @see [BatteryRepository.showBatteryPercentMode] */
+    val showBatteryPercentMode: StateFlow<Int> = repo.showBatteryPercentMode
+
+    // Mode == 1
+    val showPercentInsideIcon: StateFlow<Boolean> =
+        repo.showBatteryPercentMode
+            .map { it == BatteryRepository.SHOW_PERCENT_INSIDE }
+            .stateIn(appScope, SharingStarted.Lazily, false)
+
+    // Mode == 2
+    val showPercentNextToIcon: StateFlow<Boolean> =
+        repo.showBatteryPercentMode
+            .map { it == BatteryRepository.SHOW_PERCENT_NEXT_TO }
+            .stateIn(appScope, SharingStarted.Lazily, false)
 
     /**
      * The battery attribution (@see [BatteryAttributionModel]) describes the attribution that best
