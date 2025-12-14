@@ -39,7 +39,6 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.view.doOnLayout
@@ -49,7 +48,6 @@ import com.android.app.displaylib.PerDisplayRepository
 import com.android.compose.theme.PlatformTheme
 import com.android.keyguard.AlphaOptimizedLinearLayout
 import com.android.systemui.Dumpable
-import com.android.systemui.Flags
 import com.android.systemui.Flags.notificationShadeBlur
 import com.android.systemui.animation.ShadeInterpolation
 import com.android.systemui.battery.BatteryMeterView.MODE_ESTIMATE
@@ -58,6 +56,7 @@ import com.android.systemui.demomode.DemoMode
 import com.android.systemui.demomode.DemoModeController
 import com.android.systemui.display.dagger.SystemUIDisplaySubcomponent
 import com.android.systemui.dump.DumpManager
+import com.android.systemui.lifecycle.rememberViewModel
 import com.android.systemui.plugins.ActivityStarter
 import com.android.systemui.qs.ChipVisibilityListener
 import com.android.systemui.qs.HeaderPrivacyIconsController
@@ -77,7 +76,7 @@ import com.android.systemui.statusbar.phone.StatusOverlayHoverListenerFactory
 import com.android.systemui.statusbar.phone.domain.interactor.IsAreaDark
 import com.android.systemui.statusbar.phone.ui.StatusBarIconController
 import com.android.systemui.statusbar.phone.ui.TintedIconManager
-import com.android.systemui.statusbar.pipeline.battery.ui.composable.BatteryWithEstimate
+import com.android.systemui.statusbar.pipeline.battery.ui.composable.BatteryWithPercent
 import com.android.systemui.statusbar.pipeline.battery.ui.viewmodel.BatteryViewModel
 import com.android.systemui.statusbar.pipeline.shared.ui.view.SystemStatusIconsLayoutHelper
 import com.android.systemui.statusbar.policy.Clock
@@ -114,7 +113,7 @@ constructor(
     @ShadeDisplayAware private val context: Context,
     private val shadeDisplaysRepositoryLazy: Lazy<ShadeDisplaysRepository>,
     private val variableDateViewControllerFactory: VariableDateViewController.Factory,
-    private val unifiedBatteryViewModelFactory: BatteryViewModel.AlwaysShowPercent.Factory,
+    private val unifiedBatteryViewModelFactory: BatteryViewModel.BasedOnUserSetting.Factory,
     private val dumpManager: DumpManager,
     private val shadeCarrierGroupControllerBuilder: ShadeCarrierGroupController.Builder,
     private val combinedShadeHeadersConstraintManager: CombinedShadeHeadersConstraintManager,
@@ -399,14 +398,15 @@ constructor(
                     id = R.id.battery_meter_composable_view
                     val showBatteryEstimate by showBatteryEstimate.collectAsStateWithLifecycle()
                     val dark = isSystemInDarkTheme()
-                    BatteryWithEstimate(
+                    val viewModel =
+                        rememberViewModel(traceName = "UnifiedBattery") {
+                            unifiedBatteryViewModelFactory.create()
+                        }
+                    BatteryWithPercent(
                         modifier = Modifier.wrapContentSize(),
-                        viewModelFactory = unifiedBatteryViewModelFactory,
+                        viewModel = viewModel,
                         isDarkProvider = { IsAreaDark { dark } },
-                        textColor =
-                            if (notificationShadeBlur())
-                                Color(context.getColor(R.color.shade_header_text_color))
-                            else Color.White,
+                        showPercent = viewModel.isBatteryPercentSettingEnabled,
                         showEstimate = showBatteryEstimate,
                     )
                 }
