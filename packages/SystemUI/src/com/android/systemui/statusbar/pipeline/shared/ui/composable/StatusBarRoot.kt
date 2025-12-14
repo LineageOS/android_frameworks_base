@@ -110,7 +110,7 @@ import com.android.systemui.statusbar.phone.domain.interactor.IsAreaDark
 import com.android.systemui.statusbar.phone.ui.DarkIconManager
 import com.android.systemui.statusbar.phone.ui.StatusBarIconController
 import com.android.systemui.statusbar.phone.ui.TintedIconManager
-import com.android.systemui.statusbar.pipeline.battery.ui.composable.UnifiedBattery
+import com.android.systemui.statusbar.pipeline.battery.ui.composable.BatteryWithPercent
 import com.android.systemui.statusbar.pipeline.battery.ui.viewmodel.BatteryViewModel
 import com.android.systemui.statusbar.pipeline.shared.ui.binder.HomeStatusBarIconBlockListBinder
 import com.android.systemui.statusbar.pipeline.shared.ui.binder.HomeStatusBarTouchExclusionRegionBinder
@@ -591,18 +591,15 @@ private fun addBatteryComposable(
     val batteryComposeView =
         ComposeView(phoneStatusBarView.context).apply {
             setContent {
-                val height =
-                    with(LocalDensity.current) {
-                        BatteryViewModel.getStatusBarBatteryHeight(LocalContext.current).toDp()
-                    }
                 val viewModel =
                     rememberViewModel(traceName = "UnifiedBattery") {
                         statusBarViewModel.unifiedBatteryViewModel.create()
                     }
-                UnifiedBattery(
-                    modifier = Modifier.sysUiResTagContainer().height(height).wrapContentWidth(),
+                BatteryWithPercent(
+                    modifier = Modifier.sysUiResTagContainer().wrapContentSize(),
                     viewModel = viewModel,
                     isDarkProvider = { statusBarViewModel.areaDark },
+                    showPercent = viewModel.isBatteryPercentSettingEnabled,
                 )
             }
         }
@@ -641,18 +638,15 @@ private fun addEndSideComposable(
                             statusBarViewModel.systemStatusIconBlockListInteractor,
                     )
 
-                    val height =
-                        with(LocalDensity.current) {
-                            BatteryViewModel.getStatusBarBatteryHeight(LocalContext.current).toDp()
-                        }
                     val viewModel =
                         rememberViewModel(traceName = "UnifiedBattery") {
                             statusBarViewModel.unifiedBatteryViewModel.create()
                         }
-                    UnifiedBattery(
+                    BatteryWithPercent(
                         viewModel = viewModel,
                         isDarkProvider = { statusBarViewModel.areaDark },
-                        modifier = Modifier.height(height).wrapContentWidth(),
+                        modifier = Modifier.wrapContentSize(),
+                        showPercent = viewModel.isBatteryPercentSettingEnabled,
                     )
                 }
             }

@@ -16,7 +16,7 @@
 
 package com.android.systemui.statusbar.pipeline.battery.ui.binder
 
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -34,7 +34,7 @@ import com.android.systemui.lifecycle.rememberViewModel
 import com.android.systemui.lifecycle.repeatWhenAttached
 import com.android.systemui.scene.shared.flag.SceneContainerFlag
 import com.android.systemui.statusbar.phone.domain.interactor.IsAreaDark
-import com.android.systemui.statusbar.pipeline.battery.ui.composable.UnifiedBattery
+import com.android.systemui.statusbar.pipeline.battery.ui.composable.BatteryWithPercent
 import com.android.systemui.statusbar.pipeline.battery.ui.viewmodel.BatteryViewModel
 import kotlinx.coroutines.flow.Flow
 
@@ -66,18 +66,14 @@ object UnifiedBatteryViewBinder {
                                 }
                             val isDark by
                                 isAreaDark.collectAsStateWithLifecycle(IsAreaDark { true })
-                            val height =
-                                with(LocalDensity.current) {
-                                    BatteryViewModel.getStatusBarBatteryHeight(LocalContext.current)
-                                        .toDp()
-                                }
-                            UnifiedBattery(
+                            BatteryWithPercent(
                                 modifier =
-                                    Modifier.height(height)
-                                        .wrapContentWidth()
+                                    Modifier
+                                        .wrapContentSize()
                                         .sysuiResTag(BatteryViewModel.TEST_TAG),
                                 viewModel = viewModel,
                                 isDarkProvider = { isDark },
+                                showPercent = viewModel.isBatteryPercentSettingEnabled,
                             )
                         }
                     }
