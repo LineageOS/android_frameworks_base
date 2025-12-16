@@ -365,6 +365,8 @@ constructor(
             addView(batteryComposeView, -1)
         }
 
+        batteryComposeView.setOnClickListener { launchBatteryActivity() }
+
         carrierIconSlots =
             listOf(
                 header.context.getString(com.android.internal.R.string.status_bar_mobile),
@@ -463,6 +465,12 @@ constructor(
             .setInterpolator(if (show) Interpolators.ALPHA_OUT else Interpolators.ALPHA_IN)
             .setListener(CustomizerAnimationListener(show))
             .start()
+    }
+
+    private fun launchBatteryActivity() {
+        activityStarter.postStartActivityDismissingKeyguard(
+            Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0
+        )
     }
 
     @VisibleForTesting
