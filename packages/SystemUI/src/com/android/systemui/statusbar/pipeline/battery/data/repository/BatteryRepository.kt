@@ -75,12 +75,22 @@ interface BatteryRepository {
     val isStateUnknown: Flow<Boolean>
 
     /**
+     * [LineageSettings.System.STATUS_BAR_BATTERY_STYLE]. A user setting to indicate the battery
+     * style in the home screen status bar
+     */
+    val batteryIconStyle: StateFlow<Int>
+
+    /**
      * [LineageSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT]. A user setting to indicate whether
      * we should show the battery percentage in the home screen status bar
      */
     val showBatteryPercentMode: StateFlow<Int>
 
     companion object {
+        const val ICON_STYLE_DEFAULT = 0
+        const val ICON_STYLE_CIRCLE = 1
+        const val ICON_STYLE_TEXT = 2
+        const val ICON_STYLE_CIRCLE_DOTTED = 3
         const val SHOW_PERCENT_HIDDEN = 0
         const val SHOW_PERCENT_INSIDE = 1
         const val SHOW_PERCENT_NEXT_TO = 2
@@ -254,19 +264,19 @@ constructor(
             )
             .stateIn(scope, SharingStarted.WhileSubscribed(), batteryState.value.isStateUnknown)
 
-    override val showBatteryPercentMode =
+    override val batteryIconStyle =
         callbackFlow {
                 val resolver = context.contentResolver
                 val uri =
                     LineageSettings.System.getUriFor(
-                        LineageSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT
+                        LineageSettings.System.STATUS_BAR_BATTERY_STYLE
                     )
 
                 fun readMode(): Int {
                     return LineageSettings.System.getIntForUser(
                         resolver,
-                        LineageSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT,
-                        BatteryRepository.SHOW_PERCENT_HIDDEN,
+                        LineageSettings.System.STATUS_BAR_BATTERY_STYLE,
+                        BatteryRepository.ICON_STYLE_DEFAULT,
                         UserHandle.USER_CURRENT,
                     )
                 }
@@ -284,6 +294,68 @@ constructor(
                     observer,
                     UserHandle.USER_ALL,
                 )
+
+                // Emit current value immediately
+                trySend(readMode())
+
+                awaitClose { resolver.unregisterContentObserver(observer) }
+            }
+            .distinctUntilChanged()
+            .flowOn(bgDispatcher)
+            .stateIn(
+                scope = scope,
+                started = SharingStarted.Lazily,
+                initialValue = BatteryRepository.ICON_STYLE_DEFAULT,
+            )
+
+    override val showBatteryPercentMode =
+        callbackFlow {
+                val resolver = context.contentResolver
+                val uris =
+                    listOf(
+                        LineageSettings.System.getUriFor(
+                            LineageSettings.System.STATUS_BAR_BATTERY_STYLE
+                        ),
+                        LineageSettings.System.getUriFor(
+                            LineageSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT
+                        ),
+                    )
+
+                fun readMode(): Int {
+                    val iconStyle =
+                        LineageSettings.System.getIntForUser(
+                            resolver,
+                            LineageSettings.System.STATUS_BAR_BATTERY_STYLE,
+                            BatteryRepository.ICON_STYLE_DEFAULT,
+                            UserHandle.USER_CURRENT,
+                        )
+                    return if (iconStyle == BatteryRepository.ICON_STYLE_TEXT) {
+                        BatteryRepository.SHOW_PERCENT_NEXT_TO
+                    } else {
+                        LineageSettings.System.getIntForUser(
+                            resolver,
+                            LineageSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT,
+                            BatteryRepository.SHOW_PERCENT_HIDDEN,
+                            UserHandle.USER_CURRENT,
+                        )
+                    }
+                }
+
+                val observer =
+                    object : ContentObserver(Handler(Looper.getMainLooper())) {
+                        override fun onChange(selfChange: Boolean) {
+                            trySend(readMode())
+                        }
+                    }
+
+                for (uri in uris) {
+                    resolver.registerContentObserver(
+                        uri,
+                        /* notifyForDescendants = */ false,
+                        observer,
+                        UserHandle.USER_ALL,
+                    )
+                }
 
                 // Emit current value immediately
                 trySend(readMode())

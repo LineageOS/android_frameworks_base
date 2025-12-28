@@ -74,7 +74,11 @@ class BGImageView(context: Context) : ImageView(context), BackgroundAnimatableVi
     }
 }
 
-class BatteryEvent(@IntRange(from = 0, to = 100) val batteryLevel: Int) : StatusEvent {
+class BatteryEvent(
+    @IntRange(from = 0, to = 100) val batteryLevel: Int,
+    val batteryIconStyle: Int,
+    val showPercentNextToIcon: Boolean,
+) : StatusEvent {
     override val priority = 50
     override var forceVisible = false
     override val showAnimation = true
@@ -83,7 +87,12 @@ class BatteryEvent(@IntRange(from = 0, to = 100) val batteryLevel: Int) : Status
 
     override val viewCreator: ViewCreator = { context ->
         if (NewStatusBarIcons.isEnabled) {
-            BatteryStatusEventComposeChip(batteryLevel, context)
+            BatteryStatusEventComposeChip(
+                batteryLevel,
+                batteryIconStyle,
+                showPercentNextToIcon,
+                context,
+            )
         } else {
             BatteryStatusChip(context).apply { setBatteryLevel(batteryLevel) }
         }
