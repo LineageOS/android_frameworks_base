@@ -35,6 +35,7 @@ import com.android.systemui.privacy.PrivacyItem
 import com.android.systemui.privacy.PrivacyItemController
 import com.android.systemui.privacy.PrivacyType
 import com.android.systemui.res.R
+import com.android.systemui.statusbar.pipeline.battery.domain.interactor.BatteryInteractor
 import com.android.systemui.statusbar.policy.BatteryController
 import com.android.systemui.util.time.SystemClock
 import javax.inject.Inject
@@ -53,6 +54,7 @@ class SystemEventCoordinator
 constructor(
     private val systemClock: SystemClock,
     private val batteryController: BatteryController,
+    private val batteryInteractor: BatteryInteractor,
     private val privacyController: PrivacyItemController,
     @DisplayAware private val context: Context,
     @DisplayAware private val scope: CoroutineScope,
@@ -92,7 +94,15 @@ constructor(
     }
 
     fun notifyPluggedIn(@IntRange(from = 0, to = 100) batteryLevel: Int) {
-        scope.launch(mainCoroutineContext) { scheduler.onStatusEvent(BatteryEvent(batteryLevel)) }
+        scope.launch(mainCoroutineContext) {
+            scheduler.onStatusEvent(
+                BatteryEvent(
+                    batteryLevel,
+                    batteryInteractor.batteryIconStyle.value,
+                    batteryInteractor.showPercentNextToIcon.value,
+                )
+            )
+        }
     }
 
     fun notifyPrivacyItemsEmpty() {

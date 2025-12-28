@@ -79,6 +79,9 @@ class BatteryInteractor @Inject constructor(
     /** @see [BatteryRepository.isPowerSaveEnabled] */
     val powerSave = repo.isPowerSaveEnabled
 
+    /** @see [BatteryRepository.batteryIconStyle] */
+    val batteryIconStyle: StateFlow<Int> = repo.batteryIconStyle
+
     /** @see [BatteryRepository.showBatteryPercentMode] */
     val showBatteryPercentMode: StateFlow<Int> = repo.showBatteryPercentMode
 
