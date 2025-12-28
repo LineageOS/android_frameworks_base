@@ -28,6 +28,7 @@ import com.android.systemui.common.shared.model.ContentDescription
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.lifecycle.HydratedActivatable
 import com.android.systemui.res.R
+import com.android.systemui.statusbar.pipeline.battery.data.repository.BatteryRepository
 import com.android.systemui.statusbar.pipeline.battery.domain.interactor.BatteryAttributionModel.Charging
 import com.android.systemui.statusbar.pipeline.battery.domain.interactor.BatteryAttributionModel.Defend
 import com.android.systemui.statusbar.pipeline.battery.domain.interactor.BatteryAttributionModel.PowerSave
@@ -60,6 +61,9 @@ sealed class BatteryViewModel(
 
     val isBatteryPercentSettingEnabled: Boolean by
         interactor.showPercentNextToIcon.hydratedStateOf(initialValue = false)
+
+    val isBatteryPercentInsideIconSettingEnabled: Boolean by
+        interactor.showPercentInsideIcon.hydratedStateOf(initialValue = false)
 
     /** A [List<BatteryGlyph>] representation of the current [level] */
     private val levelGlyphs: Flow<List<BatteryGlyph>> =
@@ -172,6 +176,9 @@ sealed class BatteryViewModel(
                 }
             }
             .hydratedStateOf(initialValue = ContentDescription.Loaded(null))
+
+    val batteryIconStyle: Int by
+        interactor.batteryIconStyle.hydratedStateOf(initialValue = BatteryRepository.ICON_STYLE_DEFAULT)
 
     /** For use in the shade, where we might need to show an estimate */
     val batteryTimeRemainingEstimate: String? by
