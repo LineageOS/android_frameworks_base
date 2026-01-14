@@ -78,7 +78,14 @@ constructor(
 
     private fun applyLayoutAndGravity() {
         val win = window ?: return
-        val side = if (volumePanelOnLeft) Gravity.START else Gravity.END
+        val side = if (volumePanelOnLeft) Gravity.LEFT else Gravity.RIGHT
+        val dialogView = win.decorView
+
+        dialogView.layoutDirection =
+            if (volumePanelOnLeft)
+                View.LAYOUT_DIRECTION_RTL
+            else
+                View.LAYOUT_DIRECTION_LTR
 
         if (isVolumeDialogVertical) {
             win.setLayout(
