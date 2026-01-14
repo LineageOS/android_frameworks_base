@@ -22,7 +22,7 @@
     android:layout_gravity="end"
     android:alpha="0"
     android:clipChildren="false"
-    android:minWidth="@dimen/volume_dialog_width">
+    android:minWidth="@dimen/volume_dialog_window_width">
 
     <View
         android:id="@+id/volume_dialog_background"
@@ -43,9 +43,9 @@
         android:layout_marginBottom="@dimen/volume_dialog_components_spacing"
         android:clipChildren="false"
         app:layout_constraintBottom_toTopOf="@id/volume_dialog_main_slider_container"
-        app:layout_constraintRight_toRightOf="@id/volume_dialog_background"
+        app:layout_constraintEnd_toEndOf="@id/volume_dialog_background"
         app:layout_constraintHeight_default="spread"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="spread">
 
@@ -77,9 +77,9 @@
         android:clipChildren="false"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="@id/volume_dialog_background"
+        app:layout_constraintEnd_toEndOf="@id/volume_dialog_background"
         app:layout_constraintHeight_default="wrap"
-        app:layout_constraintLeft_toLeftOf="@id/volume_dialog_background"
+        app:layout_constraintStart_toStartOf="@id/volume_dialog_background"
         app:layout_constraintTop_toBottomOf="@id/volume_dialog_main_slider_container"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintWidth_default="wrap">
@@ -101,7 +101,7 @@
         android:orientation="horizontal"
         android:showDividers="middle|beginning|end"
         app:layout_constraintBottom_toBottomOf="@id/volume_dialog_main_slider_container"
-        app:layout_constraintStart_toEndOf="@id/volume_dialog_background"
+        app:layout_constraintEnd_toStartOf="@id/volume_dialog_background"
         app:layout_constraintTop_toTopOf="@id/volume_dialog_main_slider_container"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
