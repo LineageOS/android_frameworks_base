@@ -117,7 +117,7 @@ class InternetDetailsContentManagerTest(private val isInDialog: Boolean) : Sysui
         whenever(internetWifiEntry.isDefaultNetwork).thenReturn(true)
         whenever(internetWifiEntry.hasInternetAccess()).thenReturn(true)
         whenever(wifiEntries.size).thenReturn(1)
-        whenever(internetDetailsContentController.getDialogTitleText()).thenReturn(TITLE)
+        whenever(internetDetailsContentController.getDialogTitleText(true)).thenReturn(TITLE)
         whenever(internetDetailsContentController.getSubtitleText(ArgumentMatchers.anyBoolean()))
             .thenReturn("")
         whenever(internetDetailsContentController.getMobileNetworkTitle(ArgumentMatchers.anyInt()))
@@ -943,7 +943,7 @@ class InternetDetailsContentManagerTest(private val isInDialog: Boolean) : Sysui
         assertThat(internetDetailsContentManager.title).isEqualTo("Internet")
         assertThat(internetDetailsContentManager.subTitle).isEqualTo("")
 
-        whenever(internetDetailsContentController.getDialogTitleText()).thenReturn("New title")
+        whenever(internetDetailsContentController.getDialogTitleText(true)).thenReturn("New title")
         whenever(internetDetailsContentController.getSubtitleText(ArgumentMatchers.anyBoolean()))
             .thenReturn("New subtitle")
 

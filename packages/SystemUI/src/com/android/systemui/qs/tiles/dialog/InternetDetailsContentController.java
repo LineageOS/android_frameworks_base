@@ -471,9 +471,12 @@ public class InternetDetailsContentController implements AccessPointController.A
         return WifiUtils.getWifiDetailsSettingsIntent(key);
     }
 
-    CharSequence getDialogTitleText() {
+    CharSequence getDialogTitleText(boolean canConfigMobileData) {
         if (isAirplaneModeEnabled()) {
             return mContext.getText(R.string.airplane_mode);
+        }
+        if (!canConfigMobileData) {
+            return mContext.getText(R.string.quick_settings_wifi_label);
         }
         return mContext.getText(R.string.quick_settings_internet_label);
     }
