@@ -54,6 +54,9 @@ interface WifiRepository {
     /** Current optimistic state of the toggle. */
     val wifiToggleState: StateFlow<WifiToggleState>
 
+    /** Disables Wi-Fi. See [WifiManager.setWifiEnabled] */
+    fun disableWifi()
+
     /** Enables Wi-Fi. See [WifiManager.setWifiEnabled] */
     fun enableWifi()
 
