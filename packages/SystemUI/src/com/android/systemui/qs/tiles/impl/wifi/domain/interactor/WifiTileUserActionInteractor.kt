@@ -64,7 +64,7 @@ constructor(
         withContext(mainContext) {
             internetDialogManager.create(
                 aboveStatusBar = true,
-                accessPointController.canConfigMobileData(),
+                false, /* canConfigMobileData */
                 accessPointController.canConfigWifi(),
                 expandable,
             )
@@ -78,27 +78,10 @@ constructor(
     }
 
     fun handleSecondaryClick(expandable: Expandable?) {
-        when (wifiRepository.wifiToggleState.value) {
-            WifiToggleState.Normal -> {
-                // If not in a transition, decide based on the Wi-Fi state.
-                if (!wifiRepository.isWifiEnabled.value) {
-                    wifiRepository.enableWifi()
-                } else if (!wifiRepository.isWifiConnectedWithValidSsid()) {
-                    wifiRepository.scanForWifi()
-                } else {
-                    wifiRepository.pauseWifi()
-                }
-            }
-            WifiToggleState.Pausing -> {
-                // The user clicked again while it was in the middle of pausing.
-                // This cancels the disconnect action and starts scanning for wifi again.
-                wifiRepository.scanForWifi()
-            }
-            WifiToggleState.Scanning -> {
-                // The user clicked again while it was in the middle of Scanning.
-                // This cancels the scanning action and pauses wifi.
-                wifiRepository.pauseWifi()
-            }
+        if (!wifiRepository.isWifiEnabled.value) {
+            wifiRepository.enableWifi()
+        } else {
+            wifiRepository.disableWifi()
         }
     }
 }
