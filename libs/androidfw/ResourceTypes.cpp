@@ -612,6 +612,20 @@ status_t ResStringPool::setTo(const void* data, size_t size, bool copyData)
                     (int)mHeader->stylesStart, (int)mHeader->header.size);
             return (mError=BAD_TYPE);
         }
+
+        if (mHeader->styleCount >
+            std::numeric_limits<decltype(mHeader->styleCount)>::max() / sizeof(uint32_t)) {
+          ALOGW("Bad string block: potential integer overflow when finding style entries\n");
+          return (mError = BAD_TYPE);
+        }
+
+        const size_t styleOffsetsStart =
+            reinterpret_cast<const uint8_t*>(mEntryStyles) - reinterpret_cast<const uint8_t*>(mHeader);
+        if (mHeader->styleCount * sizeof(uint32_t) > (mHeader->stringsStart - styleOffsetsStart)) {
+          ALOGW("Bad string block: style offsets extend past style data start\n");
+          return (mError = BAD_TYPE);
+        }
+
         mStylePoolSize =
             (mHeader->header.size-mHeader->stylesStart)/sizeof(uint32_t);
 
