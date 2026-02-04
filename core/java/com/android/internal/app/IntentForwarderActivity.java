@@ -340,6 +340,7 @@ public class IntentForwarderActivity extends Activity  {
             String resolverTitle, PackageManager pmForTargetUser) {
         int layoutId = R.layout.miniresolver;
         setContentView(layoutId);
+        getWindow().setHideOverlayWindows(true);
 
         findViewById(R.id.title_container).setElevation(0);
 
