@@ -240,6 +240,7 @@ public class IntentForwarderActivity extends Activity  {
                 launchIntent, callingPackage));
         int layoutId = R.layout.miniresolver;
         setContentView(layoutId);
+        getWindow().setHideOverlayWindows(true);
 
         findViewById(R.id.title_container).setElevation(0);
 
