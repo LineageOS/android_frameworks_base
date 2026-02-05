@@ -25,5 +25,6 @@
         <encrypted-storage />
         <disable-camera />
         <disable-keyguard-features />
+        <set-global-proxy />
     </uses-policies>
 </device-admin>
