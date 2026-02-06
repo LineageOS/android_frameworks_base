@@ -557,7 +557,7 @@ public abstract class AbstractMultiProfilePagerAdapter extends PagerAdapter {
         emptyStateView.setVisibility(View.GONE);
     }
 
-    private boolean hasCrossProfileIntents(List<Intent> intents, int source, int target) {
+    protected boolean hasCrossProfileIntents(List<Intent> intents, int source, int target) {
         IPackageManager packageManager = AppGlobals.getPackageManager();
         ContentResolver contentResolver = mContext.getContentResolver();
         for (Intent intent : intents) {

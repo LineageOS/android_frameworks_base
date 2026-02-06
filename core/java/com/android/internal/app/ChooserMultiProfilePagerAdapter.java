@@ -18,6 +18,7 @@ package com.android.internal.app;
 
 import android.annotation.Nullable;
 import android.content.Context;
+import android.content.Intent;
 import android.os.UserHandle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,8 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.widget.GridLayoutManager;
 import com.android.internal.widget.PagerAdapter;
 import com.android.internal.widget.RecyclerView;
+
+import java.util.List;
 
 /**
  * A {@link PagerAdapter} which describes the work and personal profile share sheet screens.
@@ -69,6 +72,16 @@ public class ChooserMultiProfilePagerAdapter extends AbstractMultiProfilePagerAd
         };
         mIsSendAction = isSendAction;
         mMaxTargetsPerRow = maxTargetsPerRow;
+    }
+
+    /**
+     * The cross-profile payload intents have already been filtered to those that can be
+     * forwarded (see ChooserActivity#prepareCrossProfileIntents), so a non-empty list means
+     * there are cross-profile intents.
+     */
+    @Override
+    protected boolean hasCrossProfileIntents(List<Intent> intents, int source, int target) {
+        return !intents.isEmpty();
     }
 
     private ChooserProfileDescriptor createProfileDescriptor(
