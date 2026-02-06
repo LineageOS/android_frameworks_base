@@ -32,6 +32,7 @@ import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityTaskManager;
+import android.app.AppGlobals;
 import android.app.IUriGrantsManager;
 import android.app.UriGrantsManager;
 import android.app.prediction.AppPredictionContext;
@@ -54,6 +55,7 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -155,6 +157,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -933,7 +936,21 @@ public class ChooserActivity extends ResolverActivity implements
             List<ResolveInfo> rList,
             boolean filterLastUsed) {
         int selectedProfile = findSelectedProfile();
-        List<Intent> crossProfileIntents = sanitizePayloadIntents(mIntents);
+        UserHandle personalProfileUserHandle = getPersonalProfileUserHandle();
+        UserHandle workProfileUserHandle = getWorkProfileUserHandle();
+        List<Intent> crossProfileIntents = selectedProfile == PROFILE_PERSONAL
+                ? prepareCrossProfileIntents(
+                        getContentResolver(),
+                        getTargetIntent(),
+                        mIntents,
+                        personalProfileUserHandle,
+                        workProfileUserHandle)
+                : prepareCrossProfileIntents(
+                        getContentResolver(),
+                        getTargetIntent(),
+                        mIntents,
+                        workProfileUserHandle,
+                        personalProfileUserHandle);
         ChooserGridAdapter personalAdapter = createChooserGridAdapter(
                 /* context */ this,
                 /* payloadIntents */ selectedProfile == PROFILE_PERSONAL
@@ -4295,7 +4312,46 @@ public class ChooserActivity extends ResolverActivity implements
     @NonNull
     @VisibleForTesting
     public static List<Intent> sanitizePayloadIntents(@NonNull List<Intent> intents) {
-        return intents.stream().map((intent) -> {
+        return sanitizePayloadIntents(intents, intent -> true);
+    }
+
+    /**
+     * Prepares the payload intents for the cross-profile tab. If the target intent can't be
+     * forwarded to the target profile, no intents can be forwarded; otherwise only the target
+     * intent and the alternate intents that can be forwarded are kept, then sanitized.
+     */
+    @NonNull
+    static List<Intent> prepareCrossProfileIntents(@NonNull ContentResolver contentResolver,
+            @NonNull Intent targetIntent, @NonNull List<Intent> intents,
+            @NonNull UserHandle source, @NonNull UserHandle target) {
+        final IPackageManager packageManager = AppGlobals.getPackageManager();
+        if (!isCrossProfileIntent(targetIntent, source.getIdentifier(), target.getIdentifier(),
+                packageManager, contentResolver)) {
+            // If the target intent can't be forwarded, then we can't forward any intents. The
+            // empty collection will be handled by the no cross-profile intents empty state.
+            return new ArrayList<>();
+        }
+        // The first item in the list is the target intent (but it is not necessarily the same
+        // object as the targetIntent passed in to this method). See the ResolverActivity.mIntents
+        // initialization.
+        final Intent firstIntent = intents.isEmpty() ? null : intents.get(0);
+        return sanitizePayloadIntents(intents, intent -> intent == firstIntent
+                || isCrossProfileIntent(intent, source.getIdentifier(), target.getIdentifier(),
+                        packageManager, contentResolver));
+    }
+
+    private static boolean isCrossProfileIntent(@NonNull Intent intent, int sourceUserId,
+            int targetUserId, @NonNull IPackageManager packageManager,
+            @NonNull ContentResolver contentResolver) {
+        return IntentForwarderActivity.canForward(intent, sourceUserId, targetUserId,
+                packageManager, contentResolver) != null;
+    }
+
+    @NonNull
+    private static List<Intent> sanitizePayloadIntents(@NonNull List<Intent> intents,
+            @NonNull Predicate<Intent> predicate) {
+        return intents.stream().filter(intent -> intent == null || predicate.test(intent))
+                .map((intent) -> {
             if (intent == null) {
                 return null;
             }
