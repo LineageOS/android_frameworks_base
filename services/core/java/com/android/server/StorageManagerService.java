@@ -3945,18 +3945,22 @@ class StorageManagerService extends IStorageManager.Stub
             }
         }
 
-        // Report all volumes as unmounted until we've recorded that user 0 has unlocked. There
+        // Report all volumes as unmounted until we've recorded that the parent has unlocked. There
         // are no guarantees that callers will see a consistent view of the volume before that
         // point
-        final boolean systemUserUnlocked = isSystemUnlocked(UserHandle.USER_SYSTEM);
+        final boolean systemUserUnlocked;
 
         final boolean userIsDemo;
         final boolean storagePermission;
         final boolean ceStorageUnlocked;
         final long token = Binder.clearCallingIdentity();
         try {
-            userIsDemo = LocalServices.getService(UserManagerInternal.class)
-                    .getUserInfo(userId).isDemo();
+            final UserInfo userInfo = LocalServices.getService(UserManagerInternal.class)
+                    .getUserInfo(userId);
+            final int parentUserId = userInfo.profileGroupId != UserInfo.NO_PROFILE_GROUP_ID
+                    ? userInfo.profileGroupId : userId;
+            systemUserUnlocked = isSystemUnlocked(parentUserId);
+            userIsDemo = userInfo.isDemo();
             storagePermission = mStorageManagerInternal.hasExternalStorage(callingUid,
                     callingPackage);
             ceStorageUnlocked = isCeStorageUnlocked(userId);
