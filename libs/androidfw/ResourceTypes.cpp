@@ -1743,6 +1743,11 @@ status_t ResXMLTree::validateNode(const ResXMLTree_node* node) const
         // check for sensical values pulled out of the stream so far...
         if ((size >= headerSize + sizeof(ResXMLTree_attrExt))
                 && ((void*)attrExt > (void*)node)) {
+            if (dtohs(attrExt->attributeSize) < sizeof(ResXMLTree_attribute)) {
+                ALOGW("Bad XML block: attribute size %d is smaller than min expected %d\n",
+                      int(dtohs(attrExt->attributeSize)), int(sizeof(ResXMLTree_attribute)));
+                return BAD_TYPE;
+            }
             const size_t attrSize = ((size_t)dtohs(attrExt->attributeSize))
                 * dtohs(attrExt->attributeCount);
             if ((dtohs(attrExt->attributeStart)+attrSize) <= (size-headerSize)) {
