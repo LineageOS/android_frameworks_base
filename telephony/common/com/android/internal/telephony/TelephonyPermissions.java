@@ -855,13 +855,13 @@ public final class TelephonyPermissions {
      * and return false if user is not associated with the subscription.
      */
     public static boolean checkSubscriptionAssociatedWithUser(@NonNull Context context, int subId,
-            @NonNull UserHandle callerUserHandle, @NonNull String destAddr) {
+            @NonNull UserHandle callerUserHandle, @Nullable String destAddr) {
         // Skip subscription-user association check for emergency numbers
         TelephonyManager tm = (TelephonyManager) context.getSystemService(
                 Context.TELEPHONY_SERVICE);
         final long token = Binder.clearCallingIdentity();
         try {
-            if (tm != null && tm.isEmergencyNumber(destAddr)) {
+            if (tm != null && destAddr != null && tm.isEmergencyNumber(destAddr)) {
                 Log.d(LOG_TAG, "checkSubscriptionAssociatedWithUser:"
                         + " destAddr is emergency number");
                 return true;
