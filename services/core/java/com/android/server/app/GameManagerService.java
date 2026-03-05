@@ -625,7 +625,8 @@ public final class GameManagerService extends IGameManagerService.Stub {
                         array.recycle();
                     }
                 }
-            } catch (NameNotFoundException | XmlPullParserException | IOException ex) {
+            } catch (NameNotFoundException | XmlPullParserException | IOException
+                     | OutOfMemoryError ex) {
                 // set flag back to default values when parsing fails
                 mPerfModeOverridden = false;
                 mBatteryModeOverridden = false;
