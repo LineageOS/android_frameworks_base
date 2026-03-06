@@ -529,9 +529,6 @@ public class IntentForwarderActivity extends Activity  {
                 ? targetUserId : callingUserId;
         int selectedProfile = findSelectedProfile(className);
         sanitizeIntent(intentReceived);
-        if (intentReceived.getSelector() != null) {
-            sanitizeIntent(intentReceived.getSelector());
-        }
         intentReceived.putExtra(EXTRA_SELECTED_PROFILE, selectedProfile);
         intentReceived.putExtra(EXTRA_CALLING_USER, UserHandle.of(callingUserId));
         if (singleTabOnly) {
@@ -612,7 +609,6 @@ public class IntentForwarderActivity extends Activity  {
             return null;
         }
         if (forwardIntent.getSelector() != null) {
-            sanitizeIntent(forwardIntent.getSelector());
             if (!canForwardInner(forwardIntent.getSelector(), sourceUserId, targetUserId,
                     packageManager, resolvedType)) {
                 return null;
@@ -679,12 +675,19 @@ public class IntentForwarderActivity extends Activity  {
     }
 
     /**
-     * Sanitize the intent in place.
+     * Sanitize the intent and sanitize its selector in place.
      */
     private static void sanitizeIntent(Intent intent) {
         // Apps should not be allowed to target a specific package/ component in the target user.
         intent.setPackage(null);
         intent.setComponent(null);
+
+        var selector = intent.getSelector();
+        if (selector != null) {
+            selector.setPackage(null);
+            selector.setComponent(null);
+            selector.setSelector(null);
+        }
     }
 
     protected MetricsLogger getMetricsLogger() {
