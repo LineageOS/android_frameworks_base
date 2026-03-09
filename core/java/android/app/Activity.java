@@ -6737,6 +6737,11 @@ public class Activity extends ContextThemeWrapper
      * to the next Activity that can handle it.  You typically call this in
      * {@link #onCreate} with the Intent returned by {@link #getIntent}.
      *
+     * Note: For security reasons, the caller identity propagated to the next activity
+     * will reflect this intermediary app's identity unless it shares the same UID
+     * as the original caller. The receiving activity should validate the immediate
+     * caller rather than assuming the original intent sender is preserved.
+     *
      * @param intent The intent to dispatch to the next activity.  For
      * correct behavior, this must be the same as the Intent that started
      * your own activity; the only changes you can make are to the extras
