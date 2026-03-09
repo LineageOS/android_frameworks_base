@@ -1485,7 +1485,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                 // Change the realCallingUid to the calling activity's uid.
                 // In ActivityStarter, when caller is set, the callingUid and callingPid are
                 // ignored. So now both callingUid and realCallingUid is set to the caller app.
-                final int res = getActivityStartController()
+                final ActivityStarter starter = getActivityStartController()
                         .obtainStarter(intent, "startNextMatchingActivity")
                         .setCaller(r.app.getThread())
                         .setResolvedType(r.resolvedType)
@@ -1494,14 +1494,24 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                         .setResultWho(resultWho)
                         .setRequestCode(requestCode)
                         .setCallingPid(-1)
-                        .setCallingUid(r.launchedFromUid)
-                        .setCallingPackage(r.launchedFromPackage)
-                        .setCallingFeatureId(r.launchedFromFeatureId)
                         .setRealCallingPid(origCallingPid)
                         .setRealCallingUid(origCallingUid)
                         .setActivityOptions(options)
-                        .setUserId(userId)
-                        .execute();
+                        .setUserId(userId);
+                // Restrict identity forwarding to prevent caller ID spoofing (b/471797575).
+                // Only propagate the original caller's identity if the intermediary shares the same
+                // app ID or is a core system component (SYSTEM_UID).
+                final int intermediaryUid = r.getUid();
+                if (!UserHandle.isSameApp(intermediaryUid, r.launchedFromUid)
+                        && UserHandle.getAppId(intermediaryUid) != Process.SYSTEM_UID) {
+                    starter.setCallingUid(intermediaryUid)
+                            .setCallingPackage(r.packageName);
+                } else {
+                    starter.setCallingUid(r.launchedFromUid)
+                            .setCallingPackage(r.launchedFromPackage)
+                            .setCallingFeatureId(r.launchedFromFeatureId);
+                }
+                final int res = starter.execute();
                 r.finishing = wasFinishing;
                 return res == ActivityManager.START_SUCCESS;
             } finally {

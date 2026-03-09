@@ -24,6 +24,7 @@ import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 import static com.android.dx.mockito.inline.extended.ExtendedMockito.doReturn;
 import static com.android.dx.mockito.inline.extended.ExtendedMockito.mock;
+import static com.android.dx.mockito.inline.extended.ExtendedMockito.mockitoSession;
 import static com.android.dx.mockito.inline.extended.ExtendedMockito.verify;
 import static com.android.server.wm.ActivityInterceptorCallback.MAINLINE_FIRST_ORDERED_ID;
 import static com.android.server.wm.ActivityInterceptorCallback.SYSTEM_FIRST_ORDERED_ID;
@@ -43,23 +44,34 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.doCallRealMethod;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.when;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.TaskDescription;
+import android.app.AppGlobals;
 import android.app.IApplicationThread;
 import android.app.PictureInPictureParams;
 import android.app.servertransaction.ClientTransactionItem;
 import android.app.servertransaction.EnterPipRequestedItem;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.IPackageManager;
+import android.content.pm.ParceledListSlice;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Binder;
@@ -80,6 +92,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
+import org.mockito.MockitoSession;
+import org.mockito.quality.Strictness;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1221,5 +1235,134 @@ public class ActivityTaskManagerServiceTests extends WindowTestsBase {
         // Verify this throws a security exception due to no matching UID
         assertThrows(SecurityException.class,
                 () -> mAtm.getTaskDescriptionIcon(filePath, activity.mUserId));
+    }
+
+    @Test
+    public void testStartNextMatchingActivity_differentAppId_propagatesIntermediary()
+            throws RemoteException {
+        // App A (Original Caller)
+        final int appAUid = 10001;
+        final String appAPackage = "com.app.a";
+
+        // App B (Intermediary - untrusted different UID)
+        final int appBUid = 10002;
+        final String appBPackage = "com.app.b";
+
+        ActivityStarter starter =
+                setupStartNextMatchingActivityMock(appAUid, appAPackage, appBUid, appBPackage);
+
+        // Intermediary is untrusted, so identity is squashed to App B
+        verify(starter).setCallingUid(eq(appBUid));
+        verify(starter).setCallingPackage(eq(appBPackage));
+        verify(starter, never()).setCallingUid(eq(appAUid));
+    }
+
+    @Test
+    public void testStartNextMatchingActivity_sameAppId_propagatesOriginalCaller()
+            throws RemoteException {
+        // App A (Original Caller)
+        final int appAUid = 10001;
+        final String appAPackage = "com.app.a";
+
+        // App B (Intermediary - shares same App ID)
+        final int appBUid = 10001; // Same UID
+        final String appBPackage = "com.app.b";
+
+        ActivityStarter starter =
+                setupStartNextMatchingActivityMock(appAUid, appAPackage, appBUid, appBPackage);
+
+        // Intermediary is trusted (same app), so propagate App A
+        verify(starter).setCallingUid(eq(appAUid));
+        verify(starter).setCallingPackage(eq(appAPackage));
+    }
+
+    @Test
+    public void testStartNextMatchingActivity_systemUid_propagatesOriginalCaller()
+            throws RemoteException {
+        // App A (Original Caller)
+        final int appAUid = 10001;
+        final String appAPackage = "com.app.a";
+
+        // App B (Intermediary - SYSTEM UID like ChooserActivity)
+        final int appBUid = android.os.Process.SYSTEM_UID;
+        final String appBPackage = "android";
+
+        ActivityStarter starter =
+                setupStartNextMatchingActivityMock(appAUid, appAPackage, appBUid, appBPackage);
+
+        // Intermediary is trusted (System), so propagate App A
+        verify(starter).setCallingUid(eq(appAUid));
+        verify(starter).setCallingPackage(eq(appAPackage));
+    }
+
+    private ActivityStarter setupStartNextMatchingActivityMock(
+            int origUid, String origPackage, int intermediaryUid, String intermediaryPackage)
+            throws RemoteException {
+        final ComponentName intermediaryComponent =
+                new ComponentName(intermediaryPackage, "IntermediaryActivity");
+        final Intent intent = new Intent("TEST_ACTION")
+                .setPackage(intermediaryPackage)
+                .setComponent(intermediaryComponent);
+
+        ActivityRecord intermediaryApp = new ActivityBuilder(mAtm)
+                .setComponent(intermediaryComponent)
+                .setUid(intermediaryUid)
+                .setCreateTask(true)
+                .setLaunchedFromPackage(origPackage)
+                .setLaunchedFromUid(origUid)
+                .setIntent(intent)
+                .build();
+
+        intermediaryApp.app = mock(WindowProcessController.class);
+        when(intermediaryApp.app.getThread()).thenReturn(mock(IApplicationThread.class));
+        when(intermediaryApp.app.hasThread()).thenReturn(true);
+
+        List<ResolveInfo> resolves = new ArrayList<>();
+
+        // Intermediary ResolveInfo (the current activity)
+        ResolveInfo res = new ResolveInfo();
+        res.activityInfo = new ActivityInfo();
+        res.activityInfo.packageName = intermediaryPackage;
+        res.activityInfo.name = intermediaryComponent.getClassName();
+        res.activityInfo.applicationInfo = new ApplicationInfo();
+        res.activityInfo.applicationInfo.packageName = intermediaryPackage;
+        res.activityInfo.applicationInfo.uid = intermediaryUid;
+        resolves.add(res);
+
+        // Target ResolveInfo (the victim/next activity)
+        ResolveInfo nextRes = new ResolveInfo();
+        nextRes.activityInfo = new ActivityInfo();
+        nextRes.activityInfo.packageName = "com.app.target";
+        nextRes.activityInfo.name = "TargetActivity";
+        nextRes.activityInfo.applicationInfo = new ApplicationInfo();
+        nextRes.activityInfo.applicationInfo.packageName = "com.app.target";
+        nextRes.activityInfo.applicationInfo.uid = 10003;
+        resolves.add(nextRes);
+
+        final IPackageManager mockIPackageManager = mock(IPackageManager.class);
+
+        final MockitoSession session = mockitoSession()
+                .spyStatic(AppGlobals.class)
+                .strictness(Strictness.LENIENT)
+                .startMocking();
+        try {
+            doReturn(mockIPackageManager).when(AppGlobals::getPackageManager);
+            doReturn(new ParceledListSlice<>(resolves)).when(mockIPackageManager)
+                    .queryIntentActivities(any(Intent.class), any(), anyLong(), anyInt());
+
+            ActivityStartController startController = spy(mAtm.getActivityStartController());
+            doReturn(startController).when(mAtm).getActivityStartController();
+
+            ActivityStarter starter = spy(new ActivityStarter(startController, mAtm,
+                    mSupervisor, mock(ActivityStartInterceptor.class)));
+            doReturn(starter).when(startController).obtainStarter(any(Intent.class), anyString());
+            doReturn(ActivityManager.START_SUCCESS).when(starter).execute();
+
+            mAtm.startNextMatchingActivity(intermediaryApp.token, intent, null);
+
+            return starter;
+        } finally {
+            session.finishMocking();
+        }
     }
 }
