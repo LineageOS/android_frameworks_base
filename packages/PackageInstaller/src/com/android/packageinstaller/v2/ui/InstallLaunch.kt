@@ -28,6 +28,7 @@ import android.os.UserManager
 import android.provider.Settings
 import android.util.Log
 import android.view.Window
+import android.view.WindowManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
@@ -75,6 +76,7 @@ class InstallLaunch : FragmentActivity(), InstallActionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.addSystemFlags(WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
 
         // The base theme inherits a deviceDefault theme. Applying a material style on the base
