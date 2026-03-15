@@ -149,6 +149,9 @@ public class ExternalStorageProvider extends FileSystemProvider {
 
     private static final String GET_DOCUMENT_URI_CALL = "get_document_uri";
     private static final String GET_MEDIA_URI_CALL = "get_media_uri";
+    private static final String REVOKE_URI_PERMISSION_CALL = "revoke_uri_permission";
+    private static final String EXTRA_OLD_PATH = "old_path";
+
 
     private StorageManager mStorageManager;
     private UserManager mUserManager;
@@ -968,11 +971,49 @@ public class ExternalStorageProvider extends FileSystemProvider {
                         throw new IllegalStateException(e);
                     }
                 }
+                case REVOKE_URI_PERMISSION_CALL:
+                    // All callers must go through MediaProvider
+                    getContext().enforceCallingPermission(
+                            android.Manifest.permission.WRITE_MEDIA_STORAGE, TAG);
+
+                    if (extras == null) {
+                        throw new IllegalArgumentException(
+                                "extras cannot be null for revoke_uri_permission");
+                    }
+
+                    final String oldPath = extras.getString(EXTRA_OLD_PATH);
+                    if (TextUtils.isEmpty(oldPath)) {
+                        throw new IllegalArgumentException(
+                                "oldPath cannot be null or empty for revoke_uri_permission");
+                    }
+                    revokeDocumentByPath(oldPath);
+                    break;
                 default:
                     Log.w(TAG, "unknown method passed to call(): " + method);
             }
         }
         return bundle;
+    }
+
+    private void revokeDocumentByPath(String oldPath) {
+        final File file = new File(oldPath);
+        final String docId;
+        try {
+            docId = getDocIdForFile(file);
+        } catch (FileNotFoundException e) {
+            Log.w(TAG, "Failed to get docId for path " + oldPath + " during revoke", e);
+            return;
+        }
+
+        final Uri uri = DocumentsContract.buildDocumentUri(AUTHORITY, docId);
+        final Uri treeUri = DocumentsContract.buildTreeDocumentUri(AUTHORITY, docId);
+        final long token = Binder.clearCallingIdentity();
+        try {
+            getContext().revokeUriPermission(uri, ~0);
+            getContext().revokeUriPermission(treeUri, ~0);
+        } finally {
+            Binder.restoreCallingIdentity(token);
+        }
     }
 
     private static boolean equalIgnoringCase(@NonNull String a, @NonNull String b) {
