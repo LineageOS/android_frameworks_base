@@ -64,6 +64,7 @@ import android.os.IBinder;
 import android.os.IRemoteCallback;
 import android.os.Looper;
 import android.os.PatternMatcher;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.Trace;
@@ -512,6 +513,17 @@ public class LauncherProxyService implements CallbackController<LauncherProxyLis
         public void toggleQuickSettingsPanel() {
             verifyCallerAndClearCallingIdentityPostMain("toggleQuickSettingsPanel", () ->
                     mCommandQueue.toggleQuickSettingsPanel());
+        }
+
+        @Override
+        public void onSleepEvent(MotionEvent event) {
+            verifyCallerAndClearCallingIdentity("onSleepEvent", () -> {
+                mHandler.post(() -> {
+                    mContext.getSystemService(PowerManager.class)
+                            .goToSleep(event.getEventTime());
+                    event.recycle();
+                });
+            });
         }
 
         private boolean verifyCaller(String reason) {
