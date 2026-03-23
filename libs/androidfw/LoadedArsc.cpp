@@ -424,7 +424,13 @@ std::unique_ptr<LoadedPackage> LoadedPackage::Load(const Chunk& chunk) {
     return {};
   }
 
-  loaded_package->package_id_ = dtohl(header->id);
+  const uint32_t package_id = dtohl(header->id);
+  if (package_id > std::numeric_limits<uint8_t>::max()) {
+    LOG(ERROR) << "RES_TABLE_PACKAGE_TYPE package id is out of valid range";
+    return {};
+  }
+
+  loaded_package->package_id_ = static_cast<int>(package_id);
   if (loaded_package->package_id_ == 0) {
     // Package ID of 0 means this is a shared library.
     loaded_package->dynamic_ = true;

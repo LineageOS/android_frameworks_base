@@ -174,6 +174,30 @@ TEST(LoadedArscTest, LoadFeatureSplit) {
   EXPECT_EQ(std::string("string"), type_name);
 }
 
+TEST(LoadedArscTest, LoadArscWithInvalidPackageId) {
+  struct {
+    ResTable_header table_header;
+    ResTable_package package_header;
+  } __attribute__((packed)) data = {};
+
+  data.table_header.header.type = htods(RES_TABLE_TYPE);
+  data.table_header.header.headerSize = htods(sizeof(data.table_header));
+  data.table_header.header.size = htodl(sizeof(data));
+  data.table_header.packageCount = htodl(1);
+
+  data.package_header.header.type = htods(RES_TABLE_PACKAGE_TYPE);
+  data.package_header.header.headerSize = htods(sizeof(data.package_header));
+  data.package_header.header.size = htodl(sizeof(data.package_header));
+  data.package_header.id = htodl(256); // Invalid ID (> 255)
+  data.package_header.typeStrings = htodl(sizeof(data.package_header));
+  data.package_header.keyStrings = htodl(sizeof(data.package_header));
+
+  auto loaded_arsc = LoadedArsc::Load(&data, sizeof(data));
+  ASSERT_THAT(loaded_arsc, IsNull())
+      << "Expected to fail loading but got " << loaded_arsc->GetPackages().size()
+      << " packages, first ID " << loaded_arsc->GetPackages().at(0)->GetPackageId();
+}
+
 // structs with size fields (like Res_value, ResTable_entry) should be
 // backwards and forwards compatible (aka checking the size field against
 // sizeof(Res_value) might not be backwards compatible.
