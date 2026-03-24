@@ -22,6 +22,7 @@ import android.hardware.input.InputManager
 import android.hardware.input.KeyGlyphMap
 import android.view.KeyEvent.KEYCODE_A
 import android.view.KeyEvent.KEYCODE_BACK
+import android.view.KeyEvent.KEYCODE_DEL
 import android.view.KeyEvent.KEYCODE_DPAD_LEFT
 import android.view.KeyEvent.KEYCODE_ESCAPE
 import android.view.KeyEvent.KEYCODE_G
@@ -167,8 +168,14 @@ constructor(
             }
         )
         // Back: go back to previous state (back button)
+        //  - Meta + Backspace OR
         //  - Meta + Escape OR
         //  - Meta + Left arrow
+        add(
+            shortcutInfo(resources.getString(R.string.group_system_go_back)) {
+                command(META_META_ON, KEYCODE_DEL)
+            }
+        )
         add(
             shortcutInfo(resources.getString(R.string.group_system_go_back)) {
                 command(META_META_ON, KEYCODE_ESCAPE)
