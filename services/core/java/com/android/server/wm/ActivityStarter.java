@@ -640,10 +640,11 @@ class ActivityStarter {
                                             UserHandle.getUserId(activityInfo.applicationInfo.uid),
                                             activityInfo.requireContentUriPermissionFromCaller,
                                             /* requestHashCode */ this.hashCode());
-                            if (intentGrants == null) {
-                                intentGrants = creatorIntentGrants;
-                            } else {
-                                intentGrants.merge(creatorIntentGrants);
+                            // Only both calling UID and creator UID has permission to grant uri,
+                            // then we grant uri permission to intentGrants. Otherwise, we clear
+                            // intentGrants.
+                            if (intentGrants == null || creatorIntentGrants == null) {
+                                intentGrants = null;
                             }
                         } catch (SecurityException securityException) {
                             logAndThrowExceptionForIntentRedirect(supervisor.mService.mContext,
@@ -664,10 +665,11 @@ class ActivityStarter {
                                             activityInfo.applicationInfo.packageName,
                                             UserHandle.getUserId(
                                                     activityInfo.applicationInfo.uid));
-                            if (intentGrants == null) {
-                                intentGrants = creatorIntentGrants;
-                            } else {
-                                intentGrants.merge(creatorIntentGrants);
+                            // Only both calling UID and creator UID has permission to grant uri,
+                            // then we grant uri permission to intentGrants. Otherwise, we clear
+                            // intentGrants.
+                            if (intentGrants == null || creatorIntentGrants == null) {
+                                intentGrants = null;
                             }
                         } catch (SecurityException securityException) {
                             logAndThrowExceptionForIntentRedirect(supervisor.mService.mContext,
