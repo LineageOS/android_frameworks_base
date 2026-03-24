@@ -38,20 +38,6 @@ public class NeededUriGrants {
         this.uris = new ArraySet<>();
     }
 
-    public void merge(NeededUriGrants other) {
-        if (other == null) return;
-        if (!Objects.equals(this.targetPkg, other.targetPkg)
-                || this.targetUid != other.targetUid || this.flags != other.flags) {
-            Slog.wtf("NeededUriGrants",
-                    "The other NeededUriGrants does not share the same targetUid, targetPkg or "
-                            + "flags. It cannot be merged into this NeededUriGrants. This "
-                            + "NeededUriGrants: " + this.toStringWithoutUri()
-                            + ". Other NeededUriGrants: " + other.toStringWithoutUri());
-        } else {
-            this.uris.addAll(other.uris);
-        }
-    }
-
     public void dumpDebug(ProtoOutputStream proto, long fieldId) {
         long token = proto.start(fieldId);
         proto.write(NeededUriGrantsProto.TARGET_PACKAGE, targetPkg);

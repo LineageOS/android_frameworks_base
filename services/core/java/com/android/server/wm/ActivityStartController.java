@@ -495,10 +495,11 @@ public class ActivityStartController {
                                     .checkGrantUriPermissionFromIntent(intent, creatorUid,
                                             aInfo.applicationInfo.packageName,
                                             UserHandle.getUserId(aInfo.getUid()));
-                            if (intentGrants == null) {
-                                intentGrants = creatorIntentGrants;
-                            } else {
-                                intentGrants.merge(creatorIntentGrants);
+                            // Only both calling UID and creator UID has permission to grant uri,
+                            // then we grant uri permission to intentGrants. Otherwise, we clear
+                            // intentGrants.
+                            if (intentGrants == null || creatorIntentGrants == null) {
+                                intentGrants = null;
                             }
                         } catch (SecurityException securityException) {
                             ActivityStarter.logAndThrowExceptionForIntentRedirect(mService.mContext,
