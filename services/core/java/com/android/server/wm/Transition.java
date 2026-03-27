@@ -1741,10 +1741,20 @@ class Transition implements BLASTSyncEngine.TransactionReadyListener {
         // Update the input-sink (touch-blocking) state now that the animation is finished.
         boolean scheduleAnimation = false;
         for (int i = 0; i < mParticipants.size(); ++i) {
-            final ActivityRecord ar = mParticipants.valueAt(i).asActivityRecord();
-            if (ar == null || !ar.isVisible() || ar.getParent() == null) continue;
-            scheduleAnimation = true;
-            ar.mActivityRecordInputSink.applyChangesToSurfaceIfChanged(ar.getPendingTransaction());
+            final WindowContainer wc = mParticipants.valueAt(i);
+            final ActivityRecord ar = wc.asActivityRecord();
+            if (ar != null && ar.isVisible() && ar.getParent() != null) {
+                scheduleAnimation = true;
+                ar.mActivityRecordInputSink.applyChangesToSurfaceIfChanged(
+                        ar.getPendingTransaction());
+            }
+            final Task task = wc.asTask();
+            if (task != null && task.isVisible() && task.getParent() != null
+                    && task.mTaskInputSink != null) {
+                scheduleAnimation = true;
+                task.mTaskInputSink.applyChangesToSurfaceIfChanged(
+                        task.getPendingTransaction());
+            }
         }
         // To apply pending transactions.
         if (scheduleAnimation) mWmService.scheduleAnimationLocked();
