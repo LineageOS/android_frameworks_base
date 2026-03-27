@@ -418,6 +418,12 @@ class Task extends TaskFragment {
     // TODO: remove this once the recents animation is moved to the Shell
     SurfaceControl mLastRecentsAnimationOverlay;
 
+    // A surface that could intercept touches to avoid cross-Task passthrough. This is applied to
+    // non-organizer-created Task only and created when the first TaskFragment is added to the
+    // children of this Task.
+    @Nullable
+    TaskInputSink mTaskInputSink = null;
+
     static final int LAYER_RANK_INVISIBLE = -1;
     // Ranking (from top) of this task among all visible tasks. (-1 means it's not visible)
     // This number will be assigned when we evaluate OOM scores for all visible tasks.
@@ -1457,6 +1463,11 @@ class Task extends TaskFragment {
         final TaskFragment childTaskFrag = child.asTaskFragment();
         if (childTaskFrag != null && childTaskFrag.asTask() == null) {
             childTaskFrag.setMinDimensions(mMinWidth, mMinHeight);
+            if (!mCreatedByOrganizer && mTaskInputSink == null) {
+                // The TaskInputSink is created for the Task when the first TaskFragment is added
+                // to the Task's children and the Task is not created by an organizer.
+                mTaskInputSink = new TaskInputSink(this);
+            }
 
             // The starting window should keep covering its task when a pure TaskFragment is added
             // because its bounds may not fill the task.
@@ -2622,6 +2633,9 @@ class Task extends TaskFragment {
         clearPinnedTaskIfNeed();
         // If applicable let the TaskOrganizer know the Task is vanishing.
         setTaskOrganizer(null);
+        if (mTaskInputSink != null) {
+            mTaskInputSink.releaseSurfaceControl();
+        }
 
         super.removeImmediately();
         mRemoving = false;
@@ -3322,6 +3336,11 @@ class Task extends TaskFragment {
     @Override
     void prepareSurfaces() {
         mDimmer.resetDimStates();
+        // Input sink surface is not a part of animation, so apply in a steady state
+        // (non-sync) with pending transaction.
+        if (mTaskInputSink != null && isVisible() && mSyncState == SYNC_STATE_NONE) {
+            mTaskInputSink.applyChangesToSurfaceIfChanged(getPendingTransaction());
+        }
         super.prepareSurfaces();
         getDimBounds(mTmpDimBoundsRect);
 
@@ -3393,7 +3412,6 @@ class Task extends TaskFragment {
         super.dump(pw, prefix, dumpAll);
         mAnimatingActivityRegistry.dump(pw, "AnimatingApps:", prefix);
     }
-
 
     /**
      * Fills in a {@link TaskInfo} with information from this task. Note that the base intent in the
