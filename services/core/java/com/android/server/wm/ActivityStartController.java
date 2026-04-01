@@ -446,13 +446,21 @@ public class ActivityStartController {
                 // Remove existing mismatch flag so it can be properly updated later
                 intent.removeExtendedFlags(Intent.EXTENDED_FLAG_FILTER_MISMATCH);
 
-                // Collect information about the target of the Intent.
-                ActivityInfo aInfo = mSupervisor.resolveActivity(intent, resolvedTypes[i],
-                        0 /* startFlags */, null /* profilerInfo */, userId, filterCallingUid,
-                        callingPid);
-                aInfo = mService.mAmInternal.getActivityInfoForUser(aInfo, userId);
                 int creatorUid = DEFAULT_INTENT_CREATOR_UID;
                 String creatorPackage = null;
+
+                // Check if the Intent was redirected
+                if ((intent.getExtendedFlags()
+                        & Intent.EXTENDED_FLAG_MISSING_CREATOR_OR_INVALID_TOKEN) != 0) {
+                    if (ActivityStarter.logAndAbortForIntentRedirect(mService.mContext,
+                            ActivityStarter.INTENT_REDIRECT_EXCEPTION_MISSING_OR_INVALID_TOKEN,
+                            intent, creatorUid, creatorPackage, filterCallingUid,
+                            callingPackage)) {
+                        Slog.d(TAG, "Not allowed to start activity since no intent creator token.");
+                        return START_CANCELED;
+                    }
+                }
+
                 if (ActivityManagerService.IntentCreatorToken.isValid(intent)) {
                     ActivityManagerService.IntentCreatorToken creatorToken =
                             (ActivityManagerService.IntentCreatorToken) intent.getCreatorToken();
@@ -462,6 +470,12 @@ public class ActivityStartController {
                     }
                     // leave creatorUid as -1 if the intent creator is the same as the launcher
                 }
+
+                // Collect information about the target of the Intent.
+                ActivityInfo aInfo = mSupervisor.resolveActivity(intent, resolvedTypes[i],
+                        0 /* startFlags */, null /* profilerInfo */, userId, filterCallingUid,
+                        callingPid);
+                aInfo = mService.mAmInternal.getActivityInfoForUser(aInfo, userId);
 
                 if (aInfo != null) {
                     try {
@@ -493,6 +507,7 @@ public class ActivityStartController {
                                     callingPackage, securityException);
                         }
                     }
+
                     if ((aInfo.applicationInfo.privateFlags
                             & ApplicationInfo.PRIVATE_FLAG_CANT_SAVE_STATE) != 0) {
                         throw new IllegalArgumentException(
