@@ -155,6 +155,7 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -1080,6 +1081,8 @@ public class PackageInstallerService extends IPackageInstaller.Stub implements
         }
 
         if (params.whitelistedRestrictedPermissions != null) {
+            params.whitelistedRestrictedPermissions =
+                    new ArrayList<>(new HashSet<>(params.whitelistedRestrictedPermissions));
             params.whitelistedRestrictedPermissions.retainAll(
                     mPm.getAllPlatformRestrictedPermissions());
         }
