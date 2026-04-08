@@ -48,7 +48,6 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.provider.Settings;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -57,7 +56,6 @@ import androidx.test.runner.AndroidJUnit4;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -68,7 +66,9 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(AndroidJUnit4.class)
@@ -128,14 +128,6 @@ public class IntentForwarderActivityTest {
         MockitoAnnotations.initMocks(this);
         mContext = InstrumentationRegistry.getTargetContext();
         sInjector = spy(new TestInjector());
-        mDeviceProvisionedInitialValue = Settings.Global.getInt(mContext.getContentResolver(),
-                Settings.Global.DEVICE_PROVISIONED, /* def= */ 0);
-    }
-
-    @After
-    public void tearDown() {
-        Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.DEVICE_PROVISIONED,
-                mDeviceProvisionedInitialValue);
     }
 
     @Test
@@ -541,8 +533,7 @@ public class IntentForwarderActivityTest {
     @Test
     public void shouldSkipDisclosure_duringDeviceSetup() throws RemoteException {
         setupShouldSkipDisclosureTest();
-        Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.DEVICE_PROVISIONED,
-                /* value= */ 0);
+        when(sInjector.isDeviceProvisioned()).thenReturn(false);
         Intent intent = new Intent(mContext, IntentForwarderWrapperActivity.class)
                 .setAction(Intent.ACTION_VIEW)
                 .addCategory(Intent.CATEGORY_BROWSABLE)
@@ -612,14 +603,13 @@ public class IntentForwarderActivityTest {
         sComponentName = FORWARD_TO_MANAGED_PROFILE_COMPONENT_NAME;
         sActivityName = "MyTestActivity";
         sPackageName = "test.package.name";
-        Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.DEVICE_PROVISIONED,
-                /* value= */ 1);
-        when(mApplicationInfo.isSystemApp()).thenReturn(true);
-        // Managed profile exists.
+
+        // Intent can be forwarded. profile exists.
         List<UserInfo> profiles = new ArrayList<>();
         profiles.add(CURRENT_USER_INFO);
         profiles.add(MANAGED_PROFILE_INFO);
         when(mUserManager.getProfiles(anyInt())).thenReturn(profiles);
+        when(mApplicationInfo.isSystemApp()).thenReturn(true);
         // Intent can be forwarded.
         when(mIPm.canForwardTo(
                 any(Intent.class), nullable(String.class), anyInt(), anyInt())).thenReturn(true);
@@ -635,11 +625,6 @@ public class IntentForwarderActivityTest {
         public void onCreate(@Nullable Bundle savedInstanceState) {
             getIntent().setComponent(sComponentName);
             super.onCreate(savedInstanceState);
-            try {
-                mExecutorService.awaitTermination(/* timeout= */ 30, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
 
         @Override
@@ -693,5 +678,48 @@ public class IntentForwarderActivityTest {
 
         @Override
         public void showToast(int messageId, int duration) {}
+
+        @Override
+        public ExecutorService getExecutorService() {
+            return new AbstractExecutorService() {
+                private boolean mShutDown = false;
+
+                @Override
+                public void shutdown() {
+                    mShutDown = true;
+                }
+
+                @Override
+                public List<Runnable> shutdownNow() {
+                    mShutDown = true;
+                    return new ArrayList<>();
+                }
+
+                @Override
+                public boolean isShutdown() {
+                    return mShutDown;
+                }
+
+                @Override
+                public boolean isTerminated() {
+                    return mShutDown;
+                }
+
+                @Override
+                public boolean awaitTermination(long timeout, TimeUnit unit) {
+                    return true;
+                }
+
+                @Override
+                public void execute(Runnable command) {
+                    command.run();
+                }
+            };
+        }
+
+        @Override
+        public boolean isDeviceProvisioned() {
+            return true;
+        }
     }
 }
