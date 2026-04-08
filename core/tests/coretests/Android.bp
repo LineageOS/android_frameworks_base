@@ -480,7 +480,6 @@ test_module_config {
     ],
     include_filters: ["com.android.internal.app."],
     exclude_filters: [
-        "com.android.internal.app.IntentForwarderActivityTest",
         "com.android.internal.app.WindowDecorActionBarTest",
     ],
 }
