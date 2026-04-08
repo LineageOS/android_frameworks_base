@@ -334,7 +334,7 @@ class InstallRepository(private val context: Context) : EventResultPersister.Eve
 
         if (!TextUtils.equals(installerPackageNameFromIntent, callerInfo.packageName)
             && callerInfo.packageName != null
-            && isPermissionGranted(
+            && !isPermissionGranted(
                 packageManager, Manifest.permission.INSTALL_PACKAGES, callerInfo.packageName
             )
         ) {
