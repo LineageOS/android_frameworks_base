@@ -17,7 +17,6 @@
 package com.android.packageinstaller;
 
 import static android.Manifest.permission;
-import static android.content.pm.PackageManager.GET_PERMISSIONS;
 import static android.content.pm.PackageManager.MATCH_ARCHIVED_PACKAGES;
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
@@ -34,8 +33,6 @@ import android.os.Bundle;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-
-import androidx.annotation.NonNull;
 
 import com.android.packageinstaller.v2.ui.UnarchiveLaunch;
 
@@ -61,17 +58,6 @@ public class UnarchiveActivity extends Activity {
 
         super.onCreate(null);
 
-        if (PackageUtil.isVersionTwoEnabled(this)) {
-            Intent piaV2 = new Intent(getIntent());
-            piaV2.putExtra(UnarchiveLaunch.EXTRA_CALLING_PKG_NAME, getLaunchedFromPackage());
-            piaV2.putExtra(UnarchiveLaunch.EXTRA_CALLING_PKG_UID, getLaunchedFromUid());
-            piaV2.setClass(this, UnarchiveLaunch.class);
-            piaV2.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
-            startActivity(piaV2);
-            finish();
-            return;
-        }
-
         int callingUid = getLaunchedFromUid();
         if (callingUid == Process.INVALID_UID) {
             // Cannot reach Package/ActivityManager. Aborting uninstall.
@@ -82,7 +68,8 @@ public class UnarchiveActivity extends Activity {
             return;
         }
 
-        String callingPackage = getPackageNameForUid(callingUid);
+        PackageManager packageManager = getPackageManager();
+        String callingPackage = PackageUtil.getPackageNameForUid(packageManager, callingUid);
         if (callingPackage == null) {
             Log.e(TAG, "Package not found for originating uid " + callingUid);
             setResult(Activity.RESULT_FIRST_USER);
@@ -92,7 +79,8 @@ public class UnarchiveActivity extends Activity {
 
         // We don't check the AppOpsManager here for REQUEST_INSTALL_PACKAGES because the requester
         // is not the source of the installation.
-        boolean hasRequestInstallPermission = Arrays.asList(getRequestedPermissions(callingPackage))
+        boolean hasRequestInstallPermission = Arrays.asList(
+                PackageUtil.getRequestedPermissions(packageManager, callingPackage))
                 .contains(permission.REQUEST_INSTALL_PACKAGES);
         boolean hasInstallPermission = getBaseContext().checkPermission(permission.INSTALL_PACKAGES,
                 0 /* random value for pid */, callingUid) == PackageManager.PERMISSION_GRANTED;
@@ -105,19 +93,30 @@ public class UnarchiveActivity extends Activity {
             return;
         }
 
+
+        if (PackageUtil.isVersionTwoEnabled(this)) {
+            Intent piaV2 = new Intent(getIntent());
+            piaV2.putExtra(UnarchiveLaunch.EXTRA_CALLING_PKG_NAME, getLaunchedFromPackage());
+            piaV2.putExtra(UnarchiveLaunch.EXTRA_CALLING_PKG_UID, getLaunchedFromUid());
+            piaV2.setClass(this, UnarchiveLaunch.class);
+            piaV2.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+            startActivity(piaV2);
+            finish();
+            return;
+        }
+
         Bundle extras = getIntent().getExtras();
         mPackageName = extras.getString(PackageInstaller.EXTRA_PACKAGE_NAME);
         mIntentSender = extras.getParcelable(EXTRA_UNARCHIVE_INTENT_SENDER, IntentSender.class);
         Objects.requireNonNull(mPackageName);
         Objects.requireNonNull(mIntentSender);
 
-        PackageManager pm = getPackageManager();
         try {
-            String appTitle = pm.getApplicationInfo(mPackageName,
+            String appTitle = packageManager.getApplicationInfo(mPackageName,
                     PackageManager.ApplicationInfoFlags.of(
-                            MATCH_ARCHIVED_PACKAGES)).loadLabel(pm).toString();
-            String installerTitle = getResponsibleInstallerTitle(pm,
-                    pm.getInstallSourceInfo(mPackageName));
+                            MATCH_ARCHIVED_PACKAGES)).loadLabel(packageManager).toString();
+            String installerTitle = getResponsibleInstallerTitle(packageManager,
+                    packageManager.getInstallSourceInfo(mPackageName));
             showDialogFragment(appTitle, installerTitle);
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Invalid packageName: " + e.getMessage());
@@ -138,19 +137,6 @@ public class UnarchiveActivity extends Activity {
             return "";
         }
         return pm.getApplicationInfo(packageName, /* flags= */ 0).loadLabel(pm).toString();
-    }
-
-    @NonNull
-    private String[] getRequestedPermissions(String callingPackage) {
-        String[] requestedPermissions = null;
-        try {
-            requestedPermissions = getPackageManager()
-                    .getPackageInfo(callingPackage, GET_PERMISSIONS).requestedPermissions;
-        } catch (PackageManager.NameNotFoundException e) {
-            // Should be unreachable because we've just fetched the packageName above.
-            Log.e(TAG, "Package not found for " + callingPackage);
-        }
-        return requestedPermissions == null ? new String[]{} : requestedPermissions;
     }
 
     void startUnarchive() {
@@ -174,13 +160,5 @@ public class UnarchiveActivity extends Activity {
         DialogFragment fragment = new UnarchiveFragment();
         fragment.setArguments(args);
         fragment.show(ft, "dialog");
-    }
-
-    private String getPackageNameForUid(int sourceUid) {
-        String[] packagesForUid = getPackageManager().getPackagesForUid(sourceUid);
-        if (packagesForUid == null) {
-            return null;
-        }
-        return packagesForUid[0];
     }
 }

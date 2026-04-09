@@ -16,6 +16,9 @@
 
 package com.android.packageinstaller;
 
+import static android.Manifest.permission;
+import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
+
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.Fragment;
@@ -23,10 +26,14 @@ import android.app.FragmentTransaction;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageInstaller;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Process;
+import android.util.Log;
 
 import com.android.packageinstaller.v2.ui.UnarchiveLaunch;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class UnarchiveErrorActivity extends Activity {
@@ -41,7 +48,41 @@ public class UnarchiveErrorActivity extends Activity {
 
     @Override
     public void onCreate(Bundle icicle) {
+        getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+
         super.onCreate(null);
+
+        int callingUid = getLaunchedFromUid();
+        if (callingUid == Process.INVALID_UID) {
+            // Cannot reach Package/ActivityManager. Aborting unarchive.
+            Log.e(LOG_TAG, "Could not determine the launching uid.");
+
+            setResult(Activity.RESULT_FIRST_USER);
+            finish();
+            return;
+        }
+
+        String callingPackage = PackageUtil.getPackageNameForUid(getPackageManager(), callingUid);
+        if (callingPackage == null) {
+            Log.e(LOG_TAG, "Package not found for originating uid " + callingUid);
+            setResult(Activity.RESULT_FIRST_USER);
+            finish();
+            return;
+        }
+
+        boolean hasRequestInstallPermission = Arrays.asList(
+                PackageUtil.getRequestedPermissions(getPackageManager(), callingPackage))
+                .contains(permission.REQUEST_INSTALL_PACKAGES);
+        boolean hasInstallPermission = getBaseContext().checkPermission(permission.INSTALL_PACKAGES,
+                0 /* random value for pid */, callingUid) == PackageManager.PERMISSION_GRANTED;
+        if (!hasRequestInstallPermission && !hasInstallPermission) {
+            Log.e(LOG_TAG, "Uid " + callingUid + " does not have "
+                    + permission.REQUEST_INSTALL_PACKAGES + " or "
+                    + permission.INSTALL_PACKAGES);
+            setResult(Activity.RESULT_FIRST_USER);
+            finish();
+            return;
+        }
 
         if (PackageUtil.isVersionTwoEnabled(this)) {
             Intent piaV2 = new Intent(getIntent());
