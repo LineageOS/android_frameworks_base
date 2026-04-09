@@ -17,6 +17,8 @@
 
 package com.android.packageinstaller;
 
+import static android.content.pm.PackageManager.GET_PERMISSIONS;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -464,4 +466,43 @@ public class PackageUtil {
         }
         return sb.toString();
     }
+
+    /**
+     * Returns the package name for the given UID.
+     *
+     * @param pm The package manager to use
+     * @param sourceUid The UID of the package to get the package name for
+     * @return The package name for the given UID or null if the UID does not match any packages.
+     */
+    public static String getPackageNameForUid(PackageManager pm, int sourceUid) {
+        String[] packagesForUid = pm.getPackagesForUid(sourceUid);
+        if (packagesForUid == null) {
+            Log.e(LOG_TAG, "Package not found for uid " + sourceUid);
+            return null;
+        }
+        return packagesForUid[0];
+    }
+
+    /**
+     * Returns the requested permissions for the given package.
+     *
+     * @param pm The package manager to use
+     * @param callingPackage The package to get the requested permissions for
+     * @return The requested permissions for the given package or an empty array if the package is
+     *         not found.
+     */
+    @NonNull
+    public static String[] getRequestedPermissions(PackageManager pm, String callingPackage) {
+        String[] requestedPermissions = null;
+        try {
+            requestedPermissions =
+                    pm.getPackageInfo(callingPackage, GET_PERMISSIONS).requestedPermissions;
+        } catch (Exception e) {
+            // Should be unreachable because we've just fetched the packageName above.
+            Log.e(LOG_TAG, "Package not found for " + callingPackage);
+        }
+        return requestedPermissions == null ? new String[]{} : requestedPermissions;
+    }
+
+
 }
