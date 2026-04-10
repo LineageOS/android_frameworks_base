@@ -44,6 +44,9 @@ import static com.android.server.uri.UriGrantsManagerService.H.PERSIST_URI_GRANT
 import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
+import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.RequiresPermission;
 import android.app.ActivityManager;
@@ -124,6 +127,11 @@ public class UriGrantsManagerService extends IUriGrantsManager.Stub {
     private static final boolean ENABLE_DYNAMIC_PERMISSIONS = true;
     private static final String MEDIA_PROVIDER_MODULE_NAME = "com.android.mediaprovider";
     private static final long MIN_DYNAMIC_PERMISSIONS_MP_VERSION = 301400000L;
+    // Maximum string attribute size that should be serialized to XML for URI
+    private static final int MAX_XML_STRING_ATTR_SIZE = 65_535;
+    // Maximum package name size
+    private static final int MAX_PACKAGE_NAME_SIZE = 255;
+
 
     private final Object mLock = new Object();
     private final Context mContext;
@@ -1394,6 +1402,12 @@ public class UriGrantsManagerService extends IUriGrantsManager.Stub {
         }
 
         FileOutputStream fos = null;
+        writeGrantedUriPermissionWithSnapshot(fos, startTime, persist);
+    }
+
+    @VisibleForTesting
+    void writeGrantedUriPermissionWithSnapshot(FileOutputStream fos, long startTime,
+            List<UriPermission.Snapshot> persist) {
         try {
             fos = mGrantFile.startWrite(startTime);
 
@@ -1402,6 +1416,25 @@ public class UriGrantsManagerService extends IUriGrantsManager.Stub {
             out.startDocument(null, true);
             out.startTag(null, TAG_URI_GRANTS);
             for (UriPermission.Snapshot perm : persist) {
+                // Do pre-validation then serialize
+                if (perm.uri == null || perm.sourcePkg == null || perm.targetPkg == null) {
+                    Slog.w(TAG, "Skipping grant with missing data");
+                    continue;
+                }
+                if (!stringSizeWithinBounds(perm.uri.toString(), MAX_XML_STRING_ATTR_SIZE)) {
+                    Slog.w(TAG, "Skipping grant: URI too long");
+                    continue;
+                }
+                if (!stringSizeWithinBounds(
+                        perm.sourcePkg,
+                        MAX_PACKAGE_NAME_SIZE)
+                        || !stringSizeWithinBounds(
+                        perm.targetPkg,
+                        MAX_PACKAGE_NAME_SIZE)) {
+                    Slog.w(TAG, "Skipping grant: Package name too long");
+                    continue;
+                }
+
                 out.startTag(null, TAG_URI_GRANT);
                 writeIntAttribute(out, ATTR_SOURCE_USER_ID, perm.uri.sourceUserId);
                 writeIntAttribute(out, ATTR_TARGET_USER_ID, perm.targetUserId);
@@ -1422,6 +1455,10 @@ public class UriGrantsManagerService extends IUriGrantsManager.Stub {
                 mGrantFile.failWrite(fos);
             }
         }
+    }
+
+    private static boolean stringSizeWithinBounds(@NonNull String str, int maxByteSize) {
+        return str.getBytes(UTF_8).length <= maxByteSize;
     }
 
     final class H extends Handler {
