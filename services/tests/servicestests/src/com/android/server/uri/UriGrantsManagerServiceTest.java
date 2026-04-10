@@ -59,9 +59,13 @@ import android.content.pm.ProviderInfo;
 import android.net.Uri;
 import android.os.Process;
 import android.os.UserHandle;
+import android.platform.test.annotations.AsbSecurityTest;
 import android.platform.test.flag.junit.FlagsParameterization;
 import android.platform.test.flag.junit.SetFlagsRule;
 import android.util.ArraySet;
+import android.util.Xml;
+
+import com.android.modules.utils.TypedXmlPullParser;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -69,7 +73,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -100,6 +109,7 @@ public class UriGrantsManagerServiceTest {
 
     private UriGrantsMockContext mContext;
     private UriGrantsManagerInternal mService;
+    private UriGrantsManagerService mServiceImplementation;
 
     // we expect the following only during grant if a grant is expected
     private void verifyNoVisibilityGrant() {
@@ -110,7 +120,8 @@ public class UriGrantsManagerServiceTest {
     @Before
     public void setUp() throws Exception {
         mContext = new UriGrantsMockContext();
-        mService = UriGrantsManagerService.createForTest(mContext.getFilesDir()).getLocalService();
+        mServiceImplementation = UriGrantsManagerService.createForTest(mContext.getFilesDir());
+        mService = mServiceImplementation.getLocalService();
     }
 
     /**
@@ -432,6 +443,57 @@ public class UriGrantsManagerServiceTest {
                 cameraInfo, USER_PRIMARY, true));
         assertFalse(mService.checkAuthorityGrants(UID_PRIMARY_SOCIAL,
                 cameraInfo, USER_SECONDARY, true));
+    }
+
+    @Test
+    @AsbSecurityTest(cveBugId = 262884935)
+    public void testPersistence_skipsMaliciouslyLongUri() throws Exception {
+        final Uri safeUri = Uri.parse("content://com.example.safe/data");
+        final GrantUri safeGrantUri = new GrantUri(USER_PRIMARY, safeUri, FLAG_READ);
+        final UriPermission safePerm = new UriPermission(PKG_SOCIAL, PKG_CAMERA,
+                UID_PRIMARY_CAMERA, safeGrantUri);
+        // Create a Long URI (> XML serializer max string attr length)
+        final String longString = new String(new char[65_536]).replace('\0', 'x');
+        final Uri longUri = Uri.parse("content://com.example.long/" + longString);
+        final GrantUri longGrantUri = new GrantUri(USER_PRIMARY, longUri, FLAG_READ);
+        final UriPermission longPerm = new UriPermission(PKG_SOCIAL, PKG_CAMERA,
+                UID_PRIMARY_CAMERA, longGrantUri);
+        final UriPermission.Snapshot safeSnapshot = new UriPermission.Snapshot(safePerm);
+        final UriPermission.Snapshot longSnapshot = new UriPermission.Snapshot(longPerm);
+        final ArrayList<UriPermission.Snapshot> persistList = new ArrayList<>();
+        persistList.add(safeSnapshot);
+        persistList.add(longSnapshot);
+
+        mServiceImplementation.writeGrantedUriPermissionWithSnapshot(
+                null, System.currentTimeMillis(), persistList);
+
+        File targetFile = new File(mContext.getFilesDir(), "urigrants.xml");
+        String fileContent = readFileToString(targetFile);
+        assertTrue("Safe URI should be written to disk",
+                fileContent.contains("com.example.safe/data"));
+        assertFalse("Malicious/Long URI should NOT be written to disk",
+                fileContent.contains("com.example.long"));
+        FileInputStream fis = new FileInputStream(targetFile);
+        try {
+            TypedXmlPullParser in = Xml.resolvePullParser(fis);
+            int type;
+            // Traverse the entire document. If it's malformed, this will throw an exception
+            while ((type = in.next()) != TypedXmlPullParser.END_DOCUMENT) {
+                // Just iterating through to validate structure
+            }
+        } catch (XmlPullParserException e) {
+            fail("Generated XML is not well-formed: " + e.getMessage());
+        } finally {
+            fis.close();
+        }
+    }
+
+    private String readFileToString(File file) throws Exception {
+        FileInputStream fis = new FileInputStream(file);
+        byte[] data = new byte[(int) file.length()];
+        fis.read(data);
+        fis.close();
+        return new String(data, StandardCharsets.UTF_8);
     }
 
     private static <T> Set<T> asSet(T... values) {
