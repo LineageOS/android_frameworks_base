@@ -30,6 +30,8 @@ import android.content.UriPermission;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.MatrixCursor.RowBuilder;
+import android.icu.lang.UCharacter;
+import android.icu.lang.UProperty;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
@@ -69,6 +71,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -453,14 +456,15 @@ public class ExternalStorageProvider extends FileSystemProvider {
         // This the root's path will be just an empty string.
         final String path = getPathFromDocId(documentId);
 
+        final String normalizedPath = normalizeAndFilterDefaultIgnorableCodepoints(path);
         // Block the root of the storage
-        if (path.isEmpty()) {
+        if (normalizedPath.isEmpty()) {
             return true;
         }
 
         // Block /Download/ and /Android/ folders from the tree.
-        if (equalIgnoringCase(path, Environment.DIRECTORY_DOWNLOADS) ||
-                equalIgnoringCase(path, Environment.DIRECTORY_ANDROID)) {
+        if (equalIgnoringCase(normalizedPath, Environment.DIRECTORY_DOWNLOADS)
+                || equalIgnoringCase(normalizedPath, Environment.DIRECTORY_ANDROID)) {
             return true;
         }
 
@@ -1047,5 +1051,48 @@ public class ExternalStorageProvider extends FileSystemProvider {
     private boolean isFileExistInTrashLocation(@NonNull RootInfo rootInfo, @NonNull File file) {
         File trashDir = new File(rootInfo.visiblePath, DIRECTORY_TRASH_STORAGE);
         return file.getAbsolutePath().startsWith(trashDir.getAbsolutePath());
+    }
+
+    /**
+     * Normalizes the given path to NFD form and removes all default ignorable Unicode characters.
+     * These include characters (e.g., invisible zero-width spaces) that are ignored by the lower
+     * file system, but can be exploited by malicious apps to bypass path-based regex checks.
+     *
+     * <p>Wholesale copied from MediaProvider at the path:
+     * //packages/providers/MediaProvider/src/com/android/providers/media/util/FileUtils.java
+     *
+     * @param path the input file path, possibly containing invisible Unicode characters
+     * @return a normalized path string with ignorable characters removed
+     */
+    @VisibleForTesting
+    static String normalizeAndFilterDefaultIgnorableCodepoints(String path) {
+        // Nothing to normalize.
+        if (path == null || path.isEmpty()) {
+            return path;
+        }
+
+        path = Normalizer.normalize(path, Normalizer.Form.NFD);
+        final int[] codePoints = path.codePoints().toArray();
+
+        boolean hasIgnorableCodepoints = false;
+        for (int codePoint : codePoints) {
+            if (UCharacter.hasBinaryProperty(codePoint, UProperty.DEFAULT_IGNORABLE_CODE_POINT)) {
+                hasIgnorableCodepoints = true;
+                break;
+            }
+        }
+        // Input is already normalized.
+        if (!hasIgnorableCodepoints) {
+            return path;
+        }
+
+        // Remove default ignorable code points.
+        StringBuilder normalizedPath = new StringBuilder(codePoints.length);
+        for (int codePoint : codePoints) {
+            if (!UCharacter.hasBinaryProperty(codePoint, UProperty.DEFAULT_IGNORABLE_CODE_POINT)) {
+                normalizedPath.appendCodePoint(codePoint);
+            }
+        }
+        return normalizedPath.toString();
     }
 }
