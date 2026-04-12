@@ -40,6 +40,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.io.FileNotFoundException;
+
 @RunWith(AndroidJUnit4.class)
 public class ExternalStorageProviderTest {
 
@@ -141,6 +143,44 @@ public class ExternalStorageProviderTest {
             final String docId = buildDocId(path);
             assertFalse("ExternalStorageProvider should NOT hide \"" + docId + "\", but it did",
                     mExternalStorageProvider.shouldHideDocument(docId));
+        }
+    }
+
+    @Test
+    public void test_shouldBlockDirectoryFromTree() throws Exception {
+        final String[] shouldBlock = {
+                "Android",
+                "Download",
+                "Android\u200B",
+                "Download\u200B",
+                "Android/\u200B",
+                "android",
+                "DOWNLOAD",
+        };
+        for (String path : shouldBlock) {
+            final String docId = buildDocId(path);
+            try {
+                assertTrue("ExternalStorageProvider should block \"" + docId + "\", but it didn't",
+                        mExternalStorageProvider.shouldBlockDirectoryFromTree(docId));
+            } catch (FileNotFoundException ignored) {
+                // If the file doesn't exist, ignored.
+            }
+        }
+
+        final String[] shouldNotBlock = {
+                "Android/datadir",
+                "Download/my_file",
+                "Documents",
+        };
+        for (String path : shouldNotBlock) {
+            final String docId = buildDocId(path);
+            try {
+                assertFalse(
+                        "ExternalStorageProvider should NOT block \"" + docId + "\", but it did",
+                        mExternalStorageProvider.shouldBlockDirectoryFromTree(docId));
+            } catch (FileNotFoundException ignored) {
+                // If the file doesn't exist, ignored.
+            }
         }
     }
 
