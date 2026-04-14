@@ -23,8 +23,11 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import android.os.Parcel;
+import android.os.ParcelFileDescriptor;
 import android.platform.test.annotations.DisabledOnRavenwood;
 import android.platform.test.ravenwood.RavenwoodRule;
+import android.system.Os;
+import android.system.OsConstants;
 
 import androidx.test.runner.AndroidJUnit4;
 
@@ -308,6 +311,74 @@ public class MemoryIntArrayTest {
         }
     }
 
+    // Ensure mmap/munmap behave properly even if the underlying FD's size has changed.
+    @Test
+    public void testMmapAndMunmapSizeConsistency() throws Exception {
+
+        MemoryIntArray array = null;
+        int largeFd = -1;
+        int originalFd = -1;
+        long newMappedAddr = -1;
+        // Since we only allocate enough space for 1 int below, this is also the mapping size for
+        // the array, since an int is going to be less than a page in size, but the mapping size
+        // is page aligned.
+        int pageSize = (int) Os.sysconf(OsConstants._SC_PAGESIZE);
+        try {
+            array = new MemoryIntArray(1);
+
+            Field fdField = MemoryIntArray.class.getDeclaredField("mFd");
+            fdField.setAccessible(true);
+
+            Field addrField = MemoryIntArray.class.getDeclaredField("mMemoryAddr");
+            addrField.setAccessible(true);
+
+            originalFd = (int) fdField.get(array);
+
+            long mappedAddr = (long) addrField.get(array);
+
+            // Generate ashmem descriptor with a size large enough to ensure that the region spans
+            // more than 1 page.
+            largeFd = nativeCreateAshmem("large_fd", (2 * pageSize) / Integer.BYTES);
+
+            // Establish collateral adjacent mapped segment
+            newMappedAddr = nativeMremap(mappedAddr, pageSize, 2 * pageSize);
+            assertTrue("mremap should not fail", newMappedAddr != -1);
+            long adjacentProbeAddr = newMappedAddr + pageSize;
+
+            // Inject the larger FD and new mapping address before closing. This should cause only
+            // the first page of array to be unmapped, since that was its original size.
+            fdField.set(array, largeFd);
+            addrField.set(array, newMappedAddr);
+            array.close();
+
+            // Verify the original mapped configuration limits are honored. This would fail
+            // if we tried to reuse the size from the injected FD.
+            assertTrue("First page of the mapping should be unmapped",
+                       !nativeIsRangeMapped(newMappedAddr, pageSize));
+            assertTrue("Probe should not be wiped by unmap",
+                       nativeIsRangeMapped(adjacentProbeAddr, pageSize));
+            nativeMunmap(adjacentProbeAddr, pageSize);
+            newMappedAddr = -1;
+        } finally {
+            if (array != null && !array.isClosed()) {
+                IoUtils.closeQuietly(array);
+            }
+            if (originalFd >= 0) {
+                try {
+                    ParcelFileDescriptor.adoptFd(originalFd).close();
+                } catch (Exception e) {
+                    // Ignored
+                }
+            }
+            if (newMappedAddr != -1) {
+                nativeMunmap(newMappedAddr, 2 * pageSize);
+            }
+        }
+    }
+
     private native int nativeCreateAshmem(String name, int size);
     private native void nativeSetAshmemSize(int fd, int size);
+    private native long nativeMremap(long oldAddress, int oldSize, int newSize);
+    private native boolean nativeIsRangeMapped(long address, int size);
+    private native int nativeMunmap(long address, int size);
 }

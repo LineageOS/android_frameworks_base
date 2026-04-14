@@ -15,7 +15,9 @@
  */
 
 #include <atomic>
+#include <vector>
 #include <jni.h>
+#include <unistd.h>
 #include <cutils/ashmem.h>
 #include <linux/ashmem.h>
 #include <sys/ioctl.h>
@@ -63,4 +65,27 @@ void android_util_MemoryIntArrayTest_setAshmemSize(__attribute__((unused)) JNIEn
     }
 
     ioctl(fd, ASHMEM_SET_SIZE, size);
+}
+
+jlong android_util_MemoryIntArrayTest_mremap(__attribute__((unused)) JNIEnv* env,
+        __attribute__((unused)) jobject clazz, jlong oldAddress, jint oldSize, jint newSize)
+{
+    void* ptr = mremap(reinterpret_cast<void*>(oldAddress), oldSize, newSize, MREMAP_MAYMOVE);
+    return reinterpret_cast<jlong>(ptr);
+}
+
+jboolean android_util_MemoryIntArrayTest_isRangeMapped(__attribute__((unused)) JNIEnv* env,
+        __attribute__((unused)) jobject clazz, jlong address, jint size)
+{
+    int pageSize = getpagesize();
+    int nPages = (size + pageSize - 1) / pageSize;
+    std::vector<unsigned char> vec(nPages);
+    int result = mincore(reinterpret_cast<void*>(address), size, vec.data());
+    return result == 0;
+}
+
+jint android_util_MemoryIntArrayTest_munmap(__attribute__((unused)) JNIEnv* env,
+        __attribute__((unused)) jobject clazz, jlong address, jint size)
+{
+    return reinterpret_cast<jint>(munmap(reinterpret_cast<void*>(address), size));
 }
