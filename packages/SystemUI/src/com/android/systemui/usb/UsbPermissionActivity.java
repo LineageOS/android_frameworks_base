@@ -16,6 +16,10 @@
 
 package com.android.systemui.usb;
 
+import static android.content.pm.PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX;
+import static android.text.TextUtils.SAFE_STRING_FLAG_FIRST_LINE;
+import static android.text.TextUtils.SAFE_STRING_FLAG_TRIM;
+
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -80,7 +84,11 @@ public class UsbPermissionActivity extends AlertActivity
             finish();
             return;
         }
-        String appName = aInfo.loadLabel(packageManager).toString();
+        String appName =
+                aInfo.loadSafeLabel(
+                        packageManager,
+                        DEFAULT_MAX_LABEL_SIZE_PX,
+                        SAFE_STRING_FLAG_TRIM | SAFE_STRING_FLAG_FIRST_LINE).toString();
 
         final AlertController.AlertParams ap = mAlertParams;
         ap.mTitle = appName;

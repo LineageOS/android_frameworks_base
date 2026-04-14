@@ -16,6 +16,10 @@
 
 package com.android.systemui.usb;
 
+import static android.content.pm.PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX;
+import static android.text.TextUtils.SAFE_STRING_FLAG_FIRST_LINE;
+import static android.text.TextUtils.SAFE_STRING_FLAG_TRIM;
+
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -72,7 +76,11 @@ public class UsbConfirmActivity extends AlertActivity
         String packageName = intent.getStringExtra(UsbManager.EXTRA_PACKAGE);
 
         PackageManager packageManager = getPackageManager();
-        String appName = mResolveInfo.loadLabel(packageManager).toString();
+        String appName =
+                mResolveInfo.activityInfo.applicationInfo.loadSafeLabel(
+                        packageManager,
+                        DEFAULT_MAX_LABEL_SIZE_PX,
+                        SAFE_STRING_FLAG_TRIM | SAFE_STRING_FLAG_FIRST_LINE).toString();
 
         final AlertController.AlertParams ap = mAlertParams;
         ap.mTitle = appName;
