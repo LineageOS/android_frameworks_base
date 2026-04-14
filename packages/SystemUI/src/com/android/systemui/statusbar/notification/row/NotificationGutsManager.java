@@ -885,7 +885,9 @@ public class NotificationGutsManager implements NotifGutsViewManager, CoreStarta
                 && row.getEntryAdapter() instanceof BundleEntryAdapter) {
             return false;
         }
-        int userId = row.getEntryAdapter().getSbn().getNormalizedUserId();
+        int userId = NotificationBundleUi.isEnabled()
+            ? row.getEntryAdapter().getSbn().getNormalizedUserId()
+            : row.getEntryLegacy().getSbn().getNormalizedUserId();
         return mUserManager.isManagedProfile(userId)
                 && mLockscreenUserManager.isLockscreenPublicMode(userId);
     }
