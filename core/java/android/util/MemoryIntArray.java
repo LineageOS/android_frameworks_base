@@ -50,6 +50,8 @@ import java.util.UUID;
  *
  * @hide
  */
+// TODO(b/498720726): Refactor this class to be implemented entirely in terms of SharedMemory,
+// instead of manually managing the FD and ashmem regions using JNI.
 public final class MemoryIntArray implements Parcelable, Closeable {
     private static final String TAG = "MemoryIntArray";
 
@@ -76,10 +78,10 @@ public final class MemoryIntArray implements Parcelable, Closeable {
         mIsOwner = true;
         final String name = UUID.randomUUID().toString();
         mFd = nativeCreate(name, size);
-        mMemoryAddr = nativeOpen(mFd, mIsOwner);
         // Note that we use the effective size after allocation, rather than the provided size,
         // preserving compat with the original behavior. In practice these should be equivalent.
         mSize = nativeSize(mFd);
+        mMemoryAddr = nativeOpen(mFd, mIsOwner, mSize);
         mCloseGuard.open("MemoryIntArray.close");
     }
 
@@ -90,8 +92,8 @@ public final class MemoryIntArray implements Parcelable, Closeable {
             throw new IOException("No backing file descriptor");
         }
         mFd = pfd.detachFd();
-        mMemoryAddr = nativeOpen(mFd, mIsOwner);
         mSize = nativeSize(mFd);
+        mMemoryAddr = nativeOpen(mFd, mIsOwner, mSize);
         mCloseGuard.open("MemoryIntArray.close");
     }
 
@@ -152,7 +154,7 @@ public final class MemoryIntArray implements Parcelable, Closeable {
     @Override
     public void close() throws IOException {
         if (!isClosed()) {
-            nativeClose(mFd, mMemoryAddr);
+            nativeClose(mFd, mMemoryAddr, mSize);
             mFd = -1;
             mCloseGuard.close();
         }
@@ -232,8 +234,10 @@ public final class MemoryIntArray implements Parcelable, Closeable {
     }
 
     private native int nativeCreate(String name, int size);
-    private native long nativeOpen(int fd, boolean owner);
-    private native void nativeClose(int fd, long memoryAddr);
+    // The same explicit size should always be passed to nativeOpen() and nativeClose() to ensure
+    // consistency between mmap() and munmap().
+    private native long nativeOpen(int fd, boolean owner, int size);
+    private native void nativeClose(int fd, long memoryAddr, int size);
     @FastNative
     private native int nativeGet(long memoryAddr, int index);
     @FastNative
