@@ -17,6 +17,9 @@
 package com.android.systemui.usb;
 
 import static android.Manifest.permission.RECORD_AUDIO;
+import static android.content.pm.PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX;
+import static android.text.TextUtils.SAFE_STRING_FLAG_FIRST_LINE;
+import static android.text.TextUtils.SAFE_STRING_FLAG_TRIM;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -90,7 +93,11 @@ public class UsbDialogHelper {
         }
         try {
             ApplicationInfo aInfo = packageManager.getApplicationInfo(mPackageName, 0);
-            mAppName = aInfo.loadLabel(packageManager);
+            mAppName =
+                    aInfo.loadSafeLabel(
+                            packageManager,
+                            DEFAULT_MAX_LABEL_SIZE_PX,
+                            SAFE_STRING_FLAG_TRIM | SAFE_STRING_FLAG_FIRST_LINE);
         } catch (PackageManager.NameNotFoundException e) {
             throw new IllegalStateException("unable to look up package name", e);
         }

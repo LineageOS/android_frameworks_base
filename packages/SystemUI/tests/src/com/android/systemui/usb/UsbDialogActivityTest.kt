@@ -20,6 +20,7 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.PermissionChecker
+import android.content.pm.PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX
 import android.hardware.usb.IUsbManager
 import android.hardware.usb.IUsbSerialReader
 import android.hardware.usb.UsbAccessory
@@ -32,6 +33,8 @@ import android.os.ServiceManager
 import android.platform.test.annotations.DisableFlags
 import android.platform.test.annotations.EnableFlags
 import android.text.Html
+import android.text.TextUtils.SAFE_STRING_FLAG_FIRST_LINE
+import android.text.TextUtils.SAFE_STRING_FLAG_TRIM
 import android.view.View
 import android.view.WindowManager
 import androidx.test.rule.ActivityTestRule
@@ -220,7 +223,11 @@ abstract class UsbDialogActivityTest<T> : SysuiTestCase()
         mAppName =
             context.packageManager
                 .getApplicationInfo(EXTRA_PACKAGE, 0)
-                .loadLabel(context.packageManager)
+                .loadSafeLabel(
+                    context.packageManager,
+                    DEFAULT_MAX_LABEL_SIZE_PX,
+                    SAFE_STRING_FLAG_TRIM or SAFE_STRING_FLAG_FIRST_LINE,
+                )
         mAlertParams = activityRule.activity.getAlertParams()
     }
 
