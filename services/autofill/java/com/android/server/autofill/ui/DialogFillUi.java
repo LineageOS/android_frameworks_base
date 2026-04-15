@@ -90,7 +90,6 @@ final class DialogFillUi {
     }
 
     private final @NonNull Dialog mDialog;
-    private final @NonNull OverlayControl mOverlayControl;
     private final String mServicePackageName;
     private final ComponentName mComponentName;
     private final int mThemeId;
@@ -110,12 +109,11 @@ final class DialogFillUi {
     DialogFillUi(@NonNull Context context, @NonNull FillResponse response,
             @NonNull AutofillId focusedViewId, @Nullable String filterText,
             @Nullable Drawable serviceIcon, @Nullable String servicePackageName,
-            @Nullable ComponentName componentName, @NonNull OverlayControl overlayControl,
-            boolean nightMode, @NonNull UiCallback callback) {
+            @Nullable ComponentName componentName, boolean nightMode,
+            @NonNull UiCallback callback) {
         if (sVerbose) Slog.v(TAG, "nightMode: " + nightMode);
         mThemeId = nightMode ? THEME_ID_DARK : THEME_ID_LIGHT;
         mCallback = callback;
-        mOverlayControl = overlayControl;
         mServicePackageName = servicePackageName;
         mComponentName = componentName;
 
@@ -153,6 +151,7 @@ final class DialogFillUi {
 
         mDialog = new Dialog(mContext, mThemeId);
         mDialog.setContentView(decor);
+        mDialog.getWindow().setHideOverlayWindows(true);
         setDialogParamsAsBottomSheet();
         mDialog.setOnCancelListener((d) -> mCallback.onCanceled());
         int datasetsShown = (mAdapter != null) ? mAdapter.getCount() : 0;
@@ -395,7 +394,6 @@ final class DialogFillUi {
     private void show() {
         Slog.i(TAG, "Showing fill dialog");
         mDialog.show();
-        mOverlayControl.hideOverlays();
     }
 
     boolean isShowing() {
@@ -404,23 +402,15 @@ final class DialogFillUi {
 
     void hide() {
         if (sVerbose) Slog.v(TAG, "Hiding fill dialog.");
-        try {
-            mDialog.hide();
-        } finally {
-            mOverlayControl.showOverlays();
-        }
+        mDialog.hide();
     }
 
     void destroy() {
-        try {
-            if (sDebug) Slog.d(TAG, "destroy()");
-            throwIfDestroyed();
+        if (sDebug) Slog.d(TAG, "destroy()");
+        throwIfDestroyed();
 
-            mDialog.dismiss();
-            mDestroyed = true;
-        } finally {
-            mOverlayControl.showOverlays();
-        }
+        mDialog.dismiss();
+        mDestroyed = true;
     }
 
     private void throwIfDestroyed() {
