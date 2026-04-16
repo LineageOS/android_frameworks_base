@@ -83,6 +83,7 @@ import com.android.server.FgThread;
 import com.android.server.LocalServices;
 import com.android.server.SystemServerInitThreadPool;
 import com.android.server.SystemService;
+import com.android.server.pm.UserManagerInternal;
 
 import dalvik.annotation.optimization.NeverCompile;
 
@@ -1685,18 +1686,21 @@ public class UsbService extends IUsbManager.Stub {
      * when the device enters lockdown mode. This likely involves updating a state
      * that controls USB data behavior.
      */
-    private class StrongAuthTracker extends LockPatternUtils.StrongAuthTracker {
+    @VisibleForTesting
+    class StrongAuthTracker extends LockPatternUtils.StrongAuthTracker {
         private static final IUsbOperationInternal sDefaultOperation =
                 new IUsbOperationInternal.Default();
         private boolean mLockdownModeStatus;
+        private UserManagerInternal mUserManagerInternal;
 
         StrongAuthTracker(Context context, Looper looper) {
             super(context, looper);
+            mUserManagerInternal = LocalServices.getService(UserManagerInternal.class);
         }
 
+        @SuppressLint("AndroidFrameworkRequiresPermission")
         @Override
         public synchronized void onStrongAuthRequiredChanged(int userId) {
-
             boolean lockDownTriggeredByUser = (getStrongAuthForUser(userId)
                     & STRONG_AUTH_REQUIRED_AFTER_USER_LOCKDOWN) != 0;
             //if it goes into the same lockdown status, no change is needed
@@ -1704,12 +1708,25 @@ public class UsbService extends IUsbManager.Stub {
                 return;
             }
             mLockdownModeStatus = lockDownTriggeredByUser;
-            for (UsbPort port: mPortManager.getPorts()) {
-                enableUsbDataInternal(port.getId(), !lockDownTriggeredByUser,
-                    STRONG_AUTH_OPERATION_ID,
-                    sDefaultOperation,
-                    USB_DISABLE_REASON_LOCKDOWN_MODE,
-                    true);
+            /*
+             * TODO(b/500854486)
+             * Since entering guest mode or switching to non-main user from lockscreen may not
+             * require auth, USB should not be enabled for non-main users. Should remove user switch
+             * access when device is locked down as a follow up.
+             *
+             * For now, we will only re-enable USB for the main user when the device is unlocked.
+             * Secondary users will not have USB enabled even if the device is unlocked, this is
+             * a temporary solution until we remove user switch access from lockscreen under lockdown
+             * mode.
+             */
+            if (lockDownTriggeredByUser || mUserManagerInternal.getMainUserId() == userId) {
+                for (UsbPort port: mPortManager.getPorts()) {
+                    enableUsbDataInternal(port.getId(), !lockDownTriggeredByUser,
+                        STRONG_AUTH_OPERATION_ID,
+                        sDefaultOperation,
+                        USB_DISABLE_REASON_LOCKDOWN_MODE,
+                        true);
+                }
             }
         }
     }
