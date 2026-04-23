@@ -36,9 +36,6 @@ import android.view.animation.PathInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.VisibleForTesting
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.repeatOnLifecycle
-import com.android.app.tracing.coroutines.launchTraced as launch
 import com.android.app.tracing.traceSection
 import com.android.keyguard.KeyguardUpdateMonitor
 import com.android.keyguard.KeyguardUpdateMonitorCallback
@@ -56,7 +53,6 @@ import com.android.systemui.keyguard.shared.model.KeyguardState.DOZING
 import com.android.systemui.keyguard.shared.model.KeyguardState.GONE
 import com.android.systemui.keyguard.shared.model.KeyguardState.LOCKSCREEN
 import com.android.systemui.keyguard.shared.model.TransitionState
-import com.android.systemui.lifecycle.repeatWhenAttached
 import com.android.systemui.media.controls.domain.pipeline.MediaDataManager
 import com.android.systemui.media.controls.shared.model.MediaData
 import com.android.systemui.media.controls.ui.controller.MediaPlayerData.visiblePlayerKeys
@@ -103,6 +99,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 private const val TAG = "MediaCarouselController"
@@ -452,12 +449,9 @@ constructor(
             }
         )
         keyguardUpdateMonitor.registerCallback(keyguardUpdateMonitorCallback)
-        mediaCarousel.repeatWhenAttached {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                listenForAnyStateToLockscreenTransition(this)
-                listenForAnyStateToDozingTransition(this)
-            }
-        }
+
+        listenForAnyStateToLockscreenTransition(applicationScope)
+        listenForAnyStateToDozingTransition(applicationScope)
         listenForAnyStateToGoneKeyguardTransition(applicationScope)
         listenForLockscreenSettingChanges(applicationScope)
 
@@ -510,10 +504,13 @@ constructor(
         return scope.launch {
             keyguardTransitionInteractor
                 .isFinishedIn(content = Scenes.Gone, stateWithoutSceneContainer = GONE)
-                .filter { it }
-                .collect {
-                    showMediaCarousel()
-                    updateHostVisibility()
+                .collect { isOnGone ->
+                    if (isOnGone) {
+                        showMediaCarousel()
+                        updateHostVisibility()
+                    } else if (!allowMediaPlayerOnLockScreen) {
+                        updateHostVisibility()
+                    }
                 }
         }
     }
@@ -552,14 +549,11 @@ constructor(
     @VisibleForTesting
     internal fun listenForAnyStateToDozingTransition(scope: CoroutineScope): Job {
         return scope.launch {
-            keyguardTransitionInteractor
-                .transition(Edge.create(to = DOZING))
-                .filter { it.transitionState == TransitionState.FINISHED }
-                .collect {
-                    if (!allowMediaPlayerOnLockScreen) {
-                        updateHostVisibility()
-                    }
+            keyguardTransitionInteractor.isInTransition(Edge.create(to = DOZING)).collect {
+                if (!allowMediaPlayerOnLockScreen) {
+                    updateHostVisibility()
                 }
+            }
         }
     }
 

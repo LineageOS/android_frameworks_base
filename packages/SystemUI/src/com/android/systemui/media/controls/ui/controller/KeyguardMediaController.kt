@@ -18,6 +18,8 @@ package com.android.systemui.media.controls.ui.controller
 
 import android.content.Context
 import android.content.res.Configuration
+import android.os.UserHandle
+import android.provider.Settings
 import android.util.MathUtils
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +39,7 @@ import com.android.systemui.Dumpable
 import com.android.systemui.classifier.Classifier
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Application
+import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.dump.DumpManager
 import com.android.systemui.initOnBackPressedDispatcherOwner
 import com.android.systemui.lifecycle.repeatWhenAttached
@@ -64,13 +67,23 @@ import com.android.systemui.statusbar.policy.SplitShadeStateController
 import com.android.systemui.util.asIndenting
 import com.android.systemui.util.boundsOnScreen
 import com.android.systemui.util.println
+import com.android.systemui.util.settings.SecureSettings
+import com.android.systemui.util.settings.SettingsProxyExt.observerFlow
 import com.android.systemui.util.withIncreasedIndent
 import java.io.PrintWriter
 import javax.inject.Inject
 import javax.inject.Named
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * Controls the media notifications on the lock screen, handles its visibility and placement -
@@ -82,6 +95,7 @@ class KeyguardMediaController
 constructor(
     @param:Named(MediaModule.KEYGUARD) private val mediaHost: MediaHost,
     @Application private val applicationScope: CoroutineScope,
+    @param:Background private val backgroundDispatcher: CoroutineDispatcher,
     private val bypassController: KeyguardBypassController,
     private val statusBarStateController: SysuiStatusBarStateController,
     @ShadeDisplayAware private val context: Context,
@@ -92,6 +106,7 @@ constructor(
     private val mediaViewModelFactory: MediaViewModel.Factory,
     private val mediaCarouselInteractor: MediaCarouselInteractor,
     private val falsingSystem: MediaFalsingSystem,
+    private val secureSettings: SecureSettings,
 ) : Dumpable {
     private var lastUsedStatusBarState = -1
 
@@ -114,6 +129,7 @@ constructor(
             }
         }
 
+    private var allowMediaPlayerOnLockScreen = true
     private val _isMediaVisibleOnLockscreen = mutableStateOf(false)
     private var isMediaVisibleOnLockscreen: Boolean
         get() = _isMediaVisibleOnLockscreen.value
@@ -138,6 +154,7 @@ constructor(
 
             // Let's now initialize this view, which also creates the host view for us.
             mediaHost.init(MediaHierarchyManager.LOCATION_LOCKSCREEN)
+            listenForLockscreenSettingChanges(applicationScope)
         } else {
             applicationScope.launch {
                 combine(
@@ -197,6 +214,33 @@ constructor(
                 modifier = Modifier.graphicsLayer { alpha = transitionAlpha },
                 visible = { visible },
                 location = Media.Location.LOCKSCREEN,
+            )
+        }
+    }
+
+    @VisibleForTesting
+    fun listenForLockscreenSettingChanges(scope: CoroutineScope): Job {
+        return scope.launch {
+            secureSettings
+                .observerFlow(UserHandle.USER_ALL, Settings.Secure.MEDIA_CONTROLS_LOCK_SCREEN)
+                // query to get initial value
+                .onStart { emit(Unit) }
+                .map { getMediaLockScreenSetting() }
+                .distinctUntilChanged()
+                .flowOn(backgroundDispatcher)
+                .collectLatest {
+                    allowMediaPlayerOnLockScreen = it
+                    onMediaHostVisibilityChanged(mediaHost.visible)
+                }
+        }
+    }
+
+    private suspend fun getMediaLockScreenSetting(): Boolean {
+        return withContext(backgroundDispatcher) {
+            secureSettings.getBoolForUser(
+                Settings.Secure.MEDIA_CONTROLS_LOCK_SCREEN,
+                true,
+                UserHandle.USER_CURRENT,
             )
         }
     }
@@ -330,7 +374,7 @@ constructor(
             if (MediaControlsInComposeFlag.isEnabled) {
                 isMediaVisibleOnLockscreen
             } else {
-                mediaHost.visible
+                mediaHost.visible && allowMediaPlayerOnLockScreen
             }
         val isBypassNotEnabled = !bypassController.bypassEnabled
         val useSplitShade = useSplitShade
