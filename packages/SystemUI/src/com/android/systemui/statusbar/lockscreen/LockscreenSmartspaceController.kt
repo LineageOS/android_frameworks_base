@@ -33,6 +33,7 @@ import android.os.UserHandle
 import android.provider.Settings.Secure.LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS
 import android.provider.Settings.Secure.LOCK_SCREEN_SHOW_NOTIFICATIONS
 import android.provider.Settings.Secure.LOCK_SCREEN_WEATHER_ENABLED
+import android.provider.Settings.Secure.MEDIA_CONTROLS_LOCK_SCREEN
 import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.View
@@ -137,10 +138,13 @@ constructor(
     private val regionSamplingEnabled = featureFlags.isEnabled(Flags.REGION_SAMPLING)
     private var isRegionSamplersCreated = false
     private var showNotifications = false
+    private var showMediaControls = false
     private var showSensitiveContentForCurrentUser = false
     private var showSensitiveContentForManagedUser = false
     private var managedUserHandle: UserHandle? = null
     private var mSplitShadeEnabled = false
+    private var storedMediaTarget: SmartspaceTarget? = null
+    private var mediaTarget: SmartspaceTarget? = null
 
     var suppressDisconnects = false
         set(value) {
@@ -156,6 +160,7 @@ constructor(
         object : View.OnAttachStateChangeListener {
             override fun onViewAttachedToWindow(v: View) {
                 (v as SmartspaceView).setSplitShadeEnabled(mSplitShadeEnabled)
+                (v as SmartspaceView).setMediaTarget(mediaTarget)
                 smartspaceViews.add(v as SmartspaceView)
 
                 connectSession()
@@ -509,6 +514,12 @@ constructor(
             settingsObserver,
             UserHandle.USER_ALL,
         )
+        contentResolver.registerContentObserver(
+            secureSettings.getUriFor(MEDIA_CONTROLS_LOCK_SCREEN),
+            true,
+            settingsObserver,
+            UserHandle.USER_ALL,
+        )
         configurationController.addCallback(configChangeListener)
         statusBarStateController.addCallback(statusBarStateListener)
         bypassController.registerOnBypassStateChangedListener(bypassStateChangedListener)
@@ -532,6 +543,17 @@ constructor(
     /** Requests the smartspace session for an update. */
     fun requestSmartspaceUpdate() {
         session?.requestSmartspaceUpdate()
+    }
+
+    fun setMediaTarget(target: SmartspaceTarget?) {
+        storedMediaTarget = target
+        updateMediaTarget()
+    }
+
+    private fun updateMediaTarget() {
+        val filteredTarget = if (showMediaControls) storedMediaTarget else null
+        mediaTarget = filteredTarget
+        smartspaceViews.forEach { it.setMediaTarget(filteredTarget) }
     }
 
     /** Disconnects the smartspace view from the smartspace service and cleans up any resources. */
@@ -652,6 +674,9 @@ constructor(
         showNotifications =
             secureSettings.getIntForUser(LOCK_SCREEN_SHOW_NOTIFICATIONS, 0, userTracker.userId) == 1
 
+        showMediaControls =
+            secureSettings.getBoolForUser(MEDIA_CONTROLS_LOCK_SCREEN, true, userTracker.userId)
+
         showSensitiveContentForCurrentUser =
             secureSettings.getIntForUser(
                 LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS,
@@ -670,6 +695,8 @@ constructor(
                 ) == 1
         }
 
+        // Update the media target in case media controls setting changes.
+        updateMediaTarget()
         session?.requestSmartspaceUpdate()
     }
 
