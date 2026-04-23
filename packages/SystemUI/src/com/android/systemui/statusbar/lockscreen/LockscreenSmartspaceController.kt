@@ -34,6 +34,7 @@ import android.os.UserHandle
 import android.provider.Settings.Secure.LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS
 import android.provider.Settings.Secure.LOCK_SCREEN_SHOW_NOTIFICATIONS
 import android.provider.Settings.Secure.LOCK_SCREEN_WEATHER_ENABLED
+import android.provider.Settings.Secure.MEDIA_CONTROLS_LOCK_SCREEN
 import android.util.Log
 import android.view.ContextThemeWrapper
 import android.view.View
@@ -138,10 +139,12 @@ constructor(
 
     private val regionSamplingEnabled = featureFlags.isEnabled(Flags.REGION_SAMPLING)
     private var showNotifications = false
+    private var showMediaControls = false
     private var showSensitiveContentForCurrentUser = false
     private var showSensitiveContentForManagedUser = false
     private var managedUserHandle: UserHandle? = null
     private var mSplitShadeEnabled = false
+    private var storedMediaTarget: SmartspaceTarget? = null
     var mediaTarget: SmartspaceTarget? = null
         private set
 
@@ -511,6 +514,12 @@ constructor(
             settingsObserver,
             UserHandle.USER_ALL,
         )
+        secureSettings.registerContentObserverForUserAsync(
+            secureSettings.getUriFor(MEDIA_CONTROLS_LOCK_SCREEN),
+            true,
+            settingsObserver,
+            UserHandle.USER_ALL,
+        )
         sysuiColorExtractor.addOnColorsChangedListener(onColorsChangedListener)
         configurationController.addCallback(configChangeListener)
         statusBarStateController.addCallback(statusBarStateListener)
@@ -536,8 +545,14 @@ constructor(
     }
 
     fun setMediaTarget(target: SmartspaceTarget?) {
-        mediaTarget = target
-        smartspaceViews.forEach { it.setMediaTarget(target) }
+        storedMediaTarget = target
+        updateMediaTarget()
+    }
+
+    private fun updateMediaTarget() {
+        val filteredTarget = if (showMediaControls) storedMediaTarget else null
+        mediaTarget = filteredTarget
+        smartspaceViews.forEach { it.setMediaTarget(filteredTarget) }
     }
 
     /** Disconnects the smartspace view from the smartspace service and cleans up any resources. */
@@ -676,6 +691,9 @@ constructor(
         showNotifications =
             secureSettings.getIntForUser(LOCK_SCREEN_SHOW_NOTIFICATIONS, 0, userTracker.userId) == 1
 
+        showMediaControls =
+            secureSettings.getBoolForUser(MEDIA_CONTROLS_LOCK_SCREEN, true, userTracker.userId)
+
         showSensitiveContentForCurrentUser =
             secureSettings.getIntForUser(
                 LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS,
@@ -694,6 +712,8 @@ constructor(
                 ) == 1
         }
 
+        // Update the media target in case media controls setting changes.
+        updateMediaTarget()
         session?.requestSmartspaceUpdate()
     }
 
