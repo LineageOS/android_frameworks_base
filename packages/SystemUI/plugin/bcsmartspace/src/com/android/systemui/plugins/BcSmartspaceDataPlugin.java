@@ -161,7 +161,7 @@ public interface BcSmartspaceDataPlugin extends Plugin {
          * Set or clear device media playing
          */
         default void setMediaTarget(@Nullable SmartspaceTarget target) {
-            throw new UnsupportedOperationException("Not implemented by " + getClass());
+            // No-op by default for most view implementations
         }
 
         /**
