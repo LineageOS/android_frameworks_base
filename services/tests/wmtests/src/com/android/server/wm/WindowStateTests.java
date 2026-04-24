@@ -260,6 +260,18 @@ public class WindowStateTests extends WindowTestsBase {
     }
 
     @Test
+    public void testSubWindowHiddenWhenSuspended() {
+        final WindowState parent = newWindowBuilder("parent", TYPE_APPLICATION_OVERLAY).build();
+        final WindowState subWindow = spy(
+                newWindowBuilder("subWindow", TYPE_APPLICATION_PANEL).setParent(parent).build());
+
+        subWindow.setHiddenWhileSuspended(true);
+        verify(subWindow).hide(true /* doAnimation */, true /* requestAnim */);
+        subWindow.setHiddenWhileSuspended(false);
+        verify(subWindow).show(true /* doAnimation */, true /* requestAnim */);
+    }
+
+    @Test
     @EnableFlags(android.security.Flags.FLAG_APP_LOCK_CORE)
     public void testOverlayWindowHiddenWhenLockedByAppLock() {
         final WindowState overlayWindow = spy(
