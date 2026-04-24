@@ -256,6 +256,18 @@ public class WindowStateTests extends WindowTestsBase {
     }
 
     @Test
+    public void testSubWindowHiddenWhenSuspended() {
+        final WindowState parent = newWindowBuilder("parent", TYPE_APPLICATION_OVERLAY).build();
+        final WindowState subWindow = spy(
+                newWindowBuilder("subWindow", TYPE_APPLICATION_PANEL).setParent(parent).build());
+
+        subWindow.setHiddenWhileSuspended(true);
+        verify(subWindow).hide(true /* doAnimation */, true /* requestAnim */);
+        subWindow.setHiddenWhileSuspended(false);
+        verify(subWindow).show(true /* doAnimation */, true /* requestAnim */);
+    }
+
+    @Test
     public void testGetTopParentWindow() {
         final WindowState root = newWindowBuilder("root", TYPE_APPLICATION).build();
         final WindowState child1 = newWindowBuilder("child1", FIRST_SUB_WINDOW).setParent(
