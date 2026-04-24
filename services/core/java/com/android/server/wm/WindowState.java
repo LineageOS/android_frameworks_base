@@ -3232,8 +3232,9 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
     }
 
     void setHiddenWhileSuspended(boolean hide) {
+        final int baseType = getBaseType();
         if (mOwnerCanAddInternalSystemWindow
-                || (!isSystemAlertWindowType(mAttrs.type) && mAttrs.type != TYPE_TOAST)) {
+                || (!isSystemAlertWindowType(baseType) && baseType != TYPE_TOAST)) {
             return;
         }
         if (mHiddenWhileSuspended == hide) {
