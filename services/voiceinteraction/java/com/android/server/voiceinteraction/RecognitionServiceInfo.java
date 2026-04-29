@@ -20,6 +20,7 @@ import android.annotation.NonNull;
 import android.annotation.UserIdInt;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
@@ -57,7 +58,7 @@ class RecognitionServiceInfo {
      * Queries the valid recognition services available for the user.
      */
     static List<RecognitionServiceInfo> getAvailableServices(
-            @NonNull Context context, @UserIdInt int user) {
+            @NonNull Context context, @UserIdInt int user, boolean isSafeMode) {
         List<RecognitionServiceInfo> services = new ArrayList<>();
 
         List<ResolveInfo> resolveInfos =
@@ -67,6 +68,19 @@ class RecognitionServiceInfo {
                                 | PackageManager.MATCH_DIRECT_BOOT_UNAWARE,
                         user);
         for (ResolveInfo resolveInfo : resolveInfos) {
+            if (isSafeMode
+                    && (resolveInfo.serviceInfo.applicationInfo.flags
+                        & ApplicationInfo.FLAG_SYSTEM) == 0) {
+                // If in safe mode, we don't parse metadata of 3p recognition services and assume
+                // that they are selectable as default, but they still won't be auto selected as
+                // we only allow preinstalled recognizers to be auto selected
+                // This is mainly to guard against malicious 3p apps updating their metadata
+                // causing boot issues if the metadata loading is causing OOM
+                services.add(
+                        new RecognitionServiceInfo(resolveInfo.serviceInfo,
+                                /*selectableAsDefault*/ true, /*parseError*/ ""));
+                continue;
+            }
             RecognitionServiceInfo service =
                     parseInfo(context.getPackageManager(), resolveInfo.serviceInfo);
             if (!TextUtils.isEmpty(service.mParseError)) {
