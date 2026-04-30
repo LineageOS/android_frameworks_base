@@ -18,6 +18,7 @@ import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTE
 
 import android.annotation.Nullable;
 import android.app.Activity;
+import android.app.ActivityTaskManager;
 import android.app.AlertDialog;
 import android.app.slice.SliceManager;
 import android.app.slice.SliceProvider;
@@ -29,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.text.BidiFormatter;
 import android.util.EventLog;
 import android.util.Log;
@@ -63,6 +65,12 @@ public class SlicePermissionActivity extends Activity implements OnClickListener
             mProviderPkg = pm.resolveContentProvider(mUri.getAuthority(),
                     PackageManager.GET_META_DATA).applicationInfo.packageName;
             verifyCallingPkg();
+
+            if (!isCallerValid()) {
+                finish();
+                return;
+            }
+
             CharSequence app1 = BidiFormatter.getInstance().unicodeWrap(pm.getApplicationInfo(
                     mCallingPkg, 0).loadSafeLabel(pm, PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX,
                     PackageItemInfo.SAFE_LABEL_FLAG_TRIM
@@ -105,6 +113,33 @@ public class SlicePermissionActivity extends Activity implements OnClickListener
     @Override
     public void onDismiss(DialogInterface dialog) {
         finish();
+    }
+
+    private boolean isCallerValid() {
+        // Validate the true caller to prevent Confused Deputy attacks via spoofed EXTRA_PKG.
+        String actualCaller = null;
+        try {
+             actualCaller = ActivityTaskManager.getService().getLaunchedFromPackage(
+                        getActivityToken());
+        } catch (RemoteException e) {
+            Log.e(TAG, "getLaunchedFromPackage()", e);
+        }
+        if (actualCaller == null) {
+            // Fallback for different Binder contexts
+            actualCaller = getCallingPackage();
+        }
+
+        // This prevents an app from gaining access to slices owned by other apps.
+        if (actualCaller != null
+                && (actualCaller.equals(mProviderPkg)
+                        || actualCaller.equals(getPackageName())
+                        || "android".equals(actualCaller))) {
+            return true;
+        }
+
+        Log.e(TAG, "Direct launch blocked. Expected provider " + mProviderPkg
+                + " or system, but got " + actualCaller);
+        return false;
     }
 
     private void verifyCallingPkg() {
