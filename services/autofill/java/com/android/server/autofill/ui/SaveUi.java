@@ -33,6 +33,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.metrics.LogMaker;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.UserHandle;
@@ -48,6 +49,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.URLSpan;
 import android.util.ArraySet;
 import android.util.Pair;
 import android.util.Slog;
@@ -202,11 +204,14 @@ final class SaveUi {
                     return;
                 }
                 intent.putExtra(AutofillManager.EXTRA_RESTORE_CROSS_ACTIVITY, true);
+                // We must add the token to the intent *before* creating the PendingIntent
+                // because we are using FLAG_IMMUTABLE. Immutable PendingIntents ignore
+                // extras added via fill-in intents later.
+                addRestoreSessionToken(intent);
 
                 PendingIntent p = PendingIntent.getActivityAsUser(this, /* requestCode= */ 0,
                         intent,
-                        PendingIntent.FLAG_MUTABLE
-                                | PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT,
+                        PendingIntent.FLAG_IMMUTABLE,
                         ActivityOptions.makeBasic()
                                 .setPendingIntentCreatorBackgroundActivityStartMode(
                                         ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOWED)
@@ -214,8 +219,10 @@ final class SaveUi {
                 if (sDebug) {
                     Slog.d(TAG, "startActivity add save UI restored with intent=" + intent);
                 }
-                // Apply restore mechanism
-                startIntentSenderWithRestore(p, intent);
+                // Since the PendingIntent is created with FLAG_IMMUTABLE, the fill-in intent
+                // passed below is ignored for filling in data. We pass an empty Intent to make
+                // this explicit and avoid confusion.
+                startIntentSenderWithRestore(p, new Intent());
             }
 
             private ComponentName resolveActivity(Intent intent) {
@@ -428,6 +435,10 @@ final class SaveUi {
                         return false;
                     }
 
+                    // For custom descriptions, we cannot modify the base intent of the
+                    // PendingIntent (provided by the Autofill provider). We add the token to the
+                    // fill-in intent.
+                    addRestoreSessionToken(intent);
                     startIntentSenderWithRestore(pendingIntent, intent);
                     return true;
         };
@@ -531,21 +542,22 @@ final class SaveUi {
             @NonNull Intent intent) {
         if (sVerbose) Slog.v(TAG, "Intercepting custom description intent");
 
-        // We need to hide the Save UI before launching the pending intent, and
-        // restore back it once the activity is finished, and that's achieved by
-        // adding a custom extra in the activity intent.
-        final IBinder token = mPendingUi.getToken();
-        intent.putExtra(AutofillManager.EXTRA_RESTORE_SESSION_TOKEN, token);
-
         mListener.startIntentSender(pendingIntent.getIntentSender(), intent);
         mPendingUi.setState(PendingUi.STATE_PENDING);
 
-        if (sDebug) Slog.d(TAG, "hiding UI until restored with token " + token);
+        if (sDebug) Slog.d(TAG, "hiding UI until restored with token " + mPendingUi.getToken());
         hide();
 
         final LogMaker log = newLogMaker(MetricsEvent.AUTOFILL_SAVE_LINK_TAPPED, mType);
         log.setType(MetricsEvent.TYPE_OPEN);
         mMetricsLogger.write(log);
+    }
+
+    private void addRestoreSessionToken(@NonNull Intent intent) {
+        // We need to hide the Save UI before launching the pending intent, and
+        // restore back it once the activity is finished, and that's achieved by
+        // adding a custom extra in the activity intent.
+        intent.putExtra(AutofillManager.EXTRA_RESTORE_SESSION_TOKEN, mPendingUi.getToken());
     }
 
     private void applyTextViewStyle(@NonNull View rootView) {
@@ -578,7 +590,38 @@ final class SaveUi {
             return;
         }
 
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        boolean spansRemoved = false;
+        boolean hasValidLink = false;
+        for (ClickableSpan span : spans) {
+            if (span instanceof URLSpan) {
+                URLSpan urlSpan = (URLSpan) span;
+                String url = urlSpan.getURL();
+                // If the URL is invalid, remove the span to prevent it from appearing as a link.
+                // We strictly allow only http/https schemes to prevent custom scheme hijacking.
+                if (url == null || !isHttpOrHttps(Uri.parse(url))) {
+                    ssb.removeSpan(span);
+                    spansRemoved = true;
+                } else {
+                    hasValidLink = true;
+                }
+            } else {
+                hasValidLink = true;
+            }
+        }
+
+        if (spansRemoved) {
+            textView.setText(ssb);
+        }
+
+        if (hasValidLink) {
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+        }
+    }
+
+    private static boolean isHttpOrHttps(Uri uri) {
+        if (uri == null) return false;
+        String scheme = uri.getScheme();
+        return "http".equalsIgnoreCase(scheme) || "https".equalsIgnoreCase(scheme);
     }
 
     private void setServiceIcon(Context context, View view, Drawable serviceIcon) {
