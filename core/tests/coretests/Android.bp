@@ -592,6 +592,17 @@ test_module_config {
 }
 
 test_module_config {
+    name: "FrameworksCoreTests_android_appwidget",
+    base: "FrameworksCoreTests",
+    test_suites: [
+        "automotive-tests",
+        "device-platinum-tests",
+        "device-tests",
+    ],
+    include_filters: ["android.appwidget."],
+}
+
+test_module_config {
     name: "FrameworksCoreTests_content_capture_options",
     base: "FrameworksCoreTests",
     test_suites: [
