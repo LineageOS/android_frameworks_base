@@ -21,10 +21,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.WindowManagerWrapper;
 
 import androidx.annotation.Nullable;
 
@@ -64,7 +60,10 @@ public class AppWidgetConfigActivityProxy extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        setResult(resultCode, data);
+        // b/498916138 - Only pass the result code and intent extras to the config activity and
+        // nothing else.
+        Intent result = data != null ? new Intent().putExtras(data) : null;
+        setResult(resultCode, result);
         int widgetId = getIntent().getIntExtra(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
         AppWidgetManager.getInstance(this).setConfigActivityComplete(widgetId);
