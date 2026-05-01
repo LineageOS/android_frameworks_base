@@ -52,7 +52,10 @@ public class AppWidgetConfigActivityProxy extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        setResult(resultCode, data);
+        // b/498916138 - Only pass the result code and intent extras to the config activity and
+        // nothing else.
+        Intent result = data != null ? new Intent().putExtras(data) : null;
+        setResult(resultCode, result);
         int widgetId = getIntent().getIntExtra(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
         AppWidgetManager.getInstance(this).setConfigActivityComplete(widgetId);

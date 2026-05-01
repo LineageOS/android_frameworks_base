@@ -185,6 +185,12 @@
         <meta-data
             android:name="android.content.APP_RESTRICTIONS"
             android:resource="@xml/app_restrictions" />
+        <activity android:name="android.appwidget.FakeConfigActivity"
+                  android:exported="true" />
+        <activity android:name="android.appwidget.FakeConfigWithFlagsActivity"
+                  android:exported="true" />
+        <activity android:name="android.appwidget.AppWidgetConfigActivityProxy"
+                  android:exported="true" />
         <activity android:name="android.view.ViewAttachTestActivity"
             android:label="View Attach Test"
             android:exported="true">
