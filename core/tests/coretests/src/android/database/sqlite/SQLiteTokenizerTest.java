@@ -165,9 +165,40 @@ public class SQLiteTokenizerTest {
     }
 
     @Test
+    public void testCheckBrackets() {
+        SQLiteTokenizer.tokenize("((a) b)", SQLiteTokenizer.OPTION_CHECK_BRACKETS);
+        try {
+            SQLiteTokenizer.tokenize("((a) b", SQLiteTokenizer.OPTION_CHECK_BRACKETS);
+            fail("Should have thrown");
+        } catch (IllegalArgumentException expected) {
+            assertEquals("Unbalanced brackets in '((a) b'", expected.getMessage());
+        }
+        try {
+            SQLiteTokenizer.tokenize("(a) b)", SQLiteTokenizer.OPTION_CHECK_BRACKETS);
+            fail("Should have thrown");
+        } catch (IllegalArgumentException expected) {
+            assertEquals("Unbalanced brackets in '(a) b)'", expected.getMessage());
+        }
+        try {
+            SQLiteTokenizer.tokenize("1=1)) OR ((1=1", SQLiteTokenizer.OPTION_CHECK_BRACKETS);
+            fail("Should have thrown");
+        } catch (IllegalArgumentException expected) {
+            assertEquals("Unbalanced brackets in '1=1)) OR ((1=1'", expected.getMessage());
+        }
+    }
+
+    @Test
     public void testTokens() {
         checkTokens("a,abc,a00b,_1,_123,abcdef", "a abc a00b _1 _123 abcdef");
         checkTokens("a--\nabc/**/a00b''_1'''ABC'''`_123`abc[d]\"e\"f",
                 "a abc a00b _1 _123 abc d e f");
+    }
+
+    @Test
+    public void testCheckBracketsInComments() {
+        SQLiteTokenizer.tokenize("((a) -- comment with unmatched bracket )\n b)",
+                SQLiteTokenizer.OPTION_CHECK_BRACKETS);
+        SQLiteTokenizer.tokenize("((a) /* comment with unmatched bracket ) */ b)",
+                SQLiteTokenizer.OPTION_CHECK_BRACKETS);
     }
 }
