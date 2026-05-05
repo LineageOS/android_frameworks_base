@@ -1867,6 +1867,12 @@ public class LauncherAppsService extends SystemService {
         @Nullable
         private IntentSender buildIntentSenderForUser(
                 @NonNull Intent intent, @NonNull UserHandle user) {
+            // Only allow foreground apps to start background activities with this PendingIntent.
+            Bundle options = ActivityOptions.makeBasic()
+                    .setPendingIntentCreatorBackgroundActivityStartMode(
+                            ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_ALLOW_IF_VISIBLE)
+                    .toBundle();
+
             final PendingIntent pi =
                     PendingIntent.getActivityAsUser(
                             mContext,
@@ -1874,7 +1880,7 @@ public class LauncherAppsService extends SystemService {
                             intent,
                             PendingIntent.FLAG_IMMUTABLE
                                     | FLAG_UPDATE_CURRENT,
-                            /* options */ null,
+                            options,
                             user);
             return pi == null ? null : pi.getIntentSender();
         }
