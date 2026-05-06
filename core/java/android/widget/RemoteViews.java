@@ -344,13 +344,6 @@ public class RemoteViews implements Parcelable, Filter {
             FLAG_WIDGET_IS_COLLECTION_CHILD | FLAG_USE_LIGHT_BACKGROUND_LAYOUT;
 
     /**
-     * A ReadWriteHelper which has the same behavior as ReadWriteHelper.DEFAULT, but which is
-     * intentionally a different instance in order to trick Bundle reader so that it doesn't allow
-     * lazy initialization.
-     */
-    private static final Parcel.ReadWriteHelper ALTERNATIVE_DEFAULT = new Parcel.ReadWriteHelper();
-
-    /**
      * Used to restrict the views which can be inflated
      *
      * @see android.view.LayoutInflater.Filter#onLoadClass(java.lang.Class)
@@ -2819,18 +2812,7 @@ public class RemoteViews implements Parcelable, Filter {
                     this.mValue = in.readTypedObject(Bitmap.CREATOR);
                     break;
                 case BUNDLE:
-                    // Because we use Parcel.allowSquashing() when writing, and that affects
-                    //  how the contents of Bundles are written, we need to ensure the bundle is
-                    //  unparceled immediately, not lazily.  Setting a custom ReadWriteHelper
-                    //  just happens to have that effect on Bundle.readFromParcel().
-                    // TODO(b/212731590): build this state tracking into Bundle
-                    if (in.hasReadWriteHelper()) {
-                        this.mValue = in.readBundle();
-                    } else {
-                        in.setReadWriteHelper(ALTERNATIVE_DEFAULT);
-                        this.mValue = in.readBundle();
-                        in.setReadWriteHelper(null);
-                    }
+                    this.mValue = in.readBundle();
                     break;
                 case INTENT:
                     this.mValue = in.readTypedObject(Intent.CREATOR);
@@ -8822,7 +8804,6 @@ public class RemoteViews implements Parcelable, Filter {
 
     private void writeToParcel(Parcel dest, int flags,
             @Nullable SparseArray<Intent> intentsToIgnore) {
-        boolean prevSquashingAllowed = dest.allowSquashing();
 
         if (!hasMultipleLayouts()) {
             dest.writeInt(MODE_NORMAL);
@@ -8872,7 +8853,6 @@ public class RemoteViews implements Parcelable, Filter {
         dest.writeLong(mProviderInstanceId);
         dest.writeBoolean(mHasDrawInstructions);
 
-        dest.restoreAllowSquashing(prevSquashingAllowed);
     }
 
     private void writeActionsToParcel(Parcel parcel, int flags) {
