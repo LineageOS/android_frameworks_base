@@ -177,7 +177,8 @@ class AccountsDb implements AutoCloseable {
 
     private static final String META_KEY_FOR_AUTHENTICATOR_UID_FOR_TYPE_PREFIX =
             "auth_uid_for_type:";
-    private static final String META_KEY_DELIMITER = ":";
+    private static final int META_KEY_PREFIX_LEN =
+            META_KEY_FOR_AUTHENTICATOR_UID_FOR_TYPE_PREFIX.length();
     private static final String SELECTION_META_BY_AUTHENTICATOR_TYPE = META_KEY + " LIKE ?";
 
     private final DeDatabaseHelper mDeDatabase;
@@ -1055,8 +1056,8 @@ class AccountsDb implements AutoCloseable {
         Map<String, Integer> map = new LinkedHashMap<>();
         try {
             while (metaCursor.moveToNext()) {
-                String type = TextUtils
-                        .split(metaCursor.getString(0), META_KEY_DELIMITER)[1];
+                String typeWithPrefix = metaCursor.getString(0);
+                String type = typeWithPrefix.substring(META_KEY_PREFIX_LEN);
                 String uidStr = metaCursor.getString(1);
                 if (TextUtils.isEmpty(type) || TextUtils.isEmpty(uidStr)) {
                     // Should never happen.
