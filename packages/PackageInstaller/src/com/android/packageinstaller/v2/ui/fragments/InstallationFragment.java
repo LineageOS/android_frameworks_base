@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.pm.PackageInstaller;
 import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -41,6 +42,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -140,6 +142,7 @@ public class InstallationFragment extends DialogFragment {
     }
 
     @Override
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     public void onStart() {
         super.onStart();
         updateUI();
@@ -169,6 +172,7 @@ public class InstallationFragment extends DialogFragment {
     /**
      * Update the UI based on the current install stage
      */
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     public void updateUI() {
         if (!isAdded()) {
             return;
@@ -492,6 +496,7 @@ public class InstallationFragment extends DialogFragment {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     private void updateUserActionRequiredUI(Dialog dialog, InstallUserActionRequired installStage) {
         switch (installStage.getActionReason()) {
             case InstallUserActionRequired.USER_ACTION_REASON_INSTALL_CONFIRMATION -> {
@@ -742,6 +747,7 @@ public class InstallationFragment extends DialogFragment {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     private void updateVerificationConfirmationUI(Dialog dialog,
             InstallUserActionRequired installStage) {
         mAppSnippet.setVisibility(View.VISIBLE);

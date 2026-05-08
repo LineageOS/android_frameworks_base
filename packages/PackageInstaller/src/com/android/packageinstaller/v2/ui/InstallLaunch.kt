@@ -20,6 +20,7 @@ import android.app.AppOpsManager
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -31,6 +32,7 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -49,6 +51,7 @@ import com.android.packageinstaller.v2.ui.fragments.InstallationFragment
 import com.android.packageinstaller.v2.viewmodel.InstallViewModel
 import com.android.packageinstaller.v2.viewmodel.InstallViewModelFactory
 
+@RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA)
 class InstallLaunch : FragmentActivity(), InstallActionListener {
 
     companion object {
@@ -73,7 +76,7 @@ class InstallLaunch : FragmentActivity(), InstallActionListener {
     private var appOpsManager: AppOpsManager? = null
     private lateinit var unknownAppsIntentLauncher: ActivityResultLauncher<Intent>
 
-
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addSystemFlags(WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS)
@@ -123,6 +126,7 @@ class InstallLaunch : FragmentActivity(), InstallActionListener {
     /**
      * Main controller of the UI. This method shows relevant dialogs based on the install stage
      */
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     private fun onInstallStageChange(installStage: InstallStage) {
         when (installStage.stageCode) {
             InstallStage.STAGE_STAGING -> {
@@ -249,6 +253,7 @@ class InstallLaunch : FragmentActivity(), InstallActionListener {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     private fun showInstallationDialog() {
         val fragment = getInstallationFragment() ?: InstallationFragment()
         fragment.updateUI()
@@ -299,6 +304,7 @@ class InstallLaunch : FragmentActivity(), InstallActionListener {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     override fun onPositiveResponse(reasonCode: Int) {
         if (localLogv) {
             Log.d(LOG_TAG, "Positive button clicked. ReasonCode: $reasonCode")
@@ -313,6 +319,7 @@ class InstallLaunch : FragmentActivity(), InstallActionListener {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     override fun onNegativeResponse(stageCode: Int) {
         if (localLogv) {
             Log.d(LOG_TAG, "Negative button clicked. StageCode: $stageCode")
@@ -344,6 +351,7 @@ class InstallLaunch : FragmentActivity(), InstallActionListener {
         setResult(resultCode, data, true)
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     override fun onRetryResponse() {
         installViewModel!!.onRetryVerificationUserResponse()
     }

@@ -310,7 +310,8 @@ public class InstallStart extends Activity {
     private boolean canPackageQuery(int callingUid, Uri packageUri) {
         ProviderInfo info;
         try {
-            if (Flags.uidBasedProviderLookup()) {
+            if (Flags.uidBasedProviderLookup()
+                    && Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1) {
                 info = mPackageManager.resolveContentProviderForUid(packageUri.getAuthority(),
                     PackageManager.ComponentInfoFlags.of(0), callingUid);
             } else {

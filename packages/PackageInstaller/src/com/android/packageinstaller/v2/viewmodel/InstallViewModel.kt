@@ -18,6 +18,8 @@ package com.android.packageinstaller.v2.viewmodel
 
 import android.app.Application
 import android.content.Intent
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
@@ -69,7 +71,11 @@ class InstallViewModel(application: Application, val repository: InstallReposito
         ) { installStage: InstallStage ->
             when (installStage.stageCode) {
                 InstallStage.STAGE_READY -> checkIfAllowedAndInitiateInstall()
-                InstallStage.STAGE_VERIFICATION_CONFIRMATION_REQUIRED -> requestVerification()
+                InstallStage.STAGE_VERIFICATION_CONFIRMATION_REQUIRED -> {
+                    if (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1) {
+                        requestVerification()
+                    }
+                }
                 else -> updateInstallStage(installStage)
             }
         }
@@ -106,22 +112,26 @@ class InstallViewModel(application: Application, val repository: InstallReposito
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     private fun requestVerification() {
         val stage = repository.requestVerificationConfirmation()
         updateInstallStage(stage)
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     fun onNegativeVerificationUserResponse() {
         val stage = repository.setNegativeVerificationUserResponse()
         updateInstallStage(stage)
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     fun onPositiveVerificationUserResponse() {
         val stage =
             repository.setPositiveVerificationUserResponse()
         updateInstallStage(stage)
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     fun onRetryVerificationUserResponse() {
         val stage =
             repository.setRetryVerificationUserResponse()

@@ -39,19 +39,21 @@ import android.content.pm.PackageInstaller.SessionParams
 import android.content.pm.PackageManager
 import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED
 import android.net.Uri
+import android.os.Build
 import android.os.ParcelFileDescriptor
 import android.os.Process
 import android.os.UserManager
 import android.text.TextUtils
 import android.util.EventLog
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.packageinstaller.common.EventResultPersister
 import com.android.packageinstaller.common.EventResultPersister.OutOfIdsException
 import com.android.packageinstaller.common.InstallEventReceiver
-import com.android.packageinstaller.stats.StatsdLogger
 import com.android.packageinstaller.stats.PiaStagesLatencyTracker
+import com.android.packageinstaller.stats.StatsdLogger
 import com.android.packageinstaller.v2.model.InstallAborted.Companion.ABORT_REASON_DONE
 import com.android.packageinstaller.v2.model.InstallAborted.Companion.ABORT_REASON_INTERNAL_ERROR
 import com.android.packageinstaller.v2.model.InstallAborted.Companion.ABORT_REASON_POLICY
@@ -867,6 +869,7 @@ class InstallRepository(private val context: Context) : EventResultPersister.Eve
         return true
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     fun requestVerificationConfirmation(): InstallStage {
         var confirmationSnippet: InstallStage = generateConfirmationSnippet()
 
@@ -904,6 +907,7 @@ class InstallRepository(private val context: Context) : EventResultPersister.Eve
         )
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     fun setNegativeVerificationUserResponse(): InstallStage {
         if (PackageInstaller.ACTION_CONFIRM_DEVELOPER_VERIFICATION != intent.action) {
             Log.e(LOG_TAG, "Cannot set verification response for this request: $intent")
@@ -923,6 +927,7 @@ class InstallRepository(private val context: Context) : EventResultPersister.Eve
         )
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     fun setPositiveVerificationUserResponse(): InstallStage {
         if (PackageInstaller.ACTION_CONFIRM_DEVELOPER_VERIFICATION != intent.action) {
             Log.e(LOG_TAG, "Cannot set verification response for this request: $intent")
@@ -946,6 +951,7 @@ class InstallRepository(private val context: Context) : EventResultPersister.Eve
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES_FULL.BAKLAVA_1)
     fun setRetryVerificationUserResponse(): InstallStage {
         if (PackageInstaller.ACTION_CONFIRM_DEVELOPER_VERIFICATION != intent.action) {
             Log.e(LOG_TAG, "Cannot set verification response for this request: $intent")
