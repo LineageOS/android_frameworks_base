@@ -1569,7 +1569,7 @@ class PackageManagerShellCommand extends ShellCommand {
             UserManagerInternal umi =
                     LocalServices.getService(UserManagerInternal.class);
             UserInfo userInfo = umi.getUserInfo(requestUserId);
-            if (userInfo == null) {
+            if (userInfo == null || userInfo.partial) {
                 pw.println("Failure [user " + requestUserId + " doesn't exist]");
                 return 1;
             }
