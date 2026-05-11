@@ -163,7 +163,8 @@ public final class HsumBootUserInitializer {
                     /* parentId= */ UserHandle.USER_NULL,
                     /* preCreate= */ false,
                     /* disallowedPackages= */ null,
-                    /* token= */ null);
+                    /* token= */ null,
+                    /* devicePolicyUserRestrictions= */ null);
             if (newInitialUser != null) {
                 Slogf.i(TAG, "Successfully created MainUser, userId=%d", newInitialUser.id);
             } else {
@@ -320,7 +321,8 @@ public final class HsumBootUserInitializer {
                     /* parentId= */ UserHandle.USER_NULL,
                     /* preCreate= */ false,
                     /* disallowedPackages= */ null,
-                    /* token= */ null);
+                    /* token= */ null,
+                    /* devicePolicyUserRestrictions= */ null);
             Slogf.i(TAG, "Successfully created %s, userId=%d", logName, newInitialUser.id);
             mUms.setBootUserIdUnchecked(newInitialUser.id);
         } catch (UserManager.CheckedUserOperationException e) {
