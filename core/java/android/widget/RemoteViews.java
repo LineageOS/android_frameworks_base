@@ -300,13 +300,6 @@ public class RemoteViews implements Parcelable, Filter {
     public static final int FLAG_USE_LIGHT_BACKGROUND_LAYOUT = 4;
 
     /**
-     * A ReadWriteHelper which has the same behavior as ReadWriteHelper.DEFAULT, but which is
-     * intentionally a different instance in order to trick Bundle reader so that it doesn't allow
-     * lazy initialization.
-     */
-    private static final Parcel.ReadWriteHelper ALTERNATIVE_DEFAULT = new Parcel.ReadWriteHelper();
-
-    /**
      * Used to restrict the views which can be inflated
      *
      * @see android.view.LayoutInflater.Filter#onLoadClass(java.lang.Class)
@@ -1917,18 +1910,7 @@ public class RemoteViews implements Parcelable, Filter {
                     this.value = in.readTypedObject(Bitmap.CREATOR);
                     break;
                 case BUNDLE:
-                    // Because we use Parcel.allowSquashing() when writing, and that affects
-                    //  how the contents of Bundles are written, we need to ensure the bundle is
-                    //  unparceled immediately, not lazily.  Setting a custom ReadWriteHelper
-                    //  just happens to have that effect on Bundle.readFromParcel().
-                    // TODO(b/212731590): build this state tracking into Bundle
-                    if (in.hasReadWriteHelper()) {
-                        this.value = in.readBundle();
-                    } else {
-                        in.setReadWriteHelper(ALTERNATIVE_DEFAULT);
-                        this.value = in.readBundle();
-                        in.setReadWriteHelper(null);
-                    }
+                    this.value = in.readBundle();
                     break;
                 case INTENT:
                     this.value = in.readTypedObject(Intent.CREATOR);
@@ -6214,8 +6196,6 @@ public class RemoteViews implements Parcelable, Filter {
     }
 
     public void writeToParcel(Parcel dest, int flags) {
-        boolean prevSquashingAllowed = dest.allowSquashing();
-
         if (!hasMultipleLayouts()) {
             dest.writeInt(MODE_NORMAL);
             // We only write the bitmap cache if we are the root RemoteViews, as this cache
@@ -6260,7 +6240,6 @@ public class RemoteViews implements Parcelable, Filter {
         dest.writeInt(mApplyFlags);
         dest.writeLong(mProviderInstanceId);
 
-        dest.restoreAllowSquashing(prevSquashingAllowed);
     }
 
     private void writeActionsToParcel(Parcel parcel, int flags) {
