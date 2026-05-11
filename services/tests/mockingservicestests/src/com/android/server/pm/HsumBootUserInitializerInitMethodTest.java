@@ -327,7 +327,8 @@ public final class HsumBootUserInitializerInitMethodTest {
         try {
             verify(mMockUms).createUserInternalUnchecked(/* name= */ null,
                     UserManager.USER_TYPE_FULL_SECONDARY, flags, /* parentId= */ USER_NULL,
-                    /* preCreated= */ false, /* disallowedPackages= */ null, /* token= */ null);
+                    /* preCreated= */ false, /* disallowedPackages= */ null, /* token= */ null,
+                    /* devicePolicyUserRestrictions= */ null);
         } catch (Exception e) {
             String msg = "didn't create user with flags " + flags;
             Log.e(TAG, msg, e);
@@ -338,7 +339,7 @@ public final class HsumBootUserInitializerInitMethodTest {
     private void expectNoUserCreated() {
         try {
             verify(mMockUms, never()).createUserInternalUnchecked(any(), any(), anyInt(), anyInt(),
-                    anyBoolean(), any(), any());
+                    anyBoolean(), any(), any(), any());
         } catch (Exception e) {
             String msg = "shouldn't have created any user";
             Log.e(TAG, msg, e);
@@ -426,7 +427,7 @@ public final class HsumBootUserInitializerInitMethodTest {
         userInfo.id = userId;
         Log.d(TAG, "createUserEvenWhenDisallowed() will return " + userInfo);
         when(mMockUms.createUserInternalUnchecked(any(), any(), anyInt(), anyInt(), anyBoolean(),
-                any(), any())).thenReturn(userInfo);
+                any(), any(), any())).thenReturn(userInfo);
     }
 
     private void mockGetMainUserId(@CanBeNULL @UserIdInt int userId) {
