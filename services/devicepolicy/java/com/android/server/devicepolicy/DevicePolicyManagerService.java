@@ -21384,13 +21384,19 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub
                     Slogf.i(LOG_TAG, "Disallowed package [" + packageName + "]");
                 }
             }
-
-            userInfo = mUserManager.createProfileForUserEvenWhenDisallowed(
-                    provisioningParams.getProfileName(),
-                    UserManager.USER_TYPE_PROFILE_MANAGED,
-                    UserInfo.FLAG_DISABLED,
-                    caller.getUserId(),
-                    nonRequiredApps.toArray(new String[nonRequiredApps.size()]));
+            try {
+                userInfo = mUserManagerInternal.createProfileForUserEvenWhenDisallowed(
+                        provisioningParams.getProfileName(),
+                        UserManager.USER_TYPE_PROFILE_MANAGED,
+                        UserInfo.FLAG_DISABLED,
+                        caller.getUserId(),
+                        nonRequiredApps.toArray(new String[nonRequiredApps.size()]),
+                        /* token= */ null,
+                        UserRestrictionsUtils.getDefaultEnabledForManagedProfiles()
+                                .toArray(new String[0]));
+            } catch (UserManager.CheckedUserOperationException e) {
+                userInfo = null;
+            }
             if (userInfo == null) {
                 throw new ServiceSpecificException(
                         ERROR_PROFILE_CREATION_FAILED,
@@ -21540,12 +21546,19 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub
                 Slogf.i(LOG_TAG, "Disallowed package [" + packageName + "]");
             }
         }
-        return mUserManager.createProfileForUserEvenWhenDisallowed(
-                params.getProfileName(),
-                UserManager.USER_TYPE_PROFILE_MANAGED,
-                UserInfo.FLAG_DISABLED,
-                userId,
-                nonRequiredApps.toArray(new String[nonRequiredApps.size()]));
+        try {
+            return mUserManagerInternal.createProfileForUserEvenWhenDisallowed(
+                    params.getProfileName(),
+                    UserManager.USER_TYPE_PROFILE_MANAGED,
+                    UserInfo.FLAG_DISABLED,
+                    userId,
+                    nonRequiredApps.toArray(new String[nonRequiredApps.size()]),
+                    /* token= */ null,
+                    UserRestrictionsUtils.getDefaultEnabledForManagedProfiles()
+                            .toArray(new String[0]));
+        } catch (UserManager.CheckedUserOperationException e) {
+            return null;
+        }
     }
 
     @Override

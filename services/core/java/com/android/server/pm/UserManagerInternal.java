@@ -250,6 +250,25 @@ public abstract class UserManagerInternal {
             throws UserManager.CheckedUserOperationException;
 
     /**
+     * Same as {@link UserManager#createProfile(String, String, int, int, String[])}, but bypasses
+     * the checks such as {@link UserManager#DISALLOW_ADD_MANAGED_PROFILE}.
+     *
+     * <p>Called by the {@link com.android.server.devicepolicy.DevicePolicyManagerService} when
+     * {@code createManagedProfile} and {@code createAndProvisionManagedProfile} is called by the
+     * device owner and the user restrictions need to be set; it uses {@code token} to block until
+     * the user is created (as it will be passed back to it through
+     * {@link UserLifecycleListener#onUserCreated(UserInfo, Object)});
+     *
+     * @param devicePolicyUserRestrictions A list of user restrictions to be initially applied as
+     *                                     device policy restrictions to the newly created user.
+     */
+    public abstract @NonNull UserInfo createProfileForUserEvenWhenDisallowed(
+            @Nullable String name, @NonNull String userType, @UserInfo.UserInfoFlag int flags,
+            @CanBeNULL @UserIdInt int parentId, @Nullable String[] disallowedPackages,
+            @Nullable Object token, @Nullable String[] devicePolicyUserRestrictions)
+            throws UserManager.CheckedUserOperationException;
+
+    /**
      * Same as {@link UserManager#removeUser(int userId)}, but bypasses the check for
      * {@link UserManager#DISALLOW_REMOVE_USER} and
      * {@link UserManager#DISALLOW_REMOVE_MANAGED_PROFILE} and does not require the
