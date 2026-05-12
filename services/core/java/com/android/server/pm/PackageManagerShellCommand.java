@@ -1411,6 +1411,17 @@ class PackageManagerShellCommand extends ShellCommand {
     private int doRunInstall(final InstallParams params) throws RemoteException {
         final PrintWriter pw = getOutPrintWriter();
 
+        int requestUserId = params.userId;
+        if (requestUserId != UserHandle.USER_ALL && requestUserId != UserHandle.USER_CURRENT) {
+            UserManagerInternal umi =
+                    LocalServices.getService(UserManagerInternal.class);
+            UserInfo userInfo = umi.getUserInfo(requestUserId);
+            if (userInfo == null || userInfo.partial) {
+                pw.println("Failure [user " + requestUserId + " doesn't exist]");
+                return 1;
+            }
+        }
+
         final boolean isStreaming = params.sessionParams.dataLoaderParams != null;
         final boolean isApex =
                 (params.sessionParams.installFlags & PackageManager.INSTALL_APEX) != 0;
