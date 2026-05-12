@@ -3499,7 +3499,8 @@ public class UserManagerService extends IUserManager.Stub {
         checkManageOrCreateUsersPermission(flags);
         try {
             return createUserInternalUnchecked(name, userType, flags, userId,
-                    /* preCreate= */ false, disallowedPackages, /* token= */ null);
+                    /* preCreate= */ false, disallowedPackages, /* token= */ null,
+                    /* devicePolicyUserRestrictions= */ null);
         } catch (UserManager.CheckedUserOperationException e) {
             throw e.toServiceSpecificException();
         }
@@ -3532,7 +3533,8 @@ public class UserManagerService extends IUserManager.Stub {
         try {
             return createUserInternalUnchecked(/* name= */ null, userType, flags,
                     /* parentId= */ UserHandle.USER_NULL, /* preCreate= */ true,
-                    /* disallowedPackages= */ null, /* token= */ null);
+                    /* disallowedPackages= */ null, /* token= */ null,
+                    /* devicePolicyUserRestrictions= */ null);
         } catch (UserManager.CheckedUserOperationException e) {
             throw e.toServiceSpecificException();
         }
@@ -3548,13 +3550,14 @@ public class UserManagerService extends IUserManager.Stub {
         enforceUserRestriction(restriction, UserHandle.getCallingUserId(),
                 "Cannot add user");
         return createUserInternalUnchecked(name, userType, flags, parentId,
-                /* preCreate= */ false, disallowedPackages, /* token= */ null);
+                /* preCreate= */ false, disallowedPackages, /* token= */ null,
+                /* devicePolicyUserRestrictions= */ null);
     }
 
     private UserInfo createUserInternalUnchecked(@Nullable String name,
             @NonNull String userType, @UserInfoFlag int flags, @UserIdInt int parentId,
             boolean preCreate, @Nullable String[] disallowedPackages,
-            @Nullable Object token)
+            @Nullable Object token, @Nullable String[] devicePolicyUserRestrictions)
             throws UserManager.CheckedUserOperationException {
         final int nextProbableUserId = getNextAvailableId();
         final TimingsTraceAndSlog t = new TimingsTraceAndSlog();
@@ -3563,7 +3566,7 @@ public class UserManagerService extends IUserManager.Stub {
         UserInfo newUser = null;
         try {
             newUser = createUserInternalUncheckedNoTracing(name, userType, flags, parentId,
-                        preCreate, disallowedPackages, t, token);
+                        preCreate, disallowedPackages, t, token, devicePolicyUserRestrictions);
             return newUser;
         } finally {
             logUserCreateJourneyFinish(sessionId, nextProbableUserId, newUser != null);
@@ -3574,7 +3577,8 @@ public class UserManagerService extends IUserManager.Stub {
     private UserInfo createUserInternalUncheckedNoTracing(@Nullable String name,
             @NonNull String userType, @UserInfoFlag int flags, @UserIdInt int parentId,
             boolean preCreate, @Nullable String[] disallowedPackages,
-            @NonNull TimingsTraceAndSlog t, @Nullable Object token)
+            @NonNull TimingsTraceAndSlog t, @Nullable Object token,
+            @Nullable String[] devicePolicyUserRestrictions)
                     throws UserManager.CheckedUserOperationException {
         String truncatedName = truncateString(name, UserManager.MAX_USER_NAME_LENGTH);
         final UserTypeDetails userTypeDetails = mUserTypes.get(userType);
@@ -3745,12 +3749,6 @@ public class UserManagerService extends IUserManager.Stub {
             mPm.createNewUser(userId, userTypeInstallablePackages, disallowedPackages);
             t.traceEnd();
 
-            userInfo.partial = false;
-            synchronized (mPackagesLock) {
-                writeUserLP(userData);
-            }
-            updateUserIds();
-
             Bundle restrictions = new Bundle();
             if (isGuest) {
                 // Guest default restrictions can be modified via setDefaultGuestRestrictions.
@@ -3762,7 +3760,20 @@ public class UserManagerService extends IUserManager.Stub {
             }
             synchronized (mRestrictionsLock) {
                 mBaseUserRestrictions.updateRestrictions(userId, restrictions);
+                if (devicePolicyUserRestrictions != null) {
+                    final Bundle dpurBundle = new Bundle();
+                    for (String restriction : devicePolicyUserRestrictions) {
+                        dpurBundle.putBoolean(restriction, true);
+                    }
+                    mDevicePolicyGlobalUserRestrictions.updateRestrictions(userId, dpurBundle);
+                }
             }
+
+            userInfo.partial = false;
+            synchronized (mPackagesLock) {
+                writeUserLP(userData);
+            }
+            updateUserIds();
 
             t.traceBegin("PM.onNewUserCreated-" + userId);
             mPm.onNewUserCreated(userId, /* convertedFromPreCreated= */ false);
@@ -5630,7 +5641,20 @@ public class UserManagerService extends IUserManager.Stub {
                 @UserInfoFlag int flags, String[] disallowedPackages, @Nullable Object token)
                 throws UserManager.CheckedUserOperationException {
             return createUserInternalUnchecked(name, userType, flags,
-                    UserHandle.USER_NULL, /* preCreated= */ false, disallowedPackages, token);
+                    UserHandle.USER_NULL, /* preCreated= */ false, disallowedPackages, token,
+                    /* devicePolicyUserRestrictions= */ null);
+        }
+
+        @Override
+        public @NonNull UserInfo createProfileForUserEvenWhenDisallowed(
+                @Nullable String name, @NonNull String userType, @UserInfoFlag int flags,
+                @UserIdInt int parentId, @Nullable String[] disallowedPackages,
+                @Nullable Object token, @Nullable String[] devicePolicyUserRestrictions)
+                throws UserManager.CheckedUserOperationException {
+
+            return createUserInternalUnchecked(name, userType, flags,
+                    parentId, /* preCreate= */ false, disallowedPackages, token,
+                    devicePolicyUserRestrictions);
         }
 
         @Override

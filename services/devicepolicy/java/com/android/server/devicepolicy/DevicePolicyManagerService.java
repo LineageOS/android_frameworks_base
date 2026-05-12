@@ -17476,12 +17476,19 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
                     ? Collections.emptySet()
                     : mOverlayPackagesProvider.getNonRequiredApps(
                             admin, caller.getUserId(), ACTION_PROVISION_MANAGED_PROFILE);
-            userInfo = mUserManager.createProfileForUserEvenWhenDisallowed(
-                    provisioningParams.getProfileName(),
-                    UserManager.USER_TYPE_PROFILE_MANAGED,
-                    UserInfo.FLAG_DISABLED,
-                    caller.getUserId(),
-                    nonRequiredApps.toArray(new String[nonRequiredApps.size()]));
+            try {
+                userInfo = mUserManagerInternal.createProfileForUserEvenWhenDisallowed(
+                        provisioningParams.getProfileName(),
+                        UserManager.USER_TYPE_PROFILE_MANAGED,
+                        UserInfo.FLAG_DISABLED,
+                        caller.getUserId(),
+                        nonRequiredApps.toArray(new String[nonRequiredApps.size()]),
+                        /* token= */ null,
+                        UserRestrictionsUtils.getDefaultEnabledForManagedProfiles()
+                                .toArray(new String[0]));
+            } catch (UserManager.CheckedUserOperationException e) {
+                userInfo = null;
+            }
             if (userInfo == null) {
                 throw new ServiceSpecificException(
                         PROVISIONING_RESULT_PROFILE_CREATION_FAILED,
