@@ -16,6 +16,7 @@
 
 package android.content.pm;
 
+import android.annotation.NonNull;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Service;
@@ -24,11 +25,14 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.text.TextUtils;
 import android.util.Printer;
+
+import java.util.Objects;
 
 /**
  * Base class containing information common to all application components
@@ -106,6 +110,9 @@ public class ComponentInfo extends PackageItemInfo {
      */
     public boolean directBootAware = false;
 
+    /** @hide */
+    public static final int MAX_SAFE_DESCRIPTION_LENGTH = 1024;
+
     private static final int FLAG_ENABLED = 1 << 0;
     private static final int FLAG_EXPORTED = 1 << 1;
     private static final int FLAG_DIRECT_BOOT_AWARE = 1 << 2;
@@ -156,6 +163,21 @@ public class ComponentInfo extends PackageItemInfo {
             }
         }
         return name;
+    }
+
+    /** @hide */
+    public CharSequence loadDescription(@NonNull PackageManager pm) {
+        Objects.requireNonNull(pm);
+        if (descriptionRes != 0) {
+            try {
+                return TextUtils.trimToSize(
+                        pm.getText(packageName, descriptionRes, applicationInfo),
+                        MAX_SAFE_DESCRIPTION_LENGTH);
+            } catch (OutOfMemoryError e) {
+                throw new NotFoundException();
+            }
+        }
+        throw new NotFoundException();
     }
 
     /**
