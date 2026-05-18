@@ -11270,11 +11270,6 @@
                  android:exported="true">
             <meta-data android:name="android.telecom.INCLUDE_SELF_MANAGED_CALLS"
                        android:value="true" />
-            <!-- Indicates that this service's class may not be present in all builds.
-                 This directs Telecom to verify class existence before attempting to bind,
-                 in order to avoid a ClassNotFoundException. -->
-            <meta-data android:name="android.telecom.CLASS_EXISTENCE_CHECK"
-                       android:value="true" />
             <intent-filter>
                 <action android:name="android.telecom.InCallService"/>
             </intent-filter>
