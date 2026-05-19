@@ -1510,6 +1510,18 @@ public class PackageInstallerService extends IPackageInstaller.Stub implements
     @Override
     public ParceledListSlice<SessionInfo> getAllSessions(int userId) {
         final int callingUid = Binder.getCallingUid();
+        return getAllSessions(userId, callingUid);
+    }
+
+    /**
+     * Overload of {@link #getAllSessions(int)} that allows passing a specific UID to be used
+     * for {@link SessionInfo} generation and filtering.
+     *
+     * @param userId the user to get sessions for
+     * @param filterCallingUid the UID used for {@link SessionInfo} scrubbing and filtering
+     */
+    ParceledListSlice<SessionInfo> getAllSessions(int userId, int filterCallingUid) {
+        final int callingUid = Binder.getCallingUid();
         final Computer snapshot = mPm.snapshotComputer();
         snapshot.enforceCrossUserPermission(callingUid, userId, true, false, "getAllSessions");
 
@@ -1519,11 +1531,12 @@ public class PackageInstallerService extends IPackageInstaller.Stub implements
                 final PackageInstallerSession session = mSessions.valueAt(i);
                 if (session.userId == userId && !session.hasParentSessionId()
                         && !(session.isStaged() && session.isDestroyed())) {
-                    result.add(session.generateInfoForCaller(false /* includeIcon */, callingUid));
+                    result.add(session.generateInfoForCaller(false /* includeIcon */,
+                            filterCallingUid));
                 }
             }
         }
-        result.removeIf(info -> shouldFilterSession(snapshot, callingUid, info));
+        result.removeIf(info -> shouldFilterSession(snapshot, filterCallingUid, info));
         return new ParceledListSlice<>(result);
     }
 
