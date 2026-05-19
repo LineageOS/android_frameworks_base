@@ -440,7 +440,8 @@ public class LauncherAppsService extends SystemService {
             final long token = Binder.clearCallingIdentity();
             try {
                 for (int userId : userIds) {
-                    sessionInfos.addAll(getPackageInstallerService().getAllSessions(userId)
+                    sessionInfos.addAll(getPackageInstallerService()
+                            .getAllSessions(userId, callingUid)
                             .getList());
                 }
             } finally {
