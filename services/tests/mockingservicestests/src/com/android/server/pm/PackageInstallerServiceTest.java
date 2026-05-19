@@ -488,4 +488,47 @@ public class PackageInstallerServiceTest {
         PackageInstallerSession session2 = service.getSession(sessionId2);
         assertThrows(IllegalStateException.class, () -> session2.transfer("com.app.b"));
     }
+
+    @Test
+    public void testGetAllSessions_filtersSessionsCorrectly() throws Exception {
+        doReturn(mMockDeveloperVerifierController).when(
+                () -> DeveloperVerifierController.getInstance(any(), any(), eq(null))
+        );
+        when(mMockDeveloperVerifierController.getVerifierPackageName()).thenReturn(null);
+
+        final PackageInstallerService service = new PackageInstallerService(
+                rule.mocks().getContext(), mPms, null, null);
+        service.systemReady();
+
+        int callingUid = Binder.getCallingUid();
+        int otherUid = 10002;
+        String appPackageName = "com.app.b";
+
+        ApplicationInfo appBInfo = new ApplicationInfo();
+        appBInfo.uid = otherUid;
+        appBInfo.packageName = appPackageName;
+        when(mMockSnapshot.getApplicationInfo(eq(appPackageName), anyLong(), anyInt()))
+                .thenReturn(appBInfo);
+        when(mMockSnapshot.checkUidPermission(eq(android.Manifest.permission.INSTALL_PACKAGES),
+                eq(otherUid))).thenReturn(PackageManager.PERMISSION_GRANTED);
+        when(mMockSnapshot.getNameForUid(otherUid)).thenReturn(appPackageName);
+
+        PackageInstaller.SessionParams params = new PackageInstaller.SessionParams(
+                PackageInstaller.SessionParams.MODE_FULL_INSTALL);
+        params.appPackageName = appPackageName;
+        service.createSessionInternal(params, appPackageName, null, otherUid, TEST_USER_ID);
+
+        // Mock snapshot behavior for callingUid
+        when(mMockSnapshot.canQueryPackage(callingUid, appPackageName)).thenReturn(false);
+
+        ParceledListSlice<PackageInstaller.SessionInfo> sessions = service.getAllSessions(
+                TEST_USER_ID);
+        assertThat(sessions.getList()).isEmpty();
+
+        // Now allow callingUid to query the package
+        when(mMockSnapshot.canQueryPackage(callingUid, appPackageName)).thenReturn(true);
+        sessions = service.getAllSessions(TEST_USER_ID);
+        assertThat(sessions.getList()).hasSize(1);
+        assertThat(sessions.getList().get(0).getAppPackageName()).isEqualTo(appPackageName);
+    }
 }
