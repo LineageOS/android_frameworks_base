@@ -95,7 +95,11 @@ public abstract class AbstractWifiMacAddressPreferenceController
         if (TextUtils.isEmpty(macAddress) || macAddress.equals(WifiInfo.DEFAULT_MAC_ADDRESS)) {
             mWifiMacAddress.setSummary(R.string.status_unavailable);
         } else {
-            mWifiMacAddress.setSummary(macAddress);
+            setMacSummary(mWifiMacAddress, macAddress);
         }
+    }
+
+    protected void setMacSummary(Preference preference, String summary) {
+        preference.setSummary(summary);
     }
 }
