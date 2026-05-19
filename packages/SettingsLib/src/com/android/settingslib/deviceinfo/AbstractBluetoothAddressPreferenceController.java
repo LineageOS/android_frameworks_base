@@ -88,7 +88,7 @@ public abstract class AbstractBluetoothAddressPreferenceController
                     if (!TextUtils.isEmpty(address)) {
                         // Convert the address to lowercase for consistency with the wifi MAC
                         // address.
-                        mBtAddress.setSummary(address.toLowerCase());
+                        setMacSummary(mBtAddress, address.toLowerCase());
                     } else {
                         mBtAddress.setSummary(R.string.status_unavailable);
                     }
@@ -98,5 +98,9 @@ public abstract class AbstractBluetoothAddressPreferenceController
                 public void onFailure(Throwable t) {}
             }, mContext.getMainExecutor());
         }
+    }
+
+    protected void setMacSummary(Preference preference, String summary) {
+        preference.setSummary(summary);
     }
 }
