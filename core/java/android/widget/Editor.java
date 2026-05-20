@@ -4209,12 +4209,11 @@ public class Editor {
         }
 
         private Context applyDefaultTheme(Context originalContext) {
-            TypedArray a = originalContext.obtainStyledAttributes(
-                    new int[]{com.android.internal.R.attr.isLightTheme});
-            boolean isLightTheme = a.getBoolean(0, true);
+            int nightModeFlags = originalContext.getResources()
+                    .getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+            boolean isLightTheme = nightModeFlags != Configuration.UI_MODE_NIGHT_YES;
             int themeId = isLightTheme ? R.style.ThemeOverlay_Material_Light
                     : R.style.ThemeOverlay_Material_Dark;
-            a.recycle();
             return new ContextThemeWrapper(originalContext, themeId);
         }
 
