@@ -73,6 +73,57 @@ TEST(ResourceTypesTest, ResStringPool_HeaderStyleCountExceedsStyleOffsetCount) {
   ASSERT_THAT(modified.setTo(test.data(), test.bytes()), Eq(BAD_TYPE));
 }
 
+TEST(ResourceTypesTest, ResStringPool_StyleCountUnboundedWhenStringCountIsZero) {
+  const ResStringPool_span endSpan = {
+      { htodl(ResStringPool_span::END) },
+      htodl(ResStringPool_span::END), htodl(ResStringPool_span::END)
+  };
+
+  struct MockResStringPool {
+    ResStringPool_header header;
+    uint32_t styleOffset;
+    ResStringPool_span terminator;
+  };
+
+  MockResStringPool mock;
+  memset(&mock, 0, sizeof(mock));
+
+  mock.header.header.type = util::HostToDevice16(RES_STRING_POOL_TYPE);
+  mock.header.header.headerSize = util::HostToDevice16(sizeof(ResStringPool_header));
+  mock.header.header.size = util::HostToDevice32(sizeof(mock));
+  mock.header.stringCount = util::HostToDevice32(0);
+  mock.header.styleCount = util::HostToDevice32(100);
+  mock.header.stringsStart = util::HostToDevice32(0xFFFFFFFF);
+  mock.header.stylesStart = util::HostToDevice32(offsetof(MockResStringPool, terminator));
+  mock.terminator = endSpan;
+
+  ResStringPool test;
+  ASSERT_THAT(test.setTo(&mock, sizeof(mock)), Eq(BAD_TYPE));
+}
+
+TEST(ResourceTypesTest, ResStringPool_StyleCountCalculationOverflow) {
+  using namespace android;
+
+  struct MockResStringPool {
+    ResStringPool_header header;
+    uint32_t styleOffset;
+  };
+
+  MockResStringPool mock;
+  memset(&mock, 0, sizeof(mock));
+
+  mock.header.header.type = util::HostToDevice16(RES_STRING_POOL_TYPE);
+  mock.header.header.headerSize = util::HostToDevice16(sizeof(ResStringPool_header));
+  mock.header.header.size = util::HostToDevice32(sizeof(mock));
+  mock.header.stringCount = util::HostToDevice32(0);
+  mock.header.styleCount = util::HostToDevice32(0x40000000u);
+  mock.header.stringsStart = util::HostToDevice32(sizeof(ResStringPool_header));
+  mock.header.stylesStart = util::HostToDevice32(sizeof(ResStringPool_header));
+
+  ResStringPool test;
+  ASSERT_THAT(test.setTo(&mock, sizeof(mock)), Eq(BAD_TYPE));
+}
+
 TEST(ResourceTypesTest, ResXMLTree_ValidateNode_SmallAttributeSize) {
   struct MockResXMLTree {
     ResXMLTree_header header;
