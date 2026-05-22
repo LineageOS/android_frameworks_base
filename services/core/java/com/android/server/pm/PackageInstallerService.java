@@ -732,6 +732,11 @@ public class PackageInstallerService extends IPackageInstaller.Stub implements
                     Binder.restoreCallingIdentity(ident);
                 }
             }
+            if (params.volumeUuid != null && params.appPackageName != null
+                    && mPm.isPackageDeviceAdmin(params.appPackageName, userId)) {
+                throw new IllegalArgumentException(
+                        "Device Admin can only be installed on internal storage.");
+            }
         }
 
         if (params.whitelistedRestrictedPermissions != null) {
