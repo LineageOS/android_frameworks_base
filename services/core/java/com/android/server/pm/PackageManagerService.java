@@ -20784,6 +20784,10 @@ public class PackageManagerService extends IPackageManager.Stub
         }
 
         String pkgName = res.name = parsedPackage.getPackageName();
+        if (isPackageDeviceAdmin(pkgName, args.user.getIdentifier()) && onExternal) {
+            throw new PrepareFailure(INSTALL_FAILED_INVALID_INSTALL_LOCATION,
+                    "Device Admin can only be installed on internal storage.");
+        }
         if (parsedPackage.isTestOnly()) {
             if ((installFlags & PackageManager.INSTALL_ALLOW_TEST) == 0) {
                 throw new PrepareFailure(INSTALL_FAILED_TEST_ONLY, "installPackageLI");
@@ -21749,7 +21753,7 @@ public class PackageManagerService extends IPackageManager.Stub
         return isPackageDeviceAdmin(packageName, UserHandle.USER_ALL);
     }
 
-    private boolean isPackageDeviceAdmin(String packageName, int userId) {
+    boolean isPackageDeviceAdmin(String packageName, int userId) {
         final IDevicePolicyManager dpm = getDevicePolicyManager();
         try {
             if (dpm != null) {
