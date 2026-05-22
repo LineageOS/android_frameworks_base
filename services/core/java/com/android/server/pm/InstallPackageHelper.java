@@ -1160,6 +1160,10 @@ final class InstallPackageHelper {
         }
 
         String pkgName = res.mName = parsedPackage.getPackageName();
+        if (mPm.isPackageDeviceAdmin(pkgName, args.mUser.getIdentifier()) && onExternal) {
+            throw new PrepareFailure(INSTALL_FAILED_INVALID_INSTALL_LOCATION,
+                    "Device Admin can only be installed on internal storage.");
+        }
         if (parsedPackage.isTestOnly()) {
             if ((installFlags & PackageManager.INSTALL_ALLOW_TEST) == 0) {
                 throw new PrepareFailure(INSTALL_FAILED_TEST_ONLY, "installPackageLI");
