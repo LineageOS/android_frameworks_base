@@ -1227,6 +1227,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             packageFilter.addDataScheme("package");
             mContext.registerReceiverForAllUsers(mPackageReceiver, packageFilter, null, mHandler);
 
+            // listen for external storage apps to become available
+            final IntentFilter sdFilter = new IntentFilter();
+            sdFilter.addAction(Intent.ACTION_EXTERNAL_APPLICATIONS_AVAILABLE);
+            mContext.registerReceiverForAllUsers(mPackageReceiver, sdFilter, null, mHandler);
+
             // listen for UID changes to update policy
             mContext.registerReceiverForAllUsers(
                     mUidRemovedReceiver, new IntentFilter(ACTION_UID_REMOVED), null, mHandler);
@@ -1522,6 +1527,30 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             // on background handler thread, and PACKAGE_ADDED is protected
 
             final String action = intent.getAction();
+
+            if (Intent.ACTION_EXTERNAL_APPLICATIONS_AVAILABLE.equals(action)) {
+                final String[] packageNames =
+                        intent.getStringArrayExtra(Intent.EXTRA_CHANGED_PACKAGE_LIST);
+                if (packageNames != null) {
+                    synchronized (mUidRulesFirstLock) {
+                        for (UserInfo userInfo : mUserManager.getUsers()) {
+                            for (String packageName : packageNames) {
+                                final int changedUid;
+                                try {
+                                    changedUid = mContext.getPackageManager()
+                                            .getPackageUidAsUser(packageName, 0, userInfo.id);
+                                } catch (NameNotFoundException e) {
+                                    continue;
+                                }
+                                mInternetPermissionMap.delete(changedUid);
+                                updateRestrictionRulesForUidUL(changedUid);
+                            }
+                        }
+                    }
+                }
+                return;
+            }
+
             final int uid = intent.getIntExtra(EXTRA_UID, -1);
             if (uid == -1) return;
 
