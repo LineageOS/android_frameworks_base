@@ -6999,6 +6999,18 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
     }
 
     @Test
+    public void testSetListenerAccessForUser_grantWithByteLengthTooLong_throws() {
+        UserHandle user = UserHandle.of(mContext.getUserId() + 10);
+        // "中" (U+4E2D) is 3 bytes in UTF-8. 180 characters = 540 bytes.
+        ComponentName c = new ComponentName("com.example.package",
+                com.google.common.base.Strings.repeat("\u4e2d", 180));
+
+        assertThrows(IllegalArgumentException.class,
+                () -> mBinderService.setNotificationListenerAccessGrantedForUser(
+                        c, user.getIdentifier(), /* enabled= */ true, true));
+    }
+
+    @Test
     public void testSetListenerAccessForUser_revokeWithNameTooLong_okay() throws Exception {
         UserHandle user = UserHandle.of(mContext.getUserId() + 10);
         ComponentName c = new ComponentName("com.example.package",
