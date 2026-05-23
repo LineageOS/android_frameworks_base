@@ -5019,7 +5019,7 @@ public class NotificationManagerService extends SystemService {
                 boolean granted) {
             Objects.requireNonNull(listener);
             checkCallerIsSystemOrShell();
-            if (granted && listener.flattenToString().length()
+            if (granted && listener.flattenToString().getBytes().length
                     > NotificationManager.MAX_SERVICE_COMPONENT_NAME_LENGTH) {
                 throw new IllegalArgumentException(
                         "Component name too long: " + listener.flattenToString());
