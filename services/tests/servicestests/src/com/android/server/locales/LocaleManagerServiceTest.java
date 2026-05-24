@@ -394,6 +394,69 @@ public class LocaleManagerServiceTest {
         assertEquals(DEFAULT_LOCALES, locales);
     }
 
+    @Test(expected = SecurityException.class)
+    public void testGetOverrideLocaleConfig_arbitraryAppWithoutPermission_fails() throws Exception {
+        doReturn(DEFAULT_UID).when(mMockPackageManager)
+                .getPackageUidAsUser(anyString(), any(), anyInt());
+        setUpFailingPermissionCheckFor(Manifest.permission.READ_APP_SPECIFIC_LOCALES);
+
+        try {
+            mLocaleManagerService.getOverrideLocaleConfig(DEFAULT_PACKAGE_NAME, DEFAULT_USER_ID);
+            fail("Expected SecurityException");
+        } finally {
+            verify(mMockContext).enforceCallingOrSelfPermission(
+                    eq(android.Manifest.permission.READ_APP_SPECIFIC_LOCALES),
+                    anyString());
+        }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetOverrideLocaleConfig_pathTraversal_fails() throws Exception {
+        String traversalPackageName = "../../10/locale_configs/com.victim";
+        doThrow(new PackageManager.NameNotFoundException("Mock"))
+                .when(mMockPackageManager).getPackageUidAsUser(eq(traversalPackageName), any(),
+                        anyInt());
+
+        mLocaleManagerService.getOverrideLocaleConfig(traversalPackageName, DEFAULT_USER_ID);
+    }
+
+    @Test
+    public void testGetOverrideLocaleConfig_pathTraversal_bypassFirstDefense_provesVulnerability()
+            throws Exception {
+        String traversalPackageName = "../../10/locale_configs/com.victim";
+
+        // 1. Bypass "Unknown package" check:
+        // Mock PM to return a valid UID for the traversal path
+        doReturn(DEFAULT_UID).when(mMockPackageManager)
+                .getPackageUidAsUser(eq(traversalPackageName), any(), anyInt());
+
+        // 2. Bypass "Permission" check:
+        // Mock Context to ALLOW the READ_APP_SPECIFIC_LOCALES permission
+        setUpPassingPermissionCheckFor(Manifest.permission.READ_APP_SPECIFIC_LOCALES);
+
+        // 3. We expect the call to throw IllegalArgumentException if the path
+        // traversal check works. But we want to see if getAbsolutePath() FAILS to throw it.
+        try {
+            mLocaleManagerService.getOverrideLocaleConfig(
+                    traversalPackageName, DEFAULT_USER_ID);
+            // If we use getAbsolutePath(), it will NOT throw IllegalArgumentException.
+            // It will just try to read the file and return null (or throw
+            // FileNotFoundException which is caught).
+            // So if it returns null, it means the path traversal check was BYPASSED!
+            fail("Vulnerability proven: getAbsolutePath() bypassed! "
+                    + "No IllegalArgumentException thrown.");
+        } catch (IllegalArgumentException e) {
+            if (e.getMessage().contains("Invalid package name")) {
+                // This is the expected behavior if the path traversal check is secure
+                // (using getCanonicalPath).
+                System.out.println(
+                        "Result: Blocked! IllegalArgumentException thrown by path validation.");
+            } else {
+                fail("Result: Threw unexpected IllegalArgumentException: " + e.getMessage());
+            }
+        }
+    }
+
     private static void assertNoLocalesStored(LocaleList locales) {
         assertNull(locales);
     }
