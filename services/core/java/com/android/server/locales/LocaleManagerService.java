@@ -429,7 +429,7 @@ public class LocaleManagerService extends SystemService {
                 && !(isCallerFromCurrentInputMethod(userId)
                     && mActivityManagerInternal.isAppForeground(
                             getPackageUid(appPackageName, userId)))) {
-            enforceReadAppSpecificLocalesPermission();
+            enforceReadAppSpecificLocalesPermission("getApplicationLocales");
         }
         final long token = Binder.clearCallingIdentity();
         try {
@@ -500,10 +500,10 @@ public class LocaleManagerService extends SystemService {
         return false;
     }
 
-    private void enforceReadAppSpecificLocalesPermission() {
+    private void enforceReadAppSpecificLocalesPermission(String message) {
         mContext.enforceCallingOrSelfPermission(
                 android.Manifest.permission.READ_APP_SPECIFIC_LOCALES,
-                "getApplicationLocales");
+                message);
     }
 
     private int getPackageUid(String appPackageName, int userId) {
@@ -763,6 +763,14 @@ public class LocaleManagerService extends SystemService {
                 false /* allowAll */, ActivityManagerInternal.ALLOW_NON_FULL,
                 "getOverrideLocaleConfig", /* callerPackage= */ null);
 
+        if (!isPackageOwnedByCaller(appPackageName, userId, null, null)
+                && !isCallerInstaller(appPackageName, userId)
+                && !(isCallerFromCurrentInputMethod(userId)
+                    && mActivityManagerInternal.isAppForeground(
+                            getPackageUid(appPackageName, userId)))) {
+            enforceReadAppSpecificLocalesPermission("getOverrideLocaleConfig");
+        }
+
         final File file = getXmlFileNameForUser(appPackageName, userId);
         if (!file.exists()) {
             if (DEBUG) {
@@ -771,6 +779,7 @@ public class LocaleManagerService extends SystemService {
             return null;
         }
 
+        final long token = Binder.clearCallingIdentity();
         try (InputStream in = new FileInputStream(file)) {
             final TypedXmlPullParser parser = Xml.resolvePullParser(in);
             List<String> overrideLocales = loadFromXml(parser);
@@ -783,6 +792,8 @@ public class LocaleManagerService extends SystemService {
             return storedLocaleConfig;
         } catch (IOException | XmlPullParserException e) {
             Slog.e(TAG, "Failed to parse XML configuration from " + file, e);
+        } finally {
+            Binder.restoreCallingIdentity(token);
         }
 
         return null;
@@ -853,7 +864,19 @@ public class LocaleManagerService extends SystemService {
     @NonNull
     private File getXmlFileNameForUser(@NonNull String appPackageName, @UserIdInt int userId) {
         final File dir = new File(Environment.getDataSystemCeDirectory(userId), LOCALE_CONFIGS);
-        return new File(dir, appPackageName + SUFFIX_FILE_NAME);
+        final File file = new File(dir, appPackageName + SUFFIX_FILE_NAME);
+        try {
+            if (!file.getCanonicalPath().startsWith(dir.getCanonicalPath())) {
+                // Log a SafetyNet event for path traversal attempt.
+                android.util.EventLog.writeEvent(0x534e4554, "495409704", Binder.getCallingUid(),
+                        appPackageName);
+                throw new IllegalArgumentException("Invalid package name: " + appPackageName);
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException(
+                    "Invalid package name: " + appPackageName, e);
+        }
+        return file;
     }
 
     private void logAppSupportedLocalesChangedMetric(
