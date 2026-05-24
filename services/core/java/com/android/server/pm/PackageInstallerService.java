@@ -571,6 +571,17 @@ public class PackageInstallerService extends IPackageInstaller.Stub implements
                     + "to use a data loader");
         }
 
+        if ((params.installFlags & PackageManager.INSTALL_ENABLE_ROLLBACK) != 0) {
+            if (mContext.checkCallingOrSelfPermission(Manifest.permission.MANAGE_ROLLBACKS)
+                    != PackageManager.PERMISSION_GRANTED &&
+                    mContext.checkCallingOrSelfPermission(Manifest.permission.TEST_MANAGE_ROLLBACKS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                throw new SecurityException(
+                        "INSTALL_ENABLE_ROLLBACK requires the MANAGE_ROLLBACKS permission or the "
+                                + "TEST_MANAGE_ROLLBACKS permission");
+            }
+        }
+
         // App package name and label length is restricted so that really long strings aren't
         // written to disk.
         if (params.appPackageName != null && !isValidPackageName(params.appPackageName)) {
