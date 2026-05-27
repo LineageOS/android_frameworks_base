@@ -100,8 +100,8 @@ public final class VirtualAudioController implements AudioPlaybackCallback,
             mRunningAppUids.clear();
             mPlayingAppUids.clear();
         }
+        mAudioPlaybackDetector.register(/* callback= */ this);
         if (configChangedCallback != null) {
-            mAudioPlaybackDetector.register(/* callback= */ this);
             mAudioRecordingDetector.register(/* callback= */ this);
         }
     }
