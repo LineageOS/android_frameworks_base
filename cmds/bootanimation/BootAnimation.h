@@ -32,6 +32,7 @@
 
 #include <ui/Rotation.h>
 #include <ui/LayerStack.h>
+#include <ui/Size.h>
 
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
@@ -126,6 +127,7 @@ public:
         int height;
         int initWidth;
         int initHeight;
+        ui::Size physicalResolution;
         EGLDisplay  eglSurface;
         sp<IBinder> displayToken;
         sp<SurfaceControl> surfaceControl;
@@ -217,6 +219,9 @@ private:
     bool preloadAnimation();
     EGLConfig getEglConfig(const EGLDisplay&);
     ui::Size limitSurfaceSize(int width, int height) const;
+    ui::Size getEffectiveResolution(const sp<IBinder>& displayToken,
+                                    const ui::Size& physicalResolution) const;
+    void checkAndApplyResolutionOverride();
     void resizeSurface(int newWidth, int newHeight, Display& display);
     void projectSceneToWindow(const Display& display);
     void rotateAwayFromNaturalOrientationIfNeeded(Display& display);
