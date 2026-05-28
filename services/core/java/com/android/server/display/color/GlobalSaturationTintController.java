@@ -48,9 +48,11 @@ final class GlobalSaturationTintController extends TintController {
         }
         Slog.d(ColorDisplayService.TAG, "Setting saturation level: " + saturationLevel);
 
+        // Start from identity so the affine row remains valid for SurfaceFlinger.
+        Matrix.setIdentityM(mMatrixGlobalSaturation, 0);
+
         if (saturationLevel == 100) {
             setActivated(false);
-            Matrix.setIdentityM(mMatrixGlobalSaturation, 0);
         } else {
             setActivated(true);
             float saturation = saturationLevel * 0.01f;
