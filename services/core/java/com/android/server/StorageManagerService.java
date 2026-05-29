@@ -3131,13 +3131,14 @@ class StorageManagerService extends IStorageManager.Stub
             int mountId, int fileId, int mode) {
         Slog.v(TAG, "mountProxyFileDescriptor");
         final int pid = Binder.getCallingPid();
+        final int uid = Binder.getCallingUid();
         try {
             synchronized (mAppFuseLock) {
                 if (mAppFuseBridge == null) {
                     Slog.e(TAG, "FuseBridge has not been created");
                     return null;
                 }
-                return mAppFuseBridge.openFile(pid, mountId, fileId, mode);
+                return mAppFuseBridge.openFile(uid, pid, mountId, fileId, mode);
             }
         } catch (FuseUnavailableMountException | InterruptedException error) {
             Slog.v(TAG, "The mount point has already been invalid", error);
