@@ -96,12 +96,14 @@ public class AppFuseBridge implements Runnable {
         }
     }
 
-    public ParcelFileDescriptor openFile(int mountId, int fileId, int mode)
+    public ParcelFileDescriptor openFile(int uid, int mountId, int fileId, int mode)
             throws FuseUnavailableMountException, InterruptedException {
         final MountScope scope;
         synchronized (this) {
             scope = mScopes.get(mountId);
-            if (scope == null) {
+            // check that the process attempting to open this file is the actual owner
+            // who created the mounted.
+            if (scope == null || scope.uid != uid) {
                 throw new FuseUnavailableMountException(mountId);
             }
         }
