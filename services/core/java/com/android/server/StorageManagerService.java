@@ -3793,6 +3793,7 @@ class StorageManagerService extends IStorageManager.Stub
     public @Nullable ParcelFileDescriptor openProxyFileDescriptor(
             int mountId, int fileId, int mode) {
         Slog.v(TAG, "mountProxyFileDescriptor");
+        final int uid = Binder.getCallingUid();
 
         // We only support a narrow set of incoming mode flags
         mode &= MODE_READ_WRITE;
@@ -3803,7 +3804,7 @@ class StorageManagerService extends IStorageManager.Stub
                     Slog.e(TAG, "FuseBridge has not been created");
                     return null;
                 }
-                return mAppFuseBridge.openFile(mountId, fileId, mode);
+                return mAppFuseBridge.openFile(uid, mountId, fileId, mode);
             }
         } catch (FuseUnavailableMountException | InterruptedException error) {
             Slog.v(TAG, "The mount point has already been invalid", error);
