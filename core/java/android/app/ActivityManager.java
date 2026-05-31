@@ -1844,6 +1844,12 @@ public class ActivityManager {
                 (Build.IS_DEBUGGABLE && DEVELOPMENT_FORCE_LOW_RAM);
     }
 
+    /** @hide */
+    @UnsupportedAppUsage
+    public static boolean isMultiWindowForcedOn() {
+        return RoSystemProperties.CONFIG_FORCE_MULTI_WINDOW;
+    }
+
     /**
      * Returns true if this is a small battery device. Exactly whether a device is considered to be
      * small battery is ultimately up to the device configuration, but currently it generally means
