@@ -49,6 +49,8 @@ public class RoSystemProperties {
             SystemProperties.getBoolean("ro.config.low_ram", false);
     public static final boolean CONFIG_SMALL_BATTERY =
             SystemProperties.getBoolean("ro.config.small_battery", false);
+    public static final boolean CONFIG_FORCE_MULTI_WINDOW =
+            SystemProperties.getBoolean("ro.config.force_multi_window", false);
 
     /**
      * Indicates whether the device should run in headless system user mode,
