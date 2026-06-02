@@ -634,7 +634,8 @@ static jobject Bitmap_createFromParcel(JNIEnv* env, jobject, jobject parcel) {
     }
 
     std::unique_ptr<SkBitmap> bitmap(new SkBitmap);
-    if (!bitmap->setInfo(SkImageInfo::Make(width, height, colorType, alphaType, colorSpace),
+    if (rowBytes <= 0 ||
+            !bitmap->setInfo(SkImageInfo::Make(width, height, colorType, alphaType, colorSpace),
             rowBytes)) {
         return NULL;
     }
