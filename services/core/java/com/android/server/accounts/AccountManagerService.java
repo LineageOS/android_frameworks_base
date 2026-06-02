@@ -3332,11 +3332,23 @@ public class AccountManagerService
                                         "invalid intent in bundle returned");
                                 return;
                             }
-                            doNotification(
-                                    mAccounts,
-                                    account,
-                                    result.getString(AccountManager.KEY_AUTH_FAILED_MESSAGE),
-                                    intent, "android", accounts.userId);
+                            boolean hasNotificationPermission = false;
+                            if (authenticatorInfo != null) {
+                                hasNotificationPermission = isPermittedForPackage(
+                                        authenticatorInfo.type.packageName, accounts.userId,
+                                        android.Manifest.permission.POST_NOTIFICATIONS);
+                            }
+                            if (hasNotificationPermission) {
+                                doNotification(
+                                        mAccounts,
+                                        account,
+                                        result.getString(AccountManager.KEY_AUTH_FAILED_MESSAGE),
+                                        intent, "android", accounts.userId);
+                            } else {
+                                Slog.w(TAG, "Authenticator for type " + account.type
+                                        + " doesn't have "
+                                        + android.Manifest.permission.POST_NOTIFICATIONS);
+                            }
                         }
                     }
                     super.onResult(result);
