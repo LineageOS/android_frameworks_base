@@ -728,7 +728,7 @@ static constexpr auto BadParcelableException = "android/os/BadParcelableExceptio
 
 static bool validateImageInfo(const SkImageInfo& info, int32_t rowBytes) {
     // TODO: Can we avoid making a SkBitmap for this?
-    return SkBitmap().setInfo(info, rowBytes);
+    return rowBytes > 0 && SkBitmap().setInfo(info, rowBytes);
 }
 
 static jobject Bitmap_createFromParcel(JNIEnv* env, jobject, jobject parcel) {
