@@ -484,6 +484,17 @@ public final class DeviceAdminInfo implements Parcelable {
     }
 
     /**
+     * @hide
+     * Load user-visible description associated with this device admin. The description is trimmed
+     * to 1024 characters by leveraging {@link ComponentInfo#loadDescription(PackageManager)}.
+     *
+     * @param pm Supply a PackageManager used to load the device admin's resources.
+     */
+    public CharSequence loadDescriptionSafe(@NonNull PackageManager pm) throws NotFoundException {
+        return mActivityInfo.loadDescription(pm);
+    }
+
+    /**
      * Load the user-displayed icon for this device admin.
      *
      * @param pm Supply a PackageManager used to load the device admin's
