@@ -16,6 +16,7 @@
 
 package android.content.pm;
 
+import android.annotation.NonNull;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Service;
@@ -24,10 +25,14 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
+import android.text.TextUtils;
 import android.util.Printer;
+
+import java.util.Objects;
 
 /**
  * Base class containing information common to all application components
@@ -43,7 +48,7 @@ public class ComponentInfo extends PackageItemInfo {
      * part of.
      */
     public ApplicationInfo applicationInfo;
-    
+
     /**
      * The name of the process this component should run in.
      * From the "android:process" attribute or, if not set, the same
@@ -82,7 +87,7 @@ public class ComponentInfo extends PackageItemInfo {
      * attribute or, if not set, 0.
      */
     public int descriptionRes;
-    
+
     /**
      * Indicates whether or not this component may be instantiated.  Note that this value can be
      * overridden by the one in its parent {@link ApplicationInfo}.
@@ -103,6 +108,9 @@ public class ComponentInfo extends PackageItemInfo {
      * pattern or PIN).
      */
     public boolean directBootAware = false;
+
+    /** @hide */
+    public static final int MAX_SAFE_DESCRIPTION_LENGTH = 1024;
 
     public ComponentInfo() {
     }
@@ -144,18 +152,33 @@ public class ComponentInfo extends PackageItemInfo {
         return name;
     }
 
+    /** @hide */
+    public CharSequence loadDescription(@NonNull PackageManager pm) {
+        Objects.requireNonNull(pm);
+        if (descriptionRes != 0) {
+            try {
+                return TextUtils.trimToSize(
+                        pm.getText(packageName, descriptionRes, applicationInfo),
+                        MAX_SAFE_DESCRIPTION_LENGTH);
+            } catch (OutOfMemoryError e) {
+                throw new NotFoundException();
+            }
+        }
+        throw new NotFoundException();
+    }
+
     /**
      * Return whether this component and its enclosing application are enabled.
      */
     public boolean isEnabled() {
         return enabled && applicationInfo.enabled;
     }
-    
+
     /**
      * Return the icon resource identifier to use for this component.  If
      * the component defines an icon, that is used; else, the application
      * icon is used.
-     * 
+     *
      * @return The icon associated with this component.
      */
     public final int getIconResource() {
@@ -172,7 +195,7 @@ public class ComponentInfo extends PackageItemInfo {
     public final int getLogoResource() {
         return logo != 0 ? logo : applicationInfo.logo;
     }
-    
+
     /**
      * Return the banner resource identifier to use for this component. If the
      * component defines a banner, that is used; else, the application banner is
@@ -241,7 +264,7 @@ public class ComponentInfo extends PackageItemInfo {
         dest.writeInt(exported ? 1 : 0);
         dest.writeInt(directBootAware ? 1 : 0);
     }
-    
+
     protected ComponentInfo(Parcel source) {
         super(source);
         applicationInfo = ApplicationInfo.CREATOR.createFromParcel(source);
@@ -261,7 +284,7 @@ public class ComponentInfo extends PackageItemInfo {
     public Drawable loadDefaultIcon(PackageManager pm) {
         return applicationInfo.loadIcon(pm);
     }
-    
+
     /**
      * @hide
      */
@@ -276,7 +299,7 @@ public class ComponentInfo extends PackageItemInfo {
     protected Drawable loadDefaultLogo(PackageManager pm) {
         return applicationInfo.loadLogo(pm);
     }
-    
+
     /**
      * @hide
      */
