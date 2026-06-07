@@ -2722,6 +2722,7 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
             if (policy != null) {
                 mUserData.remove(userHandle);
             }
+            deleteUserTransferOwnershipMetadataFileLocked(userHandle);
 
             File policyFile = new File(mInjector.environmentGetUserSystemDirectory(userHandle),
                     DEVICE_POLICIES_XML);
@@ -15526,6 +15527,16 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
             final ActiveAdmin deviceOwner =
                     getActiveAdminForCallerLocked(admin, DeviceAdminInfo.USES_POLICY_DEVICE_OWNER);
             return deviceOwner.endUserSessionMessage;
+        }
+    }
+
+    private void deleteUserTransferOwnershipMetadataFileLocked(int userHandle) {
+        if (mTransferOwnershipMetadataManager.metadataFileExists()) {
+            final TransferOwnershipMetadataManager.Metadata metadata =
+                    mTransferOwnershipMetadataManager.loadMetadataFile();
+            if (metadata != null && metadata.userId == userHandle) {
+                deleteTransferOwnershipMetadataFileLocked();
+            }
         }
     }
 
