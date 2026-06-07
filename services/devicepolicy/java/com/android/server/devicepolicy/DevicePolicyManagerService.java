@@ -2324,6 +2324,7 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
             if (policy != null) {
                 mUserData.remove(userHandle);
             }
+            deleteUserTransferOwnershipMetadataFileLocked(userHandle);
 
             File policyFile =
                     new File(mPathProvider.getUserSystemDirectory(userHandle), DEVICE_POLICIES_XML);
@@ -19551,6 +19552,15 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         synchronized (getLockObject()) {
             final ActiveAdmin deviceOwner = getDeviceOwnerAdminLocked();
             return deviceOwner.endUserSessionMessage;
+        }
+    }
+
+    private void deleteUserTransferOwnershipMetadataFileLocked(int userHandle) {
+        if (mTransferOwnershipMetadataManager.metadataFileExists()) {
+            final var metadata = mTransferOwnershipMetadataManager.loadMetadataFile();
+            if (metadata != null && metadata.userId == userHandle) {
+                deleteTransferOwnershipMetadataFileLocked();
+            }
         }
     }
 
