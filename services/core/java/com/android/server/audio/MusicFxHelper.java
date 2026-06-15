@@ -230,7 +230,8 @@ public class MusicFxHelper {
         }
         final PackageManager pm = context.getPackageManager();
         // TODO this should target a user-selected panel
-        List<ResolveInfo> ril = pm.queryBroadcastReceivers(intent, 0 /* flags */);
+        List<ResolveInfo> ril = pm.queryBroadcastReceivers(intent,
+                PackageManager.MATCH_SYSTEM_ONLY);
         if (ril != null && ril.size() != 0) {
             ResolveInfo ri = ril.get(0);
             final String senderPackageName = intent.getStringExtra(AudioEffect.EXTRA_PACKAGE_NAME);
@@ -238,14 +239,25 @@ public class MusicFxHelper {
                 Log.w(TAG, "Intent package name must not be null");
                 return;
             }
+
             try {
                 if (ri != null && ri.activityInfo != null && ri.activityInfo.packageName != null) {
                     final int senderUid = pm.getPackageUidAsUser(senderPackageName,
                             PackageManager.PackageInfoFlags.of(MATCH_ANY_USER), getCurrentUserId());
-                    intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-                    intent.setPackage(ri.activityInfo.packageName);
-                    if (setMusicFxServiceWithObserver(intent, senderUid, senderPackageName)) {
-                        context.sendBroadcastAsUser(intent, UserHandle.ALL);
+                    Intent cleanIntent = new Intent(intent.getAction());
+                    cleanIntent.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, senderPackageName);
+                    cleanIntent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION,
+                            intent.getIntExtra(AudioEffect.EXTRA_AUDIO_SESSION,
+                                    AudioManager.AUDIO_SESSION_ID_GENERATE));
+                    if (intent.hasExtra(AudioEffect.EXTRA_CONTENT_TYPE)) {
+                        cleanIntent.putExtra(AudioEffect.EXTRA_CONTENT_TYPE,
+                                intent.getIntExtra(AudioEffect.EXTRA_CONTENT_TYPE,
+                                        AudioEffect.CONTENT_TYPE_MUSIC));
+                    }
+                    cleanIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                    cleanIntent.setPackage(ri.activityInfo.packageName);
+                    if (setMusicFxServiceWithObserver(cleanIntent, senderUid, senderPackageName)) {
+                        context.sendBroadcastAsUser(cleanIntent, UserHandle.ALL);
                     }
                     return;
                 }
