@@ -30,6 +30,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.media.audiofx.AudioEffect;
 import android.os.Message;
+import android.os.UserHandle;
 import android.util.Log;
 
 import androidx.test.filters.MediumTest;
@@ -39,12 +40,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @MediumTest
 @RunWith(AndroidJUnit4.class)
@@ -683,4 +686,77 @@ public class MusicFxHelperTest {
                 mTestSession1, mTestUid1);
     }
 
+    /**
+     * Verify that broadcast intent for audio effect control session uses MATCH_SYSTEM_ONLY.
+     */
+    @Test
+    public void testBroadcastIntentQueriesSystemOnly() {
+        Log.i(TAG, "running testBroadcastIntentQueriesSystemOnly");
+
+        Intent intent = newIntent(AudioEffect.ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION,
+                mTestPkg1, mTestSession1);
+
+        doReturn(mMockPackageManager).when(mMockContext).getPackageManager();
+        doReturn(mSingleList).when(mMockPackageManager).queryBroadcastReceivers(any(), anyInt());
+        try {
+            doReturn(mTestUid1).when(mMockPackageManager)
+                    .getPackageUidAsUser(eq(mTestPkg1), any(), anyInt());
+            doReturn(mMusicFxUid).when(mMockPackageManager)
+                    .getPackageUidAsUser(eq(mMusicFxPkgName), any(), anyInt());
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "NameNotFoundException: " + e);
+        }
+
+        mMusicFxHelper.handleAudioEffectBroadcast(mMockContext, intent);
+
+        verify(mMockPackageManager).queryBroadcastReceivers(any(),
+                eq(PackageManager.MATCH_SYSTEM_ONLY));
+    }
+
+    /**
+     * Verify that broadcast intent for audio effect control session is sanitized
+     * to avoid arbitrary extras leaking to 3rd party apps.
+     */
+    @Test
+    public void testBroadcastIntentIsSanitized() {
+        Log.i(TAG, "running testBroadcastIntentIsSanitized");
+
+        Intent intent = newIntent(AudioEffect.ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION,
+                mTestPkg1, mTestSession1);
+        intent.putExtra("LEAK", "sensitive_data"); // Add a malicious extra
+        intent.putExtra(AudioEffect.EXTRA_CONTENT_TYPE, AudioEffect.CONTENT_TYPE_MOVIE);
+
+        doReturn(mMockPackageManager).when(mMockContext).getPackageManager();
+        doReturn(mSingleList).when(mMockPackageManager).queryBroadcastReceivers(any(), anyInt());
+        try {
+            doReturn(mTestUid1).when(mMockPackageManager)
+                    .getPackageUidAsUser(eq(mTestPkg1), any(), anyInt());
+            doReturn(mMusicFxUid).when(mMockPackageManager)
+                    .getPackageUidAsUser(eq(mMusicFxPkgName), any(), anyInt());
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "NameNotFoundException: " + e);
+        }
+
+        mMusicFxHelper.handleAudioEffectBroadcast(mMockContext, intent);
+
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mMockContext).sendBroadcastAsUser(intentCaptor.capture(), eq(UserHandle.ALL));
+
+        Intent broadcastedIntent = intentCaptor.getValue();
+        Assert.assertNotNull("Broadcasted intent must have extras",
+                broadcastedIntent.getExtras());
+        Set<String> expectedKeys = Set.of(
+                AudioEffect.EXTRA_PACKAGE_NAME,
+                AudioEffect.EXTRA_AUDIO_SESSION,
+                AudioEffect.EXTRA_CONTENT_TYPE
+        );
+        Assert.assertEquals("Broadcasted intent must contain exactly the expected extras",
+                expectedKeys, broadcastedIntent.getExtras().keySet());
+        Assert.assertEquals(mTestPkg1,
+                broadcastedIntent.getStringExtra(AudioEffect.EXTRA_PACKAGE_NAME));
+        Assert.assertEquals(mTestSession1,
+                broadcastedIntent.getIntExtra(AudioEffect.EXTRA_AUDIO_SESSION, 0));
+        Assert.assertEquals(AudioEffect.CONTENT_TYPE_MOVIE,
+                broadcastedIntent.getIntExtra(AudioEffect.EXTRA_CONTENT_TYPE, -1));
+    }
 }
