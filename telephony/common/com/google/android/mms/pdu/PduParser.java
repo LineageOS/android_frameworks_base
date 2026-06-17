@@ -863,7 +863,17 @@ public class PduParser {
 
         for (int i = 0 ; i < count ; i++) {
             int headerLength = parseUnsignedInt(pduDataStream);
+            if (isInvalidLength(headerLength, pduDataStream)) {
+                Log.e(LOG_TAG, "parseParts: Invalid header length: " + headerLength
+                        + " (available: " + pduDataStream.available() + ")");
+                return null;
+            }
             int dataLength = parseUnsignedInt(pduDataStream);
+            if (isInvalidLength(dataLength, pduDataStream)) {
+                Log.e(LOG_TAG, "parseParts: Invalid data length: " + dataLength
+                        + " (available: " + pduDataStream.available() + ")");
+                return null;
+            }
             PduPart part = new PduPart();
             int startPos = pduDataStream.available();
             if (startPos <= 0) {
@@ -984,6 +994,19 @@ public class PduParser {
         if (LOCAL_LOGV) {
             Log.v(LOG_TAG, text);
         }
+    }
+
+    /**
+     * Checks if the given length is invalid for the current input stream.
+     * A length is considered invalid if it is negative or if it exceeds the number of
+     * bytes available in the stream.
+     *
+     * @param length the length to validate
+     * @param pduDataStream the input stream to check availability against
+     * @return {@code true} if the length is invalid, {@code false} otherwise
+     */
+    private static boolean isInvalidLength(int length, ByteArrayInputStream pduDataStream) {
+        return length < 0 || length > pduDataStream.available();
     }
 
     /**
@@ -1358,13 +1381,16 @@ public class PduParser {
      */
     protected static int skipWapValue(ByteArrayInputStream pduDataStream, int length) {
         assert(null != pduDataStream);
-        byte[] area = new byte[length];
-        int readLen = pduDataStream.read(area, 0, length);
-        if (readLen < length) { //The actually read length is lower than the length
+        if (isInvalidLength(length, pduDataStream)) {
+            Log.e(LOG_TAG, "skipWapValue: Invalid length: " + length
+                    + " (available: " + pduDataStream.available() + ")");
             return -1;
-        } else {
-            return readLen;
         }
+        // Hardening: Use skip() instead of allocating a byte array to avoid unnecessary
+        // memory allocation, preventing potential OutOfMemoryErrors (OOME).
+        // ByteArrayInputStream.skip() is safe and does not allocate.
+        long skipped = pduDataStream.skip(length);
+        return (skipped < length) ? -1 : (int) skipped;
     }
 
     /**
@@ -1760,6 +1786,14 @@ public class PduParser {
                                 thisEndPos = pduDataStream.available();
                                 if (thisStartPos - thisEndPos < len) {
                                     int last = len - (thisStartPos - thisEndPos);
+                                    if (isInvalidLength(last, pduDataStream)) {
+                                        Log.e(LOG_TAG, "parsePartHeaders: Invalid temp length: "
+                                                + last
+                                                + " (available: "
+                                                + pduDataStream.available()
+                                                + ")");
+                                        return false;
+                                    }
                                     byte[] temp = new byte[last];
                                     pduDataStream.read(temp, 0, last);
                                 }
