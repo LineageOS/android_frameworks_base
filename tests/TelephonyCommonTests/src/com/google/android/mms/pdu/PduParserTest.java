@@ -26,10 +26,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
-@SmallTest
 public class PduParserTest {
 
     @Test
+    @SmallTest
     public void testParse_malformedHugeHeaderLength_doesNotOOM() {
         byte[] pduData = new byte[] {
             // Headers (Send-Req)
