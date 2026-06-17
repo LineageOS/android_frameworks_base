@@ -783,7 +783,11 @@ public class WindowlessWindowManager implements IWindowSession {
         for (State windowInfo : mStateForWindow.values()) {
             int changes = windowInfo.mLastReportedParams.copyFrom(windowInfo.mParams);
             hasChanges |= (changes != 0);
-            params[index++] = windowInfo.mParams;
+            WindowManager.LayoutParams p = new WindowManager.LayoutParams();
+            p.copyFrom(windowInfo.mParams);
+            p.token = null;
+            p.mWindowContextToken = null;
+            params[index++] = p;
         }
 
         if (hasChanges) {
