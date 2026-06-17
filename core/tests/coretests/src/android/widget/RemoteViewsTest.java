@@ -22,6 +22,7 @@ import static com.android.internal.R.id.pending_intent_tag;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
@@ -697,6 +698,51 @@ public class RemoteViewsTest {
 
         assertEquals(
                 index, inflated.getTag(com.android.internal.R.id.notification_action_index_tag));
+    }
+
+    private RemoteViews createRemoteViewsWithClobberedCheckedListener() {
+        RemoteViews views = new RemoteViews(mPackage, R.layout.radiogroup_checkedchild);
+        PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, new Intent("dummy_action"),
+                PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_MUTABLE);
+        views.setOnCheckedChangeResponse(R.id.value_two,
+                RemoteViews.RemoteResponse.fromPendingIntent(pi));
+
+        int tagKey = com.android.internal.R.id.remote_checked_change_listener_tag;
+        views.setIntTag(R.id.value_two, tagKey, 0);
+        return views;
+    }
+
+    @Test
+    public void setCompoundButtonChecked_doesNotFireListenerWhenClobbered() throws Exception {
+        RemoteViews views = createRemoteViewsWithClobberedCheckedListener();
+        views.setCompoundButtonChecked(R.id.value_two, true);
+
+        boolean[] interactionFired = new boolean[1];
+        RemoteViews.InteractionHandler handler = (view, pendingIntent, response) -> {
+            interactionFired[0] = true;
+            return true;
+        };
+
+        views.apply(mContext, mContainer, handler);
+
+        assertFalse("Interaction should not have been fired!", interactionFired[0]);
+    }
+
+    @Test
+    public void setRadioGroupChecked_doesNotFireListenerWhenClobbered() throws Exception {
+        RemoteViews views = createRemoteViewsWithClobberedCheckedListener();
+        views.setRadioGroupChecked(R.id.group, R.id.value_two);
+
+        boolean[] interactionFired = new boolean[1];
+        RemoteViews.InteractionHandler handler = (view, pendingIntent, response) -> {
+            interactionFired[0] = true;
+            return true;
+        };
+
+        views.apply(mContext, mContainer, handler);
+
+        assertFalse("Interaction should not have been fired on RadioGroup check!",
+                interactionFired[0]);
     }
 
     @Test
