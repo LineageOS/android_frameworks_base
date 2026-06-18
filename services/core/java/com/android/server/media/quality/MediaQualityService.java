@@ -496,6 +496,14 @@ public class MediaQualityService extends SystemService {
         @Override
         public void changeStreamStatus(
                 @NonNull String profileId, @NonNull String newStatus, int userId) {
+            int callingUid = Binder.getCallingUid();
+            int callingPid = Binder.getCallingPid();
+            if (!hasGlobalPictureQualityServicePermission(callingUid, callingPid)) {
+                mMqManagerNotifier.notifyOnPictureProfileError(
+                        null, PictureProfile.ERROR_NO_PERMISSION, callingUid, callingPid);
+                Slog.e(TAG, "changeStreamStatus: no permission");
+                return;
+            }
             Long dbId = null;
             synchronized (mPictureProfileLock) {
                 dbId = mPictureProfileTempIdMap.getKey(profileId);
@@ -737,6 +745,14 @@ public class MediaQualityService extends SystemService {
         @GuardedBy("mPictureProfileLock")
         @Override
         public List<PictureProfileHandle> getPictureProfileHandle(String[] ids, int userId) {
+            int callingUid = Binder.getCallingUid();
+            int callingPid = Binder.getCallingPid();
+            if (!hasGlobalPictureQualityServicePermission(callingUid, callingPid)) {
+                mMqManagerNotifier.notifyOnPictureProfileError(
+                        null, PictureProfile.ERROR_NO_PERMISSION, callingUid, callingPid);
+                Slog.e(TAG, "getPictureProfileHandle: no permission");
+                return new ArrayList<>();
+            }
             List<PictureProfileHandle> toReturn = new ArrayList<>();
             synchronized (mPictureProfileLock) {
                 for (String id : ids) {
@@ -844,6 +860,14 @@ public class MediaQualityService extends SystemService {
             if (DEBUG) {
                 Slog.d(TAG, "getPictureProfileForTvInput for id " + inputId);
             }
+            int callingUid = Binder.getCallingUid();
+            int callingPid = Binder.getCallingPid();
+            if (!hasGlobalPictureQualityServicePermission(callingUid, callingPid)) {
+                mMqManagerNotifier.notifyOnPictureProfileError(
+                        null, PictureProfile.ERROR_NO_PERMISSION, callingUid, callingPid);
+                Slog.e(TAG, "getPictureProfileForTvInput: no permission");
+                return -1;
+            }
             // TODO: cache profiles
             String[] columns = {BaseParameters.PARAMETER_ID};
             String selection = BaseParameters.PARAMETER_TYPE + " = ? AND ("
@@ -891,6 +915,14 @@ public class MediaQualityService extends SystemService {
         public PictureProfile getCurrentPictureProfileForTvInput(String inputId, int userId) {
             if (DEBUG) {
                 Slog.d(TAG, "getCurrentPictureProfileForTvInput");
+            }
+            int callingUid = Binder.getCallingUid();
+            int callingPid = Binder.getCallingPid();
+            if (!hasGlobalPictureQualityServicePermission(callingUid, callingPid)) {
+                mMqManagerNotifier.notifyOnPictureProfileError(
+                        null, PictureProfile.ERROR_NO_PERMISSION, callingUid, callingPid);
+                Slog.e(TAG, "getCurrentPictureProfileForTvInput: no permission");
+                return null;
             }
             long profileHandle = getPictureProfileForTvInput(inputId, userId);
             if (profileHandle == -1) {
@@ -947,6 +979,14 @@ public class MediaQualityService extends SystemService {
         public List<SoundProfileHandle> getSoundProfileHandle(String[] ids, int userId) {
             if (DEBUG) {
                 Slog.d(TAG, "getSoundProfileHandle");
+            }
+            int callingUid = Binder.getCallingUid();
+            int callingPid = Binder.getCallingPid();
+            if (!hasGlobalSoundQualityServicePermission(callingUid, callingPid)) {
+                mMqManagerNotifier.notifyOnSoundProfileError(
+                        null, SoundProfile.ERROR_NO_PERMISSION, callingUid, callingPid);
+                Slog.e(TAG, "getSoundProfileHandle: no permission");
+                return new ArrayList<>();
             }
             List<SoundProfileHandle> toReturn = new ArrayList<>();
             synchronized (mSoundProfileLock) {
