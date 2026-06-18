@@ -190,11 +190,35 @@ public abstract class BaseShortcutManagerTest extends InstrumentationTestCase {
             return this;
         }
 
+        public class PackageContext extends BaseContext {
+            private final String mPackageName;
+            private final UserHandle mUser;
+
+            public PackageContext(String packageName, UserHandle user) {
+                mPackageName = packageName;
+                mUser = user;
+            }
+
+            @Override
+            public String getPackageName() {
+                return mPackageName;
+            }
+
+            @Override
+            public int getUserId() {
+                return mUser.getIdentifier();
+            }
+
+            @Override
+            public UserHandle getUser() {
+                return mUser;
+            }
+        }
+
         @Override
         public Context createPackageContextAsUser(String packageName, int flags, UserHandle user)
                 throws PackageManager.NameNotFoundException {
-            // ignore.
-            return this;
+            return new PackageContext(packageName, user);
         }
 
         @Override
