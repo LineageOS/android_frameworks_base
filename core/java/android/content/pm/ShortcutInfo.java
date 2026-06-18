@@ -508,8 +508,11 @@ public final class ShortcutInfo implements Parcelable {
         mLocusId = b.mLocusId;
         mCapabilityBindings =
                 cloneCapabilityBindings(b.mCapabilityBindings);
+        // Use the resolved theme string from the builder (passed from the source ShortcutInfo)
+        // if no new theme resource ID has been explicitly set.
         mStartingThemeResName = b.mStartingThemeResId != 0
-                ? b.mContext.getResources().getResourceName(b.mStartingThemeResId) : null;
+                ? b.mContext.getResources().getResourceName(b.mStartingThemeResId)
+                : b.mStartingThemeResName;
         updateTimestamp();
     }
 
@@ -611,6 +614,14 @@ public final class ShortcutInfo implements Parcelable {
         }
         Objects.requireNonNull(mIntents, "Shortcut Intent must be provided");
         Preconditions.checkArgument(mIntents.length > 0, "Shortcut Intent must be provided");
+    }
+
+    /**
+     * Copy constructor.
+     * @hide
+     */
+    public ShortcutInfo(ShortcutInfo source) {
+        this(source, 0);
     }
 
     /**
@@ -1092,6 +1103,8 @@ public final class ShortcutInfo implements Parcelable {
 
         private int mStartingThemeResId;
 
+        private String mStartingThemeResName;
+
         @Nullable
         private Map<String, Map<String, List<String>>> mCapabilityBindings;
 
@@ -1126,6 +1139,38 @@ public final class ShortcutInfo implements Parcelable {
         public Builder(Context context, String id) {
             mContext = context;
             mId = Preconditions.checkStringNotEmpty(id, "id cannot be empty");
+        }
+
+        /**
+         * Constructor.
+         *
+         * @param context Client context.
+         * @param source ShortcutInfo to copy from.
+        *
+         * @hide
+         */
+        public Builder(@NonNull Context context, @NonNull ShortcutInfo source) {
+            mContext = Objects.requireNonNull(context, "context cannot be null");
+            Objects.requireNonNull(source, "source cannot be null");
+            mId = source.mId;
+            mActivity = source.mActivity;
+            mIcon = source.mIcon;
+            mTitleResId = source.mTitleResId;
+            mTitle = source.mTitle;
+            mTextResId = source.mTextResId;
+            mText = source.mText;
+            mDisabledMessageResId = source.mDisabledMessageResId;
+            mDisabledMessage = source.mDisabledMessage;
+            mCategories = cloneCategories(source.mCategories);
+            mIntents = cloneIntents(source.mIntents);
+            mPersons = clonePersons(source.mPersons);
+            mIsLongLived = source.isLongLived();
+            mRank = source.mRank;
+            mExtras = source.mExtras;
+            mLocusId = source.mLocusId;
+            mStartingThemeResName = source.mStartingThemeResName;
+            mCapabilityBindings = cloneCapabilityBindings(source.mCapabilityBindings);
+            mExcludedSurfaces = source.mExcludedSurfaces;
         }
 
         /**
@@ -1791,6 +1836,16 @@ public final class ShortcutInfo implements Parcelable {
     /** @hide */
     public void setRank(int rank) {
         mRank = rank;
+    }
+
+    /** @hide */
+    public void setPersons(Person[] persons) {
+        mPersons = clonePersons(persons);
+    }
+
+    /** @hide */
+    public void setExtras(PersistableBundle extras) {
+        mExtras = extras;
     }
 
     /** @hide */
