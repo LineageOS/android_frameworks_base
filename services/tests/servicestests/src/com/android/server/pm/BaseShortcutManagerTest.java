@@ -169,6 +169,31 @@ public abstract class BaseShortcutManagerTest extends InstrumentationTestCase {
             return getTestContext().getResources();
         }
 
+        public class PackageContext extends BaseContext {
+            private final String mPackageName;
+            private final UserHandle mUser;
+
+            public PackageContext(String packageName, UserHandle user) {
+                mPackageName = packageName;
+                mUser = user;
+            }
+
+            @Override
+            public String getPackageName() {
+                return mPackageName;
+            }
+
+            @Override
+            public int getUserId() {
+                return mUser.getIdentifier();
+            }
+
+            @Override
+            public UserHandle getUser() {
+                return mUser;
+            }
+        }
+
         @Override
         public Intent registerReceiverAsUser(BroadcastReceiver receiver, UserHandle user,
                 IntentFilter filter, String broadcastPermission, Handler scheduler) {

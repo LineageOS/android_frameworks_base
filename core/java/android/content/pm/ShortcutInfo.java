@@ -571,6 +571,14 @@ public final class ShortcutInfo implements Parcelable {
 
     /**
      * Copy constructor.
+     * @hide
+     */
+    public ShortcutInfo(ShortcutInfo source) {
+        this(source, 0);
+    }
+
+    /**
+     * Copy constructor.
      */
     private ShortcutInfo(ShortcutInfo source, @CloneFlags int cloneFlags) {
         mUserId = source.mUserId;
@@ -1013,6 +1021,8 @@ public final class ShortcutInfo implements Parcelable {
 
         private LocusId mLocusId;
 
+        private String mStartingThemeResName;
+
         /**
          * Old style constructor.
          * @hide
@@ -1042,6 +1052,35 @@ public final class ShortcutInfo implements Parcelable {
         public Builder(Context context, String id) {
             mContext = context;
             mId = Preconditions.checkStringNotEmpty(id, "id cannot be empty");
+        }
+
+        /**
+         * Constructor.
+         *
+         * @param context Client context.
+         * @param source ShortcutInfo to copy from.
+         *
+         * @hide
+         */
+        public Builder(@NonNull Context context, @NonNull ShortcutInfo source) {
+            mContext = Objects.requireNonNull(context, "context cannot be null");
+            Objects.requireNonNull(source, "source cannot be null");
+            mId = source.mId;
+            mActivity = source.mActivity;
+            mIcon = source.mIcon;
+            mTitleResId = source.mTitleResId;
+            mTitle = source.mTitle;
+            mTextResId = source.mTextResId;
+            mText = source.mText;
+            mDisabledMessageResId = source.mDisabledMessageResId;
+            mDisabledMessage = source.mDisabledMessage;
+            mCategories = cloneCategories(source.mCategories);
+            mIntents = cloneIntents(source.mIntents);
+            mPersons = clonePersons(source.mPersons);
+            mIsLongLived = source.isLongLived();
+            mRank = source.mRank;
+            mExtras = source.mExtras;
+            mLocusId = source.mLocusId;
         }
 
         /**
@@ -1632,6 +1671,16 @@ public final class ShortcutInfo implements Parcelable {
     /** @hide */
     public void setRank(int rank) {
         mRank = rank;
+    }
+
+    /** @hide */
+    public void setPersons(Person[] persons) {
+        mPersons = clonePersons(persons);
+    }
+
+    /** @hide */
+    public void setExtras(PersistableBundle extras) {
+        mExtras = extras;
     }
 
     /** @hide */
