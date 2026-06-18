@@ -33,6 +33,7 @@ import android.app.ActivityOptions;
 import android.app.AppGlobals;
 import android.app.IUidObserver;
 import android.app.IUriGrantsManager;
+import android.app.Person;
 import android.app.UidObserver;
 import android.app.UriGrantsManager;
 import android.app.role.OnRoleHoldersChangedListener;
@@ -86,6 +87,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.LocaleList;
 import android.os.Looper;
+import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.PersistableBundle;
 import android.os.Process;
@@ -292,6 +294,9 @@ public class ShortcutService extends IShortcutService.Stub {
 
     private static final int SYSTEM_APP_MASK =
             ApplicationInfo.FLAG_SYSTEM | ApplicationInfo.FLAG_UPDATED_SYSTEM_APP;
+
+    private static final int MAX_SHORTCUT_TOTAL_SIZE_BYTES = 32 * 1024;
+    private static final int MAX_TRIMMED_PERSONS = 20;
 
     final Context mContext;
 
@@ -1856,6 +1861,35 @@ public class ShortcutService extends IShortcutService.Stub {
         }
     }
 
+    private void sanitizeShortcutSizes(List<ShortcutInfo> list) {
+        final int size = list.size();
+        final Parcel p = Parcel.obtain();
+        try {
+            // Iterate backwards to safely remove items from the list.
+            for (int i = size - 1; i >= 0; i--) {
+                ShortcutInfo si = list.get(i);
+                if (si == null) {
+                    list.remove(i);
+                    continue;
+                }
+                ShortcutInfo result = sanitizeShortcutSize(si, p);
+
+                if (result == null) {
+                    // Drop the shortcut if it cannot be trimmed under the limit.
+                    list.remove(i);
+                    Slog.w(TAG, "ShortcutInfo for ID '" + si.getId()
+                            + "'" + (si.getActivity() != null ? " for activity " + si.getActivity() : "")
+                            + " is too large. Dropping it.");
+                } else if (result != si) {
+                    // Replace with the trimmed version.
+                    list.set(i, result);
+                }
+            }
+        } finally {
+            p.recycle();
+        }
+    }
+
     // Overridden in unit tests to execute r synchronously.
     void injectPostToHandler(Runnable r) {
         mHandler.post(r);
@@ -2090,11 +2124,111 @@ public class ShortcutService extends IShortcutService.Stub {
         }
     }
 
+    /**
+     * Sanitizes a ShortcutInfo object before persistence.
+     * Sanitizes that the parcelled size of a {@link ShortcutInfo} does not exceed the maximum
+     * allowed size.
+     *
+     * @param si the shortcut to sanitize.
+     * @return the sanitized shortcut (may be trimmed).
+     */
+    private ShortcutInfo sanitizeShortcutSize(ShortcutInfo si) {
+        if (si == null) {
+            return null;
+        }
+        final Parcel p = Parcel.obtain();
+        try {
+            ShortcutInfo result = sanitizeShortcutSize(si, p);
+            if (result == null) {
+                Slog.w(TAG, "Shortcut ID=" + si.getId()
+                        + " size is " + p.dataSize() + " B, which exceeds the limit of "
+                        + MAX_SHORTCUT_TOTAL_SIZE_BYTES + " B and could not be trimmed. Dropping it.");
+            }
+            return result;
+        } finally {
+            p.recycle();
+        }
+    }
+
+    /**
+     * Sanitizes the parcelled size of a {@link ShortcutInfo} does not exceed the maximum allowed
+     * size.
+     *
+     * @param si the shortcut to sanitize.
+     * @param parcel the parcel to use for sanitization.
+     */
+    private boolean isWithinMaxSize(ShortcutInfo si, Parcel parcel) {
+        parcel.setDataSize(0);
+        si.writeToParcel(parcel, 0);
+        return parcel.dataSize() <= MAX_SHORTCUT_TOTAL_SIZE_BYTES;
+    }
+
+    private ShortcutInfo sanitizeShortcutSize(ShortcutInfo si, Parcel parcel) {
+        if (si == null) {
+            return null;
+        }
+        if (isWithinMaxSize(si, parcel)) {
+            return si; // Already valid.
+        }
+        ShortcutInfo trimmed = tryTrimShortcut(si, parcel);
+
+        if (isWithinMaxSize(trimmed, parcel)) {
+            return trimmed;
+        }
+        return null;
+    }
+
     private List<ShortcutInfo> setReturnedByServer(List<ShortcutInfo> shortcuts) {
         for (int i = shortcuts.size() - 1; i >= 0; i--) {
             shortcuts.get(i).setReturnedByServer();
         }
         return shortcuts;
+    }
+
+    /**
+     * Attempts to trim the shortcut to fit within the maximum allowed size.
+     *
+     * @param si the shortcut to trim.
+     * @return the trimmed shortcut, or null if the shortcut could not be trimmed.
+     */
+    private ShortcutInfo tryTrimShortcut(ShortcutInfo si, Parcel parcel) {
+        ShortcutInfo current = si;
+
+        // 1. Trim Persons array to MAX_TRIMMED_PERSONS, to get the size down.
+        Person[] persons = current.getPersons();
+        if (persons != null && persons.length > MAX_TRIMMED_PERSONS) {
+            current = new ShortcutInfo(current);
+            current.setPersons(Arrays.copyOf(persons, MAX_TRIMMED_PERSONS));
+
+            // Check if this trim was enough.
+            if (isWithinMaxSize(current, parcel)) return current;
+        }
+
+        // 2. Trim Extras (Clear PersistableBundle).
+        // If still too large, or if Persons wasn't the issue, clear Extras.
+        PersistableBundle extras = current.getExtras();
+        if (extras != null && !extras.isEmpty()) {
+            current = new ShortcutInfo(current);
+            current.setExtras(new PersistableBundle());
+
+            // Check if this trim was enough.
+            if (isWithinMaxSize(current, parcel)) return current;
+        }
+
+        // 3. Remove all persons.
+        // If still too large, try removing persons entirely.
+        // Use current.getPersons() because it might have been trimmed in step 1.
+        Person[] currentPersons = current.getPersons();
+        if (currentPersons != null && currentPersons.length > 0) {
+            current = new ShortcutInfo(current);
+            current.setPersons(null);
+
+            // Check if this trim was enough.
+            if (isWithinMaxSize(current, parcel)) return current;
+        }
+
+        // Return the trimmed version (caller will check if it's still too large).
+        return current;
     }
 
     // === APIs ===
@@ -2113,6 +2247,7 @@ public class ShortcutService extends IShortcutService.Stub {
         final List<ShortcutInfo> newShortcuts =
                 (List<ShortcutInfo>) shortcutInfoList.getList();
         verifyShortcutInfoPackages(packageName, newShortcuts);
+        sanitizeShortcutSizes(newShortcuts);
         final int size = newShortcuts.size();
 
         List<ShortcutInfo> changedShortcuts = null;
@@ -2183,6 +2318,7 @@ public class ShortcutService extends IShortcutService.Stub {
         final List<ShortcutInfo> newShortcuts =
                 (List<ShortcutInfo>) shortcutInfoList.getList();
         verifyShortcutInfoPackages(packageName, newShortcuts);
+        sanitizeShortcutSizes(newShortcuts);
         final int size = newShortcuts.size();
 
         final List<ShortcutInfo> changedShortcuts = new ArrayList<>(1);
@@ -2287,6 +2423,7 @@ public class ShortcutService extends IShortcutService.Stub {
         final List<ShortcutInfo> newShortcuts =
                 (List<ShortcutInfo>) shortcutInfoList.getList();
         verifyShortcutInfoPackages(packageName, newShortcuts);
+        sanitizeShortcutSizes(newShortcuts);
         final int size = newShortcuts.size();
 
         List<ShortcutInfo> changedShortcuts = null;
@@ -2344,6 +2481,10 @@ public class ShortcutService extends IShortcutService.Stub {
             @UserIdInt int userId) {
         verifyCaller(packageName, userId);
         verifyShortcutInfoPackage(packageName, shortcut);
+        shortcut = sanitizeShortcutSize(shortcut);
+        if (shortcut == null) {
+            return;
+        }
 
         if (isPackageAppLockEnabled(packageName, userId)) {
             return;

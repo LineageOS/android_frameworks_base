@@ -98,7 +98,7 @@ public class ShortcutManagerTest2 extends BaseShortcutManagerTest {
         assertExpectException(
                 RuntimeException.class,
                 "id cannot be empty",
-                () -> new ShortcutInfo.Builder(getTestContext(), null));
+                () -> new ShortcutInfo.Builder(getTestContext(), (String) null));
 
         assertExpectException(
                 RuntimeException.class,
