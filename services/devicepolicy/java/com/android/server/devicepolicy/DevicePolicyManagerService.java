@@ -16876,6 +16876,10 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
             throws RemoteException {
         Objects.requireNonNull(callback);
 
+        Preconditions.checkArgument(grantState == PERMISSION_GRANT_STATE_GRANTED
+                || grantState == DevicePolicyManager.PERMISSION_GRANT_STATE_DENIED
+                || grantState == PERMISSION_GRANT_STATE_DEFAULT);
+
         final CallerIdentity caller = getCallerIdentity(admin, callerPackage);
         checkCanExecuteOrThrowUnsafe(DevicePolicyManager.OPERATION_SET_PERMISSION_GRANT_STATE);
 
