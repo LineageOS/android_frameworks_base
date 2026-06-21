@@ -7728,6 +7728,17 @@ public class DevicePolicyManagerTest extends DpmTestBase {
     }
 
     @Test
+    public void testSetPermissionGrantState_coexistence_invalidState_throwsException()
+            throws Exception {
+        setDeviceOwner();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> dpm.setPermissionGrantState(admin1, admin1.getPackageName(),
+                        permission.READ_CALENDAR,
+                        /* grantState= */ 999));
+    }
+
+    @Test
     public void testSetGlobalProxy_tooLongStrings() throws Exception {
         setDeviceOwner();
         // PolicySizeVerifier uses ModifiedUtf8.countBytes() to check the length of strings
