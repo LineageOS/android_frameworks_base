@@ -72,6 +72,8 @@ import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_NUMERIC;
 import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX;
 import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_SOMETHING;
 import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_DEFAULT;
+import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_GRANTED;
 import static android.app.admin.DevicePolicyManager.PERSONAL_APPS_NOT_SUSPENDED;
 import static android.app.admin.DevicePolicyManager.PERSONAL_APPS_SUSPENDED_EXPLICITLY;
 import static android.app.admin.DevicePolicyManager.PERSONAL_APPS_SUSPENDED_PROFILE_TIMEOUT;
@@ -13341,6 +13343,11 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
         Objects.requireNonNull(callback);
 
         UserHandle user = mInjector.binderGetCallingUserHandle();
+
+        Preconditions.checkArgument(grantState == PERMISSION_GRANT_STATE_GRANTED
+                || grantState == DevicePolicyManager.PERMISSION_GRANT_STATE_DENIED
+                || grantState == PERMISSION_GRANT_STATE_DEFAULT);
+
         synchronized (getLockObject()) {
             // Ensure the caller is a DO/PO or a permission grant state delegate.
             enforceCanManageScope(admin, callerPackage, DeviceAdminInfo.USES_POLICY_PROFILE_OWNER,
