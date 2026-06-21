@@ -79,6 +79,8 @@ import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_NUMERIC;
 import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_NUMERIC_COMPLEX;
 import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_SOMETHING;
 import static android.app.admin.DevicePolicyManager.PASSWORD_QUALITY_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_DEFAULT;
+import static android.app.admin.DevicePolicyManager.PERMISSION_GRANT_STATE_GRANTED;
 import static android.app.admin.DevicePolicyManager.PERSONAL_APPS_NOT_SUSPENDED;
 import static android.app.admin.DevicePolicyManager.PERSONAL_APPS_SUSPENDED_EXPLICITLY;
 import static android.app.admin.DevicePolicyManager.PERSONAL_APPS_SUSPENDED_PROFILE_TIMEOUT;
@@ -13985,6 +13987,10 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
             String packageName, String permission, int grantState, RemoteCallback callback)
             throws RemoteException {
         Objects.requireNonNull(callback);
+
+        Preconditions.checkArgument(grantState == PERMISSION_GRANT_STATE_GRANTED
+                || grantState == DevicePolicyManager.PERMISSION_GRANT_STATE_DENIED
+                || grantState == PERMISSION_GRANT_STATE_DEFAULT);
 
         final CallerIdentity caller = getCallerIdentity(admin, callerPackage);
         Preconditions.checkCallAuthorization((caller.hasAdminComponent()
