@@ -8518,6 +8518,17 @@ public class DevicePolicyManagerTest extends DpmTestBase {
     }
 
     @Test
+    public void testSetPermissionGrantState_coexistence_invalidState_throwsException()
+            throws Exception {
+        setDeviceOwner();
+
+        assertThrows(IllegalArgumentException.class,
+                () -> dpm.setPermissionGrantState(admin1, admin1.getPackageName(),
+                        permission.READ_CALENDAR,
+                        /* grantState= */ 999));
+    }
+
+    @Test
     public void testGetPermissionGrantState_financeDo_notReadPhoneStatePermission_throwsException()
             throws Exception {
         setDeviceOwner();
