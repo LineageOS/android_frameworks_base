@@ -1711,7 +1711,11 @@ final class DevicePolicyEngine {
             PolicyDefinition<V> policyDefinition =
                     (PolicyDefinition<V>) policyState.getPolicyDefinition();
             PolicyValue<V> policyValue = (PolicyValue<V>) policyState.getCurrentResolvedPolicy();
-            enforcePolicy(policyDefinition, policyValue, UserHandle.USER_ALL);
+            try {
+                enforcePolicy(policyDefinition, policyValue, UserHandle.USER_ALL);
+            } catch (Exception e) {
+                Slogf.wtf(TAG, "Failed to reapply policy " + policy, e);
+            }
         }
         for (int i = 0; i < mLocalPolicies.size(); i++) {
             int userId = mLocalPolicies.keyAt(i);
@@ -1722,8 +1726,12 @@ final class DevicePolicyEngine {
                         (PolicyDefinition<V>) policyState.getPolicyDefinition();
                 PolicyValue<V> policyValue =
                         (PolicyValue<V>) policyState.getCurrentResolvedPolicy();
-                enforcePolicy(policyDefinition, policyValue, userId);
-
+                try {
+                    enforcePolicy(policyDefinition, policyValue, userId);
+                } catch (Exception e) {
+                    Slogf.wtf(TAG, "Failed to reapply policy " + policy
+                            + " for user " + userId, e);
+                }
             }
         }
     }
