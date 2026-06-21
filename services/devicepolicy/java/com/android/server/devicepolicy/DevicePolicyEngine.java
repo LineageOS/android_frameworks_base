@@ -2502,7 +2502,11 @@ final class DevicePolicyEngine {
             if (!policyDefinition.shouldSkipEnforcementIfNotChanged()) {
                 PolicyValue<V> policyValue =
                         (PolicyValue<V>) policyState.getCurrentResolvedPolicy();
-                enforcePolicy(policyDefinition, policyValue, UserHandle.USER_ALL);
+                try {
+                    enforcePolicy(policyDefinition, policyValue, UserHandle.USER_ALL);
+                } catch (Exception e) {
+                    Slogf.wtf(TAG, "Failed to reapply policy " + policy, e);
+                }
             }
         }
         Set<Integer> userIds = new HashSet<>(mLocalPolicies.keySet());
@@ -2515,7 +2519,12 @@ final class DevicePolicyEngine {
                 if (!policyDefinition.shouldSkipEnforcementIfNotChanged()) {
                     PolicyValue<V> policyValue =
                             (PolicyValue<V>) policyState.getCurrentResolvedPolicy();
-                    enforcePolicy(policyDefinition, policyValue, userId);
+                    try {
+                        enforcePolicy(policyDefinition, policyValue, userId);
+                    } catch (Exception e) {
+                        Slogf.wtf(TAG, "Failed to reapply policy " + policy
+                                + " for user " + userId, e);
+                    }
                 }
             }
         }
