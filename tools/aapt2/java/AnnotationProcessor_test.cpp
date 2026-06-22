@@ -200,4 +200,31 @@ TEST(AnnotationProcessorTest, ExtractsFirstSentence) {
               Eq("This is the first sentence with a {@link android.R.styleable.Theme}."));
 }
 
+TEST(AnnotationProcessorTest, SanitizesJavadocTermination) {
+  AnnotationProcessor processor;
+  processor.AppendComment("Comment with Javadoc terminator */ and injected code");
+  processor.AppendComment("Comment with Unicode bypass *\\u002f and injected code");
+  processor.AppendComment("Comment with Unicode bypass \\u002a/ and injected code");
+  processor.AppendComment("Comment with multi-u Unicode bypass *\\uu002f and injected code");
+  processor.AppendComment("Comment with adjacent Unicode bypass \\u002a\\u002f and injected code");
+  processor.AppendComment(
+      "Comment with backslash before Unicode bypass \\\\u002f and injected code");
+
+  std::string annotations;
+  StringOutputStream out(&annotations);
+  Printer printer(&out);
+  processor.Print(&printer);
+  out.Flush();
+
+  EXPECT_THAT(annotations,
+              Eq("/**\n"
+                 " * Comment with Javadoc terminator *&#47; and injected code\n"
+                 " * Comment with Unicode bypass *&#92;u002f and injected code\n"
+                 " * Comment with Unicode bypass &#92;u002a/ and injected code\n"
+                 " * Comment with multi-u Unicode bypass *&#92;uu002f and injected code\n"
+                 " * Comment with adjacent Unicode bypass &#92;u002a&#92;u002f and injected code\n"
+                 " * Comment with backslash before Unicode bypass \\&#92;u002f and injected code\n"
+                 " */\n"));
+}
+
 }  // namespace aapt
