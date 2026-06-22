@@ -66,6 +66,33 @@ static std::array<AnnotationRule, 4> sAnnotationRules = {{
     {"@hide", AnnotationRule::kHide, "@android.annotation.Hide", false},
 }};
 
+struct SanitizationRule {
+  std::string_view find_target;
+  size_t replace_length;
+  std::string_view replacement;
+};
+
+static void SanitizeJavadoc(std::string* comment) {
+  constexpr SanitizationRule sSanitizationRules[] = {
+      // Sanitize Javadoc termination characters to prevent breakout.
+      // Replace "*/" with HTML representation to preserve rendering while neutralizing breakout.
+      {"*/", 2, "*&#47;"},
+
+      // Sanitize Unicode escapes (e.g. \u002f) which are decoded by the Java compiler
+      // before comments are parsed, allowing breakout bypasses like *\u002f.
+      // Replace "\" with HTML representation to prevent compiler from decoding it.
+      // We search for "\u" but only replace the "\" (1 character) to preserve the "u".
+      {"\\u", 1, "&#92;"}};
+
+  for (const auto& rule : sSanitizationRules) {
+    size_t pos = 0;
+    while ((pos = comment->find(rule.find_target, pos)) != std::string::npos) {
+      comment->replace(pos, rule.replace_length, rule.replacement);
+      pos += rule.replacement.length();
+    }
+  }
+}
+
 void AnnotationProcessor::AppendCommentLine(std::string comment, bool add_api_annotations) {
   static constexpr std::string_view sDeprecated = "@deprecated";
 
@@ -94,6 +121,9 @@ void AnnotationProcessor::AppendCommentLine(std::string comment, bool add_api_an
       }
     }
   }
+
+  // Sanitize the comment to prevent Javadoc breakout vulnerabilities
+  SanitizeJavadoc(&comment);
 
   // Check if after removal of annotations the line is empty.
   const StringPiece trimmed = util::TrimWhitespace(comment);
