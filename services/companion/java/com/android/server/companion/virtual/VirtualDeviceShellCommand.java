@@ -166,7 +166,7 @@ class VirtualDeviceShellCommand extends ShellCommand {
         if (virtualDevice == null) {
             return 1;
         }
-        Binder.withCleanCallingIdentity(() -> virtualDevice.close());
+        virtualDevice.close();
         return 0;
     }
 
