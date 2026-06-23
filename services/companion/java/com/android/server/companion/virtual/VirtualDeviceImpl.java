@@ -730,7 +730,6 @@ final class VirtualDeviceImpl extends IVirtualDevice.Stub implements IBinder.Dea
     @Override // Binder call
     public void setListeners(@NonNull IVirtualDeviceActivityListener activityListener,
             @NonNull IVirtualDeviceSoundEffectListener soundEffectListener) {
-        checkCallerIsDeviceOwner();
         mActivityListener = Objects.requireNonNull(activityListener);
         mSoundEffectListener = Objects.requireNonNull(soundEffectListener);
     }
@@ -950,7 +949,6 @@ final class VirtualDeviceImpl extends IVirtualDevice.Stub implements IBinder.Dea
 
     @Override // Binder call
     public void close() {
-        checkCallerIsDeviceOwner();
         // Remove about-to-be-closed virtual device from the service before butchering it.
         if (!mService.removeVirtualDevice(mDeviceId)) {
             // Device is already closed.
@@ -1396,7 +1394,6 @@ final class VirtualDeviceImpl extends IVirtualDevice.Stub implements IBinder.Dea
     @Override // Binder call
     public String getVirtualCameraId(@NonNull VirtualCameraConfig cameraConfig)
             throws RemoteException {
-        checkCallerIsDeviceOwner();
         Objects.requireNonNull(cameraConfig);
         if (mVirtualCameraController == null) {
             throw new UnsupportedOperationException("Virtual camera controller is not available");
@@ -1970,7 +1967,6 @@ final class VirtualDeviceImpl extends IVirtualDevice.Stub implements IBinder.Dea
     }
 
     void playSoundEffect(int effectType) {
-        checkCallerIsDeviceOwner();
         if (mSoundEffectListener == null) {
             return;
         }
