@@ -18,6 +18,7 @@ package android.accounts;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Insets;
@@ -126,7 +127,7 @@ public class GrantCredentialsPermissionActivity extends Activity implements View
                         runOnUiThread(new Runnable() {
                             public void run() {
                                 if (!isFinishing()) {
-                                    authTokenTypeView.setText(authTokenLabel);
+                                    authTokenTypeView.setText(makeSafe(authTokenLabel));
                                     authTokenTypeView.setVisibility(View.VISIBLE);
                                 }
                             }
@@ -156,11 +157,22 @@ public class GrantCredentialsPermissionActivity extends Activity implements View
             } catch (PackageManager.NameNotFoundException e) {
                 packageLabel = pkg;
             }
-            packagesListView.addView(newPackageView(packageLabel));
+            packagesListView.addView(newPackageView(makeSafe(packageLabel)));
         }
 
-        ((TextView) findViewById(R.id.account_name)).setText(mAccount.name);
-        ((TextView) findViewById(R.id.account_type)).setText(accountTypeLabel);
+        ((TextView) findViewById(R.id.account_name)).setText(makeSafe(mAccount.name));
+        ((TextView) findViewById(R.id.account_type)).setText(makeSafe(accountTypeLabel));
+    }
+
+    private String makeSafe(String label) {
+        if (TextUtils.isEmpty(label)) {
+            return label;
+        }
+        return TextUtils.makeSafeForPresentation(label,
+                PackageItemInfo.MAX_SAFE_LABEL_LENGTH,
+                PackageItemInfo.DEFAULT_MAX_LABEL_SIZE_PX,
+                TextUtils.SAFE_STRING_FLAG_TRIM | TextUtils.SAFE_STRING_FLAG_FIRST_LINE)
+                .toString();
     }
 
     private String getAccountLabel(Account account) {
