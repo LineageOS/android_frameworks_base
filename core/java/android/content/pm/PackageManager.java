@@ -5641,10 +5641,29 @@ public abstract class PackageManager {
             @Nullable ApplicationInfo appInfo);
 
     /**
+     * Retrieve an image from a package, with optional capping for icons.
+     *
+     * @param packageName The name of the package from which to load the resource.
+     * @param resid The resource identifier.
+     * @param appInfo ApplicationInfo of the target package.
+     * @param isIcon Whether the resource is an icon and should be capped.
+     * @return Drawable An object that can be used to draw this resource, or null.
+     * @hide
+     */
+    @Nullable
+    public Drawable getDrawableInternal(@NonNull String packageName, @DrawableRes int resid,
+            @Nullable ApplicationInfo appInfo, boolean isIcon) {
+        return getDrawable(packageName, resid, appInfo);
+    }
+
+    /**
      * Retrieve the icon associated with an activity.  Given the full name of
      * an activity, retrieves the information about it and calls
      * {@link ComponentInfo#loadIcon ComponentInfo.loadIcon()} to return its icon.
      * If the activity cannot be found, NameNotFoundException is thrown.
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link #getApplicationIcon(ApplicationInfo)}.</p>
      *
      * @param activityName Name of the activity whose icon is to be retrieved.
      *
@@ -5685,6 +5704,9 @@ public abstract class PackageManager {
      * an activity, retrieves the information about it and calls
      * {@link ComponentInfo#loadIcon ComponentInfo.loadIcon()} to return its
      * banner. If the activity cannot be found, NameNotFoundException is thrown.
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link #getApplicationIcon(ApplicationInfo)}.</p>
      *
      * @param activityName Name of the activity whose banner is to be retrieved.
      * @return Returns the image of the banner, or null if the activity has no
@@ -5729,6 +5751,10 @@ public abstract class PackageManager {
      * Retrieve the icon associated with an application.  If it has not defined
      * an icon, the default app icon is returned.  Does not return null.
      *
+     * <p>Note: The returned drawable's dimensions are capped to a maximum size of
+     * {@code 2048 x 2048} pixels. If the resource's intrinsic dimensions exceed this limit,
+     * it will be downsampled automatically, preserving its aspect ratio.</p>
+     *
      * @param info Information about application being queried.
      *
      * @return Returns the image of the icon, or the default application icon
@@ -5744,6 +5770,10 @@ public abstract class PackageManager {
      * application's package, retrieves the information about it and calls
      * getApplicationIcon() to return its icon. If the application cannot be
      * found, NameNotFoundException is thrown.
+     *
+     * <p>Note: The returned drawable's dimensions are capped to a maximum size of
+     * {@code 2048 x 2048} pixels. If the resource's intrinsic dimensions exceed this limit,
+     * it will be downsampled automatically, preserving its aspect ratio.</p>
      *
      * @param packageName Name of the package whose application icon is to be
      *                    retrieved.
@@ -5776,6 +5806,9 @@ public abstract class PackageManager {
      * getApplicationIcon() to return its banner. If the application cannot be
      * found, NameNotFoundException is thrown.
      *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link #getApplicationIcon(ApplicationInfo)}.</p>
+     *
      * @param packageName Name of the package whose application banner is to be
      *            retrieved.
      * @return Returns the image of the banner or null if the application has no
@@ -5793,6 +5826,9 @@ public abstract class PackageManager {
      * activity, retrieves the information about it and calls
      * {@link ComponentInfo#loadLogo ComponentInfo.loadLogo()} to return its
      * logo. If the activity cannot be found, NameNotFoundException is thrown.
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link #getApplicationIcon(ApplicationInfo)}.</p>
      *
      * @param activityName Name of the activity whose logo is to be retrieved.
      * @return Returns the image of the logo or null if the activity has no logo
@@ -5846,6 +5882,9 @@ public abstract class PackageManager {
      * application's package, retrieves the information about it and calls
      * getApplicationLogo() to return its logo. If the application cannot be
      * found, NameNotFoundException is thrown.
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link #getApplicationIcon(ApplicationInfo)}.</p>
      *
      * @param packageName Name of the package whose application logo is to be
      *                    retrieved.

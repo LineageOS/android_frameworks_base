@@ -50,6 +50,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.LongSparseArray;
+import android.util.Size;
 import android.util.Slog;
 import android.util.TypedValue;
 import android.util.Xml;
@@ -98,6 +99,8 @@ public class ResourcesImpl {
     private long mPreloadTracingStartBitmapCount;
 
     private static final int ID_OTHER = 0x01000004;
+
+    private static final int MAX_ICON_SIZE = 2048;
 
     private static final Object sSync = new Object();
 
@@ -590,10 +593,17 @@ public class ResourcesImpl {
     Drawable loadDrawable(@NonNull Resources wrapper, @NonNull TypedValue value, int id,
             int density, @Nullable Resources.Theme theme)
             throws NotFoundException {
+        return loadDrawable(wrapper, value, id, density, theme, /* isCapped= */ false);
+    }
+
+    @Nullable
+    Drawable loadDrawable(@NonNull Resources wrapper, @NonNull TypedValue value, int id,
+            int density, @Nullable Resources.Theme theme, boolean isCapped)
+            throws NotFoundException {
         // If the drawable's XML lives in our current density qualifier,
         // it's okay to use a scaled version from the cache. Otherwise, we
         // need to actually load the drawable from XML.
-        final boolean useCache = density == 0 || value.density == mMetrics.densityDpi;
+        final boolean useCache = (density == 0 || value.density == mMetrics.densityDpi);
 
         // Pretend the requested density is actually the display density. If
         // the drawable returned is not the requested density, then force it
@@ -630,7 +640,7 @@ public class ResourcesImpl {
             } else {
                 isColorDrawable = false;
                 caches = mDrawableCache;
-                key = (((long) value.assetCookie) << 32) | value.data;
+                key = cacheKeyForCookieAsset(value.assetCookie, value.data, isCapped);
             }
 
             // First, check whether we have a cached version of this drawable
@@ -670,7 +680,7 @@ public class ResourcesImpl {
             } else if (isColorDrawable) {
                 dr = new ColorDrawable(value.data);
             } else {
-                dr = loadDrawableForCookie(wrapper, value, id, density);
+                dr = loadDrawableForCookie(wrapper, value, id, density, isCapped);
             }
             // DrawableContainer' constant state has drawables instances. In order to leave the
             // constant state intact in the cache, we need to create a new DrawableContainer after
@@ -801,18 +811,49 @@ public class ResourcesImpl {
      */
     @Nullable
     private Drawable decodeImageDrawable(@NonNull AssetInputStream ais,
-            @NonNull Resources wrapper, @NonNull TypedValue value) {
+            @NonNull Resources wrapper, @NonNull TypedValue value, boolean isCapped) {
         ImageDecoder.Source src = new ImageDecoder.AssetInputStreamSource(ais,
                             wrapper, value);
         try {
             return ImageDecoder.decodeDrawable(src, (decoder, info, s) -> {
                 decoder.setAllocator(ImageDecoder.ALLOCATOR_SOFTWARE);
+                if (isCapped) {
+                    capImageSize(decoder, info);
+                }
             });
         } catch (IOException ioe) {
             // This is okay. This may be something that ImageDecoder does not
             // support, like SVG.
             return null;
         }
+    }
+
+    private void capImageSize(@NonNull ImageDecoder decoder, @NonNull ImageDecoder.ImageInfo info) {
+        Size size = info.getSize();
+        int originalWidth = size.getWidth();
+        int originalHeight = size.getHeight();
+        if (originalWidth > MAX_ICON_SIZE || originalHeight > MAX_ICON_SIZE) {
+            int maxDm = Math.max(originalWidth, originalHeight);
+            int targetWidth = Math.max(1, (int) (((long) originalWidth * MAX_ICON_SIZE) / maxDm));
+            int targetHeight = Math.max(1, (int) (((long) originalHeight * MAX_ICON_SIZE) / maxDm));
+            decoder.setTargetSize(targetWidth, targetHeight);
+        }
+    }
+
+    /**
+     * Generates a unique 64-bit cache key from the asset cookie and resource data offset.
+     *
+     * Key Structure (64-bit long):
+     * - Bit 63 (MSB): Partition flag. Set to 1 if the resource is capped (downsampled) to
+     *                 guarantee cache isolation. Set to 0 for standard (uncapped) resources.
+     * - Bits 32-62: Asset cookie (shifted left by 32). Identifies the source package/APK.
+     * - Bits 0-31: Resource data offset/identifier.
+     */
+    private static long cacheKeyForCookieAsset(int assetCookie, int data, boolean isCapped) {
+        long key = (((long) assetCookie) << 32) | data;
+        // assetCookie is always positive - it's 1-based index allocated by native AssetManager.
+        // So, (assetCookie << 32) will always have 0 at bit 31, leaving it free for manipulation.
+        return isCapped ? (key | (1L << 63)) : key;
     }
 
     /**
@@ -822,7 +863,7 @@ public class ResourcesImpl {
      */
     @Nullable
     private Drawable loadDrawableForCookie(@NonNull Resources wrapper, @NonNull TypedValue value,
-            int id, int density) {
+            int id, int density, boolean isCapped) {
         if (value.string == null) {
             throw new NotFoundException("Resource \"" + getResourceName(id) + "\" ("
                     + Integer.toHexString(id) + ") is not a Drawable (color or path): " + value);
@@ -880,7 +921,7 @@ public class ResourcesImpl {
                     final InputStream is = mAssets.openNonAsset(
                             value.assetCookie, file, AssetManager.ACCESS_STREAMING);
                     final AssetInputStream ais = (AssetInputStream) is;
-                    dr = decodeImageDrawable(ais, wrapper, value);
+                    dr = decodeImageDrawable(ais, wrapper, value, isCapped);
                 }
             } finally {
                 stack.pop();
@@ -1011,7 +1052,8 @@ public class ResourcesImpl {
     @Nullable
     private ComplexColor loadComplexColorFromName(Resources wrapper, Resources.Theme theme,
             TypedValue value, int id) {
-        final long key = (((long) value.assetCookie) << 32) | value.data;
+        final long key = cacheKeyForCookieAsset(value.assetCookie, value.data,
+                /* isCapped= */ false);
         final ConfigurationBoundResourceCache<ComplexColor> cache = mComplexColorCache;
         ComplexColor complexColor = cache.getInstance(key, wrapper, theme);
         if (complexColor != null) {
@@ -1054,7 +1096,8 @@ public class ResourcesImpl {
             }
         }
 
-        final long key = (((long) value.assetCookie) << 32) | value.data;
+        final long key = cacheKeyForCookieAsset(value.assetCookie, value.data,
+                /* isCapped= */ false);
 
         // Handle inline color definitions.
         if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT
@@ -1096,7 +1139,8 @@ public class ResourcesImpl {
             }
         }
 
-        final long key = (((long) value.assetCookie) << 32) | value.data;
+        final long key = cacheKeyForCookieAsset(value.assetCookie, value.data,
+                /* isCapped= */ false);
 
         // Handle inline color definitions.
         if (value.type >= TypedValue.TYPE_FIRST_COLOR_INT
