@@ -1781,7 +1781,10 @@ public class LauncherApps {
      * Returns the icon for this shortcut, without any badging for the profile.
      *
      * <p>The calling launcher application must be allowed to access the shortcut information,
-     * as defined in {@link #hasShortcutHostPermission()}.
+     * as defined in {@link #hasShortcutHostPermission()}.</p>
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
      *
      * @param density The preferred density of the icon, zero for default density. Use
      * density DPI values from {@link DisplayMetrics}.
@@ -1802,14 +1805,14 @@ public class LauncherApps {
             final ParcelFileDescriptor pfd = getUriShortcutIconFd(shortcut);
             return loadDrawableFromFileDescriptor(pfd, shortcut.hasAdaptiveBitmap());
         } else if (shortcut.hasIconResource()) {
-            return loadDrawableResourceFromPackage(shortcut.getPackage(),
+            return loadIconResourceFromPackage(shortcut.getPackage(),
                     shortcut.getIconResourceId(), shortcut.getUserHandle(), density);
         } else if (shortcut.getIcon() != null) {
             // This happens if a shortcut is pending-approval.
             final Icon icon = shortcut.getIcon();
             switch (icon.getType()) {
                 case Icon.TYPE_RESOURCE: {
-                    return loadDrawableResourceFromPackage(shortcut.getPackage(),
+                    return loadIconResourceFromPackage(shortcut.getPackage(),
                             icon.getResId(), shortcut.getUserHandle(), density);
                 }
                 case Icon.TYPE_BITMAP:
@@ -1890,7 +1893,7 @@ public class LauncherApps {
         }
     }
 
-    private Drawable loadDrawableResourceFromPackage(String packageName, int resId,
+    private Drawable loadIconResourceFromPackage(String packageName, int resId,
             UserHandle user, int density) {
         try {
             if (resId == 0) {
@@ -1898,7 +1901,9 @@ public class LauncherApps {
             }
             final ApplicationInfo ai = getApplicationInfo(packageName, /* flags =*/ 0, user);
             final Resources res = mContext.getPackageManager().getResourcesForApplication(ai);
-            return res.getDrawableForDensity(resId, density);
+            // Since this private helper is exclusively used to load shortcut icons, we use
+            // the capped resource API to apply downsampling protection and prevent OOMs.
+            return res.getDrawableForDensityCapped(resId, density, /* theme= */ null);
         } catch (NameNotFoundException | Resources.NotFoundException e) {
             return null;
         }
@@ -1908,7 +1913,10 @@ public class LauncherApps {
      * Returns the shortcut icon with badging appropriate for the profile.
      *
      * <p>The calling launcher application must be allowed to access the shortcut information,
-     * as defined in {@link #hasShortcutHostPermission()}.
+     * as defined in {@link #hasShortcutHostPermission()}.</p>
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
      *
      * @param density Optional density for the icon, or 0 to use the default density. Use
      * @return A badged icon for the shortcut.
