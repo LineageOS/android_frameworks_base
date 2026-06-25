@@ -262,6 +262,9 @@ public class PackageItemInfo {
      * will call back on the given PackageManager to load the icon from
      * the application.
      *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
+     *
      * @param pm A PackageManager from which the icon can be loaded; usually
      * the PackageManager from which you originally retrieved this item.
      *
@@ -279,6 +282,9 @@ public class PackageItemInfo {
      * This will call back on the given PackageManager to load the icon from
      * the application.
      *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
+     *
      * @param pm A PackageManager from which the icon can be loaded; usually
      * the PackageManager from which you originally retrieved this item.
      *
@@ -295,6 +301,9 @@ public class PackageItemInfo {
      * will call back on the given PackageManager to load the banner from
      * the application.
      *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
+     *
      * @param pm A PackageManager from which the banner can be loaded; usually
      * the PackageManager from which you originally retrieved this item.
      *
@@ -303,7 +312,8 @@ public class PackageItemInfo {
      */
     public Drawable loadBanner(PackageManager pm) {
         if (banner != 0) {
-            Drawable dr = pm.getDrawable(packageName, banner, getApplicationInfo());
+            Drawable dr = pm.getDrawableInternal(
+                    packageName, banner, getApplicationInfo(), /* isIcon= */ true);
             if (dr != null) {
                 return dr;
             }
@@ -346,6 +356,9 @@ public class PackageItemInfo {
      * will call back on the given PackageManager to load the logo from
      * the application.
      *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
+     *
      * @param pm A PackageManager from which the logo can be loaded; usually
      * the PackageManager from which you originally retrieved this item.
      *
@@ -354,7 +367,8 @@ public class PackageItemInfo {
      */
     public Drawable loadLogo(PackageManager pm) {
         if (logo != 0) {
-            Drawable d = pm.getDrawable(packageName, logo, getApplicationInfo());
+            Drawable d = pm.getDrawableInternal(
+                    packageName, logo, getApplicationInfo(), /* isIcon= */ true);
             if (d != null) {
                 return d;
             }
