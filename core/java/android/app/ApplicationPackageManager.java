@@ -116,6 +116,7 @@ import android.util.ArraySet;
 import android.util.LauncherIcons;
 import android.util.Log;
 
+import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.Immutable;
 import com.android.internal.annotations.VisibleForTesting;
@@ -1753,6 +1754,14 @@ public class ApplicationPackageManager extends PackageManager {
     @Override
     public Drawable getDrawable(String packageName, @DrawableRes int resId,
             @Nullable ApplicationInfo appInfo) {
+        return getDrawableInternal(packageName, resId, appInfo, /* isIcon= */ false);
+    }
+
+    /** @hide */
+    @Nullable
+    @Override
+    public Drawable getDrawableInternal(String packageName, @DrawableRes int resId,
+            @Nullable ApplicationInfo appInfo, boolean isIcon) {
         final ResourceName name = new ResourceName(packageName, resId);
         final Drawable cachedIcon = getCachedIcon(name);
         if (cachedIcon != null) {
@@ -1770,7 +1779,10 @@ public class ApplicationPackageManager extends PackageManager {
         if (resId != 0) {
             try {
                 final Resources r = getResourcesForApplication(appInfo);
-                final Drawable dr = r.getDrawable(resId, null);
+                final Drawable dr = isIcon
+                        ? r.getDrawableForDensityCapped(
+                                resId, /* density= */ 0, /* theme= */ null)
+                        : r.getDrawable(resId, null);
                 if (dr != null) {
                     putCachedIcon(name, dr);
                 }
@@ -3317,7 +3329,8 @@ public class ApplicationPackageManager extends PackageManager {
         }
         Drawable dr = null;
         if (itemInfo.packageName != null) {
-            dr = getDrawable(itemInfo.packageName, itemInfo.icon, appInfo);
+            dr = getDrawableInternal(
+                    itemInfo.packageName, itemInfo.icon, appInfo, /* isIcon = */ true);
         }
         if (dr == null && itemInfo != appInfo && appInfo != null) {
             dr = loadUnbadgedItemIcon(appInfo, appInfo);
