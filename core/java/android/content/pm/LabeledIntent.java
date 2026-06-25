@@ -148,10 +148,13 @@ public class LabeledIntent extends Intent {
      * Retrieve the icon associated with this object.  If the object does
      * not have a icon, null will be returned, in which case you will probably
      * want to load the icon from the underlying resolved info for the Intent.
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
      */
     public Drawable loadIcon(PackageManager pm) {
         if (mIcon != 0 && mSourcePackage != null) {
-            Drawable icon = pm.getDrawable(mSourcePackage, mIcon, null);
+            Drawable icon = pm.getDrawableInternal(mSourcePackage, mIcon, null, /* isIcon= */ true);
             if (icon != null) {
                 return icon;
             }
