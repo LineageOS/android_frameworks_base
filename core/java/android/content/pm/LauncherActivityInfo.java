@@ -95,6 +95,10 @@ public class LauncherActivityInfo {
 
     /**
      * Returns the icon for this activity, without any badging for the profile.
+     *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
+     *
      * @param density The preferred density of the icon, zero for default density. Use
      * density DPI values from {@link DisplayMetrics}.
      * @see #getBadgedIcon(int)
@@ -110,7 +114,9 @@ public class LauncherActivityInfo {
             try {
                 final Resources resources
                         = mPm.getResourcesForApplication(mActivityInfo.applicationInfo);
-                icon = resources.getDrawableForDensity(iconRes, density);
+                // Since this is loading the activity's icon, we use the capped resource API
+                // to apply downsampling protection and prevent OOMs.
+                icon = resources.getDrawableForDensityCapped(iconRes, density, /* theme= */ null);
             } catch (NameNotFoundException | Resources.NotFoundException exc) {
             }
         }

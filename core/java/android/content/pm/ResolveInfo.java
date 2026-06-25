@@ -267,6 +267,9 @@ public class ResolveInfo implements Parcelable {
      * will call back on the given PackageManager to load the icon from
      * the application.
      *
+     * <p>The returned drawable is subject to the same size capping limits as described
+     * in {@link PackageManager#getApplicationIcon(ApplicationInfo)}.</p>
+     *
      * @param pm A PackageManager from which the icon can be loaded; usually
      * the PackageManager from which you originally retrieved this item.
      *
@@ -276,12 +279,13 @@ public class ResolveInfo implements Parcelable {
     public Drawable loadIcon(PackageManager pm) {
         Drawable dr = null;
         if (resolvePackageName != null && iconResourceId != 0) {
-            dr = pm.getDrawable(resolvePackageName, iconResourceId, null);
+            dr = pm.getDrawableInternal(
+                    resolvePackageName, iconResourceId, null, /* isIcon= */ true);
         }
         ComponentInfo ci = getComponentInfo();
         if (dr == null && iconResourceId != 0) {
             ApplicationInfo ai = ci.applicationInfo;
-            dr = pm.getDrawable(ci.packageName, iconResourceId, ai);
+            dr = pm.getDrawableInternal(ci.packageName, iconResourceId, ai, /* isIcon= */ true);
         }
         if (dr != null) {
             return pm.getUserBadgedIcon(dr, new UserHandle(pm.getUserId()));
