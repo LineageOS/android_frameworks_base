@@ -21,6 +21,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorStateListDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -79,5 +81,70 @@ public class ResourcesDrawableTest {
         Resources resources = context.getResources();
         Drawable drawable = resources.getDrawable(R.color.drawable_in_color_dir_valid);
         assertTrue(drawable instanceof LayerDrawable);
+    }
+
+    @Test
+    public void testGetDrawableCapped_downsamplesLargeResource() {
+        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Resources resources = context.getResources();
+
+        // Load the massive 16,000 x 16,000 px image via the capped API
+        Drawable drawable = resources.getDrawableForDensityCapped(
+                com.android.frameworks.coretests.R.drawable.test16000x16000, 0, null);
+
+        assertNotNull("Capped drawable should not be null", drawable);
+        assertTrue("Capped drawable should be a BitmapDrawable",
+                drawable instanceof BitmapDrawable);
+
+        Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+
+        // The original image is 16,000 x 16,000. Under our cap of 2048,
+        // it should be scaled down to exactly 2048 x 2048 px.
+        assertEquals("Width should be capped to 2048 px", 2048, bitmap.getWidth());
+        assertEquals("Height should be capped to 2048 px", 2048, bitmap.getHeight());
+    }
+
+    @Test
+    public void testGetDrawableCapped_doesNotPolluteSharedCache() {
+        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Resources resources = context.getResources();
+
+        // 1. Load the massive image via the capped API first
+        Drawable cappedDrawable = resources.getDrawableForDensityCapped(
+                com.android.frameworks.coretests.R.drawable.test16000x16000, 0, null);
+        assertNotNull(cappedDrawable);
+        assertEquals(2048, cappedDrawable.getIntrinsicWidth());
+
+        // 2. Load the same image using the standard uncapped API.
+        Drawable uncappedDrawable = resources.getDrawable(
+                com.android.frameworks.coretests.R.drawable.test16000x16000, null);
+        // Assert that cache isolation works:
+        // The uncapped load must either fail (return null) because it attempted to load
+        // the full 16,000px image and failed,
+        // or return the original large image (width > 2048).
+        // It must NEVER return the cached downsampled version (which would be non-null
+        // with width == 2048).
+        if (uncappedDrawable != null) {
+            assertEquals("Cache pollution occurred! The uncapped load should have returned the "
+                            + "original uncapped version (width == 16000 px)",
+                    16000, uncappedDrawable.getIntrinsicWidth());
+        }
+    }
+
+    @Test
+    public void testGetDrawableCapped_usesCache() {
+        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        Resources resources = context.getResources();
+
+        Drawable doc1 = resources.getDrawableForDensityCapped(
+                com.android.frameworks.coretests.R.drawable.test16000x16000, 0, null);
+        Drawable doc2 = resources.getDrawableForDensityCapped(
+                com.android.frameworks.coretests.R.drawable.test16000x16000, 0, null);
+
+        assertNotNull("First loaded capped drawable should not be null", doc1);
+        assertNotNull("Second loaded capped drawable should not be null", doc2);
+        // If caching works, both calls return a drawable sharing the same constant state
+        assertEquals("Caching failed! Capped drawables should share the same ConstantState",
+                doc1.getConstantState(), doc2.getConstantState());
     }
 }
