@@ -953,6 +953,32 @@ public class Resources {
     }
 
     /**
+     * Return a drawable object associated with a particular resource ID and styled for the
+     * specified theme for a given screen density, applying a cap to prevent excessively large
+     * dimensions.
+     *
+     * @param id The desired resource identifier.
+     * @param density The desired screen density in DPI.
+     * @param theme The theme used to style the drawable attributes, may be {@code null}.
+     * @return Drawable An object that can be used to draw this resource.
+     * @throws NotFoundException Throws NotFoundException if the given ID does not exist.
+     * @hide
+     */
+    @Nullable
+    public Drawable getDrawableForDensityCapped(@DrawableRes int id, int density,
+            @Nullable Theme theme)
+            throws NotFoundException {
+        final TypedValue value = obtainTempTypedValue();
+        try {
+            final ResourcesImpl impl = mResourcesImpl;
+            impl.getValueForDensity(id, density, value, true);
+            return impl.loadDrawable(this, value, id, density, theme, /* isCapped= */ true);
+        } finally {
+            releaseTempTypedValue(value);
+        }
+    }
+
+    /**
      * Return a drawable object associated with a particular resource ID for the
      * given screen density in DPI. This will set the drawable's density to be
      * the device's density multiplied by the ratio of actual drawable density
