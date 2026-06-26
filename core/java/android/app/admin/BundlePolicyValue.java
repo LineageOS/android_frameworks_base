@@ -32,6 +32,7 @@ public final class BundlePolicyValue extends PolicyValue<Bundle> {
 
     public BundlePolicyValue(Bundle value) {
         super(value);
+        BundlePolicyTypeVerifier.enforceValidTypes(value);
         if (devicePolicySizeTrackingEnabled()) {
             PolicySizeVerifier.enforceMaxParcelableFieldsLength(value);
         }
