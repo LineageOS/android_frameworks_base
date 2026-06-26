@@ -580,7 +580,8 @@ public class NotificationManagerServiceZenTest extends UiServiceTestCase {
                 mToastRateLimiter, mPermissionHelper, mock(UsageStatsManagerInternal.class),
                 mTelecomManager, mLogger, mTestFlagResolver, mPermissionManager, mPowerManager,
                 mock(PostNotificationTrackerFactory.class), mUiEventLogger, mBitmapOffloader,
-                new NotificationListenerStats(MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING),
+                new NotificationListenerStats(MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING,
+                        MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING),
                 mNotificationRecordLogger,
                 mNotificationInstanceIdSequence, new TestPreferencesHelperFactory());
 
