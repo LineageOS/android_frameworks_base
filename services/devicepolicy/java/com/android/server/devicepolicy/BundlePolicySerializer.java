@@ -129,6 +129,7 @@ final class BundlePolicySerializer extends PolicySerializer<Bundle> {
             throws IOException {
         for (String key : restrictions.keySet()) {
             Object value = restrictions.get(key);
+
             serializer.startTag(null, TAG_ENTRY);
             serializer.attribute(null, ATTR_KEY, key);
 
@@ -156,7 +157,7 @@ final class BundlePolicySerializer extends PolicySerializer<Bundle> {
                     writeBundle((Bundle) parcelable, serializer);
                     serializer.endTag(null, TAG_ENTRY);
                 }
-            } else {
+            } else if (value instanceof String[]) {
                 serializer.attribute(null, ATTR_VALUE_TYPE, ATTR_TYPE_STRING_ARRAY);
                 String[] values = (String[]) value;
                 serializer.attributeInt(null, ATTR_MULTIPLE, values.length);
@@ -165,7 +166,11 @@ final class BundlePolicySerializer extends PolicySerializer<Bundle> {
                     serializer.text(choice != null ? choice : "");
                     serializer.endTag(null, TAG_VALUE);
                 }
+            } else {
+                throw new IllegalArgumentException("Unsupported type in Bundle for key '"
+                        + key + "': " + value.getClass().getName());
             }
+
             serializer.endTag(null, TAG_ENTRY);
         }
     }
