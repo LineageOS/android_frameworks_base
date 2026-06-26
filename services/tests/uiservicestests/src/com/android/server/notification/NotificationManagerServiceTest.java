@@ -405,6 +405,7 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
     private static final String REDACTED_TEXT = "redacted text";
 
     private static final int MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING = 10;
+    private static final int MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING = 6;
 
     private final NotificationChannel mParentChannel =
             new NotificationChannel(PARENT_CHANNEL_ID, "parentName", IMPORTANCE_DEFAULT);
@@ -917,7 +918,8 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
                 mToastRateLimiter, mPermissionHelper, mock(UsageStatsManagerInternal.class),
                 mTelecomManager, mLogger, mTestFlagResolver, mPermissionManager, mPowerManager,
                 mPostNotificationTrackerFactory, mUiEventLogger, mBitmapOffloader,
-                new NotificationListenerStats(MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING),
+                new NotificationListenerStats(MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING,
+                        MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING),
                 mNotificationRecordLogger, mNotificationInstanceIdSequence,
                 new TestPreferencesHelperFactory());
 
@@ -5877,23 +5879,43 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
     @RequiresFlagsEnabled(FLAG_NOTIFICATION_CONVERSATION_CHANNEL_MANAGEMENT)
     public void createConversationChannelForPkgFromPrivilegedListener_tooManyChannels_ignored()
             throws Exception {
+        when(mPackageManager.getPackageUid(eq(PKG_O), anyLong(),  anyInt())).thenReturn(UID_O);
         NotificationChannel parentChannel = mTestNotificationChannel.copy();
-        mService.mPreferencesHelper.createNotificationChannel(mPkg, mUid, parentChannel, true,
+        mService.mPreferencesHelper.createNotificationChannel(PKG_O, UID_O, parentChannel, true,
                 false, mUid, false);
         when(mCompanionMgr.getAssociations(mPkg, mUserId))
                 .thenReturn(singletonList(mock(AssociationInfo.class)));
 
-        for (int i = 1; i <= MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING; i++) {
+        // Add 6 channels for PKG_O
+        for (int i = 1; i <= MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING; i++) {
             NotificationChannel createdConversation = mBinderService
                     .createConversationNotificationChannelForPackageFromPrivilegedListener(
-                            mListener, mPkg, mUser, parentChannel.getId(), "conversation #" + i);
+                            mListener, PKG_O, mUser, parentChannel.getId(), "conversation #" + i);
             assertThat(createdConversation).isNotNull();
             assertThat(createdConversation.getParentChannelId()).isEqualTo(parentChannel.getId());
         }
         ParceledListSlice<NotificationChannel> packageChannels =
-                mService.mPreferencesHelper.getNotificationChannels(mPkg, mUid, false, false);
+                mService.mPreferencesHelper.getNotificationChannels(PKG_O, UID_O, false, false);
         assertThat(packageChannels.getList().stream().filter(c -> c.isConversation()))
-                .hasSize(MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING);
+                .hasSize(MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING);
+
+        // Now add 4 channels for mPkg
+        final int numChannelsLeftForNLS = MAX_CHANNELS_CREATED_BY_NLS_FOR_TESTING
+                - MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING;
+        mService.mPreferencesHelper.createNotificationChannel(mPkg, mUid, parentChannel, true,
+                false, mUid, false);
+        for (int i = 1; i <= numChannelsLeftForNLS; i++) {
+            NotificationChannel createdConversation = mBinderService
+                    .createConversationNotificationChannelForPackageFromPrivilegedListener(
+                        mListener, mPkg, mUser, parentChannel.getId(), "conversation #" + i);
+            assertThat(createdConversation).isNotNull();
+            assertThat(createdConversation.getParentChannelId()).isEqualTo(parentChannel.getId());
+        }
+        packageChannels = mService.mPreferencesHelper.getNotificationChannels(mPkg, mUid, false,
+                false);
+        // one convo is created in setup, and numChannelsLeftForNLS
+        assertThat(packageChannels.getList().stream().filter(c -> c.isConversation()))
+                .hasSize(numChannelsLeftForNLS + 1);
 
         // And finally, monsieur, a wafer-thin mint.
         NotificationChannel oneTooMany = mBinderService
@@ -5904,6 +5926,47 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
         ParceledListSlice<NotificationChannel> unchangedPackageChannels =
                 mService.mPreferencesHelper.getNotificationChannels(mPkg, mUid, false, false);
         assertThat(unchangedPackageChannels.getList()).isEqualTo(packageChannels.getList());
+    }
+
+    @Test
+    @EnableFlags({FLAG_NOTIFICATION_CONVERSATION_CHANNEL_MANAGEMENT})
+    public void createConversationChannelForPkgFromPrivilegedListener_tooManyChannelsPerPkg_fails()
+            throws Exception {
+        when(mPackageManager.getPackageUid(eq(PKG_O), anyLong(),  anyInt())).thenReturn(UID_O);
+        NotificationChannel parentChannel = mTestNotificationChannel.copy();
+        mService.mPreferencesHelper.createNotificationChannel(mPkg, mUid, parentChannel, true,
+                false, mUid, false);
+        mService.mPreferencesHelper.createNotificationChannel(PKG_O, UID_O, parentChannel, true,
+                false, UID_O, false);
+        when(mCompanionMgr.getAssociations(anyString(), eq(mUserId)))
+                .thenReturn(singletonList(mock(AssociationInfo.class)));
+
+        for (int i = 1; i <= MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING; i++) {
+            NotificationChannel createdConversation = mBinderService
+                    .createConversationNotificationChannelForPackageFromPrivilegedListener(
+                        mListener, mPkg, mUser, parentChannel.getId(), "conversation #" + i);
+            assertThat(createdConversation).isNotNull();
+            assertThat(createdConversation.getParentChannelId()).isEqualTo(parentChannel.getId());
+        }
+        ParceledListSlice<NotificationChannel> packageChannels =
+                mService.mPreferencesHelper.getNotificationChannels(mPkg, mUid, false, false);
+        // one convo is created in setup, and MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING
+        assertThat(packageChannels.getList().stream().filter(c -> c.isConversation()))
+                .hasSize(MAX_CHANNELS_PER_PKG_CREATED_BY_NLS_FOR_TESTING + 1);
+
+        NotificationChannel oneTooMany = mBinderService
+                .createConversationNotificationChannelForPackageFromPrivilegedListener(
+                    mListener, mPkg, mUser, parentChannel.getId(), "another conversation");
+
+        assertThat(oneTooMany).isNull();
+        ParceledListSlice<NotificationChannel> unchangedPackageChannels =
+                mService.mPreferencesHelper.getNotificationChannels(mPkg, mUid, false, false);
+        assertThat(unchangedPackageChannels.getList()).isEqualTo(packageChannels.getList());
+
+        NotificationChannel otherPkgConversation = mBinderService
+                .createConversationNotificationChannelForPackageFromPrivilegedListener(
+                    mListener, PKG_O, mUser, parentChannel.getId(), "other conversation");
+        assertThat(otherPkgConversation).isNotNull();
     }
 
     @Test
