@@ -38,6 +38,7 @@ import com.android.systemui.util.settings.SecureSettings;
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
@@ -173,18 +174,44 @@ public class FlashlightControllerImpl implements FlashlightController {
         }
     }
 
+    /**
+     * Returns the camera ID to use for torch control.
+     *
+     * On devices with multiple flash-capable back cameras, the HAL routes torch through the
+     * logical camera (which has physical camera IDs) rather than a plain physical camera.
+     * We prefer the logical camera to ensure torch commands reach the correct camera node.
+     */
     @WorkerThread
     private String getCameraId() throws CameraAccessException {
         String[] ids = mCameraManager.getCameraIdList();
+
+        // First pass: prefer logical multi-camera with flash — the HAL routes torch
+        // through these on devices where multiple cameras share a single flash unit.
         for (String id : ids) {
             CameraCharacteristics c = mCameraManager.getCameraCharacteristics(id);
             Boolean flashAvailable = c.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
             Integer lensFacing = c.get(CameraCharacteristics.LENS_FACING);
-            if (flashAvailable != null && flashAvailable
-                    && lensFacing != null && lensFacing == CameraCharacteristics.LENS_FACING_BACK) {
+            Set<String> physicalIds = c.getPhysicalCameraIds();
+            if (Boolean.TRUE.equals(flashAvailable)
+                    && lensFacing != null
+                    && lensFacing == CameraCharacteristics.LENS_FACING_BACK
+                    && physicalIds != null && !physicalIds.isEmpty()) {
                 return id;
             }
         }
+
+        // Fall back to first back-facing flash camera.
+        for (String id : ids) {
+            CameraCharacteristics c = mCameraManager.getCameraCharacteristics(id);
+            Boolean flashAvailable = c.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+            Integer lensFacing = c.get(CameraCharacteristics.LENS_FACING);
+            if (Boolean.TRUE.equals(flashAvailable)
+                    && lensFacing != null
+                    && lensFacing == CameraCharacteristics.LENS_FACING_BACK) {
+                return id;
+            }
+        }
+
         return null;
     }
 
