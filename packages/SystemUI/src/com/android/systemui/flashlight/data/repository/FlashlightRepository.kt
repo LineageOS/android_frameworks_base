@@ -187,35 +187,51 @@ constructor(
     }
 
     /**
-     * Reads flashlight info from available [CameraCharacteristics]
+     * Reads flashlight info from available [CameraCharacteristics].
+     *
+     * On devices with multiple flash-capable back cameras, the HAL routes torch through the
+     * logical camera (which has physical camera IDs) rather than a plain physical camera.
+     * We prefer the logical camera to ensure torch commands reach the correct camera node.
      *
      * @return the id of a connected camera that has flashlight, or null if none connected.
      * @throws CameraAccessException if the camera device have been disconnected
      */
-    private suspend fun loadFlashlightInfo(): String? =
-        cameraManager.cameraIdList.firstOrNull { id ->
-            val cc: CameraCharacteristics = cameraManager.getCameraCharacteristics(id)
+    private suspend fun loadFlashlightInfo(): String? {
+        val ids = cameraManager.cameraIdList
 
+        fun isBackFlashCamera(id: String): Boolean {
+            val cc = cameraManager.getCameraCharacteristics(id)
             val flashAvailable = cc.get(CameraCharacteristics.FLASH_INFO_AVAILABLE)
             val lensFacing = cc.get(CameraCharacteristics.LENS_FACING)
-
-            val backFlashlightAvailable =
-                flashAvailable != null &&
-                    flashAvailable &&
-                    lensFacing != null &&
-                    lensFacing == CameraCharacteristics.LENS_FACING_BACK
-
-            if (backFlashlightAvailable) {
-                val default: Int? = cc.get(CameraCharacteristics.FLASH_INFO_STRENGTH_DEFAULT_LEVEL)
-                val max: Int? = cc.get(CameraCharacteristics.FLASH_INFO_STRENGTH_MAXIMUM_LEVEL)
-                if (default != null) {
-                    defaultEnabledLevelForUser[currentUserId] = default
-                }
-                flashlightInfo.emit(FlashlightInfo.Supported.LoadedSuccessfully(id, default, max))
-            }
-
-            backFlashlightAvailable
+            return flashAvailable == true &&
+                lensFacing == CameraCharacteristics.LENS_FACING_BACK
         }
+
+        fun isLogicalCamera(id: String): Boolean {
+            val cc = cameraManager.getCameraCharacteristics(id)
+            return cc.physicalCameraIds.isNotEmpty()
+        }
+
+        // Prefer logical multi-camera with flash — the HAL routes torch through these
+        // on devices where multiple cameras share a single flash unit.
+        val selectedId =
+            ids.firstOrNull { isBackFlashCamera(it) && isLogicalCamera(it) }
+                ?: ids.firstOrNull { isBackFlashCamera(it) }
+
+        if (selectedId != null) {
+            val cc = cameraManager.getCameraCharacteristics(selectedId)
+            val default: Int? = cc.get(CameraCharacteristics.FLASH_INFO_STRENGTH_DEFAULT_LEVEL)
+            val max: Int? = cc.get(CameraCharacteristics.FLASH_INFO_STRENGTH_MAXIMUM_LEVEL)
+            if (default != null) {
+                defaultEnabledLevelForUser[currentUserId] = default
+            }
+            flashlightInfo.emit(
+                FlashlightInfo.Supported.LoadedSuccessfully(selectedId, default, max)
+            )
+        }
+
+        return selectedId
+    }
 
     /**
      * Should be started if and only if device supports flashlight.
