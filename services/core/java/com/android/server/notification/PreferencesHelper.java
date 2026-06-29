@@ -1145,9 +1145,12 @@ public class PreferencesHelper implements RankingConfig {
                 updatedChannel.unlockFields(updatedChannel.getUserLockedFields());
             }
 
-            if (channel.isImportanceLockedByCriticalDeviceFunction()
-                    && !(channel.isBlockable() || channel.getImportance() == IMPORTANCE_NONE)) {
-                updatedChannel.setImportance(channel.getImportance());
+            if (channel.isImportanceLockedByCriticalDeviceFunction()) {
+                updatedChannel.setImportanceLockedByCriticalDeviceFunction(true);
+                if (!(channel.isBlockable() || channel.getImportance() == IMPORTANCE_NONE)) {
+                    updatedChannel.setImportance(channel.getImportance());
+                }
+                updatedChannel.setBlockable(channel.isBlockable());
             }
 
             r.channels.put(updatedChannel.getId(), updatedChannel);
