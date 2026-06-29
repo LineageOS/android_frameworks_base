@@ -122,6 +122,14 @@ object Utils {
     }
 
     @JvmStatic
+    fun isSettings(context: Context, clientPackage: String?): Boolean {
+        val hasPermission =
+            (context.checkCallingOrSelfPermission(Manifest.permission.USE_BIOMETRIC_INTERNAL) ==
+                PackageManager.PERMISSION_GRANTED)
+        return hasPermission && "com.android.settings" == clientPackage
+    }
+
+    @JvmStatic
     fun getNavbarInsets(context: Context) = getInsetsOf(context, WindowInsets.Type.navigationBars())
 
     @JvmStatic
@@ -184,8 +192,10 @@ object Utils {
         val topActivity = tasks[0].topActivity
         val isSystemApp = isSystem(context, clientPackage)
         val topPackageEqualsToClient = topActivity!!.packageName == clientPackage
+
         val isClientConfirmDeviceCredentialActivity =
-            clientClassNameIfItIsConfirmDeviceCredentialActivity != null
+            clientClassNameIfItIsConfirmDeviceCredentialActivity != null &&
+                isSettings(context, clientPackage)
 
         if (
             !isClientInBackgroundOrNotVisible(
