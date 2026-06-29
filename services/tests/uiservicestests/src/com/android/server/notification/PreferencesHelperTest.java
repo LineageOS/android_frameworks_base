@@ -4866,8 +4866,96 @@ public class PreferencesHelperTest extends UiServiceTestCase {
                 IMPORTANCE_LOW);
         mHelper.updateNotificationChannel(PKG_O, UID_O, updateImportanceLow, true,
                 SYSTEM_UID, true);
-        assertEquals(IMPORTANCE_LOW,
+        assertEquals(IMPORTANCE_HIGH,
                 mHelper.getNotificationChannel(PKG_O, UID_O, a.getId(), false).getImportance());
+    }
+
+    @Test
+    public void testUpdateNotificationChannel_preservesLockAndBlockable() {
+        NotificationChannel channel = new NotificationChannel("a", "a", IMPORTANCE_HIGH);
+        ArraySet<Pair<String, Integer>> toAdd = new ArraySet<>();
+        toAdd.add(new Pair<>(PKG_O, UID_O));
+        mHelper.updateDefaultApps(UserHandle.getUserId(UID_O), null, toAdd);
+        channel.setBlockable(false);
+        mHelper.createNotificationChannel(PKG_O, UID_O, channel, true, false, UID_O, false);
+
+        // Verify it is locked and not blockable initially
+        NotificationChannel createdChannel = mHelper.getNotificationChannel(PKG_O, UID_O, "a",
+                    false);
+        assertTrue(createdChannel.isImportanceLockedByCriticalDeviceFunction());
+        assertFalse(createdChannel.isBlockable());
+
+        // Prepare an update (importance LOW, default blockable/locked to false in the new object)
+        NotificationChannel update = new NotificationChannel("a", "a", IMPORTANCE_LOW);
+        mHelper.updateNotificationChannel(PKG_O, UID_O, update, true, UID_O, false);
+
+        // Verify importance was NOT changed (stayed HIGH because it is locked and not blockable)
+        NotificationChannel resultingChannel = mHelper.getNotificationChannel(PKG_O, UID_O, "a",
+                    false);
+        assertEquals(IMPORTANCE_HIGH, resultingChannel.getImportance());
+        // Verify lock and blockable were preserved
+        assertTrue(resultingChannel.isImportanceLockedByCriticalDeviceFunction());
+        assertFalse(resultingChannel.isBlockable());
+    }
+
+    @Test
+    public void testUpdateNotificationChannel_preservesLockAndBlockable_whenBlockable() {
+        NotificationChannel channel = new NotificationChannel("a", "a", IMPORTANCE_HIGH);
+        ArraySet<Pair<String, Integer>> toAdd = new ArraySet<>();
+        toAdd.add(new Pair<>(PKG_O, UID_O));
+        mHelper.updateDefaultApps(UserHandle.getUserId(UID_O), null, toAdd);
+        channel.setBlockable(true);
+
+        mHelper.createNotificationChannel(PKG_O, UID_O, channel, true, false, UID_O, false);
+
+        // Verify it is locked and blockable initially
+        NotificationChannel createdChannel = mHelper.getNotificationChannel(PKG_O, UID_O, "a",
+                    false);
+        assertTrue(createdChannel.isImportanceLockedByCriticalDeviceFunction());
+        assertTrue(createdChannel.isBlockable());
+
+        // Prepare an update (importance LOW)
+        NotificationChannel update = new NotificationChannel("a", "a", IMPORTANCE_LOW);
+
+        mHelper.updateNotificationChannel(PKG_O, UID_O, update, true, UID_O, false);
+
+        // Verify importance WAS changed to LOW (allowed because it is blockable)
+        NotificationChannel resultingChannel = mHelper.getNotificationChannel(PKG_O, UID_O, "a",
+                    false);
+        assertEquals(IMPORTANCE_LOW, resultingChannel.getImportance());
+        // Verify lock and blockable were preserved
+        assertTrue(resultingChannel.isImportanceLockedByCriticalDeviceFunction());
+        assertTrue(resultingChannel.isBlockable());
+    }
+
+    @Test
+    public void testUpdateNotificationChannel_updatesImportance_whenNone() {
+        NotificationChannel channel = new NotificationChannel("a", "a", IMPORTANCE_NONE);
+        ArraySet<Pair<String, Integer>> toAdd = new ArraySet<>();
+        toAdd.add(new Pair<>(PKG_O, UID_O));
+        mHelper.updateDefaultApps(UserHandle.getUserId(UID_O), null, toAdd);
+        channel.setBlockable(false);
+
+        mHelper.createNotificationChannel(PKG_O, UID_O, channel, true, false, UID_O, false);
+
+        // Verify it is locked and blockable initially
+        NotificationChannel createdChannel = mHelper.getNotificationChannel(PKG_O, UID_O, "a",
+                    false);
+        assertTrue(createdChannel.isImportanceLockedByCriticalDeviceFunction());
+        assertFalse(createdChannel.isBlockable());
+
+        // Prepare an update (importance LOW)
+        NotificationChannel update = new NotificationChannel("a", "a", IMPORTANCE_LOW);
+
+        mHelper.updateNotificationChannel(PKG_O, UID_O, update, true, UID_O, false);
+
+        // Verify importance WAS changed to LOW (allowed because it is blockable)
+        NotificationChannel resultingChannel = mHelper.getNotificationChannel(PKG_O, UID_O, "a",
+                    false);
+        assertEquals(IMPORTANCE_LOW, resultingChannel.getImportance());
+        // Verify lock and blockable were preserved
+        assertTrue(resultingChannel.isImportanceLockedByCriticalDeviceFunction());
+        assertFalse(resultingChannel.isBlockable());
     }
 
     @Test
