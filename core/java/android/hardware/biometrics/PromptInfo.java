@@ -177,7 +177,8 @@ public class PromptInfo implements Parcelable {
             return true;
         } else if (mShowEmergencyCallButton) {
             return true;
-        } else if (mRealCallerForConfirmDeviceCredentialActivity != null) {
+        } else if (mRealCallerForConfirmDeviceCredentialActivity != null
+                || mClassNameIfItIsConfirmDeviceCredentialActivity != null) {
             return true;
         }
         return false;
