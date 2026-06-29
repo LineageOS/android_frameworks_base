@@ -220,11 +220,6 @@ public class CompanionDeviceManagerService extends SystemService {
         // Init association stores
         mAssociationStore.refreshCache();
 
-        // Remove any revoked associations after reboot.
-        for (AssociationInfo ai : mAssociationStore.getRevokedAssociations()) {
-            mDisassociationProcessor.disassociate(ai.getId(), REASON_REVOKED);
-        }
-
         // Init UUID store
         mObservableUuidStore.getObservableUuidsForUser(getContext().getUserId());
 
@@ -267,6 +262,13 @@ public class CompanionDeviceManagerService extends SystemService {
     @Override
     public void onUserUnlocked(@NonNull TargetUser user) {
         Slog.i(TAG, "onUserUnlocked() user=" + user);
+        final int userId = user.getUserIdentifier();
+        for (AssociationInfo a : mAssociationStore.getRevokedAssociations()) {
+            if (a.getUserId() == userId) {
+                mDisassociationProcessor.disassociate(a.getId(), REASON_REVOKED);
+            }
+        }
+
         // Notify and bind the app after the phone is unlocked.
         mDevicePresenceProcessor.sendDevicePresenceEventOnUnlocked(user.getUserIdentifier());
 
