@@ -90,8 +90,18 @@ public class AppTimeTracker {
         extras.putBundle(ActivityOptions.EXTRA_USAGE_TIME_REPORT_PACKAGES, pkgs);
         Intent fillinIntent = new Intent();
         fillinIntent.putExtras(extras);
+        ActivityOptions options = ActivityOptions.makeBasic();
+        options.setPendingIntentBackgroundActivityStartMode(
+                ActivityOptions.MODE_BACKGROUND_ACTIVITY_START_DENIED);
         try {
-            mReceiver.send(context, 0, fillinIntent);
+            mReceiver.send(
+                    context,
+                    /* code= */ 0,
+                    fillinIntent,
+                    /* onFinished= */ null,
+                    /* handler= */ null,
+                    /* requiredPermission= */ null,
+                    options.toBundle());
         } catch (PendingIntent.CanceledException e) {
         }
     }
