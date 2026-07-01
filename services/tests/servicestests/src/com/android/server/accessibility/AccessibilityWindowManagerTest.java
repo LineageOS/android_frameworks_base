@@ -41,6 +41,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -49,8 +50,10 @@ import android.annotation.Nullable;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Region;
+import android.os.Binder;
 import android.os.IBinder;
 import android.os.LocaleList;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.util.SparseArray;
@@ -1081,12 +1084,81 @@ public class AccessibilityWindowManagerTest {
         final AccessibilityWindowAttributes attributes = new AccessibilityWindowAttributes(
                 layoutParams, new LocaleList());
 
-        mA11yWindowManager.setAccessibilityWindowAttributes(Display.DEFAULT_DISPLAY, windowId,
+        // The connection is registered with USER_SYSTEM_ID (0) in setup, so its UID is resolved
+        // to User 0, App ID. We need to mock getCallingUid() to match it.
+        final int expectedCallingUid = UserHandle.getUid(USER_SYSTEM_ID,
+                UserHandle.getCallingAppId());
+        final AccessibilityWindowManager spyManager = Mockito.spy(mA11yWindowManager);
+        doReturn(expectedCallingUid).when(spyManager).getCallingUid();
+
+        spyManager.setAccessibilityWindowAttributes(Display.DEFAULT_DISPLAY, windowId,
+                USER_SYSTEM_ID, attributes);
+
+        final AccessibilityWindowInfo a11yWindow = spyManager.findA11yWindowInfoByIdLocked(
+                windowId);
+        assertThat(toString(a11yWindow.getTitle()), is(toString(layoutParams.accessibilityTitle)));
+    }
+
+    @Test(expected = SecurityException.class)
+    public void setAccessibilityWindowAttributes_notOwner_shouldThrowSecurityException()
+            throws RemoteException {
+        final int windowId = addAccessibilityInteractionConnection(Display.DEFAULT_DISPLAY,
+                false, mMockInvalidToken, USER_SYSTEM_ID);
+        final WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.accessibilityTitle = "accessibility window title";
+        final AccessibilityWindowAttributes attributes = new AccessibilityWindowAttributes(
+                layoutParams, new LocaleList());
+
+        // Get the real connection to reuse its components (connection, package name, etc.)
+        final RemoteAccessibilityConnection connection = mA11yWindowManager.getConnectionLocked(
+                USER_SYSTEM_ID, windowId);
+
+        // Create a connection with a different UID (callingUid + 1000)
+        final RemoteAccessibilityConnection differentUidConnection =
+                mA11yWindowManager.new RemoteAccessibilityConnection(
+                        windowId, connection.getRemote(), connection.getPackageName(),
+                        Binder.getCallingUid() + 1000, USER_SYSTEM_ID);
+
+        // Spy on the manager to override getConnectionLocked and getCallingUid for this test
+        AccessibilityWindowManager spyManager = Mockito.spy(mA11yWindowManager);
+        doReturn(differentUidConnection).when(spyManager)
+                .getConnectionLocked(anyInt(), eq(windowId));
+        doReturn(Binder.getCallingUid()).when(spyManager).getCallingUid();
+
+        spyManager.setAccessibilityWindowAttributes(Display.DEFAULT_DISPLAY, windowId,
+                USER_SYSTEM_ID, attributes);
+    }
+
+    @Test
+    public void setAccessibilityWindowAttributes_systemUid_succeeds() throws RemoteException {
+        final int windowId =
+                getWindowIdFromWindowInfosForDisplay(Display.DEFAULT_DISPLAY, 0);
+        final WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.accessibilityTitle = "accessibility window title";
+        final AccessibilityWindowAttributes attributes = new AccessibilityWindowAttributes(
+                layoutParams, new LocaleList());
+
+        final RemoteAccessibilityConnection connection = mA11yWindowManager.getConnectionLocked(
+                USER_SYSTEM_ID, windowId);
+
+        // Create a connection with a different UID (callingUid + 1000)
+        final RemoteAccessibilityConnection differentUidConnection =
+                mA11yWindowManager.new RemoteAccessibilityConnection(
+                        windowId, connection.getRemote(), connection.getPackageName(),
+                        Binder.getCallingUid() + 1000, USER_SYSTEM_ID);
+
+        AccessibilityWindowManager spyManager = Mockito.spy(mA11yWindowManager);
+        doReturn(differentUidConnection).when(spyManager)
+                .getConnectionLocked(anyInt(), eq(windowId));
+        // Mock the calling UID to be SYSTEM_UID
+        doReturn(Process.SYSTEM_UID).when(spyManager).getCallingUid();
+
+        spyManager.setAccessibilityWindowAttributes(Display.DEFAULT_DISPLAY, windowId,
                 USER_SYSTEM_ID, attributes);
 
         final AccessibilityWindowInfo a11yWindow = mA11yWindowManager.findA11yWindowInfoByIdLocked(
                 windowId);
-        assertEquals(toString(layoutParams.accessibilityTitle), toString(a11yWindow.getTitle()));
+        assertThat(toString(a11yWindow.getTitle()), is(toString(layoutParams.accessibilityTitle)));
     }
 
     @Test
