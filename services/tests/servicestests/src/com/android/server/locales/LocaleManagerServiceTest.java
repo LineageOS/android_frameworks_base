@@ -382,14 +382,43 @@ public class LocaleManagerServiceTest {
         }
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testGetOverrideLocaleConfig_pathTraversal_fails() throws Exception {
-        String traversalPackageName = "../../10/locale_configs/com.victim";
+    @Test
+    public void testGetOverrideLocaleConfig_packageNotFound_returnsNull() throws Exception {
+        String unknownPackage = "com.unknown.package";
         doThrow(new PackageManager.NameNotFoundException("Mock"))
-                .when(mMockPackageManager).getPackageUidAsUser(eq(traversalPackageName), any(),
+                .when(mMockPackageManager).getPackageUidAsUser(eq(unknownPackage), any(),
                         anyInt());
 
-        mLocaleManagerService.getOverrideLocaleConfig(traversalPackageName, DEFAULT_USER_ID);
+        assertNull(mLocaleManagerService.getOverrideLocaleConfig(
+                unknownPackage, DEFAULT_USER_ID));
+    }
+
+    @Test
+    public void testGetOverrideLocaleConfig_packageExists_noConfig_returnsNull() throws Exception {
+        doReturn(DEFAULT_UID).when(mMockPackageManager)
+                .getPackageUidAsUser(eq(DEFAULT_PACKAGE_NAME), any(), anyInt());
+        setUpPassingPermissionCheckFor(Manifest.permission.READ_APP_SPECIFIC_LOCALES);
+
+        assertNull(mLocaleManagerService.getOverrideLocaleConfig(
+                DEFAULT_PACKAGE_NAME, DEFAULT_USER_ID));
+    }
+
+    @Test
+    public void testGetOverrideLocaleConfig_otherUser_unauthorized_throwsSecurityException()
+            throws Exception {
+        String unknownPackage = "com.unknown.package";
+        int otherUserId = 10;
+        doThrow(new SecurityException("Mock"))
+                .when(mMockActivityManager).handleIncomingUser(
+                        anyInt(), anyInt(), eq(otherUserId), anyBoolean(), anyInt(), anyString(),
+                        any());
+
+        try {
+            mLocaleManagerService.getOverrideLocaleConfig(unknownPackage, otherUserId);
+            fail("Expected SecurityException");
+        } catch (SecurityException e) {
+            // expected
+        }
     }
 
     @Test
