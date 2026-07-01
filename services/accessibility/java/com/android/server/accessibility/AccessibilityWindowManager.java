@@ -158,11 +158,23 @@ public class AccessibilityWindowManager {
     public void setAccessibilityWindowAttributes(int displayId, int windowId, int userId,
             AccessibilityWindowAttributes attributes) {
         boolean shouldComputeWindows = false;
+        final int callingUid = getCallingUid();
         synchronized (mLock) {
             final int resolvedUserId =
                     mSecurityPolicy.resolveCallingUserIdEnforcingPermissionsLocked(userId);
-            if (getWindowTokenForUserAndWindowIdLocked(resolvedUserId, windowId) == null) {
+            final RemoteAccessibilityConnection connection =
+                    getConnectionLocked(resolvedUserId, windowId);
+            if (connection == null) {
                 return;
+            }
+            // It is expected that the system UID might set window attributes for windows from a
+            // different UID.
+            final int resolvedUid = UserHandle.getUid(resolvedUserId,
+                    UserHandle.getAppId(callingUid));
+            if (resolvedUid != connection.getUid()
+                    && callingUid != android.os.Process.SYSTEM_UID) {
+                throw new SecurityException("Calling UID " + callingUid
+                        + " does not own windowId " + windowId);
             }
             mWindowAttributes.put(windowId, attributes);
             shouldComputeWindows = findWindowInfoByIdLocked(windowId) != null;
@@ -2334,5 +2346,10 @@ public class AccessibilityWindowManager {
         pw.append(mWindowAttributes.toString());
         pw.append("]");
         pw.println();
+    }
+
+    @VisibleForTesting
+    protected int getCallingUid() {
+        return Binder.getCallingUid();
     }
 }
