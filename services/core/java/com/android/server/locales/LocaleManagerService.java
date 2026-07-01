@@ -765,6 +765,10 @@ public class LocaleManagerService extends SystemService {
                 false /* allowAll */, ActivityManagerInternal.ALLOW_NON_FULL,
                 "getOverrideLocaleConfig", /* callerPackage= */ null);
 
+        if (getPackageUid(appPackageName, userId) < 0) {
+            return null;
+        }
+
         if (!isPackageOwnedByCaller(appPackageName, userId, null, null)
                 && !isCallerInstaller(appPackageName, userId)
                 && !(isCallerFromCurrentInputMethod(userId)
