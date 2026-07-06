@@ -30,6 +30,8 @@ import static java.util.concurrent.TimeUnit.MINUTES;
 import android.annotation.CheckResult;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.app.ActivityManager;
+import android.app.ActivityManagerInternal;
 import android.app.AppOpsManager;
 import android.app.PendingIntent;
 import android.companion.Association;
@@ -296,6 +298,21 @@ public class CompanionDeviceManagerService extends SystemService implements Bind
             checkCallerIsSystemOr(callingPackage);
             int userId = getCallingUserId();
             checkUsesFeature(callingPackage, userId);
+
+            final int callingUid = Binder.getCallingUid();
+            // Foreground check is bypassed if the caller is system, or the caller has the
+            // privileged MANAGE_COMPANION_DEVICES permission.
+            if (!(callingUid == Process.SYSTEM_UID
+                    || getContext().checkCallingPermission(
+                            android.Manifest.permission.MANAGE_COMPANION_DEVICES)
+                            == PackageManager.PERMISSION_GRANTED)) {
+                ActivityManagerInternal amInternal = LocalServices.getService(
+                        ActivityManagerInternal.class);
+                int procState = amInternal.getUidProcessState(callingUid);
+                if (procState != ActivityManager.PROCESS_STATE_TOP) {
+                    throw new SecurityException("Caller must be in foreground to associate");
+                }
+            }
 
             mFindDeviceCallback = callback;
             mRequest = request;
