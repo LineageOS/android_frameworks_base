@@ -62,6 +62,7 @@ import static android.view.WindowManager.TRANSIT_TASK_CHANGE_WINDOWING_MODE;
 import static com.android.internal.policy.DecorView.DECOR_SHADOW_FOCUSED_HEIGHT_IN_DIP;
 import static com.android.internal.policy.DecorView.DECOR_SHADOW_UNFOCUSED_HEIGHT_IN_DIP;
 import static com.android.server.wm.ActivityRecord.STARTING_WINDOW_SHOWN;
+import static com.android.server.wm.ActivityRecord.shouldSkipSavingToXml;
 import static com.android.server.wm.ActivityStack.ActivityState.RESUMED;
 import static com.android.server.wm.ActivityStack.STACK_VISIBILITY_INVISIBLE;
 import static com.android.server.wm.ActivityStack.STACK_VISIBILITY_VISIBLE;
@@ -4149,12 +4150,8 @@ class Task extends WindowContainer<WindowContainer> {
     }
 
     private static boolean saveActivityToXml(
-            ActivityRecord r, ActivityRecord first, XmlSerializer out) {
-        if (r.info.persistableMode == ActivityInfo.PERSIST_ROOT_ONLY || !r.isPersistable()
-                || ((r.intent.getFlags() & FLAG_ACTIVITY_NEW_DOCUMENT
-                | FLAG_ACTIVITY_RETAIN_IN_RECENTS) == FLAG_ACTIVITY_NEW_DOCUMENT)
-                && r != first) {
-            // Stop at first non-persistable or first break in task (CLEAR_WHEN_TASK_RESET).
+            ActivityRecord r, ActivityRecord bottomMostActivity, XmlSerializer out) {
+        if (shouldSkipSavingToXml(r, bottomMostActivity)) {
             return true;
         }
         try {
