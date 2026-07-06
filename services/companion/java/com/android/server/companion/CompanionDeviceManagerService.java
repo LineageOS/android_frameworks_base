@@ -367,6 +367,21 @@ public class CompanionDeviceManagerService extends SystemService {
             enforceCallerCanManageAssociationsForPackage(getContext(), userId, packageName,
                     "create associations");
 
+            final int callingUid = Binder.getCallingUid();
+            // Foreground check is bypassed if the caller is system, or it is a self-managed
+            // association, or the caller has the privileged MANAGE_COMPANION_DEVICES permission.
+            if (!(callingUid == SYSTEM_UID
+                    || request.isSelfManaged()
+                    || getContext().checkCallingPermission(MANAGE_COMPANION_DEVICES)
+                            == PERMISSION_GRANTED)) {
+                ActivityManagerInternal amInternal = LocalServices.getService(
+                        ActivityManagerInternal.class);
+                int procState = amInternal.getUidProcessState(callingUid);
+                if (procState != ActivityManager.PROCESS_STATE_TOP) {
+                    throw new SecurityException("Caller must be in foreground to associate");
+                }
+            }
+
             if (request.isSkipRoleGrant()) {
                 checkCallerCanSkipRoleGrant();
                 mAssociationRequestsProcessor.createAssociation(userId, packageName,
