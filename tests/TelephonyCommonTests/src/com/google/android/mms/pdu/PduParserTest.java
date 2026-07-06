@@ -26,10 +26,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
+@SmallTest
 public class PduParserTest {
 
     @Test
-    @SmallTest
     public void testParse_malformedHugeHeaderLength_doesNotOOM() {
         byte[] pduData = new byte[] {
             // Headers (Send-Req)
@@ -53,7 +53,6 @@ public class PduParserTest {
     }
 
     @Test
-    @SmallTest
     public void testParse_invalidContentTypeIndex_doesNotThrowAIOOBE() {
         byte[] pduData = new byte[] {
             // Headers (Send-Req)
@@ -73,7 +72,6 @@ public class PduParserTest {
     }
 
     @Test
-    @SmallTest
     public void testParse_elementDescriptorWithParams_doesNotThrowNPE() {
         byte[] pduData = new byte[] {
             // Headers (Send-Req)
@@ -100,7 +98,6 @@ public class PduParserTest {
     }
 
     @Test
-    @SmallTest
     public void testParse_emptyCharset_doesNotThrowNPE() {
         byte[] pduData = new byte[] {
             // Headers (Send-Req)
@@ -125,7 +122,6 @@ public class PduParserTest {
     }
 
     @Test
-    @SmallTest
     public void testPduParserUnderflowOOM() {
         // CONTENT_TYPE (0x84), LENGTH_QUOTE (0x1F), uintvar for Integer.MIN_VALUE,
         // well-known type (0x83)
