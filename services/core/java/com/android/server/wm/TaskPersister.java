@@ -16,6 +16,7 @@
 
 package com.android.server.wm;
 
+import static com.android.server.wm.ActivityRecord.shouldSkipSavingToXml;
 import static com.android.server.wm.RootWindowContainer.MATCH_TASK_IN_STACKS_OR_RECENT_TASKS;
 
 import android.annotation.NonNull;
@@ -24,6 +25,7 @@ import android.graphics.BitmapFactory;
 import android.os.Debug;
 import android.os.Environment;
 import android.os.FileUtils;
+import android.os.PersistableBundle;
 import android.os.SystemClock;
 import android.util.ArraySet;
 import android.util.AtomicFile;
@@ -67,6 +69,12 @@ public class TaskPersister implements PersisterQueue.Listener {
     private static final String TASK_FILENAME_SUFFIX = "_task.xml";
     private static final String IMAGES_DIRNAME = "recent_images";
     private static final String PERSISTED_TASK_IDS_FILENAME = "persisted_taskIds.txt";
+
+    /** Maximum size of task XML file allowed. */
+    private static final int MAX_TASK_FILE_SIZE = 5 * 1024 * 1024;
+
+    /** Maximum total size of persistable bundles allowed per task. */
+    private static final int MAX_PERSISTABLE_BUNDLE_SIZE_PER_TASK = (int) (2.5 * 1024 * 1024);
 
     private static final String TAG_TASK = "task";
 
@@ -289,6 +297,12 @@ public class TaskPersister implements PersisterQueue.Listener {
             }
 
             if (!taskFile.getName().endsWith(TASK_FILENAME_SUFFIX)) {
+                continue;
+            }
+            if (taskFile.length() > MAX_TASK_FILE_SIZE) {
+                Slog.e(TAG, "Restore task failed: file too large: " + taskFile
+                        + " (" + taskFile.length() + " bytes)");
+                taskFile.delete();
                 continue;
             }
             try {
@@ -546,6 +560,29 @@ public class TaskPersister implements PersisterQueue.Listener {
             synchronized (mService.mGlobalLock) {
                 if (task.inRecents) {
                     // Still there.
+                    // Skip saving if the total size of persistable bundles exceeds the limit.
+                    // Large bundles are the primary contributor to bloated task XML files.
+                    final int[] totalBundleSize = {0};
+                    final ActivityRecord bottomMostActivity = task.getBottomMostActivity();
+                    task.forAllActivities(r -> {
+                        if (shouldSkipSavingToXml(r, bottomMostActivity)) {
+                            return true;
+                        }
+                        PersistableBundle bundle = r.getPersistentSavedState();
+                        if (bundle != null) {
+                            totalBundleSize[0] += bundle.getSize();
+                        }
+                        return totalBundleSize[0] > MAX_PERSISTABLE_BUNDLE_SIZE_PER_TASK;
+                    });
+                    boolean exceeded = totalBundleSize[0] > MAX_PERSISTABLE_BUNDLE_SIZE_PER_TASK;
+
+                    if (exceeded) {
+                        Slog.e(TAG, "Exceeded max persistable bundle size per task "
+                                + "(" + MAX_PERSISTABLE_BUNDLE_SIZE_PER_TASK + " bytes) for task#"
+                                + task.mTaskId + ". Dropping persistence.");
+                        return;
+                    }
+
                     try {
                         if (DEBUG) Slog.d(TAG, "Saving task=" + task);
                         stringWriter = saveToXml(task);
@@ -554,6 +591,12 @@ public class TaskPersister implements PersisterQueue.Listener {
                 }
             }
             if (stringWriter != null) {
+                final byte[] data = stringWriter.toString().getBytes();
+                if (data.length > MAX_TASK_FILE_SIZE) {
+                    Slog.w(TAG, "Task file size exceeds limit for task " + task.mTaskId
+                            + ": " + data.length + " bytes. Dropping persistence.");
+                    return;
+                }
                 // Write out xml file while not holding mService lock.
                 FileOutputStream file = null;
                 AtomicFile atomicFile = null;
@@ -567,7 +610,7 @@ public class TaskPersister implements PersisterQueue.Listener {
                     atomicFile = new AtomicFile(new File(userTasksDir,
                             String.valueOf(task.mTaskId) + TASK_FILENAME_SUFFIX));
                     file = atomicFile.startWrite();
-                    file.write(stringWriter.toString().getBytes());
+                    file.write(data);
                     file.write('\n');
                     atomicFile.finishWrite(file);
                 } catch (IOException e) {
