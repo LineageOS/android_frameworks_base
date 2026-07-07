@@ -582,7 +582,7 @@ public class MessageUpgradeWorker {
             return MessageType.UNKNOWN;
         }
 
-        return switch (contentUri.getAuthority().toLowerCase()) {
+        return switch (contentUri.getAuthority()) {
             case AUTHORITY_SMS -> MessageType.SMS;
             case AUTHORITY_MMS -> MessageType.MMS;
             default -> MessageType.UNKNOWN;
