@@ -407,13 +407,11 @@ public final class Bundle extends BaseBundle implements Cloneable, Parcelable {
      * @hide
      */
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
+    @Override
     public int getSize() {
-        if (mParcelledData != null) {
-            return mParcelledData.dataSize();
-        } else {
-            return 0;
-        }
+        return super.getSize();
     }
+
 
     /**
      * Reports whether the bundle contains any parcelled file descriptors.
