@@ -52,7 +52,9 @@ import static android.content.Intent.CATEGORY_HOME;
 import static android.content.Intent.CATEGORY_LAUNCHER;
 import static android.content.Intent.CATEGORY_SECONDARY_HOME;
 import static android.content.Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_DOCUMENT;
 import static android.content.Intent.FLAG_ACTIVITY_NO_HISTORY;
+import static android.content.Intent.FLAG_ACTIVITY_RETAIN_IN_RECENTS;
 import static android.content.pm.ActivityInfo.CONFIG_ASSETS_PATHS;
 import static android.content.pm.ActivityInfo.CONFIG_DENSITY;
 import static android.content.pm.ActivityInfo.CONFIG_ORIENTATION;
@@ -9707,6 +9709,22 @@ final class ActivityRecord extends WindowToken {
         } else {
             mCustomCloseTransition = null;
         }
+    }
+
+    /**
+     * Determines whether the given activity should be skipped when saving the task to XML.
+     * Stop at first non-persistable or first break in task (CLEAR_WHEN_TASK_RESET).
+     *
+     * @param r The activity record to check.
+     * @param bottomMostActivity The bottom-most activity in the task.
+     * @return {@code true} if the activity should be skipped, {@code false} otherwise.
+     */
+    static boolean shouldSkipSavingToXml(@NonNull ActivityRecord r,
+            @NonNull ActivityRecord bottomMostActivity) {
+        return r.info.persistableMode == ActivityInfo.PERSIST_ROOT_ONLY || !r.isPersistable()
+                || ((r.intent.getFlags() & (FLAG_ACTIVITY_NEW_DOCUMENT
+                | FLAG_ACTIVITY_RETAIN_IN_RECENTS)) == FLAG_ACTIVITY_NEW_DOCUMENT)
+                && r != bottomMostActivity;
     }
 
     CustomAppTransition getCustomAnimation(boolean open) {

@@ -81,6 +81,7 @@ import static com.android.internal.protolog.WmProtoLogGroups.WM_DEBUG_PACKAGE_UP
 import static com.android.internal.protolog.WmProtoLogGroups.WM_DEBUG_RESIZE;
 import static com.android.internal.protolog.WmProtoLogGroups.WM_DEBUG_STATES;
 import static com.android.internal.protolog.WmProtoLogGroups.WM_DEBUG_TASKS;
+import static com.android.server.wm.ActivityRecord.shouldSkipSavingToXml;
 import static com.android.server.wm.ActivityRecord.State.PAUSED;
 import static com.android.server.wm.ActivityRecord.State.PAUSING;
 import static com.android.server.wm.ActivityRecord.State.RESUMED;
@@ -4129,12 +4130,8 @@ class Task extends TaskFragment {
     }
 
     private static boolean saveActivityToXml(
-            ActivityRecord r, ActivityRecord first, TypedXmlSerializer out) {
-        if (r.info.persistableMode == ActivityInfo.PERSIST_ROOT_ONLY || !r.isPersistable()
-                || ((r.intent.getFlags() & FLAG_ACTIVITY_NEW_DOCUMENT
-                | FLAG_ACTIVITY_RETAIN_IN_RECENTS) == FLAG_ACTIVITY_NEW_DOCUMENT)
-                && r != first) {
-            // Stop at first non-persistable or first break in task (CLEAR_WHEN_TASK_RESET).
+            ActivityRecord r, ActivityRecord bottomMostActivity, TypedXmlSerializer out) {
+        if (shouldSkipSavingToXml(r, bottomMostActivity)) {
             return true;
         }
         try {
