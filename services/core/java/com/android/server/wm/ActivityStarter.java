@@ -421,6 +421,17 @@ class ActivityStarter {
         String intentCreatorPackage;
         int startFlags;
         SafeActivityOptions activityOptions;
+        /**
+         * Set to {@code true} for system-delegated activity launches (such as {@link
+         * ActivityTaskManagerService#startActivityAsCaller}) or internal system UI redirects (such
+         * as rerouting to {@link HeavyWeightSwitcherActivity} in {@link
+         * #resolveToHeavyWeightSwitcherIfNeeded}) to bypass target component permission and
+         * exported checks in {@link ActivityTaskSupervisor#checkStartAnyActivityPermission}.
+         *
+         * <p>Note: this field has no effect on Background Activity Launch (BAL) evaluation or
+         * Intent Firewall enforcements. Its scope should not be expanded without carefully
+         * reviewing all security implications and use cases.
+         */
         boolean ignoreTargetSecurity;
         boolean componentSpecified;
         boolean avoidMoveToFront;
@@ -955,10 +966,13 @@ class ActivityStarter {
         }
 
         int appCallingUid = mRequest.callingUid;
+        int appCallingPid = mRequest.callingPid;
         if (mRequest.caller != null) {
-            WindowProcessController callerApp = mService.getProcessController(mRequest.caller);
+            final WindowProcessController callerApp =
+                    mService.getProcessController(mRequest.caller);
             if (callerApp != null) {
                 appCallingUid = callerApp.mInfo.uid;
+                appCallingPid = callerApp.getPid();
             } else {
                 Slog.w(TAG, "Unable to find app for caller " + mRequest.caller + " (pid="
                         + mRequest.callingPid + ") when starting: " + mRequest.intent.toString());
@@ -990,8 +1004,11 @@ class ActivityStarter {
         mRequest.intent = newIntent;
         mRequest.resolvedType = null;
         mRequest.caller = null;
-        mRequest.callingUid = Binder.getCallingUid();
-        mRequest.callingPid = Binder.getCallingPid();
+        // Preserve original calling UID/PID for BAL evaluation and ignore target security to
+        // permit starting the non-exported system activity in checkStartAnyActivityPermission.
+        mRequest.callingUid = appCallingUid;
+        mRequest.callingPid = appCallingPid;
+        mRequest.ignoreTargetSecurity = true;
         mRequest.componentSpecified = true;
         mRequest.resolveInfo = mSupervisor.resolveIntent(mRequest.intent, null /* resolvedType */,
                 mRequest.userId, 0 /* matchFlags */,
