@@ -522,7 +522,6 @@ final class InputMonitor {
         InputConsumerImpl mWallpaperInputConsumer;
         InputConsumerImpl mRecentsAnimationInputConsumer;
 
-        private boolean mAddPipInputConsumerHandle;
         private boolean mAddWallpaperInputConsumerHandle;
         private boolean mAddRecentsAnimationInputConsumerHandle;
 
@@ -535,7 +534,6 @@ final class InputMonitor {
             mWallpaperInputConsumer = getInputConsumer(INPUT_CONSUMER_WALLPAPER);
             mRecentsAnimationInputConsumer = getInputConsumer(INPUT_CONSUMER_RECENTS_ANIMATION);
 
-            mAddPipInputConsumerHandle = mPipInputConsumer != null;
             mAddWallpaperInputConsumerHandle = mWallpaperInputConsumer != null;
             mAddRecentsAnimationInputConsumerHandle = mRecentsAnimationInputConsumer != null;
 
@@ -552,6 +550,22 @@ final class InputMonitor {
                 mAddRecentsAnimationInputConsumerHandle = false;
             }
             mDisplayContent.forAllWindows(this, true /* traverseTopToBottom */);
+
+            // Update PiP input consumer layer if active.
+            // This is handled here instead of in the window iteration loop (accept) to ensure
+            // the consumer is shown even for PiP windows created without an input channel
+            // (e.g. INPUT_FEATURE_NO_INPUT_CHANNEL). See b/527035500.
+            final Task rootPinnedTask = mDisplayContent.getDefaultTaskDisplayArea()
+                    .getRootPinnedTask();
+            if (mPipInputConsumer != null && rootPinnedTask != null
+                    && rootPinnedTask.getSurfaceControl() != null) {
+                mPipInputConsumer.mWindowHandle.replaceTouchableRegionWithCrop(
+                        rootPinnedTask.getSurfaceControl());
+                // We set the layer to z=MAX-1 so that it's always on top.
+                mPipInputConsumer.reparent(mInputTransaction, rootPinnedTask);
+                mPipInputConsumer.show(mInputTransaction, Integer.MAX_VALUE - 1);
+            }
+
             updateInputFocusRequest(mRecentsAnimationInputConsumer);
 
             if (!mUpdateInputWindowsImmediately) {
@@ -596,18 +610,6 @@ final class InputMonitor {
                         mRecentsAnimationInputConsumer.show(mInputTransaction, MAX_VALUE - 1);
                         mAddRecentsAnimationInputConsumerHandle = false;
                     }
-                }
-            }
-
-            if (w.inPinnedWindowingMode()) {
-                if (mAddPipInputConsumerHandle) {
-                    final Task rootTask = w.getTask().getRootTask();
-                    mPipInputConsumer.mWindowHandle.replaceTouchableRegionWithCrop(
-                            rootTask.getSurfaceControl());
-                    // We set the layer to z=MAX-1 so that it's always on top.
-                    mPipInputConsumer.reparent(mInputTransaction, rootTask);
-                    mPipInputConsumer.show(mInputTransaction, MAX_VALUE - 1);
-                    mAddPipInputConsumerHandle = false;
                 }
             }
 
