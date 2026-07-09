@@ -561,6 +561,19 @@ public class BaseBundle implements Parcel.ClassLoaderProvider {
     }
 
     /**
+     * Return the size of {@link #mParcelledData} in bytes if available, otherwise {@code 0}.
+     *
+     * @hide
+     */
+    public int getSize() {
+        if (mParcelledData != null) {
+            return mParcelledData.dataSize();
+        } else {
+            return 0;
+        }
+    }
+
+    /**
      * @hide
      */
     public boolean isEmptyParcel() {
