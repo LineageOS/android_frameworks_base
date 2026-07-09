@@ -2895,8 +2895,10 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
             boolean allowTheaterMode = mWmService.mAllowTheaterModeWakeFromLayout
                     || Settings.Global.getInt(mWmService.mContext.getContentResolver(),
                             Settings.Global.THEATER_MODE_ON, 0) == 0;
-            boolean canTurnScreenOn = mActivityRecord == null || mActivityRecord.currentLaunchCanTurnScreenOn();
-
+            final boolean canTurnScreenOn =
+                    getDisplayContent() != null && getDisplayContent().isTrusted()
+                            && (mActivityRecord == null
+                                    || mActivityRecord.currentLaunchCanTurnScreenOn());
             if (allowTheaterMode && canTurnScreenOn
                     && (mWmService.mAtmService.isDreaming()
                             || !mWmService.mPowerManager.isInteractive(getDisplayId()))) {
