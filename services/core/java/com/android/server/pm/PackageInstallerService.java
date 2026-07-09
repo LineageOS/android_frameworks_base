@@ -811,6 +811,16 @@ public class PackageInstallerService extends IPackageInstaller.Stub implements
                     throw new SecurityException(
                             "Setting rollback lifetime requires the MANAGE_ROLLBACKS permission");
                 }
+                final long maxRollbackLifetimeMillis = 365 * DateUtils.DAY_IN_MILLIS;
+                if (params.rollbackLifetimeMillis > maxRollbackLifetimeMillis) {
+                    Slog.e(
+                            TAG,
+                            "rollbackLifetimeMillis "
+                                    + params.rollbackLifetimeMillis
+                                    + " exceeds the maximum allowed. Capping to "
+                                    + maxRollbackLifetimeMillis);
+                    params.rollbackLifetimeMillis = maxRollbackLifetimeMillis;
+                }
             } else if (params.rollbackLifetimeMillis < 0) {
                 throw new IllegalArgumentException("rollbackLifetimeMillis can't be negative.");
             }
