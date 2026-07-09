@@ -103,6 +103,9 @@ class RollbackManagerServiceImpl extends IRollbackManager.Stub {
     private static final String TAG = "RollbackManager";
     private static final boolean LOCAL_LOGV = Log.isLoggable(TAG, Log.VERBOSE);
 
+    private static final long MAX_ROLLBACK_LIFETIME_DURATION_MILLIS =
+            TimeUnit.DAYS.toMillis(365);
+
     // Rollbacks expire after 14 days.
     private static final long DEFAULT_ROLLBACK_LIFETIME_DURATION_MILLIS =
             TimeUnit.DAYS.toMillis(14);
@@ -523,6 +526,8 @@ class RollbackManagerServiceImpl extends IRollbackManager.Stub {
                 DEFAULT_ROLLBACK_LIFETIME_DURATION_MILLIS);
         if (mRollbackLifetimeDurationInMillis < 0) {
             mRollbackLifetimeDurationInMillis = DEFAULT_ROLLBACK_LIFETIME_DURATION_MILLIS;
+        } else if (mRollbackLifetimeDurationInMillis > MAX_ROLLBACK_LIFETIME_DURATION_MILLIS) {
+            mRollbackLifetimeDurationInMillis = MAX_ROLLBACK_LIFETIME_DURATION_MILLIS;
         }
         Slog.d(TAG, "mRollbackLifetimeDurationInMillis=" + mRollbackLifetimeDurationInMillis);
         runExpiration();
