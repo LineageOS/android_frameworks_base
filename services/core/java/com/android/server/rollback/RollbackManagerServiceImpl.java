@@ -133,6 +133,9 @@ class RollbackManagerServiceImpl extends IRollbackManager.Stub implements Rollba
     private static final String TAG = "RollbackManager";
     private static final boolean LOCAL_LOGV = Log.isLoggable(TAG, Log.VERBOSE);
 
+    private static final long MAX_ROLLBACK_LIFETIME_DURATION_MILLIS =
+            TimeUnit.DAYS.toMillis(365);
+
     // Rollbacks expire after 60 days.
     private static final long DEFAULT_ROLLBACK_LIFETIME_DURATION_MILLIS =
             TimeUnit.DAYS.toMillis(60);
@@ -609,6 +612,8 @@ class RollbackManagerServiceImpl extends IRollbackManager.Stub implements Rollba
                 DEFAULT_ROLLBACK_LIFETIME_DURATION_MILLIS);
         if (mRollbackLifetimeDurationInMillis < 0) {
             mRollbackLifetimeDurationInMillis = DEFAULT_ROLLBACK_LIFETIME_DURATION_MILLIS;
+        } else if (mRollbackLifetimeDurationInMillis > MAX_ROLLBACK_LIFETIME_DURATION_MILLIS) {
+            mRollbackLifetimeDurationInMillis = MAX_ROLLBACK_LIFETIME_DURATION_MILLIS;
         }
         Slog.d(TAG, "mRollbackLifetimeDurationInMillis=" + mRollbackLifetimeDurationInMillis);
         runExpiration();
@@ -785,6 +790,17 @@ class RollbackManagerServiceImpl extends IRollbackManager.Stub implements Rollba
             long rollbackLifetimeMillis = rollback.getRollbackLifetimeMillis();
             if (rollbackLifetimeMillis <= 0) {
                 rollbackLifetimeMillis = mRollbackLifetimeDurationInMillis;
+            }
+            if (rollbackLifetimeMillis > MAX_ROLLBACK_LIFETIME_DURATION_MILLIS) {
+                Slog.e(
+                        TAG,
+                        "rollbackLifetimeMillis "
+                                + rollbackLifetimeMillis
+                                + " for rollback id "
+                                + rollback.info.getRollbackId()
+                                + " is capped to "
+                                + MAX_ROLLBACK_LIFETIME_DURATION_MILLIS);
+                rollbackLifetimeMillis = MAX_ROLLBACK_LIFETIME_DURATION_MILLIS;
             }
 
             Instant rollbackExpiryTimestamp = rollback.getTimestamp()
