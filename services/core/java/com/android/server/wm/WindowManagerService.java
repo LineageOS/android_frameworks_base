@@ -1338,6 +1338,7 @@ public class WindowManagerService extends IWindowManager.Stub
     @Override
     public void onShellCommand(FileDescriptor in, FileDescriptor out, FileDescriptor err,
             String[] args, ShellCallback callback, ResultReceiver result) {
+        Binder.enforceShellCommandUid(result);
         new WindowManagerShellCommand(this).exec(this, in, out, err, args, callback, result);
     }
 
