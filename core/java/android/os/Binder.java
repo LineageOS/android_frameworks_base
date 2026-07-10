@@ -1184,6 +1184,24 @@ public class Binder implements IBinder {
     }
 
     /**
+     * Enforces that the calling UID is either {@link Process#ROOT_UID}
+     * or {@link Process#SHELL_UID}. If not, sends a failure code to
+     * {@code resultReceiver} (if non-null) and throws a
+     * {@link SecurityException}.
+     *
+     * @hide
+     */
+    public static void enforceShellCommandUid(@Nullable ResultReceiver resultReceiver) {
+        final int callingUid = Binder.getCallingUid();
+        if (callingUid != Process.ROOT_UID && callingUid != Process.SHELL_UID) {
+            if (resultReceiver != null) {
+                resultReceiver.send(-1, null);
+            }
+            throw new SecurityException("Shell commands are only callable by ADB");
+        }
+    }
+
+    /**
      * Handle a call to {@link #shellCommand}.
      *
      * <p>The default implementation performs a caller check to make sure the caller UID is of
@@ -1199,12 +1217,7 @@ public class Binder implements IBinder {
             @Nullable FileDescriptor err,
             @NonNull String[] args, @Nullable ShellCallback callback,
             @NonNull ResultReceiver resultReceiver) throws RemoteException {
-
-        final int callingUid = Binder.getCallingUid();
-        if (callingUid != Process.ROOT_UID && callingUid != Process.SHELL_UID) {
-            resultReceiver.send(-1, null);
-            throw new SecurityException("Shell commands are only callable by ADB");
-        }
+        enforceShellCommandUid(resultReceiver);
 
         // First, convert in, out and err to @NonNull, by redirecting any that's null to /dev/null.
         try {
