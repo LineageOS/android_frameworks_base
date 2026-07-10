@@ -191,7 +191,9 @@ public final class RollbackPackageHealthObserver implements PackageHealthObserve
             RollbackInfo rollback = getRollbackForPackage(failedPackage, lowImpactRollbacks);
             if (rollback != null) {
                 mHandler.post(() -> rollbackPackage(rollback, failedPackage, rollbackReason));
-            } else if (!lowImpactRollbacks.isEmpty()) {
+            } else if (shouldInvokeFallbackRollback(
+                    failedPackage == null ? null : failedPackage.getPackageName(),
+                    rollbackReason, lowImpactRollbacks)) {
                 // Apply all available low impact rollbacks.
                 mHandler.post(() -> rollbackAllLowImpact(availableRollbacks, rollbackReason));
             }
@@ -204,7 +206,9 @@ public final class RollbackPackageHealthObserver implements PackageHealthObserve
             RollbackInfo rollback = getAvailableRollback(failedPackage);
             if (rollback != null) {
                 mHandler.post(() -> rollbackPackage(rollback, failedPackage, rollbackReason));
-            } else {
+            } else if (shouldInvokeFallbackRollback(
+                    failedPackage == null ? null : failedPackage.getPackageName(),
+                    rollbackReason, null)) {
                 mHandler.post(() -> rollbackAll(rollbackReason));
             }
         }
@@ -268,6 +272,27 @@ public final class RollbackPackageHealthObserver implements PackageHealthObserve
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    /**
+     * Evaluates whether an unexplained crash in the given package is critical enough to warrant
+     * triggering a device-wide rollback of all available updates.
+     */
+    private boolean shouldInvokeFallbackRollback(
+            @Nullable String failedPackageName,
+            @FailureReasons int rollbackReason,
+            @Nullable List<RollbackInfo> lowImpactRollbacks) {
+        if (lowImpactRollbacks != null && lowImpactRollbacks.isEmpty()) {
+            return false;
+        }
+        if (rollbackReason == PackageWatchdog.FAILURE_REASON_NATIVE_CRASH) {
+            return true;
+        }
+        if (failedPackageName == null) {
+            return false;
+        }
+        return isPersistentSystemApp(failedPackageName)
+                || isModule(failedPackageName);
     }
 
     private void assertInWorkerThread() {
