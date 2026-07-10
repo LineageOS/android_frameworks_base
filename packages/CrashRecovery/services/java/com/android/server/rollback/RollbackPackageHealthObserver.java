@@ -185,7 +185,8 @@ final class RollbackPackageHealthObserver implements PackageHealthObserver {
             RollbackInfo rollback = getAvailableRollback(failedPackage);
             if (rollback != null) {
                 mHandler.post(() -> rollbackPackage(rollback, failedPackage, rollbackReason));
-            } else {
+            } else if (shouldInvokeFallbackRollback(
+                    failedPackage == null ? null : failedPackage.getPackageName(), rollbackReason)) {
                 mHandler.post(() -> rollbackAll(rollbackReason));
             }
         }
@@ -249,6 +250,23 @@ final class RollbackPackageHealthObserver implements PackageHealthObserver {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    /**
+     * Evaluates whether an unexplained crash in the given package is critical enough to warrant
+     * triggering a device-wide rollback of all available updates.
+     */
+    private boolean shouldInvokeFallbackRollback(
+            @Nullable String failedPackageName,
+            @FailureReasons int rollbackReason) {
+        if (rollbackReason == PackageWatchdog.FAILURE_REASON_NATIVE_CRASH) {
+            return true;
+        }
+        if (failedPackageName == null) {
+            return false;
+        }
+        return isPersistentSystemApp(failedPackageName)
+                || isModule(failedPackageName);
     }
 
     private void assertInWorkerThread() {
