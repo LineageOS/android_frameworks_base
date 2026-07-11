@@ -2476,6 +2476,58 @@ class LegacyMediaDataManagerImplTest(flags: FlagsParameterization) : SysuiTestCa
         }
     }
 
+    @Test
+    fun testMediaDataLoaded_hasArtPermission_artLoaded() {
+        // When media is loaded and user/app has permission to access the art URI,
+        whenever(
+                ugm.checkGrantUriPermission_ignoreNonSystem(
+                        anyInt(),
+                        any(),
+                        any(),
+                        anyInt(),
+                        anyInt()
+                )
+            )
+            .thenReturn(1)
+        val uri = Uri.parse("content://example")
+        val artwork = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
+        metadataBuilder.putString(MediaMetadata.METADATA_KEY_ALBUM_ART_URI, uri.toString())
+        whenever(controller.metadata).thenReturn(metadataBuilder.build())
+        whenever(ImageDecoder.createSource(any(), any<Uri>())).thenReturn(imageSource)
+        whenever(ImageDecoder.decodeBitmap(any(), any())).thenReturn(artwork)
+
+        addNotificationAndLoad()
+
+        // Then the artwork is loaded
+        assertThat(mediaDataCaptor.value.artwork).isNotNull()
+    }
+
+    @Test
+    fun testMediaDataLoaded_noArtPermission_noArtLoaded() {
+        // When media is loaded and user/app does not have permission to access the art URI
+        whenever(
+                ugm.checkGrantUriPermission_ignoreNonSystem(
+                        anyInt(),
+                        any(),
+                        any(),
+                        anyInt(),
+                        anyInt()
+                )
+            )
+            .thenThrow(SecurityException("Test no permission"))
+        val artwork = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
+        val uri = Uri.parse("content://example")
+        metadataBuilder.putString(MediaMetadata.METADATA_KEY_ALBUM_ART_URI, uri.toString())
+        whenever(controller.metadata).thenReturn(metadataBuilder.build())
+        whenever(ImageDecoder.createSource(any(), any<Uri>())).thenReturn(imageSource)
+        whenever(ImageDecoder.decodeBitmap(any(), any())).thenReturn(artwork)
+
+        addNotificationAndLoad()
+
+        // Then the artwork is not loaded
+        assertThat(mediaDataCaptor.value.artwork).isNull()
+    }
+
     /** Helper function to add a basic media notification and capture the resulting MediaData */
     private fun addNotificationAndLoad() {
         addNotificationAndLoad(mediaNotification)
