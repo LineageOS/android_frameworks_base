@@ -18,6 +18,7 @@ package com.android.systemui.media.controls.domain.pipeline
 
 import android.annotation.UserIdInt
 import android.annotation.WorkerThread
+import android.app.IUriGrantsManager
 import android.app.Notification
 import android.app.Notification.EXTRA_SUBSTITUTE_APP_NAME
 import android.app.PendingIntent
@@ -46,6 +47,7 @@ import android.util.Log
 import androidx.media.utils.MediaConstants
 import com.android.app.tracing.coroutines.asyncTraced as async
 import com.android.app.tracing.coroutines.traceCoroutine
+import com.android.internal.annotations.VisibleForTesting
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.dagger.qualifiers.Background
@@ -105,6 +107,8 @@ constructor(
                 com.android.internal.R.attr.textColorPrimary,
             )
             .defaultColor
+
+    @VisibleForTesting internal var uriGrantsManager: IUriGrantsManager? = null
 
     /**
      * Loads media data for a given [StatusBarNotification]. It does the loading on the background
@@ -204,8 +208,12 @@ constructor(
             // Don't attempt to load bitmaps if the job was cancelled.
             coroutineContext.ensureActive()
 
+            val appUid = appInfo?.uid ?: Process.INVALID_UID
             // Album art
-            var artworkBitmap = metadata?.let { loadBitmapFromUri(it, sbn.user) }
+            var artworkBitmap =
+                metadata?.let {
+                    loadBitmapFromUri(it, sbn.user.identifier, appUid, sbn.packageName)
+                }
             if (artworkBitmap == null) {
                 artworkBitmap = metadata?.getBitmap(MediaMetadata.METADATA_KEY_ART)
             }
@@ -257,7 +265,6 @@ constructor(
             val playbackLocation = getPlaybackLocation(sbn, mediaController)
             val isPlaying = mediaController.playbackState?.let { isPlayingState(it.state) }
 
-            val appUid = appInfo?.uid ?: Process.INVALID_UID
             return MediaDataLoaderResult(
                 appName = appName,
                 appIcon = smallIcon,
@@ -442,11 +449,17 @@ constructor(
     }
 
     /** Load a bitmap from the various Art metadata URIs */
-    private suspend fun loadBitmapFromUri(metadata: MediaMetadata, user: UserHandle): Bitmap? {
+    private suspend fun loadBitmapFromUri(
+        metadata: MediaMetadata,
+        @UserIdInt userId: Int,
+        appUid: Int,
+        packageName: String,
+    ): Bitmap? {
         for (uri in ART_URIS) {
             val uriString = metadata.getString(uri)
             if (!TextUtils.isEmpty(uriString)) {
-                val albumArt = loadBitmapFromUriAsUser(Uri.parse(uriString), user)
+                val albumArt =
+                    loadBitmapFromUriChecked(Uri.parse(uriString), userId, appUid, packageName)
                 // If we got cancelled during slow album art load, cancel the rest of the process.
                 coroutineContext.ensureActive()
                 if (albumArt != null) {
@@ -496,7 +509,7 @@ constructor(
         packageName: String,
     ): Bitmap? {
         try {
-            val ugm = UriGrantsManager.getService()
+            val ugm = uriGrantsManager ?: UriGrantsManager.getService()
             ugm.checkGrantUriPermission_ignoreNonSystem(
                 appUid,
                 packageName,
