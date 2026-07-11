@@ -13,6 +13,7 @@
  */
 package com.android.systemui.media.controls.domain.pipeline
 
+import android.app.IUriGrantsManager
 import android.app.Notification
 import android.app.Notification.MediaStyle
 import android.app.PendingIntent
@@ -27,6 +28,7 @@ import android.media.MediaMetadata
 import android.media.session.MediaController
 import android.media.session.MediaSession
 import android.media.session.PlaybackState
+import android.net.Uri
 import android.os.Bundle
 import android.service.notification.StatusBarNotification
 import android.testing.TestableLooper.RunWithLooper
@@ -36,7 +38,6 @@ import androidx.test.filters.SmallTest
 import com.android.systemui.SysuiTestCase
 import com.android.systemui.flags.fakeFeatureFlagsClassic
 import com.android.systemui.graphics.ImageLoader
-import com.android.systemui.graphics.imageLoader
 import com.android.systemui.kosmos.testDispatcher
 import com.android.systemui.kosmos.testScope
 import com.android.systemui.media.controls.shared.model.MediaData
@@ -55,6 +56,7 @@ import org.junit.runner.RunWith
 import org.mockito.ArgumentMatchers.anyInt
 import org.mockito.kotlin.any
 import org.mockito.kotlin.mock
+import org.mockito.kotlin.never
 import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
@@ -88,6 +90,9 @@ class MediaDataLoaderTest : SysuiTestCase() {
             putString(MediaMetadata.METADATA_KEY_TITLE, SESSION_TITLE)
         }
 
+    private val ugm = mock<IUriGrantsManager>()
+    private val imageLoader = mock<ImageLoader>()
+
     private lateinit var underTest: MediaDataLoader
 
     @Before
@@ -104,10 +109,11 @@ class MediaDataLoaderTest : SysuiTestCase() {
                 testScope,
                 mediaControllerFactory,
                 mediaFlags,
-                kosmos.imageLoader,
+                imageLoader,
                 statusBarManager,
                 kosmos.media3ActionFactory,
             )
+        underTest.uriGrantsManager = ugm
     }
 
     @Test
@@ -335,6 +341,78 @@ class MediaDataLoaderTest : SysuiTestCase() {
         }
 
     @Test
+    fun loadMediaData_hasArtPermission_artLoaded() =
+        testScope.runTest {
+            // When media is loaded and user/app has permission to access the art URI,
+            whenever(
+                    ugm.checkGrantUriPermission_ignoreNonSystem(
+                        anyInt(),
+                        any(),
+                        any(),
+                        anyInt(),
+                        anyInt(),
+                    )
+                )
+                .thenReturn(1)
+            val artwork = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
+            val uri = Uri.parse("content://example")
+            metadataBuilder.putString(MediaMetadata.METADATA_KEY_ALBUM_ART_URI, uri.toString())
+            whenever(imageLoader.loadBitmap(any(), anyInt(), anyInt(), anyInt()))
+                .thenReturn(artwork)
+
+            val mediaNotification =
+                SbnBuilder().run {
+                    setPkg(PACKAGE_NAME)
+                    modifyNotification(context).also {
+                        it.setSmallIcon(android.R.drawable.ic_media_pause)
+                        it.setStyle(MediaStyle().apply { setMediaSession(session.sessionToken) })
+                    }
+                    build()
+                }
+
+            val result = underTest.loadMediaData(KEY, mediaNotification)
+
+            assertThat(result?.artworkIcon).isNotNull()
+            verify(imageLoader).loadBitmap(any(), anyInt(), anyInt(), anyInt())
+        }
+
+    @Test
+    fun loadMediaData_noArtPermission_noArtLoaded() =
+        testScope.runTest {
+            // When media is loaded and user/app has no permission to access the art URI,
+            whenever(
+                    ugm.checkGrantUriPermission_ignoreNonSystem(
+                        anyInt(),
+                        any(),
+                        any(),
+                        anyInt(),
+                        anyInt(),
+                    )
+                )
+                .thenThrow(SecurityException("Test no permission"))
+            val artwork = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888)
+            val uri = Uri.parse("content://example")
+            metadataBuilder.putString(MediaMetadata.METADATA_KEY_ALBUM_ART_URI, uri.toString())
+            whenever(imageLoader.loadBitmap(any(), anyInt(), anyInt(), anyInt()))
+                .thenReturn(artwork)
+
+            val mediaNotification =
+                SbnBuilder().run {
+                    setPkg(PACKAGE_NAME)
+                    modifyNotification(context).also {
+                        it.setSmallIcon(android.R.drawable.ic_media_pause)
+                        it.setStyle(MediaStyle().apply { setMediaSession(session.sessionToken) })
+                    }
+                    build()
+                }
+
+            val result = underTest.loadMediaData(KEY, mediaNotification)
+
+            assertThat(result).isNotNull()
+            verify(imageLoader, never()).loadBitmap(any(), anyInt(), anyInt(), anyInt())
+        }
+
+    @Test
     fun loadMediaData_invalidTokenNoCrash() =
         testScope.runTest {
             val bundle = Bundle()
@@ -398,6 +476,7 @@ class MediaDataLoaderTest : SysuiTestCase() {
                     statusBarManager,
                     media3ActionFactory,
                 )
+            mediaDataLoader.uriGrantsManager = ugm
             metadataBuilder.putString(
                 MediaMetadata.METADATA_KEY_ALBUM_ART_URI,
                 "content://album_art_uri",
@@ -426,6 +505,7 @@ class MediaDataLoaderTest : SysuiTestCase() {
                     statusBarManager,
                     media3ActionFactory,
                 )
+            mediaDataLoader.uriGrantsManager = ugm
             metadataBuilder.putString(
                 MediaMetadata.METADATA_KEY_ALBUM_ART_URI,
                 "content://album_art_uri",
