@@ -1222,10 +1222,18 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
         if (WindowManager.LayoutParams.isSystemAlertWindowType(mAttrs.type)) {
             return TouchOcclusionMode.USE_OPACITY;
         }
-        if (isAnimating(PARENTS | TRANSITION, ANIMATION_TYPE_ALL) || inTransition()) {
+        if (isAnimating(PARENTS | TRANSITION, ANIMATION_TYPE_ALL)
+                || inTransition()
+                || inInsetsAnimation()) {
             return TouchOcclusionMode.USE_OPACITY;
         }
         return TouchOcclusionMode.BLOCK_UNTRUSTED;
+    }
+
+    private boolean inInsetsAnimation() {
+        // We don't know if the control target is animating this window or not. But it should
+        // be safe to use opacity to decide if the insets source window can be touched.
+        return mControllableInsetProvider != null;
     }
 
     void updateGlobalScale() {
