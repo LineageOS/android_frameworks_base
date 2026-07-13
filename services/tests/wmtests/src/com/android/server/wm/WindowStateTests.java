@@ -92,6 +92,7 @@ import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Region;
+import android.gui.TouchOcclusionMode;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.InputConfig;
@@ -1238,6 +1239,20 @@ public class WindowStateTests extends WindowTestsBase {
         assertFalse(overlay.isReadyToDispatchInsetsState());
         mDisplayContent.getInsetsStateController().notifyInsetsChanged();
         assertFalse(overlay.getWindowFrames().hasInsetsChanged());
+    }
+
+    @SetupWindows(addWindows = { W_INPUT_METHOD })
+    @Test
+    public void testGetTouchOcclusionModeOfImeWindow() {
+        final WindowState app = newWindowBuilder("app", TYPE_APPLICATION).build();
+        makeWindowVisibleAndDrawn(mImeWindow);
+
+        final InsetsStateController controller = mDisplayContent.getInsetsStateController();
+        final ImeInsetsSourceProvider imeProvider = controller.getImeSourceProvider();
+        imeProvider.setWindowContainer(mImeWindow, null, null);
+        imeProvider.updateControlForTarget(app, false, null);
+
+        assertEquals(TouchOcclusionMode.USE_OPACITY, mImeWindow.getTouchOcclusionMode());
     }
 
     @SetupWindows(addWindows = { W_INPUT_METHOD, W_ACTIVITY })
