@@ -79,6 +79,7 @@ import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
 import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.gui.TouchOcclusionMode;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.platform.test.annotations.Presubmit;
@@ -912,6 +913,20 @@ public class WindowStateTests extends WindowTestsBase {
         assertTrue(app.isReadyToDispatchInsetsState());
         mDisplayContent.getInsetsStateController().notifyInsetsChanged();
         verify(app).notifyInsetsChanged();
+    }
+
+    @UseTestDisplay(addWindows = { W_INPUT_METHOD })
+    @Test
+    public void testGetTouchOcclusionModeOfImeWindow() {
+        final WindowState app = createWindow(null, TYPE_APPLICATION, "app");
+        makeWindowVisibleAndDrawn(mImeWindow);
+
+        final InsetsStateController controller = mDisplayContent.getInsetsStateController();
+        final ImeInsetsSourceProvider imeProvider = controller.getImeSourceProvider();
+        imeProvider.setWindowContainer(mImeWindow, null, null);
+        imeProvider.updateControlForTarget(app, false);
+
+        assertEquals(TouchOcclusionMode.USE_OPACITY, mImeWindow.getTouchOcclusionMode());
     }
 
     @UseTestDisplay(addWindows = { W_INPUT_METHOD, W_ACTIVITY })
