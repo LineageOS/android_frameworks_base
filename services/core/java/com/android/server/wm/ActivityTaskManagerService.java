@@ -2491,9 +2491,15 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                 SafeActivityOptions.abort(options);
                 return;
             }
-            ActivityOptions realOptions = options != null
-                    ? options.getOptions(mTaskSupervisor)
-                    : null;
+            ActivityOptions realOptions = null;
+            if (options != null) {
+                // Check permissions for all activities in the task to ensure the options is
+                // legitimate.
+                task.forAllActivities((r) -> {
+                    options.getOptions(r);
+                });
+                realOptions = options.getOptions(mTaskSupervisor);
+            }
             mTaskSupervisor.findTaskToMoveToFront(task, flags, realOptions, "moveTaskToFront",
                     false /* forceNonResizable */);
         } finally {
