@@ -767,7 +767,8 @@ public class AudioSystemAdapter implements AudioSystem.RoutingUpdateCallback,
     public List<AudioProductStrategy> getAudioProductStrategies(boolean filterInternal) {
         if (filterInternal) {
             synchronized (sAudioProductStrategiesLock) {
-                if (sAudioProductStrategiesWithoutInternal == null) {
+                if (sAudioProductStrategiesWithoutInternal == null
+                        || sAudioProductStrategiesWithoutInternal.isEmpty()) {
                     sAudioProductStrategiesWithoutInternal = AudioProductStrategy
                             .filterNonInternalStrategies(getAllProductStrategies());
                 }
