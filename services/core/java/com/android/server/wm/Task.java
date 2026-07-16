@@ -3695,6 +3695,8 @@ class Task extends WindowContainer<WindowContainer> {
             info.topActivityInfo.applicationInfo.taskAffinity = "";
             info.topActivityInfo.applicationInfo.name = "";
             info.topActivityInfo.applicationInfo.packageName = "";
+            info.pictureInPictureParams = null;
+            info.taskDescription = new ActivityManager.TaskDescription();
         }
 
         if (task.effectiveUid != baseActivityUid) {
