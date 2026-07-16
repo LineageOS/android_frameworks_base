@@ -146,6 +146,8 @@ class AppTaskImpl extends IAppTask.Stub {
         checkCallerOrSystemOrRoot();
 
         synchronized (mService.mGlobalLock) {
+            final int callingPid = Binder.getCallingPid();
+            final int callingUid = Binder.getCallingUid();
             final long origId = Binder.clearCallingIdentity();
             try {
                 Task task = mService.mRootWindowContainer.anyTaskForId(mTaskId,
@@ -154,8 +156,10 @@ class AppTaskImpl extends IAppTask.Stub {
                     Slog.w(TAG, "Unable to find task ID " + mTaskId);
                     return null;
                 }
+                final boolean getTasksAllowed = mService.isGetTasksAllowed(
+                        "getTaskInfo", callingPid, callingUid);
                 return mService.getRecentTasks().createRecentTaskInfo(task,
-                        false /* stripExtras */, true /* getTasksAllowed */);
+                        false /* stripExtras */, getTasksAllowed);
             } finally {
                 Binder.restoreCallingIdentity(origId);
             }
