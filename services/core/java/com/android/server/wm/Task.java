@@ -3624,6 +3624,9 @@ class Task extends TaskFragment {
             info.topActivityInfo.applicationInfo.taskAffinity = "";
             info.topActivityInfo.applicationInfo.name = "";
             info.topActivityInfo.applicationInfo.packageName = "";
+            info.pictureInPictureParams = null;
+            info.mTopActivityLocusId = null;
+            info.taskDescription = new ActivityManager.TaskDescription();
         }
 
         if (task.effectiveUid != baseActivityUid) {
