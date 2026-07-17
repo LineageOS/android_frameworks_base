@@ -467,6 +467,9 @@ public class RollbackPackageHealthObserverTest {
                 List.of(rollbackInfo1, rollbackInfo2));
         when(mMockContext.getPackageManager()).thenReturn(mMockPackageManager);
         when(mMockPackageManager.getModuleInfo(any(), eq(0))).thenReturn(null);
+        ApplicationInfo appCInfo = new ApplicationInfo();
+        appCInfo.flags = ApplicationInfo.FLAG_PERSISTENT | ApplicationInfo.FLAG_SYSTEM;
+        when(mMockPackageManager.getApplicationInfo(anyString(), anyInt())).thenReturn(appCInfo);
 
         observer.onExecuteHealthCheckMitigation(appBFrom, PackageWatchdog.FAILURE_REASON_APP_CRASH,
                 1);
@@ -513,6 +516,9 @@ public class RollbackPackageHealthObserverTest {
                 List.of(rollbackInfo1, rollbackInfo2));
         when(mMockContext.getPackageManager()).thenReturn(mMockPackageManager);
         when(mMockPackageManager.getModuleInfo(any(), eq(0))).thenReturn(null);
+        ApplicationInfo appBInfo = new ApplicationInfo();
+        appBInfo.flags = ApplicationInfo.FLAG_PERSISTENT | ApplicationInfo.FLAG_SYSTEM;
+        when(mMockPackageManager.getApplicationInfo(anyString(), anyInt())).thenReturn(appBInfo);
 
         observer.onExecuteHealthCheckMitigation(failedPackage,
                 PackageWatchdog.FAILURE_REASON_APP_CRASH, 1);
@@ -560,6 +566,9 @@ public class RollbackPackageHealthObserverTest {
                 List.of(rollbackInfo1, rollbackInfo2));
         when(mMockContext.getPackageManager()).thenReturn(mMockPackageManager);
         when(mMockPackageManager.getModuleInfo(any(), eq(0))).thenReturn(null);
+        ApplicationInfo appCInfo2 = new ApplicationInfo();
+        appCInfo2.flags = ApplicationInfo.FLAG_PERSISTENT | ApplicationInfo.FLAG_SYSTEM;
+        when(mMockPackageManager.getApplicationInfo(anyString(), anyInt())).thenReturn(appCInfo2);
 
         observer.onExecuteHealthCheckMitigation(failedPackage,
                 PackageWatchdog.FAILURE_REASON_APP_CRASH, 1);
@@ -912,6 +921,9 @@ public class RollbackPackageHealthObserverTest {
                 List.of(rollbackInfo1, rollbackInfo2));
         when(mMockContext.getPackageManager()).thenReturn(mMockPackageManager);
         when(mMockPackageManager.getModuleInfo(any(), eq(0))).thenReturn(null);
+        ApplicationInfo appCInfo3 = new ApplicationInfo();
+        appCInfo3.flags = ApplicationInfo.FLAG_PERSISTENT | ApplicationInfo.FLAG_SYSTEM;
+        when(mMockPackageManager.getApplicationInfo(anyString(), anyInt())).thenReturn(appCInfo3);
 
         observer.onExecuteHealthCheckMitigation(failedPackage,
                 PackageWatchdog.FAILURE_REASON_APP_CRASH, 1);
