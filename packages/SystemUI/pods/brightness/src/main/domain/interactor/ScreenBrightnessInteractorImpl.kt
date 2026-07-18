@@ -73,6 +73,13 @@ constructor(
     override val brightnessOverriddenByWindow: StateFlow<Boolean> =
         screenBrightnessRepository.isBrightnessOverriddenByWindow
 
+    override val isAutoBrightnessEnabledFlow: StateFlow<Boolean> =
+        screenBrightnessRepository.isAutoBrightnessEnabledFlow
+
+    override fun toggleBrightnessMode() {
+        screenBrightnessRepository.toggleBrightnessMode()
+    }
+
     /** Sets the brightness temporarily, while the user is changing it. */
     override suspend fun setTemporaryBrightness(gammaBrightness: GammaBrightness) {
         screenBrightnessRepository.setTemporaryBrightness(
