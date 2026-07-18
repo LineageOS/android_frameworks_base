@@ -49,4 +49,8 @@ public interface ScreenBrightnessRepository {
 
     /** Sets the brightness definitively. */
     public fun setBrightness(value: LinearBrightness)
+
+    public val isAutoBrightnessEnabledFlow: StateFlow<Boolean>
+
+    public fun toggleBrightnessMode()
 }
