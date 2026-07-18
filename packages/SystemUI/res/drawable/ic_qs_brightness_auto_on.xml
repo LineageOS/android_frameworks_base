@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2022 Paranoid Android
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:name="sun"
+        android:pathData="M 20 8.69 L 20 4 L 15.31 4 L 12 0.69 L 8.69 4 L 4 4 L 4 8.69 L 0.69 12 L 4 15.31 L 4 20 L 8.69 20 L 12 23.31 L 15.31 20 L 20 20 L 20 15.31 L 23.31 12 L 20 8.69 Z M 18 14.48 L 18 18 L 14.48 18 L 12 20.48 L 9.52 18 L 6 18 L 6 14.48 L 3.52 12 L 6 9.52 L 6 6 L 9.52 6 L 12 3.52 L 14.48 6 L 18 6 L 18 9.52 L 20.48 12 L 18 14.48 Z"
+        android:fillColor="#ffffff" />
+    <group android:name="mask_group">
+        <clip-path
+            android:name="mask"
+            android:pathData="M 18 14.48 L 18 18 L 14.48 18 L 12 20.48 L 9.52 18 L 6 18 L 6 14.48 L 3.52 12 L 6 9.52 L 6 6 L 9.52 6 L 12 3.52 L 14.48 6 L 18 6 L 18 9.52 L 20.48 12 L 18 14.48 Z"/>
+        <group
+            android:name="auto_transform"
+            android:pivotX="12"
+            android:pivotY="12"
+            android:translateX="0"
+            android:scaleX="1"
+            android:scaleY="1">
+            <path
+                android:name="auto"
+                android:pathData="M 11 7 L 7.8 16 L 9.7 16 L 10.4 14 L 13.6 14 L 14.3 16 L 16.2 16 L 13 7 L 11 7 Z M 12 9 L 13.15 12.65 L 10.85 12.65 L 12 9 Z"
+                android:fillColor="#ffffff" />
+        </group>
+        <group
+            android:name="manual_transform"
+            android:pivotX="12"
+            android:pivotY="12"
+            android:translateX="-24"
+            android:scaleX="0.5"
+            android:scaleY="0.5">
+            <path
+                android:name="manual"
+                android:pathData="M 11.994 13.159 L 10.159 7.007 L 7.929 7.007 L 7.929 16 L 9.678 16 L 9.678 12.936 L 9.56 9.809 L 11.314 16 L 12.667 16 L 14.427 9.809 L 14.31 12.936 L 14.31 16 L 16.052 16 L 16.052 7.007 L 13.822 7.007 L 11.994 13.159 Z"
+                android:fillColor="#ffffff" />
+        </group>
+    </group>
+</vector>
