@@ -89,6 +89,8 @@ private constructor(
 ) : ViewController<PhoneStatusBarView>(view) {
 
     private lateinit var clock: Clock
+    private lateinit var clockCenter: Clock
+    private lateinit var clockRight: Clock
     private lateinit var startSideContainer: View
     private lateinit var endSideContainer: View
 
@@ -180,6 +182,8 @@ private constructor(
 
     override fun onViewAttached() {
         clock = mView.requireViewById(R.id.clock)
+        clockCenter = mView.requireViewById(R.id.clock_center)
+        clockRight = mView.requireViewById(R.id.clock_right)
 
         addDarkReceivers()
 
@@ -315,10 +319,14 @@ private constructor(
 
     private fun addDarkReceivers() {
         darkIconDispatcher.addDarkReceiver(clock)
+        darkIconDispatcher.addDarkReceiver(clockCenter)
+        darkIconDispatcher.addDarkReceiver(clockRight)
     }
 
     private fun removeDarkReceivers() {
         darkIconDispatcher.removeDarkReceiver(clock)
+        darkIconDispatcher.removeDarkReceiver(clockCenter)
+        darkIconDispatcher.removeDarkReceiver(clockRight)
     }
 
     @Deprecated(
