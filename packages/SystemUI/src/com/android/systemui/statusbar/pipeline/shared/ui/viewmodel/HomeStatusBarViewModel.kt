@@ -67,8 +67,10 @@ import com.android.systemui.statusbar.layout.ui.viewmodel.AppHandlesViewModel
 import com.android.systemui.statusbar.layout.ui.viewmodel.StatusBarBoundsViewModel
 import com.android.systemui.statusbar.layout.ui.viewmodel.StatusBarContentInsetsViewModel
 import com.android.systemui.statusbar.notification.domain.interactor.ActiveNotificationsInteractor
+import com.android.systemui.statusbar.notification.domain.interactor.HeadsUpNotificationInteractor
 import com.android.systemui.statusbar.notification.icon.domain.interactor.StatusBarNotificationIconsInteractor
 import com.android.systemui.statusbar.notification.shared.StatusBarHeadline
+import com.android.systemui.statusbar.notification.domain.model.TopPinnedState
 import com.android.systemui.statusbar.phone.domain.interactor.DarkIconInteractor
 import com.android.systemui.statusbar.phone.domain.interactor.IsAreaDark
 import com.android.systemui.statusbar.phone.domain.interactor.LightsOutInteractor
@@ -206,6 +208,7 @@ interface HomeStatusBarViewModel : Activatable {
     val shouldShowOperatorNameView: Flow<Boolean>
     val isClockVisible: Flow<VisibilityModel>
     val isNotificationIconContainerVisible: Flow<VisibilityModel>
+    val hideStartSideContentForHeadsUp: Flow<Boolean>
 
     /**
      * Pair of (system info visibility, event animation state). The animation state can be used to
@@ -307,6 +310,7 @@ constructor(
     deviceProvisioningInteractor: DeviceProvisioningInteractor,
     private val userLogoutInteractor: UserLogoutInteractor,
     private val scrollToTopInteractor: ScrollToTopInteractor,
+    private val headsUpNotificationInteractor: HeadsUpNotificationInteractor,
 ) : HomeStatusBarViewModel, HydratedActivatable(enableEnqueuedActivations = true) {
 
     val logger = loggerFactory.getOrCreate(logBufferName(thisDisplayId), 60)
@@ -555,20 +559,25 @@ constructor(
             hasChips && canShowChips
         }
 
+    override val hideStartSideContentForHeadsUp: Flow<Boolean> =
+        headsUpNotificationInteractor.statusBarHeadsUpState.map {
+            it is TopPinnedState.Pinned
+        }
+
     override val isClockVisible: Flow<VisibilityModel> =
         combine(
                 statusBarVisibilityInteractor.shouldHomeStatusBarBeVisible,
                 homeStatusBarInteractor.visibilityViaDisableFlags,
             ) { shouldStatusBarBeVisible, visibilityViaDisableFlags ->
                 val showClock = shouldStatusBarBeVisible && visibilityViaDisableFlags.isClockAllowed
-                // Always use View.INVISIBLE here, so that animations work
-                VisibilityModel(showClock.toVisibleOrInvisible(), visibilityViaDisableFlags.animate)
+                // Always use View.GONE here, so that we do not get stray spaces
+                VisibilityModel(showClock.toVisibleOrGone(), visibilityViaDisableFlags.animate)
             }
             .distinctUntilChanged()
             .logDiffsForTable(
                 tableLogBuffer = tableLogger,
                 columnPrefix = COL_PREFIX_CLOCK,
-                initialValue = VisibilityModel(false.toVisibleOrInvisible(), false),
+                initialValue = VisibilityModel(false.toVisibleOrGone(), false),
             )
             .flowOn(bgDispatcher)
 
