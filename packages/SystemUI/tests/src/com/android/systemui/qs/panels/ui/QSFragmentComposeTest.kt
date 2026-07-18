@@ -49,6 +49,7 @@ class QSFragmentComposeTest : SysuiTestCase() {
     fun portraitLayout_qqs() {
         composeTestRule.setContent {
             QuickQuickSettingsLayout(
+                brightness = {},
                 tiles = { Tiles(TILES_HEIGHT_PORTRAIT) },
                 media = { Media() },
                 mediaInRow = false,
@@ -70,6 +71,7 @@ class QSFragmentComposeTest : SysuiTestCase() {
     fun landscapeLayout_qqs() {
         composeTestRule.setContent {
             QuickQuickSettingsLayout(
+                brightness = {},
                 tiles = { Tiles(TILES_HEIGHT_LANDSCAPE) },
                 media = { Media() },
                 mediaInRow = true,
