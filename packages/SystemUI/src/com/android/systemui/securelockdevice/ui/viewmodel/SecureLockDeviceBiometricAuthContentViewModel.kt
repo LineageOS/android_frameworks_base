@@ -17,6 +17,7 @@
 package com.android.systemui.securelockdevice.ui.viewmodel
 
 import android.hardware.biometrics.BiometricPrompt
+import android.os.SystemClock
 import android.security.Flags.secureLockDevice
 import android.util.Log
 import android.view.accessibility.AccessibilityManager
@@ -197,6 +198,8 @@ constructor(
         deviceEntryFaceAuthInteractor.faceSuccess
 
     private var lastAnimatedFaceAuthSuccessTime: Long? by mutableStateOf(null)
+
+    private var activationTime: Long = 0
 
     private var displayErrorJob: Job? = null
 
@@ -382,7 +385,10 @@ constructor(
         // after authenticating a user's face but before the user confirmation)
         launch {
             faceSuccessStatus.debounce(DEBOUNCE_FACE_AUTH_SUCCESS_MS).collectLatest {
-                if (it.createdAt != secureLockDeviceInteractor.lastProcessedFaceAuthSuccessTime) {
+                if (
+                    it.createdAt >= activationTime &&
+                        it.createdAt != secureLockDeviceInteractor.lastProcessedFaceAuthSuccessTime
+                ) {
                     showAuthenticated(modality = BiometricModality.Face)
                     lastAnimatedFaceAuthSuccessTime = it.createdAt
                 }
@@ -467,6 +473,7 @@ constructor(
      * Called to activate the view model and start listening for biometric authentication events.
      */
     override suspend fun onActivated(): Nothing {
+        activationTime = SystemClock.elapsedRealtime()
         coroutineScope {
             launch {
                 requiresStrongBiometricAuthForSecureLockDevice.pairwise(false).collect { (prev, cur)
