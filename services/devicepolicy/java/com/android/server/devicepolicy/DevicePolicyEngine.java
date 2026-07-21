@@ -2785,7 +2785,8 @@ final class DevicePolicyEngine {
 
                 readInnerLocked(parser);
 
-            } catch (XmlPullParserException | IOException | ClassNotFoundException e) {
+            } catch (XmlPullParserException | IOException | ClassNotFoundException
+                    | IllegalArgumentException e) {
                 Slogf.wtf(TAG, "Error parsing resources file", e);
             } finally {
                 IoUtils.closeQuietly(input);
