@@ -52,6 +52,9 @@ public final class PackageSetPolicyValue extends PolicyValue<Set<String>> {
         super(value);
         for (String packageName : value) {
             PolicySizeVerifier.enforceMaxPackageNameLength(packageName);
+            if (packageName.contains(";")) {
+                throw new IllegalArgumentException("Package name cannot contain ';'");
+            }
         }
     }
 
