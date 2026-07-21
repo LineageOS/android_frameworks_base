@@ -16,7 +16,6 @@
 
 package com.android.server.wm;
 
-import static android.view.Display.TYPE_INTERNAL;
 import static android.view.WindowManager.LayoutParams.TYPE_PRESENTATION;
 import static android.view.WindowManager.LayoutParams.TYPE_PRIVATE_PRESENTATION;
 
@@ -142,13 +141,11 @@ class PresentationController implements DisplayManager.DisplayListener {
         }
         final boolean isHostGloballyFocused = hostTask != null
                 && hostTask == displayContent.mWmService.mRoot.getTopDisplayFocusedLeafTask();
-        if (!isHostGloballyFocused && displayContent.getDisplay().getType() == TYPE_INTERNAL) {
-            // A globally focused host task on a different display is needed to show a
-            // presentation on an internal display.
-            return false;
-        }
+        final boolean canDisplayHostTasks = displayContent.getDisplay().canHostTasks();
 
-        return true;
+        // A globally focused host task on a different display is needed to show a
+        // presentation on a display that hosts tasks.
+        return isHostGloballyFocused || !canDisplayHostTasks;
     }
 
     @Nullable
