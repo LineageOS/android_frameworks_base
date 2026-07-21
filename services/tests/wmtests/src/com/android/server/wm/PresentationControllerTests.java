@@ -42,7 +42,7 @@ import static org.junit.Assume.assumeTrue;
 import static org.mockito.ArgumentMatchers.eq;
 
 import android.annotation.NonNull;
-import android.os.Binder;
+import android.os.Process;
 import android.os.UserHandle;
 import android.platform.test.annotations.EnableFlags;
 import android.platform.test.annotations.Presubmit;
@@ -86,8 +86,15 @@ public class PresentationControllerTests extends WindowTestsBase {
         // Finish WAKE transition (adding task to empty display wakes it up)
         mPlayer.flush();
 
+        // Create a host task on the default display and ensure it has the global focus so it can
+        // start a presentation on the presentation display.
+        final int hostTaskUid = Process.myUid();
+        final ActivityRecord hostActivity = createActivityRecord(mDisplayContent);
+        hostActivity.getTask().effectiveUid = hostTaskUid;
+        assertEquals(hostActivity.getTask(), mWm.mRoot.getTopDisplayFocusedLeafTask());
+
         // Add a presentation window, which requests the activity to stop.
-        final WindowState window = addPresentationWindow(100000, dc.mDisplayId);
+        final WindowState window = addPresentationWindow(hostTaskUid, dc.mDisplayId);
         assertFalse(activity.isVisibleRequested());
         assertTrue(activity.isVisible());
         final Transition addTransition = window.mTransitionController.getCollectingTransition();
@@ -118,7 +125,7 @@ public class PresentationControllerTests extends WindowTestsBase {
     public void testPresentationCannotCoverFocusedHostTask() {
         forceAllowPresentationsOnDefaultDisplay();
 
-        int uid = Binder.getCallingUid();
+        int uid = Process.myUid();
         final DisplayContent presentationDisplay = createPresentationDisplay();
         final Task task = createTask(presentationDisplay);
         task.effectiveUid = uid;
@@ -145,7 +152,7 @@ public class PresentationControllerTests extends WindowTestsBase {
 
     @Test
     public void testPresentationCannotCoverUnfocusedHostTask() {
-        int uid = Binder.getCallingUid();
+        int uid = Process.myUid();
         final DisplayContent presentationDisplay = createPresentationDisplay();
         final Task hostTask = createTask(presentationDisplay);
         hostTask.effectiveUid = uid;
@@ -171,10 +178,41 @@ public class PresentationControllerTests extends WindowTestsBase {
     }
 
     @Test
-    public void testPresentationCanLaunchWithUnfocusedHostTaskOnDifferentDisplay() {
-        // This test verifies that a presentation can be launched on a display when its host task
-        // is visible but not focused on a different display.
-        int uid = Binder.getCallingUid();
+    public void testPresentationCannotLaunchWithUnfocusedHostTaskOnDifferentDisplay() {
+        // This test verifies that a presentation cannot be launched on a task-hosting display
+        // when its host task is visible but not focused on a different display.
+        final int uid = Process.myUid();
+
+        // Create a host task on the default display.
+        final Task hostTask = createTask(mDefaultDisplay);
+        hostTask.effectiveUid = uid;
+        final ActivityRecord hostActivity = createActivityRecord(hostTask);
+        assertTrue(hostActivity.isVisible());
+
+        // Create another task on the default display to make the host task unfocused.
+        final Task taskFromAnotherApp = createTask(mDefaultDisplay.getDefaultTaskDisplayArea(),
+                WINDOWING_MODE_FREEFORM, ACTIVITY_TYPE_STANDARD);
+        taskFromAnotherApp.effectiveUid = uid + 1;
+        final ActivityRecord activityFromAnotherApp = createActivityRecord(taskFromAnotherApp);
+        assertTrue(hostActivity.isVisible());
+        assertTrue(activityFromAnotherApp.isVisible());
+        assertFalse(hostActivity.isFocusedActivityOnDisplay());
+        assertTrue(activityFromAnotherApp.isFocusedActivityOnDisplay());
+
+        // Create a separate display for the presentation (can host tasks by default).
+        final DisplayContent presentationDisplay = createPresentationDisplay();
+        assertTrue(presentationDisplay.getDisplay().canHostTasks());
+
+        // Adding a presentation window on the other display must fail because the host task
+        // is not focused.
+        assertAddPresentationWindowFails(uid, presentationDisplay.getDisplayId());
+    }
+
+    @Test
+    public void testPresentationCanLaunchWithUnfocusedHostTaskOnDifferentDisplayNotHostingTasks() {
+        // This test verifies that a presentation can be launched on a display that cannot host
+        // tasks, even when its host task is visible but not focused on a different display.
+        final int uid = Process.myUid();
 
         // Create a host task on the default display.
         final Task hostTask = createTask(mDefaultDisplay);
@@ -194,9 +232,11 @@ public class PresentationControllerTests extends WindowTestsBase {
 
         // Create a separate display for the presentation.
         final DisplayContent presentationDisplay = createPresentationDisplay();
+        doReturn(false).when(presentationDisplay.mDisplay).canHostTasks();
+        assertFalse(presentationDisplay.getDisplay().canHostTasks());
 
-        // Adding a presentation window on the other display must succeed, even with an unfocused
-        // host task.
+        // Adding a presentation window on the other display must succeed because the display
+        // cannot host tasks.
         final WindowState window = addPresentationWindow(uid, presentationDisplay.getDisplayId());
         final Transition addTransition = window.mTransitionController.getCollectingTransition();
         completeTransition(addTransition, /*abortSync=*/ true);
@@ -207,7 +247,7 @@ public class PresentationControllerTests extends WindowTestsBase {
     public void testPresentationCannotLaunchOnAllDisplays() {
         forceAllowPresentationsOnDefaultDisplay();
 
-        final int uid = Binder.getCallingUid();
+        final int uid = Process.myUid();
         final DisplayContent presentationDisplay = createPresentationDisplay();
         final Task task = createTask(presentationDisplay);
         task.effectiveUid = uid;
@@ -227,7 +267,7 @@ public class PresentationControllerTests extends WindowTestsBase {
 
     @Test
     public void testInvisiblePresentationIsNotAllowed() {
-        final int uid = Binder.getCallingUid();
+        final int uid = Process.myUid();
         final Task task = createTask(mDefaultDisplay);
         task.effectiveUid = uid;
         final ActivityRecord activity = createActivityRecord(task);
@@ -253,7 +293,7 @@ public class PresentationControllerTests extends WindowTestsBase {
 
     @Test
     public void testInvisiblePrivatePresentationIsAllowed() {
-        final int uid = Binder.getCallingUid();
+        final int uid = Process.myUid();
         final Task task = createTask(mDefaultDisplay);
         task.effectiveUid = uid;
         final ActivityRecord activity = createActivityRecord(task);
@@ -280,7 +320,7 @@ public class PresentationControllerTests extends WindowTestsBase {
     public void testPresentationCannotLaunchOnInternalDisplayWithoutHostHavingGlobalFocus() {
         forceAllowPresentationsOnDefaultDisplay();
 
-        final int uid = Binder.getCallingUid();
+        final int uid = Process.myUid();
         // Adding a presentation window on an internal display requires a host task
         // with global focus on another display.
         assertAddPresentationWindowFails(uid, DEFAULT_DISPLAY);
@@ -310,7 +350,7 @@ public class PresentationControllerTests extends WindowTestsBase {
 
     @Test
     public void testReparentingActivityToSameDisplayClosesPresentation() {
-        final int uid = Binder.getCallingUid();
+        final int uid = Process.myUid();
         final Task task = createTask(mDefaultDisplay);
         task.effectiveUid = uid;
         final ActivityRecord activity = createActivityRecord(task);
@@ -335,7 +375,7 @@ public class PresentationControllerTests extends WindowTestsBase {
 
     @Test
     public void testPrivatePresentationDoesNotHaveHostTask() {
-        final int uid = Binder.getCallingUid();
+        final int uid = Process.myUid();
         final Task task = createTask(mDefaultDisplay);
         task.effectiveUid = uid;
         final ActivityRecord activity = createActivityRecord(task);
@@ -363,7 +403,7 @@ public class PresentationControllerTests extends WindowTestsBase {
     public void testPrivatePresentationCanCoverHostTask() {
         // This test verifies that a private presentation can be shown on the same display as its
         // host task, because host task policies do not apply to private displays.
-        final int uid = Binder.getCallingUid();
+        final int uid = Process.myUid();
         final DisplayContent privateDisplay = createPrivatePresentationDisplay();
         final Task task = createTask(privateDisplay);
         task.effectiveUid = uid;
@@ -384,14 +424,14 @@ public class PresentationControllerTests extends WindowTestsBase {
     public void testNewPresentationCannotShowOnPresentingDesk() {
         forceAllowPresentationsOnDefaultDisplay();
 
-        int uid = Binder.getCallingUid();
+        int uid = Process.myUid();
         final DisplayContent presentationDisplay = createPresentationDisplay();
 
         // Emulate the multi desk environment, where a desk task is created and have apps as child
         // tasks.
         final Task rootDeskTask = createTask(presentationDisplay);
         rootDeskTask.effectiveUid = uid + 1;
-        final Task leafTask = createTaskInRootTask(rootDeskTask, uid);
+        final Task leafTask = createTaskInRootTask(rootDeskTask, UserHandle.getUserId(uid));
         leafTask.effectiveUid = uid;
         final ActivityRecord activity = createActivityRecord(leafTask);
         assertTrue(activity.isVisible());
@@ -473,7 +513,7 @@ public class PresentationControllerTests extends WindowTestsBase {
         displayInfo.type = TYPE_EXTERNAL;
         if (isPrivateDisplay) {
             displayInfo.flags |= FLAG_PRIVATE;
-            displayInfo.ownerUid = Binder.getCallingUid();
+            displayInfo.ownerUid = Process.myUid();
         }
         displayInfo.displayId = DEFAULT_DISPLAY + 1;
         final DisplayContent dc = createNewDisplay(displayInfo);
