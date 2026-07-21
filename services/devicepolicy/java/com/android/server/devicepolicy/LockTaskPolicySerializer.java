@@ -26,6 +26,8 @@ import com.android.modules.utils.TypedXmlSerializer;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -60,7 +62,11 @@ final class LockTaskPolicySerializer extends PolicySerializer<LockTaskPolicy> {
             Log.e(TAG, "Error parsing LockTask policy value.");
             return null;
         }
-        Set<String> packages = Set.of(packagesStr.split(ATTR_PACKAGES_SEPARATOR));
+        String[] packagesArray = packagesStr.split(ATTR_PACKAGES_SEPARATOR);
+        Set<String> packages = new HashSet<>(Arrays.asList(packagesArray));
+        if (packages.size() != packagesArray.length) {
+            Log.e(TAG, "Duplicate packages found in LockTask policy");
+        }
         try {
             int flags = parser.getAttributeInt(
                     /* namespace= */ null,
