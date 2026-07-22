@@ -842,17 +842,28 @@ public class MediaQualityService extends SystemService {
         @GuardedBy("mPictureProfileLock")
         @Override
         public void notifyPictureProfileHandleSelection(long handle, int userId) {
-            if (DEBUG) {
-                Slog.d(TAG, "notifyPictureProfileHandleSelection with handle " + handle);
+            int callingUid = Binder.getCallingUid();
+            int callingPid = Binder.getCallingPid();
+            if (!hasGlobalPictureQualityServicePermission(callingUid, callingPid)) {
+                mMqManagerNotifier.notifyOnPictureProfileError(
+                        null, PictureProfile.ERROR_NO_PERMISSION, callingUid, callingPid);
+                Slog.e(TAG, "notifyPictureProfileHandleSelection: no permission");
+                return;
             }
-            PictureProfile profile = mMqDatabaseUtils.getPictureProfile(handle, true);
-            if (profile != null) {
+
+            synchronized (mPictureProfileLock) {
                 if (DEBUG) {
-                    Slog.d(TAG, "the picture profile got from this handle is "
-                            + profile.getName());
+                    Slog.d(TAG, "notifyPictureProfileHandleSelection with handle " + handle);
                 }
-                mPictureProfileForHal.add(handle);
-                mHalNotifier.notifyHalOnPictureProfileChange(handle, profile.getParameters());
+                PictureProfile profile = mMqDatabaseUtils.getPictureProfile(handle, true);
+                if (profile != null) {
+                    if (DEBUG) {
+                        Slog.d(TAG, "the picture profile got from this handle is "
+                                + profile.getName());
+                    }
+                    mPictureProfileForHal.add(handle);
+                    mHalNotifier.notifyHalOnPictureProfileChange(handle, profile.getParameters());
+                }
             }
         }
 
