@@ -194,6 +194,8 @@ private:
     ZipFileRO(const ZipFileRO& src);
     ZipFileRO& operator=(const ZipFileRO& src);
 
+    friend class ZipFileROTest_GetEntryFileName_MaxLengthOverflow_Test;
+
     ZipFileRO(ZipArchiveHandle handle, char* fileName) : mHandle(handle),
         mFileName(fileName)
     {
