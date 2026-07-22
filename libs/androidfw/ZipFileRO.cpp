@@ -217,10 +217,10 @@ int ZipFileRO::getEntryFileName(ZipEntryRO entry, char* buffer, size_t bufLen)
     const
 {
     const _ZipEntryRO* zipEntry = reinterpret_cast<_ZipEntryRO*>(entry);
-    const uint16_t requiredSize = zipEntry->name.length() + 1;
+    const size_t requiredSize = zipEntry->name.length() + 1;
 
     if (bufLen < requiredSize) {
-        ALOGW("Buffer too short, requires %d bytes for entry name", requiredSize);
+        ALOGW("Buffer too short, requires %zu bytes for entry name", requiredSize);
         return requiredSize;
     }
 
