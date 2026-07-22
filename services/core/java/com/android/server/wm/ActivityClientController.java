@@ -465,6 +465,9 @@ class ActivityClientController extends IActivityClientController.Stub {
         final NeededUriGrants destGrants = mService.collectGrants(destIntent, r);
         final NeededUriGrants resultGrants = mService.collectGrants(resultData, r.resultTo);
 
+        mService.mAmInternal.addCreatorToken(destIntent, r.packageName);
+        mService.mAmInternal.addCreatorToken(resultData, r.packageName);
+
         synchronized (mGlobalLock) {
             return r.getRootTask().navigateUpTo(
                     r, destIntent, resolvedType, destGrants, resultCode, resultData, resultGrants);
