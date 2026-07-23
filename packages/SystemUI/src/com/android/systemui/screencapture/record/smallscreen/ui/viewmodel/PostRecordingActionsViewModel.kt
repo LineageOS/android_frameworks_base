@@ -19,6 +19,7 @@ package com.android.systemui.screencapture.record.smallscreen.ui.viewmodel
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.DocumentsContract
 import android.view.Display
@@ -61,8 +62,18 @@ constructor(
     var parentUri: Uri? by mutableStateOf(null)
         private set
 
+    var isEditAvailable: Boolean by mutableStateOf(false)
+        private set
+
     override suspend fun onActivated() {
         parentUri = parentUriRepository.getParentDirectoryUri(videoUri)
+        isEditAvailable = isIntentAvailable(Intent.ACTION_EDIT, videoUri, MIME_TYPE)
+    }
+
+    private fun isIntentAvailable(action: String, uri: Uri, mimeType: String): Boolean {
+        val intent = Intent(action).setDataAndType(uri, mimeType)
+        return context.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) !=
+            null
     }
 
     fun new() {

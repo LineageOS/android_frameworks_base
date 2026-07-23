@@ -210,13 +210,15 @@ constructor(
                         labelRes = R.string.screen_record_take_another,
                         modifier = rowModifier,
                     )
-                    PostRecordButton(
-                        onClick = { actionsViewModel.edit() },
-                        drawableLoaderViewModel = actionsViewModel,
-                        iconRes = R.drawable.ic_edit_square,
-                        labelRes = R.string.screen_record_edit,
-                        modifier = rowModifier,
-                    )
+                    if (actionsViewModel.isEditAvailable) {
+                        PostRecordButton(
+                            onClick = { actionsViewModel.edit() },
+                            drawableLoaderViewModel = actionsViewModel,
+                            iconRes = R.drawable.ic_edit_square,
+                            labelRes = R.string.screen_record_edit,
+                            modifier = rowModifier,
+                        )
+                    }
                     PostRecordButton(
                         onClick = {
                             if (recording !is ScreenRecording.Saved) return@PostRecordButton
