@@ -29,6 +29,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.Manifest;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
@@ -630,6 +632,28 @@ public class PhoneStatusBarPolicy
                                 final int uid = ActivityTaskManager.getService()
                                         .getLastResumedActivityUid();
                                 if (uid != Process.INVALID_UID) {
+                                    boolean requestsInternet = false;
+                                    PackageManager pm = mContext.getPackageManager();
+                                    String[] packages = pm.getPackagesForUid(uid);
+                                    if (packages != null) {
+                                        for (String pkg : packages) {
+                                            try {
+                                                PackageInfo pi = pm.getPackageInfo(pkg, PackageManager.GET_PERMISSIONS);
+                                                if (pi != null && pi.requestedPermissions != null) {
+                                                    for (String permission : pi.requestedPermissions) {
+                                                        if (Manifest.permission.INTERNET.equals(permission)) {
+                                                            requestsInternet = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            } catch (PackageManager.NameNotFoundException e) {
+                                                // Ignore
+                                            }
+                                            if (requestsInternet) break;
+                                        }
+                                    }
+                                    final boolean finalRequestsInternet = requestsInternet;
                                     mMainExecutor.execute(() -> {
                                         boolean isLauncher = false;
                                         List<ResolveInfo> homeActivities = mContext
@@ -651,6 +675,7 @@ public class PhoneStatusBarPolicy
                                         final boolean finalIsLauncher = isLauncher;
                                         final boolean showIcon;
                                         if (!finalIsLauncher
+                                                && finalRequestsInternet
                                                 && blocked
                                                 != ConnectivityManager.BLOCKED_REASON_NONE
                                                 && (!mKeyguardStateController.isShowing()
