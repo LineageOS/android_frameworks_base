@@ -875,7 +875,7 @@ public class BackgroundActivityStartController {
                     Process.getAppUidForSdkSandboxUid(state.mRealCallingUid);
             // realCallingSdkSandboxUidToAppUid should probably just be used instead (or in addition
             // to realCallingUid when calculating resultForRealCaller below.
-            if (getService().hasActiveVisibleWindow(realCallingSdkSandboxUidToAppUid)) {
+            if (getService().hasActiveVisibleNotPinnedWindow(realCallingSdkSandboxUidToAppUid)) {
                 state.setResultForRealCaller(new BalVerdict(BAL_ALLOW_SDK_SANDBOX,
                         "uid in SDK sandbox has visible (non-toast) window").allowNewTask());
                 return allowBasedOnRealCaller(state);
