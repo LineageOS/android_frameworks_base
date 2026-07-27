@@ -9390,6 +9390,7 @@ public class AudioService extends IAudioService.Stub
         }
     } // end class AudioServiceUserRestrictionsListener
 
+    @RequiresPermission(android.Manifest.permission.INTERACT_ACROSS_USERS)
     private void handleAudioEffectBroadcast(Context context, Intent intent) {
         String target = intent.getPackage();
         if (target != null) {
@@ -9399,12 +9400,27 @@ public class AudioService extends IAudioService.Stub
         intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
         // TODO this should target a user-selected panel
         List<ResolveInfo> ril = context.getPackageManager().queryBroadcastReceivers(
-                intent, 0 /* flags */);
+                intent, PackageManager.MATCH_SYSTEM_ONLY);
         if (ril != null && ril.size() != 0) {
             ResolveInfo ri = ril.get(0);
             if (ri != null && ri.activityInfo != null && ri.activityInfo.packageName != null) {
-                intent.setPackage(ri.activityInfo.packageName);
-                context.sendBroadcastAsUser(intent, UserHandle.ALL);
+                Intent cleanIntent = new Intent(intent.getAction());
+                final String senderPackageName =
+                        intent.getStringExtra(AudioEffect.EXTRA_PACKAGE_NAME);
+                if (senderPackageName != null) {
+                    cleanIntent.putExtra(AudioEffect.EXTRA_PACKAGE_NAME, senderPackageName);
+                }
+                cleanIntent.putExtra(AudioEffect.EXTRA_AUDIO_SESSION,
+                        intent.getIntExtra(AudioEffect.EXTRA_AUDIO_SESSION,
+                                AudioManager.AUDIO_SESSION_ID_GENERATE));
+                if (intent.hasExtra(AudioEffect.EXTRA_CONTENT_TYPE)) {
+                    cleanIntent.putExtra(AudioEffect.EXTRA_CONTENT_TYPE,
+                            intent.getIntExtra(AudioEffect.EXTRA_CONTENT_TYPE,
+                                    AudioEffect.CONTENT_TYPE_MUSIC));
+                }
+                cleanIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                cleanIntent.setPackage(ri.activityInfo.packageName);
+                context.sendBroadcastAsUser(cleanIntent, UserHandle.ALL);
                 return;
             }
         }
