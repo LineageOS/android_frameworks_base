@@ -1424,6 +1424,10 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
             return mScreenUnlockedFunctions;
         }
 
+        protected boolean isScreenLocked() {
+            return mScreenLocked;
+        }
+
         public int getUsbSpeed() {
             return mUsbSpeed;
         }
@@ -2009,8 +2013,13 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                 case MSG_SET_FUNCTIONS_TIMEOUT:
                     Slog.e(TAG, "Set functions timed out! no reply from usb hal");
                     if (msg.arg1 != 1) {
-                        // Set this since default function may be selected from Developer options
-                        setEnabledFunctions(mScreenUnlockedFunctions, false);
+                        // If the screen is locked, we must not enable default data functions
+                        // on timeout to prevent lock-screen bypass.
+                        if (!isScreenLocked()) {
+                            setEnabledFunctions(mScreenUnlockedFunctions, false);
+                        } else {
+                            setEnabledFunctions(UsbManager.FUNCTION_NONE, false);
+                        }
                     }
                     break;
                 case MSG_GET_CURRENT_USB_FUNCTIONS:
@@ -2035,9 +2044,13 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
                         if (mCurrentFunctions == UsbManager.FUNCTION_ACCESSORY) {
                             notifyAccessoryModeExit();
                         } else {
-                            // Set this since default function may be selected from Developer
-                            // options
-                            setEnabledFunctions(mScreenUnlockedFunctions, false);
+                            // If the screen is locked, we must not enable default
+                            // data functions on timeout to prevent bypass.
+                            if (!isScreenLocked()) {
+                                setEnabledFunctions(mScreenUnlockedFunctions, false);
+                            } else {
+                                setEnabledFunctions(UsbManager.FUNCTION_NONE, false);
+                            }
                         }
                     }
                     break;
