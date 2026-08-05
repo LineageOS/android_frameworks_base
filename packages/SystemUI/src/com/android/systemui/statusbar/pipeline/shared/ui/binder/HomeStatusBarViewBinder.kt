@@ -104,6 +104,7 @@ class HomeStatusBarViewBinderImpl @Inject constructor() : HomeStatusBarViewBinde
         val networkTrafficCenterView = view.findViewById<View>(R.id.network_traffic_holder_center)
         val networkTrafficStartView = view.findViewById<View>(R.id.network_traffic_holder_start)
         val notificationIconsArea = view.requireViewById<View>(R.id.notificationIcons)
+        val batteryView = view.findViewById<View>(R.id.battery_composable_view)
 
         // GONE because this shouldn't take space in the layout
         systemInfoView.hideInitially()
@@ -116,6 +117,7 @@ class HomeStatusBarViewBinderImpl @Inject constructor() : HomeStatusBarViewBinde
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 val context = view.context
 
+                val batteryVisible = MutableStateFlow<Boolean>(true)
                 val clockState =
                     MutableStateFlow(
                         ClockState(
@@ -150,6 +152,22 @@ class HomeStatusBarViewBinderImpl @Inject constructor() : HomeStatusBarViewBinde
                 val contentObserver =
                     object : ContentObserver(Handler(Looper.getMainLooper())) {
                         override fun onChange(selfChange: Boolean, uri: Uri?) {
+                            batteryVisible.update { current ->
+                                when (uri) {
+                                    iconHideListUri -> {
+                                        !StatusBarIconController.getIconHideList(
+                                                context,
+                                                Settings.Secure.getString(
+                                                    context.contentResolver,
+                                                    StatusBarIconController.ICON_HIDE_LIST,
+                                                ),
+                                            )
+                                            .contains("battery")
+                                    }
+                                    else -> current
+                                }
+                            }
+
                             clockState.update { current ->
                                 when (uri) {
                                     clockAutoHideUri -> {
@@ -285,6 +303,12 @@ class HomeStatusBarViewBinderImpl @Inject constructor() : HomeStatusBarViewBinde
                                     )
                                 }
                             }
+                    }
+
+                    launch {
+                        batteryVisible.collect { isVisible ->
+                            batteryView.isVisible = isVisible
+                        }
                     }
 
                     launch {
