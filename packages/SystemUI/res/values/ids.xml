@@ -295,6 +295,9 @@
     <item type="id" name="aod_promoted_notification_view_updater_tag" />
     <item type="id" name="aod_promoted_notification_inflation_identity" />
 
+    <!-- id for the composable battery view (see StatusBarRoot.kt) -->
+    <item type="id" name="battery_composable_view" />
+
     <!-- id for the composable battery meter (see UnifiedBattery.kt) -->
     <item type="id" name="battery_meter_composable_view" />
 
