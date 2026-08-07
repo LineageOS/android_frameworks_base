@@ -10853,6 +10853,8 @@ public class DevicePolicyManager {
      * @param settings A {@link Bundle} to be parsed by the receiving application, conveying a new
      *            set of active restrictions.
      * @throws SecurityException if {@code admin} is not a device or profile owner.
+     * @throws IllegalStateException if the maximum number of packages with active application
+     *     restrictions across all admins for the user has been reached.
      * @see #setDelegatedScopes
      * @see #DELEGATION_APP_RESTRICTIONS
      * @see UserManager#KEY_RESTRICTIONS_PENDING

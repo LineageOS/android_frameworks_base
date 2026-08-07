@@ -330,6 +330,7 @@ import android.app.admin.MultiUserDeviceProvisioningParams;
 import android.app.admin.MultiUserDeviceProvisioningParamsTransport;
 import android.app.admin.NetworkEvent;
 import android.app.admin.PackagePolicy;
+import android.app.admin.PackagePolicyKey;
 import android.app.admin.PackageSetPolicyValue;
 import android.app.admin.ParcelableGranteeMap;
 import android.app.admin.ParcelableResource;
@@ -767,6 +768,15 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
      * unattended.
      */
     private static final int UNATTENDED_MANAGED_KIOSK_MS = 30000;
+
+    /**
+     * The maximum number of packages that can have active application restrictions simultaneously.
+     * This limit is enforced globally per-user, meaning it applies cumulatively across
+     * all admins for a given user.
+     * In addition, different admins setting restrictions on the same target app will be considered
+     * independent entries for this limit.
+     */
+    private static final int MAX_PACKAGES_WITH_APP_RESTRICTIONS = 1000;
 
     /**
      * Strings logged with {@link
@@ -12041,6 +12051,22 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         return delegatePackages.size() > 0 ? delegatePackages.get(0) : null;
     }
 
+    private void enforceMaxRestrictedPackagesForEngine(
+            EnforcingAdmin admin, int userId, String packageName, Bundle restrictions) {
+        if (restrictions == null || restrictions.isEmpty()) {
+            return;
+        }
+        Set<PolicyKey> restrictedPackages = mDevicePolicyEngine.getLocalPolicyKeysSetByAllAdmins(
+                PolicyDefinition.GENERIC_APPLICATION_RESTRICTIONS, userId);
+        if (restrictedPackages.size() >= MAX_PACKAGES_WITH_APP_RESTRICTIONS
+                && !restrictedPackages.contains(new PackagePolicyKey(
+                        DevicePolicyIdentifiers.APPLICATION_RESTRICTIONS_POLICY, packageName))) {
+            throw new IllegalStateException("Cannot set application restrictions on more than "
+                    + MAX_PACKAGES_WITH_APP_RESTRICTIONS + " packages");
+        }
+    }
+
+
     @Override
     public boolean isCallerApplicationRestrictionsManagingPackage(String callerPackage) {
         return isCallerDelegate(callerPackage, getCallerIdentity().getUid(),
@@ -12081,14 +12107,21 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         }
         EnforcingAdmin enforcingAdmin =  getEnforcingAdmin(caller);
 
-        if (restrictions == null || restrictions.isEmpty()) {
-            mDevicePolicyEngine.removeLocalPolicy(
-                    PolicyDefinition.APPLICATION_RESTRICTIONS(packageName), enforcingAdmin,
-                    affectedUserId);
-        } else {
-            mDevicePolicyEngine.setLocalPolicy(
-                    PolicyDefinition.APPLICATION_RESTRICTIONS(packageName), enforcingAdmin,
-                    new BundlePolicyValue(restrictions), affectedUserId);
+        synchronized (getLockObject()) {
+            enforceMaxRestrictedPackagesForEngine(
+                    enforcingAdmin, affectedUserId, packageName, restrictions);
+            if (restrictions == null || restrictions.isEmpty()) {
+                mDevicePolicyEngine.removeLocalPolicy(
+                        PolicyDefinition.APPLICATION_RESTRICTIONS(packageName),
+                        enforcingAdmin,
+                        affectedUserId);
+            } else {
+                mDevicePolicyEngine.setLocalPolicy(
+                        PolicyDefinition.APPLICATION_RESTRICTIONS(packageName),
+                        enforcingAdmin,
+                        new BundlePolicyValue(restrictions),
+                        affectedUserId);
+            }
         }
 
         DevicePolicyEventLogger
