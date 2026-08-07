@@ -137,6 +137,7 @@ import android.os.Bundle;
 import android.os.IpcDataCache;
 import android.os.PersistableBundle;
 import android.os.Process;
+import android.os.SystemClock;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.platform.test.annotations.Presubmit;
@@ -195,7 +196,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Tests for DevicePolicyManager( and DevicePolicyManagerService).
@@ -1721,6 +1726,183 @@ public class DevicePolicyManagerTest extends DpmTestBase {
 
         dpm.setApplicationRestrictions(admin1, "pkg2", new Bundle());
         assertThat(dpm.getApplicationRestrictions(admin1, "pkg2").size()).isEqualTo(0);
+    }
+
+    @Test
+    public void testSetApplicationRestrictions_maxRestrictions_concurrent() throws Exception {
+        setAsProfileOwner(admin1);
+        mContext.packageName = admin1.getPackageName();
+
+        int totalThreads = 1010;
+        int expectedFailures = 10;
+        int expectedSuccesses = 1000;
+
+        ExecutorService executor = Executors.newFixedThreadPool(50);
+        CountDownLatch latch = new CountDownLatch(1);
+        CountDownLatch doneLatch = new CountDownLatch(totalThreads);
+        AtomicInteger successCount = new AtomicInteger();
+        AtomicInteger failureCount = new AtomicInteger();
+
+        for (int i = 0; i < totalThreads; i++) {
+            final String pkgName = "pkg" + i;
+            executor.execute(
+                    () -> {
+                        try {
+                            latch.await();
+                            boolean done = false;
+                            while (!done) {
+                                try {
+                                    Bundle rest = new Bundle();
+                                    rest.putString("KEY", "VALUE");
+                                    dpm.setApplicationRestrictions(admin1, pkgName, rest);
+                                    successCount.incrementAndGet();
+                                    done = true;
+                                } catch (IllegalStateException e) {
+                                    if (e.getMessage() != null
+                                            && e.getMessage()
+                                                    .contains(
+                                                            "Cannot set application restrictions on"
+                                                                    + " more than")) {
+                                        failureCount.incrementAndGet();
+                                        done = true;
+                                    } else {
+                                        SystemClock.sleep(10);
+                                    }
+                                } catch (Exception e) {
+                                    // Retry on Mockito/SQLite exceptions
+                                    SystemClock.sleep(10);
+                                }
+                            }
+                        } catch (Exception e) {
+                            // Ignore await interruptions
+                        } finally {
+                            doneLatch.countDown();
+                        }
+                    });
+        }
+
+        latch.countDown();
+        boolean completed = doneLatch.await(120, TimeUnit.SECONDS);
+        executor.shutdownNow();
+
+        if (!completed) {
+            fail(
+                    "Test timed out! Threads stuck. Success count so far: "
+                            + successCount.get()
+                            + ", Failures so far: "
+                            + failureCount.get());
+        }
+
+        assertThat(successCount.get()).isEqualTo(expectedSuccesses);
+        assertThat(failureCount.get()).isEqualTo(expectedFailures);
+    }
+
+    @Test
+    public void testSetApplicationRestrictions_maxRestrictions_singleAdmin() {
+        setAsProfileOwner(admin1);
+        mContext.packageName = admin1.getPackageName();
+
+        // Profile owner sets restrictions for 1000 packages
+        for (int i = 0; i < 1000; i++) {
+            Bundle rest = new Bundle();
+            rest.putString("KEY", "VALUE");
+            dpm.setApplicationRestrictions(admin1, "pkg" + i, rest);
+        }
+
+        // Setting one more package restriction should throw IllegalStateException
+        Bundle rest = new Bundle();
+        rest.putString("KEY", "VALUE");
+        assertExpectException(
+                IllegalStateException.class,
+                "Cannot set application restrictions on more than",
+                () -> dpm.setApplicationRestrictions(admin1, "pkg1000", rest));
+    }
+
+    @Test
+    public void testSetApplicationRestrictions_maxRestrictions_delegatedApp() throws Exception {
+        setAsProfileOwner(admin1);
+        mContext.packageName = admin1.getPackageName();
+
+        // Profile owner sets restrictions for 500 packages
+        for (int i = 0; i < 500; i++) {
+            Bundle rest = new Bundle();
+            rest.putString("KEY", "VALUE");
+            dpm.setApplicationRestrictions(admin1, "po_pkg_" + i, rest);
+        }
+
+        final String delegatePackage = "com.google.app.restrictions.manager";
+        final int delegateAppId = 20987;
+        final int delegateUid = setupPackageInPackageManager(delegatePackage, delegateAppId);
+        dpm.setApplicationRestrictionsManagingPackage(admin1, delegatePackage);
+
+        mContext.binder.callingUid = delegateUid;
+        mContext.packageName = delegatePackage;
+
+        // Delegate sets restrictions for 500 packages, reaching the 1000 limit combined
+        for (int i = 0; i < 500; i++) {
+            Bundle rest = new Bundle();
+            rest.putString("KEY", "VALUE");
+            dpm.setApplicationRestrictions(null, "delegate_pkg_" + i, rest);
+        }
+
+        // Setting one more package restriction should throw IllegalStateException
+        Bundle rest = new Bundle();
+        rest.putString("KEY", "VALUE");
+        assertExpectException(
+                IllegalStateException.class,
+                "Cannot set application restrictions on more than",
+                () -> dpm.setApplicationRestrictions(null, "delegate_pkg_501", rest));
+    }
+
+    @Test
+    public void testSetApplicationRestrictions_maxRestrictions_multipleAdmins() throws Exception {
+        // Profile owner in CALLER_USER_HANDLE (admin2)
+        setAsProfileOwner(admin2);
+
+        // A fake role holder in CALLER_USER_HANDLE
+        String roleHolderPackage = "com.fake.role.holder";
+        doReturn(Arrays.asList(roleHolderPackage))
+                .when(getServices().roleManagerForMock)
+                .getRoleHoldersAsUser(
+                        RoleManager.ROLE_DEVICE_POLICY_MANAGEMENT,
+                        UserHandle.of(DpmMockContext.CALLER_USER_HANDLE));
+
+        // Mock the UID for the role holder
+        int roleHolderUid = UserHandle.getUid(DpmMockContext.CALLER_USER_HANDLE, 10555);
+        doReturn(roleHolderUid)
+                .when(getServices().packageManagerInternal)
+                .getPackageUid(
+                        eq(roleHolderPackage), anyLong(), eq(DpmMockContext.CALLER_USER_HANDLE));
+        getServices().addTestPackageUid(roleHolderPackage, roleHolderUid);
+
+        // Profile owner sets restrictions for 500 packages
+        // setAsProfileOwner automatically restores the calling identity, so we must set it back
+        mContext.binder.callingUid = DpmMockContext.CALLER_UID;
+        mContext.packageName = admin2.getPackageName();
+        for (int i = 0; i < 500; i++) {
+            Bundle rest = new Bundle();
+            rest.putString("KEY", "VALUE");
+            dpm.setApplicationRestrictions(admin2, "po_pkg_" + i, rest);
+        }
+
+        // Role holder sets restrictions for 500 packages
+        mContext.binder.callingUid = roleHolderUid;
+        mContext.packageName = roleHolderPackage;
+        for (int i = 0; i < 500; i++) {
+            Bundle rest = new Bundle();
+            rest.putString("KEY", "VALUE");
+            dpm.setApplicationRestrictions(null, "rh_pkg_" + i, rest);
+        }
+
+        // Now we restrict the 1001st package via Profile Owner, should throw limit reached
+        mContext.binder.callingUid = DpmMockContext.CALLER_UID;
+        mContext.packageName = admin2.getPackageName();
+        Bundle rest = new Bundle();
+        rest.putString("KEY", "VALUE");
+        assertExpectException(
+                IllegalStateException.class,
+                "Cannot set application restrictions on more than",
+                () -> dpm.setApplicationRestrictions(admin2, "po_pkg_extra", rest));
     }
 
     /**
