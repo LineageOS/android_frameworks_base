@@ -778,6 +778,15 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub
     private static final int UNATTENDED_MANAGED_KIOSK_MS = 30000;
 
     /**
+     * The maximum number of packages that can have active application restrictions simultaneously.
+     * This limit is enforced globally per-user, meaning it applies cumulatively across
+     * all admins for a given user.
+     * In addition, different admins setting restrictions on the same target app will be considered
+     * independent entries for this limit.
+     */
+    private static final int MAX_PACKAGES_WITH_APP_RESTRICTIONS = 1000;
+
+    /**
      * Strings logged with {@link
      * MetricsProto.MetricsEvent#PROVISIONING_ENTRY_POINT_ADB},
      * {@link DevicePolicyEnums#PROVISIONING_ENTRY_POINT_ADB},
@@ -11275,6 +11284,22 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub
         return delegatePackages.size() > 0 ? delegatePackages.get(0) : null;
     }
 
+    private void enforceMaxRestrictedPackagesForEngine(
+            EnforcingAdmin admin, int userId, String packageName, Bundle restrictions) {
+        if (restrictions == null || restrictions.isEmpty()) {
+            return;
+        }
+        Set<PolicyKey> restrictedPackages = mDevicePolicyEngine.getLocalPolicyKeysSetByAllAdmins(
+                PolicyDefinition.GENERIC_APPLICATION_RESTRICTIONS, userId);
+        if (restrictedPackages.size() >= MAX_PACKAGES_WITH_APP_RESTRICTIONS
+                && !restrictedPackages.contains(new PackagePolicyKey(
+                        DevicePolicyIdentifiers.APPLICATION_RESTRICTIONS_POLICY, packageName))) {
+            throw new IllegalStateException("Cannot set application restrictions on more than "
+                    + MAX_PACKAGES_WITH_APP_RESTRICTIONS + " packages");
+        }
+    }
+
+
     @Override
     public boolean isCallerApplicationRestrictionsManagingPackage(String callerPackage) {
         return isCallerDelegate(callerPackage, getCallerIdentity().getUid(),
@@ -11315,15 +11340,23 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub
         }
         EnforcingAdmin enforcingAdmin = getEnforcingAdmin(caller);
 
-        mDevicePolicyEngine.setOrRemoveLocalPolicy(
-                PolicyDefinition.APPLICATION_RESTRICTIONS(packageName), enforcingAdmin,
-                affectedUserId, BundlePolicyValue.createIfNotNullOrEmpty(restrictions))
-                .thenAccept((result) -> {
-                    if (com.android.internal.telephony.flags.Flags.secureAccessToRestrictedRcsMessages()
-                            && (result == RESULT_POLICY_SET || result == RESULT_POLICY_CLEARED)) {
-                        mRcsArchivalAppTracker.onRestrictionsChanged(packageName, affectedUserId);
-                    }
-                });
+        synchronized (getLockObject()) {
+            enforceMaxRestrictedPackagesForEngine(
+                    enforcingAdmin, affectedUserId, packageName, restrictions);
+
+            mDevicePolicyEngine.setOrRemoveLocalPolicy(
+                    PolicyDefinition.APPLICATION_RESTRICTIONS(packageName), enforcingAdmin,
+                    affectedUserId, BundlePolicyValue.createIfNotNullOrEmpty(restrictions))
+                    .thenAccept((result) -> {
+                        if (com.android.internal.telephony.flags.Flags
+                                .secureAccessToRestrictedRcsMessages()
+                                && (result == RESULT_POLICY_SET
+                                        || result == RESULT_POLICY_CLEARED)) {
+                            mRcsArchivalAppTracker.onRestrictionsChanged(
+                                    packageName, affectedUserId);
+                        }
+                    });
+        }
 
         DevicePolicyEventLogger
                 .createEvent(DevicePolicyEnums.SET_APPLICATION_RESTRICTIONS)
