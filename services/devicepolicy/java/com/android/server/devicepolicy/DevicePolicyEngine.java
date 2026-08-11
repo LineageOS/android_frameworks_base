@@ -1995,7 +1995,11 @@ final class DevicePolicyEngine {
                         policyKey = PolicyDefinition.readPolicyKeyFromXml(parser);
                         break;
                     case TAG_POLICY_STATE_ENTRY:
-                        policyState = PolicyState.readFromXml(parser);
+                        try {
+                            policyState = PolicyState.readFromXml(parser);
+                        } catch (IllegalArgumentException e) {
+                            Slogf.wtf(TAG, "Error parsing policy state", e);
+                        }
                         break;
                     default:
                         Slogf.wtf(TAG, "Unknown tag for local policy entry" + tag);
@@ -2026,7 +2030,11 @@ final class DevicePolicyEngine {
                         policyKey = PolicyDefinition.readPolicyKeyFromXml(parser);
                         break;
                     case TAG_POLICY_STATE_ENTRY:
-                        policyState = PolicyState.readFromXml(parser);
+                        try {
+                            policyState = PolicyState.readFromXml(parser);
+                        } catch (IllegalArgumentException e) {
+                            Slogf.wtf(TAG, "Error parsing policy state", e);
+                        }
                         break;
                     default:
                         Slogf.wtf(TAG, "Unknown tag for local policy entry" + tag);
