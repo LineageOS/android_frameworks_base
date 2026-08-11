@@ -27,6 +27,8 @@ import com.android.modules.utils.TypedXmlSerializer;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.HashSet;
+import java.util.Arrays;
 import java.util.Set;
 
 // TODO(scottjonathan): Replace with generic set implementation
@@ -48,7 +50,11 @@ final class PackageSetPolicySerializer extends PolicySerializer<Set<String>> {
             Log.e(DevicePolicyEngine.TAG, "Error parsing PackageSet policy value.");
             return null;
         }
-        Set<String> values = Set.of(valuesStr.split(ATTR_VALUES_SEPARATOR));
+        String[] valuesArray = valuesStr.split(ATTR_VALUES_SEPARATOR);
+        Set<String> values = new HashSet<>(Arrays.asList(valuesArray));
+        if (values.size() != valuesArray.length) {
+            Log.e(DevicePolicyEngine.TAG, "Duplicate values found in PackageSet policy");
+        }
         return new PackageSetPolicyValue(values);
     }
 }

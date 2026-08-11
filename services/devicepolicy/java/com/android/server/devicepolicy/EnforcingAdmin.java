@@ -38,6 +38,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 
@@ -437,7 +438,11 @@ final class EnforcingAdmin {
             String className = parser.getAttributeValue(/* namespace= */ null, ATTR_CLASS_NAME);
             ComponentName componentName = className == null
                     ? null :  new ComponentName(packageName, className);
-            Set<String> authorities = Set.of(authoritiesStr.split(ATTR_AUTHORITIES_SEPARATOR));
+            String[] authoritiesArray = authoritiesStr.split(ATTR_AUTHORITIES_SEPARATOR);
+            Set<String> authorities = new HashSet<>(Arrays.asList(authoritiesArray));
+            if (authorities.size() != authoritiesArray.length) {
+                Slogf.e(TAG, "Duplicate authorities found in EnforcingAdmin");
+            }
             // TODO(b/281697976): load active admin
             return new EnforcingAdmin(packageName, componentName, authorities, userId, null);
         }
