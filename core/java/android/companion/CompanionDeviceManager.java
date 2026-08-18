@@ -2157,8 +2157,6 @@ public final class CompanionDeviceManager {
 
         try {
             PendingIntent pendingIntent = mService.buildPermissionTransferUserConsentIntent(
-                    mContext.getOpPackageName(),
-                    mContext.getUserId(),
                     associationId);
             if (pendingIntent == null) {
                 return null;
@@ -2198,8 +2196,7 @@ public final class CompanionDeviceManager {
         }
 
         try {
-            return mService.isPermissionTransferUserConsented(mContext.getOpPackageName(),
-                    mContext.getUserId(), associationId);
+            return mService.isPermissionTransferUserConsented(associationId);
         } catch (RemoteException e) {
             ExceptionUtils.propagateIfInstanceOf(e.getCause(), DeviceNotAssociatedException.class);
             throw e.rethrowFromSystemServer();
@@ -2229,8 +2226,7 @@ public final class CompanionDeviceManager {
         }
 
         try {
-            mService.startSystemDataTransfer(mContext.getOpPackageName(), mContext.getUserId(),
-                    associationId, null);
+            mService.startSystemDataTransfer(associationId, null);
         } catch (RemoteException e) {
             ExceptionUtils.propagateIfInstanceOf(e.getCause(), DeviceNotAssociatedException.class);
             throw e.rethrowFromSystemServer();
@@ -2266,7 +2262,7 @@ public final class CompanionDeviceManager {
         }
 
         try {
-            mService.startSystemDataTransfer(mContext.getOpPackageName(), mContext.getUserId(),
+            mService.startSystemDataTransfer(
                     associationId, new SystemDataTransferCallbackProxy(executor, result));
         } catch (RemoteException e) {
             ExceptionUtils.propagateIfInstanceOf(e.getCause(), DeviceNotAssociatedException.class);
