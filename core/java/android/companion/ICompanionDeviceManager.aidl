@@ -123,12 +123,11 @@ interface ICompanionDeviceManager {
     @EnforcePermission("REQUEST_COMPANION_SELF_MANAGED")
     void notifySelfManagedDeviceDisappeared(int associationId);
 
-    PendingIntent buildPermissionTransferUserConsentIntent(String callingPackage, int userId,
-        int associationId);
+    PendingIntent buildPermissionTransferUserConsentIntent(int associationId);
 
-    boolean isPermissionTransferUserConsented(String callingPackage, int userId, int associationId);
+    boolean isPermissionTransferUserConsented(int associationId);
 
-    void startSystemDataTransfer(String packageName, int userId, int associationId,
+    void startSystemDataTransfer(int associationId,
         in ISystemDataTransferCallback callback);
 
     @EnforcePermission("DELIVER_COMPANION_MESSAGES")
