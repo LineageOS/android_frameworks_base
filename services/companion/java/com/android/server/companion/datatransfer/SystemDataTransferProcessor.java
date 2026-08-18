@@ -132,8 +132,12 @@ public class SystemDataTransferProcessor {
     /**
      * Build a PendingIntent of permission sync user consent dialog
      */
-    public PendingIntent buildPermissionTransferUserConsentIntent(String packageName,
-            @UserIdInt int userId, int associationId) {
+    public PendingIntent buildPermissionTransferUserConsentIntent(int associationId) {
+        final AssociationInfo association = mAssociationStore.getAssociationWithCallerChecks(
+                associationId);
+        final int userId = association.getUserId();
+        final String packageName = association.getPackageName();
+
         if (PackageUtils.isPermSyncAutoEnabled(mContext, mPackageManager, packageName)) {
             Slog.i(LOG_TAG, "User consent Intent should be skipped. Returning null.");
             // Auto enable perm sync for the allowlisted packages, but don't override user decision
@@ -148,9 +152,6 @@ public class SystemDataTransferProcessor {
 
         Slog.i(LOG_TAG, "Creating permission sync intent for userId [" + userId
                 + "] associationId [" + associationId + "]");
-
-        final AssociationInfo association = mAssociationStore.getAssociationWithCallerChecks(
-                associationId);
 
         // Create an internal intent to launch the user consent dialog
         final Bundle extras = new Bundle();
@@ -182,12 +183,15 @@ public class SystemDataTransferProcessor {
      *
      * TODO: execute callback when the transfer finishes successfully or with errors.
      */
-    public void startSystemDataTransfer(String packageName, int userId, int associationId,
+    public void startSystemDataTransfer(int associationId,
             ISystemDataTransferCallback callback) {
+        final AssociationInfo association = mAssociationStore.getAssociationWithCallerChecks(
+                associationId);
+        final int userId = association.getUserId();
+        final String packageName = association.getPackageName();
+
         Slog.i(LOG_TAG, "Start system data transfer for package [" + packageName
                 + "] userId [" + userId + "] associationId [" + associationId + "]");
-
-        mAssociationStore.getAssociationWithCallerChecks(associationId);
 
         // Check if the request has been consented by the user.
         PermissionSyncRequest request = getPermissionSyncRequest(associationId);
