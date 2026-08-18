@@ -638,23 +638,19 @@ public class CompanionDeviceManagerService extends SystemService {
         }
 
         @Override
-        public PendingIntent buildPermissionTransferUserConsentIntent(String packageName,
-                int userId, int associationId) {
-            return mSystemDataTransferProcessor.buildPermissionTransferUserConsentIntent(
-                    packageName, userId, associationId);
+        public PendingIntent buildPermissionTransferUserConsentIntent(int associationId) {
+            return mSystemDataTransferProcessor.buildPermissionTransferUserConsentIntent(associationId);
         }
 
         @Override
-        public boolean isPermissionTransferUserConsented(String packageName, int userId,
-                int associationId) {
+        public boolean isPermissionTransferUserConsented(int associationId) {
             return mSystemDataTransferProcessor.isPermissionTransferUserConsented(associationId);
         }
 
         @Override
-        public void startSystemDataTransfer(String packageName, int userId, int associationId,
+        public void startSystemDataTransfer(int associationId,
                 ISystemDataTransferCallback callback) {
-            mSystemDataTransferProcessor.startSystemDataTransfer(packageName, userId,
-                    associationId, callback);
+            mSystemDataTransferProcessor.startSystemDataTransfer(associationId, callback);
         }
 
         @Override
