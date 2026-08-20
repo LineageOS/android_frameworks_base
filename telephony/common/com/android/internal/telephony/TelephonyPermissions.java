@@ -582,7 +582,7 @@ public final class TelephonyPermissions {
      * @return true if caller has ACCESS_LAST_KNOWN_CELL_ID permission else false.
      */
     public static boolean checkLastKnownCellIdAccessPermission(Context context) {
-        return context.checkCallingOrSelfPermission("android.permission.ACCESS_LAST_KNOWN_CELL_ID")
+        return context.checkCallingOrSelfPermission("com.android.phone.permission.ACCESS_LAST_KNOWN_CELL_ID")
                 == PackageManager.PERMISSION_GRANTED;
     }
 
