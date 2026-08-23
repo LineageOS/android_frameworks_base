@@ -172,7 +172,7 @@ public class FusedLocationProvider extends LocationProviderBase {
         boolean requestAllowsGps = mRequest.getQuality() == QUALITY_HIGH_ACCURACY
                 && mRequest.getIntervalMillis() <= MAX_GPS_INTERVAL_MS;
         long gpsInterval =
-                mGpsPresent && requestAllowsGps
+                mGpsPresent && (requestAllowsGps || !mNlpPresent)
                         ? mRequest.getIntervalMillis() : INTERVAL_DISABLED;
         long networkInterval = mNlpPresent ? mRequest.getIntervalMillis() : INTERVAL_DISABLED;
 
