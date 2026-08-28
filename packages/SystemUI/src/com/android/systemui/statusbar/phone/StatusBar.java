@@ -236,8 +236,6 @@ import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
 
-import lineageos.providers.LineageSettings;
-
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -250,6 +248,7 @@ import javax.inject.Named;
 import javax.inject.Provider;
 
 import dagger.Lazy;
+import lineageos.providers.LineageSettings;
 
 public class StatusBar extends SystemUI implements DemoMode,
         ActivityStarter, KeyguardStateController.Callback,
@@ -2906,8 +2905,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         final boolean afterKeyguardGone = mActivityIntentHelper.wouldLaunchResolverActivity(
                 intent, mLockscreenUserManager.getCurrentUserId());
+        final AssistManager assistManager = mAssistManagerLazy.get();
+
         Runnable runnable = () -> {
-            mAssistManagerLazy.get().hideAssist();
+            assistManager.hideAssist();
             intent.setFlags(
                     Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(flags);
