@@ -2906,8 +2906,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         final boolean afterKeyguardGone = mActivityIntentHelper.wouldLaunchResolverActivity(
                 intent, mLockscreenUserManager.getCurrentUserId());
+        final AssistManager assistManager = mAssistManagerLazy.get();
+
         Runnable runnable = () -> {
-            mAssistManagerLazy.get().hideAssist();
+            assistManager.hideAssist();
             intent.setFlags(
                     Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.addFlags(flags);
