@@ -39,7 +39,7 @@ constructor(
 ) : CoreStartable {
 
     override fun start() {
-        if (!Build.IS_USERDEBUG && !Build.IS_ENG) {
+        if (!Build.IS_ENG) {
             return
         }
 
