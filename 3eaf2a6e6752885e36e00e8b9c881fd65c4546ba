@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74aa31b1_ea73353d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-01T05:34:35Z",
+      "side": 1,
+      "message": "\"Mobile Data\" now but still functions as expected",
+      "revId": "3eaf2a6e6752885e36e00e8b9c881fd65c4546ba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
