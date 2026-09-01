@@ -25,7 +25,7 @@
     <string name="global_action_restart_bootloader">بوت لودر</string>
     <string name="global_action_restart_download">بارگیری</string>
     <string name="global_action_restart_fastboot">فست‌بوت</string>
-    <string name="global_action_restart_progress">راه‌اندازی مجدد/u2026</string>
+    <string name="global_action_restart_progress">راه‌اندازی مجدد \u2026</string>
     <string name="global_action_restart_recovery_progress">راه‌اندازی مجدد به حالت بازیابی\u2026</string>
     <string name="global_action_restart_bootloader_progress">راه‌اندازی مجدد به حالت بوت لودر\u2026</string>
     <string name="global_action_restart_download_progress">در حال راه‌اندازی دوباره به حالت بارگیری\u2026</string>
