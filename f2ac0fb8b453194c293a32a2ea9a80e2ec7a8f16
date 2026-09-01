@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f8bb37_900540d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-01T05:48:01Z",
+      "side": 1,
+      "message": "this could honestly be squashed back into the tiles themselves... but up to you.",
+      "revId": "f2ac0fb8b453194c293a32a2ea9a80e2ec7a8f16",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
