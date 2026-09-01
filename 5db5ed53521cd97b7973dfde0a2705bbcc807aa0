@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f9029d9_fbde0f0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-01T05:40:55Z",
+      "side": 1,
+      "message": "`packages/apps/LineageParts/src/org/lineageos/lineageparts/input/BacklightTimeoutSeekBar.java` lives here.",
+      "revId": "5db5ed53521cd97b7973dfde0a2705bbcc807aa0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
