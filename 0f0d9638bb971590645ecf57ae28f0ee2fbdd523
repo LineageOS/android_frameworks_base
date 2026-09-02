@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e64cbb6_aa0c9fe1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 37348
+      },
+      "writtenOn": "2026-09-02T11:40:14Z",
+      "side": 1,
+      "message": "AFAIK, we only support devices with fully functional hardware, since your device has a defective fingerprint sensor it falls out of that category. Device maintainers can add support for it if they want to, but it\u0027s upto them. (i don\u0027t maintain joan)\n\nThis change is probably valid, but it\u0027s a core fraemwork change i don\u0027t want to have a vote on.",
+      "revId": "0f0d9638bb971590645ecf57ae28f0ee2fbdd523",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
