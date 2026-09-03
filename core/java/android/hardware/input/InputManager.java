@@ -36,6 +36,7 @@ import android.annotation.SystemService;
 import android.annotation.TestApi;
 import android.annotation.UserHandleAware;
 import android.annotation.UserIdInt;
+import android.app.ActivityThread;
 import android.compat.annotation.ChangeId;
 import android.compat.annotation.UnsupportedAppUsage;
 import android.content.Context;
@@ -374,6 +375,27 @@ public final class InputManager {
         mGlobal = InputManagerGlobal.getInstance();
         mIm = mGlobal.getInputManagerService();
         mContext = context;
+    }
+
+    /**
+     * Gets an instance of the input manager.
+     *
+     *  Warning: The usage of this method is not supported!
+     *
+     *  @return The input manager instance.
+     *  Use {@link Context#getSystemService(Class)}
+     *  to obtain the InputManager instance.
+     *
+     * TODO (b/277717573): Soft remove this API in version V.
+     * TODO (b/277039664): Migrate app usage off this API.
+     *
+     * @hide
+     */
+    @Deprecated
+    @UnsupportedAppUsage
+    public static InputManager getInstance() {
+        return Objects.requireNonNull(ActivityThread.currentApplication())
+                .getSystemService(InputManager.class);
     }
 
     /**
