@@ -539,8 +539,14 @@ status_t BootAnimation::initDisplaysAndSurfaces() {
     mEgl = eglGetDisplay(EGL_DEFAULT_DISPLAY);
     eglInitialize(mEgl, nullptr, nullptr);
     EGLConfig config = getEglConfig(mEgl);
-    EGLint contextAttributes[] = {EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE};
-    mEglContext = eglCreateContext(mEgl, config, nullptr, contextAttributes);
+    std::vector<EGLint> contextAttributes = {EGL_CONTEXT_CLIENT_VERSION, 2};
+    const char* eglExtensions = eglQueryString(mEgl, EGL_EXTENSIONS);
+    if (eglExtensions && strstr(eglExtensions, "EGL_IMG_context_priority")) {
+        contextAttributes.push_back(EGL_CONTEXT_PRIORITY_LEVEL_IMG);
+        contextAttributes.push_back(EGL_CONTEXT_PRIORITY_HIGH_IMG);
+    }
+    contextAttributes.push_back(EGL_NONE);
+    mEglContext = eglCreateContext(mEgl, config, nullptr, contextAttributes.data());
 
     mMaxWidth = android::base::GetIntProperty("ro.surface_flinger.max_graphics_width", 0);
     mMaxHeight = android::base::GetIntProperty("ro.surface_flinger.max_graphics_height", 0);
