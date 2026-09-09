@@ -16,6 +16,24 @@
       "message": "long press of back key is broken on pdx257 although the settings is present:\n\n$ settings list --lineage system | grep key\nkey_back_long_press_action\u003d10",
       "revId": "e62ab0270f0edaefd9c7413b17862ee6cee8b92d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1110b94_6f3c2b84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-09-09T21:48:07Z",
+      "side": 1,
+      "message": "This commit is about app switch, not back",
+      "parentUuid": "e4d47e11_f448d31f",
+      "revId": "e62ab0270f0edaefd9c7413b17862ee6cee8b92d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
