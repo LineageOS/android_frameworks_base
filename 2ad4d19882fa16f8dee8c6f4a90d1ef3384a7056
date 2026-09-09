@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "715ad7a1_76446b9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-09T21:14:19Z",
+      "side": 1,
+      "message": ".8 lens works as expected on ingot",
+      "revId": "2ad4d19882fa16f8dee8c6f4a90d1ef3384a7056",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
