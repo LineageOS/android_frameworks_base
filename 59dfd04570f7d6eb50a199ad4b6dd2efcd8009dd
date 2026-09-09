@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74c10ca0_7a71563b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-09T21:47:54Z",
+      "side": 1,
+      "message": "can rebind cam button as expected",
+      "revId": "59dfd04570f7d6eb50a199ad4b6dd2efcd8009dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
