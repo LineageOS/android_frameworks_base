@@ -34,6 +34,24 @@
       "parentUuid": "9facb8b5_e7314e8d",
       "revId": "902833d16e1cd79b2094902e342f50aee661f646",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b5c8e54_2def60d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-09-09T22:02:48Z",
+      "side": 1,
+      "message": "Then my comment is still valid and upstream is irrelevant unless you actively pursue getting it merged.",
+      "parentUuid": "5ef638d2_ee5be5d1",
+      "revId": "902833d16e1cd79b2094902e342f50aee661f646",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
