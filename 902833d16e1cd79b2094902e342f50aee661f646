@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9facb8b5_e7314e8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-09-09T21:54:27Z",
+      "side": 1,
+      "message": "This needs a proper commit title and mention the original commit sha1 in commit message",
+      "revId": "902833d16e1cd79b2094902e342f50aee661f646",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
