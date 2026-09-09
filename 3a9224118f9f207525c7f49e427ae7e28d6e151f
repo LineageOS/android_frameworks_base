@@ -16,6 +16,24 @@
       "message": "Since i have seen that the clock app shows firewall icon when connected, i think this also might be required along with this commit, either as a fixup or standalone which is your choice\nhttps://github.com/BlissRoms-Beta/platform_frameworks_base/commit/5255998aa67cb48020b0109b402f2e7862267ee3",
       "revId": "3a9224118f9f207525c7f49e427ae7e28d6e151f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46950407_d92f255e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-09-09T19:29:29Z",
+      "side": 1,
+      "message": "This can be a separate commit since I assume it also affects previous android versions.",
+      "parentUuid": "882a7065_0290ff53",
+      "revId": "3a9224118f9f207525c7f49e427ae7e28d6e151f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
