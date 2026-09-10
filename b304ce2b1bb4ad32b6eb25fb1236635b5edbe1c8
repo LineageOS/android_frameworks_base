@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "957e2eae_a25a23ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-10T18:19:50Z",
+      "side": 1,
+      "message": "verified 4x4 and 5x5 as well as no show pattern and no show error on pattern",
+      "revId": "b304ce2b1bb4ad32b6eb25fb1236635b5edbe1c8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
