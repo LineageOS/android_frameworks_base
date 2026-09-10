@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d604e14d_9f8dc75b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-10T18:54:50Z",
+      "side": 1,
+      "message": "not merged on 23.2, so moving out of chain",
+      "revId": "02fa6b74e2e321370e4effc0bfebc36b805fac09",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
