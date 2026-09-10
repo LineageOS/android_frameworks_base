@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61472d56_7536d915",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/PhoneStatusBarPolicy.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-10T23:27:58Z",
+      "side": 1,
+      "message": "I just noticed this now. Is this proper? All the code after becomes improperly indented.",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 33
+      },
+      "revId": "9405e37981b50743523fbde923391ff2e8ab36c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
