@@ -52,6 +52,24 @@
       "parentUuid": "98fa2f08_aa390e16",
       "revId": "02fa6b74e2e321370e4effc0bfebc36b805fac09",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0179a1_1e36c6b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-10T23:45:59Z",
+      "side": 1,
+      "message": "By the look of it in the comments of lineage-23.2 change, it even seems a placebo fix.",
+      "parentUuid": "49c50f95_4bab3e71",
+      "revId": "02fa6b74e2e321370e4effc0bfebc36b805fac09",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
