@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6802afbe_713612ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2026-09-11T16:09:41Z",
+      "side": 1,
+      "message": "I think this is required on raphael device.",
+      "revId": "c454e6a7bdf54ca57ec8fdb514e4a1d72d33baa8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
