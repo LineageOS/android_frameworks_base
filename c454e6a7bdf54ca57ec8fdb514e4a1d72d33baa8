@@ -16,6 +16,24 @@
       "message": "I think this is required on raphael device.",
       "revId": "c454e6a7bdf54ca57ec8fdb514e4a1d72d33baa8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3f07d57_1c964810",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-11T16:11:25Z",
+      "side": 1,
+      "message": "But why, what\u0027s so special about it? No there device in our roaster needs this. To make it clear, the change is minimal, I just don\u0027t understand why it\u0027s required.",
+      "parentUuid": "6802afbe_713612ac",
+      "revId": "c454e6a7bdf54ca57ec8fdb514e4a1d72d33baa8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
