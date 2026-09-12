@@ -17,6 +17,9 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="PickerDialogTheme" parent="@*android:style/Theme.DeviceDefault.Settings.Dialog">
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+        <item name="android:colorBackgroundFloating">@*android:color/materialColorSurfaceContainerHigh</item>
     </style>
 
 </resources>
