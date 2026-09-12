@@ -1038,6 +1038,11 @@ public class NotificationStackScrollLayout
             return;
         }
 
+        if (!mSkinnyNotifsInLandscape) {
+            mSidePaddings = mMinimumPaddings;
+            return;
+        }
+
         final int innerWidth = viewWidth - mMinimumPaddings * 2;
         final int qsTileWidth = (innerWidth - mQsTilePadding * 3) / 4;
         mSidePaddings = mMinimumPaddings + qsTileWidth + mQsTilePadding;
