@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4765793_cbe160f6",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-09-13T05:31:09Z",
+      "side": 1,
+      "message": "```suggestion\n        if (mShouldUseSplitNotificationShade || !mSkinnyNotifsInLandscape) {\n```",
+      "revId": "fc636df8d9c63ea57544a93fa4549dafba9385e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f7d2ba_984945b9",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-09-13T05:31:09Z",
+      "side": 1,
+      "message": "Remove this block",
+      "revId": "fc636df8d9c63ea57544a93fa4549dafba9385e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
