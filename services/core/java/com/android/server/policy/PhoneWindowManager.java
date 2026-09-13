@@ -1754,7 +1754,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void appSwitchPress() {
-        if (!keyguardOn() && mAppSwitchPressAction != Action.NOTHING) {
+        if (canPerformKeyAction(mAppSwitchPressAction)) {
             if (mAppSwitchPressAction != Action.APP_SWITCH) {
                 cancelPreloadRecentApps();
             }
@@ -1768,7 +1768,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void appSwitchLongPress() {
-        if (!keyguardOn() && mAppSwitchLongPressAction != Action.NOTHING) {
+        if (canPerformKeyAction(mAppSwitchLongPressAction)) {
             if (mAppSwitchLongPressAction != Action.APP_SWITCH) {
                 cancelPreloadRecentApps();
             }
@@ -1784,7 +1784,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void assistPress() {
-        if (!keyguardOn() && mAssistPressAction != Action.NOTHING) {
+        if (canPerformKeyAction(mAssistPressAction)) {
             if (mAssistPressAction != Action.APP_SWITCH) {
                 cancelPreloadRecentApps();
             }
@@ -1799,7 +1799,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void assistLongPress() {
-        if (!keyguardOn() && mAssistLongPressAction != Action.NOTHING) {
+        if (canPerformKeyAction(mAssistLongPressAction)) {
             if (mAssistLongPressAction != Action.APP_SWITCH) {
                 cancelPreloadRecentApps();
             }
@@ -2296,6 +2296,22 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mInputManager.injectInputEvent(upEvent, InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
     }
 
+    private boolean canPerformKeyAction(Action action) {
+        switch (action) {
+            case NOTHING:
+                return false;
+            case PLAY_PAUSE_MUSIC:
+                return true;
+            case LAUNCH_CAMERA:
+            case SLEEP:
+            case SCREENSHOT:
+            case PARTIAL_SCREENSHOT:
+                return isScreenOn();
+            default:
+                return !keyguardOn();
+        }
+    }
+
     private void performKeyAction(Action action, KeyEvent event) {
         // By default, pass INVOCATION_TYPE_UNKNOWN to launch assistant.
         performKeyAction(action, event, AssistUtils.INVOCATION_TYPE_UNKNOWN);
@@ -2347,6 +2363,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case PARTIAL_SCREENSHOT:
                 takeScreenshot(TAKE_SCREENSHOT_SELECTED_REGION, SCREENSHOT_KEY_OTHER);
+                if (keyguardOn()) {
+                    dismissKeyguardLw(null, null);
+                }
                 notifyKeyGestureCompleted(event, KeyGestureEvent.KEY_GESTURE_TYPE_TAKE_SCREENSHOT);
                 break;
             default:
@@ -2378,7 +2397,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         boolean handleHomeButton(IBinder focusedToken, KeyEvent event) {
-            final boolean keyguardOn = keyguardOn();
             final int repeatCount = event.getRepeatCount();
             final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
             final boolean canceled = event.isCanceled();
@@ -2466,8 +2484,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     preloadRecentApps();
                 }
             } else if (longPress) {
-                if (!keyguardOn && !mHomeConsumed &&
-                        mHomeLongPressAction != Action.NOTHING) {
+                if (!mHomeConsumed && canPerformKeyAction(mHomeLongPressAction)) {
                     if (mHomeLongPressAction != Action.APP_SWITCH) {
                         cancelPreloadRecentApps();
                     }
