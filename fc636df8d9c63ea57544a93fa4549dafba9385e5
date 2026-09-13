@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7488a03_24244edf",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 35006
+      },
+      "writtenOn": "2026-09-13T05:50:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4765793_cbe160f6",
+      "revId": "fc636df8d9c63ea57544a93fa4549dafba9385e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55f7d2ba_984945b9",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-09-13T05:31:09Z",
       "side": 1,
       "message": "Remove this block",
+      "revId": "fc636df8d9c63ea57544a93fa4549dafba9385e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88bf0984_9a315453",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 35006
+      },
+      "writtenOn": "2026-09-13T05:50:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55f7d2ba_984945b9",
       "revId": "fc636df8d9c63ea57544a93fa4549dafba9385e5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
