@@ -32,6 +32,7 @@
     <string name="global_action_restart_fastboot_progress">Memulai ulang ke mode fastbootd</string>
     <string name="global_action_current_user">Saat ini</string>
     <string name="global_action_users">Pengguna</string>
+    <string name="status_bar_icons_title">Ikon status bar</string>
     <string name="quick_settings_ambient_display_label">Tampilan ambien</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tampilan ambien mati.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Tampilan ambien hidup.</string>

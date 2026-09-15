@@ -71,7 +71,7 @@
     <string name="screenrecord_longer_timeout_switch_label">Daha böyük fayl ölçüsü limiti</string>
     <string name="screenrecord_longer_timeout_switch_summary">Yazma ölçüsünü 15 GB-la məhdudlaşdır</string>
     <string name="screenrecord_skip_time_label">Taymeri ötür</string>
-    <string name="screenrecord_skip_time_summary">3 saniyə gözləməni sil</string>
+    <string name="screenrecord_skip_time_summary">3 saniyə gözləməni aradan qaldır</string>
     <string name="screenrecord_hevc_switch_label">HEVC kodlaşdırma</string>
     <string name="screenrecord_hevc_switch_summary">Daha səmərəli HEVC kodlaşdırıcını istifadə et</string>
     <string name="battery_notification_channel_tv">Batareya xəbərdarlığı</string>
