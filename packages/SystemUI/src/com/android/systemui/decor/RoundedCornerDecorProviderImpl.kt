@@ -69,8 +69,24 @@ class RoundedCornerDecorProviderImpl(
         @Surface.Rotation rotation: Int,
         tintColor: Int
     ) {
-        view.setRoundedCornerImage(roundedCornerResDelegate, isTop)
-        view.adjustRotation(alignedBounds, rotation)
+        if (view.resources.getBoolean(R.bool.config_usePhysicalPanelMasks)) {
+            val isLeft = alignedBounds.contains(DisplayCutout.BOUNDS_POSITION_LEFT)
+            val id = when {
+                isTop && isLeft -> R.drawable.physical_panel_top_left
+                isTop -> R.drawable.physical_panel_top_right
+                isLeft -> R.drawable.physical_panel_bottom_left
+                else -> R.drawable.physical_panel_bottom_right
+            }
+            view.setImageDrawable(view.resources.getDrawable(id, null).mutate())
+            view.scaleType = ImageView.ScaleType.FIT_XY
+            // Resources are already oriented for their physical corner: never mirror them.
+            view.rotation = -90f * rotation
+            view.scaleX = 1f
+            view.scaleY = 1f
+        } else {
+            view.setRoundedCornerImage(roundedCornerResDelegate, isTop)
+            view.adjustRotation(alignedBounds, rotation)
+        }
         view.imageTintList = ColorStateList.valueOf(tintColor)
     }
 

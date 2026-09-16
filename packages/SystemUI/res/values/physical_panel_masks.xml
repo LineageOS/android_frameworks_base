@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Single built-in panel, square native-pixel corner canvases and a top-centered
+         cutout canvas. Enable only when all five drawable-nodpi resources are supplied.
+         Uses software decorations because HWC alpha interpretation differs. -->
+    <bool name="config_usePhysicalPanelMasks">false</bool>
+    <item type="drawable" name="physical_panel_top_left">@null</item>
+    <item type="drawable" name="physical_panel_top_right">@null</item>
+    <item type="drawable" name="physical_panel_bottom_left">@null</item>
+    <item type="drawable" name="physical_panel_bottom_right">@null</item>
+    <item type="drawable" name="physical_panel_cutout">@null</item>
+</resources>

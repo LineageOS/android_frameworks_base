@@ -118,6 +118,11 @@ class RoundedCornerResDelegateImpl(
             arrayResId = R.array.config_roundedCornerBottomDrawableArray,
             backupDrawableId = R.drawable.rounded_corner_bottom
         )
+        if (res.getBoolean(R.bool.config_usePhysicalPanelMasks)) {
+            // All four panel masks must have the same square, native-pixel canvas.
+            topRoundedDrawable = res.getDrawable(R.drawable.physical_panel_top_left, null)
+            bottomRoundedDrawable = res.getDrawable(R.drawable.physical_panel_bottom_left, null)
+        }
     }
 
     private fun reloadMeasures() {

@@ -37,6 +37,7 @@ import android.view.View
 import androidx.annotation.VisibleForTesting
 import com.android.app.animation.Interpolators
 import com.android.systemui.RegionInterceptingFrameLayout.RegionInterceptableView
+import com.android.systemui.res.R
 import com.android.systemui.util.asIndenting
 import java.io.PrintWriter
 
@@ -50,6 +51,35 @@ open class DisplayCutoutBaseView : View, RegionInterceptableView {
 
     private var shouldDrawCutout: Boolean =
         DisplayCutout.getFillBuiltInDisplayCutout(context.resources, context.display?.uniqueId)
+    // Opt-in resources are in native pixels (drawable-nodpi), independent of UI density.
+    private val physicalCutoutMask by lazy {
+        if (resources.getBoolean(R.bool.config_usePhysicalPanelMasks)) {
+            resources.getDrawable(R.drawable.physical_panel_cutout, null).mutate()
+        } else null
+    }
+
+    private fun physicalCutoutMaskMatrix(): Matrix {
+        val mask = physicalCutoutMask ?: return Matrix()
+        val ratio = getPhysicalPixelDisplaySizeRatio()
+        val flipped = displayInfo.rotation == Surface.ROTATION_90 ||
+            displayInfo.rotation == Surface.ROTATION_270
+        val naturalWidth = if (flipped) displayInfo.logicalHeight else displayInfo.logicalWidth
+        val naturalHeight = if (flipped) displayInfo.logicalWidth else displayInfo.logicalHeight
+        return Matrix().apply {
+            setScale(ratio, ratio)
+            postTranslate((naturalWidth - mask.intrinsicWidth * ratio) / 2f, 0f)
+            transformPhysicalToLogicalCoordinates(
+                displayInfo.rotation, naturalWidth, naturalHeight, this)
+        }
+    }
+
+    fun getPhysicalCutoutMaskBounds(): Rect {
+        val mask = physicalCutoutMask ?: return Rect()
+        val bounds = RectF(0f, 0f, mask.intrinsicWidth.toFloat(), mask.intrinsicHeight.toFloat())
+        physicalCutoutMaskMatrix().mapRect(bounds)
+        return Rect().also { bounds.roundOut(it) }
+    }
+
     private var displayUniqueId: String? = null
     private var displayMode: Display.Mode? = null
     protected val location = IntArray(2)
@@ -196,7 +226,17 @@ open class DisplayCutoutBaseView : View, RegionInterceptableView {
     @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
     open fun drawCutouts(canvas: Canvas) {
         displayInfo.displayCutout?.cutoutPath ?: return
-        canvas.drawPath(cutoutPath, paint)
+        val mask = physicalCutoutMask
+        if (mask != null) {
+            canvas.save()
+            canvas.concat(physicalCutoutMaskMatrix())
+            mask.setBounds(0, 0, mask.intrinsicWidth, mask.intrinsicHeight)
+            mask.setTint(paint.color)
+            mask.draw(canvas)
+            canvas.restore()
+        } else {
+            canvas.drawPath(cutoutPath, paint)
+        }
     }
 
     protected open fun drawCutoutProtection(canvas: Canvas) {
