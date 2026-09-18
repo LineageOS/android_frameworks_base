@@ -69,6 +69,30 @@
       },
       "revId": "10795266c1b7649f720a82d4d5f2463c23982a94",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f25c82e_460ec59c",
+        "filename": "packages/SystemUI/res/layout/bluetooth_tile_dialog.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-09-18T19:18:41Z",
+      "side": 0,
+      "message": "first of all it\u0027s less delta, but it seems to me MaterialSwitch extends SwitchCompat, and SwitchCompat uses it still\nI\u0027d prefer to keep it anyways.",
+      "parentUuid": "a105a3ee_4e2df7da",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 78
+      },
+      "revId": "10795266c1b7649f720a82d4d5f2463c23982a94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
