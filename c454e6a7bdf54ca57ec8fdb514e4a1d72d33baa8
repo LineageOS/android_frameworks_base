@@ -69,6 +69,23 @@
       "parentUuid": "7dc39651_8e6c2766",
       "revId": "c454e6a7bdf54ca57ec8fdb514e4a1d72d33baa8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c810ff_442dc353",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32253
+      },
+      "writtenOn": "2026-09-18T11:00:42Z",
+      "side": 1,
+      "message": "There\u0027s definitely something wrong with this cycle. I hit this on 24.0 (piloti), but not on 23.2. Not sure if there is a better fix but this does the job _for now_.",
+      "revId": "c454e6a7bdf54ca57ec8fdb514e4a1d72d33baa8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
