@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b4ea3f9_a4153303",
+        "filename": "packages/SystemUI/res/layout/bluetooth_tile_dialog.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-09-18T17:08:57Z",
+      "side": 1,
+      "message": "Unrelated change",
+      "revId": "bf7ae44502699d8be758f29cbbfe409e88805444",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
