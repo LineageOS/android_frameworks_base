@@ -93,6 +93,30 @@
       },
       "revId": "10795266c1b7649f720a82d4d5f2463c23982a94",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e72a0e2e_4a6862c5",
+        "filename": "packages/SystemUI/res/layout/bluetooth_tile_dialog.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-09-18T19:36:30Z",
+      "side": 0,
+      "message": "Fine by me, will update in new PS",
+      "parentUuid": "2f25c82e_460ec59c",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 78
+      },
+      "revId": "10795266c1b7649f720a82d4d5f2463c23982a94",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
