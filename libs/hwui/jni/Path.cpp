@@ -144,7 +144,8 @@ public:
         this->ensureBuilder().addRRect(rrect, dir);
     }
     void addPath(const PathWrapper& path, const SkMatrix& m) {
-        this->ensureBuilder().addPath(path.getPath(), m);
+        SkPath src = path.getPath();
+        this->ensureBuilder().addPath(src, m);
     }
     void setLastPt(float x, float y) { this->ensureBuilder().setLastPt(x, y); }
 
