@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f5a55e_4b2a972e",
+        "filename": "packages/SystemUI/res/layout/bluetooth_tile_dialog.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-09-18T20:21:51Z",
+      "side": 1,
+      "message": "So this is 68dp here but wifi tile has it set to match_parent which is 48dp. Shouldn\u0027t both tiles be consistent? Does this dimension make any difference at all?",
+      "revId": "3143b24bbe90865da718d9be4586b8353c1c67aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
