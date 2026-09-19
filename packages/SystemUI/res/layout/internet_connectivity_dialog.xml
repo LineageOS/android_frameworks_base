@@ -383,6 +383,7 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="16dp"
                         android:paddingBottom="8dp"
+                        android:fontFamily="@*android:string/config_bodyFontFamily"
                         android:textColor="@color/materialColorOnSurfaceVariant"
                         android:clickable="true"/>
                 </LinearLayout>
