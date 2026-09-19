@@ -116,6 +116,8 @@ constructor(
 
     private var canAttemptReconnect = AtomicBoolean(true)
 
+    private val sawCameraDevices = AtomicBoolean(false)
+
     private var _deviceSupportsFlashlight = false
 
     private val defaultEnabledLevelForUser = ConcurrentHashMap<Int, Int>()
@@ -156,7 +158,6 @@ constructor(
             is FlashlightInfo.Supported.Initial,
             FlashlightInfo.Supported.ErrorLoading -> {
                 if (canAttemptReconnect.getAndSet(false)) {
-                    updateReconnect()
                     var foundCamera: Boolean
                     try {
                         foundCamera = loadFlashlightInfo() != null
@@ -166,6 +167,14 @@ constructor(
                     }
                     if (!foundCamera) {
                         flashlightInfo.emit(FlashlightInfo.Supported.ErrorLoading)
+                    }
+                    if (sawCameraDevices.get()) {
+                        updateReconnect()
+                    } else {
+                        // The camera service had no devices to report yet, so the provider is
+                        // still coming up. Backing off here would make the tile sit unavailable
+                        // for the whole cooldown even though the camera stack is seconds away.
+                        canAttemptReconnect.set(true)
                     }
                     foundCamera
                 } else {
@@ -198,6 +207,9 @@ constructor(
      */
     private suspend fun loadFlashlightInfo(): String? {
         val ids = cameraManager.cameraIdList
+        if (ids.isNotEmpty()) {
+            sawCameraDevices.set(true)
+        }
 
         fun isBackFlashCamera(id: String): Boolean {
             val cc = cameraManager.getCameraCharacteristics(id)
