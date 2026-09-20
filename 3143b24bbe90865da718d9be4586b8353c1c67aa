@@ -16,6 +16,24 @@
       "message": "So this is 68dp here but wifi tile has it set to match_parent which is 48dp. Shouldn\u0027t both tiles be consistent? Does this dimension make any difference at all?",
       "revId": "3143b24bbe90865da718d9be4586b8353c1c67aa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29df111d_74ef5d77",
+        "filename": "packages/SystemUI/res/layout/bluetooth_tile_dialog.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-09-20T03:09:33Z",
+      "side": 1,
+      "message": "Im not sure by doing those, it will break other views like tablet or something, as the 68dp value is set by AOSP and we never touched those",
+      "parentUuid": "36f5a55e_4b2a972e",
+      "revId": "3143b24bbe90865da718d9be4586b8353c1c67aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
