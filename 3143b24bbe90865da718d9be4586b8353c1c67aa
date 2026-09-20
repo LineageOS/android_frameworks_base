@@ -34,6 +34,24 @@
       "parentUuid": "36f5a55e_4b2a972e",
       "revId": "3143b24bbe90865da718d9be4586b8353c1c67aa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "490bd9c5_0a24ea9b",
+        "filename": "packages/SystemUI/res/layout/bluetooth_tile_dialog.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-09-20T03:18:09Z",
+      "side": 1,
+      "message": "Update, change picked on tangorpro, changing DP to 48 appears to literally do nothing compared to current values. Screenshotted and not able to see it.\n\nAlso, value is from AOSP, so that\u0027d be dedicated and separate from material3e",
+      "parentUuid": "29df111d_74ef5d77",
+      "revId": "3143b24bbe90865da718d9be4586b8353c1c67aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
