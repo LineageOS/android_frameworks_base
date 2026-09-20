@@ -325,6 +325,10 @@ public class AudioSystem
     //TODO b/415848542: replace with BluetoothCodecType.CODEC_ID_LHDC
     //Remove with a2dpCreateCodecTypeFromIdApi flag
     private static final int BLUETOOTH_CODEC_CONFIG_SOURCE_CODEC_TYPE_LHDC = 7;
+
+    // BluetoothCodecType.CODEC_ID_LHDCV3, which is not part of the module's API surface
+    private static final long CODEC_ID_LHDCV3 = 0x4c33_053a_ffL;
+
     /**
      * @hide
      * Convert audio format enum values to Bluetooth codec values
@@ -424,7 +428,7 @@ public class AudioSystem
         if (codecId == BluetoothCodecType.CODEC_ID_OPUS) {
             return AudioSystem.AUDIO_FORMAT_OPUS;
         }
-        if (codecId == BluetoothCodecType.CODEC_ID_LHDCV5) {
+        if (codecId == BluetoothCodecType.CODEC_ID_LHDCV5 || codecId == CODEC_ID_LHDCV3) {
             return AudioSystem.AUDIO_FORMAT_LHDC;
         }
         Log.e(TAG, "Unknown A2DP BT codec: " + codecId + " for conversion to audio format");
