@@ -87,6 +87,7 @@ import com.android.server.lights.LightsManager;
 import com.android.server.lights.LogicalLight;
 
 import org.lineageos.internal.notification.LedValues;
+import org.lineageos.internal.notification.LightsCapabilities;
 import org.lineageos.internal.notification.LineageBatteryLights;
 
 import java.io.File;
@@ -1781,6 +1782,7 @@ public final class BatteryService extends SystemService {
         private final int mBatteryLedOn;
         private final int mBatteryLedOff;
         private final int mBatteryLowBehavior;
+        private final int mFlashMode;
 
         public Led(Context context, LightsManager lights) {
             mBatteryLight = lights.getLight(LightsManager.LIGHT_ID_BATTERY);
@@ -1799,6 +1801,10 @@ public final class BatteryService extends SystemService {
                     com.android.internal.R.integer.config_notificationsBatteryNearlyFullLevel);
             mBatteryLowBehavior = context.getResources().getInteger(
                     com.android.internal.R.integer.config_notificationsBatteryLowBehavior);
+            mFlashMode = LightsCapabilities.supports(
+                    context, LightsCapabilities.LIGHTS_BREATHING_LED)
+                            ? LogicalLight.LIGHT_FLASH_HARDWARE
+                            : LogicalLight.LIGHT_FLASH_TIMED;
         }
 
         /**
@@ -1834,7 +1840,7 @@ public final class BatteryService extends SystemService {
                 mBatteryLight.turnOff();
             } else if (ledValues.isPulsed()) {
                 mBatteryLight.setModes(ledValues.getBrightness());
-                mBatteryLight.setFlashing(ledValues.getColor(), LogicalLight.LIGHT_FLASH_TIMED,
+                mBatteryLight.setFlashing(ledValues.getColor(), mFlashMode,
                         ledValues.getOnMs(), ledValues.getOffMs());
             } else {
                 mBatteryLight.setModes(ledValues.getBrightness());
