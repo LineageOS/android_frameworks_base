@@ -83,6 +83,7 @@ import com.android.server.lights.LightsManager;
 import com.android.server.lights.LogicalLight;
 
 import org.lineageos.internal.notification.LedValues;
+import org.lineageos.internal.notification.LightsCapabilities;
 import org.lineageos.internal.notification.LineageNotificationLights;
 
 import java.io.PrintWriter;
@@ -1029,8 +1030,12 @@ public final class NotificationAttentionHelper {
             if (ledValues.getOnMs() == 1 && ledValues.getOffMs() == 0) {
                 mNotificationLight.setColor(ledValues.getColor());
             } else {
-                mNotificationLight.setFlashing(ledValues.getColor(),
-                        LogicalLight.LIGHT_FLASH_TIMED, ledValues.getOnMs(), ledValues.getOffMs());
+                final int flashMode = LightsCapabilities.supports(
+                        mContext, LightsCapabilities.LIGHTS_BREATHING_LED)
+                                ? LogicalLight.LIGHT_FLASH_HARDWARE
+                                : LogicalLight.LIGHT_FLASH_TIMED;
+                mNotificationLight.setFlashing(ledValues.getColor(), flashMode,
+                        ledValues.getOnMs(), ledValues.getOffMs());
             }
         }
     }
