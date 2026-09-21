@@ -45,4 +45,5 @@
     <!-- End of QR code scanner colors -->
 
     <color name="batterymeter_saver_color">#FBBC04</color>
+    <color name="batterymeter_charging_color">#18CC47</color>
 </resources>

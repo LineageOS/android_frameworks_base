@@ -134,7 +134,7 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
     }
 
     private fun batteryColorForLevel(level: Int) =
-        if (charging || powerSaveEnabled)
+        if (charging)
             chargeColor
         else
             getColorForLevel(level)
@@ -145,7 +145,6 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
         iconTint = fillColor
         framePaint.color = bgColor
         boltPaint.color = fillColor
-        chargeColor = fillColor
 
         invalidateSelf()
     }
@@ -298,7 +297,7 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
         if (colors.size > 1) {
             warningTextPaint.color = colors[1]
         }
-        chargeColor = Utils.getColorStateListDefaultColor(context, R.color.meter_consumed_color)
+        chargeColor = Utils.getColorStateListDefaultColor(context, R.color.batterymeter_charging_color)
         boltPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         boltPaint.color = Utils.getColorStateListDefaultColor(
             context,
@@ -309,7 +308,7 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
         plusPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         plusPaint.color = Utils.getColorStateListDefaultColor(
             context,
-            R.color.batterymeter_plus_color
+            R.color.batterymeter_saver_color
         )
         powerSavePaint = Paint(Paint.ANTI_ALIAS_FLAG)
         powerSavePaint.color = plusPaint.color
