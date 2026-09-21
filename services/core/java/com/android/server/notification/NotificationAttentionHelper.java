@@ -83,6 +83,7 @@ import com.android.server.lights.LightsManager;
 import com.android.server.lights.LogicalLight;
 
 import org.lineageos.internal.notification.LedValues;
+import org.lineageos.internal.notification.LightsCapabilities;
 import org.lineageos.internal.notification.LineageNotificationLights;
 
 import java.io.PrintWriter;
@@ -179,6 +180,7 @@ public final class NotificationAttentionHelper {
     ArrayList<String> mLights = new ArrayList<>();
     private LogicalLight mNotificationLight;
     private LogicalLight mAttentionLight;
+    private final boolean mHwFlashSupported;
 
     private final boolean mUseAttentionLight;
     boolean mHasLight;
@@ -236,6 +238,8 @@ public final class NotificationAttentionHelper {
 
         mNotificationLight = lightsManager.getLight(LightsManager.LIGHT_ID_NOTIFICATIONS);
         mAttentionLight = lightsManager.getLight(LightsManager.LIGHT_ID_ATTENTION);
+        mHwFlashSupported = LightsCapabilities.supports(
+                context, LightsCapabilities.LIGHTS_BREATHING_LED);
 
         Resources resources = context.getResources();
         mUseAttentionLight = resources.getBoolean(R.bool.config_useAttentionLight);
@@ -1029,8 +1033,11 @@ public final class NotificationAttentionHelper {
             if (ledValues.getOnMs() == 1 && ledValues.getOffMs() == 0) {
                 mNotificationLight.setColor(ledValues.getColor());
             } else {
-                mNotificationLight.setFlashing(ledValues.getColor(),
-                        LogicalLight.LIGHT_FLASH_TIMED, ledValues.getOnMs(), ledValues.getOffMs());
+                final int flashMode = mHwFlashSupported
+                        ? LogicalLight.LIGHT_FLASH_HARDWARE
+                        : LogicalLight.LIGHT_FLASH_TIMED;
+                mNotificationLight.setFlashing(ledValues.getColor(), flashMode,
+                        ledValues.getOnMs(), ledValues.getOffMs());
             }
         }
     }
