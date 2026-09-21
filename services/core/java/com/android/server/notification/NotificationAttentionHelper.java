@@ -86,6 +86,7 @@ import com.android.server.lights.LightsManager;
 import com.android.server.lights.LogicalLight;
 
 import org.lineageos.internal.notification.LedValues;
+import org.lineageos.internal.notification.LightsCapabilities;
 import org.lineageos.internal.notification.LineageNotificationLights;
 
 import java.io.PrintWriter;
@@ -189,6 +190,8 @@ public final class NotificationAttentionHelper {
     private LogicalLight mAttentionLight;
     private LogicalLight mPriorityNotificationLight;
 
+    private final int mFlashMode;
+
     private final boolean mUseAttentionLight;
     boolean mHasLight;
     private final boolean mEnableNotificationAccessibilityEvents;
@@ -253,6 +256,11 @@ public final class NotificationAttentionHelper {
             mPriorityNotificationLight =
                     lightsManager.getLight(LightsManager.LIGHT_ID_PRIORITY_NOTIFICATIONS);
         }
+
+        mFlashMode = LightsCapabilities.supports(context,
+                LightsCapabilities.LIGHTS_BREATHING_LED)
+                        ? LogicalLight.LIGHT_FLASH_HARDWARE
+                        : LogicalLight.LIGHT_FLASH_TIMED;
 
         Resources resources = context.getResources();
         mUseAttentionLight = resources.getBoolean(R.bool.config_useAttentionLight);
@@ -1127,8 +1135,8 @@ public final class NotificationAttentionHelper {
             if (ledValues.getOnMs() == 1 && ledValues.getOffMs() == 0) {
                 mNotificationLight.setColor(ledValues.getColor());
             } else {
-                mNotificationLight.setFlashing(ledValues.getColor(),
-                        LogicalLight.LIGHT_FLASH_TIMED, ledValues.getOnMs(), ledValues.getOffMs());
+                mNotificationLight.setFlashing(ledValues.getColor(), mFlashMode,
+                        ledValues.getOnMs(), ledValues.getOffMs());
             }
         }
     }
