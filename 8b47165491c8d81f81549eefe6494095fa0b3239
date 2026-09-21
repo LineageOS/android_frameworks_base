@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9070e4a_980f301d",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1841,
+      "author": {
+        "id": 34612
+      },
+      "writtenOn": "2026-09-21T09:34:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a010bf2d_bd1ed79c",
+      "range": {
+        "startLine": 1838,
+        "startChar": 0,
+        "endLine": 1841,
+        "endChar": 65
+      },
+      "revId": "8b47165491c8d81f81549eefe6494095fa0b3239",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8545605a_eb1b6d17",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-09-21T08:41:00Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 0,
+        "endLine": 1036,
+        "endChar": 65
+      },
+      "revId": "8b47165491c8d81f81549eefe6494095fa0b3239",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18b24386_5818d0ff",
+        "filename": "services/core/java/com/android/server/notification/NotificationAttentionHelper.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 34612
+      },
+      "writtenOn": "2026-09-21T09:34:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8545605a_eb1b6d17",
       "range": {
         "startLine": 1033,
         "startChar": 0,
