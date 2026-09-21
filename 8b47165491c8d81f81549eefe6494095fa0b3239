@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a010bf2d_bd1ed79c",
+        "filename": "services/core/java/com/android/server/BatteryService.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1841,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-21T08:41:00Z",
+      "side": 1,
+      "message": "Should this be moved to the constructor so that we are not always querying capabilities?",
+      "range": {
+        "startLine": 1838,
+        "startChar": 0,
+        "endLine": 1841,
+        "endChar": 65
+      },
+      "revId": "8b47165491c8d81f81549eefe6494095fa0b3239",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8545605a_eb1b6d17",
+        "filename": "services/core/java/com/android/server/notification/NotificationAttentionHelper.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-09-21T08:41:00Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1033,
+        "startChar": 0,
+        "endLine": 1036,
+        "endChar": 65
+      },
+      "revId": "8b47165491c8d81f81549eefe6494095fa0b3239",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
