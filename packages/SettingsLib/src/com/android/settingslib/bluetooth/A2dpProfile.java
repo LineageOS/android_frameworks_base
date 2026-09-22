@@ -24,6 +24,7 @@ import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothCodecConfig;
+import android.bluetooth.BluetoothCodecStatus;
 import android.bluetooth.BluetoothCodecType;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothProfile;
@@ -33,6 +34,8 @@ import android.os.Build;
 import android.os.ParcelUuid;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import com.android.settingslib.R;
@@ -280,6 +283,36 @@ public class A2dpProfile implements LocalBluetoothProfile {
         } else {
             mService.disableOptionalCodecs(bluetoothDevice);
         }
+    }
+
+    /**
+     * Gets the codec status of a Bluetooth device.
+     *
+     * @param device to get the codec status of
+     * @return the codec status, or null if it is not known
+     */
+    @Nullable
+    public BluetoothCodecStatus getCodecStatus(@Nullable BluetoothDevice device) {
+        BluetoothDevice bluetoothDevice = (device != null) ? device : getActiveDevice();
+        if (bluetoothDevice == null || mService == null) {
+            return null;
+        }
+        return mService.getCodecStatus(bluetoothDevice);
+    }
+
+    /**
+     * Selects the codec a Bluetooth device is to be configured with.
+     *
+     * @param device to select the codec for
+     * @param codecConfig the codec configuration preference
+     */
+    public void setCodecConfigPreference(
+            @Nullable BluetoothDevice device, @NonNull BluetoothCodecConfig codecConfig) {
+        BluetoothDevice bluetoothDevice = (device != null) ? device : getActiveDevice();
+        if (bluetoothDevice == null || mService == null) {
+            return;
+        }
+        mService.setCodecConfigPreference(bluetoothDevice, codecConfig);
     }
 
     /**
