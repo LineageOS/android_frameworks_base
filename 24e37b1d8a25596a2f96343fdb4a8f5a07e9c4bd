@@ -34,6 +34,24 @@
       "parentUuid": "d6b8ab98_dcae3c1d",
       "revId": "24e37b1d8a25596a2f96343fdb4a8f5a07e9c4bd",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b249e3eb_94c42cf7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32674
+      },
+      "writtenOn": "2026-09-22T03:11:50Z",
+      "side": 1,
+      "message": "AOSP doesn\u0027t have circular battery icon, so 23.2 should be right",
+      "parentUuid": "c9e26297_c7c36b8d",
+      "revId": "24e37b1d8a25596a2f96343fdb4a8f5a07e9c4bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
