@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b8ab98_dcae3c1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-09-22T02:54:18Z",
+      "side": 1,
+      "message": "How about the commit message kept as this below?\n\n```\nSystemUI: Match circle battery style colors with landscape battery icon on QPR2\n\n* Now uses green for charging, yellow for power saver mode\n```",
+      "revId": "24e37b1d8a25596a2f96343fdb4a8f5a07e9c4bd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
