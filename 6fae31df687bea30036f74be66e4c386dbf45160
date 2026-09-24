@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c3d160fd_95f92175",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/systemstatusicons/bluetooth/ui/viewmodel/BluetoothIconViewModel.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-09-24T18:47:47Z",
+      "side": 1,
+      "message": "get() \u003d if (visible) maybe",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 26
+      },
+      "revId": "6fae31df687bea30036f74be66e4c386dbf45160",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9312445_a3a41a88",
         "filename": "packages/SystemUI/src/com/android/systemui/statusbar/systemstatusicons/bluetooth/ui/viewmodel/BluetoothIconViewModel.kt",
         "patchSetId": 1
