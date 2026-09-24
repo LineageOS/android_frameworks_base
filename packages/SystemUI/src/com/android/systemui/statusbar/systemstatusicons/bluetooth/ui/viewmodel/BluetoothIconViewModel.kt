@@ -17,26 +17,36 @@
 package com.android.systemui.statusbar.systemstatusicons.bluetooth.ui.viewmodel
 
 import android.content.Context
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.getValue
 import com.android.systemui.common.shared.model.ContentDescription
 import com.android.systemui.common.shared.model.Icon
 import com.android.systemui.lifecycle.HydratedActivatable
 import com.android.systemui.res.R
+import com.android.systemui.statusbar.policy.BluetoothController
 import com.android.systemui.statusbar.policy.bluetooth.domain.interactor.BluetoothConnectionStatusInteractor
 import com.android.systemui.statusbar.systemstatusicons.SystemStatusIconsInCompose
 import com.android.systemui.statusbar.systemstatusicons.ui.viewmodel.SystemStatusIconViewModel
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
 
 /**
- * View model for the bluetooth connected system status icon. Emits a bluetooth connected icon when
- * a bluetooth device is connected. Null icon otherwise.
+ * View model for the bluetooth connected system status icon. Emits a bluetooth connected icon
+ * (with battery level when the connected device reports one) when a device is connected. Null
+ * otherwise.
  */
 class BluetoothIconViewModel
 @AssistedInject
-constructor(@Assisted context: Context, interactor: BluetoothConnectionStatusInteractor) :
-    SystemStatusIconViewModel.Default, HydratedActivatable() {
+constructor(
+    @Assisted context: Context,
+    interactor: BluetoothConnectionStatusInteractor,
+    private val bluetoothController: BluetoothController,
+) : SystemStatusIconViewModel.Default, HydratedActivatable() {
     init {
         SystemStatusIconsInCompose.expectInNewMode()
     }
@@ -46,22 +56,63 @@ constructor(@Assisted context: Context, interactor: BluetoothConnectionStatusInt
     override val visible: Boolean by
         interactor.isBluetoothConnected.hydratedStateOf(traceName = null, initialValue = false)
 
-    override val icon: Icon?
-        get() = visible.toUiState()
+    @get:DrawableRes
+    private val iconRes: Int by
+        callbackFlow {
+                val callback =
+                    object : BluetoothController.Callback {
+                        override fun onBluetoothStateChange(enabled: Boolean) {
+                            trySend(bluetoothController.batteryLevel)
+                        }
 
-    private fun Boolean.toUiState(): Icon? =
-        if (this) {
-            Icon.Resource(
-                resId = R.drawable.stat_sys_data_bluetooth_connected,
-                contentDescription =
-                    ContentDescription.Resource(R.string.accessibility_bluetooth_connected),
+                        override fun onBluetoothDevicesChanged() {
+                            trySend(bluetoothController.batteryLevel)
+                        }
+                    }
+                bluetoothController.addCallback(callback)
+                trySend(bluetoothController.batteryLevel)
+                awaitClose { bluetoothController.removeCallback(callback) }
+            }
+            .map(::iconForBatteryLevel)
+            .distinctUntilChanged()
+            .hydratedStateOf(
+                traceName = null,
+                initialValue = R.drawable.stat_sys_data_bluetooth_connected,
             )
-        } else {
-            null
-        }
+
+    override val icon: Icon?
+        get() =
+            if (visible) {
+                Icon.Resource(
+                    resId = iconRes,
+                    contentDescription =
+                        ContentDescription.Resource(R.string.accessibility_bluetooth_connected),
+                )
+            } else {
+                null
+            }
 
     @AssistedFactory
     interface Factory {
         fun create(context: Context): BluetoothIconViewModel
+    }
+
+    companion object {
+        @JvmStatic
+        @DrawableRes
+        fun iconForBatteryLevel(level: Int): Int =
+            when {
+                level == 100 -> R.drawable.stat_sys_data_bluetooth_connected_battery_9
+                level >= 90 -> R.drawable.stat_sys_data_bluetooth_connected_battery_8
+                level >= 80 -> R.drawable.stat_sys_data_bluetooth_connected_battery_7
+                level >= 70 -> R.drawable.stat_sys_data_bluetooth_connected_battery_6
+                level >= 60 -> R.drawable.stat_sys_data_bluetooth_connected_battery_5
+                level >= 50 -> R.drawable.stat_sys_data_bluetooth_connected_battery_4
+                level >= 40 -> R.drawable.stat_sys_data_bluetooth_connected_battery_3
+                level >= 30 -> R.drawable.stat_sys_data_bluetooth_connected_battery_2
+                level >= 20 -> R.drawable.stat_sys_data_bluetooth_connected_battery_1
+                level >= 10 -> R.drawable.stat_sys_data_bluetooth_connected_battery_0
+                else -> R.drawable.stat_sys_data_bluetooth_connected
+            }
     }
 }
