@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9312445_a3a41a88",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/systemstatusicons/bluetooth/ui/viewmodel/BluetoothIconViewModel.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-09-24T18:46:43Z",
+      "side": 1,
+      "message": "inline this into .map { when etc }",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 5
+      },
+      "revId": "6fae31df687bea30036f74be66e4c386dbf45160",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
