@@ -46,6 +46,7 @@ import android.hardware.display.DisplayManagerInternal;
 import android.hardware.display.DisplayManagerInternal.RefreshRateLimitation;
 import android.hardware.fingerprint.IUdfpsRefreshRateRequestCallback;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.IThermalEventListener;
@@ -836,6 +837,7 @@ public class DisplayModeDirector {
                         mSettingsObserver.updateRefreshRateSettingLocked();
                         mSettingsObserver.updateModeSwitchingTypeSettingLocked();
                     }
+                    mDisplayObserver.updateUserPreferredPhysicalMode();
                     break;
                 }
 
@@ -1015,6 +1017,8 @@ public class DisplayModeDirector {
                 Settings.System.getUriFor(Settings.System.PEAK_REFRESH_RATE);
         private final Uri mMinRefreshRateSetting =
                 Settings.System.getUriFor(Settings.System.MIN_REFRESH_RATE);
+        private final Uri mPhysicalRefreshRateSetting =
+                Settings.System.getUriFor(Settings.System.USER_PREFERRED_PHYSICAL_REFRESH_RATE);
         private final Uri mLowPowerModeSetting =
                 Settings.Global.getUriFor(Settings.Global.LOW_POWER_MODE);
         private final Uri mMatchContentFrameRateSetting =
@@ -1082,6 +1086,8 @@ public class DisplayModeDirector {
             final ContentResolver cr = mContext.getContentResolver();
             mInjector.registerPeakRefreshRateObserver(cr, this);
             mInjector.registerMinRefreshRateObserver(cr, this);
+            cr.registerContentObserver(mPhysicalRefreshRateSetting,
+                    /* notifyDescendants= */ false, this, UserHandle.USER_ALL);
             cr.registerContentObserver(mLowPowerModeSetting, /* notifyDescendants= */ false, this,
                     UserHandle.USER_ALL);
             cr.registerContentObserver(mMatchContentFrameRateSetting,
@@ -1123,6 +1129,10 @@ public class DisplayModeDirector {
 
         @Override
         public void onChange(boolean selfChange, Uri uri, int userId) {
+            if (mPhysicalRefreshRateSetting.equals(uri)) {
+                mDisplayObserver.updateUserPreferredPhysicalMode();
+                return;
+            }
             synchronized (mLock) {
                 if (mPeakRefreshRateSetting.equals(uri) || mMinRefreshRateSetting.equals(uri)) {
                     updateRefreshRateSettingLocked();
@@ -1470,6 +1480,8 @@ public class DisplayModeDirector {
         private int mDefaultDisplayType = Display.TYPE_INTERNAL;
 
         private final ModeRequestManager mModeRequestManager;
+        private final IBinder mUserPreferredPhysicalModeToken = new Binder();
+        private int[] mRequestedPhysicalModeIds;
 
         DisplayObserver(Context context, Handler handler, VotesStorage votesStorage,
                 Injector injector, ModeRequestManager modeRequestManager) {
@@ -1525,6 +1537,7 @@ public class DisplayModeDirector {
             updateHasArrSupport(displayId, displayInfo);
             updateLayoutLimitedFrameRate(displayId, displayInfo);
             updateUserSettingDisplayPreferredMode(displayInfo);
+            updateUserPreferredPhysicalMode(displayInfo);
             updateDisplaysPeakRefreshRateAndResolution(displayInfo);
             updateUserSettingAllowedHdrMode(displayInfo);
         }
@@ -1540,6 +1553,9 @@ public class DisplayModeDirector {
             }
             updateLayoutLimitedFrameRate(displayId, null);
             removeUserSettingDisplayPreferredSize(displayId);
+            if (displayId == Display.DEFAULT_DISPLAY) {
+                requestUserPreferredPhysicalModes(displayId, null);
+            }
             removeDisplaysPeakRefreshRateAndResolution(displayId);
             removeUserSettingAllowedHdrMode(displayId);
             unregisterExternalDisplay(displayId);
@@ -1564,6 +1580,7 @@ public class DisplayModeDirector {
             updateDisplayModes(displayId, displayInfo);
             updateLayoutLimitedFrameRate(displayId, displayInfo);
             updateUserSettingDisplayPreferredMode(displayInfo);
+            updateUserPreferredPhysicalMode(displayInfo);
             updateUserSettingAllowedHdrMode(displayInfo);
         }
 
@@ -1616,6 +1633,60 @@ public class DisplayModeDirector {
         private void removeUserSettingDisplayPreferredSize(int displayId) {
             mVotesStorage.updateVote(displayId,
                     Vote.PRIORITY_USER_SETTING_DISPLAY_PREFERRED_OPTIONS, null);
+        }
+
+        void updateUserPreferredPhysicalMode() {
+            DisplayInfo info = getDisplayInfo(Display.DEFAULT_DISPLAY);
+            if (info != null) {
+                updateUserPreferredPhysicalMode(info);
+            }
+        }
+
+        private void updateUserPreferredPhysicalMode(DisplayInfo info) {
+            if (info.displayId != Display.DEFAULT_DISPLAY) {
+                return;
+            }
+
+            float refreshRate = Settings.System.getFloatForUser(mContext.getContentResolver(),
+                    Settings.System.USER_PREFERRED_PHYSICAL_REFRESH_RATE, 0f,
+                    UserHandle.USER_CURRENT);
+            int[] modeIds = null;
+            if (info.type == Display.TYPE_INTERNAL && info.hasArrSupport && refreshRate > 0f) {
+                Display.Mode resolutionMode = findMode(info, info.userPreferredModeId);
+                if (resolutionMode == null) {
+                    resolutionMode = info.getDefaultMode();
+                }
+                if (resolutionMode != null) {
+                    final int width = resolutionMode.getPhysicalWidth();
+                    final int height = resolutionMode.getPhysicalHeight();
+                    Display.Mode[] physicalModes = Arrays.stream(info.supportedModes)
+                            .filter(mode -> mode.getSfModeId() != INVALID_MODE_ID
+                                    && mode.getParentModeId() == INVALID_MODE_ID
+                                    && mode.getPhysicalWidth() == width
+                                    && mode.getPhysicalHeight() == height)
+                            .toArray(Display.Mode[]::new);
+                    if (physicalModes.length > 0 && Arrays.stream(physicalModes)
+                            .anyMatch(mode -> Math.round(mode.getRefreshRate())
+                                    != Math.round(physicalModes[0].getRefreshRate()))) {
+                        modeIds = Arrays.stream(physicalModes)
+                                .filter(mode -> Math.round(mode.getRefreshRate())
+                                        == Math.round(refreshRate))
+                                .mapToInt(Display.Mode::getModeId)
+                                .toArray();
+                    }
+                }
+            }
+            requestUserPreferredPhysicalModes(info.displayId,
+                    modeIds != null && modeIds.length > 0 ? modeIds : null);
+        }
+
+        private void requestUserPreferredPhysicalModes(int displayId, @Nullable int[] modeIds) {
+            if (Arrays.equals(mRequestedPhysicalModeIds, modeIds)) {
+                return;
+            }
+            mRequestedPhysicalModeIds = modeIds;
+            mSystemRequestObserver.requestDisplayModes(mUserPreferredPhysicalModeToken,
+                    displayId, modeIds);
         }
 
         private void updateUserSettingDisplayPreferredMode(@Nullable DisplayInfo info) {

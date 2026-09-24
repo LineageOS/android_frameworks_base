@@ -5509,6 +5509,10 @@ public final class Settings {
         @Readable
         public static final String PEAK_REFRESH_RATE = "peak_refresh_rate";
 
+        /** @hide */
+        public static final String USER_PREFERRED_PHYSICAL_REFRESH_RATE =
+                "user_preferred_physical_refresh_rate";
+
         /**
          * Control lock behavior on fold
          *
@@ -7020,6 +7024,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
+            PRIVATE_SETTINGS.add(USER_PREFERRED_PHYSICAL_REFRESH_RATE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE_VENDOR_HINT);
             PRIVATE_SETTINGS.add(LOCALE_PREFERENCES);
             PRIVATE_SETTINGS.add(TOUCHPAD_POINTER_SPEED);
