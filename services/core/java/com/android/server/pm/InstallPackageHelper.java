@@ -1852,6 +1852,24 @@ final class InstallPackageHelper {
                 }
             }
 
+            // TODO(b/565790848): Remove this check once static shared libs can use unique declaring
+            // package names.
+            if (parsedPackage.isStaticSharedLibrary()) {
+                WatchedLongSparseArray<SharedLibraryInfo> libraryInfos =
+                        mSharedLibraries.getSharedLibraryInfos(
+                                parsedPackage.getStaticSharedLibraryName());
+                if (libraryInfos != null && libraryInfos.size() > 0) {
+                    SharedLibraryInfo anyStaticLib = libraryInfos.valueAt(0);
+                    if (anyStaticLib.isStatic() && !anyStaticLib.getDeclaringPackage()
+                            .getPackageName().equals(parsedPackage.getManifestPackageName())) {
+                        throw new PrepareFailure(INSTALL_FAILED_DUPLICATE_PACKAGE,
+                                "The static library being installed has a different declaring"
+                                        + " package than existing static library with the same"
+                                        + " name");
+                    }
+                }
+            }
+
             // To prevent a new package from being installed if its package name is
             // already in use by an existing static library on the system.
             final WatchedLongSparseArray<SharedLibraryInfo> staticLibInfos =
