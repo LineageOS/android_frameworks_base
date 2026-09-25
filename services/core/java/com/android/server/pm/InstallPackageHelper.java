@@ -1634,6 +1634,20 @@ final class InstallPackageHelper {
                 if (libraryInfo != null) {
                     signatureCheckPs = mPm.mSettings.getPackageLPr(libraryInfo.getPackageName());
                 }
+
+                WatchedLongSparseArray<SharedLibraryInfo> libraryInfos =
+                        mSharedLibraries.getSharedLibraryInfos(
+                                parsedPackage.getStaticSharedLibraryName());
+                if (libraryInfos != null && libraryInfos.size() > 0) {
+                    SharedLibraryInfo anyStaticLib = libraryInfos.valueAt(0);
+                    if (anyStaticLib.isStatic() && !anyStaticLib.getDeclaringPackage()
+                            .getPackageName().equals(parsedPackage.getManifestPackageName())) {
+                        throw new PrepareFailure(INSTALL_FAILED_DUPLICATE_PACKAGE,
+                                "The static library being installed has a different declaring"
+                                        + " package than existing static library with the same"
+                                        + " name");
+                    }
+                }
             }
 
             if (signatureCheckPs != null) {
