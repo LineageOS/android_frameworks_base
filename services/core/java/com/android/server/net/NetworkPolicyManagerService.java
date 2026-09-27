@@ -797,6 +797,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     @VisibleForTesting
     final SparseBooleanArray mInternetPermissionMap = new SparseBooleanArray();
 
+    /** UIDs automatically restricted because they were observed without INTERNET permission. */
+    @GuardedBy("mUidRulesFirstLock")
+    private final SparseBooleanArray mUidsAutoRestrictedWithoutInternet =
+            new SparseBooleanArray();
+
     /**
      * Map of uid -> UidStateCallbackInfo objects holding the data received from
      * {@link IUidObserver#onUidStateChanged(int, int, long, int)} callbacks. In order to avoid
@@ -1488,9 +1493,19 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 // Clear the cache for the app
                 synchronized (mUidRulesFirstLock) {
                     mInternetPermissionMap.delete(uid);
-                    if (!hasInternetPermissionUL(uid) && !isSystemApp(uid)) {
+                    final boolean hasInternetPermission = hasInternetPermissionUL(uid);
+                    if (!hasInternetPermission && !isSystemApp(uid)) {
                         Slog.i(TAG, "ACTION_PACKAGE_ADDED for uid=" + uid + ", no INTERNET");
-                        addUidPolicy(uid, POLICY_REJECT_ALL);
+                        if ((mUidPolicy.get(uid, POLICY_NONE) & POLICY_REJECT_ALL) == 0) {
+                            addUidPolicy(uid, POLICY_REJECT_ALL);
+                            mUidsAutoRestrictedWithoutInternet.put(uid, true);
+                        }
+                    } else if (hasInternetPermission
+                            && mUidsAutoRestrictedWithoutInternet.get(uid)) {
+                        Slog.i(TAG, "ACTION_PACKAGE_ADDED for uid=" + uid
+                                + ", INTERNET granted; removing automatic restriction");
+                        removeUidPolicy(uid, POLICY_REJECT_ALL);
+                        mUidsAutoRestrictedWithoutInternet.delete(uid);
                     }
                     updateRestrictionRulesForUidUL(uid);
                 }
@@ -5666,6 +5681,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         mUidState.delete(uid);
         mActivityManagerInternal.onUidBlockedReasonsChanged(uid, BLOCKED_REASON_NONE);
         mUidPolicy.delete(uid);
+        mUidsAutoRestrictedWithoutInternet.delete(uid);
         mUidFirewallStandbyRules.delete(uid);
         mBackgroundTransitioningUids.delete(uid);
         mPowerSaveWhitelistExceptIdleAppIds.delete(uid);
