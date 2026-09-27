@@ -198,18 +198,18 @@ public class ThemeOverlayApplier implements Dumpable {
      * @param currentUser Current User ID
      * @param managedProfiles Profiles get overlays
      * @param onComplete Callback for when resources are ready. Runs in the main thread.
+     * @param useBlackTheme Whether the pure-black overlay should be enabled
      */
     public void applyCurrentUserOverlays(
             Map<String, OverlayIdentifier> categoryToPackage,
             FabricatedOverlay[] pendingCreation,
             int currentUser,
             Set<UserHandle> managedProfiles,
-            Runnable onComplete
+            Runnable onComplete,
+            boolean useBlackTheme
     ) {
 
         mBgExecutor.execute(() -> {
-            boolean isBlackMode = false;
-
             // Disable all overlays that have not been specified in the user setting.
             final Set<String> overlayCategoriesToDisable = new HashSet<>(THEME_CATEGORIES);
             final Set<String> targetPackagesToQuery = overlayCategoriesToDisable.stream()
@@ -232,7 +232,6 @@ public class ThemeOverlayApplier implements Dumpable {
             OverlayManagerTransaction.Builder transaction = getTransactionBuilder();
             HashSet<OverlayIdentifier> identifiersPending = new HashSet<>();
             if (pendingCreation != null) {
-                isBlackMode = pendingCreation.length == 2;
                 for (FabricatedOverlay overlay : pendingCreation) {
                     identifiersPending.add(overlay.getIdentifier());
                     transaction.registerFabricatedOverlay(overlay);
@@ -253,6 +252,11 @@ public class ThemeOverlayApplier implements Dumpable {
                 }
             }
 
+            // Apply the night-only black overlay after the neutral palette.
+            setEnabled(transaction, new OverlayIdentifier(OVERLAY_BLACK_THEME),
+                    OVERLAY_CATEGORY_SYSTEM_PALETTE, currentUser, managedProfiles,
+                    useBlackTheme, false);
+
             try {
                 mOverlayManager.commit(transaction.build());
                 if (onComplete != null) {
@@ -262,43 +266,7 @@ public class ThemeOverlayApplier implements Dumpable {
             } catch (SecurityException | IllegalStateException e) {
                 Log.e(TAG, "setEnabled failed", e);
             }
-
-            checkDarkUserOverlays(currentUser, onComplete, isBlackMode);
         });
-    }
-
-    private void checkDarkUserOverlays(int currentUser, Runnable onComplete, boolean isBlackMode) {
-        OverlayManagerTransaction.Builder transaction = getTransactionBuilder();
-        try {
-            transaction.setEnabled(getOverlayID(OVERLAY_BLACK_THEME), isBlackMode, currentUser);
-            transaction.setEnabled(getOverlayID("android:neutral"), !isBlackMode, currentUser);
-            mOverlayManager.commit(transaction.build());
-            if (onComplete != null) {
-                Log.d(TAG, "Executing onComplete runnable");
-                mMainExecutor.execute(onComplete);
-            }
-        } catch (SecurityException | IllegalStateException e) {
-            Log.e(TAG, "setEnabled failed", e);
-        }
-    }
-
-    private OverlayIdentifier getOverlayID(String name) throws IllegalStateException {
-        if (name.contains(":")) {
-            final String[] value = name.split(":");
-            final String pkgName = value[0];
-            final String overlayName = value[1];
-            final List<OverlayInfo> infos =
-                    mOverlayManager.getOverlayInfosForTarget(pkgName, UserHandle.CURRENT);
-            for (OverlayInfo info : infos) {
-                if (overlayName.equals(info.getOverlayName()))
-                    return info.getOverlayIdentifier();
-            }
-            throw new IllegalStateException("No overlay found for " + name);
-        }
-        OverlayInfo overlayInfo = mOverlayManager.getOverlayInfo(name, UserHandle.CURRENT);
-        if (overlayInfo != null)
-            return overlayInfo.getOverlayIdentifier();
-        throw new IllegalStateException("No overlay found for " + name);
     }
 
     @VisibleForTesting
