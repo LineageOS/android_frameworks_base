@@ -241,6 +241,7 @@ import android.util.SparseLongArray;
 import android.util.TimeUtils;
 import android.util.proto.ProtoOutputStream;
 import android.webkit.WebViewZygote;
+import android.widget.Toast;
 
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
@@ -4213,6 +4214,16 @@ public final class ActiveServices {
                     "Unable to find app for caller " + caller
                     + " (pid=" + callingPid
                     + ") when binding service " + service);
+        }
+
+        if ("pl.mbank".equals(callerApp.info.packageName)
+                && "com.android.vending".equals(service.getPackage())
+                && service.getAction() != null
+                && service.getAction().contains("integrityservice")) {
+            mAm.mUiHandler.post(() -> Toast.makeText(mAm.mContext,
+                    "Blocked Play Integrity for " + callerApp.info.packageName,
+                    Toast.LENGTH_SHORT).show());
+            return 0;
         }
 
         ActivityServiceConnectionsHolder<ConnectionRecord> activity = null;
