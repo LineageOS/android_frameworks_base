@@ -102,6 +102,10 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
+
+import com.android.server.vibrator.RichTapVibratorService;
+import vendor.aac.hardware.richtap.vibrator.IRichtapCallback;
+import android.os.RichTapVibrationEffect;
 import java.lang.ref.WeakReference;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -202,6 +206,27 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
     @GuardedBy("mLock")
     @Nullable private HapticFeedbackVibrationProvider mHapticFeedbackVibrationProvider;
 
+    // RichTap support. Disabled by default and enabled per-device via the
+    // config_hasRichTapVibrator framework config, so devices without a RichTap-capable vibrator
+    // HAL keep stock behavior. When disabled no RichTap binder extension is looked up and no
+    // RichTap effect is intercepted; standard vibration handling is untouched.
+    private final boolean mHasRichTapVibrator;
+    private final IRichtapCallback mRichtapAidlCallback = new RichtapCallback();
+    private final class RichtapCallback extends IRichtapCallback.Stub {
+        public void onCallback(int result) {
+            if (DEBUG) {
+                Slog.d(TAG, "RichTap callback result:" + result);
+            }
+        }
+        public int getInterfaceVersion() {
+            return 1;
+        }
+        public String getInterfaceHash() {
+            return "aac_richtap";
+        }
+    }
+    @Nullable private final RichTapVibratorService mRichTapService;
+
     @VisibleForTesting
     BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
         @Override
@@ -221,6 +246,17 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
                             VibratorManagerService.this::shouldCancelOnFgUserRequest,
                             Status.CANCELLED_BY_FOREGROUND_USER);
                 }
+            } else if (mRichTapService != null
+                    && intent.getAction().equals(RichTapVibratorService.ACTION_CHANGE_MODE)) {
+                int mode = intent.getIntExtra("mode", -1);
+                if (mode == -1) {
+                    Slog.e(TAG, "RichTap: invalid vibration mode");
+                    return;
+                }
+                if (DEBUG) {
+                    Slog.i(TAG, "RichTap: received ACTION_CHANGE_MODE, mode:" + mode);
+                }
+                mRichTapService.richTapSetVibrationMode(mode);
             }
         }
     };
@@ -303,6 +339,11 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
     VibratorManagerService(Context context, Injector injector) {
         mContext = context;
         mInjector = injector;
+        mHasRichTapVibrator = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasRichTapVibrator);
+        mRichTapService = mHasRichTapVibrator
+                ? new RichTapVibratorService(mRichtapAidlCallback)
+                : null;
         mHandler = injector.createHandler(Looper.myLooper());
         mFrameworkStatsLogger = injector.getFrameworkStatsLogger(mHandler);
 
@@ -352,6 +393,9 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
 
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_OFF);
+        if (mHasRichTapVibrator) {
+            filter.addAction(RichTapVibratorService.ACTION_CHANGE_MODE);
+        }
         if (UserManagerInternal.shouldShowNotificationForBackgroundUserSounds()) {
             filter.addAction(BackgroundUserSoundNotifier.ACTION_MUTE_SOUND);
         }
@@ -652,6 +696,10 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
             logAndRecordVibrationAttempt(effect, callerInfo, Status.IGNORED_INVALID_REQUEST);
             return null;
         }
+        // RichTap: intercept RichTap-specific effects before normal processing.
+        if (mRichTapService != null && mRichTapService.disposeRichtapEffectParams(effect)) {
+            return null;
+        }
         if (effect.hasVendorEffects()) {
             if (!Flags.vendorVibrationEffects()) {
                 Slog.e(TAG, "vibrate; vendor effects feature disabled");
@@ -756,6 +804,10 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
                             (mCurrentSession instanceof ExternalVibrationSession) ? null : token;
                     if (shouldCancelSession(mCurrentSession, usageFilter, cancelToken)) {
                         mCurrentSession.requestEnd(Status.CANCELLED_BY_USER);
+                    }
+                    // RichTap: also stop any RichTap effect on cancel.
+                    if (mRichTapService != null) {
+                        doStopVibrateLocked();
                     }
                 } finally {
                     Binder.restoreCallingIdentity(ident);
@@ -1091,11 +1143,84 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
         }
     }
 
+    // RichTap helper methods. All of these are only reachable when mRichTapService != null,
+    // i.e. when the device declares config_hasRichTapVibrator.
+    private void doVibratorOnEnvelope(int[] relativeTime, int[] scaleArr, int[] freqArr,
+            boolean steepMode, int amplitude) {
+        if (DEBUG) {
+            Slog.d(TAG, "RichTap: play envelope, steepMode=" + steepMode
+                    + " amplitude=" + amplitude);
+        }
+        synchronized (mRichTapService) {
+            mRichTapService.richTapVibratorOnEnvelope(relativeTime, scaleArr, freqArr,
+                    steepMode, amplitude);
+        }
+    }
+
+    private void doVibratorOnPatternHe(VibrationEffect effect) {
+        if (DEBUG) {
+            Slog.d(TAG, "RichTap: play pattern HE");
+        }
+        synchronized (mRichTapService) {
+            mRichTapService.richTapVibratorOnPatternHe(effect);
+        }
+    }
+
+    @GuardedBy("mLock")
+    private void doVibratorOnExtPrebakedEffectLocked(VibrationEffect effect) {
+        Trace.traceBegin(Trace.TRACE_TAG_VIBRATOR, "doVibratorOnExtPrebakedEffectLocked");
+        try {
+            final RichTapVibrationEffect.ExtPrebaked prebaked =
+                    (RichTapVibrationEffect.ExtPrebaked) effect;
+            if (DEBUG) {
+                Slog.d(TAG, "RichTap: play prebaked effect id=" + prebaked.getId()
+                        + " scale=" + prebaked.getScale());
+            }
+            mRichTapService.richTapVibratorSetAmplitude(255);
+            mRichTapService.richTapVibratorPerform(prebaked.getId(), (byte) prebaked.getScale());
+        } finally {
+            Trace.traceEnd(TRACE_TAG_VIBRATOR);
+        }
+    }
+
+    private void doStopVibrateLocked() {
+        synchronized (mRichTapService) {
+            mRichTapService.richTapVibratorStop();
+        }
+    }
+
     @GuardedBy("mLock")
     @Nullable
     private Status startVibrationLocked(SingleVibrationSession session) {
         Trace.traceBegin(TRACE_TAG_VIBRATOR, "startVibrationLocked");
         try {
+            // RichTap: intercept RichTap-specific effects and route them to the RichTap HAL
+            // extension. Standard effects are left to the normal AOSP path below.
+            if (mRichTapService != null) {
+                CombinedVibration combEffect = session.getVibration().getEffectToPlay();
+                if (combEffect instanceof CombinedVibration.Mono) {
+                    VibrationEffect vibrEffect = ((CombinedVibration.Mono) combEffect).getEffect();
+                    if (mRichTapService.checkIfRichTapEffect(vibrEffect,
+                            session.getCallerInfo().reason)) {
+                        doStopVibrateLocked();
+                    }
+                    if (vibrEffect instanceof RichTapVibrationEffect.ExtPrebaked) {
+                        doVibratorOnExtPrebakedEffectLocked(vibrEffect);
+                        return null;
+                    } else if (vibrEffect instanceof RichTapVibrationEffect.Envelope) {
+                        RichTapVibrationEffect.Envelope envelope =
+                                (RichTapVibrationEffect.Envelope) vibrEffect;
+                        doVibratorOnEnvelope(envelope.getRelativeTimeArr(),
+                                envelope.getScaleArr(), envelope.getFreqArr(),
+                                envelope.isSteepMode(), envelope.getAmplitude());
+                        return null;
+                    } else if (vibrEffect instanceof RichTapVibrationEffect.PatternHe) {
+                        doVibratorOnPatternHe(vibrEffect);
+                        return null;
+                    }
+                }
+            }
+
             if (mInputDeviceDelegate.isAvailable()) {
                 return startVibrationOnInputDevicesLocked(session.getVibration());
             }

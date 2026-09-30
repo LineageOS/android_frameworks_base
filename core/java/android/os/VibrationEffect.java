@@ -2507,7 +2507,8 @@ public abstract class VibrationEffect implements Parcelable {
             new Parcelable.Creator<VibrationEffect>() {
                 @Override
                 public VibrationEffect createFromParcel(Parcel in) {
-                    switch (in.readInt()) {
+                    final int token = in.readInt();
+                    switch (token) {
                         case PARCEL_TOKEN_COMPOSED:
                             return new Composed(in);
                         case PARCEL_TOKEN_VENDOR_EFFECT:
@@ -2515,6 +2516,13 @@ public abstract class VibrationEffect implements Parcelable {
                                 return new VendorEffect(in);
                             } // else fall through
                         default:
+                            // RichTap extended effects (tokens 501-505) are defined in
+                            // RichTapVibrationEffect. Reset parcel position so its CREATOR
+                            // can re-read the token and parse the effect.
+                            if (RichTapVibrationEffect.isExtendedEffect(token)) {
+                                in.setDataPosition(in.dataPosition() - Integer.BYTES);
+                                return RichTapVibrationEffect.CREATOR.createFromParcel(in);
+                            }
                             throw new IllegalStateException(
                                     "Unexpected vibration effect type token in parcel.");
                     }

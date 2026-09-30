@@ -4435,6 +4435,12 @@
     <!-- The default vibration strength, must be between 1 and 255 inclusive. -->
     <integer name="config_defaultVibrationAmplitude">255</integer>
 
+    <!-- Whether this device integrates RichTap haptic support. When false (the default) the
+         RichTap framework classes report the feature as unavailable, so client SDKs fall back to
+         standard vibration instead of attempting to play RichTap effects. Devices that ship a
+         RichTap-capable vibrator HAL must override this to true via an overlay. -->
+    <bool name="config_hasRichTapVibrator">false</bool>
+
     <!-- The scale factor to be applied at each vibration intensity level supported by the device,
      defined by a positive float value.
      The default framework scaling will be applied if this is not set, based on the user and the
