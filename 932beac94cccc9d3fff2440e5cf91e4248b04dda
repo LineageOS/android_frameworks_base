@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b819f36_64212ffc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-10-01T13:00:26Z",
+      "side": 1,
+      "message": "For reference: https://gist.github.com/niclimcy/5c910e1aebf6df2b5c34aed2e96b460e",
+      "revId": "932beac94cccc9d3fff2440e5cf91e4248b04dda",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
