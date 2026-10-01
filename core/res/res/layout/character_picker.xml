@@ -17,8 +17,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="304dp"
-    android:layout_height="match_parent"
-    android:background="@drawable/keyboard_popup_panel_trans_background">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
     <GridView
         android:id="@+id/characterPicker"
@@ -37,13 +37,15 @@
         android:listSelector="#0000"
     />
 
-    <Button
+    <ImageButton
         android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/btn_close"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
         android:layout_gravity="center_vertical"
+        android:src="@drawable/ic_close"
+        android:tint="?android:attr/colorControlNormal"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/cancel"
     />
 </LinearLayout>

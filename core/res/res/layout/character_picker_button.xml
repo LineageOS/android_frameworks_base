@@ -17,10 +17,15 @@
 <Button xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:minWidth="48dp"
+    android:minHeight="48dp"
+    android:padding="0dp"
     android:clickable="true"
     android:focusable="false"
     android:textAppearance="?android:attr/textAppearanceLarge"
-    android:background="@drawable/btn_keyboard_key_trans"
-    android:textColor="#FFFFFFFF"
+    android:textAllCaps="false"
+    android:textColor="?android:attr/textColorPrimary"
+    android:background="?android:attr/selectableItemBackground"
+    android:stateListAnimator="@null"
 />
 
