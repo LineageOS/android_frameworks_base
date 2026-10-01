@@ -46,7 +46,7 @@ public class CharacterPickerDialog extends Dialog
     private String mOptions;
     private boolean mInsert;
     private LayoutInflater mInflater;
-    private Button mCancelButton;
+    private View mCancelButton;
 
     /**
      * Creates a new CharacterPickerDialog that presents the specified
@@ -56,13 +56,13 @@ public class CharacterPickerDialog extends Dialog
     public CharacterPickerDialog(Context context, View view,
                                  Editable text, String options,
                                  boolean insert) {
-        super(context, com.android.internal.R.style.Theme_Panel);
+        super(context, com.android.internal.R.style.Theme_DeviceDefault_Dialog_NoActionBar);
 
         mView = view;
         mText = text;
         mOptions = options;
         mInsert = insert;
-        mInflater = LayoutInflater.from(context);
+        mInflater = LayoutInflater.from(getContext());
     }
 
     @Override
@@ -80,7 +80,7 @@ public class CharacterPickerDialog extends Dialog
         grid.setAdapter(new OptionsAdapter(getContext()));
         grid.setOnItemClickListener(this);
 
-        mCancelButton = (Button) findViewById(R.id.cancel);
+        mCancelButton = findViewById(R.id.cancel);
         mCancelButton.setOnClickListener(this);
     }
 
