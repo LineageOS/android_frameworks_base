@@ -23,7 +23,6 @@ import android.graphics.Insets;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.inputmethodservice.InputMethodService;
-import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -46,8 +45,10 @@ import androidx.annotation.NonNull;
 
 import com.android.internal.policy.SystemBarUtils;
 import com.android.settingslib.Utils;
+import com.android.systemui.Dependency;
 import com.android.systemui.Gefingerpoken;
 import com.android.systemui.res.R;
+import com.android.systemui.rotation.RotationPolicyWrapper;
 import com.android.systemui.shade.ShadeExpandsOnStatusBarLongPress;
 import com.android.systemui.shade.StatusBarLongPressGestureDetector;
 import com.android.systemui.shared.rotation.FloatingRotationButton;
@@ -121,7 +122,8 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
                     R.dimen.floating_rotation_button_diameter, R.dimen.key_button_ripple_max_width,
                     R.bool.floating_rotation_button_position_left);
 
-            mRotationButtonController = new RotationButtonController(lightContext, lightIconColor,
+            mRotationButtonController = new RotationButtonController(
+                    Dependency.get(RotationPolicyWrapper.class), lightContext, lightIconColor,
                     darkIconColor, R.drawable.ic_sysbar_rotate_button_ccw_start_0,
                     R.drawable.ic_sysbar_rotate_button_ccw_start_90,
                     R.drawable.ic_sysbar_rotate_button_cw_start_0,

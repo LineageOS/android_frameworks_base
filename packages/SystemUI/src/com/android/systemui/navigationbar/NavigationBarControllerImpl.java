@@ -23,11 +23,14 @@ import static com.android.wm.shell.Flags.enableTaskbarOnPhones;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.hardware.devicestate.DeviceStateManager;
 import android.hardware.display.DisplayManager;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.util.Log;
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
@@ -68,6 +71,8 @@ import com.android.wm.shell.back.BackAnimation;
 import com.android.wm.shell.pip.Pip;
 
 import dalvik.annotation.optimization.NeverCompile;
+
+import lineageos.providers.LineageSettings;
 
 import kotlinx.coroutines.CoroutineDispatcher;
 
@@ -111,6 +116,17 @@ public class NavigationBarControllerImpl implements
 
     /** Local cache for {@link IWindowManager#hasNavigationBar(int)}. */
     private SparseBooleanArray mHasNavBarOrTaskbar = new SparseBooleanArray();
+
+    /** Baseline nav-bar requirement from the framework config and the emulator override. */
+    private boolean mNeedsNavigationBar;
+
+    /** Watches the Lineage runtime navbar toggle for the default display. */
+    private final ContentObserver mForceShowNavBarObserver = new ContentObserver(null) {
+        @Override
+        public void onChange(boolean selfChange) {
+            mExecutor.execute(NavigationBarControllerImpl.this::onForceShowNavBarChanged);
+        }
+    };
 
     // Tracks config changes that will actually recreate the nav bar
     private final InterestingConfigChanges mConfigChanges = new InterestingConfigChanges(
@@ -162,6 +178,16 @@ public class NavigationBarControllerImpl implements
                 taskStackChangeListeners, displayTracker);
         mIsLargeScreen = isLargeScreen(mContext);
         mIsPhone = determineIfPhone(mContext, deviceStateManager);
+        mNeedsNavigationBar = mContext.getResources().getBoolean(R.bool.config_showNavigationBar);
+        final String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
+        if ("1".equals(navBarOverride)) {
+            mNeedsNavigationBar = false;
+        } else if ("0".equals(navBarOverride)) {
+            mNeedsNavigationBar = true;
+        }
+        mContext.getContentResolver().registerContentObserver(
+                LineageSettings.System.getUriFor(LineageSettings.System.FORCE_SHOW_NAVBAR),
+                false, mForceShowNavBarObserver, UserHandle.USER_ALL);
         dumpManager.registerDumpable(this);
     }
 
@@ -230,6 +256,9 @@ public class NavigationBarControllerImpl implements
      */
     @Override
     public boolean canCreateNavBarOrTaskBar(int displayId) {
+        if (isNavBarForced(displayId)) {
+            return true;
+        }
         if (mHasNavBarOrTaskbar.indexOfKey(displayId) > -1) {
             return mHasNavBarOrTaskbar.get(displayId);
         }
@@ -252,6 +281,30 @@ public class NavigationBarControllerImpl implements
             // Cannot get wms, just return false with warning message.
             Log.w(TAG, "Cannot get WindowManager.", e);
             return false;
+        }
+    }
+
+    /** @return whether the Lineage runtime toggle forces the default-display nav bar on. */
+    private boolean isNavBarForced(int displayId) {
+        return displayId == mDisplayTracker.getDefaultDisplayId()
+                && LineageSettings.System.getIntForUser(mContext.getContentResolver(),
+                        LineageSettings.System.FORCE_SHOW_NAVBAR, 0,
+                        UserHandle.USER_CURRENT) == 1;
+    }
+
+    /**
+     * Creates or removes the default-display nav bar after the Lineage runtime toggle changed.
+     * The WMS answer is invalidated first so the create/remove gate re-evaluates.
+     */
+    private void onForceShowNavBarChanged() {
+        final int displayId = mDisplayTracker.getDefaultDisplayId();
+        mHasNavBarOrTaskbar.delete(displayId);
+        if (isNavBarForced(displayId) || mNeedsNavigationBar) {
+            if (mNavigationBars.get(displayId) == null) {
+                createNavigationBar(mDisplayManager.getDisplay(displayId), null, null);
+            }
+        } else {
+            removeNavigationBar(displayId);
         }
     }
 
