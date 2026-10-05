@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74b2dae2_6b4fd5a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-05T16:33:37Z",
+      "side": 1,
+      "message": "looks reasonable https://imgur.com/a/sDKnUJG.",
+      "revId": "0599b1406d6019e30e2a3a84c16596f6a6aff518",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
