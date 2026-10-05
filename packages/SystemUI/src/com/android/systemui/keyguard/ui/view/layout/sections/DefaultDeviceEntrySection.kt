@@ -21,6 +21,8 @@ import android.content.Context
 import android.graphics.Point
 import android.graphics.Rect
 import android.util.DisplayMetrics
+import android.util.RotationUtils
+import android.view.Surface
 import android.view.WindowManager
 import androidx.annotation.VisibleForTesting
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -141,11 +143,18 @@ constructor(
                     str2 = "(${udfpsLocation.centerX}, ${udfpsLocation.centerY})"
                     str3 = "${authController.udfpsLocation}"
                 }
-                centerIcon(
-                    Point(udfpsLocation.centerX.toInt(), udfpsLocation.centerY.toInt()),
-                    udfpsLocation.radius,
-                    constraintSet,
-                )
+                val rotation = context.display.rotation
+                val isLandscape =
+                    rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270
+
+                // Window bounds already reflect rotation; recover the natural dimensions.
+                val naturalWidth = if (isLandscape) bounds.height() else bounds.width()
+                val naturalHeight = if (isLandscape) bounds.width() else bounds.height()
+                val center =
+                    Point(udfpsLocation.centerX.toInt(), udfpsLocation.centerY.toInt())
+                RotationUtils.rotatePoint(center, rotation, naturalWidth, naturalHeight)
+
+                centerIcon(center, udfpsLocation.radius, constraintSet)
             }
         } else {
             centerIcon(
