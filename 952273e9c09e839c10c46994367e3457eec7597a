@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b47e4c5_aaf0abf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-06T02:43:42Z",
+      "side": 1,
+      "message": "Set up device on 16, add a bunch of widgets on home screen, set up a work profile. Upgrade to 17, see that widgets are still present and that you can still add them again if you wanted.",
+      "revId": "952273e9c09e839c10c46994367e3457eec7597a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
