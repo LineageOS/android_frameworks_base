@@ -34,6 +34,24 @@
       "parentUuid": "9b47e4c5_aaf0abf5",
       "revId": "952273e9c09e839c10c46994367e3457eec7597a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae49f9b_96ab08b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-06T16:15:30Z",
+      "side": 1,
+      "message": "Doesn\u0027t matter that much, this is fixed internally in QPR1 and we\u0027ll get rid of it in QPR2 rebase",
+      "parentUuid": "0894569c_d34b07c9",
+      "revId": "952273e9c09e839c10c46994367e3457eec7597a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
