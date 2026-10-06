@@ -3471,6 +3471,11 @@
          stream or global volumes. -->
     <bool name="config_useFixedVolume">false</bool>
 
+    <!-- Whether media audio on a dock (Settings.Global.DOCK_AUDIO_MEDIA_ENABLED) should force the
+         analog dock (AUDIO_POLICY_FORCE_ANALOG_DOCK) instead of the digital dock, as Android 13
+         and earlier did. Needed by analog dock audio accessories such as Moto Mods speakers. -->
+    <bool name="config_dockAudioUseAnalogDock">false</bool>
+
     <!-- The list of IMEs which should be disabled until used.
          This function suppresses update notifications for these pre-installed apps.
          We need to set this configuration carefully that they should not have functionarities
