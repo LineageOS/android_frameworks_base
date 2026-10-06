@@ -1992,7 +1992,7 @@ public class AudioService extends IAudioService.Stub
 
         synchronized (mSettingsLock) {
             final int forDock = mDockAudioMediaEnabled ?
-                    AudioSystem.FORCE_DIGITAL_DOCK : AudioSystem.FORCE_NONE;
+                    getDockAudioMediaForceConfig() : AudioSystem.FORCE_NONE;
             mDeviceBroker.setForceUse_Async(AudioSystem.FOR_DOCK, forDock, "onAudioServerDied");
             sendEncodedSurroundMode(mContentResolver, "onAudioServerDied");
             sendEnabledSurroundFormats(mContentResolver, true);
@@ -2728,12 +2728,17 @@ public class AudioService extends IAudioService.Stub
                 SENDMSG_QUEUE,
                 AudioSystem.FOR_DOCK,
                 mDockAudioMediaEnabled ?
-                        AudioSystem.FORCE_DIGITAL_DOCK : AudioSystem.FORCE_NONE,
+                        getDockAudioMediaForceConfig() : AudioSystem.FORCE_NONE,
                 new String("readDockAudioSettings"),
                 0);
 
     }
 
+    private int getDockAudioMediaForceConfig() {
+        return mContext.getResources().getBoolean(
+                org.lineageos.platform.internal.R.bool.config_dockAudioUseAnalogDock)
+                ? AudioSystem.FORCE_ANALOG_DOCK : AudioSystem.FORCE_DIGITAL_DOCK;
+    }
 
     private void updateMasterMono(ContentResolver cr)
     {
