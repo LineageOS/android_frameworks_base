@@ -140,7 +140,7 @@ public class UdfpsSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
         Canvas canvas = null;
         try {
-            canvas = mHolder.lockCanvas();
+            canvas = mHolder.lockHardwareCanvas();
             mUdfpsIconPressed.setBounds(
                     Math.round(sensorRect.left),
                     Math.round(sensorRect.top),
