@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c3403a0_062eb803",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-07T08:59:43Z",
+      "side": 1,
+      "message": "i wish i knew that\u0027s why it was broken for years",
+      "revId": "18e0c666a990fb3edbaacea66b4d01962f5eae40",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
