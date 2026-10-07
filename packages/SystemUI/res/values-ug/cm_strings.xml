@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_more">قايتا قوزغات\u2026</string>
+    <string name="global_action_restart_system">سىستېما</string>
+    <string name="global_action_restart_recovery">ئەسلىگە كەلتۈر</string>
+    <string name="global_action_restart_bootloader">قوزغىتىش يۈكلىگۈچ</string>
+    <string name="global_action_restart_download">چۈشۈر</string>
+    <string name="global_action_restart_fastboot">تېز قوزغىتىش</string>
+    <string name="global_action_restart_progress">قايتا قوزغىتىۋاتىدۇ\u2026</string>
+    <string name="global_action_restart_recovery_progress">ئەسلىگە قايتۇرۇش ھالىتىدە قايتا قوزغىتىۋاتىدۇ\u2026</string>
+    <string name="global_action_restart_bootloader_progress">قوزغىتىش يۈكلىگۈچ ھالىتىدە قايتا قوزغىتىۋاتىدۇ\u2026</string>
+    <string name="global_action_restart_download_progress">چۈشۈرۈش ھالىتىدە قايتا قوزغىتىۋاتىدۇ\u2026</string>
+    <string name="global_action_restart_fastboot_progress">تېز قوزغىتىش ھالىتىدە قايتا قوزغىتىۋاتىدۇ\u2026</string>
+    <string name="global_action_current_user">نۆۋەتتىكى</string>
+    <string name="global_action_users">ئىشلەتكۈچى</string>
+    <string name="clock">سائەت</string>
+    <string name="accessibility_adaptive_brightness">يورۇقلۇققا ماسلىشىشچان</string>
+    <string name="status_bar_icons_title">ھالەت بالداق سىنبەلگىسى</string>
+    <string name="quick_settings_ambient_display_label">مۇھىتنى كۆرسىتىدۇ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">مۇھىت كۆرسىتىش تاقاق.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">مۇھىت كۆرسىتىش ئوچۇق.</string>
+    <string name="quick_settings_aod_label">ئېكران ھەمىشە ئوچۇق</string>
+    <string name="quick_settings_aod_off_powersave_label">ئېكران ھەمىشە ئوچۇق تاقاق\nتوكدان ساقلىغۇچ</string>
+    <string name="quick_settings_caffeine_label">قەھۋەخانە ھالىتى</string>
+    <string name="accessibility_quick_settings_caffeine_off">قەھۋەخانە ھالىتىنى تاقاش.</string>
+    <string name="accessibility_quick_settings_caffeine_on">قەھۋەخانە ھالىتىنى ئېچىش.</string>
+    <string name="quick_settings_heads_up_label">لەيلىمە ئۇقتۇرۇش</string>
+    <string name="accessibility_quick_settings_heads_up_off">لەيلىمە ئۇقتۇرۇش تاقاق.</string>
+    <string name="accessibility_quick_settings_heads_up_on">لەيلىمە ئۇقتۇرۇش ئوچۇق.</string>
+    <string name="quick_settings_powershare_label">سىمسىز توك ھەمبەھىر</string>
+    <string name="quick_settings_powershare_off_powersave_label">سىمسىز توك ھەمبەھىر تاقاق\nتوك تېجەش ھالىتى</string>
+    <string name="quick_settings_powershare_off_low_battery_label">سىمسىز توك ھەمبەھىر تاقاق\nتوكدان توكى بەك ئاز</string>
+    <string name="quick_settings_powershare_enabled_label">سىمسىز توك ھەمبەھىر قوزغىتىلدى</string>
+    <string name="quick_settings_reading_mode">ئوقۇش ھالىتى</string>
+    <string name="accessibility_quick_settings_reading_mode_on">ئوقۇش ھالىتى ئوچۇق.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">ئوقۇش ھالىتى تاقاق.</string>
+    <string name="quick_settings_sync_label">قەدەمداش</string>
+    <string name="accessibility_quick_settings_sync_off">قەدەمداش تاقاق.</string>
+    <string name="accessibility_quick_settings_sync_on">قەدەمداش ئوچۇق.</string>
+    <string name="quick_settings_profiles_label">سىستېما سەپلىمە ھۆججەتلىرى</string>
+    <string name="accessibility_quick_settings_profiles_off">مۇھىت ھالىتى تاقاق.</string>
+    <string name="accessibility_quick_settings_profiles">مۇھىت ھالىتى: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB ھەمبەھىر</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">باغلىنىدۇ\u2026</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> غا باغلىنىش ئۈچۈن سالاھىيەت ئىسپاتىنى كىرگۈزۈڭ</string>
+    <string name="vpn_credentials_username">ئىشلەتكۈچى ئاتى</string>
+    <string name="vpn_credentials_password">ئىم</string>
+    <string name="vpn_credentials_dialog_connect">باغلان</string>
+    <string name="status_bar_firewall">مۇداپىئە تام</string>
+    <string name="battery_notification_channel_tv">توكدان ئاگاھلاندۇرۇش</string>
+    <string name="screenshot_delete_label">ئۆچۈر</string>
+    <string name="screenshot_delete_description">ئېكران كەسمىسىنى ئۆچۈر</string>
+    <string name="screenrecord_lowquality_label">تۆۋەن سۈپەتلىك</string>
+    <string name="screenrecord_lowquality_summary">كىچىكرەك ھۆججەت ئۈچۈن</string>
+    <string name="screenrecord_longer_timeout_switch_label">چوڭراق ھۆججەت سىغىمى چەكلىمىسى</string>
+    <string name="screenrecord_longer_timeout_switch_summary">خاتىرىلەش ھۆججىتىنىڭ يۇقىرى چېكىنى 15GB دا چەكلەيدۇ</string>
+    <string name="screenrecord_skip_time_label">ۋاقىت خاتىرىلىگۈچتىن ئاتلا</string>
+    <string name="screenrecord_skip_time_summary">3 سېكۇنتلۇق كۈتۈشنى چىقىرىۋېتىدۇ</string>
+    <string name="screenrecord_hevc_switch_label">HEVC كودلاش</string>
+    <string name="screenrecord_hevc_switch_summary">ئۈنۈمى تېخىمۇ يۇقىرى بولغان HEVC كودلىغۇچنى ئىشلىتىدۇ</string>
+</resources>

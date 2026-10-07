@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_more">மறுதொடக்கம்\u2026</string>
+    <string name="global_action_restart_system">முறைமை</string>
+    <string name="global_action_restart_recovery">மீட்டெடுப்பு</string>
+    <string name="global_action_restart_bootloader">தொடக்கவேற்றி</string>
+    <string name="global_action_restart_download">பதிவிறக்கம்</string>
+    <string name="global_action_restart_fastboot">விரைந்தொடக்கம்</string>
+    <string name="global_action_restart_progress">மறுதொடங்குகிறது\u2026</string>
+    <string name="global_action_restart_recovery_progress">மீட்டெடுப்பு முறையில் மறுதொடங்குகிறது\u2026</string>
+    <string name="global_action_restart_bootloader_progress">தொடக்கவேற்றி முறைமைக்கு மறுதொடங்குகிறது\u2026</string>
+    <string name="global_action_restart_download_progress">பதிவிறக்க முறைமைக்கு மறுதொடங்குகிறது\u2026</string>
+    <string name="global_action_restart_fastboot_progress">விரைந்தொடக்க முறைமைக்கு மறுதொடங்குகிறது\u2026</string>
+    <string name="global_action_current_user">தற்போதைய</string>
+    <string name="global_action_users">பயனர்</string>
+    <string name="clock">மணினி</string>
+    <string name="accessibility_adaptive_brightness">சூழலுக்கேற்ற ஒளிச்செறிவு</string>
+    <string name="status_bar_icons_title">நிலைப்பட்டிப் படவுருகள்</string>
+    <string name="quick_settings_ambient_display_label">சூழற்சார்த் திரை</string>
+    <string name="accessibility_quick_settings_ambient_display_off">சூழற்திரை அணைவு.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">சூழற்திரை இயக்கம்.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD அணைவு\nமின்சேமிப்பான்</string>
+    <string name="quick_settings_caffeine_label">தொடர்விழிப்பு</string>
+    <string name="accessibility_quick_settings_caffeine_off">தொடர்விழிப்பு அணைவு.</string>
+    <string name="accessibility_quick_settings_caffeine_on">தொடர்விழிப்பு இயக்கம்.</string>
+    <string name="quick_settings_heads_up_label">விழியறிவிப்பு</string>
+    <string name="accessibility_quick_settings_heads_up_off">விழியறிவிப்பு அணைவு.</string>
+    <string name="accessibility_quick_settings_heads_up_on">விழியறிவிப்பு இயக்கம்.</string>
+    <string name="quick_settings_powershare_label">கம்பியில்லா மின்பகிர்வு</string>
+    <string name="quick_settings_powershare_off_powersave_label">கம்பியில்லா மின்பகிர்வு அணைவு\nமின்சேமிப்பான்</string>
+    <string name="quick_settings_powershare_off_low_battery_label">கம்பியில்லா மின்பகிர்வு அணைவு\nமின்னூட்டம் மிகக்குறைவு</string>
+    <string name="quick_settings_powershare_enabled_label">கம்பியில்லா மின்பகிர்வு இயக்கப்பட்டது</string>
+    <string name="quick_settings_reading_mode">வாசிப்புப் பயன்முறை</string>
+    <string name="accessibility_quick_settings_reading_mode_on">வாசிப்புப் பயன்முறை இயக்கம்.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">வாசிப்புப் பயன்முறை அணைவு.</string>
+    <string name="quick_settings_sync_label">ஒத்திசைவு</string>
+    <string name="accessibility_quick_settings_sync_off">ஒத்திசைவு அணைவு.</string>
+    <string name="accessibility_quick_settings_sync_on">ஒத்திசைவு இயக்கம்.</string>
+    <string name="quick_settings_profiles_label">முறைமைத் தனியமைப்புகள்</string>
+    <string name="accessibility_quick_settings_profiles_off">தனியமைப்புகள் அணைவு.</string>
+    <string name="accessibility_quick_settings_profiles">தனியமைப்பு: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB பிணிப்பு</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026 உடன் பிணைக்க</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> உடன் இணைப்பதற்கான அடையாளச் சான்றுகளை உள்ளிடவும்</string>
+    <string name="vpn_credentials_username">பயனர்பெயர்</string>
+    <string name="vpn_credentials_password">கடவுச்சொல்</string>
+    <string name="vpn_credentials_dialog_connect">பிணைக்க</string>
+    <string name="status_bar_firewall">தீயரண்</string>
+    <string name="battery_notification_channel_tv">மின்கல எச்சரிக்கை</string>
+    <string name="screenshot_delete_label">நீக்குக</string>
+    <string name="screenshot_delete_description">திரைப்பிடிப்பை நீக்குக</string>
+    <string name="screenrecord_lowquality_label">குறைந்த தரம்</string>
+    <string name="screenrecord_lowquality_summary">சிறிய கோப்பு அளவிற்கு</string>
+    <string name="screenrecord_longer_timeout_switch_label">பெரிய கோப்பு அளவு வரம்பு</string>
+    <string name="screenrecord_longer_timeout_switch_summary">பதிவு அளவை 15 GB வரை வரம்பிடுக</string>
+    <string name="screenrecord_skip_time_label">நேரங்குறியைத் தவிர்க்க</string>
+    <string name="screenrecord_skip_time_summary">3 நொடி காத்திருப்பை அகற்றுக</string>
+    <string name="screenrecord_hevc_switch_label">HEVC குறியாக்கம்</string>
+    <string name="screenrecord_hevc_switch_summary">கூடுதல் திறன்வாய்ந்த HEVC குறியாக்கத்தைப் பயன்படுத்துக</string>
+</resources>

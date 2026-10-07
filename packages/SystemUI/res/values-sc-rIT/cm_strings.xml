@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_more">Torra a aviare\u2026</string>
+    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_recovery">Recùperu</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">Iscàrriga</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Torrende a allùghere\u2026</string>
+    <string name="global_action_restart_recovery_progress">Torrende a aviare in modalidade de recùperu\u2026</string>
+    <string name="global_action_restart_bootloader_progress">Torrende a aviare in modalidade bootloader\u2026</string>
+    <string name="global_action_restart_download_progress">Torrende a aviare in modalidade de iscarrigamentu\u2026</string>
+    <string name="global_action_restart_fastboot_progress">Torrende a aviare in modalidade fastbootd\u2026</string>
+    <string name="global_action_current_user">Atuale</string>
+    <string name="global_action_users">Utentes</string>
+    <string name="clock">Rellògiu</string>
+    <string name="accessibility_adaptive_brightness">Lugore flessìbile</string>
+    <string name="status_bar_icons_title">Iconas de s\'istanga de istadu</string>
+    <string name="quick_settings_ambient_display_label">Ischermu ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ischermu ambiente istudadu.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ischermu ambiente allutu</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD disativadu\nIstràviu de energia</string>
+    <string name="quick_settings_caffeine_label">Cafeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeina istudada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeina alluta.</string>
+    <string name="quick_settings_heads_up_label">Notìficas flutuantes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notìficas a cumparsa disativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notìficas a cumparsa ativas.</string>
+    <string name="quick_settings_powershare_label">PowerShare chene filos</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare chene filos disativadu\nRispàrmiu de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare chene filos disativadu\nBateria tropu bassa</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare chene filos est ativu</string>
+    <string name="quick_settings_reading_mode">Modalidade letura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modalidade letura ativa.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modalidade letura istudada.</string>
+    <string name="quick_settings_sync_label">Sincronizatzione</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizatzione disativada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizatzione ativa.</string>
+    <string name="quick_settings_profiles_label">Profilos de sistema</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilos disativados.</string>
+    <string name="accessibility_quick_settings_profiles">Profilu: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">Ancoràgiu web USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Connete a\u2026</string>
+    <string name="vpn_credentials_hint">Inserta is credentziales tuas pro ti connètere a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nòmine de utente</string>
+    <string name="vpn_credentials_password">Crae</string>
+    <string name="vpn_credentials_dialog_connect">Connete</string>
+    <string name="status_bar_firewall">Firewall</string>
+    <string name="battery_notification_channel_tv">Avisu de bateria</string>
+    <string name="screenshot_delete_label">Cantzella</string>
+    <string name="screenshot_delete_description">Cantzella sa catura de ischermu</string>
+    <string name="screenrecord_lowquality_label">Calidade bàscia</string>
+    <string name="screenrecord_lowquality_summary">Pro una mannària de archìviu prus minore</string>
+    <string name="screenrecord_longer_timeout_switch_label">Lìmite de mannària de archìviu prus mannu</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Lìmita sa mannària de sa registratzione a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Omite su temporizadore</string>
+    <string name="screenrecord_skip_time_summary">Cantzella s\'atesa de 3 segundos</string>
+    <string name="screenrecord_hevc_switch_label">Codìfica HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Imprea su codificadore HEVC prus efitziente</string>
+</resources>

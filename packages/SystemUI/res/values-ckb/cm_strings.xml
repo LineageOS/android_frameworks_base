@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_more">پێکردنەوە \u2026</string>
+    <string name="global_action_restart_system">سیستم</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_download">داگرتن (Download)</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">پێکردنەوە \u2026</string>
+    <string name="global_action_restart_recovery_progress">پێکردنەوە بۆ دۆخی Recovery \u2026</string>
+    <string name="global_action_restart_bootloader_progress">پێکردنەوە بۆ دۆخی Bootloader \u2026</string>
+    <string name="global_action_restart_download_progress">پێکردنەوە بۆ دۆخی داگرتن \u2026</string>
+    <string name="global_action_restart_fastboot_progress">پێکردنەوە بۆ دۆخی Fastbootd \u2026</string>
+    <string name="global_action_current_user">بەکارهێنەری ئێستا</string>
+    <string name="global_action_users">بەکارهێنەران</string>
+    <string name="clock">کاتژمێر</string>
+    <string name="accessibility_adaptive_brightness">ڕووناکیی گونجێنەر</string>
+    <string name="status_bar_icons_title">وێنۆچکەکانی شریتی دۆخ</string>
+    <string name="quick_settings_ambient_display_label">ڕوونمای ئامبیێنت</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ڕوونمای ئامبیێنت کوژاوەتەوە.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ڕوونمای ئامبیێنت داگیرساوە.</string>
+    <string name="quick_settings_aod_label">ڕوونمای هەمیشە داگیرساو (AOD)</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ناچالاکە\nپاراستنی وزە</string>
+    <string name="quick_settings_caffeine_label">کافایین</string>
+    <string name="accessibility_quick_settings_caffeine_off">کافایین ناچالاکە.</string>
+    <string name="accessibility_quick_settings_caffeine_on">کافایین چالاکە.</string>
+    <string name="quick_settings_heads_up_label">ئاگادارکەرەوە سەرهەڵدەرەکان</string>
+    <string name="accessibility_quick_settings_heads_up_off">ئاگادارکردنەوە لوتکەییەکان ناچالاکە.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ئاگادارکردنەوە لوتکەییەکان چالاکە.</string>
+    <string name="quick_settings_powershare_label">بەشکردنی وزەی بێتەل</string>
+    <string name="quick_settings_powershare_off_powersave_label">بەشکردنی وزەی بێتەل ناچالاکە\nپاراستنی وزە</string>
+    <string name="quick_settings_powershare_off_low_battery_label">بەشکردنی وزەی بێتەل ناچالاکە\nباتری کەمە</string>
+    <string name="quick_settings_powershare_enabled_label">بەشکردنی وزەی بێتەل چالاکە</string>
+    <string name="quick_settings_reading_mode">دۆخی خوێندنەوە</string>
+    <string name="accessibility_quick_settings_reading_mode_on">دۆخی خوێندنەوە چالاکە.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">دۆخی خوێندنەوە ناچالاکە.</string>
+    <string name="quick_settings_sync_label">هاوکاتکردن</string>
+    <string name="accessibility_quick_settings_sync_off">هاوکاتکردن ناچالاکە.</string>
+    <string name="accessibility_quick_settings_sync_on">هاوکاتکردن چالاکە.</string>
+    <string name="quick_settings_profiles_label">پڕۆفایلەکانی سیستم</string>
+    <string name="accessibility_quick_settings_profiles_off">پرۆفایلەکان ناچالاکن.</string>
+    <string name="accessibility_quick_settings_profiles">پرۆفایل: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">بەستنەوەی USB</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">پەیوەستبوون بە \u2026</string>
+    <string name="vpn_credentials_hint">تکایە زانیارییەکان بنووسە بۆ پەیوەستبوون بە <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">ناوی بەکارهێنەر</string>
+    <string name="vpn_credentials_password">تێپەڕەوشە</string>
+    <string name="vpn_credentials_dialog_connect">پەیوەستبوون</string>
+    <string name="status_bar_firewall">بەرگری ئاگرین (Firewall)</string>
+    <string name="battery_notification_channel_tv">ئاگادارکردنەوەی باتری</string>
+    <string name="screenshot_delete_label">سڕینەوە</string>
+    <string name="screenshot_delete_description">سڕینەوەی وێنەی ڕوونما</string>
+    <string name="screenrecord_lowquality_label">کوالێتیی نزمتر</string>
+    <string name="screenrecord_lowquality_summary">بۆ قەبارەی فایلێکی بچووکتر</string>
+    <string name="screenrecord_longer_timeout_switch_label">سنووری قەبارەی گەورەتر</string>
+    <string name="screenrecord_longer_timeout_switch_summary">سنووردارکردنی قەبارەی تۆمارکردن بۆ 15 گیگابایت</string>
+    <string name="screenrecord_skip_time_label">پەڕاندنی کاتژمێر</string>
+    <string name="screenrecord_skip_time_summary">لابردنی چاوەڕوانیی 3 چرکە</string>
+    <string name="screenrecord_hevc_switch_label">کۆدکردنی HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">بەکارهێنانی کۆدکەری HEVCـی کاراتر</string>
+</resources>

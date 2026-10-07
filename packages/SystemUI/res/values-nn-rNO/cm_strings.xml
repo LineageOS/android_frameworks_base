@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2015, The CyanogenMod Project
+ * Copyright (c) 2017-2021 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_restart_more">Starta på nytt …</string>
+    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Oppstartslastar</string>
+    <string name="global_action_restart_download">Last ned</string>
+    <string name="global_action_restart_fastboot">Fastbootd</string>
+    <string name="global_action_restart_progress">Startar på nytt …</string>
+    <string name="global_action_restart_recovery_progress">Startar på nytt i recovery-modus …</string>
+    <string name="global_action_restart_bootloader_progress">Startar på nytt i oppstartslastar-modus …</string>
+    <string name="global_action_restart_download_progress">Startar på nytt i nedlastingsmodus …</string>
+    <string name="global_action_restart_fastboot_progress">Startar på nytt i fastbootd-modus …</string>
+    <string name="global_action_current_user">Noverande</string>
+    <string name="global_action_users">Brukarar</string>
+    <string name="clock">Klokke</string>
+    <string name="accessibility_adaptive_brightness">Tilpassande lysstyrke</string>
+    <string name="status_bar_icons_title">Ikon på statuslinja</string>
+    <string name="quick_settings_ambient_display_label">Kvileskjerm</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Kvileskjerm er av.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Kvileskjerm er på.</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD av\nStraumsparar</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine er av.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine er på.</string>
+    <string name="quick_settings_heads_up_label">Banner-varsel</string>
+    <string name="accessibility_quick_settings_heads_up_off">Banner-varsel er av.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Banner-varsel er på.</string>
+    <string name="quick_settings_powershare_label">Trådlaus straumdeling</string>
+    <string name="quick_settings_powershare_off_powersave_label">Trådlaus straumdeling av\nStraumsparar</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Trådlaus straumdeling av\nFor lite straum på batteriet</string>
+    <string name="quick_settings_powershare_enabled_label">Trådlaus straumdeling er slått på</string>
+    <string name="quick_settings_reading_mode">Lesemodus</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Lesemodus er på.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lesemodus er av.</string>
+    <string name="quick_settings_sync_label">Synkronisering</string>
+    <string name="accessibility_quick_settings_sync_off">Synkronisering er av.</string>
+    <string name="accessibility_quick_settings_sync_on">Synkronisering er på.</string>
+    <string name="quick_settings_profiles_label">Systemprofilar</string>
+    <string name="accessibility_quick_settings_profiles_off">Profilar er av.</string>
+    <string name="accessibility_quick_settings_profiles">Profil: <xliff:g id="profile" example="Default">%s</xliff:g>.</string>
+    <string name="quick_settings_usb_tether_label">USB-internettdeling</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Kopla til …</string>
+    <string name="vpn_credentials_hint">Skriv inn påloggingsinformasjon for å kopla til <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Brukarnamn</string>
+    <string name="vpn_credentials_password">Passord</string>
+    <string name="vpn_credentials_dialog_connect">Kopla til</string>
+    <string name="status_bar_firewall">Brannmur</string>
+    <string name="battery_notification_channel_tv">Batteriåtvaring</string>
+    <string name="screenshot_delete_label">Slett</string>
+    <string name="screenshot_delete_description">Slett skjermbilete</string>
+    <string name="screenrecord_lowquality_label">Lågare kvalitet</string>
+    <string name="screenrecord_lowquality_summary">For mindre filstorleik</string>
+    <string name="screenrecord_longer_timeout_switch_label">Større grense for filstorleik</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Avgrens opptaksstorleiken til 15 GB</string>
+    <string name="screenrecord_skip_time_label">Hopp over tidsmålar</string>
+    <string name="screenrecord_skip_time_summary">Fjern ventetida på 3 sekund</string>
+    <string name="screenrecord_hevc_switch_label">HEVC-koding</string>
+    <string name="screenrecord_hevc_switch_summary">Bruk den meir effektive HEVC-kodaren</string>
+</resources>
