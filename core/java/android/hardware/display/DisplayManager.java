@@ -2163,6 +2163,23 @@ public final class DisplayManager {
     }
 
     /**
+     * Allows internal application to restrict max refresh rate of the display
+     *
+     * @param displayId display that restriction will be applied to
+     * @param maxRefreshRate max allowed refresh rate, 0 removes the restriction
+     *
+     * @hide
+     */
+    @RequiresPermission("android.permission.RESTRICT_DISPLAY_MODES")
+    public void requestMaxRefreshRate(int displayId, float maxRefreshRate) {
+        if (Float.isNaN(maxRefreshRate) || maxRefreshRate < 0) {
+            throw new IllegalArgumentException(
+                    "requestMaxRefreshRate: maxRefreshRate must be a non-negative number");
+        }
+        mGlobal.requestMaxRefreshRate(displayId, maxRefreshRate);
+    }
+
+    /**
      * Gets the mapping between the doze brightness sensor values and brightness values. The doze
      * brightness sensor is a light sensor used to determine the brightness while the device is
      * dozing. Light sensor values are typically integers in the rage of 0-4. The returned values

@@ -1544,6 +1544,20 @@ public final class DisplayManagerGlobal {
     }
 
     /**
+     * Sets max allowed refresh rate
+     *
+     * @hide
+     */
+    @RequiresPermission("android.permission.RESTRICT_DISPLAY_MODES")
+    public void requestMaxRefreshRate(int displayId, float maxRefreshRate) {
+        try {
+            mDm.requestMaxRefreshRate(mToken, displayId, maxRefreshRate);
+        } catch (RemoteException ex) {
+            throw ex.rethrowFromSystemServer();
+        }
+    }
+
+    /**
      * @param displayId The ID of the display
      * @return The highest HDR/SDR ratio of the ratios defined in Display Device Config. If no
      * HDR/SDR map is defined, this always returns 1.

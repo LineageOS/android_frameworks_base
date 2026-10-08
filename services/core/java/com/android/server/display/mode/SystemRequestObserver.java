@@ -33,7 +33,7 @@ import java.util.NoSuchElementException;
 
 /**
  * SystemRequestObserver responsible for handling system requests to filter allowable display
- * modes
+ * modes and to limit max refresh rate
  */
 class SystemRequestObserver {
     private static final String TAG = "SystemRequestObserver";
@@ -56,6 +56,8 @@ class SystemRequestObserver {
     private final Object mLock = new Object();
     @GuardedBy("mLock")
     private final Map<IBinder, SparseArray<List<Integer>>> mDisplaysRestrictions = new HashMap<>();
+    @GuardedBy("mLock")
+    private final Map<IBinder, SparseArray<Float>> mDisplaysMaxRefreshRates = new HashMap<>();
 
     SystemRequestObserver(VotesStorage storage) {
         mVotesStorage = storage;
@@ -69,6 +71,14 @@ class SystemRequestObserver {
         }
     }
 
+    void requestMaxRefreshRate(IBinder token, int displayId, float maxRefreshRate) {
+        if (maxRefreshRate == 0) {
+            removeMaxRefreshRateVote(token, displayId);
+        } else {
+            addMaxRefreshRateVote(token, displayId, maxRefreshRate);
+        }
+    }
+
     private void addSystemRequestedVote(IBinder token, int displayId, @NonNull int[] modeIds) {
         try {
             boolean needLinkToDeath = false;
@@ -77,9 +87,9 @@ class SystemRequestObserver {
                 modeIdsList.add(mode);
             }
             synchronized (mLock) {
+                needLinkToDeath = !isTokenTrackedLocked(token);
                 SparseArray<List<Integer>> modesByDisplay = mDisplaysRestrictions.get(token);
                 if (modesByDisplay == null) {
-                    needLinkToDeath = true;
                     modesByDisplay = new SparseArray<>();
                     mDisplaysRestrictions.put(token, modesByDisplay);
                 }
@@ -103,7 +113,51 @@ class SystemRequestObserver {
             SparseArray<List<Integer>> modesByDisplay = mDisplaysRestrictions.get(token);
             if (modesByDisplay != null && modesByDisplay.size() > 0) {
                 modesByDisplay.remove(displayId);
-                needToUnlink = modesByDisplay.size() == 0;
+                needToUnlink = !isTokenTrackedLocked(token);
+                updateStorageLocked(displayId);
+            }
+        }
+        if (needToUnlink) {
+            try {
+                Slog.d(TAG, "binder unlinking to death: " + token);
+                token.unlinkToDeath(mDeathRecipient, 0);
+            } catch (NoSuchElementException e) {
+                Slog.d(TAG, "unlinking to death failed: " + token, e);
+            }
+        }
+    }
+
+    private void addMaxRefreshRateVote(IBinder token, int displayId, float maxRefreshRate) {
+        try {
+            boolean needLinkToDeath = false;
+            synchronized (mLock) {
+                needLinkToDeath = !isTokenTrackedLocked(token);
+                SparseArray<Float> ratesByDisplay = mDisplaysMaxRefreshRates.get(token);
+                if (ratesByDisplay == null) {
+                    ratesByDisplay = new SparseArray<>();
+                    mDisplaysMaxRefreshRates.put(token, ratesByDisplay);
+                }
+
+                ratesByDisplay.put(displayId, maxRefreshRate);
+                updateStorageLocked(displayId);
+            }
+            if (needLinkToDeath) {
+                Slog.d(TAG, "binder linking to death: " + token);
+                token.linkToDeath(mDeathRecipient, 0);
+            }
+        } catch (RemoteException re) {
+            Slog.d(TAG, "linking to death failed: " + token, re);
+            removeSystemRequestedVotes(token);
+        }
+    }
+
+    private void removeMaxRefreshRateVote(IBinder token, int displayId) {
+        boolean needToUnlink = false;
+        synchronized (mLock) {
+            SparseArray<Float> ratesByDisplay = mDisplaysMaxRefreshRates.get(token);
+            if (ratesByDisplay != null && ratesByDisplay.size() > 0) {
+                ratesByDisplay.remove(displayId);
+                needToUnlink = !isTokenTrackedLocked(token);
                 updateStorageLocked(displayId);
             }
         }
@@ -125,7 +179,21 @@ class SystemRequestObserver {
                     updateStorageLocked(removed.keyAt(i));
                 }
             }
+            SparseArray<Float> removedRates = mDisplaysMaxRefreshRates.remove(token);
+            if (removedRates != null) {
+                for (int i = 0; i < removedRates.size(); i++) {
+                    updateStorageLocked(removedRates.keyAt(i));
+                }
+            }
         }
+    }
+
+    @GuardedBy("mLock")
+    private boolean isTokenTrackedLocked(IBinder token) {
+        SparseArray<List<Integer>> modesByDisplay = mDisplaysRestrictions.get(token);
+        SparseArray<Float> ratesByDisplay = mDisplaysMaxRefreshRates.get(token);
+        return (modesByDisplay != null && modesByDisplay.size() > 0)
+                || (ratesByDisplay != null && ratesByDisplay.size() > 0);
     }
 
     @GuardedBy("mLock")
@@ -145,7 +213,21 @@ class SystemRequestObserver {
             }
         });
 
+        float maxRefreshRate = Float.POSITIVE_INFINITY;
+        for (SparseArray<Float> ratesByDisplay : mDisplaysMaxRefreshRates.values()) {
+            maxRefreshRate = Math.min(maxRefreshRate,
+                    ratesByDisplay.get(displayId, Float.POSITIVE_INFINITY));
+        }
+
+        List<Vote> votes = new ArrayList<>();
+        if (modesFound[0]) {
+            votes.add(Vote.forSupportedModes(modeIds));
+        }
+        if (maxRefreshRate != Float.POSITIVE_INFINITY) {
+            votes.add(Vote.forPhysicalRefreshRates(0f, maxRefreshRate));
+            votes.add(Vote.forRenderFrameRates(0f, maxRefreshRate));
+        }
         mVotesStorage.updateVote(displayId, Vote.PRIORITY_SYSTEM_REQUESTED_MODES,
-                modesFound[0] ? Vote.forSupportedModes(modeIds) : null);
+                Vote.forVotes(votes));
     }
 }

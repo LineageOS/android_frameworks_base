@@ -591,6 +591,13 @@ public class DisplayModeDirector {
     }
 
     /**
+     * Delegates requestMaxRefreshRate call to SystemRequestObserver
+     */
+    public void requestMaxRefreshRate(IBinder token, int displayId, float maxRefreshRate) {
+        mSystemRequestObserver.requestMaxRefreshRate(token, displayId, maxRefreshRate);
+    }
+
+    /**
      * Called when the user switches.
      */
     public void onSwitchUser() {
