@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61bdb70c_b0e753ba",
+        "filename": "core/java/android/hardware/input/InputManager.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-08T19:22:40Z",
+      "side": 1,
+      "message": "meh...",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 390,
+        "endChar": 58
+      },
+      "revId": "1f0a8f8e58874c67f8e1aacbc56a93ff0d1f6c6b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
