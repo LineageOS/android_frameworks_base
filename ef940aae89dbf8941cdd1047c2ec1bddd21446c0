@@ -16,6 +16,24 @@
       "message": "Need to recheck the UdfpsControllerOverlay change after https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/506577",
       "revId": "ef940aae89dbf8941cdd1047c2ec1bddd21446c0",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a112960c_51f176bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-10-08T01:06:55Z",
+      "side": 1,
+      "message": "Double checked, that change is unrelated.",
+      "parentUuid": "58ab716e_30cbb485",
+      "revId": "ef940aae89dbf8941cdd1047c2ec1bddd21446c0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
