@@ -276,6 +276,10 @@ interface IDisplayManager {
     @EnforcePermission("RESTRICT_DISPLAY_MODES")
     void requestDisplayModes(in IBinder token, int displayId, in @nullable int[] modeIds);
 
+    // Restricts max refresh rate to specified value, 0 removes the restriction.
+    @EnforcePermission("RESTRICT_DISPLAY_MODES")
+    void requestMaxRefreshRate(in IBinder token, int displayId, float maxRefreshRate);
+
     // Get the highest defined HDR/SDR ratio for a display.
     float getHighestHdrSdrRatio(int displayId);
 

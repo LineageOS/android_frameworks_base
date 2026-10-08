@@ -6485,6 +6485,14 @@ public final class DisplayManagerService extends SystemService {
                     token, displayId, modeIds);
         }
 
+        @EnforcePermission(RESTRICT_DISPLAY_MODES)
+        @Override // Binder call
+        public void requestMaxRefreshRate(IBinder token, int displayId, float maxRefreshRate) {
+            requestMaxRefreshRate_enforcePermission();
+            DisplayManagerService.this.mDisplayModeDirector.requestMaxRefreshRate(
+                    token, displayId, maxRefreshRate);
+        }
+
         @Override // Binder call
         public float getHighestHdrSdrRatio(int displayId) {
             DisplayDeviceConfig ddc =
