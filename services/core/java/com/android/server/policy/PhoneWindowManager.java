@@ -4832,10 +4832,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         // no keyguard stuff to worry about, just launch home!
-        // If Recents is visible and the action is not from visible background users,
-        // hide Recents and notify it to launch Home.
-        if (mRecentsVisible
-                && (!mVisibleBackgroundUsersEnabled || displayId == DEFAULT_DISPLAY)) {
+        // Recents visibility and hideRecentApps apply to the default display. Secondary
+        // displays must deliver Home to their own launcher so it can dismiss its overview.
+        if (mRecentsVisible && displayId == DEFAULT_DISPLAY) {
             try {
                 ActivityManager.getService().stopAppSwitches();
             } catch (RemoteException e) {}
@@ -7077,7 +7076,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         DisplayInfo displayInfo = mDisplayManagerInternal.getDisplayInfo(displayId);
         boolean isDisplayExternal = displayInfo != null && displayInfo.type == TYPE_EXTERNAL;
-        if (isDisplayExternal) {
+        if (isDisplayExternal && !mWindowManagerInternal.isHomeSupportedOnDisplay(displayId)) {
             // TODO(b/441952247): Clean up using home gesture handling in WM Core
             mInputManagerInternal.handleKeyGestureInKeyGestureController(
                     new KeyGestureEvent.Builder()
