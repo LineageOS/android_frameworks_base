@@ -76,4 +76,7 @@
 
     <!-- Whether to play turbulence noise after clicking the play button -->
     <bool name="config_turbulenceNoise">true</bool>
+
+    <!-- Whether to force notifications to take up the full width of the screen in landscape -->
+    <bool name="config_fullWidthNotificationsInLandscape">false</bool>
 </resources>
