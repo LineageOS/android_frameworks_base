@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20f5ca4d_ebc94ecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30975
+      },
+      "writtenOn": "2026-10-10T05:10:07Z",
+      "side": 1,
+      "message": "Assist key consumption was removed in `61456c0d9311` during hardware-key rebinding. This restores it to prevent assist key events from reaching foreground apps",
+      "revId": "83c62023d857e3c442a94be0d6bce1b9dad002a2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
