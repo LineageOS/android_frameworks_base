@@ -16,6 +16,24 @@
       "message": "bumping this.",
       "revId": "7dd37e66e4013697323eb45f874ab07a804d3415",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac55cb1_d61eeb80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2026-10-11T09:06:23Z",
+      "side": 1,
+      "message": "status_bar_system_status_icons_in_compose seems to be enabled only in trunk_staging, so we need both code-paths for the time being",
+      "parentUuid": "678f3935_0029ddbb",
+      "revId": "7dd37e66e4013697323eb45f874ab07a804d3415",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
