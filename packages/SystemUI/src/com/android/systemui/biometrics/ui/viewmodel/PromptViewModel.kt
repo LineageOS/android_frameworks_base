@@ -237,8 +237,9 @@ constructor(
                 when {
                     isExtraLargeScreen && !modalities.hasUdfps && Flags.largeScreenBp() ->
                         PromptPosition.Center
+                    // UDFPS prompts have to follow the sensor around, even on large screens
                     forceLarge ||
-                        isLargeScreen ||
+                        (isLargeScreen && !modalities.hasUdfps) ||
                         fallbackShowing ||
                         promptKind.isOnePaneNoSensorLandscapeBiometric() -> PromptPosition.Bottom
                     rotation == DisplayRotation.ROTATION_90 -> PromptPosition.Right
