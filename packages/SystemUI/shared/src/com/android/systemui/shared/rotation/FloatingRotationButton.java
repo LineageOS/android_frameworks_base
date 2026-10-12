@@ -28,6 +28,7 @@ import android.content.res.Resources;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.DisplayUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,7 +114,8 @@ public class FloatingRotationButton implements RotationButton {
 
         int defaultMargin = Math.max(
                 res.getDimensionPixelSize(mMinMarginResource),
-                res.getDimensionPixelSize(mRoundedContentPaddingResource));
+                DisplayUtils.getResolutionScaledDimensionPixelSize(
+                        res, mContext.getDisplay(), mRoundedContentPaddingResource));
 
         int taskbarMarginLeft =
                 res.getDimensionPixelSize(mTaskbarLeftMarginResource);
