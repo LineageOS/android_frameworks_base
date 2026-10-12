@@ -16,6 +16,24 @@
       "message": "Can you explain in more detail why this is needed. A very similar issue has been fixed recently with https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/506419.",
       "revId": "94bdefb6a1442cc96c4cbc3cd88637200d3a2123",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a0195be_7a039526",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 38309
+      },
+      "writtenOn": "2026-10-12T17:59:07Z",
+      "side": 1,
+      "message": "Sure thing! That fix is for the lock screen itself, this is for the lock dialog in apps (e.g. password manager). The bug exists on a build from Oct. 11th, after that was merged. This is a related fix, but for PromptViewModel.kt and PromptSelectorInteractor.kt",
+      "parentUuid": "5ec33285_0ab01410",
+      "revId": "94bdefb6a1442cc96c4cbc3cd88637200d3a2123",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
