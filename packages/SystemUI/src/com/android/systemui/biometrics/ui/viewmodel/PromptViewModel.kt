@@ -238,7 +238,7 @@ constructor(
                     isExtraLargeScreen && !modalities.hasUdfps && Flags.largeScreenBp() ->
                         PromptPosition.Center
                     forceLarge ||
-                        isLargeScreen ||
+                        (isLargeScreen && !modalities.hasUdfps) ||
                         fallbackShowing ||
                         promptKind.isOnePaneNoSensorLandscapeBiometric() -> PromptPosition.Bottom
                     rotation == DisplayRotation.ROTATION_90 -> PromptPosition.Right

@@ -372,7 +372,7 @@ constructor(
                 if (isLandscape) {
                     val paneType =
                         when {
-                            displayStateInteractor.isLargeScreen.value ->
+                            displayStateInteractor.isLargeScreen.value && !modalities.hasUdfps ->
                                 PromptKind.Biometric.PaneType.ONE_PANE_LARGE_SCREEN_LANDSCAPE
                             showBpWithoutIconForCredential ->
                                 PromptKind.Biometric.PaneType.ONE_PANE_NO_SENSOR_LANDSCAPE
