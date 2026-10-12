@@ -21,6 +21,7 @@ import android.annotation.NonNull;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Insets;
+import android.util.DisplayUtils;
 import android.view.Display;
 import android.view.DisplayCutout;
 import android.view.Surface;
@@ -38,14 +39,24 @@ public final class SystemBarUtils {
      * Gets the status bar height.
      */
     public static int getStatusBarHeight(Context context) {
-        return getStatusBarHeight(context.getResources(), context.getDisplay().getCutout());
+        final Display display = context.getDisplay();
+        final int defaultSize = DisplayUtils.getResolutionScaledDimensionPixelSize(
+                context.getResources(), display, R.dimen.status_bar_height_default);
+        return getStatusBarHeight(defaultSize, display.getCutout());
     }
 
     /**
      * Gets the status bar height with a specific display cutout.
      */
     public static int getStatusBarHeight(Resources res, DisplayCutout cutout) {
-        final int defaultSize = res.getDimensionPixelSize(R.dimen.status_bar_height_default);
+        final float ratio = cutout == null ? 1f
+                : cutout.getCutoutPathParserInfo().getPhysicalPixelDisplaySizeRatio();
+        final int defaultSize = DisplayUtils.getResolutionScaledDimensionPixelSize(
+                res, R.dimen.status_bar_height_default, ratio);
+        return getStatusBarHeight(defaultSize, cutout);
+    }
+
+    private static int getStatusBarHeight(int defaultSize, DisplayCutout cutout) {
         final int safeInsetTop = cutout == null ? 0 : cutout.getSafeInsetTop();
         final int waterfallInsetTop = cutout == null ? 0 : cutout.getWaterfallInsets().top;
         // The status bar height should be:
@@ -77,8 +88,8 @@ public final class SystemBarUtils {
             insets = Insets.of(rotated.getSafeInsets());
             waterfallInsets = rotated.getWaterfallInsets();
         }
-        final int defaultSize =
-                context.getResources().getDimensionPixelSize(R.dimen.status_bar_height_default);
+        final int defaultSize = DisplayUtils.getResolutionScaledDimensionPixelSize(
+                context.getResources(), display, R.dimen.status_bar_height_default);
         // The status bar height should be:
         // Max(top cutout size, (status bar default height + waterfall top size))
         return Math.max(insets.top, defaultSize + waterfallInsets.top);

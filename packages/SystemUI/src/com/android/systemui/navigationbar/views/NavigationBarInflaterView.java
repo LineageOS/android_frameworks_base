@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.Icon;
 import android.util.AttributeSet;
+import android.util.DisplayUtils;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -153,7 +154,29 @@ public class NavigationBarInflaterView extends FrameLayout {
         mVertical = (FrameLayout) mLayoutInflater.inflate(R.layout.navigation_layout_vertical,
                 this /* root */, false /* attachToRoot */);
         addView(mVertical);
+        updateRoundedCornerPadding();
         updateAlternativeOrder();
+    }
+
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateRoundedCornerPadding();
+    }
+
+    private void updateRoundedCornerPadding() {
+        final int padding = DisplayUtils.getResolutionScaledDimensionPixelSize(
+                getResources(), getContext().getDisplay(), R.dimen.rounded_corner_content_padding);
+        final FrameLayout.LayoutParams horizontal =
+                (FrameLayout.LayoutParams) mHorizontal.getLayoutParams();
+        horizontal.setMarginStart(padding);
+        horizontal.setMarginEnd(padding);
+        mHorizontal.setLayoutParams(horizontal);
+        final FrameLayout.LayoutParams vertical =
+                (FrameLayout.LayoutParams) mVertical.getLayoutParams();
+        vertical.topMargin = padding;
+        vertical.bottomMargin = padding;
+        mVertical.setLayoutParams(vertical);
     }
 
     protected String getDefaultLayout() {

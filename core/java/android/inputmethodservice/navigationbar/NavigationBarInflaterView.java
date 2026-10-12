@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.inputmethodservice.navigationbar.ReverseLinearLayout.ReverseRelativeLayout;
 import android.util.AttributeSet;
+import android.util.DisplayUtils;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -114,7 +115,25 @@ public final class NavigationBarInflaterView extends FrameLayout {
                 com.android.internal.R.layout.input_method_navigation_layout,
                 this /* root */, false /* attachToRoot */);
         addView(mHorizontal);
+        updateRoundedCornerPadding();
         updateAlternativeOrder();
+    }
+
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateRoundedCornerPadding();
+    }
+
+    private void updateRoundedCornerPadding() {
+        final int padding = DisplayUtils.getResolutionScaledDimensionPixelSize(
+                getResources(), getContext().getDisplay(),
+                com.android.internal.R.dimen.rounded_corner_content_padding);
+        final FrameLayout.LayoutParams params =
+                (FrameLayout.LayoutParams) mHorizontal.getLayoutParams();
+        params.setMarginStart(padding);
+        params.setMarginEnd(padding);
+        mHorizontal.setLayoutParams(params);
     }
 
     String getDefaultLayout() {

@@ -22,6 +22,7 @@ import android.content.res.Resources
 import android.graphics.Insets
 import android.graphics.Point
 import android.graphics.Rect
+import android.util.DisplayUtils
 import android.util.LruCache
 import android.util.Pair
 import android.view.Display.DEFAULT_DISPLAY
@@ -314,7 +315,11 @@ constructor(
 
         val roundedCornerPadding =
             if (displayId == DEFAULT_DISPLAY) {
-                rotatedResources.getDimensionPixelSize(R.dimen.rounded_corner_content_padding)
+                DisplayUtils.getResolutionScaledDimensionPixelSize(
+                    rotatedResources,
+                    context.display,
+                    R.dimen.rounded_corner_content_padding,
+                )
             } else {
                 // Currently the padding is hardcoded for each device default display, and there is
                 // no mapping between the rounded corner radius (that you could get from

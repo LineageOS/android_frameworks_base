@@ -29,6 +29,7 @@ import android.os.Bundle
 import android.os.Trace
 import android.os.Trace.TRACE_TAG_APP
 import android.provider.AlarmClock
+import android.util.DisplayUtils
 import android.view.DisplayCutout
 import android.view.View
 import android.view.ViewGroup
@@ -469,7 +470,8 @@ constructor(
 
     private fun launchBatteryActivity() {
         activityStarter.postStartActivityDismissingKeyguard(
-            Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0
+            Intent(Intent.ACTION_POWER_USAGE_SUMMARY),
+            0,
         )
     }
 
@@ -654,7 +656,12 @@ constructor(
     }
 
     private fun updateResources() {
-        roundedCorners = resources.getDimensionPixelSize(R.dimen.rounded_corner_content_padding)
+        roundedCorners =
+            DisplayUtils.getResolutionScaledDimensionPixelSize(
+                resources,
+                context.display,
+                R.dimen.rounded_corner_content_padding,
+            )
         val padding = resources.getDimensionPixelSize(R.dimen.qs_panel_padding)
         header.setPadding(padding, header.paddingTop, padding, header.paddingBottom)
         updateQQSPaddings()
