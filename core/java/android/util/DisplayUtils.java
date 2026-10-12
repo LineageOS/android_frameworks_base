@@ -16,8 +16,10 @@
 
 package android.util;
 
+import android.annotation.DimenRes;
 import android.content.res.Resources;
 import android.view.Display;
+import android.view.DisplayInfo;
 
 import com.android.internal.R;
 
@@ -27,6 +29,36 @@ import com.android.internal.R;
  * @hide
  */
 public class DisplayUtils {
+    public static int getResolutionScaledDimensionPixelSize(Resources resources, Display display,
+            @DimenRes int resourceId) {
+        if (display == null) {
+            return resources.getDimensionPixelSize(resourceId);
+        }
+        final DisplayInfo info = new DisplayInfo();
+        if (!display.getDisplayInfo(info)) {
+            return resources.getDimensionPixelSize(resourceId);
+        }
+        final Display.Mode mode = getMaximumResolutionDisplayMode(info.supportedModes);
+        if (mode == null) {
+            return resources.getDimensionPixelSize(resourceId);
+        }
+        final float ratio = getPhysicalPixelDisplaySizeRatio(mode.getPhysicalWidth(),
+                mode.getPhysicalHeight(), info.getNaturalWidth(), info.getNaturalHeight());
+        return getResolutionScaledDimensionPixelSize(resources, resourceId, ratio);
+    }
+
+    public static int getResolutionScaledDimensionPixelSize(Resources resources,
+            @DimenRes int resourceId, float ratio) {
+        final int size = resources.getDimensionPixelSize(resourceId);
+        final TypedValue value = new TypedValue();
+        resources.getValue(resourceId, value, true);
+        if (value.type != TypedValue.TYPE_DIMENSION
+                || value.getComplexUnit() != TypedValue.COMPLEX_UNIT_PX
+                || !Float.isFinite(ratio) || ratio <= 0) {
+            return size;
+        }
+        return Math.round(size * ratio);
+    }
 
     /**
      * Gets the index of the given display unique id in {@link R.array#config_displayUniqueIdArray}
