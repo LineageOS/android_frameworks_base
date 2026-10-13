@@ -152,6 +152,34 @@ constructor(
         null
     }
 
+    private var isDimLayerAdded = false
+
+    private fun addDimLayer() {
+        val helper = udfpsHelper ?: return
+        if (!isDimLayerAdded) {
+            helper.addDimLayer()
+            isDimLayerAdded = true
+        }
+    }
+
+    private fun removeDimLayer() {
+        if (isDimLayerAdded) {
+            udfpsHelper?.removeDimLayer()
+            isDimLayerAdded = false
+        }
+    }
+
+    /** App prompts must only request global HBM while illuminating the sensor. */
+    fun setIlluminationRequested(requested: Boolean) {
+        if (requestReason == REASON_AUTH_BP) {
+            if (requested) {
+                addDimLayer()
+            } else {
+                removeDimLayer()
+            }
+        }
+    }
+
     private val coreLayoutParams =
         WindowManager.LayoutParams(
                 WindowManager.LayoutParams.TYPE_NAVIGATION_BAR_PANEL,
@@ -284,7 +312,10 @@ constructor(
     }
 
     private fun addViewNowOrLater(view: View, animation: UdfpsAnimationViewController<*>?) {
-        udfpsHelper?.addDimLayer()
+        // On GHBM devices, presenting this layer also enables panel HBM.
+        if (requestReason != REASON_AUTH_BP) {
+            addDimLayer()
+        }
         addViewRunnable =
             kotlinx.coroutines.Runnable {
                 Trace.setCounter("UdfpsAddView", 1)
@@ -339,9 +370,7 @@ constructor(
         }
         udfpsOverlayInteractor.stopHandlingTouches()
         udfpsDisplayModeProvider.disable(null)
-        if (wasShowing) {
-            udfpsHelper?.removeDimLayer()
-        }
+        removeDimLayer()
         getTouchOverlay()?.apply {
             if (this.parent != null) {
                 if (Build.IS_DEBUGGABLE) {
