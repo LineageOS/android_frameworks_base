@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c916bc69_b94aa70e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-13T23:13:08Z",
+      "side": 1,
+      "message": "Commit message fails to point what is even the point of this change or what it fixes, it just explains what the change does.",
+      "revId": "a17280aa0bfa5ce09a144bae2542ca4db9901155",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
