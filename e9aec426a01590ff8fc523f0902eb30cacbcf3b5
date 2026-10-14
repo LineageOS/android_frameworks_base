@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1817a82_4e2970c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-14T13:49:26Z",
+      "side": 1,
+      "message": "Can\u0027t you simply convert your px overlays to dp as it is expected to do?",
+      "revId": "e9aec426a01590ff8fc523f0902eb30cacbcf3b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
