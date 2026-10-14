@@ -16,6 +16,24 @@
       "message": "Can\u0027t you simply convert your px overlays to dp as it is expected to do?",
       "revId": "e9aec426a01590ff8fc523f0902eb30cacbcf3b5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8e17ea4_d7f65b44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26502
+      },
+      "writtenOn": "2026-10-14T15:47:36Z",
+      "side": 1,
+      "message": "dp works fine fine up to 460 DPI. Above that, the status bar alignment and corner padding breaks because they scale with display density",
+      "parentUuid": "e1817a82_4e2970c2",
+      "revId": "e9aec426a01590ff8fc523f0902eb30cacbcf3b5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
