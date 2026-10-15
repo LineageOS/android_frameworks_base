@@ -34,9 +34,9 @@
     <string name="clock">Zegar</string>
     <string name="accessibility_adaptive_brightness">Adaptacyjna jasność ekranu</string>
     <string name="status_bar_icons_title">Ikony paska stanu</string>
-    <string name="quick_settings_ambient_display_label">Ekran Ambient</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ekran Ambient wyłączony.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ekran Ambient włączony.</string>
+    <string name="quick_settings_ambient_display_label">Ekran aktywny</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ekran aktywny wyłączony.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ekran aktywny włączony.</string>
     <string name="quick_settings_aod_label">Ekran zawsze włączony</string>
     <string name="quick_settings_aod_off_powersave_label">\"Ekran zawsze włączony\" wył.\nOszczędzanie baterii</string>
     <string name="quick_settings_caffeine_label">Kofeina</string>

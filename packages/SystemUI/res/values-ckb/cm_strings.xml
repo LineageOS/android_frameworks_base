@@ -65,7 +65,7 @@
     <string name="vpn_credentials_username">ناوی بەکارهێنەر</string>
     <string name="vpn_credentials_password">تێپەڕەوشە</string>
     <string name="vpn_credentials_dialog_connect">پەیوەستبوون</string>
-    <string name="status_bar_firewall">بەرگری ئاگرین (Firewall)</string>
+    <string name="status_bar_firewall">بەربەستی ئاگرین</string>
     <string name="battery_notification_channel_tv">ئاگادارکردنەوەی باتری</string>
     <string name="screenshot_delete_label">سڕینەوە</string>
     <string name="screenshot_delete_description">سڕینەوەی وێنەی ڕوونما</string>
