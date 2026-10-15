@@ -67,7 +67,7 @@
     <string name="vpn_credentials_dialog_connect">پەیوەستبوون</string>
     <string name="accessibility_dpad_left">ئاماژەپێکەر بۆ لای چەپ</string>
     <string name="accessibility_dpad_right">ئاماژەپێکەر بۆ لای ڕاست</string>
-    <string name="status_bar_firewall">بەرگری ئاگرین (Firewall)</string>
+    <string name="status_bar_firewall">بەربەستی ئاگرین</string>
     <string name="screenshot_delete_label">سڕینەوە</string>
     <string name="screenshot_delete_description">سڕینەوەی وێنەی ڕوونما</string>
     <string name="screenrecord_delete_label">سڕینەوە</string>
