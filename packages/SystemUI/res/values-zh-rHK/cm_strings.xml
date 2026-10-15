@@ -18,6 +18,12 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="clock">時鐘</string>
+    <string name="global_action_restart_system">系統</string>
+    <string name="global_action_restart_download">下載</string>
+    <string name="global_action_current_user">目前</string>
+    <string name="global_action_users">使用者</string>
+    <string name="status_bar_icons_title">狀態列圖示</string>
     <string name="quick_settings_ambient_display_label">環境顯示</string>
     <string name="quick_settings_heads_up_label">浮動通知</string>
     <string name="accessibility_quick_settings_heads_up_off">已關閉浮動通知。</string>
@@ -29,4 +35,12 @@
     <string name="accessibility_quick_settings_profiles_off">設定檔已關閉。</string>
     <string name="accessibility_quick_settings_profiles">設定檔：<xliff:g id="profile" example="Default">%s</xliff:g>。</string>
     <string name="quick_settings_usb_tether_label">USB 網絡共享</string>
+    <string name="vpn_credentials_username">用戶名稱</string>
+    <string name="vpn_credentials_password">密碼</string>
+    <string name="vpn_credentials_dialog_connect">連接</string>
+    <string name="status_bar_firewall">防火牆</string>
+    <string name="screenshot_delete_label">刪除</string>
+    <string name="screenshot_delete_description">刪除螢幕截圖
+
+</string>
 </resources>
