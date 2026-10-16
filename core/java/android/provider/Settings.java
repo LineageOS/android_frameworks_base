@@ -38,6 +38,7 @@ import android.annotation.SystemApi;
 import android.annotation.TestApi;
 import android.annotation.UserIdInt;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.ActivityThread;
 import android.app.AppOpsManager;
 import android.app.Application;
@@ -3852,7 +3853,10 @@ public final class Settings {
                 if (!isSystemCaller) {
                     String redactedValue = mReadableFieldsWithRedactedValue.get(name);
                     if (redactedValue != null && !redactedValue.isEmpty()
-                            && Flags.enableRedactedValueForReadable()) {
+                            && Flags.enableRedactedValueForReadable()
+                            && ActivityManager.checkComponentPermission(
+                                    Manifest.permission.WRITE_SECURE_SETTINGS, Process.myUid(),
+                                    -1, true) != PackageManager.PERMISSION_GRANTED) {
                         return redactedValue;
                     }
                 }

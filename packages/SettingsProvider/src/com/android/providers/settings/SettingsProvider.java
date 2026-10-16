@@ -2475,7 +2475,10 @@ public class SettingsProvider extends ContentProvider {
         }
 
         String redactedValue = redactedSettingsMap.get(setting.getName());
-        if (redactedValue != null && !redactedValue.isEmpty()) {
+        if (redactedValue != null && !redactedValue.isEmpty()
+                && ActivityManager.checkComponentPermission(
+                        Manifest.permission.WRITE_SECURE_SETTINGS, Binder.getCallingUid(),
+                        -1, true) != PackageManager.PERMISSION_GRANTED) {
             return redactedValue;
         }
         return setting.getValue();
