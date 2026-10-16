@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c0f15b_5db06b8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2026-10-16T16:18:58Z",
+      "side": 1,
+      "message": "I think adding/removing dim layer on finger down/up is a bad idea because we\u0027d have to fight with the timing which is never going to be perfect - Like the older implementation. It causes flickers on finger down/up.",
+      "revId": "2337737d159c693aa6026d799f3dcc5033faaf47",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
