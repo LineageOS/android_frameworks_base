@@ -3843,13 +3843,10 @@ public final class Settings {
             final boolean useCache = isSelf && !isInSystemServer();
             boolean needsGenerationTracker = false;
 
-            // Check if there is a redacted value for this setting
+            // Check if there is a redacted value for this setting. System, privileged and
+            // platform-signed apps (e.g. SystemUI) are exempt and must see the real value.
             if (!mReadableFieldsWithRedactedValue.isEmpty()) {
-                boolean isSystemCaller =
-                        Settings.isInSystemServer()
-                                || UserHandle.getAppId(Binder.getCallingUid())
-                                    < Process.FIRST_APPLICATION_UID;
-                if (!isSystemCaller) {
+                if (!isCallerExemptFromReadableRestriction()) {
                     String redactedValue = mReadableFieldsWithRedactedValue.get(name);
                     if (redactedValue != null && !redactedValue.isEmpty()
                             && Flags.enableRedactedValueForReadable()) {
