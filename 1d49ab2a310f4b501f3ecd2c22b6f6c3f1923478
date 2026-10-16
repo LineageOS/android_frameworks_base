@@ -16,6 +16,23 @@
       "message": "This fixes HBM blasting the entire screen during app biometrics prompt.",
       "revId": "1d49ab2a310f4b501f3ecd2c22b6f6c3f1923478",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80591038_adfb0c39",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2026-10-16T16:21:59Z",
+      "side": 1,
+      "message": "The only additional change that I use for my builds is Ibe23b7416809732a9fdb9614d1943ea557acfdc9. On ferrari, when the dim layer is up with biometric prompt, I notice only color changes (as expected since we lack any color correction) but the brightness looks well compensated similar to how it is in the lockscreen.\n\nI have no convincing reason to apply the alpha for both the view and the layout though. But maybe there are better colors with this - it\u0027s hard to say.",
+      "revId": "1d49ab2a310f4b501f3ecd2c22b6f6c3f1923478",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
