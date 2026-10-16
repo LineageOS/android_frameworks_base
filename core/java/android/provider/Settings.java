@@ -3845,11 +3845,7 @@ public final class Settings {
 
             // Check if there is a redacted value for this setting
             if (!mReadableFieldsWithRedactedValue.isEmpty()) {
-                boolean isSystemCaller =
-                        Settings.isInSystemServer()
-                                || UserHandle.getAppId(Binder.getCallingUid())
-                                    < Process.FIRST_APPLICATION_UID;
-                if (!isSystemCaller) {
+                if (!isCallerExemptFromReadableRestriction()) {
                     String redactedValue = mReadableFieldsWithRedactedValue.get(name);
                     if (redactedValue != null && !redactedValue.isEmpty()
                             && Flags.enableRedactedValueForReadable()) {

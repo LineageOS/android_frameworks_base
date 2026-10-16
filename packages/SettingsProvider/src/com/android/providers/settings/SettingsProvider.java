@@ -161,6 +161,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BooleanSupplier;
 import java.util.regex.Pattern;
 
 import javax.crypto.Mac;
@@ -666,7 +667,8 @@ public class SettingsProvider extends ContentProvider {
                 if (args.name != null) {
                     Setting setting = getGlobalSetting(args.name);
                     return packageSettingForQuery(setting, normalizedProjection,
-                            sReadableGlobalSettingsWithRedactedValue);
+                            sReadableGlobalSettingsWithRedactedValue,
+                            this::isCallerExemptFromRedaction);
                 } else {
                     return getAllGlobalSettings(projection);
                 }
@@ -676,7 +678,8 @@ public class SettingsProvider extends ContentProvider {
                 if (args.name != null) {
                     Setting setting = getSecureSetting(args.name, userId, callingDeviceId);
                     return packageSettingForQuery(setting, normalizedProjection,
-                            sReadableSecureSettingsWithRedactedValue);
+                            sReadableSecureSettingsWithRedactedValue,
+                            this::isCallerExemptFromRedaction);
                 } else {
                     return getAllSecureSettings(userId, Context.DEVICE_ID_DEFAULT, projection);
                 }
@@ -686,7 +689,8 @@ public class SettingsProvider extends ContentProvider {
                 if (args.name != null) {
                     Setting setting = getSystemSetting(args.name, userId, callingDeviceId);
                     return packageSettingForQuery(setting, normalizedProjection,
-                            sReadableSystemSettingsWithRedactedValue);
+                            sReadableSystemSettingsWithRedactedValue,
+                            this::isCallerExemptFromRedaction);
                 } else {
                     return getAllSystemSettings(userId, Context.DEVICE_ID_DEFAULT, projection);
                 }
@@ -1564,7 +1568,8 @@ public class SettingsProvider extends ContentProvider {
                 if (setting == null || setting.isNull()) {
                     continue;
                 }
-                String value = getEffectiveValue(setting, sReadableGlobalSettingsWithRedactedValue);
+                String value = getEffectiveValue(setting, sReadableGlobalSettingsWithRedactedValue,
+                        this::isCallerExemptFromRedaction);
                 appendSettingToCursor(result, String.valueOf(setting.getId()), setting.getName(),
                         value, String.valueOf(setting.isValuePreservedInRestore()));
             }
@@ -1767,7 +1772,8 @@ public class SettingsProvider extends ContentProvider {
                     continue;
                 }
 
-                String value = getEffectiveValue(setting, sReadableSecureSettingsWithRedactedValue);
+                String value = getEffectiveValue(setting, sReadableSecureSettingsWithRedactedValue,
+                        this::isCallerExemptFromRedaction);
                 appendSettingToCursor(result, String.valueOf(setting.getId()), setting.getName(),
                         value, String.valueOf(setting.isValuePreservedInRestore()));
             }
@@ -2048,7 +2054,8 @@ public class SettingsProvider extends ContentProvider {
                 if (setting == null || setting.isNull()) {
                     continue;
                 }
-                String value = getEffectiveValue(setting, sReadableSystemSettingsWithRedactedValue);
+                String value = getEffectiveValue(setting, sReadableSystemSettingsWithRedactedValue,
+                        this::isCallerExemptFromRedaction);
                 appendSettingToCursor(result, String.valueOf(setting.getId()), setting.getName(),
                         value, String.valueOf(setting.isValuePreservedInRestore()));
             }
@@ -2457,7 +2464,8 @@ public class SettingsProvider extends ContentProvider {
     }
 
     private static String getEffectiveValue(Setting setting,
-            @Nullable ArrayMap<String, String> redactedSettingsMap) {
+            @Nullable ArrayMap<String, String> redactedSettingsMap,
+            BooleanSupplier isCallerExemptFromRedaction) {
         if (setting == null || setting.isNull()) {
             return null;
         }
@@ -2470,15 +2478,29 @@ public class SettingsProvider extends ContentProvider {
             return setting.getValue();
         }
 
-        if (UserHandle.getAppId(Binder.getCallingUid()) < Process.FIRST_APPLICATION_UID) {
-            return setting.getValue();
-        }
-
         String redactedValue = redactedSettingsMap.get(setting.getName());
-        if (redactedValue != null && !redactedValue.isEmpty()) {
+        if (redactedValue != null && !redactedValue.isEmpty()
+                && !isCallerExemptFromRedaction.getAsBoolean()) {
             return redactedValue;
         }
         return setting.getValue();
+    }
+
+    /**
+     * System apps and apps signed with the platform key (e.g. SystemUI) see the real value,
+     * matching the exemption in {@link #enforceSettingReadable}.
+     */
+    private boolean isCallerExemptFromRedaction() {
+        if (UserHandle.getAppId(Binder.getCallingUid()) < Process.FIRST_APPLICATION_UID) {
+            return true;
+        }
+        try {
+            final ApplicationInfo ai = getCallingApplicationInfoOrThrow();
+            return ai.isSystemApp() || ai.isSignedWithPlatformKey();
+        } catch (IllegalStateException | SecurityException e) {
+            // Unknown caller: keep redacting.
+            return false;
+        }
     }
 
     private void enforceSettingReadable(String settingName, int settingsType, int userId) {
@@ -2885,7 +2907,8 @@ public class SettingsProvider extends ContentProvider {
         Bundle result = new Bundle();
         ArrayMap<String, String> redactedSettingsMap = getRedactedSettingsMap(type);
 
-        String value = getEffectiveValue(setting, redactedSettingsMap);
+        String value = getEffectiveValue(setting, redactedSettingsMap,
+                this::isCallerExemptFromRedaction);
         result.putString(Settings.NameValueTable.VALUE, value);
 
         synchronized (mLock) {
@@ -3110,13 +3133,15 @@ public class SettingsProvider extends ContentProvider {
     }
 
     private static MatrixCursor packageSettingForQuery(Setting setting, String[] projection,
-            ArrayMap<String, String> redactedSettingsMap) {
+            ArrayMap<String, String> redactedSettingsMap,
+            BooleanSupplier isCallerExemptFromRedaction) {
         if (setting.isNull()) {
             return new MatrixCursor(projection, 0);
         }
 
         MatrixCursor cursor = new MatrixCursor(projection, 1);
-        String value = getEffectiveValue(setting, redactedSettingsMap);
+        String value = getEffectiveValue(setting, redactedSettingsMap,
+                isCallerExemptFromRedaction);
         appendSettingToCursor(cursor, String.valueOf(setting.getId()), setting.getName(), value,
                 String.valueOf(setting.isValuePreservedInRestore()));
         return cursor;
