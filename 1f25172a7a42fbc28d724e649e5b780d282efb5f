@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3560c3dd_a28ced55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-17T17:29:04Z",
+      "side": 1,
+      "message": "are you actually testing your changes? or are you letting LLM guess what will work and expecting that others try it?",
+      "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
