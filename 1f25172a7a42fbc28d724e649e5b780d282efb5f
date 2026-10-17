@@ -34,6 +34,23 @@
       "parentUuid": "3560c3dd_a28ced55",
       "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6395528a_18c6e12d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-17T18:50:46Z",
+      "side": 1,
+      "message": "Is all this change worth to just show the build ID that is only shown on userdebug anyway? LLMs are happy to add a bunch of changes that I will have to rebase every 6 months/every year",
+      "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
