@@ -16,6 +16,24 @@
       "message": "are you actually testing your changes? or are you letting LLM guess what will work and expecting that others try it?",
       "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e29db44_28d6d9c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21070
+      },
+      "writtenOn": "2026-10-17T17:32:36Z",
+      "side": 1,
+      "message": "This time I forced the LLM to try the change via LSPosed module, result: worked!\nThen LLM removed LSPosed module, patched SystemUI and created a magisk module.\nMagisk module also worked!\nSo I guess Patchset 3 should be fine.",
+      "parentUuid": "3560c3dd_a28ced55",
+      "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
