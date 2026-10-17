@@ -51,6 +51,24 @@
       "message": "Is all this change worth to just show the build ID that is only shown on userdebug anyway? LLMs are happy to add a bunch of changes that I will have to rebase every 6 months/every year",
       "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf2dd45_06c9d5c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21070
+      },
+      "writtenOn": "2026-10-17T18:55:05Z",
+      "side": 1,
+      "message": "Well, this is not about build number, all system apps can\u0027t read private settings value also, so we should fix it probably ?",
+      "parentUuid": "6395528a_18c6e12d",
+      "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
