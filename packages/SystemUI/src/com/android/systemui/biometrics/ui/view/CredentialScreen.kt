@@ -54,6 +54,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.android.compose.theme.PlatformTheme
+import com.android.internal.widget.LockPatternUtils
 import com.android.internal.widget.LockPatternView
 import com.android.systemui.biometrics.domain.interactor.BiometricPromptView
 import com.android.systemui.biometrics.domain.model.BiometricOperationInfo
@@ -79,6 +80,10 @@ fun CredentialScreen(
     val viewModel = rememberViewModel("CredentialScreen") { viewModelFactory.create() }
     val credentialKind by
         viewModel.credentialKind.collectAsStateWithLifecycle(initialValue = PromptKind.None)
+    val patternSize by
+        viewModel.patternSize.collectAsStateWithLifecycle(
+            initialValue = LockPatternUtils.PATTERN_SIZE_DEFAULT
+        )
     val currentView by
         viewModel.currentView.collectAsStateWithLifecycle(
             initialValue = BiometricPromptView.BIOMETRIC
@@ -192,6 +197,7 @@ fun CredentialScreen(
                                 onVerify = verifyPatternAction,
                                 onSuccess = { credential -> handleSuccess(credential) },
                                 onPatternCellAdded = viewModel::performPatternDotFeedback,
+                                patternSize = patternSize,
                                 stealthMode = stealthMode,
                                 isVisible = currentView == BiometricPromptView.CREDENTIAL,
                                 error = errorMessage,

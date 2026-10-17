@@ -98,6 +98,9 @@ interface PromptSelectorInteractor {
      */
     val credentialKind: Flow<PromptKind>
 
+    /** PromptKind.Pattern grid size */
+    val patternSize: Flow<Byte>
+
     /**
      * If the API caller or the user's personal preferences require explicit confirmation after
      * successful authentication.
@@ -269,6 +272,16 @@ constructor(
                 getCredentialType(lockPatternUtils, effectiveUserId)
             } else {
                 PromptKind.None
+            }
+        }
+
+    override val patternSize: Flow<Byte> =
+        promptRepository.userId.map { userId ->
+            if (userId != null) {
+                val effectiveUserId = credentialInteractor.getCredentialOwnerOrSelfId(userId)
+                lockPatternUtils.getLockPatternSize(effectiveUserId)
+            } else {
+                LockPatternUtils.PATTERN_SIZE_DEFAULT
             }
         }
 

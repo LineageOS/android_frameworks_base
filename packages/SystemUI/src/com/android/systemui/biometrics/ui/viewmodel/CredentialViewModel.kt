@@ -53,6 +53,7 @@ constructor(
     }
 
     val credentialKind: Flow<PromptKind> = promptSelectorInteractor.credentialKind
+    val patternSize: Flow<Byte> = promptSelectorInteractor.patternSize
 
     /**
      * Whether credential is allowed in the prompt True if bp caller requested credential and
