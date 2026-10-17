@@ -47,6 +47,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -159,7 +160,8 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
             }
         }
 
-        if (ExtconUEventObserver.extconExists() && mExtconObserver.uEventCount() > 0 && false) {
+        if (ExtconUEventObserver.extconExists() && mExtconObserver.uEventCount() > 0
+                && mObserver.uEventCount() == 0) {
             if (mUseDevInputEventForAudioJack) {
                 Log.w(TAG, "Both input event and extcon are used for audio jack,"
                         + " please just choose one.");
@@ -440,6 +442,10 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
 
         public WiredAccessoryObserver() {
             mUEventInfo = makeObservedUEventList();
+        }
+
+        int uEventCount() {
+            return mUEventInfo.size();
         }
 
         void init() {
@@ -818,6 +824,7 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
 
     private class WiredAccessoryExtconObserver extends ExtconStateObserver<Pair<Integer, Integer>> {
         private final List<ExtconInfo> mExtconInfos;
+        private final HashMap<String, Pair<Integer, Integer>> mExtconStates = new HashMap<>();
 
         WiredAccessoryExtconObserver() {
             mExtconInfos = ExtconInfo.getExtconInfoForTypes(new String[] {
@@ -882,8 +889,14 @@ final class WiredAccessoryManager implements WiredAccessoryCallbacks {
         public void updateState(ExtconInfo extconInfo, String name,
                 Pair<Integer, Integer> maskAndState) {
             synchronized (mLock) {
-                int mask = maskAndState.first;
-                int state = maskAndState.second;
+                // Several extcons can report the same cable type (one per HDMI port)
+                mExtconStates.put(extconInfo.getName(), maskAndState);
+                int mask = 0;
+                int state = 0;
+                for (Pair<Integer, Integer> s : mExtconStates.values()) {
+                    mask |= s.first;
+                    state |= s.first & s.second;
+                }
                 updateLocked(
                         name, "",
                         mHeadsetState & ~(mask & ~state) | (mask & state),
