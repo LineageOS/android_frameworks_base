@@ -141,8 +141,8 @@ public abstract class DisplayAddress implements Parcelable {
             boolean stableEdidsFlag) {
         if (stableEdidsFlag && one instanceof StablePhysical oneStable
                 && two instanceof StablePhysical twoStable) {
-            return (oneStable.getPhysicalDisplayId()
-                    == twoStable.getPhysicalDisplayId());
+            return (oneStable.getPhysicalDisplayId() == twoStable.getPhysicalDisplayId()) ||
+                    (oneStable.getPort() == twoStable.getPort());
         }
 
         if (!stableEdidsFlag && one instanceof Physical onePhysical
