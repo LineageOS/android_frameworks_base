@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87038513_bf8e9741",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21070
+      },
+      "writtenOn": "2026-10-18T08:52:43Z",
+      "side": 1,
+      "message": "Some context on where this comes from: the redaction is gated by enable_redacted_value_for_readable, which is disabled in AOSP (no value in build/release) and in GrapheneOS. LineageOS enables it in vendor/lineage: https://review.lineageos.org/c/LineageOS/android_vendor_lineage/+/503387\n▎\n▎ With the flag on, development_settings_enabled and adb_enabled read as 0 for every caller with an app uid. That covers regular apps, which is intended. It also covers system apps like SystemUI, which never sees developer options as enabled, so the QS build number is never shown.\n▎\n▎ Two ways to fix it:\n▎\n▎ 1. Revert 503387: no frameworks/base diff, same behaviour as AOSP/GrapheneOS, but apps can detect developer options/ADB again.\n▎ 2. Keep the flag and take this change: +9/−2, apps holding WRITE_SECURE_SETTINGS (which can change these settings anyway, e.g. SystemUI) get the real value, and regular apps still get 0.\n▎\n▎ Patchset 4 (option 2) is tested on husky (LOS 24.0, user build): framework.jar and SettingsProvider.apk were compiled from it (outside Soong) and overlaid via Magisk. The QS build number follows the developer options toggle, and a regular app still reads both settings as 0.\n▎\n▎ Fine with either. If you prefer option 1, I\u0027ll abandon this.",
+      "revId": "963f36413cba0c4c7abd7f648835987a4082c4c2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
