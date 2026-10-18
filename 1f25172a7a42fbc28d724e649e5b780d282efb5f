@@ -69,6 +69,24 @@
       "parentUuid": "6395528a_18c6e12d",
       "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05975a7a_9429a7b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 21070
+      },
+      "writtenOn": "2026-10-18T08:24:13Z",
+      "side": 1,
+      "message": "I asked LLM to fix the issue with minor changes:\n\n```\nReduced to a minimal change (+9/−2, no new methods or signature changes): callers holding WRITE_SECURE_SETTINGS get the real value, since they can change these settings anyway. Tested on husky (LOS 24.0, user build) with framework.jar and SettingsProvider.apk compiled from this patchset (outside Soong) and overlaid via Magisk: the QS build number follows the developer options toggle, and a regular app still reads both settings as 0. FWIW the regression comes from enabling the flag in vendor/lineage (1accd04); AOSP/GrapheneOS leave it disabled.\n```\n\nLLM created this Magisk module from `Patchset 4`,\nHere is the module if you want to test it:\nhttps://workupload.com/file/dfNdkXbPqfm",
+      "parentUuid": "bcf2dd45_06c9d5c5",
+      "revId": "1f25172a7a42fbc28d724e649e5b780d282efb5f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
