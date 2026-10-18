@@ -133,12 +133,23 @@ public abstract class DisplayAddress implements Parcelable {
      * @param one first display address to compare
      * @param two second display address to compare
      * @return whether the displays are equal - if using Physical display addresses, allow ports to
-     * be used instead to match. If using StablePhysical, match only their physical display ids.
+     * be used instead to match. Port-only Physical selectors also match StablePhysical
+     * addresses by port. Two StablePhysical addresses match only their physical display ids.
      *
      * @hide
      */
     public static boolean matchInternalDisplays(DisplayAddress one, DisplayAddress two,
             boolean stableEdidsFlag) {
+        if (stableEdidsFlag) {
+            if (one instanceof Physical selector && selector.getModel() == null
+                    && two instanceof StablePhysical actual) {
+                return selector.getPort() == actual.getPort();
+            }
+            if (two instanceof Physical selector && selector.getModel() == null
+                    && one instanceof StablePhysical actual) {
+                return selector.getPort() == actual.getPort();
+            }
+        }
         if (stableEdidsFlag && one instanceof StablePhysical oneStable
                 && two instanceof StablePhysical twoStable) {
             return (oneStable.getPhysicalDisplayId()

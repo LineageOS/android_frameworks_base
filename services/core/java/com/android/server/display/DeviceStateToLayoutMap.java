@@ -213,12 +213,8 @@ class DeviceStateToLayoutMap {
             throw new IllegalArgumentException(
                   "Must specify a display identifier in display layout configuration: " + display);
         }
-        // If no display address is specified, use the port as the address. It is strongly
-        // recommended to put the display address in the display layout configuration.
-        // This fallback is unlikely to conflict with real addresses, but should be avoided if
-        // possible.
-        return DisplayAddress.fromPhysicalDisplayId(display.getPort_optional().intValue(),
-                display.getPort_optional().intValue(), mStableEdidsFlag);
+        // Preserve port-only selectors so they can match either physical address type.
+        return DisplayAddress.fromPortAndModel(display.getPort_optional().intValue(), null);
     }
 
     private int getPosition(@NonNull String position) {

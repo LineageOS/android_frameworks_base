@@ -29,6 +29,26 @@ private const val BITWISE_PORT = 0x12 and 0xFF
 @RunWith(TestParameterInjector::class)
 class DisplayAddressTest {
 
+    @Test
+    fun portSelectorMatchesStablePanelVariants() {
+        val inner = DisplayAddress.fromPortAndModel(131, null)
+        val cover = DisplayAddress.fromPortAndModel(132, null)
+        val panels = listOf(4630946704981769859L, 4630946717172870531L).map {
+            DisplayAddress.fromPhysicalDisplayId(it, 131, true)
+        }
+        for (panel in panels) {
+            assertTrue(DisplayAddress.matchInternalDisplays(inner, panel, true))
+            assertTrue(DisplayAddress.matchInternalDisplays(panel, inner, true))
+            assertFalse(DisplayAddress.matchInternalDisplays(cover, panel, true))
+            assertFalse(DisplayAddress.matchInternalDisplays(panel, cover, true))
+            assertFalse(inner.equals(panel))
+        }
+        assertFalse(DisplayAddress.matchInternalDisplays(panels[0], panels[1], true))
+        val modelAddress = DisplayAddress.fromPortAndModel(131, 1L)
+        assertFalse(DisplayAddress.matchInternalDisplays(modelAddress, panels[0], true))
+        assertFalse(DisplayAddress.matchInternalDisplays(panels[0], modelAddress, true))
+    }
+
     enum class MatchInternalDisplays(
         val edidsFlag: Boolean,
         val physicalDisplayId1: Long,

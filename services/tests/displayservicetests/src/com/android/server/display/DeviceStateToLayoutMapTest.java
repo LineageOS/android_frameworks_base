@@ -306,8 +306,7 @@ public class DeviceStateToLayoutMapTest {
 
         Layout testLayout = new Layout(null, stableEdidsFlag);
         // this should be created from port only
-        testLayout.createDisplayLocked(DisplayAddress.fromPhysicalDisplayId(
-                123, 123, stableEdidsFlag),
+        testLayout.createDisplayLocked(DisplayAddress.fromPortAndModel(123, null),
                 /* isDefault= */ true, /* isEnabled= */ true, /* displayGroupName= */ null,
                 mDisplayIdProducerMock, Layout.Display.POSITION_UNKNOWN,
                 /* leadDisplayAddress= */ null, /* brightnessThrottlingMapId= */ null,
@@ -328,6 +327,13 @@ public class DeviceStateToLayoutMapTest {
         testLayout.postProcessLocked();
 
         assertEquals(testLayout, configLayout);
+        assertEquals(configLayout.getByAddress(DisplayAddress.fromPortAndModel(123, null)),
+                configLayout.getByAddress(
+                        DisplayAddress.fromPhysicalDisplayId(123456L, 123, true)));
+        assertNull(configLayout.getByAddress(
+                DisplayAddress.fromPhysicalDisplayId(123456L, 124, true)));
+        assertNull(configLayout.getByAddress(
+                DisplayAddress.fromPhysicalDisplayId(78911L, 78910 & 0xFF, true)));
     }
 
     @Test
