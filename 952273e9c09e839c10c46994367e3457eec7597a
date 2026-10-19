@@ -70,6 +70,23 @@
       "parentUuid": "3ae49f9b_96ab08b1",
       "revId": "952273e9c09e839c10c46994367e3457eec7597a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7b2f7a_ce6e775c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-19T17:31:59Z",
+      "side": 1,
+      "message": "We forgot to do this before shipping",
+      "revId": "952273e9c09e839c10c46994367e3457eec7597a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
