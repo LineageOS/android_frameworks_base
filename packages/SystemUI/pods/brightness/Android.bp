@@ -38,6 +38,7 @@ java_library {
     static_libs: [
         "androidx.annotation_annotation",
         "com.android.systemui.brightness_api",
+        "com.android.systemui.shade_api",
         "com.android.systemui.user.data-api",
         "com.android.systemui.util.kotlin",
         "com.android.systemui.util.policy-api",
