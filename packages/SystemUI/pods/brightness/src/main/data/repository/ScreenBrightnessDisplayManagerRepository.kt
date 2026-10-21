@@ -30,14 +30,15 @@ import com.android.systemui.brightness.shared.BrightnessLog
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.dagger.qualifiers.Background
-import com.android.systemui.dagger.qualifiers.DisplayId
 import com.android.systemui.log.LogBuffer
 import com.android.systemui.log.core.LogLevel
 import com.android.systemui.log.table.TableLogBuffer
+import com.android.systemui.shade.ShadeDisplayAware
 import com.android.systemui.utils.coroutines.flow.conflatedCallbackFlow
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -45,6 +46,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -52,12 +54,14 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/** Tracks and changes the brightness of the display currently hosting the shade. */
+@OptIn(ExperimentalCoroutinesApi::class)
 @SuppressLint("MissingPermission")
 @SysUISingleton
 public class ScreenBrightnessDisplayManagerRepository
 @Inject
 constructor(
-    @DisplayId private val displayId: Int,
+    @ShadeDisplayAware private val displayId: StateFlow<Int>,
     private val displayManager: DisplayManager,
     @BrightnessLog private val logBuffer: LogBuffer,
     @BrightnessLog private val tableBuffer: TableLogBuffer,
@@ -73,12 +77,13 @@ constructor(
             for (call in apiQueue) {
                 val bounds = getMinMaxLinearBrightness()
                 val value = call.value.clamp(bounds.first, bounds.second).floatValue
+                val targetDisplayId = displayId.value
                 when (call) {
                     is SetBrightnessMethod.Temporary -> {
-                        displayManager.setTemporaryBrightness(displayId, value)
+                        displayManager.setTemporaryBrightness(targetDisplayId, value)
                     }
                     is SetBrightnessMethod.Permanent -> {
-                        displayManager.setBrightness(displayId, value)
+                        displayManager.setBrightness(targetDisplayId, value)
                     }
                 }
                 logBrightnessChange(call is SetBrightnessMethod.Permanent, value)
@@ -87,6 +92,16 @@ constructor(
     }
 
     private val brightnessInfo: StateFlow<BrightnessInfo?> =
+        displayId
+            .flatMapLatest { brightnessInfoFor(it) }
+            .flowOn(backgroundContext)
+            .stateIn(
+                applicationScope,
+                SharingStarted.WhileSubscribed(replayExpirationMillis = 0L),
+                null,
+            )
+
+    private fun brightnessInfoFor(targetDisplayId: Int): Flow<BrightnessInfo?> =
         conflatedCallbackFlow {
                 val listener =
                     object : DisplayManager.DisplayListener {
@@ -95,9 +110,7 @@ constructor(
                         override fun onDisplayRemoved(displayId: Int) {}
 
                         override fun onDisplayChanged(displayId: Int) {
-                            if (
-                                displayId == this@ScreenBrightnessDisplayManagerRepository.displayId
-                            ) {
+                            if (displayId == targetDisplayId) {
                                 trySend(Unit)
                             }
                         }
@@ -111,17 +124,11 @@ constructor(
                 awaitClose { displayManager.unregisterDisplayListener(listener) }
             }
             .onStart { emit(Unit) }
-            .map { brightnessInfoValue() }
-            .flowOn(backgroundContext)
-            .stateIn(
-                applicationScope,
-                SharingStarted.WhileSubscribed(replayExpirationMillis = 0L),
-                null,
-            )
+            .map { brightnessInfoValue(targetDisplayId) }
 
-    private suspend fun brightnessInfoValue(): BrightnessInfo? {
+    private suspend fun brightnessInfoValue(targetDisplayId: Int): BrightnessInfo? {
         return withContext(backgroundContext) {
-            displayManager.getDisplay(displayId).brightnessInfo
+            displayManager.getDisplay(targetDisplayId)?.brightnessInfo
         }
     }
 
@@ -140,7 +147,7 @@ constructor(
             .stateIn(applicationScope, SharingStarted.WhileSubscribed(), LinearBrightness(1f))
 
     override suspend fun getMinMaxLinearBrightness(): Pair<LinearBrightness, LinearBrightness> {
-        val brightnessInfo = brightnessInfo.value ?: brightnessInfoValue()
+        val brightnessInfo = brightnessInfo.value ?: brightnessInfoValue(displayId.value)
         val min = brightnessInfo?.brightnessMinimum ?: 0f
         val max = brightnessInfo?.brightnessMaximum ?: 1f
         return LinearBrightness(min) to LinearBrightness(max)
