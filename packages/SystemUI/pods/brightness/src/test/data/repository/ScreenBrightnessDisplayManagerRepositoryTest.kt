@@ -38,6 +38,7 @@ import com.android.systemui.util.mockito.capture
 import com.android.systemui.util.mockito.eq
 import com.android.systemui.util.mockito.whenever
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -60,11 +61,15 @@ class ScreenBrightnessDisplayManagerRepositoryTest : SysuiTestCase() {
     private val kosmos = testKosmos()
 
     private var currentBrightnessInfo = BrightnessInfo()
+    private var otherBrightnessInfo = BrightnessInfo()
 
     @Mock private lateinit var displayManager: DisplayManager
     @Mock private lateinit var display: Display
+    @Mock private lateinit var otherDisplay: Display
 
     private val displayId = 0
+    private val otherDisplayId = 2
+    private val shadeDisplayId = MutableStateFlow(displayId)
 
     private lateinit var underTest: ScreenBrightnessDisplayManagerRepository
 
@@ -72,7 +77,7 @@ class ScreenBrightnessDisplayManagerRepositoryTest : SysuiTestCase() {
     fun setUp() {
         underTest =
             ScreenBrightnessDisplayManagerRepository(
-                displayId,
+                shadeDisplayId,
                 displayManager,
                 FakeLogBuffer.Factory.create(),
                 logcatTableLogBuffer(kosmos, "screenBrightness"),
@@ -84,6 +89,8 @@ class ScreenBrightnessDisplayManagerRepositoryTest : SysuiTestCase() {
         whenever(displayManager.getDisplay(displayId)).thenReturn(display)
         // Using then answer so it will be retrieved in every call
         whenever(display.brightnessInfo).thenAnswer { currentBrightnessInfo }
+        whenever(displayManager.getDisplay(otherDisplayId)).thenReturn(otherDisplay)
+        whenever(otherDisplay.brightnessInfo).thenAnswer { otherBrightnessInfo }
     }
 
     @Test
@@ -222,6 +229,46 @@ class ScreenBrightnessDisplayManagerRepositoryTest : SysuiTestCase() {
                 verify(displayManager)
                     .setBrightness(displayId, currentBrightnessInfo.brightnessMaximum)
                 verify(displayManager, never()).setTemporaryBrightness(anyInt(), anyFloat())
+            }
+        }
+
+    @Test
+    fun brightnessInfo_followsShadeDisplay() =
+        with(kosmos) {
+            testScope.runTest {
+                currentBrightnessInfo = BrightnessInfo(0.2f, 0f, 1f)
+                otherBrightnessInfo = BrightnessInfo(0.8f, 0.1f, 0.9f)
+
+                val brightness by collectLastValue(underTest.linearBrightness)
+                val maxBrightness by collectLastValue(underTest.maxLinearBrightness)
+                runCurrent()
+
+                assertThat(brightness?.floatValue).isEqualTo(currentBrightnessInfo.brightness)
+
+                shadeDisplayId.value = otherDisplayId
+                runCurrent()
+
+                assertThat(brightness?.floatValue).isEqualTo(otherBrightnessInfo.brightness)
+                assertThat(maxBrightness?.floatValue)
+                    .isEqualTo(otherBrightnessInfo.brightnessMaximum)
+            }
+        }
+
+    @Test
+    fun setBrightness_followsShadeDisplay() =
+        with(kosmos) {
+            testScope.runTest {
+                shadeDisplayId.value = otherDisplayId
+
+                val brightness = 0.3f
+                underTest.setTemporaryBrightness(LinearBrightness(brightness))
+                underTest.setBrightness(LinearBrightness(brightness))
+                runCurrent()
+
+                verify(displayManager).setTemporaryBrightness(otherDisplayId, brightness)
+                verify(displayManager).setBrightness(otherDisplayId, brightness)
+                verify(displayManager, never()).setTemporaryBrightness(eq(displayId), anyFloat())
+                verify(displayManager, never()).setBrightness(eq(displayId), anyFloat())
             }
         }
 

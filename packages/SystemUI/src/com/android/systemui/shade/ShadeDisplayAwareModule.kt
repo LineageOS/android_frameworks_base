@@ -230,6 +230,12 @@ object ShadeDisplayAwareModule {
         return impl
     }
 
+    /** Provides the ID of the display currently hosting the shade window. */
+    @Provides
+    @ShadeDisplayAware
+    fun provideShadeDisplayId(repository: ShadeDisplaysRepository): StateFlow<Int> =
+        repository.displayId
+
     @Provides
     @SysUISingleton
     fun provideShadeDialogContextInteractor(
