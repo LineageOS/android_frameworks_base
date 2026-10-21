@@ -78,6 +78,7 @@ class ScreenBrightnessDisplayManagerRepositoryTest : SysuiTestCase() {
                 logcatTableLogBuffer(kosmos, "screenBrightness"),
                 kosmos.applicationCoroutineScope,
                 kosmos.testDispatcher,
+                context,
             )
 
         whenever(displayManager.getDisplay(displayId)).thenReturn(display)
