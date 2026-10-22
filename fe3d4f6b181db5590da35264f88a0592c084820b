@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04025633_54712d10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17162
+      },
+      "writtenOn": "2026-10-22T03:00:21Z",
+      "side": 1,
+      "message": "tested 1 (kvim1s, h96 max m9) and 2 port devices (orange pi 5 max)",
+      "revId": "fe3d4f6b181db5590da35264f88a0592c084820b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
