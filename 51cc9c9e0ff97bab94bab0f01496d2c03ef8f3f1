@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc40f19_222135ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17162
+      },
+      "writtenOn": "2026-10-24T15:08:18Z",
+      "side": 1,
+      "message": "veriefied on kvim3 - with this patch resolutions could be actually applied",
+      "revId": "51cc9c9e0ff97bab94bab0f01496d2c03ef8f3f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
