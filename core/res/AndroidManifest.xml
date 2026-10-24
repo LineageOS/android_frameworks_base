@@ -10627,6 +10627,10 @@
     <attribution android:tag="DevicePolicyManagerService"
         android:label="@string/device_policy_manager_service"/>
 
+    <!-- Attribution for Lineage Profile service. -->
+    <attribution android:tag="LineageProfileService"
+        android:label="@string/lineage_profile_service"/>
+
     <application android:process="system"
                  android:persistent="true"
                  android:hasCode="false"

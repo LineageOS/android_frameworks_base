@@ -651,6 +651,8 @@
     <string name="gnss_time_update_service">GNSS Time Update Service</string>
     <!-- Attribution for Device Policy Manager service. [CHAR LIMIT=NONE]-->
     <string name="device_policy_manager_service">Device Policy Manager Service</string>
+    <!-- Attribution label for the service that applies system profiles. [CHAR LIMIT=NONE] -->
+    <string name="lineage_profile_service">System profiles</string>
 
     <!-- Attribution for MusicRecognitionManagerService. [CHAR LIMIT=NONE]-->
     <string name="music_recognition_manager_service">Music Recognition Manager Service</string>
