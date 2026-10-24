@@ -2894,8 +2894,9 @@ public final class DisplayManagerService extends SystemService {
                 throw new IllegalArgumentException("width, height and refresh rate of mode should "
                         + "be greater than 0 when setting the global user preferred display mode.");
             }
-            DisplayDevice displayDevice = getDeviceForDisplayLocked(displayId);
-            if (displayDevice == null) {
+            // INVALID_DISPLAY means the global preference, which has no device of its own.
+            if (displayId != Display.INVALID_DISPLAY
+                    && getDeviceForDisplayLocked(displayId) == null) {
                 return;
             }
             if (!mFlags.isModeSwitchWithoutSavingEnabled()) {
