@@ -16,6 +16,24 @@
       "message": "These tests can be grouped in fact instead of having it as three separate test prefixes",
       "revId": "2c7d29d5a94ebb36221c501927ceb50de8f41de8",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ae3b0f6_175e1c01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 38446
+      },
+      "writtenOn": "2026-10-25T17:23:52Z",
+      "side": 1,
+      "message": "Done, grouped the test descriptions under a single Test: tag.",
+      "parentUuid": "b4514f18_6cd6050d",
+      "revId": "2c7d29d5a94ebb36221c501927ceb50de8f41de8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
