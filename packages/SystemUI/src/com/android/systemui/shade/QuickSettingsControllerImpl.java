@@ -48,6 +48,7 @@ import android.util.MathUtils;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
+import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowInsets;
 import android.view.WindowManager;
@@ -761,6 +762,13 @@ public class QuickSettingsControllerImpl implements QuickSettingsController, Dum
         final boolean onHeader = mInterceptRegion.contains((int) x, (int) y);
 
         if (getExpanded()) {
+            final View qsView = mQs != null ? mQs.getView() : null;
+            if (mFullyExpanded && yDiff > 0 && qsView != null
+                    && qsView.canScrollVertically(-1)) {
+                // A downward drag should return scrolled QS content to its top. Intercepting
+                // it as expansion would do nothing, since QS is already fully expanded.
+                return false;
+            }
             return onHeader || (yDiff < 0 && isTouchInQsArea(x, y));
         } else {
             return onHeader;

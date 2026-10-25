@@ -1311,6 +1311,10 @@ private class FrameLayoutTouchPassthrough(
     var downX = 0f
     var preventingIntercept = false
 
+    override fun canScrollVertically(direction: Int): Boolean {
+        return if (direction < 0) canScrollQs.backward() else canScrollQs.forward()
+    }
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val action = event.actionMasked
         when (action) {
