@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc9a0141_a06d443c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2026-10-26T16:17:31Z",
+      "side": 1,
+      "message": "Please indicate, whether I should merge this (to me, it makes sense, but I neither have a 17.1 tree any more, nor a device, I only did emu builds, when I worked on merging the ASB backports)",
+      "revId": "2fd409fbf482fb0ec2bc9507dd9daa8b773fb40d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
