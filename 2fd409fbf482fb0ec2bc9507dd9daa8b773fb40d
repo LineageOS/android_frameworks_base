@@ -16,6 +16,24 @@
       "message": "Please indicate, whether I should merge this (to me, it makes sense, but I neither have a 17.1 tree any more, nor a device, I only did emu builds, when I worked on merging the ASB backports)",
       "revId": "2fd409fbf482fb0ec2bc9507dd9daa8b773fb40d",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c3bda3a_843832cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20587
+      },
+      "writtenOn": "2026-10-26T16:37:33Z",
+      "side": 1,
+      "message": "I\u0027ve used this successfully for a long time and the fix is simple enough. So yes I recommend merging it",
+      "parentUuid": "dc9a0141_a06d443c",
+      "revId": "2fd409fbf482fb0ec2bc9507dd9daa8b773fb40d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
