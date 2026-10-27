@@ -3366,7 +3366,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mMenuLongPressAction = Action.SEARCH;
         }
         mAssistPressAction = Action.SEARCH;
-        mAssistLongPressAction = Action.VOICE_SEARCH;
+        mAssistLongPressAction = Action.fromIntSafe(res.getInteger(
+                org.lineageos.platform.internal.R.integer.config_longPressOnAssistBehavior));
         mAppSwitchPressAction = Action.APP_SWITCH;
         mAppSwitchLongPressAction = Action.fromIntSafe(res.getInteger(
                 org.lineageos.platform.internal.R.integer.config_longPressOnAppSwitchBehavior));
