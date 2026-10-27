@@ -31,6 +31,7 @@ import com.android.systemui.classifier.domain.interactor.falsingInteractor
 import com.android.systemui.coroutines.collectLastValue
 import com.android.systemui.graphics.ImageLoader
 import com.android.systemui.graphics.imageLoader
+import com.android.systemui.haptics.msdl.msdlPlayer
 import com.android.systemui.haptics.slider.sliderHapticsViewModelFactory
 import com.android.systemui.kosmos.Kosmos
 import com.android.systemui.kosmos.testScope
@@ -272,6 +273,7 @@ class BrightnessSliderViewModelTest : SysuiTestCase() {
             supportsMirror,
             brightnessWarningToast,
             imageLoader,
+            msdlPlayer,
         )
     }
 }
