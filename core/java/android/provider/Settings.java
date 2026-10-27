@@ -14327,6 +14327,29 @@ public final class Settings {
         @FlaggedApi("com.android.server.notification.favorites_incoming_call_lights")
         public static final String LIGHT_ANIMATION_FAVORITE_CALLS_ENABLED =
                 "light_animation_favorite_calls_enabled";
+
+        /**
+         * Style of the desktop mode app handle: one of the {@code DESKTOP_MODE_APP_HANDLE_STYLE_*}
+         * values. Defaults to {@link #DESKTOP_MODE_APP_HANDLE_STYLE_PILL}.
+         *
+         * @hide
+         */
+        public static final String DESKTOP_MODE_APP_HANDLE_STYLE = "desktop_mode_app_handle_style";
+
+        /**
+         * @hide
+         */
+        public static final int DESKTOP_MODE_APP_HANDLE_STYLE_PILL = 0;
+
+        /**
+         * @hide
+         */
+        public static final int DESKTOP_MODE_APP_HANDLE_STYLE_HIDDEN = 1;
+
+        /**
+         * @hide
+         */
+        public static final int DESKTOP_MODE_APP_HANDLE_STYLE_DOTS = 2;
     }
 
     /**

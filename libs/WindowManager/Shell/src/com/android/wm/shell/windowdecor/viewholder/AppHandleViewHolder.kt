@@ -21,9 +21,13 @@ import android.app.ActivityManager.RunningTaskInfo
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Point
+import android.graphics.Rect
+import android.graphics.drawable.Drawable
 import android.hardware.input.InputManager
 import android.os.Bundle
 import android.os.Handler
+import android.os.UserHandle
+import android.provider.Settings
 import android.view.InsetsFlags
 import android.view.LayoutInflater
 import android.view.MotionEvent.ACTION_DOWN
@@ -36,6 +40,7 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.window.DesktopExperienceFlags
 import android.window.DesktopModeFlags
 import androidx.core.view.ViewCompat
@@ -101,6 +106,17 @@ class AppHandleViewHolder(
     private val captionView: WindowDecorLinearLayout =
         rootView.requireViewById(R.id.desktop_mode_caption)
     val captionHandle: ImageButton = rootView.requireViewById(R.id.caption_handle)
+    // Layout defaults, restored when switching back from the dots style.
+    private val defaultHandleDrawable: Drawable? = captionHandle.drawable
+    private val defaultHandlePadding =
+        Rect(
+            captionHandle.paddingLeft,
+            captionHandle.paddingTop,
+            captionHandle.paddingRight,
+            captionHandle.paddingBottom,
+        )
+    private val defaultHandleScaleType = captionHandle.scaleType
+    private var appliedHandleStyle = Settings.Secure.DESKTOP_MODE_APP_HANDLE_STYLE_PILL
     private val inputManager = context.getSystemService(InputManager::class.java)
     private val decorThemeUtil = DecorThemeUtil(context)
     private val animator: AppHandleAnimator = AppHandleAnimator(rootView, captionHandle)
@@ -170,6 +186,7 @@ class AppHandleViewHolder(
         showInputLayer: Boolean,
         isCaptionVisible: Boolean,
     ) {
+        updateHandleStyle()
         setVisibility(isCaptionVisible)
         if (DesktopExperienceFlags.ENABLE_REENABLE_APP_HANDLE_COLOR_ANIMATIONS.isTrue) {
             animator.animateColorChange(getCaptionHandleBarColor(taskInfo))
@@ -326,6 +343,49 @@ class AppHandleViewHolder(
         animator.animateVisibilityChange(visible)
     }
 
+    // Hidden only clears the image alpha, so the handle still works and the view alpha
+    // animations don't undo it.
+    private fun updateHandleStyle() {
+        val style = readHandleStyle()
+        if (style == appliedHandleStyle) return
+        appliedHandleStyle = style
+        when (style) {
+            Settings.Secure.DESKTOP_MODE_APP_HANDLE_STYLE_DOTS -> {
+                captionHandle.setImageResource(R.drawable.desktop_mode_ic_app_handle_dots)
+                captionHandle.setPadding(0, 0, 0, 0)
+                captionHandle.scaleType = ImageView.ScaleType.FIT_CENTER
+                captionHandle.imageAlpha = HANDLE_ALPHA_OPAQUE
+            }
+            Settings.Secure.DESKTOP_MODE_APP_HANDLE_STYLE_HIDDEN -> {
+                restoreDefaultHandle()
+                captionHandle.imageAlpha = HANDLE_ALPHA_TRANSPARENT
+            }
+            else -> {
+                restoreDefaultHandle()
+                captionHandle.imageAlpha = HANDLE_ALPHA_OPAQUE
+            }
+        }
+    }
+
+    private fun restoreDefaultHandle() {
+        captionHandle.setImageDrawable(defaultHandleDrawable)
+        captionHandle.setPadding(
+            defaultHandlePadding.left,
+            defaultHandlePadding.top,
+            defaultHandlePadding.right,
+            defaultHandlePadding.bottom,
+        )
+        captionHandle.scaleType = defaultHandleScaleType
+    }
+
+    private fun readHandleStyle() =
+        Settings.Secure.getIntForUser(
+            context.contentResolver,
+            Settings.Secure.DESKTOP_MODE_APP_HANDLE_STYLE,
+            Settings.Secure.DESKTOP_MODE_APP_HANDLE_STYLE_PILL,
+            UserHandle.USER_CURRENT,
+        )
+
     @ColorInt
     private fun getCaptionHandleBarColor(taskInfo: RunningTaskInfo): Int {
         return if (shouldUseLightCaptionColors(taskInfo)) {
@@ -446,5 +506,7 @@ class AppHandleViewHolder(
     companion object {
         private const val TAG = "AppHandleViewHolder"
         private const val CLICK_DELAY: Long = 500
+        private const val HANDLE_ALPHA_OPAQUE = 255
+        private const val HANDLE_ALPHA_TRANSPARENT = 0
     }
 }

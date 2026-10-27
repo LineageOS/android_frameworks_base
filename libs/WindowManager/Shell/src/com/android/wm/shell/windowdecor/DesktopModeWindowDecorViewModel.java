@@ -50,6 +50,7 @@ import android.app.compat.CompatChanges;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.Region;
@@ -60,6 +61,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.SparseArray;
 import android.view.Choreographer;
 import android.view.IWindowManager;
@@ -591,6 +593,7 @@ public class DesktopModeWindowDecorViewModel implements WindowDecorViewModel,
             );
         }
         mDisplayController.addDisplayChangingController(mOnDisplayChangingListener);
+        registerAppHandleStyleObserver();
         if (mShellDesktopState.canEnterDesktopModeOrShowAppHandle()
                 && Flags.enableDesktopWindowingAppHandleEducation()) {
             mAppHandleEducationController.setAppHandleEducationTooltipCallbacks(
@@ -714,6 +717,23 @@ public class DesktopModeWindowDecorViewModel implements WindowDecorViewModel,
             decoration.relayout(taskInfo, decoration.getHasGlobalFocus(),
                     decoration.getExclusionRegion());
         });
+    }
+
+    /** Relayouts all decorations when the app handle style changes. */
+    private void registerAppHandleStyleObserver() {
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.DESKTOP_MODE_APP_HANDLE_STYLE),
+                false,
+                new ContentObserver(mMainHandler) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        forAllWindowDecorations(decoration -> decoration.relayout(
+                                decoration.getTaskInfo(),
+                                decoration.getHasGlobalFocus(),
+                                decoration.getExclusionRegion()));
+                    }
+                },
+                UserHandle.USER_ALL);
     }
 
     private void forAllWindowDecorations(Consumer<WindowDecorationWrapper> callback) {
