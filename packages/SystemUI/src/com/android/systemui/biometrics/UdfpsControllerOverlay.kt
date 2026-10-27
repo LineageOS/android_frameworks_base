@@ -328,6 +328,14 @@ constructor(
         }
     }
 
+    fun onFingerDown(onDimDrawn: Runnable) {
+        udfpsHelper?.onFingerDown(onDimDrawn) ?: onDimDrawn.run()
+    }
+
+    fun onFingerUp() {
+        udfpsHelper?.onFingerUp()
+    }
+
     /** Hide the overlay or return false and do nothing if it is already hidden. */
     fun hide(): Boolean {
         val wasShowing = isShowing

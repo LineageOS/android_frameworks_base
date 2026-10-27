@@ -39,6 +39,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 private const val TAG = "UdfpsHelper"
+private const val DIM_DRAWN_TIMEOUT_MS = 100L
 
 /**
  * Facilitates implementations that use GHBM where dim layer
@@ -73,6 +74,19 @@ class UdfpsHelper(
         }
     val maxPanelBrightness: Int = brightnessAlphaMap.keys.max()
 
+    private val dimOnPress: Boolean = context.resources
+        .getBoolean(com.android.systemui.res.R.bool.config_udfpsFrameworkDimmingOnPress)
+    private var isPressed = false
+    private var isDimDrawn = false
+    private var isMirrorShowing = false
+    private var isShadeTouchable = !isKeyguard
+    private var pressGeneration = 0
+    private var pendingOnDimDrawn: Runnable? = null
+    private val dimDrawnTimeout = Runnable {
+        Log.w(TAG, "Dim layer frame not committed in time, proceeding")
+        notifyDimDrawn(pressGeneration)
+    }
+
     private val dimLayoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.TYPE_NAVIGATION_BAR_PANEL,
         0 /* flags are set in computeLayoutParams() */,
@@ -85,7 +99,8 @@ class UdfpsHelper(
         flags = Utils.FINGERPRINT_OVERLAY_LAYOUT_PARAM_FLAGS or
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
         privateFlags = WindowManager.LayoutParams.PRIVATE_FLAG_TRUSTED_OVERLAY or
-                WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY
+                if (dimOnPress) 0
+                else WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY
         // Avoid announcing window title
         accessibilityTitle = " "
         inputFeatures = WindowManager.LayoutParams.INPUT_FEATURE_SPY
@@ -164,6 +179,10 @@ class UdfpsHelper(
     }
 
     fun addDimLayer() {
+        if (view.parent != null) {
+            Log.w(TAG, "Dim layer already added")
+            return
+        }
         brightnessToAlpha()
         windowManager.addView(view, dimLayoutParams)
         displayManager.registerDisplayListener(
@@ -174,8 +193,63 @@ class UdfpsHelper(
     }
 
     fun removeDimLayer() {
-        windowManager.removeView(view)
+        resetPressState()
         displayManager.unregisterDisplayListener(displayListener)
+        if (view.parent == null) {
+            Log.w(TAG, "Dim layer already removed")
+            return
+        }
+        windowManager.removeView(view)
+    }
+
+    fun onFingerDown(onDimDrawn: Runnable) {
+        if (!dimOnPress || (isPressed && isDimDrawn)) {
+            onDimDrawn.run()
+            return
+        }
+        pendingOnDimDrawn = onDimDrawn
+        if (isPressed) {
+            return
+        }
+        isPressed = true
+        updateVisibility()
+        if (!view.isAttachedToWindow) {
+            notifyDimDrawn(pressGeneration)
+            return
+        }
+        val generation = pressGeneration
+        view.viewTreeObserver.registerFrameCommitCallback { notifyDimDrawn(generation) }
+        view.postDelayed(dimDrawnTimeout, DIM_DRAWN_TIMEOUT_MS)
+    }
+
+    fun onFingerUp() {
+        if (!dimOnPress) {
+            return
+        }
+        resetPressState()
+        updateVisibility()
+    }
+
+    private fun resetPressState() {
+        pressGeneration++
+        isPressed = false
+        isDimDrawn = false
+        pendingOnDimDrawn = null
+        view.removeCallbacks(dimDrawnTimeout)
+    }
+
+    private fun notifyDimDrawn(generation: Int) {
+        if (generation != pressGeneration || !isPressed) {
+            return
+        }
+        view.removeCallbacks(dimDrawnTimeout)
+        isDimDrawn = true
+        pendingOnDimDrawn?.run()
+        pendingOnDimDrawn = null
+    }
+
+    private fun updateVisibility() {
+        view.isVisible = if (dimOnPress) isPressed else !isMirrorShowing && isShadeTouchable
     }
 
     init {
@@ -189,15 +263,14 @@ class UdfpsHelper(
             }
         }
 
-        if (!isKeyguard) {
-            view.isVisible = true
-        }
+        updateVisibility()
     }
 
     private suspend fun listenForBrightnessMirror(scope: CoroutineScope): Job {
         return scope.launch {
             brightnessMirrorShowingInteractor.isShowing.collect {
-                view.isVisible = !it
+                isMirrorShowing = it
+                updateVisibility()
             }
         }
     }
@@ -205,8 +278,9 @@ class UdfpsHelper(
     private suspend fun listenForShadeTouchability(scope: CoroutineScope): Job {
         return scope.launch {
             shadeInteractor.isShadeTouchable.collect {
-                view.isVisible = it
-                if (view.isVisible) {
+                isShadeTouchable = it
+                updateVisibility()
+                if (view.isVisible && !dimOnPress) {
                     brightnessToAlpha()
                     alphaAnimator.cancel()
                     alphaAnimator.start()

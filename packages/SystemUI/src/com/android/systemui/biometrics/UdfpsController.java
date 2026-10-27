@@ -1046,6 +1046,17 @@ public class UdfpsController implements DozeReceiver, Dumpable {
         return mOnFingerDown;
     }
 
+    private void dispatchOnUiReadyWhenDimmed(long requestId) {
+        if (mOverlay == null) {
+            return;
+        }
+        mOverlay.onFingerDown(() -> {
+            if (mOnFingerDown && mOverlay != null && mOverlay.matchesRequestId(requestId)) {
+                dispatchOnUiReady(requestId);
+            }
+        });
+    }
+
     private void dispatchOnUiReady(long requestId) {
         mFingerprintManager.onUdfpsUiEvent(FingerprintManager.UDFPS_UI_READY, requestId,
                 mSensorProps.sensorId);
@@ -1118,9 +1129,9 @@ public class UdfpsController implements DozeReceiver, Dumpable {
         final View view = mOverlay.getTouchOverlay();
         if (isOptical() && view instanceof UdfpsTouchOverlay udfpsView) {
             if (mIgnoreRefreshRate) {
-                dispatchOnUiReady(requestId);
+                dispatchOnUiReadyWhenDimmed(requestId);
             } else {
-                udfpsView.configureDisplay(() -> dispatchOnUiReady(requestId));
+                udfpsView.configureDisplay(() -> dispatchOnUiReadyWhenDimmed(requestId));
             }
         }
 
@@ -1171,6 +1182,9 @@ public class UdfpsController implements DozeReceiver, Dumpable {
             }
         }
         mOnFingerDown = false;
+        if (mOverlay != null) {
+            mOverlay.onFingerUp();
+        }
         unconfigureDisplay(view);
         cancelAodSendFingerUpAction();
     }
