@@ -259,8 +259,9 @@ public class FaceProvider implements IBinder.DeathRecipient, ServiceProvider {
                             mContext.getOpPackageName());
                 });
         sensor.init(mLockoutResetDispatcher, this);
-        final int userId = sensor.getLazySession().get() == null ? UserHandle.USER_NULL :
-                sensor.getLazySession().get().getUserId();
+        // A new HIDL sensor has no active user yet. Connecting its lazy session here
+        // can post cleanup to FaceHandler before addSensor publishes the sensor.
+        final int userId = UserHandle.USER_NULL;
         mFaceSensors.addSensor(sensorId, sensor, userId,
                 new SynchronousUserSwitchObserver() {
                     @Override
