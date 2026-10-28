@@ -110,8 +110,9 @@ public class HidlToAidlSessionAdapter implements ISession {
         if (!shouldRevoke) {
             Slog.w(TAG, "scheduleRevokeChallenge skipped - challenge still in use: "
                     + mGeneratedChallengeCount);
-            mHidlToAidlCallbackConverter.onError(0 /* deviceId */, mUserId,
-                    BiometricFaceConstants.FACE_ERROR_UNABLE_TO_PROCESS, 0 /* vendorCode */);
+            // Release this client's reference without invalidating another client's challenge.
+            // FaceRevokeChallengeClient needs its completion callback to advance the queue.
+            mHidlToAidlCallbackConverter.onChallengeRevoked(challenge);
             return;
         }
         mGenerateChallengeCreatedAt = INVALID_VALUE;
@@ -135,9 +136,18 @@ public class HidlToAidlSessionAdapter implements ISession {
             token.add(b);
         }
         final ArrayList<Integer> disabledFeatures = new ArrayList<>();
+        boolean requireDiversePoses = false;
         for (byte b: features) {
-            disabledFeatures.add(AidlConversionUtils.convertAidlToFrameworkFeature(b));
+            final int feature = AidlConversionUtils.convertAidlToFrameworkFeature(b);
+            if (feature == BiometricFaceConstants.FEATURE_REQUIRE_REQUIRE_DIVERSITY) {
+                requireDiversePoses = true;
+            }
         }
+        // AIDL requests enabled features; HIDL expects features to disable.
+        if (!requireDiversePoses) {
+            disabledFeatures.add(BiometricFaceConstants.FEATURE_REQUIRE_REQUIRE_DIVERSITY);
+        }
+        // Preserve HIDL's attention default: the AIDL client does not request it here.
         mSession.get().enroll(token, ENROLL_TIMEOUT_SEC, disabledFeatures);
         return new Cancellation();
     }

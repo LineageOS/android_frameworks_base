@@ -253,7 +253,11 @@ public class HidlToAidlSensorAdapter extends Sensor implements IHwBinder.DeathRe
     }
 
     private FaceUpdateActiveUserClient getFaceUpdateActiveUserClient(int userId) {
-        return new FaceUpdateActiveUserClient(getContext(), this::getIBiometricsFace,
+        return new FaceUpdateActiveUserClient(getContext(), () -> {
+                    // Register the HIDL callback before the HAL activates a user.
+                    getSession();
+                    return getIBiometricsFace();
+                },
                 mUserStartedCallback, userId, TAG, getSensorProperties().sensorId,
                 BiometricLogger.ofUnknown(getContext(), getHandler()), getBiometricContext(),
                 !getFaceUtilsInstance().getBiometricsForUser(getContext(), userId).isEmpty(),
