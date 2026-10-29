@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8feb6eb_d7f14bf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-10-29T02:37:17Z",
+      "side": 1,
+      "message": "Without this, face enroll on floral finishes instantly before enrolling the full face. It still works, but probably poorly compared to having the full face enrolled. The changes seem reasonable and are only isolated to HIDL face, which I think only floral is using atm.",
+      "revId": "77e6a90c29a1b147da04c0d2f9201d395317a20d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
