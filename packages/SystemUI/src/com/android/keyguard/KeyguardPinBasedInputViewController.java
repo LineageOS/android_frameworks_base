@@ -46,6 +46,8 @@ import com.android.systemui.res.R;
 import com.android.systemui.user.domain.interactor.SelectedUserInteractor;
 import com.android.systemui.util.wrapper.LockPatternCheckerWrapper;
 
+import lineageos.providers.LineageSettings;
+
 import java.util.Optional;
 
 public abstract class KeyguardPinBasedInputViewController<T extends KeyguardPinBasedInputView>
@@ -152,6 +154,7 @@ public abstract class KeyguardPinBasedInputViewController<T extends KeyguardPinB
     @Override
     protected void onViewAttached() {
         super.onViewAttached();
+        updatePinScrambling();
 
         boolean showAnimations = !mLockPatternUtils
                 .isPinEnhancedPrivacyEnabled(mSelectedUserInteractor.getSelectedUserId());
@@ -239,6 +242,19 @@ public abstract class KeyguardPinBasedInputViewController<T extends KeyguardPinB
         }
     }
 
+
+    @Override
+    public void startAppearAnimation() {
+        super.startAppearAnimation();
+        updatePinScrambling();
+    }
+
+    private void updatePinScrambling() {
+        mView.updatePinScrambling(
+                LineageSettings.System.getIntForUser(getContext().getContentResolver(),
+                        LineageSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0,
+                        mSelectedUserInteractor.getSelectedUserId()) == 1);
+    }
 
     @Override
     protected void onViewDetached() {

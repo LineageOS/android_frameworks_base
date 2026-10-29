@@ -50,6 +50,8 @@ import com.android.systemui.Flags;
 import com.android.systemui.res.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -61,6 +63,10 @@ public abstract class KeyguardPinBasedInputView extends KeyguardAbsKeyInputView 
     private NumPadButton mOkButton;
     private NumPadButton mDeleteButton;
     private NumPadKey[] mButtons = new NumPadKey[10];
+    private boolean mScramblePin;
+
+    private List<Integer> mNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
+    private final List<Integer> mDefaultNumbers = List.of(mNumbers.toArray(new Integer[0]));
 
     public KeyguardPinBasedInputView(Context context) {
         this(context, null);
@@ -177,7 +183,25 @@ public abstract class KeyguardPinBasedInputView extends KeyguardAbsKeyInputView 
         }
     }
 
+    protected void updatePinScrambling(boolean scramblePin) {
+        if (scramblePin || scramblePin != mScramblePin) {
+            mScramblePin = scramblePin;
+            if (scramblePin) {
+                Collections.shuffle(mNumbers);
+            } else {
+                mNumbers = new ArrayList<>(mDefaultNumbers);
+            }
+            // Keys in pad order (1-9, then 0), i.e. the order in which mNumbers is laid out
+            for (int i = 0; i < mNumbers.size(); i++) {
+                mButtons[(i + 1) % mButtons.length].setDigit(mNumbers.get(i));
+            }
+        }
+    }
+
     protected int getNumberIndex(int number) {
+        if (mScramblePin) {
+            return (mNumbers.indexOf(number) + 1) % mNumbers.size();
+        }
         return number;
     }
 
