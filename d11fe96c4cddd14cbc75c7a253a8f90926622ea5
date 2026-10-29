@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11de7ed8_3654cc55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-10-29T16:12:13Z",
+      "side": 1,
+      "message": "works on rpduo, supposedly also verified on iceland",
+      "revId": "d11fe96c4cddd14cbc75c7a253a8f90926622ea5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
