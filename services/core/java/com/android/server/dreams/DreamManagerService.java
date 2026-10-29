@@ -1987,6 +1987,17 @@ public final class DreamManagerService extends SystemService {
         }
 
         @Override
+        public void stopDreamWithoutWaking(boolean immediate, String reason) {
+            synchronized (mLock) {
+                // Stop dozing first, so that cleaning up the dream doesn't wake the device up.
+                if (mCurrentDream != null && mCurrentDream.isDozing) {
+                    stopDozingInternal(mCurrentDream.token);
+                }
+                stopDreamLocked(immediate, reason);
+            }
+        }
+
+        @Override
         public boolean isDreaming() {
             return isDreamingInternal();
         }

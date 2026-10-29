@@ -4094,7 +4094,8 @@ public final class PowerManagerService extends SystemService
 
         // Stop dream.
         if (isDreaming && mDreamManager != null) {
-            mDreamManager.stopDream(/* immediate= */ false, "power manager request" /*reason*/);
+            mDreamManager.stopDreamWithoutWaking(/* immediate= */ false,
+                    "power manager request" /*reason*/);
         }
     }
 

@@ -42,6 +42,18 @@ public abstract class DreamManagerInternal {
     public abstract void stopDream(boolean immediate, String reason);
 
     /**
+     * Called by the power manager to stop a dream it no longer needs.
+     *
+     * Unlike {@link #stopDream}, this doesn't wake the device up if the dream was dozing,
+     * since the power manager has already moved on to another wakefulness state.
+     *
+     * @param immediate If true, ends the dream summarily, otherwise gives it some time
+     * to perform a proper exit transition.
+     * @param reason The reason to stop dreaming, which is logged to help debugging.
+     */
+    public abstract void stopDreamWithoutWaking(boolean immediate, String reason);
+
+    /**
      * Called by the power manager to determine whether a dream is running.
      */
     public abstract boolean isDreaming();
