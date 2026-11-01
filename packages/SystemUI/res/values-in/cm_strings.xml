@@ -73,4 +73,6 @@
     <string name="battery_notification_channel_tv">Peringatan baterai</string>
     <string name="screenshot_delete_label">Hapus</string>
     <string name="screenshot_delete_description">Hapus tangkapan layar</string>
+    <string name="screen_pinning_description_no_navbar">Ini membuatnya tetap dalam layar sampai anda melepasnya. Pilih &amp; tahan tombol Kembali untuk melepas sematan.</string>
+    <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
 </resources>
