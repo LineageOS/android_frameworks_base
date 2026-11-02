@@ -118,6 +118,30 @@
       },
       "revId": "49ba0166286a0e6a70f26fec306c84d88d0af21a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe5f009_211ac3c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 31416
+      },
+      "writtenOn": "2026-11-02T22:59:09Z",
+      "side": 1,
+      "message": "\u003e I am confused. Are you working on fixing this chain on 23.2 or 24.0? You abandoned the fixup! without squashing it here, as I told you to.\n\nSorry, squashed into the wrong commit, squashing into this one conflicts.\nShouldnt have submitted code that late, will fix tmrw.",
+      "parentUuid": "42106cfc_09bcd7ac",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 81
+      },
+      "revId": "49ba0166286a0e6a70f26fec306c84d88d0af21a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
