@@ -1981,6 +1981,19 @@ class ActivityStarter {
         if (avoidMoveToFront() && transition != null) {
             transition.addFlag(TRANSIT_FLAG_AVOID_MOVE_TO_FRONT);
         }
+        if (remoteTransition != null && options != null
+                && options.getCallerDisplayId() != INVALID_DISPLAY
+                && options.getCallerDisplayId() != startedActivityRootTask.getDisplayId()) {
+            // The caller can't animate a launch that ended up on another display, let the default
+            // transition handle it there instead
+            try {
+                remoteTransition.getRemoteTransition().onTransitionConsumed(
+                        null /* transition */, true /* aborted */);
+            } catch (RemoteException e) {
+                Slog.w(TAG, "Failed to notify remote transition of being consumed", e);
+            }
+            remoteTransition = null;
+        }
         if (isIndependentLaunch && transition != null) {
             transitionController.requestStartTransition(transition,
                     mTargetTask == null ? started.getTask() : mTargetTask,
