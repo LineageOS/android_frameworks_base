@@ -70,6 +70,30 @@
       },
       "revId": "49ba0166286a0e6a70f26fec306c84d88d0af21a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a14d78aa_90dd12ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 31416
+      },
+      "writtenOn": "2026-11-02T22:49:27Z",
+      "side": 1,
+      "message": "Nope, by hand, but Ive repushed these commits based on another branch, that still had those commit messages and forgot to remove them. Ed, the guy who did the commits, is pretty busy and didnt work with gerrit that much so far. He knows about the submission and I think he has an equivalent for 24.0 as well.",
+      "parentUuid": "3005e41c_7302aa1d",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 81
+      },
+      "revId": "49ba0166286a0e6a70f26fec306c84d88d0af21a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
