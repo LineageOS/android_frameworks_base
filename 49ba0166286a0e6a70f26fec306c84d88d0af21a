@@ -46,6 +46,30 @@
       },
       "revId": "49ba0166286a0e6a70f26fec306c84d88d0af21a",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3005e41c_7302aa1d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-02T22:43:39Z",
+      "side": 1,
+      "message": "Are you using AI to rebase and squash commits?",
+      "parentUuid": "9f9a7c2a_db142532",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 81
+      },
+      "revId": "49ba0166286a0e6a70f26fec306c84d88d0af21a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
