@@ -47,6 +47,7 @@ import android.util.Xml;
 
 import com.android.internal.R;
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.content.MicrogUtils;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -121,7 +122,9 @@ public final class CredentialProviderInfoFactory {
         verifyProviderPermission(serviceInfo);
         if (isSystemProvider) {
             if (!isValidSystemProvider(
-                    context, serviceInfo, disableSystemAppVerificationForTests)) {
+                    context, serviceInfo, disableSystemAppVerificationForTests)
+                    && !MicrogUtils.isMicrogServices(context, serviceInfo.packageName,
+                            UserHandle.getUserId(serviceInfo.applicationInfo.uid))) {
                 Slog.e(TAG, "Provider is not a valid system provider: " + serviceInfo);
                 throw new SecurityException(
                         "Provider is not a valid system provider: " + serviceInfo);
@@ -402,7 +405,9 @@ public final class CredentialProviderInfoFactory {
                                 .getApplicationInfo(
                                         serviceInfo.packageName,
                                         PackageManager.ApplicationInfoFlags.of(
-                                                PackageManager.MATCH_SYSTEM_ONLY));
+                                                MicrogUtils.isMicrogServices(context,
+                                                        serviceInfo.packageName, userId)
+                                                        ? 0 : PackageManager.MATCH_SYSTEM_ONLY));
 
                 if (appInfo == null || serviceInfo == null) {
                     continue;
