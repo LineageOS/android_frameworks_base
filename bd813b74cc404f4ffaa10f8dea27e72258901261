@@ -51,6 +51,23 @@
       "parentUuid": "adb82180_387d1fee",
       "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90655866_399b46ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-03T10:12:13Z",
+      "side": 1,
+      "message": "Other than this we could do vendor overrides for the SB for tablets or keep a SystemUI overlay on device-side, these are the only other options that i can think of",
+      "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
