@@ -36,9 +36,6 @@
     <!-- Size of user icon + frame in the keyguard user picker (incl. frame) -->
     <dimen name="kg_framed_avatar_size">48dp</dimen>
 
-    <!-- The width of user avatar when on Keyguard -->
-    <dimen name="multi_user_avatar_keyguard_size">30dp</dimen>
-
     <!-- Margin on the left side of the carrier text on Keyguard -->
     <dimen name="keyguard_carrier_text_margin">24dp</dimen>
 
