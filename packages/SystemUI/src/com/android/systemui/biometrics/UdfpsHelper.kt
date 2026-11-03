@@ -59,6 +59,8 @@ class UdfpsHelper(
     private val displayManager = context.getSystemService(DisplayManager::class.java)!!
     private val isKeyguard = requestReason == REASON_AUTH_KEYGUARD
 
+    private var isDimLayerAdded = false
+
     private val currentBrightness: Float get() =
         displayManager.getBrightness(Display.DEFAULT_DISPLAY)
     private val minBrightness: Float = context.resources
@@ -108,7 +110,7 @@ class UdfpsHelper(
         override fun onDisplayAdded(displayId: Int) {}
 
         override fun onDisplayChanged(displayId: Int) {
-            if (displayId == Display.DEFAULT_DISPLAY) {
+            if (displayId == Display.DEFAULT_DISPLAY && view.parent != null) {
                 brightnessToAlpha()
                 windowManager.updateViewLayout(view, dimLayoutParams)
             }
@@ -164,8 +166,12 @@ class UdfpsHelper(
     }
 
     fun addDimLayer() {
+        if (isDimLayerAdded) {
+            return
+        }
         brightnessToAlpha()
         windowManager.addView(view, dimLayoutParams)
+        isDimLayerAdded = true
         displayManager.registerDisplayListener(
             displayListener,
             null,
@@ -174,8 +180,14 @@ class UdfpsHelper(
     }
 
     fun removeDimLayer() {
-        windowManager.removeView(view)
+        if (!isDimLayerAdded) {
+            return
+        }
+        isDimLayerAdded = false
         displayManager.unregisterDisplayListener(displayListener)
+        if (view.parent != null) {
+            windowManager.removeView(view)
+        }
     }
 
     init {

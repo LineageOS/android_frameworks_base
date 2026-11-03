@@ -339,9 +339,8 @@ constructor(
         }
         udfpsOverlayInteractor.stopHandlingTouches()
         udfpsDisplayModeProvider.disable(null)
-        if (wasShowing) {
-            udfpsHelper?.removeDimLayer()
-        }
+        // The dim layer is added even while the overlay view is still pending.
+        udfpsHelper?.removeDimLayer()
         getTouchOverlay()?.apply {
             if (this.parent != null) {
                 if (Build.IS_DEBUGGABLE) {
