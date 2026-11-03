@@ -16,6 +16,23 @@
       "message": "Fixes the cropped out top and bottom user avatars on tablets\nVerified on iceland",
       "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb82180_387d1fee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-03T09:32:27Z",
+      "side": 1,
+      "message": "Actually, either this or we have wrong statusbar size on tablets?",
+      "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
