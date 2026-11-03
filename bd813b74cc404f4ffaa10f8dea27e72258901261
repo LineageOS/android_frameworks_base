@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e78625_adb5f95f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-03T09:07:58Z",
+      "side": 1,
+      "message": "Fixes the cropped out top and bottom user avatars on tablets\nVerified on iceland",
+      "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
