@@ -33,6 +33,24 @@
       "message": "```suggestion\npublic final class MicroGUtils {\n```",
       "revId": "3404c6f978ffb0cb0673a1efa3ab691ea101ff67",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03aee080_2c60be86",
+        "filename": "core/java/com/android/internal/content/MicrogUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-11-03T20:51:24Z",
+      "side": 1,
+      "message": "eh, we did isMicrogSigned etc before, so I think it\u0027s ok to continue this way.",
+      "parentUuid": "e90cbb48_fa12cd41",
+      "revId": "3404c6f978ffb0cb0673a1efa3ab691ea101ff67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
