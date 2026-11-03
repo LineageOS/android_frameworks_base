@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9bf3dc4_959d2111",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-11-03T20:48:52Z",
+      "side": 1,
+      "message": "ditto for class name. IMHO looks cleaner.",
+      "revId": "3404c6f978ffb0cb0673a1efa3ab691ea101ff67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e90cbb48_fa12cd41",
+        "filename": "core/java/com/android/internal/content/MicrogUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 36773
+      },
+      "writtenOn": "2026-11-03T20:48:52Z",
+      "side": 1,
+      "message": "```suggestion\npublic final class MicroGUtils {\n```",
+      "revId": "3404c6f978ffb0cb0673a1efa3ab691ea101ff67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
