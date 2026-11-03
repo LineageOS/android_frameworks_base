@@ -61,6 +61,9 @@ cc_defaults_for_libandroid_runtime {
     ],
 
     product_variables: {
+        debuggable: {
+            cflags: ["-DANDROID_DEBUGGABLE"],
+        },
         eng: {
             cflags: ["-DNO_RESET_STACK_PROTECTOR"],
         },
@@ -139,6 +142,7 @@ cc_defaults_for_libandroid_runtime {
                 "AndroidRuntime.cpp",
                 "com_android_internal_content_F2fsUtils.cpp",
                 "com_android_internal_content_FileSystemUtils.cpp",
+                "com_android_internal_content_MicrogUtils.cpp",
                 "com_android_internal_content_NativeLibraryHelper.cpp",
                 "com_google_android_gles_jni_EGLImpl.cpp",
                 "com_google_android_gles_jni_GLImpl.cpp", // TODO: .arm

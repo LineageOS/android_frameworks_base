@@ -70,7 +70,6 @@ cc_library_static {
         "com_android_server_vibrator_VibratorManagerService.cpp",
         "com_android_server_pdb_PersistentDataBlockService.cpp",
         "com_android_server_am_LowMemDetector.cpp",
-        "com_android_server_pm_ComputerEngine.cpp",
         "com_android_server_pm_PackageManagerShellCommandDataLoader.cpp",
         "com_android_server_sensor_SensorService.cpp",
         "com_android_server_utils_LongMethodTracer.cpp",

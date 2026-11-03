@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#include <nativehelper/JNIHelp.h>
+#include "core_jni_helpers.h"
 
 namespace android {
 
-static bool isDebuggable(JNIEnv* env) {
+static jboolean isDebuggable(JNIEnv*, jclass) {
 #ifdef ANDROID_DEBUGGABLE
     return true;
 #else
@@ -30,9 +30,9 @@ static const JNINativeMethod method_table[] = {
         {"isDebuggable", "()Z", (void*)isDebuggable},
 };
 
-int register_android_server_com_android_server_pm_ComputerEngine(JNIEnv* env) {
-    return jniRegisterNativeMethods(env, "com/android/server/pm/ComputerEngine",
-                                    method_table, NELEM(method_table));
+int register_com_android_internal_content_MicrogUtils(JNIEnv* env) {
+    return RegisterMethodsOrDie(env, "com/android/internal/content/MicrogUtils", method_table,
+                                NELEM(method_table));
 }
 
 } // namespace android
