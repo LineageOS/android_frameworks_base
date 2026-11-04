@@ -3882,6 +3882,11 @@
         display_settings.xml -->
   <java-symbol type="bool" name="config_matchSecondaryInternalDisplaysOrientationToReverseDefaultDisplay" />
 
+  <!-- Device states in which the display defined by config_rearDisplayPhysicalAddress is
+       physically rotated 180 degrees upon its X axis. This corrects rotation by swapping
+       ROTATION_180 and ROTATION_0. -->
+  <java-symbol type="array" name="config_deviceStatesWithUpsideDownRearDisplay" />
+
   <!-- Default user restrictions for the SYSTEM user -->
   <java-symbol type="array" name="config_defaultFirstUserRestrictions" />
 

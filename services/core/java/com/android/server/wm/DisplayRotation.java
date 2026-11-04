@@ -597,6 +597,16 @@ public class DisplayRotation {
                     mDisplayRotationCoordinator.getDefaultDisplayCurrentRotation());
         }
 
+        DisplayAddress displayAddress = mDisplayContent.getDisplay().getAddress();
+        if (displayAddress != null && mDeviceStateController
+                .isDisplayUpsideDown(displayAddress.getPhysicalDisplayId())) {
+            rotation = switch (rotation) {
+                case Surface.ROTATION_180 -> Surface.ROTATION_0;
+                case Surface.ROTATION_0 -> Surface.ROTATION_180;
+                default -> rotation;
+            };
+        }
+
         ProtoLog.v(WM_DEBUG_ORIENTATION,
                 "Computed rotation=%s (%d) for display id=%d based on lastOrientation=%s (%d) and "
                         + "oldRotation=%s (%d)",

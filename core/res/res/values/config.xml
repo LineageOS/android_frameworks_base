@@ -1092,6 +1092,16 @@
           display_settings.xml -->
     <bool name="config_matchSecondaryInternalDisplaysOrientationToReverseDefaultDisplay">false</bool>
 
+    <!-- Device states in which the display defined by config_rearDisplayPhysicalAddress is
+         physically rotated 180 degrees upon its X axis. This corrects rotation by swapping
+         ROTATION_180 and ROTATION_0. -->
+    <integer-array name="config_deviceStatesWithUpsideDownRearDisplay">
+        <!-- Example:
+        <item>0</item>
+        <item>1</item>
+        -->
+    </integer-array>
+
     <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
     <integer-array name="config_availableColorModes">
         <!-- Example:
