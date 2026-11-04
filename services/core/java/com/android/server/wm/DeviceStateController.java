@@ -37,6 +37,7 @@ import android.hardware.devicestate.DeviceStateManager;
 import android.util.ArrayMap;
 import android.util.IntArray;
 import android.util.Pair;
+import android.view.DisplayAddress;
 
 import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
@@ -78,6 +79,9 @@ final class DeviceStateController {
     private final IntArray mDockedDeviceStates = new IntArray();
     @NonNull
     private final List<Integer> mReverseRotationAroundZAxisStates;
+    @NonNull
+    private final List<Integer> mUpsideDownRearDisplayStates;
+    private final long mRearDisplayAddress;
     private final Map<Integer, DeviceState> mIdentifierToDeviceState = new HashMap<>();
     @GuardedBy("mWmLock")
     @NonNull
@@ -170,6 +174,14 @@ final class DeviceStateController {
         mMatchBuiltInDisplayOrientationToDefaultDisplay = context.getResources()
                 .getBoolean(R.bool
                         .config_matchSecondaryInternalDisplaysOrientationToReverseDefaultDisplay);
+        mUpsideDownRearDisplayStates = copyIntArrayToList(context.getResources().getIntArray(
+                R.array.config_deviceStatesWithUpsideDownRearDisplay));
+
+        String rearDisplayAddressString = context.getResources().getString(
+                R.string.config_rearDisplayPhysicalAddress);
+        mRearDisplayAddress = rearDisplayAddressString.isEmpty()
+                ? DisplayAddress.INVALID_DISPLAY_ID
+                : Long.parseLong(rearDisplayAddressString);
     }
 
     /**
@@ -227,6 +239,12 @@ final class DeviceStateController {
         // TODO(b/265991392): This should come from display_settings.xml once it's easier to
         //  extend with complex configurations.
         return mMatchBuiltInDisplayOrientationToDefaultDisplay;
+    }
+
+    boolean isDisplayUpsideDown(long displayAddress) {
+        return mRearDisplayAddress != DisplayAddress.INVALID_DISPLAY_ID
+                && displayAddress == mRearDisplayAddress
+                && ArrayUtils.contains(mUpsideDownRearDisplayStates, mCurrentState);
     }
 
     /**
