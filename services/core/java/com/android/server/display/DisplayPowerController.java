@@ -47,6 +47,7 @@ import android.hardware.display.AmbientBrightnessDayStats;
 import android.hardware.display.BrightnessChangeEvent;
 import android.hardware.display.BrightnessConfiguration;
 import android.hardware.display.BrightnessInfo;
+import android.hardware.display.ColorDisplayManager;
 import android.hardware.display.DisplayManagerInternal;
 import android.hardware.display.DisplayManagerInternal.DisplayOffloadSession;
 import android.hardware.display.DisplayManagerInternal.DisplayPowerCallbacks;
@@ -600,7 +601,8 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
 
         DisplayWhiteBalanceSettings displayWhiteBalanceSettings = null;
         DisplayWhiteBalanceController displayWhiteBalanceController = null;
-        if (mDisplayId == Display.DEFAULT_DISPLAY) {
+        if (mDisplayId == Display.DEFAULT_DISPLAY
+                && ColorDisplayManager.isDisplayWhiteBalanceAvailable(mContext)) {
             try {
                 displayWhiteBalanceController = mInjector.getDisplayWhiteBalanceController(
                         mHandler, mSensorManager, resources, mDisplayDeviceConfig);

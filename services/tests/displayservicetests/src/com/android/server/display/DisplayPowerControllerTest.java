@@ -231,6 +231,8 @@ public final class DisplayPowerControllerTest {
         mContext.getOrCreateTestableResources().addOverride(
                 com.android.internal.R.bool.config_displayColorFadeDisabled, false);
         mContext.getOrCreateTestableResources().addOverride(
+                com.android.internal.R.bool.config_displayWhiteBalanceAvailable, true);
+        mContext.getOrCreateTestableResources().addOverride(
                 com.android.internal.R.fraction.config_screenAutoBrightnessDozeScaleFactor,
                 DOZE_SCALE_FACTOR);
 
