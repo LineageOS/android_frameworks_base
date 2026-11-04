@@ -33,6 +33,41 @@
       "message": "The only additional change that I use for my builds is Ibe23b7416809732a9fdb9614d1943ea557acfdc9. On ferrari, when the dim layer is up with biometric prompt, I notice only color changes (as expected since we lack any color correction) but the brightness looks well compensated similar to how it is in the lockscreen.\n\nI have no convincing reason to apply the alpha for both the view and the layout though. But maybe there are better colors with this - it\u0027s hard to say.",
       "revId": "1d49ab2a310f4b501f3ecd2c22b6f6c3f1923478",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "323b7a7a_1e6f7cf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 38138
+      },
+      "writtenOn": "2026-11-04T22:00:44Z",
+      "side": 1,
+      "message": "After applying this change all apps and other prompts now don\u0027t have overdimmed background, wich they did before",
+      "revId": "1d49ab2a310f4b501f3ecd2c22b6f6c3f1923478",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1483c913_ab58ecdb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 38138
+      },
+      "writtenOn": "2026-11-04T22:00:44Z",
+      "side": 1,
+      "message": "This seems to improve a current \u0027very bad\u0027 situation with UDFPS after update to 24.0",
+      "parentUuid": "f106f3a6_9c8c2972",
+      "revId": "1d49ab2a310f4b501f3ecd2c22b6f6c3f1923478",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
