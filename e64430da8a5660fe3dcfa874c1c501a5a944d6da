@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15666f69_7d498cd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-04T03:42:47Z",
+      "side": 1,
+      "message": "This is only for the mtk guys that was aimed to, keeping it here so that MTK support can be something that could be checked whilst at it",
+      "revId": "e64430da8a5660fe3dcfa874c1c501a5a944d6da",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
