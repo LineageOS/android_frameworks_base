@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f69e537_2aeafacb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28328
+      },
+      "writtenOn": "2026-11-05T13:07:52Z",
+      "side": 1,
+      "message": "This causes compose volume panel to not work btw. Clicking on expand button doesn\u0027t work anymore. A revert fixes the behavior.",
+      "revId": "27d642ba02a8cd4d175ee2ce7b3317c37e70c765",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
