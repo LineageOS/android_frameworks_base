@@ -3584,6 +3584,10 @@
          EN50332-3, EN50332-2) or not (country specific). -->
     <bool name="config_safe_media_volume_enabled">true</bool>
 
+    <!-- Whether the legacy safe media volume warning (config_safe_media_volume_index) also covers
+         Bluetooth A2DP and LE audio headsets while sound dose (CSD) is off. -->
+    <bool name="config_safe_media_volume_bluetooth">false</bool>
+
     <!-- Whether safe headphone sound dosage warning is enabled or not.
          This value should only be overlaid to true when a vendor supports
          offload and has the HAL sound dose interfaces implemented.

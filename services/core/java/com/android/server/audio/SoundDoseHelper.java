@@ -1133,9 +1133,15 @@ public class SoundDoseHelper {
 
     private int getSafeDeviceMediaVolumeIndex(int deviceType) {
         if (!mEnableCsd.get()) {
-            // legacy hearing safety only for wired and USB HS/HP
+            // legacy hearing safety only for wired and USB HS/HP, plus Bluetooth
+            // headphones when the device asks for it (same index as wired)
             if (deviceType == AudioSystem.DEVICE_OUT_WIRED_HEADPHONE
-                    || deviceType == AudioSystem.DEVICE_OUT_WIRED_HEADSET) {
+                    || deviceType == AudioSystem.DEVICE_OUT_WIRED_HEADSET
+                    || (mContext.getResources().getBoolean(
+                            com.android.internal.R.bool.config_safe_media_volume_bluetooth)
+                        && (deviceType == AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP
+                            || deviceType == AudioSystem.DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES
+                            || deviceType == AudioSystem.DEVICE_OUT_BLE_HEADSET))) {
                 // legacy hearing safety uses mSafeMediaVolumeIndex for wired HS/HP
                 // instead of computing it from the volume curves
                 return mSafeMediaVolumeIndex;
