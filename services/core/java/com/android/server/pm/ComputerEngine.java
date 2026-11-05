@@ -68,6 +68,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UserIdInt;
 import android.app.ActivityManager;
+import android.app.ActivityThread;
 import android.app.admin.DevicePolicyManagerInternal;
 import android.companion.virtual.VirtualDeviceManager;
 import android.content.ComponentName;
@@ -108,11 +109,13 @@ import android.os.IBinder;
 import android.os.ParcelableException;
 import android.os.PatternMatcher;
 import android.os.Process;
+import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.storage.StorageManager;
 import android.provider.ContactsContract;
+import android.provider.Settings.Secure;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -383,6 +386,40 @@ public class ComputerEngine implements Computer {
         final int v2 = p2.initOrder;
         return (v1 > v2) ? -1 : ((v1 < v2) ? 1 : 0);
     };
+
+    private static boolean getSecureBoolean(String settingName) {
+        Context context = ActivityThread.currentApplication();
+
+	if (context == null) {
+            context = ActivityThread.currentActivityThread()
+                .getSystemContext();
+        }
+        if (context == null) {
+            Log.w(TAG, "No context available for " + settingName);
+            return false;
+        }
+
+        UserManager um = context.getSystemService(UserManager.class);
+
+        if (um == null || !um.isUserUnlocked()) {
+            Log.i(TAG, "Phone is not unlocked, returning false for key "
+                  + settingName);
+            return false;
+        }
+
+        if (context.getContentResolver() == null) {
+            Log.w(TAG, "System ContentResolver not yet available for "
+                  + settingName);
+            return false;
+        }
+        try {
+            return Secure.getInt(context.getContentResolver(),
+                                 settingName, 0) != 0;
+        } catch (Exception e) {
+            Log.w(TAG, "exception in getInt", e);
+            return false;
+        }
+    }
 
     private final int mVersion;
 
@@ -1505,8 +1542,19 @@ public class ComputerEngine implements Computer {
             return false;
         }
 
-        return Signature.areExactMatch(
-                p.getSigningDetails(), new Signature[]{MICROG_REAL_SIGNATURE});
+        if (Signature.areExactMatch(
+                p.getSigningDetails(), new Signature[]{MICROG_REAL_SIGNATURE})) {
+            return true;
+        }
+        if (!getSecureBoolean(Secure.SIGNATURE_SPOOFING_ON_DEBUG)) {
+            return false;
+        }
+
+        if (!p.isDebuggable()) {
+            Log.e(TAG, "Package " + p.getPackageName() + " is not debuggable");
+            return false;
+        }
+        return true;
     }
 
     private static Optional<Signature> generateFakeSignature(AndroidPackage p) {
