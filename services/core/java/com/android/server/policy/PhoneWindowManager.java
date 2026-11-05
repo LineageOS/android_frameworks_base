@@ -7414,16 +7414,23 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private String getRearFlashCameraId() throws CameraAccessException {
         if (mRearFlashCameraId != null) return mRearFlashCameraId;
+        String fallbackCameraId = null;
         for (final String id : mCameraManager.getCameraIdList()) {
             CameraCharacteristics c = mCameraManager.getCameraCharacteristics(id);
             Boolean flashAvailable = c.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
             Integer lensFacing = c.get(CameraCharacteristics.LENS_FACING);
             if (flashAvailable != null && flashAvailable
                     && lensFacing != null && lensFacing == CameraCharacteristics.LENS_FACING_BACK) {
-                mRearFlashCameraId = id;
-                break;
+                if (!c.getPhysicalCameraIds().isEmpty()) {
+                    mRearFlashCameraId = id;
+                    return mRearFlashCameraId;
+                }
+                if (fallbackCameraId == null) {
+                    fallbackCameraId = id;
+                }
             }
         }
+        mRearFlashCameraId = fallbackCameraId;
         return mRearFlashCameraId;
     }
 
