@@ -7641,6 +7641,14 @@ public final class Settings {
         public static final String ADB_ENABLED = Global.ADB_ENABLED;
 
         /**
+         * The user id for the switch to allow signature spoofing on
+	 * the debugging versions of the MicroG apps
+         * Menu short press.
+         * @hide
+         */
+        public static final String SIGNATURE_SPOOFING_ON_DEBUG  = "signature_spoofing_on_debug";
+
+        /**
          * Setting to allow mock locations and location provider status to be injected into the
          * LocationManager service for testing purposes during application development.  These
          * locations and status values  override actual location and status information generated
