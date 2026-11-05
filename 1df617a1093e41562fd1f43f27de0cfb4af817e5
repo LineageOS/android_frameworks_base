@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b57e71a5_6bc1970a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6360
+      },
+      "writtenOn": "2026-11-05T16:33:27Z",
+      "side": 1,
+      "message": "Fixes regression in https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/508028",
+      "revId": "1df617a1093e41562fd1f43f27de0cfb4af817e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
