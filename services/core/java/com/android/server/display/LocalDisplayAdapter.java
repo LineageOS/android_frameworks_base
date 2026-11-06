@@ -1545,6 +1545,10 @@ final class LocalDisplayAdapter extends DisplayAdapter {
         }
 
         private boolean shouldOwnContentOnly() {
+            // External displays should follow the mirroring setting instead
+            if (!mStaticDisplayInfo.isInternal) {
+                return false;
+            }
             final Resources res = getOverlayContext().getResources();
             return !res.getBoolean(R.bool.config_localDisplaysMirrorContent);
         }
