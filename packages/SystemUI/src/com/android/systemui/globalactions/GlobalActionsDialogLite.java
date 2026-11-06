@@ -2350,7 +2350,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 mIconView.setBackground(mContext.getDrawable(
                         com.android.systemui.res.R.drawable.global_actions_lite_button_background));
                 mIconView.setOnClickListener(i -> onClick());
-                if (mItems.get(0) == this) {
+                if (mAdapter.getItem(0) == this) {
                     mIconView.requestFocus();
                 }
             }
@@ -2367,7 +2367,9 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         private void onClick() {
             if (mDelegate != null) {
                 // don't dismiss the dialog if we're opening the power options menu
-                if (!(this instanceof PowerOptionsAction)) {
+                if (!(this instanceof PowerOptionsAction)
+                        && !(this instanceof RestartAction && shouldShowRestartSubmenu())
+                        && !(this instanceof UsersAction)) {
                     // Usually clicking an item shuts down the phone, locks, or starts an
                     // activity. We don't want to animate back into the power button when that
                     // happens, so we disable the dialog animation before dismissing.
