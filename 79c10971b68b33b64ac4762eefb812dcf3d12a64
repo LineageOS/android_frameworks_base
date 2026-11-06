@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a74371e_22ca28b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-11-06T21:19:19Z",
+      "side": 1,
+      "message": "Adding new symbols is no-go, this breaks prebuilt apks that link against core resources",
+      "revId": "79c10971b68b33b64ac4762eefb812dcf3d12a64",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
