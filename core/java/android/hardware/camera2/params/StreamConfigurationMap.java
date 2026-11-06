@@ -825,6 +825,22 @@ public final class StreamConfigurationMap {
     }
 
     /**
+     * Get the largest batch the camera device takes for a high speed video configuration.
+     *
+     * @return the maximum batch size, or 0 if the configuration is not supported
+     *
+     * @hide
+     */
+    public int getHighSpeedVideoBatchSizeMax(Size size, Range<Integer> fpsRange) {
+        for (HighSpeedVideoConfiguration config : mHighSpeedVideoConfigurations) {
+            if (config.getSize().equals(size) && config.getFpsRange().equals(fpsRange)) {
+                return config.getBatchSizeMax();
+            }
+        }
+        return 0;
+    }
+
+    /**
      * Get the frame per second ranges (fpsMin, fpsMax) for input high speed video size.
      * <p>
      * See {@link #getHighSpeedVideoFpsRanges} for how to enable high speed recording.

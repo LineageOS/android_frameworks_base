@@ -30,6 +30,7 @@ import android.hardware.camera2.utils.SurfaceUtils;
 import android.os.Handler;
 import android.os.ConditionVariable;
 import android.util.Range;
+import android.util.Size;
 import android.util.Log;
 import android.view.Surface;
 
@@ -100,8 +101,8 @@ public class CameraConstrainedHighSpeedCaptureSessionImpl
 
         // Check the high speed video fps ranges for video size and find the min value from the list
         // and assign it to previewFps which will be used to calculate the requestList size.
-        Range<Integer>[] highSpeedFpsRanges = config.getHighSpeedVideoFpsRangesFor(
-                SurfaceUtils.getSurfaceSize(outputSurfaces.iterator().next()));
+        Size surfaceSize = SurfaceUtils.getSurfaceSize(outputSurfaces.iterator().next());
+        Range<Integer>[] highSpeedFpsRanges = config.getHighSpeedVideoFpsRangesFor(surfaceSize);
         Log.v(TAG, "High speed fps ranges: " + Arrays.toString(highSpeedFpsRanges));
         int previewFps = Integer.MAX_VALUE;
         for (Range<Integer> range : highSpeedFpsRanges) {
@@ -122,6 +123,11 @@ public class CameraConstrainedHighSpeedCaptureSessionImpl
         // If it's a preview, keep requestList size fixed = 1.
         if (fpsRange.getUpper() > fpsRange.getLower()) {
             requestListSize = 1;
+        }
+        // Only the first request carries preview, and it cannot be longer than a device batch.
+        int batchSizeMax = config.getHighSpeedVideoBatchSizeMax(surfaceSize, fpsRange);
+        if (batchSizeMax > 0) {
+            requestListSize = Math.min(requestListSize, batchSizeMax);
         }
 
         Log.v(TAG, "Request list size is: " + requestListSize);
