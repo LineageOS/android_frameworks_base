@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0c7c1f5_ca98d045",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-09T07:57:19Z",
+      "side": 1,
+      "message": "Could be squashed into the statusbar clock customization commit on next rebases, does address a valid bug imo",
+      "revId": "38173b757a2ffd52e20e8297b73987c35934efd5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
