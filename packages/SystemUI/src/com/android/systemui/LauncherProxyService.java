@@ -79,6 +79,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.ViewConfiguration;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.InputMethodManager;
 
@@ -235,6 +236,9 @@ public class LauncherProxyService implements CallbackController<LauncherProxyLis
 
         @Override
         public void onStatusBarTouchEvent(MotionEvent event) {
+            if (isFromInternalDisplayWithoutSystemDecors(event)) {
+                return;
+            }
             moveShadeWindowIfNeeded(event);
             if (shouldIgnoreEvent(event)) {
                 Log.d(TAG_OPS, "Ignoring launcher swipe event for legacy shade due to touch event"
@@ -257,6 +261,17 @@ public class LauncherProxyService implements CallbackController<LauncherProxyLis
                     mShadeViewControllerLazy.get().handleExternalTouch(event);
                 }
             });
+        }
+
+        private boolean isFromInternalDisplayWithoutSystemDecors(MotionEvent event) {
+            final int displayId = event.getDisplayId();
+            if (displayId == Display.DEFAULT_DISPLAY) {
+                return false;
+            }
+            final Display display = mDisplayTracker.getDisplay(displayId);
+            return display != null && display.getType() == Display.TYPE_INTERNAL
+                    && !mContext.getSystemService(WindowManager.class)
+                            .shouldShowSystemDecors(displayId);
         }
 
         @VisibleForTesting
@@ -283,6 +298,9 @@ public class LauncherProxyService implements CallbackController<LauncherProxyLis
 
         @Override
         public void onStatusBarTrackpadEvent(MotionEvent event) {
+            if (isFromInternalDisplayWithoutSystemDecors(event)) {
+                return;
+            }
             moveShadeWindowIfNeeded(event);
             verifyCallerAndClearCallingIdentityPostMain("onStatusBarTrackpadEvent", () -> {
                 if (SceneContainerFlag.isEnabled()) {
