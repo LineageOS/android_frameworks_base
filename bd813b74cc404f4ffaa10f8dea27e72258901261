@@ -104,6 +104,23 @@
       "parentUuid": "50575b4d_76d9c0b5",
       "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7041128_9eadec7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-11T10:24:32Z",
+      "side": 1,
+      "message": "@bgcngm@gmail.com so tried vendor patches and it works\nRef: https://review.blissroms.org/c/platform_vendor_bliss/+/25151",
+      "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
