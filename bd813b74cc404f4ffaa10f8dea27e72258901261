@@ -138,6 +138,24 @@
       "message": "Superseeded by 513015",
       "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9fcd8f1_cfa10943",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-11T10:42:27Z",
+      "side": 1,
+      "message": "Well, I still think we have an issue with the status bar size. Rather than fitting the avatar, can you play with the status bar size?",
+      "parentUuid": "d7041128_9eadec7a",
+      "revId": "bd813b74cc404f4ffaa10f8dea27e72258901261",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": [
