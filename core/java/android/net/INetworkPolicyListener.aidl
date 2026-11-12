@@ -26,5 +26,4 @@ oneway interface INetworkPolicyListener {
     void onSubscriptionOverride(int subId, int overrideMask, int overrideValue, in int[] networkTypes);
     void onSubscriptionPlansChanged(int subId, in SubscriptionPlan[] plans);
     void onBlockedReasonChanged(int uid, int oldBlockedReason, int newBlockedReason);
-    void onAllowedTransportsChanged(in int[] uids, in long[] allowedTransports);
 }

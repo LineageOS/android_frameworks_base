@@ -97,6 +97,4 @@ interface INetworkPolicyManager {
 
     byte[] getBackupPayload(int user);
     void applyRestore(in byte[] payload, int user);
-
-    void notifyDenylistChanged(in int[] uidsAdded, in int[] uidsRemoved);
 }
