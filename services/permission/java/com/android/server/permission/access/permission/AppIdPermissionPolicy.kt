@@ -28,6 +28,7 @@ import android.health.connect.HealthPermissions
 import android.os.Build
 import android.permission.flags.Flags
 import android.util.Slog
+import com.android.internal.content.MicrogUtils
 import com.android.internal.os.RoSystemProperties
 import com.android.internal.pm.permission.CompatibilityPermissionInfo
 import com.android.internal.pm.pkg.component.ParsedUsesPermission
@@ -1784,6 +1785,9 @@ class AppIdPermissionPolicy : SchemePolicy() {
             if (shouldGrant) {
                 return true
             }
+        }
+        if (permission.name == Manifest.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST && MicrogUtils.isMicrogSigned(androidPackage)) {
+            return true
         }
         if (permission.isPre23 && androidPackage.targetSdkVersion < Build.VERSION_CODES.M) {
             // If this was a previously normal/dangerous permission that got moved
