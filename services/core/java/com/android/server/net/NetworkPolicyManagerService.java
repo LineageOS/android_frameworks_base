@@ -387,6 +387,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     @VisibleForTesting
     public static final int TYPE_RAPID = SystemMessage.NOTE_NET_RAPID;
 
+    // Lineage's old per-app firewall policies, which the firewall service imports at boot first.
+    private static final int OLD_FIREWALL_POLICIES = 0x8000 | 0x10000 | 0x20000 | 0x40000;
+
     private static final String TAG_POLICY_LIST = "policy-list";
     private static final String TAG_NETWORK_POLICY = "network-policy";
     private static final String TAG_SUBSCRIPTION_PLAN = "subscription-plan";
@@ -2775,6 +2778,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         int type;
         int version = VERSION_INIT;
         boolean insideAllowlist = false;
+        boolean droppedOldFirewallPolicies = false;
         while ((type = in.next()) != END_DOCUMENT) {
             final String tag = in.getName();
             if (type == START_TAG) {
@@ -2992,7 +2996,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 } else if (TAG_UID_POLICY.equals(tag)) {
                     int uid = readUidAttribute(in, forRestore, userId);
                     final int oldPolicy = mUidPolicy.get(uid, POLICY_NONE);
-                    final int policy = readIntAttribute(in, ATTR_POLICY);
+                    int policy = readIntAttribute(in, ATTR_POLICY);
+                    if (!forRestore && (policy & OLD_FIREWALL_POLICIES) != 0) {
+                        policy &= ~OLD_FIREWALL_POLICIES;
+                        droppedOldFirewallPolicies = true;
+                    }
 
                     if (UserHandle.isApp(uid)) {
                         if (forRestore) {
@@ -3059,6 +3067,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 Slog.w(TAG, "unable to update policy on UID " + uid);
             }
         }
+        if (droppedOldFirewallPolicies) writePolicyAL();
     }
 
     /**
@@ -3161,7 +3170,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         // write all known uid policies
         for (int i = 0; i < mUidPolicy.size(); i++) {
             final int uid = mUidPolicy.keyAt(i);
-            final int policy = mUidPolicy.valueAt(i);
+            final int policy = mUidPolicy.valueAt(i) & (forBackup ? ~OLD_FIREWALL_POLICIES : ~0);
 
             // skip writing policies belonging to other users
             if (forBackup && UserHandle.getUserId(uid) != userId) {
