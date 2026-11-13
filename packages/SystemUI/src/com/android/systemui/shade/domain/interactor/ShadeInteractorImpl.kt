@@ -24,6 +24,7 @@ import com.android.systemui.keyguard.domain.interactor.KeyguardTransitionInterac
 import com.android.systemui.keyguard.shared.model.DozeStateModel
 import com.android.systemui.keyguard.shared.model.Edge
 import com.android.systemui.keyguard.shared.model.KeyguardState
+import com.android.systemui.keyguard.shared.model.isPulsing
 import com.android.systemui.power.domain.interactor.PowerInteractor
 import com.android.systemui.scene.domain.interactor.SceneInteractor
 import com.android.systemui.statusbar.phone.DozeParameters
@@ -104,7 +105,7 @@ constructor(
         combine(
             powerInteractor.isAsleep,
             keyguardTransitionInteractor.isInTransition(Edge.create(to = KeyguardState.AOD)),
-            keyguardRepository.dozeTransitionModel.map { it.to == DozeStateModel.DOZE_PULSING },
+            keyguardRepository.dozeTransitionModel.map { it.to.isPulsing() },
         ) { isAsleep, isTransitioningToAod, isPulsing ->
             when {
                 // If the device is transitioning to AOD, only accept touches if still animating.
