@@ -22,6 +22,30 @@
       },
       "revId": "c4c25dd0d3649618544c7be6ebaf5a345c310102",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5cb6b03_a06f77fb",
+        "filename": "services/permission/java/com/android/server/permission/access/permission/AppIdPermissionPolicy.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-11-13T09:20:56Z",
+      "side": 1,
+      "message": "btw this should be isMicrogServices(), we don\u0027t want to allow that to all microg signed apks.",
+      "parentUuid": "35a7a4a1_24f9db70",
+      "range": {
+        "startLine": 1789,
+        "startChar": 8,
+        "endLine": 1789,
+        "endChar": 133
+      },
+      "revId": "c4c25dd0d3649618544c7be6ebaf5a345c310102",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
