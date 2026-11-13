@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a7a4a1_24f9db70",
+        "filename": "services/permission/java/com/android/server/permission/access/permission/AppIdPermissionPolicy.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-13T09:19:23Z",
+      "side": 1,
+      "message": "Do I have to say it?",
+      "range": {
+        "startLine": 1789,
+        "startChar": 8,
+        "endLine": 1789,
+        "endChar": 133
+      },
+      "revId": "c4c25dd0d3649618544c7be6ebaf5a345c310102",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
