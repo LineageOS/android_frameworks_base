@@ -16,6 +16,23 @@
       "message": "Could be squashed into the statusbar clock customization commit on next rebases, does address a valid bug imo",
       "revId": "38173b757a2ffd52e20e8297b73987c35934efd5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4059e3d6_c0aec029",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2026-11-14T18:37:28Z",
+      "side": 1,
+      "message": "I assume this was intentional, since this will cause the clock to constantly shift the other statusbar items next to it every second (or well every time \u00271\u0027 or other smaller width numbers render)",
+      "revId": "38173b757a2ffd52e20e8297b73987c35934efd5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
