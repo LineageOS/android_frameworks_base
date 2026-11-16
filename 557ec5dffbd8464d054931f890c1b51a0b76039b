@@ -16,6 +16,24 @@
       "message": "No need to touch this.",
       "revId": "557ec5dffbd8464d054931f890c1b51a0b76039b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48cb384c_de8fb544",
+        "filename": "packages/SystemUI/src/com/android/systemui/statusbar/phone/StatusBar.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 37918
+      },
+      "writtenOn": "2026-11-16T10:58:38Z",
+      "side": 0,
+      "message": "I could not commit this otherwise, the pre-commit check complained about wrong import ordering.",
+      "parentUuid": "2fd621f2_58b5ae5f",
+      "revId": "557ec5dffbd8464d054931f890c1b51a0b76039b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
