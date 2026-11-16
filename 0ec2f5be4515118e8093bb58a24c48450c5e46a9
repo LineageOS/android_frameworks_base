@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e81b22a_03b17a2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 36705
+      },
+      "writtenOn": "2026-11-16T19:14:07Z",
+      "side": 1,
+      "message": "Fixes UDFPS on AOD and Off-screen on a53x",
+      "revId": "0ec2f5be4515118e8093bb58a24c48450c5e46a9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
