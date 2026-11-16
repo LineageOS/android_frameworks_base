@@ -3503,17 +3503,38 @@ public final class DisplayManagerService extends SystemService {
         // track of which ones we have configured.
         clearViewportsLocked();
 
+        // A display WindowManager doesn't know about yet has no transaction of its own. Don't
+        // put its state into the default display's transaction: that one may be held back by
+        // a sync/transition and land in SurfaceFlinger after a later update for this display
+        // (sent through its own transaction), leaving SF with stale state (e.g. a blank layer
+        // stack) that DisplayDevice's cache will never resend.
+        final SurfaceControl.Transaction[] unownedTransaction = new SurfaceControl.Transaction[1];
+
         // Configure each display device.
         mLogicalDisplayMapper.forEachLocked((LogicalDisplay display) -> {
             final DisplayDevice device = display.getPrimaryDisplayDeviceLocked();
-            final SurfaceControl.Transaction displayTransaction =
-                    displayTransactions.get(display.getDisplayIdLocked(), t);
+            final int displayId = display.getDisplayIdLocked();
+            SurfaceControl.Transaction displayTransaction = displayTransactions.get(displayId);
+            if (displayTransaction == null) {
+                if (displayTransactions.size() == 0) {
+                    displayTransaction = t;
+                } else {
+                    if (unownedTransaction[0] == null) {
+                        unownedTransaction[0] = new SurfaceControl.Transaction();
+                    }
+                    displayTransaction = unownedTransaction[0];
+                }
+            }
             if (device != null) {
                 configureDisplayLocked(displayTransaction, device);
-                mModeRequestManager.setSpecs(display.getDisplayIdLocked(), device,
+                mModeRequestManager.setSpecs(displayId, device,
                         display.getDesiredDisplayModeSpecsLocked());
             }
         });
+
+        if (unownedTransaction[0] != null) {
+            unownedTransaction[0].apply();
+        }
 
         if (mModeRequestManager.allDisplaysReachedStatus(RequestStatus.MODE_SPECS_SET)) {
             mDisplayAdapters.forEach(adapter -> {
