@@ -365,6 +365,11 @@ class DisplayWindowSettings {
 
     @DisplayImePolicy
     int getImePolicyLocked(@NonNull DisplayContent dc) {
+        final int imeFallbackDisplayId = mService.mImeFallbackDisplayId;
+        if (imeFallbackDisplayId != Display.INVALID_DISPLAY) {
+            return dc.getDisplayId() == imeFallbackDisplayId
+                    ? DISPLAY_IME_POLICY_LOCAL : DISPLAY_IME_POLICY_FALLBACK_DISPLAY;
+        }
         if (dc.getDisplayId() == Display.DEFAULT_DISPLAY) {
             // Default display should show IME.
             return DISPLAY_IME_POLICY_LOCAL;

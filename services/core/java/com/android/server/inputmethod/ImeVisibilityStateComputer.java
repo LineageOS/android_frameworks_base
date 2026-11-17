@@ -28,6 +28,7 @@ import static android.view.WindowManager.LayoutParams.SoftInputModeFlags;
 
 import static com.android.internal.inputmethod.InputMethodDebug.softInputModeToString;
 import static com.android.server.inputmethod.ImeProtoLogGroup.IME_VIS_STATE_COMPUTER_DEBUG;
+import static com.android.server.inputmethod.InputMethodManagerService.FALLBACK_DISPLAY_ID;
 import static com.android.server.inputmethod.InputMethodManagerService.computeImeDisplayIdForTarget;
 
 import android.accessibilityservice.AccessibilityService;
@@ -207,7 +208,10 @@ public final class ImeVisibilityStateComputer {
             displayToShowIme = mService.computeImeDisplayIdForVisibleBackgroundUserOnAutomotive(
                     displayId, mUserId, mImeDisplayValidator);
         } else {
-            displayToShowIme = computeImeDisplayIdForTarget(displayId, mImeDisplayValidator);
+            final int imeFallbackDisplayId = mWindowManagerInternal.getImeFallbackDisplayId();
+            displayToShowIme = computeImeDisplayIdForTarget(displayId, mImeDisplayValidator,
+                    imeFallbackDisplayId != INVALID_DISPLAY
+                            ? imeFallbackDisplayId : FALLBACK_DISPLAY_ID);
         }
         final boolean imeHiddenByPolicy = displayToShowIme == INVALID_DISPLAY;
         mPolicy.setImeHiddenByDisplayPolicy(imeHiddenByPolicy);
