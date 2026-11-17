@@ -24,6 +24,7 @@ import com.android.systemui.SysuiTestCase
 import com.android.systemui.dump.DumpManager
 import com.android.systemui.plugins.FalsingManager
 import com.android.systemui.plugins.statusbar.StatusBarStateController
+import com.android.systemui.settings.UserTracker
 import com.android.systemui.shade.domain.interactor.ShadeInteractor
 import com.android.systemui.statusbar.notification.NotificationWakeUpCoordinator
 import com.android.systemui.statusbar.notification.headsup.HeadsUpManager
@@ -58,6 +59,7 @@ class PulseExpansionHandlerTest : SysuiTestCase() {
     private val shadeInteractor: ShadeInteractor = mock()
     private val lockscreenShadeTransitionController: LockscreenShadeTransitionController = mock()
     private val dumpManager: DumpManager = mock()
+    private val userTracker: UserTracker = mock()
     private val expandableView: ExpandableView = mock()
 
     @Before
@@ -77,6 +79,7 @@ class PulseExpansionHandlerTest : SysuiTestCase() {
                 shadeInteractor,
                 lockscreenShadeTransitionController,
                 dumpManager,
+                userTracker,
             )
     }
 

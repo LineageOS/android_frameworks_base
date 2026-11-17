@@ -97,6 +97,7 @@ import com.android.systemui.power.domain.interactor.PowerInteractor;
 import com.android.systemui.qs.composefragment.QSFragmentCompose;
 import com.android.systemui.res.R;
 import com.android.systemui.screenrecord.ScreenRecordUxController;
+import com.android.systemui.settings.UserTracker;
 import com.android.systemui.shade.data.repository.FakeShadeRepository;
 import com.android.systemui.shade.data.repository.ShadeAnimationRepository;
 import com.android.systemui.shade.data.repository.ShadeRepository;
@@ -470,7 +471,8 @@ public class NotificationPanelViewControllerBaseTest extends SysuiTestCase {
                 mFalsingManager,
                 mShadeInteractor,
                 mLockscreenShadeTransitionController,
-                mDumpManager);
+                mDumpManager,
+                mock(UserTracker.class));
         when(mKeyguardStatusBarViewComponentFactory.build(any(), any()))
                 .thenReturn(mKeyguardStatusBarViewComponent);
         when(mKeyguardStatusBarViewComponent.getKeyguardStatusBarViewController())
