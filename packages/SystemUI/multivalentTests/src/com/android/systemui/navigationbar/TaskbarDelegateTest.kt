@@ -8,6 +8,7 @@ import com.android.app.displaylib.DisplaysWithDecorationsRepositoryCompat
 import com.android.systemui.LauncherProxyService
 import com.android.systemui.SysuiTestCase
 import com.android.systemui.dump.DumpManager
+import com.android.app.displaylib.PerDisplayRepository
 import com.android.systemui.model.SysUiState
 import com.android.systemui.navigationbar.gestural.EdgeBackGestureHandler
 import com.android.systemui.plugins.statusbar.StatusBarStateController
@@ -31,6 +32,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.any
 import org.mockito.Mockito.anyBoolean
 import org.mockito.Mockito.anyLong
+import org.mockito.Mockito.mock
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.Mockito.`when`
@@ -88,6 +90,7 @@ class TaskbarDelegateTest : SysuiTestCase() {
                 mStatusBarKeyguardViewManager,
                 mStatusBarStateController,
                 mHandler,
+                { mock(PerDisplayRepository::class.java) as PerDisplayRepository<SysUiState> },
             )
         mTaskbarDelegate.setDependencies(
             mCommandQueue,
