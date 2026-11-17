@@ -57,6 +57,9 @@ import java.util.List;
  */
 public abstract class KeyguardPinBasedInputView extends KeyguardAbsKeyInputView {
 
+    private static final char[] DIGITS =
+            {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
     protected PasswordTextView mPasswordEntry;
     private NumPadButton mOkButton;
     private NumPadButton mDeleteButton;
@@ -135,6 +138,11 @@ public abstract class KeyguardPinBasedInputView extends KeyguardAbsKeyInputView 
         if (keyCode >= KeyEvent.KEYCODE_NUMPAD_0 && keyCode <= KeyEvent.KEYCODE_NUMPAD_9) {
             int number = keyCode - KeyEvent.KEYCODE_NUMPAD_0;
             performNumberClick(number);
+            return true;
+        }
+        char digit = event.getMatch(DIGITS);
+        if (digit != 0) {
+            performNumberClick(digit - '0');
             return true;
         }
         return super.onKeyDown(keyCode, event);
