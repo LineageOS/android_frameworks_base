@@ -137,6 +137,11 @@ public abstract class KeyguardPinBasedInputView extends KeyguardAbsKeyInputView 
             performNumberClick(number);
             return true;
         }
+        int digit = Character.digit(event.getUnicodeChar(), 10);
+        if (digit >= 0) {
+            performNumberClick(digit);
+            return true;
+        }
         return super.onKeyDown(keyCode, event);
     }
 
