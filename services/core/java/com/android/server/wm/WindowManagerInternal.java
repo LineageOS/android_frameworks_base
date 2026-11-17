@@ -953,6 +953,15 @@ public abstract class WindowManagerInternal {
     public abstract @DisplayImePolicy int getDisplayImePolicy(int displayId);
 
     /**
+     * Returns the display where the IME is shown for displays whose IME policy is
+     * {@link android.view.WindowManager#DISPLAY_IME_POLICY_FALLBACK_DISPLAY}.
+     *
+     * @return The id of the display the IME is pinned to, or {@link Display#INVALID_DISPLAY} if
+     *         the IME is not pinned and the default fallback display applies.
+     */
+    public abstract int getImeFallbackDisplayId();
+
+    /**
      * Called by UiModeManager when the UI mode for the given display has changed.
      *
      * @param displayId The id of the display

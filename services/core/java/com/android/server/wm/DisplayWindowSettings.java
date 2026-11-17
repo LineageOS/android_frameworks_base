@@ -18,6 +18,7 @@ package com.android.server.wm;
 
 import static android.view.Display.REMOVE_MODE_DESTROY_CONTENT;
 import static android.view.WindowManager.DISPLAY_IME_POLICY_FALLBACK_DISPLAY;
+import static android.view.WindowManager.DISPLAY_IME_POLICY_HIDE;
 import static android.view.WindowManager.DISPLAY_IME_POLICY_LOCAL;
 import static android.view.WindowManager.REMOVE_CONTENT_MODE_DESTROY;
 import static android.view.WindowManager.REMOVE_CONTENT_MODE_MOVE_TO_PRIMARY;
@@ -365,7 +366,12 @@ class DisplayWindowSettings {
 
     @DisplayImePolicy
     int getImePolicyLocked(@NonNull DisplayContent dc) {
-        if (dc.getDisplayId() == Display.DEFAULT_DISPLAY) {
+        final int imeFallbackDisplayId = mService.mImeFallbackDisplayId;
+        final boolean isImePinned = imeFallbackDisplayId != Display.INVALID_DISPLAY;
+        if (isImePinned && dc.getDisplayId() == imeFallbackDisplayId) {
+            return DISPLAY_IME_POLICY_LOCAL;
+        }
+        if (!isImePinned && dc.getDisplayId() == Display.DEFAULT_DISPLAY) {
             // Default display should show IME.
             return DISPLAY_IME_POLICY_LOCAL;
         }
@@ -373,6 +379,10 @@ class DisplayWindowSettings {
         final DisplayInfo displayInfo = dc.getDisplayInfo();
         final SettingsProvider.SettingsEntry settings = mSettingsProvider.getSettings(displayInfo);
 
+        if (isImePinned) {
+            return settings.mImePolicy != null && settings.mImePolicy == DISPLAY_IME_POLICY_HIDE
+                    ? DISPLAY_IME_POLICY_HIDE : DISPLAY_IME_POLICY_FALLBACK_DISPLAY;
+        }
         if (settings.mImePolicy != null) {
             return settings.mImePolicy;
         }
