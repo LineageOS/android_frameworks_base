@@ -16,6 +16,23 @@
       "message": "i think this makes sense, i\u0027d just need to try some tablet (/w config_allowAllRotations\u003dfalse)",
       "revId": "0b11a00385b4f2bd3d142dbf2b2115c6d336678e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5949e6ed_6be6288b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-17T17:08:13Z",
+      "side": 1,
+      "message": "Looks fine.",
+      "revId": "0b11a00385b4f2bd3d142dbf2b2115c6d336678e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
