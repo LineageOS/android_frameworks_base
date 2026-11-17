@@ -65,6 +65,7 @@ import com.android.app.displaylib.DisplayDecorationListener;
 import com.android.app.displaylib.DisplaysWithDecorationsRepositoryCompat;
 import com.android.internal.statusbar.LetterboxDetails;
 import com.android.internal.view.AppearanceRegion;
+import com.android.app.displaylib.PerDisplayRepository;
 import com.android.systemui.Dumpable;
 import com.android.systemui.LauncherProxyService;
 import com.android.systemui.dagger.SysUISingleton;
@@ -89,6 +90,8 @@ import com.android.systemui.statusbar.phone.LightBarTransitionsController;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.wm.shell.back.BackAnimation;
 import com.android.wm.shell.pip.Pip;
+
+import dagger.Lazy;
 
 import kotlinx.coroutines.CoroutineDispatcher;
 
@@ -121,6 +124,7 @@ public class TaskbarDelegate implements CommandQueue.Callbacks,
     private int mDefaultDisplayId;
     @NavbarFlags
     private int mNavbarFlags;
+    private final Lazy<PerDisplayRepository<SysUiState>> mPerDisplaySysUiStateRepository;
     private final NavBarHelper.NavbarTaskbarStateUpdater mNavbarTaskbarStateUpdater =
             new NavBarHelper.NavbarTaskbarStateUpdater() {
                 @Override
@@ -244,7 +248,9 @@ public class TaskbarDelegate implements CommandQueue.Callbacks,
             LightBarTransitionsController.Factory lightBarTransitionsControllerFactory,
             StatusBarKeyguardViewManager statusBarKeyguardViewManager,
             StatusBarStateController statusBarStateController,
-            @Background Handler bgHandler) {
+            @Background Handler bgHandler,
+            Lazy<PerDisplayRepository<SysUiState>> perDisplaySysUiStateRepository) {
+        mPerDisplaySysUiStateRepository = perDisplaySysUiStateRepository;
         mLightBarTransitionsControllerFactory = lightBarTransitionsControllerFactory;
 
         mContext = context;
@@ -532,6 +538,8 @@ public class TaskbarDelegate implements CommandQueue.Callbacks,
     public void setImeWindowStatus(int displayId, @ImeWindowVisibility int vis,
             @BackDispositionMode int backDisposition, boolean showImeSwitcherButton) {
         if (displayId != mDefaultDisplayId) {
+            updateSecondaryDisplayImeFlags(displayId, vis, backDisposition,
+                    showImeSwitcherButton);
             return;
         }
 
@@ -544,6 +552,26 @@ public class TaskbarDelegate implements CommandQueue.Callbacks,
 
         mNavbarFlags = flags;
         updateSysuiFlags();
+    }
+
+    /**
+     * Taskbars on connected displays are created by Launcher, so propagate the IME state of
+     * those displays to their own {@link SysUiState}. Otherwise the taskbar keeps intercepting
+     * touches meant for the IME drawn navigation bar (e.g. the IME dismiss button).
+     */
+    private void updateSecondaryDisplayImeFlags(int displayId, @ImeWindowVisibility int vis,
+            @BackDispositionMode int backDisposition, boolean showImeSwitcherButton) {
+        final SysUiState state = mPerDisplaySysUiStateRepository.get().get(displayId);
+        if (state == null) {
+            return;
+        }
+        final int flags = Utilities.updateNavbarFlagsFromIme(0, backDisposition,
+                mNavBarHelper.isImeVisible(vis), showImeSwitcherButton);
+        state.setFlag(SYSUI_STATE_IME_VISIBLE, (flags & NAVBAR_IME_VISIBLE) != 0)
+                .setFlag(SYSUI_STATE_IME_SWITCHER_BUTTON_VISIBLE,
+                        (flags & NAVBAR_IME_SWITCHER_BUTTON_VISIBLE) != 0)
+                .setFlag(SYSUI_STATE_BACK_DISMISS_IME, (flags & NAVBAR_BACK_DISMISS_IME) != 0)
+                .commitUpdate();
     }
 
     @Override
