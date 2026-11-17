@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba3c5eae_1e007a73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2026-11-17T16:31:04Z",
+      "side": 1,
+      "message": "i think this makes sense, i\u0027d just need to try some tablet (/w config_allowAllRotations\u003dfalse)",
+      "revId": "0b11a00385b4f2bd3d142dbf2b2115c6d336678e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
