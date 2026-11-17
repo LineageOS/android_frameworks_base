@@ -28,8 +28,6 @@ import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.sysprop.SurfaceFlingerProperties;
-import android.sysprop.SurfaceFlingerProperties.primary_display_orientation_values;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.IWindowManager;
@@ -37,8 +35,6 @@ import android.view.Surface;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.R;
-
-import java.util.Optional;
 
 /**
  * Provides helper functions for configuring the display rotation policy.
@@ -176,7 +172,7 @@ public final class RotationPolicy {
         setRotationLock(enabled, getNaturalRotation(), caller);
     }
 
-    public static boolean isRotationAllowed(int rotation,
+    public static boolean isRotationAllowed(int rotation, int defaultRotation,
             int userRotationAngles, boolean allowAllRotations) {
         if (userRotationAngles < 0) {
             // Not set by user so use these defaults
@@ -184,6 +180,8 @@ public final class RotationPolicy {
                     (1 | 2 | 4 | 8) : // All angles
                     (1 | 2 | 8); // All except 180
         }
+        // Angles are relative to the default rotation
+        rotation = (rotation - defaultRotation + 4) % 4;
         switch (rotation) {
             case Surface.ROTATION_0:
                 return (userRotationAngles & 1) != 0;
@@ -204,8 +202,8 @@ public final class RotationPolicy {
                 com.android.internal.R.bool.config_allowAllRotations);
         final IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
         try {
-            return isRotationAllowed(wm.getDefaultDisplayRotation(), userRotationAngles,
-                    allowAllRotations);
+            return isRotationAllowed(wm.getDefaultDisplayRotation(),
+                    wm.getDefaultDisplayDefaultRotation(), userRotationAngles, allowAllRotations);
         } catch (RemoteException exc) {
             Log.w(TAG, "Unable to getWindowManagerService.getDefaultDisplayRotation()");
         }
@@ -272,31 +270,15 @@ public final class RotationPolicy {
 
     public static int getNaturalRotation() {
         if (sNaturalRotation == -1) {
-            sNaturalRotation = getNaturalRotationConfig();
+            final IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+            try {
+                sNaturalRotation = wm.getDefaultDisplayDefaultRotation();
+            } catch (RemoteException exc) {
+                Log.w(TAG, "Unable to getWindowManagerService.getDefaultDisplayDefaultRotation()");
+                return Surface.ROTATION_0;
+            }
         }
         return sNaturalRotation;
-    }
-
-    private static int getNaturalRotationConfig() {
-        primary_display_orientation_values orientation =
-                primary_display_orientation_values.ORIENTATION_0;
-        Optional<primary_display_orientation_values> primaryDisplayOrientation =
-                SurfaceFlingerProperties.primary_display_orientation();
-        if (primaryDisplayOrientation.isPresent()) {
-            orientation = primaryDisplayOrientation.get();
-        }
-
-        if (orientation == primary_display_orientation_values.ORIENTATION_90) {
-            return Surface.ROTATION_90;
-        }
-        if (orientation == primary_display_orientation_values.ORIENTATION_180) {
-            return Surface.ROTATION_180;
-        }
-        if (orientation == primary_display_orientation_values.ORIENTATION_270) {
-            return Surface.ROTATION_270;
-        }
-
-        return Surface.ROTATION_0;
     }
 
     /**

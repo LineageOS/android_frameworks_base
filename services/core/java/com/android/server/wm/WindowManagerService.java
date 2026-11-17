@@ -5183,6 +5183,13 @@ public class WindowManagerService extends IWindowManager.Stub
     }
 
     @Override
+    public int getDefaultDisplayDefaultRotation() {
+        synchronized (mGlobalLock) {
+            return getDefaultDisplayContentLocked().getDisplayRotation().getDefaultRotation();
+        }
+    }
+
+    @Override
     public void setDisplayChangeWindowController(IDisplayChangeWindowController controller) {
         mAtmService.enforceTaskPermission("setDisplayWindowRotationController");
         try {

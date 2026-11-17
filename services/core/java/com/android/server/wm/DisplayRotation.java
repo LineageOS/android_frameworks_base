@@ -213,6 +213,9 @@ public class DisplayRotation {
 
     private int mUserRotationAngles = -1;
 
+    @Surface.Rotation
+    private final int mDefaultRotation;
+
     @WindowManagerPolicy.UserRotationMode
     private int mUserRotationMode = WindowManagerPolicy.USER_ROTATION_FREE;
 
@@ -273,6 +276,7 @@ public class DisplayRotation {
         mUndockedHdmiRotation = readRotation(R.integer.config_undockedHdmiRotation);
 
         int defaultRotation = readDefaultDisplayRotation(displayAddress, displayContent);
+        mDefaultRotation = defaultRotation;
         mRotation = defaultRotation;
 
         mDisplayRotationCoordinator = displayRotationCoordinator;
@@ -458,6 +462,11 @@ public class DisplayRotation {
     @VisibleForTesting
     void setRotation(@Surface.Rotation int rotation) {
         mRotation = rotation;
+    }
+
+    @Surface.Rotation
+    int getDefaultRotation() {
+        return mDefaultRotation;
     }
 
     @Surface.Rotation
@@ -1238,7 +1247,8 @@ public class DisplayRotation {
             boolean allowed = true;
             if (orientation != ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
                     && orientation != ActivityInfo.SCREEN_ORIENTATION_FULL_USER) {
-                allowed = RotationPolicy.isRotationAllowed(sensorRotation, mUserRotationAngles,
+                allowed = RotationPolicy.isRotationAllowed(sensorRotation, mDefaultRotation,
+                        mUserRotationAngles,
                         getAllowAllRotations() != ALLOW_ALL_ROTATIONS_DISABLED);
             }
             if (allowed) {

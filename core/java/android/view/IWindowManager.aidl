@@ -332,6 +332,14 @@ interface IWindowManager
     int getDefaultDisplayRotation();
 
     /**
+     * Retrieve the default rotation of the primary screen.
+     * @return Constant as per {@link android.view.Surface.Rotation}.
+     *
+     * @see android.view.Display#DEFAULT_DISPLAY
+     */
+    int getDefaultDisplayDefaultRotation();
+
+    /**
      * Retrieve the display user rotation.
      * @param displayId Id of the display
      * @return Rotation one of {@link android.view.Surface#ROTATION_0},
