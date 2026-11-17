@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a19ff3d_7be29617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-17T07:27:11Z",
+      "side": 1,
+      "message": "Add the assisted by trailer in the commit message, not as hashtags",
+      "revId": "b5eff0e105b718ebbe163bf3f71cb2a32bb8c05e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
