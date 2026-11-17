@@ -21,8 +21,12 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.Configuration
+import android.database.ContentObserver
+import android.os.Handler
+import android.os.Looper
 import android.os.PowerManager
 import android.os.SystemClock
+import android.os.UserHandle
 import android.util.IndentingPrintWriter
 import android.view.MotionEvent
 import android.view.VelocityTracker
@@ -37,6 +41,7 @@ import com.android.systemui.dump.DumpManager
 import com.android.systemui.plugins.FalsingManager
 import com.android.systemui.plugins.statusbar.StatusBarStateController
 import com.android.systemui.res.R
+import com.android.systemui.settings.UserTracker
 import com.android.systemui.shade.domain.interactor.ShadeInteractor
 import com.android.systemui.statusbar.notification.NotificationWakeUpCoordinator
 import com.android.systemui.statusbar.notification.headsup.HeadsUpManager
@@ -48,6 +53,7 @@ import com.android.systemui.statusbar.policy.ConfigurationController
 import java.io.PrintWriter
 import javax.inject.Inject
 import kotlin.math.max
+import lineageos.providers.LineageSettings
 
 /**
  * A utility class that handles notification panel expansion when a user swipes downward on a
@@ -68,6 +74,7 @@ constructor(
     private val shadeInteractor: ShadeInteractor,
     private val lockscreenShadeTransitionController: LockscreenShadeTransitionController,
     dumpManager: DumpManager,
+    private val userTracker: UserTracker,
 ) : Gefingerpoken, Dumpable {
     companion object {
         private val SPRING_BACK_ANIMATION_LENGTH_MS = 375
@@ -115,6 +122,9 @@ constructor(
     var pulseExpandAbortListener: Runnable? = null
     var bouncerShowing: Boolean = false
 
+    /** Whether the user enabled swiping down on a pulsing ambient display. */
+    private var swipeDownGestureEnabled: Boolean = true
+
     init {
         initResources(context)
         configurationController.addCallback(
@@ -127,6 +137,36 @@ constructor(
 
         mPowerManager = context.getSystemService(PowerManager::class.java)
         dumpManager.registerDumpable(this)
+
+        context.contentResolver.registerContentObserver(
+            LineageSettings.System.getUriFor(LineageSettings.System.PULSE_SWIPE_DOWN_GESTURE),
+            /* notifyForDescendants= */ false,
+            object : ContentObserver(Handler(Looper.getMainLooper())) {
+                override fun onChange(selfChange: Boolean) {
+                    updateSwipeDownGestureEnabled(context)
+                }
+            },
+            UserHandle.USER_ALL,
+        )
+        userTracker.addCallback(
+            object : UserTracker.Callback {
+                override fun onUserChanged(newUser: Int, userContext: Context) {
+                    updateSwipeDownGestureEnabled(context)
+                }
+            },
+            context.mainExecutor,
+        )
+        updateSwipeDownGestureEnabled(context)
+    }
+
+    private fun updateSwipeDownGestureEnabled(context: Context) {
+        swipeDownGestureEnabled =
+            LineageSettings.System.getIntForUser(
+                context.contentResolver,
+                LineageSettings.System.PULSE_SWIPE_DOWN_GESTURE,
+                1,
+                userTracker.userId,
+            ) != 0
     }
 
     private fun initResources(context: Context) {
@@ -140,7 +180,8 @@ constructor(
     }
 
     private fun canHandleMotionEvent(): Boolean {
-        return wakeUpCoordinator.canShowPulsingHuns &&
+        return swipeDownGestureEnabled &&
+                wakeUpCoordinator.canShowPulsingHuns &&
                 !shadeInteractor.isQsExpanded.value &&
                 !bouncerShowing
     }
@@ -364,6 +405,7 @@ constructor(
             it.println("leavingLockscreen: $leavingLockscreen")
             it.println("mPulsing: $mPulsing")
             it.println("bouncerShowing: $bouncerShowing")
+            it.println("swipeDownGestureEnabled: $swipeDownGestureEnabled")
         }
     }
 }
