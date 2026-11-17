@@ -2528,6 +2528,23 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
     }
 
     /**
+     * Find the display where the IME should be shown, falling back to the given display.
+     *
+     * @param displayId the ID of the display where the IME client target is
+     * @param checker   instance of {@link ImeDisplayValidator} which is used for
+     *                  checking display config to adjust the final target display
+     * @param fallbackDisplayId the ID of the display used when the IME client target display
+     *                          can not show the IME
+     * @return the ID of the display where the IME should be shown or
+     * {@link android.view.Display#INVALID_DISPLAY} if the display has an ImePolicy of
+     * {@link WindowManager#DISPLAY_IME_POLICY_HIDE}
+     */
+    static int computeImeDisplayIdForTarget(int displayId, @NonNull ImeDisplayValidator checker,
+            int fallbackDisplayId) {
+        return computeImeDisplayIdForTargetInner(displayId, checker, fallbackDisplayId);
+    }
+
+    /**
      * Find the display where the IME should be shown for a visible background user.
      *
      * @param displayId the ID of the display where the IME client target is
@@ -3060,7 +3077,10 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
         // display since it is intentional behavior.
         final var bindingController = userData.mBindingController;
         final int curDisplayId = bindingController.getCurDisplayId();
-        if (curDisplayId != topFocusedDisplayId && curDisplayId != FALLBACK_DISPLAY_ID) {
+        final int imeFallbackDisplayId = mWindowManagerInternal.getImeFallbackDisplayId();
+        if (curDisplayId != topFocusedDisplayId && curDisplayId != FALLBACK_DISPLAY_ID
+                && (imeFallbackDisplayId == INVALID_DISPLAY
+                        || curDisplayId != imeFallbackDisplayId)) {
             return;
         }
         bindingController.setImeWindowVis(vis);

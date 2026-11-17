@@ -2934,9 +2934,19 @@ class RootWindowContainer extends WindowContainer<DisplayContent>
     }
 
     void updateDisplayImePolicyCache() {
+        mWmService.mImeFallbackDisplayId = computeImeFallbackDisplayId();
         ArrayMap<Integer, Integer> displayImePolicyMap = new ArrayMap<>();
         forAllDisplays(dc -> displayImePolicyMap.put(dc.getDisplayId(), dc.getImePolicy()));
         mWmService.mDisplayImePolicyCache = Collections.unmodifiableMap(displayImePolicyMap);
+    }
+
+    private int computeImeFallbackDisplayId() {
+        if (!mWmService.mPinImeToDisplay || mWmService.mImePinnedDisplayUniqueId.isEmpty()) {
+            return INVALID_DISPLAY;
+        }
+        final DisplayContent displayContent =
+                getDisplayContent(mWmService.mImePinnedDisplayUniqueId);
+        return displayContent != null ? displayContent.getDisplayId() : INVALID_DISPLAY;
     }
 
     /** Update lists of UIDs that are present on displays and have access to them. */

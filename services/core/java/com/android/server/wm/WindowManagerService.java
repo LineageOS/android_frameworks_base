@@ -378,6 +378,8 @@ import com.android.window.flags.Flags;
 
 import dalvik.annotation.optimization.NeverCompile;
 
+import lineageos.providers.LineageSettings;
+
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
@@ -666,6 +668,18 @@ public class WindowManagerService extends IWindowManager.Stub
     volatile Map<Integer, Integer> mDisplayImePolicyCache = Collections.unmodifiableMap(
             new ArrayMap<>());
 
+    /** Unique id of the display the IME can be pinned to, empty if the device has none. */
+    final String mImePinnedDisplayUniqueId;
+
+    /** Whether the user pinned the IME to {@link #mImePinnedDisplayUniqueId}. */
+    boolean mPinImeToDisplay;
+
+    /**
+     * The display the IME is pinned to, or {@link Display#INVALID_DISPLAY} if it is not pinned.
+     * Note that this can be accessed without holding the lock.
+     */
+    volatile int mImeFallbackDisplayId = INVALID_DISPLAY;
+
     /**
      * Windows whose surface should be destroyed.
      */
@@ -862,6 +876,8 @@ public class WindowManagerService extends IWindowManager.Stub
                 Settings.Global.MAXIMUM_OBSCURING_OPACITY_FOR_TOUCH);
         private final Uri mDevelopmentOverrideDesktopExperienceUri = Settings.Global.getUriFor(
                 Settings.Global.DEVELOPMENT_OVERRIDE_DESKTOP_EXPERIENCE_FEATURES);
+        private final Uri mPinImeToDisplayUri = LineageSettings.Secure.getUriFor(
+                LineageSettings.Secure.PIN_IME_TO_DISPLAY);
 
         public SettingsObserver() {
             super(new Handler());
@@ -897,6 +913,8 @@ public class WindowManagerService extends IWindowManager.Stub
             resolver.registerContentObserver(mMaximumObscuringOpacityForTouchUri, false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(mDevelopmentOverrideDesktopExperienceUri, false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(mPinImeToDisplayUri, false, this,
                     UserHandle.USER_ALL);
         }
 
@@ -950,6 +968,11 @@ public class WindowManagerService extends IWindowManager.Stub
                 return;
             }
 
+            if (mPinImeToDisplayUri.equals(uri)) {
+                updatePinImeToDisplay();
+                return;
+            }
+
             @UpdateAnimationScaleMode
             final int mode;
             if (mWindowAnimationScaleUri.equals(uri)) {
@@ -970,6 +993,7 @@ public class WindowManagerService extends IWindowManager.Stub
             updateMaximumObscuringOpacityForTouch();
             updateDisableSecureWindows();
             updateMagnifyIme();
+            updatePinImeToDisplay();
         }
 
         void updateMaximumObscuringOpacityForTouch() {
@@ -1091,6 +1115,20 @@ public class WindowManagerService extends IWindowManager.Stub
 
             synchronized (mGlobalLock) {
                 mMagnifyIme = enabledMagnifyIme;
+            }
+        }
+
+        void updatePinImeToDisplay() {
+            final boolean pinImeToDisplay = LineageSettings.Secure.getIntForUser(
+                    mContext.getContentResolver(), LineageSettings.Secure.PIN_IME_TO_DISPLAY, 0,
+                    mCurrentUserId) == 1;
+            if (mPinImeToDisplay == pinImeToDisplay) {
+                return;
+            }
+
+            synchronized (mGlobalLock) {
+                mPinImeToDisplay = pinImeToDisplay;
+                mRoot.updateDisplayImePolicyCache();
             }
         }
     }
@@ -1373,6 +1411,8 @@ public class WindowManagerService extends IWindowManager.Stub
                 com.android.internal.R.bool.config_disableTransitionAnimation);
         mPerDisplayFocusEnabled = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_perDisplayFocusEnabled);
+        mImePinnedDisplayUniqueId = context.getResources().getString(
+                org.lineageos.platform.internal.R.string.config_imePinnedDisplayUniqueId);
         mAssistantOnTopOfDream = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_assistantOnTopOfDream);
 
@@ -4188,6 +4228,7 @@ public class WindowManagerService extends IWindowManager.Stub
             // This call is crucial on user switch to ensure the Magnify IME state
             // is correctly re-evaluated and applied for the new user.
             mSettingsObserver.updateMagnifyIme();
+            mSettingsObserver.updatePinImeToDisplay();
         }
     }
 
@@ -8639,6 +8680,18 @@ public class WindowManagerService extends IWindowManager.Stub
             synchronized (mGlobalLock) {
                 final InputTarget imeInputTarget = getInputTargetFromWindowTokenLocked(windowToken);
                 if (imeInputTarget != null) {
+                    if (mImeFallbackDisplayId != INVALID_DISPLAY) {
+                        // Reset the other displays first, they share the IME host with it.
+                        final DisplayContent imeInputTargetDc =
+                                imeInputTarget.getDisplayContent();
+                        mRoot.forAllDisplays(display -> {
+                            if (display != imeInputTargetDc) {
+                                display.updateImeInputAndControlTarget(null /* target */);
+                            }
+                        });
+                        imeInputTargetDc.updateImeInputAndControlTarget(imeInputTarget);
+                        return;
+                    }
                     imeInputTarget.getDisplayContent()
                             .updateImeInputAndControlTarget(imeInputTarget);
 
@@ -9189,6 +9242,11 @@ public class WindowManagerService extends IWindowManager.Stub
         @Override
         public @DisplayImePolicy int getDisplayImePolicy(int displayId) {
             return WindowManagerService.this.getDisplayImePolicy(displayId);
+        }
+
+        @Override
+        public int getImeFallbackDisplayId() {
+            return mImeFallbackDisplayId;
         }
 
         @Override
@@ -10876,7 +10934,10 @@ public class WindowManagerService extends IWindowManager.Stub
         // callback when moving between displays. See b/189805422 for context.
         synchronized (mGlobalLock) {
             final DisplayContent dc = mRoot.getTopFocusedDisplayContent();
-            return dc.getImePolicy() == DISPLAY_IME_POLICY_LOCAL ? dc.getDisplayId()
+            if (dc.getImePolicy() == DISPLAY_IME_POLICY_LOCAL) {
+                return dc.getDisplayId();
+            }
+            return mImeFallbackDisplayId != INVALID_DISPLAY ? mImeFallbackDisplayId
                     : DEFAULT_DISPLAY;
         }
     }

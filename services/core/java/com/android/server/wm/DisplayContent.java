@@ -3855,6 +3855,9 @@ class DisplayContent extends RootDisplayArea implements WindowManagerPolicy.Disp
             mTransitionController.unregisterLegacyListener(mFixedRotationTransitionListener);
             mDeviceStateController.unregisterDeviceStateCallback(mDeviceStateListener);
             super.removeImmediately();
+            if (mDisplayId == mWmService.mImeFallbackDisplayId) {
+                mRootWindowContainer.updateDisplayImePolicyCache();
+            }
             if (DEBUG_DISPLAY) Slog.v(TAG_WM, "Removing display=" + this);
             mPointerEventDispatcher.dispose();
             mSystemGestureExclusionListeners.kill();
@@ -4712,6 +4715,11 @@ class DisplayContent extends RootDisplayArea implements WindowManagerPolicy.Disp
                 && target.getDisplayContent().getImePolicy() == DISPLAY_IME_POLICY_LOCAL) {
             return target;
         }
+        final DisplayContent imeFallbackDc =
+                mWmService.mRoot.getDisplayContent(mWmService.mImeFallbackDisplayId);
+        if (imeFallbackDc != null) {
+            return imeFallbackDc.mRemoteInsetsControlTarget;
+        }
         final DisplayContent defaultDc = getUserMainDisplayContent();
         return defaultDc.mRemoteInsetsControlTarget;
     }
@@ -5301,7 +5309,7 @@ class DisplayContent extends RootDisplayArea implements WindowManagerPolicy.Disp
             final boolean isFocusedOnAnotherDisplay =
                     mWmService.mRoot.getTopFocusedDisplayContent() != this;
             if (isFocusedOnAnotherDisplay && mRemoteInsetsControlTarget != null
-                    && isUserMainDisplay()) {
+                    && isImeFallbackDisplay()) {
                 return mRemoteInsetsControlTarget;
             }
             return null;
@@ -5324,6 +5332,19 @@ class DisplayContent extends RootDisplayArea implements WindowManagerPolicy.Disp
     private boolean isUserMainDisplay() {
         final int userId = mWmService.mUmInternal.getUserAssignedToDisplay(mDisplayId);
         return mDisplayId == mWmService.mUmInternal.getMainDisplayAssignedToUser(userId);
+    }
+
+    /**
+     * Returns {@code true} if the IME of displays that cannot show it is shown on this display.
+     *
+     * <p>That is the display the IME is pinned to, or else the user's main display.
+     */
+    private boolean isImeFallbackDisplay() {
+        final int imeFallbackDisplayId = mWmService.mImeFallbackDisplayId;
+        if (imeFallbackDisplayId != INVALID_DISPLAY) {
+            return mDisplayId == imeFallbackDisplayId;
+        }
+        return isUserMainDisplay();
     }
 
     /**
