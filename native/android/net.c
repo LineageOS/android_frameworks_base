@@ -175,6 +175,12 @@ int android_untag_socket(int sockfd) {
     return untagSocket(sockfd);
 }
 
+// Marks the thread's DNS requests as being for the uid, as TrafficStats#setThreadStatsUid marks
+// its sockets; -1 clears it. For Connectivity's TrafficStats, which looks it up at run time.
+int android_set_thread_dns_uid(uid_t uid) {
+    return setThreadDnsUid(uid);
+}
+
 int32_t android_getnetworkblockedreason(int sockfd) {
     return AConnectivityNative_getNetworkBlockedReason(sockfd);
 }

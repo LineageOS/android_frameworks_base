@@ -392,6 +392,7 @@ LIBANDROID {
     android_tag_socket; # introduced=Tiramisu
     android_untag_socket; # introduced=Tiramisu
     android_getnetworkblockedreason;  # introduced=37
+    android_set_thread_dns_uid; # systemapi introduced=37
     AThermal_acquireManager; # introduced=30
     AThermal_releaseManager; # introduced=30
     AThermal_getCurrentThermalStatus; # introduced=30
