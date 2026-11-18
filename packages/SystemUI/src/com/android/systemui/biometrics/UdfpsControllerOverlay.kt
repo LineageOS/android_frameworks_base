@@ -399,7 +399,7 @@ constructor(
             }
 
         val rot = overlayParams.rotation
-        if (rot == Surface.ROTATION_90 || rot == Surface.ROTATION_270) {
+        if (rot != Surface.ROTATION_0) {
             if (!shouldRotate()) {
                 Log.v(
                     TAG,
