@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2ca2fe7_666cee6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32856
+      },
+      "writtenOn": "2026-11-18T10:41:52Z",
+      "side": 1,
+      "message": "There\u0027s a bug after this patch: the volume panel no longer expands, even when the device is unlocked, because the check relies on `SceneContainerFlag`, which is disabled by default in legacy mode.\n\nAlready applied the fix directly in fw/base, take a look this commit: https://github.com/AndroidOne-Experience/frameworks_base/commit/704c4f6632b6ddf08b947388b0bb40cf614fed98",
+      "revId": "eeb6ff6801aa67dd224f7a96733ad2e9369189e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
