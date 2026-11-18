@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "496f1a45_6aba065d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-18T09:45:14Z",
+      "side": 1,
+      "message": "This returns before `settings.mImePolicy` is checked, so if a display has its IME policy set to hide (e.g. via `wm set-display-ime-policy`), turning on pinning makes the keyboard show up on the pinned display for it anyway. Could we keep the pinned display as local, but check the saved policy before falling back to the pinned display? Something like the edit below?",
+      "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4b5e862_353b7d7b",
+        "filename": "services/core/java/com/android/server/wm/DisplayWindowSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-18T09:45:14Z",
+      "side": 1,
+      "message": "```suggestion\n        final boolean isImePinned \u003d imeFallbackDisplayId !\u003d Display.INVALID_DISPLAY;\n        if (isImePinned \u0026\u0026 dc.getDisplayId() \u003d\u003d imeFallbackDisplayId) {\n            return DISPLAY_IME_POLICY_LOCAL;\n```",
+      "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3c074ec_fe86fdf6",
+        "filename": "services/core/java/com/android/server/wm/DisplayWindowSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-18T09:45:14Z",
+      "side": 1,
+      "message": "```suggestion\n        if (!isImePinned \u0026\u0026 dc.getDisplayId() \u003d\u003d Display.DEFAULT_DISPLAY) {\n```",
+      "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69396fa4_9ba5b979",
+        "filename": "services/core/java/com/android/server/wm/DisplayWindowSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-18T09:45:14Z",
+      "side": 1,
+      "message": "```suggestion\n        }\n        if (isImePinned) {\n            return DISPLAY_IME_POLICY_FALLBACK_DISPLAY;\n        }\n```",
+      "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
