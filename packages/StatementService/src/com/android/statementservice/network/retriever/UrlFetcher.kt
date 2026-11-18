@@ -38,7 +38,8 @@ class UrlFetcher {
         url: URL,
         connectionTimeoutMillis: Int,
         fileSizeLimit: Long,
-        network: Network? = null
+        network: Network? = null,
+        uid: Int? = null
     ) = withContext(Dispatchers.IO) {
         TrafficStats.setThreadStatsTag(Thread.currentThread().id.toInt())
         @Suppress("BlockingMethodInNonBlockingContext")
@@ -51,6 +52,14 @@ class UrlFetcher {
                 useCaches = true
                 instanceFollowRedirects = false
                 addRequestProperty("Cache-Control", "max-stale=60")
+            }
+            // Counted as the app's traffic, so its network rules and data usage apply. The socket
+            // takes the tag when created, which connect() does here before any suspension.
+            if (uid != null) TrafficStats.setThreadStatsUid(uid)
+            try {
+                connection.connect()
+            } finally {
+                if (uid != null) TrafficStats.clearThreadStatsUid()
             }
             val responseCode = connection.responseCode
             when {

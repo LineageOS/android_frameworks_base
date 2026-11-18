@@ -17,6 +17,7 @@
 package com.android.statementservice.domain
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.content.pm.verify.domain.DomainVerificationManager
 import android.net.Network
 import android.util.Log
@@ -92,19 +93,26 @@ class DomainVerifier private constructor(
         val assetMatcher = synchronized(targetAssetCache) { targetAssetCache[packageName] }
             .takeIf { it!!.isPresent }
             ?: return Triple(WorkResult.failure(), VerifyStatus.FAILURE_PACKAGE_MANAGER, null)
-        return verifyHost(host, assetMatcher.get(), network)
+        return verifyHost(host, assetMatcher.get(), network, appUid(packageName))
+    }
+
+    private fun appUid(packageName: String) = try {
+        appContext.packageManager.getPackageUid(packageName, PackageManager.PackageInfoFlags.of(0))
+    } catch (e: PackageManager.NameNotFoundException) {
+        null
     }
 
     private suspend fun verifyHost(
         host: String,
         assetMatcher: AbstractAssetMatcher,
-        network: Network? = null
+        network: Network? = null,
+        uid: Int? = null
     ): Triple<WorkResult, VerifyStatus, Statement?> {
         var exception: Exception? = null
         val resultAndStatus = try {
             val sourceAsset = StatementUtils.createWebAssetString(host)
                 .let(AbstractAsset::create)
-            val result = retriever.retrieve(sourceAsset, network)
+            val result = retriever.retrieve(sourceAsset, network, uid)
                 ?: return Triple(WorkResult.success(), VerifyStatus.FAILURE_UNKNOWN, null)
             when (result.responseCode) {
                 HttpURLConnection.HTTP_MOVED_PERM,

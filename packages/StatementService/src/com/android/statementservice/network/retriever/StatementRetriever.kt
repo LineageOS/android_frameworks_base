@@ -65,16 +65,21 @@ class StatementRetriever {
         )
     }
 
-    suspend fun retrieve(source: AbstractAsset, network: Network? = null) = when (source) {
-        // TODO:(b/171219506): Does this have to be implemented?
-        is AndroidAppAsset -> null
-        is WebAsset -> retrieveFromWeb(source, network)
-        else -> null
-    }
+    suspend fun retrieve(source: AbstractAsset, network: Network? = null, uid: Int? = null) =
+        when (source) {
+            // TODO:(b/171219506): Does this have to be implemented?
+            is AndroidAppAsset -> null
+            is WebAsset -> retrieveFromWeb(source, network, uid)
+            else -> null
+        }
 
-    private suspend fun retrieveFromWeb(asset: WebAsset, network: Network? = null): Result? {
+    private suspend fun retrieveFromWeb(
+        asset: WebAsset,
+        network: Network? = null,
+        uid: Int? = null
+    ): Result? {
         val url = computeAssociationJsonUrl(asset) ?: return null
-        return retrieve(url, MAX_INCLUDE_LEVEL, asset, network)
+        return retrieve(url, MAX_INCLUDE_LEVEL, asset, network, uid)
     }
 
     private fun computeAssociationJsonUrl(asset: WebAsset) = tryOrNull {
@@ -85,7 +90,8 @@ class StatementRetriever {
         urlString: String,
         maxIncludeLevel: Int,
         source: AbstractAsset,
-        network: Network? = null
+        network: Network? = null,
+        uid: Int? = null
     ): Result {
         if (maxIncludeLevel < 0) {
             return Result.EMPTY
@@ -103,7 +109,8 @@ class StatementRetriever {
                 url = url,
                 connectionTimeoutMillis = HTTP_CONNECTION_TIMEOUT_MILLIS,
                 fileSizeLimit = HTTP_CONTENT_SIZE_LIMIT_IN_BYTES,
-                network
+                network,
+                uid
             ).successValueOrNull() ?: return@withContext Result.EMPTY
 
             val content = webResponse.content ?: return@withContext Result(emptyList(), webResponse)
@@ -111,7 +118,7 @@ class StatementRetriever {
                 .successValueOrNull() ?: return@withContext Result(emptyList(), webResponse)
 
             val delegatedStatements = delegates
-                .map { async { retrieve(it, maxIncludeLevel - 1, source).statements } }
+                .map { async { retrieve(it, maxIncludeLevel - 1, source, uid = uid).statements } }
                 .awaitAll()
                 .flatten()
 

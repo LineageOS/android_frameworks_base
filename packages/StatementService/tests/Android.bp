@@ -20,10 +20,14 @@ android_test {
     name: "StatementServiceTests",
     use_resource_processor: true,
     test_suites: ["general-tests"],
-    srcs: ["src/**/*.kt"],
+    srcs: [
+        "src/**/*.kt",
+        ":StatementService-url-fetcher",
+    ],
     static_libs: [
         "androidx.test.ext.junit",
         "androidx.test.runner",
+        "kotlinx-coroutines-android",
         "StatementServiceParser",
         "truth",
     ],

@@ -19,5 +19,6 @@
         <permission name="android.permission.INTENT_FILTER_VERIFICATION_AGENT"/>
         <permission name="android.permission.DOMAIN_VERIFICATION_AGENT"/>
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <permission name="android.permission.UPDATE_DEVICE_STATS"/>
     </privapp-permissions>
 </permissions>

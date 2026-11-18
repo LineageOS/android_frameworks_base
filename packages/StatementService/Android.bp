@@ -50,3 +50,13 @@ android_app {
     ],
     plugins: ["androidx.room_room-compiler-plugin"],
 }
+
+// The fetcher and what it returns, for its tests.
+filegroup {
+    name: "StatementService-url-fetcher",
+    srcs: [
+        "src/com/android/statementservice/network/retriever/UrlFetcher.kt",
+        "src/com/android/statementservice/utils/Result.kt",
+    ],
+    visibility: ["//frameworks/base/packages/StatementService/tests"],
+}

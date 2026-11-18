@@ -17,6 +17,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.statementservice.test">
 
+    <!-- The fetcher tests open sockets. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
         <uses-library android:name="android.test.runner" />
     </application>
