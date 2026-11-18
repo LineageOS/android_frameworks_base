@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c3891c_d0bc9dbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17656
+      },
+      "writtenOn": "2026-11-18T12:19:42Z",
+      "side": 1,
+      "message": "@evelynt@lineageos.org - I think this is also applicable to LineageOS 19.1 - please have a look",
+      "revId": "28e7b895d5b051eb03d3dfb53dcc027061cd2ba2",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
