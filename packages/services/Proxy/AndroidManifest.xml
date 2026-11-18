@@ -11,6 +11,10 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
     <uses-permission android:name="android.permission.FORCE_USE_LOOPBACK_INTERFACE" />
 
+    <!-- To count what the proxy connects for an app as the app's. -->
+    <uses-permission android:name="android.permission.NETWORK_STACK" />
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS" />
+
     <application
         android:label="@string/app_label"
         android:process="com.android.proxyhandler"

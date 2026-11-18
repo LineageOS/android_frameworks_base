@@ -17,6 +17,7 @@ package com.android.proxyhandler;
 
 import android.app.Service;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.IBinder;
 import android.os.RemoteException;
 
@@ -39,7 +40,7 @@ public class ProxyService extends Service {
     public void onCreate() {
         super.onCreate();
         if (server == null) {
-            server = new ProxyServer();
+            server = new ProxyServer(getSystemService(ConnectivityManager.class));
             server.startServer();
         }
     }

@@ -202,6 +202,10 @@ applications that come with the platform
         <permission name="android.permission.MANAGE_CONTACTS_PICKER_SESSION" />
     </privapp-permissions>
 
+    <privapp-permissions package="com.android.proxyhandler">
+        <permission name="android.permission.UPDATE_DEVICE_STATS"/>
+    </privapp-permissions>
+
     <privapp-permissions package="com.android.providers.calendar">
         <permission name="android.permission.GET_ACCOUNTS_PRIVILEGED"/>
         <permission name="android.permission.INTERACT_ACROSS_USERS" />

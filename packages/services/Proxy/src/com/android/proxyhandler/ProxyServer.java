@@ -15,6 +15,11 @@
  */
 package com.android.proxyhandler;
 
+import static android.system.OsConstants.IPPROTO_TCP;
+
+import android.net.ConnectivityManager;
+import android.net.TrafficStats;
+import android.os.Process;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -52,6 +57,7 @@ public class ProxyServer extends Thread {
     private static final String HEADER_PROXY_CONNECTION = "proxy-connection";
 
     private ExecutorService threadExecutor;
+    private final ConnectivityManager mConnectivityManager;
 
     public boolean mIsRunning = false;
 
@@ -69,6 +75,16 @@ public class ProxyServer extends Thread {
         @Override
         public void run() {
             try {
+                // What the proxy connects for an app counts as the app's, as data usage and
+                // firewalls expect.
+                int uid = mConnectivityManager.getConnectionOwnerUid(IPPROTO_TCP,
+                        (InetSocketAddress) connection.getRemoteSocketAddress(),
+                        (InetSocketAddress) connection.getLocalSocketAddress());
+                if (uid != Process.INVALID_UID) {
+                    TrafficStats.setThreadStatsUid(uid);
+                } else {
+                    TrafficStats.clearThreadStatsUid();
+                }
                 String requestLine = getLine(connection.getInputStream());
                 String[] splitLine = requestLine.split(" ");
                 if (splitLine.length < 3) {
@@ -318,7 +334,8 @@ public class ProxyServer extends Thread {
         }
     }
 
-    public ProxyServer() {
+    public ProxyServer(ConnectivityManager connectivityManager) {
+        mConnectivityManager = connectivityManager;
         threadExecutor = Executors.newCachedThreadPool();
         mPort = -1;
         mCallback = null;
