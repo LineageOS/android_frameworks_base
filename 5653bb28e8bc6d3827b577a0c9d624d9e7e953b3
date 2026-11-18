@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57e3aafd_fc51c880",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2026-11-18T05:32:23Z",
+      "side": 1,
+      "message": "Drops together with https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/491281 at the next rebase.",
+      "revId": "5653bb28e8bc6d3827b577a0c9d624d9e7e953b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
