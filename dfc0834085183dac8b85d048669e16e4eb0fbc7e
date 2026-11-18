@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2ecc53_63f8abbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15346
+      },
+      "writtenOn": "2026-11-18T15:28:27Z",
+      "side": 1,
+      "message": "Works but pending reviews on https://review.lineageos.org/c/LineageOS/android_device_xelex_Q25/+/505765",
+      "revId": "dfc0834085183dac8b85d048669e16e4eb0fbc7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
