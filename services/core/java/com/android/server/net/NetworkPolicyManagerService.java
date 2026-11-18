@@ -1531,7 +1531,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 // Clear the cache for the app
                 synchronized (mUidRulesFirstLock) {
                     mInternetPermissionMap.delete(uid);
-                    if (!hasInternetPermissionUL(uid) && !isSystemApp(uid)) {
+                    // An archived app has no code yet; check its permissions on unarchive.
+                    if (!intent.getBooleanExtra(Intent.EXTRA_ARCHIVAL, false)
+                            && !hasInternetPermissionUL(uid) && !isSystemApp(uid)) {
                         Slog.i(TAG, "ACTION_PACKAGE_ADDED for uid=" + uid + ", no INTERNET");
                         addUidPolicy(uid, POLICY_REJECT_ALL);
                     }
