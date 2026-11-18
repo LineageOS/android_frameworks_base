@@ -33,6 +33,42 @@
       "message": "https://github.com/LineageOS/android_frameworks_base/commit/1df617a1093e41562fd1f43f27de0cfb4af817e5\n\nThe same fix from lineage-24.0 branch can be applied here instead",
       "revId": "eeb6ff6801aa67dd224f7a96733ad2e9369189e5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c90746b_28d13c00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-11-18T19:37:47Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/q/I8a42e00fa0da25c54e78aa7b757cffb73841e141",
+      "parentUuid": "b2ca2fe7_666cee6a",
+      "revId": "eeb6ff6801aa67dd224f7a96733ad2e9369189e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c630ee15_ea9f481a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-11-18T19:37:47Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/q/I8a42e00fa0da25c54e78aa7b757cffb73841e141",
+      "parentUuid": "e752651c_8f368929",
+      "revId": "eeb6ff6801aa67dd224f7a96733ad2e9369189e5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": [
