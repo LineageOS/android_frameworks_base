@@ -35,6 +35,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fcca71e_a030e204",
+        "filename": "services/core/java/com/android/server/wm/DisplayWindowSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 34874
+      },
+      "writtenOn": "2026-11-18T17:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4b5e862_353b7d7b",
+      "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3c074ec_fe86fdf6",
@@ -52,6 +70,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06a2c900_f5719efe",
+        "filename": "services/core/java/com/android/server/wm/DisplayWindowSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 34874
+      },
+      "writtenOn": "2026-11-18T17:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3c074ec_fe86fdf6",
+      "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69396fa4_9ba5b979",
@@ -65,6 +101,24 @@
       "writtenOn": "2026-11-18T09:45:14Z",
       "side": 1,
       "message": "```suggestion\n        }\n        if (isImePinned) {\n            return DISPLAY_IME_POLICY_FALLBACK_DISPLAY;\n        }\n```",
+      "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2407973e_894ff1a2",
+        "filename": "services/core/java/com/android/server/wm/DisplayWindowSettings.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 34874
+      },
+      "writtenOn": "2026-11-18T17:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69396fa4_9ba5b979",
       "revId": "72eaa8ac0918811e544658d8e2cbc39f9b65c351",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
