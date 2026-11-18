@@ -17,6 +17,7 @@ import com.android.systemui.shared.system.QuickStepContract
 import com.android.systemui.shared.system.TaskStackChangeListeners
 import com.android.systemui.statusbar.CommandQueue
 import com.android.systemui.statusbar.phone.AutoHideController
+import com.android.systemui.statusbar.phone.AutoHideControllerStore
 import com.android.systemui.statusbar.phone.LightBarController
 import com.android.systemui.statusbar.phone.LightBarTransitionsController
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager
@@ -91,6 +92,7 @@ class TaskbarDelegateTest : SysuiTestCase() {
                 mStatusBarStateController,
                 mHandler,
                 { mock(PerDisplayRepository::class.java) as PerDisplayRepository<SysUiState> },
+                { mock(AutoHideControllerStore::class.java) },
             )
         mTaskbarDelegate.setDependencies(
             mCommandQueue,
