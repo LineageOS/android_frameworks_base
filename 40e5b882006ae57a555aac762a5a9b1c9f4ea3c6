@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ddd6f0_aea5df52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 38797
+      },
+      "writtenOn": "2026-11-19T19:55:03Z",
+      "side": 1,
+      "message": "This is really just a cursory check to see if this would be acceptable before I upport it to the 24.0 branch (my phones are all pixel-3 which is why 22.2).  I ran into this testing a fix for age verification on MicroG and having to build a new rom to get the test to work.  Building a new rom is easy for me (I already run my own) but it\u0027s a high hurdle for most MicroG developers, so a switch to allow signature spoofing on debugging packages would make it way easier for them to test their fixes on LineageOS.",
+      "revId": "40e5b882006ae57a555aac762a5a9b1c9f4ea3c6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
