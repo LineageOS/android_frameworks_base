@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "732b580d_27e01349",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29242
+      },
+      "writtenOn": "2026-11-19T05:10:09Z",
+      "side": 1,
+      "message": "Breaks downstream devices. Will investigate tomorrow",
+      "revId": "ee87ea3916c0e4c259dcb262d7ea7d9a4d55b21f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
