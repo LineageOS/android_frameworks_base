@@ -16,6 +16,23 @@
       "message": "Works but pending reviews on https://review.lineageos.org/c/LineageOS/android_device_xelex_Q25/+/505765",
       "revId": "dfc0834085183dac8b85d048669e16e4eb0fbc7e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d4b19d_a6349ba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-19T03:54:44Z",
+      "side": 1,
+      "message": "Adding the vote since Q25 was checked, wired physical KB or a BT KB is something thats yet to be tested with this patch",
+      "revId": "dfc0834085183dac8b85d048669e16e4eb0fbc7e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
