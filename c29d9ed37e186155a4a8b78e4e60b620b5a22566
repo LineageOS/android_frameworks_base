@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "443d7cd5_4612f64d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2026-11-19T02:00:56Z",
+      "side": 1,
+      "message": "Tested on an FP5 with a lineage-24.0-based build, this file at stock lineage-24.0 plus this change: an archived install got POLICY_REJECT_ALL, which stayed after the full install brought INTERNET. With this change neither install sets it, and the app is on the restricted-mode allowlist after the full install.",
+      "revId": "c29d9ed37e186155a4a8b78e4e60b620b5a22566",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
