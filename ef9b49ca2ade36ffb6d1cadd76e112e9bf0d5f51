@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "582d6aee_b445e681",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2026-11-19T02:00:54Z",
+      "side": 1,
+      "message": "Tested on an FP5 with a lineage-24.0-based build, this file at stock lineage-24.0 plus this change, restricted networking mode on: an app moved to an adopted SD card dropped off the restricted-mode allowlist when the card mounted after the allowlist was built, and stayed off across reboots. With this change it is back on the allowlist after the mount and after each reboot.",
+      "revId": "ef9b49ca2ade36ffb6d1cadd76e112e9bf0d5f51",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
