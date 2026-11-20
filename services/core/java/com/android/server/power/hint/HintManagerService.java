@@ -203,6 +203,9 @@ public final class HintManagerService extends SystemService {
 
     private boolean mUsesFmq;
 
+    // Whether game sessions keep reporting actual work durations to the power HAL.
+    private final boolean mReportGameWorkDuration;
+
     private static final String PROPERTY_SF_ENABLE_CPU_HINT = "debug.sf.enable_adpf_cpu_hint";
     private static final String PROPERTY_HWUI_ENABLE_HINT_MANAGER = "debug.hwui.use_hint_manager";
     private static final String PROPERTY_VENDOR_API_LEVEL = "ro.vendor.api_level";
@@ -310,6 +313,8 @@ public final class HintManagerService extends SystemService {
         mCleanUpHandler = new CleanUpHandler(createCleanUpThread().getLooper());
         mNonIsolatedTids = new HashMap<>();
         mPackageManager = mContext.getPackageManager();
+        mReportGameWorkDuration = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_adpfReportGameWorkDuration);
         mActiveSessions = new ArrayMap<>();
         mChannelMap = new ArrayMap<>();
         mSessionSnapshotMap = new SparseArray<>();
@@ -1503,6 +1508,7 @@ public final class HintManagerService extends SystemService {
                 // TODO(b/441120571): Check if the thread limit should be re-implemented or removed
                 out.pipelineThreadLimitExceeded = false;
                 out.tag = tag;
+                out.reportWorkDuration = tag != SessionTag.GAME || mReportGameWorkDuration;
                 out.session = hs;
                 return out;
             } finally {

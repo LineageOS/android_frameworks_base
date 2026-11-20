@@ -2475,6 +2475,7 @@
   <java-symbol type="string" name="enable_explore_by_touch_warning_message" />
   <java-symbol type="bool" name="config_powerDecoupleAutoSuspendModeFromDisplay" />
   <java-symbol type="bool" name="config_powerDecoupleInteractiveModeFromDisplay" />
+  <java-symbol type="bool" name="config_adpfReportGameWorkDuration" />
   <java-symbol type="integer" name="config_minimumScreenOffTimeout" />
   <java-symbol type="integer" name="config_screenTimeoutOverride" />
   <java-symbol type="integer" name="config_maximumScreenDimDuration" />

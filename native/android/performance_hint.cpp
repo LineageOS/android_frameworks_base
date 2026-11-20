@@ -224,7 +224,8 @@ public:
     APerformanceHintSession(std::shared_ptr<IHintManager> hintManager,
                             std::shared_ptr<IHintSession> session, int64_t preferredRateNanos,
                             int64_t targetDurationNanos, bool isJava,
-                            std::optional<hal::SessionConfig> sessionConfig, hal::SessionTag tag);
+                            std::optional<hal::SessionConfig> sessionConfig, hal::SessionTag tag,
+                            bool reportWorkDuration);
     APerformanceHintSession() = delete;
     ~APerformanceHintSession();
 
@@ -240,6 +241,7 @@ public:
     int reportActualWorkDuration(AWorkDuration* workDuration);
     bool isJava();
     hal::SessionTag getTag();
+    bool shouldReportWorkDuration();
     status_t setNativeSurfaces(ANativeWindow** windows, size_t numWindows,
                                ASurfaceControl** controls, size_t numSurfaceControls);
 
@@ -268,6 +270,8 @@ private:
     const bool mIsJava;
     std::string mSessionName;
     hal::SessionTag mTag;
+    // Whether actual work durations are forwarded, see SessionCreationReturn.reportWorkDuration
+    const bool mReportWorkDuration;
     static int64_t sIDCounter GUARDED_BY(sHintMutex);
     // The most recent set of thread IDs
     std::vector<int32_t> mLastThreadIDs GUARDED_BY(sHintMutex);
@@ -457,7 +461,7 @@ int APerformanceHintManager::createSessionUsingConfig(ASessionCreationConfig* se
                                                    ? std::nullopt
                                                    : std::make_optional<hal::SessionConfig>(
                                                              std::move(sessionConfig)),
-                                           returnValue.tag);
+                                           returnValue.tag, returnValue.reportWorkDuration);
 
     *sessionOut = out;
 
@@ -543,7 +547,7 @@ APerformanceHintSession::APerformanceHintSession(std::shared_ptr<IHintManager> h
                                                  int64_t preferredRateNanos,
                                                  int64_t targetDurationNanos, bool isJava,
                                                  std::optional<hal::SessionConfig> sessionConfig,
-                                                 hal::SessionTag tag)
+                                                 hal::SessionTag tag, bool reportWorkDuration)
       : mHintManager(hintManager),
         mHintSession(std::move(session)),
         mPreferredRateNanos(preferredRateNanos),
@@ -553,6 +557,7 @@ APerformanceHintSession::APerformanceHintSession(std::shared_ptr<IHintManager> h
         mLastHintSentTimestamp(std::vector<int64_t>(kNumEnums, 0)),
         mIsJava(isJava),
         mTag(tag),
+        mReportWorkDuration(reportWorkDuration),
         mSessionConfig(sessionConfig) {
     if (sessionConfig->id > INT32_MAX) {
         ALOGE("Session ID too large, must fit 32-bit integer");
@@ -608,6 +613,10 @@ bool APerformanceHintSession::isJava() {
 
 hal::SessionTag APerformanceHintSession::getTag() {
     return mTag;
+}
+
+bool APerformanceHintSession::shouldReportWorkDuration() {
+    return mReportWorkDuration;
 }
 
 int APerformanceHintSession::sendHints(std::vector<hal::SessionHint>& hints, int64_t now,
@@ -1259,12 +1268,12 @@ int APerformanceHint_setPreferPowerEfficiency(APerformanceHintSession* session, 
 
 int APerformanceHint_reportActualWorkDuration2(APerformanceHintSession* session,
                                                AWorkDuration* workDurationPtr) {
-    if (session->getTag() == hal::SessionTag::GAME) {
+    VALIDATE_PTR(session)
+    VALIDATE_PTR(workDurationPtr)
+    if (!session->shouldReportWorkDuration()) {
         ALOGV("Function called from a game, returning without reporting.");
         return 0;
     }
-    VALIDATE_PTR(session)
-    VALIDATE_PTR(workDurationPtr)
     VALIDATE_INT(workDurationPtr->durationNanos, > 0)
     VALIDATE_INT(workDurationPtr->workPeriodStartTimestampNanos, > 0)
     VALIDATE_INT(workDurationPtr->cpuDurationNanos, >= 0)

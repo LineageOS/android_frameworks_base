@@ -53,6 +53,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManagerInternal;
+import android.content.res.Resources;
 import android.hardware.common.fmq.MQDescriptor;
 import android.hardware.power.ChannelConfig;
 import android.hardware.power.ChannelMessage;
@@ -175,6 +176,8 @@ public class HintManagerServiceTest {
     @Mock
     private RoleManager mMockRoleManager;
     @Mock
+    private Resources mMockResources;
+    @Mock
     private PackageManagerInternal mPackageManagerInternalMock;
     @Mock
     private IHintManager.IHintManagerClient mClientCallback;
@@ -228,6 +231,9 @@ public class HintManagerServiceTest {
         mSupportInfo = makeDefaultSupportInfo();
         when(mContext.getPackageManager()).thenReturn(mMockPackageManager);
         when(mContext.getSystemService(RoleManager.class)).thenReturn(mMockRoleManager);
+        when(mContext.getResources()).thenReturn(mMockResources);
+        when(mMockResources.getBoolean(
+                com.android.internal.R.bool.config_adpfReportGameWorkDuration)).thenReturn(false);
         when(mMockPackageManager.getNameForUid(anyInt())).thenReturn(TEST_APP_NAME);
         when(mMockPackageManager.getApplicationInfo(eq(TEST_APP_NAME), anyInt()))
                 .thenReturn(applicationInfo);
@@ -436,6 +442,44 @@ public class HintManagerServiceTest {
     }
 
     @Test
+    public void testCreateHintSessionDropsGameWorkDurationByDefault() throws Exception {
+        ApplicationInfo applicationInfo = new ApplicationInfo();
+        applicationInfo.category = ApplicationInfo.CATEGORY_GAME;
+        when(mMockPackageManager.getApplicationInfo(any(), anyInt())).thenReturn(applicationInfo);
+        HintManagerService service = createService();
+        IBinder token = new Binder();
+        SessionCreationConfig creationConfig =
+                makeSessionCreationConfig(new int[]{TID}, DEFAULT_TARGET_DURATION);
+        SessionConfig config = new SessionConfig();
+
+        IHintManager.SessionCreationReturn out = service.getBinderServiceInstance()
+                .createHintSessionWithConfig(token, SessionTag.APP, creationConfig, config);
+
+        assertEquals(SessionTag.GAME, out.tag);
+        assertFalse(out.reportWorkDuration);
+    }
+
+    @Test
+    public void testCreateHintSessionReportsGameWorkDurationWhenConfigured() throws Exception {
+        when(mMockResources.getBoolean(
+                com.android.internal.R.bool.config_adpfReportGameWorkDuration)).thenReturn(true);
+        ApplicationInfo applicationInfo = new ApplicationInfo();
+        applicationInfo.category = ApplicationInfo.CATEGORY_GAME;
+        when(mMockPackageManager.getApplicationInfo(any(), anyInt())).thenReturn(applicationInfo);
+        HintManagerService service = createService();
+        IBinder token = new Binder();
+        SessionCreationConfig creationConfig =
+                makeSessionCreationConfig(new int[]{TID}, DEFAULT_TARGET_DURATION);
+        SessionConfig config = new SessionConfig();
+
+        IHintManager.SessionCreationReturn out = service.getBinderServiceInstance()
+                .createHintSessionWithConfig(token, SessionTag.APP, creationConfig, config);
+
+        assertEquals(SessionTag.GAME, out.tag);
+        assertTrue(out.reportWorkDuration);
+    }
+
+    @Test
     public void testCreateHintSessionAppTagUnchanged() throws Exception {
         ApplicationInfo applicationInfo = new ApplicationInfo();
         when(mMockPackageManager.getApplicationInfo(any(), anyInt())).thenReturn(applicationInfo);
@@ -529,6 +573,7 @@ public class HintManagerServiceTest {
         assertNotNull(a);
         assertEquals(SESSION_IDS[0], config.id);
         assertEquals(return1.tag, SessionTag.OTHER);
+        assertTrue(return1.reportWorkDuration);
 
         SessionConfig config2 = new SessionConfig();
         creationConfig.tids = SESSION_TIDS_B;
@@ -548,6 +593,7 @@ public class HintManagerServiceTest {
         assertNotNull(c);
         assertEquals(SESSION_IDS[2], config3.id);
         assertEquals(return3.tag, SessionTag.GAME);
+        assertFalse(return3.reportWorkDuration);
         verify(mNativeWrapperMock, times(3)).halCreateHintSessionWithConfig(anyInt(), anyInt(),
                 any(int[].class), anyLong(), anyInt(), any(SessionConfig.class));
 

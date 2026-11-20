@@ -3109,6 +3109,20 @@
     -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
 
+    <!-- Power Management: Whether ADPF hint sessions of games keep reporting their actual
+         work durations to the power HAL.
+
+         When false (the AOSP default), APerformanceHint_reportActualWorkDuration2() returns
+         without reporting for sessions tagged SessionTag.GAME, such as those of apps whose
+         ApplicationInfo category is CATEGORY_GAME.
+
+         When true, work durations of game sessions are forwarded like those of any other
+         session. Set this to "true" when the device's power HAL uses game sessions' work
+         durations, e.g. power-libperfmgr, which drives its PID boost and GPU boosting from
+         them.
+    -->
+    <bool name="config_adpfReportGameWorkDuration">false</bool>
+
     <!-- User activity timeout: Minimum screen off timeout in milliseconds.
 
          Sets a lower bound for the {@link Settings.System#SCREEN_OFF_TIMEOUT} setting

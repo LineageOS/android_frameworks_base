@@ -50,6 +50,9 @@ interface IHintManager {
         // True if the graphics pipeline thread limit is being exceeded
         boolean pipelineThreadLimitExceeded = false;
         SessionTag tag = SessionTag.APP;
+        // True if the client should forward actual work durations of this session to the HAL.
+        // False for game sessions unless config_adpfReportGameWorkDuration is set.
+        boolean reportWorkDuration = true;
     }
 
     /**

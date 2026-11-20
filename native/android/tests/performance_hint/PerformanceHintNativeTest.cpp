@@ -212,7 +212,8 @@ public:
         return APerformanceHint_getManager();
     }
 
-    void prepareSessionMock(hal::SessionTag returnedTag = hal::SessionTag::APP) {
+    void prepareSessionMock(hal::SessionTag returnedTag = hal::SessionTag::APP,
+                            bool reportWorkDuration = true) {
         mMockSession = ndk::SharedRefBase::make<NiceMock<MockIHintSession>>();
         const int64_t sessionId = 123;
 
@@ -220,6 +221,7 @@ public:
                 .session = mMockSession,
                 .pipelineThreadLimitExceeded = false,
                 .tag = returnedTag,
+                .reportWorkDuration = reportWorkDuration,
         };
 
         ON_CALL(*mMockIHintManager, createHintSessionWithConfig(_, _, _, _, _))
@@ -246,8 +248,8 @@ public:
 
     std::shared_ptr<APerformanceHintSession> createSession(
             APerformanceHintManager* manager, int64_t targetDuration = 56789L, bool isHwui = false,
-            hal::SessionTag returnedTag = hal::SessionTag::APP) {
-        prepareSessionMock(returnedTag);
+            hal::SessionTag returnedTag = hal::SessionTag::APP, bool reportWorkDuration = true) {
+        prepareSessionMock(returnedTag, reportWorkDuration);
         if (isHwui) {
             return wrapSession(APerformanceHint_createSessionInternal(manager, mTids.data(),
                                                                       mTids.size(), targetDuration,
@@ -592,17 +594,36 @@ TEST_F(PerformanceHintTest, TestReportActualUsingFMQ) {
 
 TEST_F(PerformanceHintTest, TestReportActualWhenAppIsGame) {
     APerformanceHintManager* manager = createManager();
-    auto&& session = createSession(manager, 56789L, false, hal::SessionTag::OTHER);
+    // Default: HintManagerService tells the client to drop game sessions' work durations.
+    auto&& session = createSession(manager, 56789L, false, hal::SessionTag::GAME, false);
     hal::WorkDuration duration{.timeStampNanos = 3,
                                .durationNanos = 999999,
                                .workPeriodStartTimestampNanos = 1,
                                .cpuDurationNanos = 999999,
                                .gpuDurationNanos = 999999};
 
-    APerformanceHint_reportActualWorkDuration2(session.get(),
-                                               reinterpret_cast<AWorkDuration*>(&duration));
+    EXPECT_CALL(*mMockSession, reportActualWorkDuration2(_)).Times(0);
+    int result = APerformanceHint_reportActualWorkDuration2(session.get(),
+                                                            reinterpret_cast<AWorkDuration*>(
+                                                                    &duration));
+    EXPECT_EQ(0, result);
+}
 
-    EXPECT_CALL(*mMockSession, reportActualWorkDuration(_, _)).Times(0);
+TEST_F(PerformanceHintTest, TestReportActualWhenAppIsGameAndReportingAllowed) {
+    APerformanceHintManager* manager = createManager();
+    // config_adpfReportGameWorkDuration set: game sessions' work durations are forwarded.
+    auto&& session = createSession(manager, 56789L, false, hal::SessionTag::GAME, true);
+    hal::WorkDuration duration{.timeStampNanos = 3,
+                               .durationNanos = 999999,
+                               .workPeriodStartTimestampNanos = 1,
+                               .cpuDurationNanos = 999999,
+                               .gpuDurationNanos = 999999};
+
+    EXPECT_CALL(*mMockSession, reportActualWorkDuration2(_)).Times(Exactly(1));
+    int result = APerformanceHint_reportActualWorkDuration2(session.get(),
+                                                            reinterpret_cast<AWorkDuration*>(
+                                                                    &duration));
+    EXPECT_EQ(0, result);
 }
 
 TEST_F(PerformanceHintTest, TestASessionCreationConfig) {
