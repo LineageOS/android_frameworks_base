@@ -832,6 +832,8 @@
     <string name="allow_mock_location_summary">Allow mock locations</string>
     <!-- Setting Checkbox title whether to enable view attribute inspection -->
     <string name="debug_view_attributes">Enable view attribute inspection</string>
+    <string name="disable_screen_capture_detection_title">Disable app screenshot notifications</string>
+    <string name="disable_screen_capture_detection_summary">Apps will not receive Android screenshot callback notifications. Screenshots still work.</string>
     <string name="mobile_data_always_on_summary">Always keep mobile data active, even when Wi\u2011Fi is active (for fast network switching).</string>
     <string name="tethering_hardware_offload_summary">Use tethering hardware acceleration if available</string>
     <!-- Title of warning dialog about the implications of enabling USB debugging -->

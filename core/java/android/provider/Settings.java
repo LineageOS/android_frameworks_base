@@ -20211,6 +20211,16 @@ public final class Settings {
                 "disable_screen_share_protections_for_apps_and_notifications";
 
         /**
+         * Whether apps are prevented from receiving Android screenshot callback notifications.
+         *
+         * The value 1 - prevent notifications, 0 - allow notifications
+         * @hide
+         */
+        @Readable
+        public static final String DISABLE_SCREEN_CAPTURE_DETECTION =
+                "disable_screen_capture_detection";
+
+        /**
          * Whether cell is enabled/disabled
          * @hide
          */

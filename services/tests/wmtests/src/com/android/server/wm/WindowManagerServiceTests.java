@@ -18,6 +18,7 @@ package com.android.server.wm;
 
 import static android.Manifest.permission.ADD_TRUSTED_DISPLAY;
 import static android.Manifest.permission.MANAGE_DISPLAYS;
+import static android.Manifest.permission.STATUS_BAR_SERVICE;
 import static android.app.WindowConfiguration.ACTIVITY_TYPE_HOME;
 import static android.app.WindowConfiguration.ACTIVITY_TYPE_STANDARD;
 import static android.app.WindowConfiguration.WINDOWING_MODE_FREEFORM;
@@ -89,6 +90,7 @@ import static org.mockito.Mockito.when;
 import android.app.ActivityManager;
 import android.app.ActivityThread;
 import android.app.IApplicationThread;
+import android.app.IScreenCaptureObserver;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -193,7 +195,7 @@ public class WindowManagerServiceTests extends WindowTestsBase {
     @Rule
     public AdoptShellPermissionsRule mAdoptShellPermissionsRule = new AdoptShellPermissionsRule(
             InstrumentationRegistry.getInstrumentation().getUiAutomation(),
-            ADD_TRUSTED_DISPLAY, MANAGE_DISPLAYS);
+            ADD_TRUSTED_DISPLAY, MANAGE_DISPLAYS, STATUS_BAR_SERVICE);
 
     @Rule
     public Expect mExpect = Expect.create();
@@ -1251,6 +1253,36 @@ public class WindowManagerServiceTests extends WindowTestsBase {
         mExpect.that(session.getTokenToRecord())
                 .isEqualTo(task.mRemoteToken.toWindowContainerToken().asBinder());
         mExpect.that(session.getTargetUid()).isEqualTo(task.effectiveUid);
+    }
+
+    @Test
+    public void notifyScreenshotListeners_detectionDisabledSuppressesCallbacksButKeepsObserver() {
+        final String setting = Settings.Global.DISABLE_SCREEN_CAPTURE_DETECTION;
+        final int previousValue = Settings.Global.getInt(mContext.getContentResolver(), setting, 0);
+        final int[] notificationCount = {0};
+        final ActivityRecord activity = createActivityRecord(mDefaultDisplay);
+        final IScreenCaptureObserver observer = new IScreenCaptureObserver.Stub() {
+            @Override
+            public void onScreenCaptured() {
+                notificationCount[0]++;
+            }
+        };
+        activity.registerCaptureObserver(observer);
+
+        try {
+            Settings.Global.putInt(mContext.getContentResolver(), setting, 1);
+            assertThat(mWm.notifyScreenshotListeners(DEFAULT_DISPLAY)).isEmpty();
+            assertThat(notificationCount[0]).isEqualTo(0);
+            assertThat(activity.isRegisteredForScreenCaptureCallback()).isTrue();
+
+            Settings.Global.putInt(mContext.getContentResolver(), setting, 0);
+            assertThat(mWm.notifyScreenshotListeners(DEFAULT_DISPLAY))
+                    .contains(activity.mActivityComponent);
+            assertThat(notificationCount[0]).isEqualTo(1);
+        } finally {
+            Settings.Global.putInt(mContext.getContentResolver(), setting, previousValue);
+            activity.unregisterCaptureObserver(observer);
+        }
     }
 
     @Test

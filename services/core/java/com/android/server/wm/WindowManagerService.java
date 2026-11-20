@@ -11183,6 +11183,16 @@ public class WindowManagerService extends IWindowManager.Stub
                 "notifyScreenshotListeners()")) {
             throw new SecurityException("Requires STATUS_BAR_SERVICE permission");
         }
+        final long identity = Binder.clearCallingIdentity();
+        try {
+            if (Settings.Global.getInt(mContext.getContentResolver(),
+                    Settings.Global.DISABLE_SCREEN_CAPTURE_DETECTION, 0) != 0) {
+                // Keep app registrations intact, but do not notify apps or expose them to SysUI.
+                return List.of();
+            }
+        } finally {
+            Binder.restoreCallingIdentity(identity);
+        }
         synchronized (mGlobalLock) {
             final DisplayContent displayContent = mRoot.getDisplayContent(displayId);
             if (displayContent == null) {
