@@ -16,6 +16,24 @@
       "message": "can you check if this looks goofy on phones?",
       "revId": "68dde12951469b59ed7502baa3ac2d0d6750e5cc",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3ee036_cd2f052c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-20T23:40:52Z",
+      "side": 1,
+      "message": "No effect on phones.",
+      "parentUuid": "a5100b29_7c1d2f6c",
+      "revId": "68dde12951469b59ed7502baa3ac2d0d6750e5cc",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
