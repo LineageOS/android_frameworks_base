@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca2659f0_66f9f6b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 15060
+      },
+      "writtenOn": "2026-11-20T01:31:24Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/514153\nhttps://review.lineageos.org/c/LineageOS/android_frameworks_base/+/514152\n\nWe\u0027d have to confirm whether either of these are what the users ran into and if so they\u0027d be root cause fixes",
+      "revId": "7b4425d1de63227df4ee118163db60793ae49dcf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
