@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1cb4ff3_eaa8f4c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30416
+      },
+      "writtenOn": "2026-11-20T14:12:47Z",
+      "side": 1,
+      "message": "This bug can be triggered when tested without UdfpsExtension",
+      "revId": "0a24ab204c3b00e75071b759d2935be9117fca67",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
