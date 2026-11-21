@@ -121,6 +121,30 @@ public final class DeviceStateManagerGlobal {
     }
 
     /**
+     * Returns the current device state identifier.
+     */
+    public int getDeviceState() {
+        synchronized (mLock) {
+            final DeviceStateInfo currentInfo;
+            if (mLastReceivedInfo != null) {
+                // If we have mLastReceivedInfo a callback is registered for this instance and it
+                // is receiving the most recent info from the server. Use that info here.
+                currentInfo = mLastReceivedInfo;
+            } else {
+                // If mLastReceivedInfo is null there is no registered callback so we manually
+                // fetch the current info.
+                try {
+                    currentInfo = mDeviceStateManager.getDeviceStateInfo();
+                } catch (RemoteException ex) {
+                    throw ex.rethrowFromSystemServer();
+                }
+            }
+
+            return currentInfo.currentState.getIdentifier();
+        }
+    }
+
+    /**
      * Submits a {@link DeviceStateRequest request} to modify the device state.
      *
      * @see DeviceStateManager#requestState(DeviceStateRequest, Executor,
