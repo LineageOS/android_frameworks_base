@@ -115,6 +115,13 @@ public final class DeviceStateManager {
     }
 
     /**
+     * Returns the current device state identifier.
+     */
+     public int getDeviceState() {
+        return mGlobal.getDeviceState();
+    }
+
+    /**
      * Submits a {@link DeviceStateRequest request} to modify the device state.
      * <p>
      * By default, the request is kept active until one of the following occurs:
