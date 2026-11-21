@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da59395a_715041fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 11409
+      },
+      "writtenOn": "2026-11-21T14:48:02Z",
+      "side": 1,
+      "message": "Tested on bangkk and caprip.\nKeeps DT2W intact during doze pulse an bangkk.",
+      "revId": "256f339768c944e34fe5e8b8644ea03d81f412eb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
