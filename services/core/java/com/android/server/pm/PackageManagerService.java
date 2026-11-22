@@ -4278,6 +4278,8 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
 
         mPermissionManager.onSystemReady();
 
+        com.android.server.pm.permission.SpecialRuntimePermUtils.onSystemReady(mContext);
+
         int[] grantPermissionsUserIds = EMPTY_INT_ARRAY;
         final List<UserInfo> livingUsers = mInjector.getUserManagerInternal().getUsers(
                 /* excludePartial= */ true,
