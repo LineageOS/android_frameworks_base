@@ -1187,6 +1187,10 @@ Todo: android.provider.ContactsContract.RawContacts#newEntityIterator(android.da
     Documentation mentions 'TODO'
 
 
+UnflaggedApi: android.Manifest.permission#OTHER_SENSORS:
+    New API must be flagged with @FlaggedApi: field android.Manifest.permission.OTHER_SENSORS
+UnflaggedApi: android.Manifest.permission_group#OTHER_SENSORS:
+    New API must be flagged with @FlaggedApi: field android.Manifest.permission_group.OTHER_SENSORS
 UnflaggedApi: android.R.color#on_surface_disabled_material:
     New API must be flagged with @FlaggedApi: field android.R.color.on_surface_disabled_material
 UnflaggedApi: android.R.color#outline_disabled_material:
