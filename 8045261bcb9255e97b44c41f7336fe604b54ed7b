@@ -33,6 +33,24 @@
       "message": "Verified on tegra, boot ani stays centered on a 4k tv, whereas before it got slid to the lower right when sf resizes.",
       "revId": "8045261bcb9255e97b44c41f7336fe604b54ed7b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4728d25_d2c5fbe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2026-11-23T18:02:46Z",
+      "side": 1,
+      "message": "nothing blew up on ohm or Deadpool",
+      "parentUuid": "f5aa7e1f_3c967a8f",
+      "revId": "8045261bcb9255e97b44c41f7336fe604b54ed7b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
