@@ -1,0 +1,22 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9302c9ff_70920cac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 38178
+      },
+      "writtenOn": "2026-11-23T19:28:02Z",
+      "side": 1,
+      "message": "Moved the config to lineage-sdk (https://review.lineageos.org/c/LineageOS/android_lineage-sdk/+/514849) and read it from there in PS2, so nothing is added to framework-res anymore. The beckham overlay (506922) now sets it in its lineage-sdk overlay. All three are in topic beckham-analog-dock.",
+      "parentUuid": "7c300135_c43c3e0c",
+      "revId": "f8d420b1ad06ee1cfd6ba78d8f63746916ac88dd",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
