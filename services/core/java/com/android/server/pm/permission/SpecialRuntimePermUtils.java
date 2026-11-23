@@ -133,6 +133,7 @@ public class SpecialRuntimePermUtils {
                 continue;
             }
             final UserHandle user = UserHandle.of(userId);
+            final PackageManager userPm = ctx.createContextAsUser(user, 0).getPackageManager();
             for (PackageStateInternal ps : candidates) {
                 PackageUserStateInternal userState = ps.getUserStateOrDefault(userId);
                 if (!userState.isInstalled() || userState.isInstantApp()) {
@@ -142,6 +143,10 @@ public class SpecialRuntimePermUtils {
                 try {
                     int flags = permManager.getPermissionFlags(pkgName, perm, user);
                     if ((flags & userDecisionFlags) != 0) {
+                        continue;
+                    }
+                    if (userPm.checkPermission(perm, pkgName) == PackageManager.PERMISSION_GRANTED) {
+                        // e.g. granted by the install-time auto-grant; only count real changes
                         continue;
                     }
                     permManager.grantRuntimePermission(pkgName, perm, user);
