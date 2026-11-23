@@ -2066,6 +2066,34 @@ public class InputManagerService extends IInputManager.Stub
         return mNative.getTouchpadHardwareProperties(deviceId);
     }
 
+    /**
+     * Motion sensors of input devices (e.g. game controllers) don't go through SensorService, so
+     * enforce the OTHER_SENSORS permission here too. Returns false for apps that don't hold it.
+     */
+    private boolean checkInputSensorAccess() {
+        final int uid = Binder.getCallingUid();
+        if (UserHandle.getAppId(uid) < Process.FIRST_APPLICATION_UID) {
+            return true;
+        }
+        if (mContext.checkCallingPermission(Manifest.permission.OTHER_SENSORS)
+                == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        Slog.w(TAG, "uid " + uid + " tried to use input device sensors without "
+                + Manifest.permission.OTHER_SENSORS);
+        final long token = Binder.clearCallingIdentity();
+        try {
+            final String[] pkgs = mContext.getPackageManager().getPackagesForUid(uid);
+            if (pkgs != null && pkgs.length > 0) {
+                com.android.server.pm.permission.MissingSpecialRuntimePermissionNotification
+                        .maybeShow(mContext, Manifest.permission.OTHER_SENSORS, uid, pkgs[0]);
+            }
+        } finally {
+            Binder.restoreCallingIdentity(token);
+        }
+        return false;
+    }
+
     @Override // Binder call
     public boolean registerSensorListener(@NonNull IInputSensorEventListener listener) {
         if (DEBUG) {
@@ -2073,6 +2101,9 @@ public class InputManagerService extends IInputManager.Stub
                     + Binder.getCallingPid());
         }
         Objects.requireNonNull(listener, "listener must not be null");
+        if (!checkInputSensorAccess()) {
+            return false;
+        }
 
         synchronized (mSensorEventLock) {
             int callingPid = Binder.getCallingPid();
@@ -2133,6 +2164,9 @@ public class InputManagerService extends IInputManager.Stub
     @Override // Binder call
     public boolean enableSensor(int deviceId, int sensorType, int samplingPeriodUs,
             int maxBatchReportLatencyUs) {
+        if (!checkInputSensorAccess()) {
+            return false;
+        }
         synchronized (mInputDevicesLock) {
             return mNative.enableSensor(deviceId, sensorType, samplingPeriodUs,
                     maxBatchReportLatencyUs);
