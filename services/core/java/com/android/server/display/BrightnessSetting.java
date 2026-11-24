@@ -132,6 +132,25 @@ public class BrightnessSetting {
     }
 
     /**
+     * Reloads the brightness from the persistent data store for the current primary display
+     * device of the logical display and notifies listeners if it changed. Used when the
+     * underlying display device changes, e.g. on a device state transition.
+     */
+    public void reloadFromDisplayDevice() {
+        synchronized (mSyncRoot) {
+            final float brightness = mPersistentDataStore.getBrightness(
+                    mLogicalDisplay.getPrimaryDisplayDeviceLocked(), mUserSerial);
+            if (Float.isNaN(brightness) || brightness == mBrightness) {
+                return;
+            }
+            mBrightness = brightness;
+            int toSend = Float.floatToIntBits(mBrightness);
+            Message msg = mHandler.obtainMessage(MSG_BRIGHTNESS_CHANGED, toSend, 0);
+            mHandler.sendMessage(msg);
+        }
+    }
+
+    /**
      * Sets the brightness. Does not send update event to listeners.
      * @param brightness The value to which the brightness is to be set.
      */
