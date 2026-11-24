@@ -146,7 +146,6 @@ public final class DisplayBrightnessController {
             Runnable onBrightnessChangeRunnable, HandlerExecutor brightnessChangeExecutor,
             DisplayManagerFlags flags, DisplayDeviceConfig config) {
         mDisplayId = displayId;
-        // TODO: b/186428377 update brightness setting when display changes
         mBrightnessSetting = brightnessSetting;
         mPendingUnthrottledScreenBrightness = PowerManager.BRIGHTNESS_INVALID_FLOAT;
         mScreenBrightnessDefault = BrightnessUtils.clampAbsoluteBrightness(defaultScreenBrightness);
@@ -565,6 +564,12 @@ public final class DisplayBrightnessController {
     public void onDisplayChanged(DisplayDeviceConfig config) {
         synchronized (mLock) {
             mDisplayBrightnessStrategySelector.onDisplayChanged(config);
+        }
+        // The underlying display device changed, load the brightness persisted for it unless
+        // the nit based brightness of the default display is to be kept instead.
+        if (mBrightnessSetting != null && !(mDisplayId == Display.DEFAULT_DISPLAY
+                && mPersistBrightnessNitsForDefaultDisplay)) {
+            mBrightnessSetting.reloadFromDisplayDevice();
         }
     }
 
