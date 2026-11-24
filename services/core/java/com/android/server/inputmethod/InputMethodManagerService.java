@@ -35,6 +35,7 @@ import static android.view.Display.DEFAULT_DISPLAY;
 import static android.view.Display.INVALID_DISPLAY;
 import static android.view.WindowManager.DISPLAY_IME_POLICY_HIDE;
 import static android.view.WindowManager.DISPLAY_IME_POLICY_LOCAL;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
 import static android.view.inputmethod.ConnectionlessHandwritingCallback.CONNECTIONLESS_HANDWRITING_ERROR_OTHER;
 import static android.view.inputmethod.ConnectionlessHandwritingCallback.CONNECTIONLESS_HANDWRITING_ERROR_UNSUPPORTED;
 import static android.view.inputmethod.ImeTracker.DEBUG_IME_VISIBILITY;
@@ -619,6 +620,15 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
                         LineageSettings.Secure.FEATURE_TOUCH_HOVERING),
                         false, this, UserHandle.ALL);
             }
+            resolver.registerContentObserverAsUser(LineageSettings.System.getUriFor(
+                    LineageSettings.System.NAVIGATION_BAR_HINT),
+                    false, this, UserHandle.ALL);
+            resolver.registerContentObserverAsUser(LineageSettings.System.getUriFor(
+                    LineageSettings.System.NAVIGATION_BAR_IME_SPACE),
+                    false, this, UserHandle.ALL);
+            resolver.registerContentObserverAsUser(Settings.Secure.getUriFor(
+                    Settings.Secure.NAVIGATION_MODE),
+                    false, this, UserHandle.ALL);
         }
 
         @Override
@@ -634,6 +644,12 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
                     LineageSettings.System.HIGH_TOUCH_SENSITIVITY_ENABLE);
             final Uri touchHoveringUri = LineageSettings.Secure.getUriFor(
                     LineageSettings.Secure.FEATURE_TOUCH_HOVERING);
+            final Uri navBarHintUri = LineageSettings.System.getUriFor(
+                    LineageSettings.System.NAVIGATION_BAR_HINT);
+            final Uri navBarImeSpaceUri = LineageSettings.System.getUriFor(
+                    LineageSettings.System.NAVIGATION_BAR_IME_SPACE);
+            final Uri navigationModeUri = Settings.Secure.getUriFor(
+                    Settings.Secure.NAVIGATION_MODE);
             synchronized (ImfLock.class) {
                 if (!mConcurrentMultiUserModeEnabled && mCurrentImeUserId != userId) {
                     return;
@@ -644,6 +660,9 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
                     updateTouchSensitivity();
                 } else if (touchHoveringUri.equals(uri)) {
                     updateTouchHovering();
+                } else if (navBarHintUri.equals(uri) || navBarImeSpaceUri.equals(uri)
+                        || navigationModeUri.equals(uri)) {
+                    sendOnNavButtonFlagsChangedLocked(getUserData(userId));
                 }
             }
         }
@@ -2952,7 +2971,8 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
         final int curDisplayId = userData.mBindingController.getCurDisplayId();
         final boolean hasNavigationBar = mWindowManagerInternal
                 .hasNavigationBar(curDisplayId != INVALID_DISPLAY ? curDisplayId : DEFAULT_DISPLAY);
-        final boolean imeDrawsImeNavBar = userData.mImeDrawsNavBar.get() && hasNavigationBar;
+        final boolean imeDrawsImeNavBar = userData.mImeDrawsNavBar.get() && hasNavigationBar
+                && !shouldHideImeSpace(userId);
         final boolean showImeSwitcherButton = shouldShowImeSwitcherButtonLocked(userId);
         final boolean isImeSwitcherButtonInNavbarEnabled =
                 !Flags.imeSwitcherButtonInNavbarSetting() || InputMethodSettingsRepository.get(
@@ -2962,6 +2982,22 @@ public final class InputMethodManagerService implements IInputMethodManagerImpl.
                 | (isImeSwitcherButtonInNavbarEnabled
                 ? InputMethodNavButtonFlags.IME_SWITCHER_BUTTON_ENABLED
                 : 0);
+    }
+
+    /**
+     * Whether the IME navigation bar space should be dropped, which is only allowed in gestural
+     * navigation mode with the navigation hint disabled.
+     */
+    private boolean shouldHideImeSpace(@UserIdInt int userId) {
+        final ContentResolver resolver = mContext.getContentResolver();
+        // Profiles inherit the navigation bar from their parent, see onUpdateResourceOverlay().
+        final int parentId = mUserManagerInternal.getProfileParentId(userId);
+        return Settings.Secure.getIntForUser(resolver, Settings.Secure.NAVIGATION_MODE,
+                        -1, parentId) == NAV_BAR_MODE_GESTURAL
+                && LineageSettings.System.getIntForUser(resolver,
+                        LineageSettings.System.NAVIGATION_BAR_HINT, 1, parentId) == 0
+                && LineageSettings.System.getIntForUser(resolver,
+                        LineageSettings.System.NAVIGATION_BAR_IME_SPACE, 1, parentId) == 0;
     }
 
     /**
