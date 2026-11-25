@@ -1829,21 +1829,10 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
      * The adapter used for power menu items shown in the global actions dialog.
      */
     public class MyAdapter extends MultiListAdapter {
-        private boolean mShowingRestartOptions = false;
-
-        public boolean isShowingRestartOptions() {
-            return mShowingRestartOptions;
-        }
-
-        public void setShowingRestartOptions(boolean show) {
-            mShowingRestartOptions = show;
-        }
-
         private int countItems(boolean separated) {
             int count = 0;
-            List<Action> items = mShowingRestartOptions ? mRestartItems : mItems;
-            for (int i = 0; i < items.size(); i++) {
-                final Action action = items.get(i);
+            for (int i = 0; i < mItems.size(); i++) {
+                final Action action = mItems.get(i);
 
                 if (action.shouldBeSeparated() == separated) {
                     count++;
@@ -1880,9 +1869,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         @Override
         public Action getItem(int position) {
             int filteredPos = 0;
-            List<Action> items = mShowingRestartOptions ? mRestartItems : mItems;
-            for (int i = 0; i < items.size(); i++) {
-                final Action action = items.get(i);
+            for (int i = 0; i < mItems.size(); i++) {
+                final Action action = mItems.get(i);
                 if (!shouldShowAction(action)) {
                     continue;
                 }
@@ -2017,7 +2005,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 Log.w(TAG, "No power options action found at position: " + position);
                 return null;
             }
-            int viewLayoutResource = com.android.systemui.res.R.layout.global_actions_power_item;
+            int viewLayoutResource = com.android.systemui.res.R.layout.global_actions_grid_item_lite;
             View view = convertView != null ? convertView
                     : LayoutInflater.from(mContext).inflate(viewLayoutResource, parent, false);
             view.setOnClickListener(v -> onClickItem(position));
@@ -2060,7 +2048,8 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         private void onClickItem(int position) {
             Action item = getItem(position);
             if (!(item instanceof SilentModeTriStateAction)) {
-                if (mDelegate != null) {
+                if (mDelegate != null
+                        && !(item instanceof RestartAction && shouldShowRestartSubmenu())) {
                     // Usually clicking an item shuts down the phone, locks, or starts an activity.
                     // We don't want to animate back into the power button when that happens, so we
                     // disable the dialog animation before dismissing.
@@ -2938,7 +2927,10 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         private ListPopupWindow mOverflowPopup;
         private float mInitialWindowDimAmount;
 
-        private final OnBackInvokedCallback mOnBackInvokedCallback;
+        private final OnBackInvokedCallback mOnBackInvokedCallback = () -> {
+            logOnBackInvocation();
+            dismiss();
+        };
 
         @VisibleForTesting
         final GestureDetector.SimpleOnGestureListener mGestureListener =
@@ -3037,15 +3029,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             mSystemUIDialogFactory = systemUIDialogFactory;
             mGestureDetector = new GestureDetector(context, mGestureListener);
             mDeviceEntryInteractor = deviceEntryInteractor;
-            mOnBackInvokedCallback = () -> {
-                logOnBackInvocation();
-                if (mAdapter.isShowingRestartOptions()) {
-                    mAdapter.setShowingRestartOptions(false);
-                    mGlobalActionsLayout.updateList();
-                } else {
-                    dismiss();
-                }
-            };
         }
 
         @NonNull
@@ -3126,8 +3109,9 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         }
 
         public void showRestartOptionsMenu() {
-            mAdapter.setShowingRestartOptions(true);
-            mGlobalActionsLayout.updateList();
+            mRestartOptionsDialog = GlobalActionsPowerDialog.create(mContext,
+                    mRestartOptionsAdapter);
+            mRestartOptionsDialog.show();
         }
 
         public void showUsersMenu() {
@@ -3452,7 +3436,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         }
 
         private void onDismiss() {
-            mAdapter.setShowingRestartOptions(false);
             dismissOverflow();
             dismissPowerOptions();
             dismissRestartOptions();
