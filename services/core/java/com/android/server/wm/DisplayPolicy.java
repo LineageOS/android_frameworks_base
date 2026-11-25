@@ -2701,7 +2701,15 @@ public class DisplayPolicy {
         }
         if (winCandidate == null) {
             final ActivityRecord focusedApp = mDisplayContent.mFocusedApp;
-            if (focusedApp == null
+            final boolean staleNotificationShade = mSystemUiControllingWindow != null
+                    && mSystemUiControllingWindow.mAttrs.type == TYPE_NOTIFICATION_SHADE
+                    && !mSystemUiControllingWindow.canReceiveKeys();
+            if (staleNotificationShade) {
+                // A collapsed notification shade must not keep controlling the system bars, e.g.
+                // on a display only showing a non-focusable presentation window. Hand the control
+                // back to the focused app instead.
+                winCandidate = focusedApp != null ? focusedApp.findMainWindow() : null;
+            } else if (focusedApp == null
                     || (isRemoteControlling || fillsDisplayWindowingMode(focusedApp))) {
                 // Don't change the system UI controlling window when the new one is not ready.
                 return;
