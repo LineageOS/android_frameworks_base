@@ -507,7 +507,8 @@ std::unique_ptr<GnssNavigationMessageInterface> GnssHal::getGnssNavigationMessag
         sp<hardware::gnss::IGnssNavigationMessageInterface> gnssNavigationMessage;
         auto status = gnssHalAidl->getExtensionGnssNavigationMessage(&gnssNavigationMessage);
         if (checkAidlStatus(status,
-                            "Unable to get a handle to GnssNavigationMessage AIDL interface.")) {
+                            "Unable to get a handle to GnssNavigationMessage AIDL interface.") &&
+            gnssNavigationMessage != nullptr) {
             return std::make_unique<gnss::GnssNavigationMessageAidl>(gnssNavigationMessage);
         }
     } else if (gnssHal != nullptr) {
@@ -626,7 +627,8 @@ std::unique_ptr<GnssGeofenceInterface> GnssHal::getGnssGeofenceInterface() {
     if (gnssHalAidl != nullptr && gnssHalAidl->getInterfaceVersion() >= 2) {
         sp<hardware::gnss::IGnssGeofence> gnssGeofence;
         auto status = gnssHalAidl->getExtensionGnssGeofence(&gnssGeofence);
-        if (checkAidlStatus(status, "Unable to get a handle to GnssGeofence AIDL interface.")) {
+        if (checkAidlStatus(status, "Unable to get a handle to GnssGeofence AIDL interface.") &&
+            gnssGeofence != nullptr) {
             return std::make_unique<gnss::GnssGeofenceAidl>(gnssGeofence);
         }
     } else if (gnssHal != nullptr) {
@@ -642,7 +644,8 @@ std::unique_ptr<GnssBatchingInterface> GnssHal::getGnssBatchingInterface() {
     if (gnssHalAidl != nullptr && gnssHalAidl->getInterfaceVersion() >= 2) {
         sp<android::hardware::gnss::IGnssBatching> gnssBatchingAidl;
         auto status = gnssHalAidl->getExtensionGnssBatching(&gnssBatchingAidl);
-        if (checkAidlStatus(status, "Unable to get a handle to GnssBatching interface.")) {
+        if (checkAidlStatus(status, "Unable to get a handle to GnssBatching interface.") &&
+            gnssBatchingAidl != nullptr) {
             return std::make_unique<gnss::GnssBatching>(gnssBatchingAidl);
         }
     }
@@ -668,7 +671,8 @@ std::unique_ptr<MeasurementCorrectionsInterface> GnssHal::getMeasurementCorrecti
         auto status =
                 gnssHalAidl->getExtensionMeasurementCorrections(&gnssMeasurementCorrectionsAidl);
         if (checkAidlStatus(status,
-                            "Unable to get a handle to GnssVisibilityControl AIDL interface.")) {
+                            "Unable to get a handle to GnssVisibilityControl AIDL interface.") &&
+            gnssMeasurementCorrectionsAidl != nullptr) {
             return std::make_unique<gnss::MeasurementCorrectionsIface_Aidl>(
                     gnssMeasurementCorrectionsAidl);
         }
@@ -732,7 +736,8 @@ std::unique_ptr<GnssPsdsInterface> GnssHal::getGnssPsdsInterface() {
     if (gnssHalAidl != nullptr) {
         sp<IGnssPsds> gnssPsdsAidl;
         auto status = gnssHalAidl->getExtensionPsds(&gnssPsdsAidl);
-        if (checkAidlStatus(status, "Unable to get a handle to PSDS interface.")) {
+        if (checkAidlStatus(status, "Unable to get a handle to PSDS interface.") &&
+            gnssPsdsAidl != nullptr) {
             return std::make_unique<gnss::GnssPsdsAidl>(gnssPsdsAidl);
         }
     } else if (gnssHal != nullptr) {
