@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ebb7913_2eb78f78",
+        "filename": "services/core/jni/gnss/Gnss.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2026-11-26T08:45:28Z",
+      "side": 1,
+      "message": "Do not fix logging, keep the patch small",
+      "revId": "8c0a889b964d41123f7eef899a173c06931cb786",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
