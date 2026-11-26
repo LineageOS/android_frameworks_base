@@ -1260,11 +1260,19 @@ public class GnssNative {
     @NativeEntryPoint
     void reportGnssPowerStats(GnssPowerStats powerStats) {
         synchronized (mPowerStatsLock) {
+            GnssCapabilities capabilities = mCapabilities;
+            boolean supported = capabilities.hasPowerTotal()
+                    || capabilities.hasPowerSinglebandTracking()
+                    || capabilities.hasPowerMultibandTracking()
+                    || capabilities.hasPowerSinglebandAcquisition()
+                    || capabilities.hasPowerMultibandAcquisition()
+                    || capabilities.hasPowerOtherModes();
+            GnssPowerStats availablePowerStats = supported ? powerStats : null;
             mHandler.removeCallbacks(mPowerStatsTimeoutCallback);
-            if (powerStats != null) {
-                mLastKnownPowerStats = powerStats;
+            if (availablePowerStats != null || !supported) {
+                mLastKnownPowerStats = availablePowerStats;
             }
-            mPendingPowerStatsCallbacks.forEach(cb -> cb.onReportPowerStats(powerStats));
+            mPendingPowerStatsCallbacks.forEach(cb -> cb.onReportPowerStats(availablePowerStats));
             mPendingPowerStatsCallbacks.clear();
         }
     }
