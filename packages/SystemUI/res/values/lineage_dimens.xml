@@ -18,4 +18,20 @@
 <resources>
     <!-- Largest size an avatar might need to be drawn in the power menu user picker -->
     <dimen name="global_actions_avatar_size">24dp</dimen>
+
+    <!-- Accessory popup -->
+    <dimen name="accessory_popup_margin_top">8dp</dimen>
+    <dimen name="accessory_popup_height">64dp</dimen>
+    <dimen name="accessory_popup_min_width">240dp</dimen>
+    <dimen name="accessory_popup_corner_radius">32dp</dimen>
+    <dimen name="accessory_popup_elevation">6dp</dimen>
+    <dimen name="accessory_popup_padding_start">10dp</dimen>
+    <dimen name="accessory_popup_padding_end">18dp</dimen>
+    <dimen name="accessory_popup_icon_container_size">44dp</dimen>
+    <dimen name="accessory_popup_icon_size">24dp</dimen>
+    <dimen name="accessory_popup_text_gap">14dp</dimen>
+    <dimen name="accessory_popup_level_gap">20dp</dimen>
+    <dimen name="accessory_popup_bolt_size">22dp</dimen>
+    <dimen name="accessory_popup_bolt_gap">4dp</dimen>
+    <dimen name="accessory_popup_enter_offset">-12dp</dimen>
 </resources>

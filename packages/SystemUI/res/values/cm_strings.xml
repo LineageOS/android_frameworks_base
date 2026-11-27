@@ -129,4 +129,10 @@
     <string name="screenrecord_skip_time_summary">Remove the 3 second wait</string>
     <string name="screenrecord_hevc_switch_label">HEVC encoding</string>
     <string name="screenrecord_hevc_switch_summary">Use the more efficient HEVC encoder</string>
+
+    <!-- Accessory popup -->
+    <string name="accessory_popup_connected">Connected</string>
+    <string name="accessory_popup_charging">Charging</string>
+    <string name="accessory_popup_fully_charged">Fully charged</string>
+    <string name="accessory_popup_battery_low">Battery low</string>
 </resources>
