@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:accessibilityLiveRegion="polite"
+    android:background="@drawable/accessory_popup_background"
+    android:elevation="@dimen/accessory_popup_elevation"
+    android:gravity="center_vertical"
+    android:minWidth="@dimen/accessory_popup_min_width"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/accessory_popup_padding_start"
+    android:paddingEnd="@dimen/accessory_popup_padding_end">
+
+    <FrameLayout
+        android:id="@+id/accessory_popup_icon_container"
+        android:layout_width="@dimen/accessory_popup_icon_container_size"
+        android:layout_height="@dimen/accessory_popup_icon_container_size"
+        android:background="@drawable/accessory_popup_icon_background"
+        android:importantForAccessibility="no">
+
+        <ImageView
+            android:id="@+id/accessory_popup_icon"
+            android:layout_width="@dimen/accessory_popup_icon_size"
+            android:layout_height="@dimen/accessory_popup_icon_size"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/accessory_popup_text_gap"
+        android:layout_marginEnd="@dimen/accessory_popup_level_gap"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/accessory_popup_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textColor="@color/materialColorOnSurface"
+            android:textFontWeight="500"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/accessory_popup_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+            android:textColor="@color/materialColorOnSurfaceVariant"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/accessory_popup_bolt"
+        android:layout_width="@dimen/accessory_popup_bolt_size"
+        android:layout_height="@dimen/accessory_popup_bolt_size"
+        android:layout_marginEnd="@dimen/accessory_popup_bolt_gap"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_accessory_popup_bolt" />
+
+    <TextView
+        android:id="@+id/accessory_popup_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFeatureSettings="tnum"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault"
+        android:textFontWeight="500"
+        android:textSize="24sp" />
+</LinearLayout>
