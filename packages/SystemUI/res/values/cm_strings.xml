@@ -135,4 +135,7 @@
     <string name="accessory_popup_charging">Charging</string>
     <string name="accessory_popup_fully_charged">Fully charged</string>
     <string name="accessory_popup_battery_low">Battery low</string>
+    <string name="accessory_popup_connecting">Connecting\u2026</string>
+    <string name="accessory_popup_pairing_failed">Couldn\'t connect \u00b7 Tap to retry</string>
+    <string name="accessory_popup_bluetooth_disabled">Tap to turn on Bluetooth</string>
 </resources>

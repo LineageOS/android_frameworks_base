@@ -14,7 +14,9 @@ import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.dagger.qualifiers.Main
+import com.android.systemui.plugins.ActivityStarter
 import com.android.systemui.res.R
+import com.android.systemui.statusbar.policy.BluetoothController
 import java.text.NumberFormat
 import java.util.concurrent.Executor
 import javax.inject.Inject
@@ -26,9 +28,14 @@ import lineageos.accessories.BatteryInfo
 import lineageos.accessories.IAccessoriesCallback
 import lineageos.accessories.IAccessory
 import lineageos.accessories.IAccessoryCallback
+import lineageos.accessories.IAccessoryPairingCallback
+import lineageos.accessories.PairingStatus
 import lineageos.app.LineageContextConstants
 
-/** Shows a popup when a Lineage accessory gets connected, starts charging or runs low. */
+/**
+ * Shows a popup when a Lineage accessory gets connected, starts charging or runs low, and lets the
+ * user act on its pairing.
+ */
 @SysUISingleton
 class AccessoryPopupStartable
 @Inject
@@ -37,6 +44,8 @@ constructor(
     @Background private val bgExecutor: Executor,
     @Main private val mainExecutor: Executor,
     private val popup: AccessoryPopup,
+    private val activityStarter: ActivityStarter,
+    private val bluetoothController: BluetoothController,
 ) : CoreStartable {
     // Only accessed on the background executor
     private val trackers = mutableMapOf<IBinder, Tracker>()
@@ -72,7 +81,7 @@ constructor(
         // Seed the current state, so that the initial callbacks don't look like changes
         val tracker =
             try {
-                Tracker(State(accessory.accessoryInfo, accessory.accessoryStatus, null))
+                Tracker(accessory, State(accessory.accessoryInfo, accessory.accessoryStatus))
             } catch (e: RemoteException) {
                 Log.e(TAG, "Failed to get the accessory state", e)
                 return
@@ -81,8 +90,9 @@ constructor(
 
         try {
             accessory.registerCallback(tracker)
+            accessory.registerPairingCallback(tracker.pairingCallback)
         } catch (e: RemoteException) {
-            Log.e(TAG, "Failed to register the accessory callback", e)
+            Log.e(TAG, "Failed to register the accessory callbacks", e)
             trackers.remove(binder)
         }
     }
@@ -91,21 +101,23 @@ constructor(
         val tracker = trackers.remove(accessory.asBinder()) ?: return
         try {
             accessory.unregisterCallback(tracker)
+            accessory.unregisterPairingCallback(tracker.pairingCallback)
         } catch (e: RemoteException) {
-            Log.w(TAG, "Failed to unregister the accessory callback", e)
+            Log.w(TAG, "Failed to unregister the accessory callbacks", e)
         }
         val id = tracker.state.info.id
         mainExecutor.execute { popup.dismiss(id) }
     }
 
-    private fun onStateChanged(old: State, new: State) {
+    private fun onStateChanged(tracker: Tracker, old: State, new: State) {
         val id = new.info.id
-        val content = createContent(new)
+        val content = createContent(tracker, new)
         when {
             !new.isConnected || (old.isCharging && !new.isCharging) ->
                 mainExecutor.execute { popup.dismiss(id) }
             (!old.isConnected && new.isConnected) ||
                 (!old.isCharging && new.isCharging) ||
+                old.pairingStatus != new.pairingStatus ||
                 isLowBatteryReached(old, new) -> mainExecutor.execute { popup.show(id, content) }
             else -> mainExecutor.execute { popup.update(id, content) }
         }
@@ -116,7 +128,41 @@ constructor(
         return oldLevel > LOW_BATTERY_LEVEL && new.isBatteryLow
     }
 
-    private fun createContent(state: State): AccessoryPopupContent {
+    private fun createContent(tracker: Tracker, state: State): AccessoryPopupContent {
+        val icon =
+            if (state.info.type == AccessoryType.KEYBOARD) R.drawable.ic_keyboard
+            else R.drawable.ic_accessory_stylus
+        val title = state.info.displayName
+
+        fun pairingContent(subtitle: Int, isError: Boolean, onClick: (() -> Unit)?) =
+            AccessoryPopupContent(
+                icon = icon,
+                title = title,
+                subtitle = context.getString(subtitle),
+                levelText = null,
+                isCharging = false,
+                isError = isError,
+                durationMs = if (onClick != null) ACTION_DURATION_MS else PAIRING_DURATION_MS,
+                onClick = onClick,
+            )
+
+        when (state.pairingStatus) {
+            PairingStatus.PAIRING ->
+                return pairingContent(R.string.accessory_popup_connecting, false, null)
+            PairingStatus.FAILED ->
+                return pairingContent(
+                    R.string.accessory_popup_pairing_failed,
+                    true,
+                    tracker.retryPairing,
+                )
+            PairingStatus.BLUETOOTH_DISABLED ->
+                return pairingContent(
+                    R.string.accessory_popup_bluetooth_disabled,
+                    false,
+                    enableBluetooth,
+                )
+        }
+
         val level = state.level
         val subtitle =
             when {
@@ -126,10 +172,8 @@ constructor(
                 else -> R.string.accessory_popup_connected
             }
         return AccessoryPopupContent(
-            icon =
-                if (state.info.type == AccessoryType.KEYBOARD) R.drawable.ic_keyboard
-                else R.drawable.ic_accessory_stylus,
-            title = state.info.displayName,
+            icon = icon,
+            title = title,
             subtitle = context.getString(subtitle),
             levelText =
                 level?.let { NumberFormat.getPercentInstance().format(it / FULL_LEVEL.toDouble()) },
@@ -139,10 +183,26 @@ constructor(
         )
     }
 
+    // Pairing a new input device must not be possible from the lockscreen
+    private fun runUnlocked(action: () -> Unit) {
+        activityStarter.executeRunnableDismissingKeyguard(
+            { action() },
+            /* cancelAction= */ null,
+            /* dismissShade= */ false,
+            /* afterKeyguardGone= */ true,
+            /* deferred= */ false,
+        )
+    }
+
+    private val enableBluetooth: () -> Unit = {
+        runUnlocked { bluetoothController.setBluetoothEnabled(true) }
+    }
+
     private data class State(
         val info: AccessoryInfo,
         val status: Byte,
-        val battery: BatteryInfo?,
+        val battery: BatteryInfo? = null,
+        val pairingStatus: Byte = PairingStatus.IDLE,
     ) {
         val isConnected = status != AccessoryStatus.DISCONNECTED
         val isCharging = info.isCharging
@@ -150,10 +210,30 @@ constructor(
         val isBatteryLow = !isCharging && level != null && level <= LOW_BATTERY_LEVEL
     }
 
-    private inner class Tracker(initialState: State) : IAccessoryCallback.Stub() {
+    private inner class Tracker(private val accessory: IAccessory, initialState: State) :
+        IAccessoryCallback.Stub() {
         // Only accessed on the background executor
         var state = initialState
             private set
+
+        val pairingCallback =
+            object : IAccessoryPairingCallback.Stub() {
+                override fun onPairingStatusUpdated(status: Byte) {
+                    bgExecutor.execute { update(state.copy(pairingStatus = status)) }
+                }
+            }
+
+        val retryPairing: () -> Unit = {
+            runUnlocked {
+                bgExecutor.execute {
+                    try {
+                        accessory.retryPairing()
+                    } catch (e: RemoteException) {
+                        Log.e(TAG, "Failed to retry pairing", e)
+                    }
+                }
+            }
+        }
 
         override fun onAccessoryInfoUpdated(accessoryInfo: AccessoryInfo?) {
             accessoryInfo ?: return
@@ -174,7 +254,7 @@ constructor(
             }
             val oldState = state
             state = newState
-            onStateChanged(oldState, newState)
+            onStateChanged(this, oldState, newState)
         }
     }
 
@@ -188,5 +268,7 @@ constructor(
 
         private const val DURATION_MS = 2500L
         private const val LOW_BATTERY_DURATION_MS = 4000L
+        private const val PAIRING_DURATION_MS = 30_000L
+        private const val ACTION_DURATION_MS = 8000L
     }
 }
