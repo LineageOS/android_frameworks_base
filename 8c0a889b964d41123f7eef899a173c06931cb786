@@ -36,6 +36,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85950d8f_526e0f05",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25732
+      },
+      "writtenOn": "2026-11-27T13:38:28Z",
+      "side": 1,
+      "message": "Can you instead return an error in your wrapper if the extension is null? I would only accept this patch if it\u0027s happening with a prebuilt GNSS AIDL implementation, but you can fix it in the wrapper\n\nElse, you might want to submit this to AOSP\n\n(note: the patch is absolutely correct, it\u0027s just extra burden for later rebases)",
+      "parentUuid": "077d083d_3b4407eb",
+      "revId": "8c0a889b964d41123f7eef899a173c06931cb786",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ebb7913_2eb78f78",
