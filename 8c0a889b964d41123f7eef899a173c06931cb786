@@ -18,6 +18,24 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "077d083d_3b4407eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 38848
+      },
+      "writtenOn": "2026-11-27T13:28:15Z",
+      "side": 1,
+      "message": "This happens with any AIDL IGnss HAL implementation that does not support one or more of the five optional extensions and returns Status::ok() with a null binder (we hit it with our AIDL IGnss wrapper backed by a MediaTek HIDL 2.1 GNSS HAL that lacks some optional extensions).\n\nIn hardware/interfaces/gnss/aidl/android/hardware/gnss/IGnss.aidl, exactly those five getters are annotated @nullable:\n- getExtensionPsds() (line 146)\n- getExtensionGnssBatching() (line 180)\n- getExtensionGnssGeofence() (line 187)\n- getExtensionGnssNavigationMessage() (line 194)\n- getExtensionMeasurementCorrections() (line 334)\n\nReturning Status::ok() with nullptr is therefore explicitly valid per the AIDL contract (and mirrors the HIDL branches right below in Gnss.cpp, where checkHidlReturn() already verifies both isOk() and non-null before wrapping). Without the nullptr check, Gnss.cpp wraps the null sp\u003c\u003e and system_server crashes on the first dereference.",
+      "parentUuid": "14335c53_5764c6e4",
+      "revId": "8c0a889b964d41123f7eef899a173c06931cb786",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ebb7913_2eb78f78",
