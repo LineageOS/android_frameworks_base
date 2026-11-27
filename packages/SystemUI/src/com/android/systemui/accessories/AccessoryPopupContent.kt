@@ -15,4 +15,5 @@ data class AccessoryPopupContent(
     val isCharging: Boolean,
     val isError: Boolean,
     val durationMs: Long,
+    val onClick: (() -> Unit)? = null,
 )
