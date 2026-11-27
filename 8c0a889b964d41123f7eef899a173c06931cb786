@@ -33,6 +33,24 @@
       "message": "Do not fix logging, keep the patch small",
       "revId": "8c0a889b964d41123f7eef899a173c06931cb786",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "374a26b1_93dc59fd",
+        "filename": "services/core/jni/gnss/Gnss.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 38848
+      },
+      "writtenOn": "2026-11-27T02:38:47Z",
+      "side": 1,
+      "message": "Done in Patch Set 2 — kept the existing log string untouched and limited the diff strictly to the 5 nullptr checks.",
+      "parentUuid": "4ebb7913_2eb78f78",
+      "revId": "8c0a889b964d41123f7eef899a173c06931cb786",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
