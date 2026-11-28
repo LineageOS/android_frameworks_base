@@ -157,8 +157,11 @@ class VariableDateViewController(
                 if (
                     !isQsExpanded &&
                         MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.AT_MOST &&
-                        // if expanding the shade and previous width was zero, update the format
-                        !(lastWidth == 0 && shadeInteractor.isAnyExpanded.value)
+                        // if expanding the shade and previous width was zero, update the format.
+                        // Not isAnyExpanded: in the legacy shade it stays true while the keyguard
+                        // shows, and the AT_MOST and EXACTLY passes then switch the pattern on
+                        // every frame for a date with no width.
+                        !(lastWidth == 0 && shadeInteractor.anyExpansion.value > 0f)
                 ) {
                     // ignore measured width from AT_MOST passes when in QQS (b/289489856)
                     return
