@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d3f349_c53801cb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-28T11:27:55Z",
+      "side": 1,
+      "message": "frameworks/base/packages/SystemUI/src/com/android/systemui/accessories/AccessoryPopupStartable.kt:134:29: error: unresolved reference \u0027ic_bt_stylus\u0027.\n            else R.drawable.ic_bt_stylus\n                            ^^^^^^^^^^^^",
+      "revId": "49c82e0fbe7b5f6979995e1320cffc0fbb5ab8fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2c30de5_7b4635d5",
+        "filename": "packages/SystemUI/src/com/android/systemui/accessories/AccessoryPopupStartable.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2026-11-28T11:27:55Z",
+      "side": 1,
+      "message": "uhhh, where is this drawable?",
+      "range": {
+        "startLine": 131,
+        "startChar": 32,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "49c82e0fbe7b5f6979995e1320cffc0fbb5ab8fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
