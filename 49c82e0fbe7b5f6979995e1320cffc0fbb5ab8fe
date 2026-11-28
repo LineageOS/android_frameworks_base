@@ -39,6 +39,30 @@
       },
       "revId": "49c82e0fbe7b5f6979995e1320cffc0fbb5ab8fe",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c782730_65ea54b7",
+        "filename": "packages/SystemUI/src/com/android/systemui/accessories/AccessoryPopupStartable.kt",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 34519
+      },
+      "writtenOn": "2026-11-28T12:08:37Z",
+      "side": 1,
+      "message": "Should be fixed now",
+      "parentUuid": "e2c30de5_7b4635d5",
+      "range": {
+        "startLine": 131,
+        "startChar": 32,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "49c82e0fbe7b5f6979995e1320cffc0fbb5ab8fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
