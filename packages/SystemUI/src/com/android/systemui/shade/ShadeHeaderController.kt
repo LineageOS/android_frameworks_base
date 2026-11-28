@@ -170,6 +170,11 @@ constructor(
     private var roundedCorners = 0
     private var cutout: DisplayCutout? = null
     private var lastInsets: WindowInsets? = null
+    // Header width and horizontal paddings that the insets constraints were last computed with.
+    private var insetsConstraintsWidth = -1
+    private var insetsConstraintsPaddingLeft = -1
+    private var insetsConstraintsPaddingRight = -1
+    private var insetsConstraintsRtl = false
     private var nextAlarmIntent: PendingIntent? = null
 
     private val showBatteryEstimate = MutableStateFlow(false)
@@ -259,6 +264,35 @@ constructor(
                 insets
             }
         }
+
+    /**
+     * The center cutout guidelines are computed from the header's width, but the first window
+     * insets reach the header before its first layout, while its width is still 0, and
+     * [insetListener] skips insets equal to [lastInsets]. A negative offset is then dropped by the
+     * guidelines, which leaves the QQS date with no width. Apply the insets constraints again once
+     * the header is laid out with another width or horizontal padding than they were computed
+     * with.
+     */
+    private val reapplyInsetsConstraints = Runnable {
+        val insets = lastInsets
+        if (insets != null && insetsConstraintsOutdated()) {
+            updateConstraintsForInsets(header, insets)
+        }
+    }
+
+    private val headerLayoutChangeListener =
+        View.OnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            if (lastInsets != null && insetsConstraintsOutdated()) {
+                header.removeCallbacks(reapplyInsetsConstraints)
+                header.post(reapplyInsetsConstraints)
+            }
+        }
+
+    private fun insetsConstraintsOutdated() =
+        header.width != insetsConstraintsWidth ||
+            header.paddingLeft != insetsConstraintsPaddingLeft ||
+            header.paddingRight != insetsConstraintsPaddingRight ||
+            header.isLayoutRtl != insetsConstraintsRtl
 
     private var singleCarrier = false
 
@@ -421,6 +455,7 @@ constructor(
         updateCarrierGroupPadding()
 
         header.setOnApplyWindowInsetsListener(insetListener)
+        header.addOnLayoutChangeListener(headerLayoutChangeListener)
 
         clock.addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ ->
             val newPivot = if (v.isLayoutRtl) v.width.toFloat() else 0f
@@ -440,6 +475,8 @@ constructor(
     }
 
     override fun onViewDetached() {
+        header.removeOnLayoutChangeListener(headerLayoutChangeListener)
+        header.removeCallbacks(reapplyInsetsConstraints)
         clock.setOnClickListener(null)
         privacyIconsController.chipVisibilityListener = null
         dumpManager.unregisterDumpable(this::class.java.simpleName)
@@ -515,6 +552,11 @@ constructor(
     }
 
     private fun updateConstraintsForInsets(view: MotionLayout, insets: WindowInsets) {
+        // Recorded before the provider check, so a missing provider does not post a re-apply on every layout.
+        insetsConstraintsWidth = view.width
+        insetsConstraintsPaddingLeft = view.paddingLeft
+        insetsConstraintsPaddingRight = view.paddingRight
+        insetsConstraintsRtl = view.isLayoutRtl
         val insetsProvider = statusBarContentInsetsProvider ?: return
         val cutout = insets.displayCutout.also { this.cutout = it }
 
