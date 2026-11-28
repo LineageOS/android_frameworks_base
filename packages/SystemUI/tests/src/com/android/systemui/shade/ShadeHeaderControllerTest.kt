@@ -818,6 +818,111 @@ class ShadeHeaderControllerTest : SysuiTestCase() {
     }
 
     @Test
+    fun topCutout_insetsBeforeFirstLayout_reappliedWithLaidOutWidth() {
+        val width = 100
+        val paddingLeft = 10
+        val paddingRight = 20
+        val cutoutWidth = 30
+
+        whenever(view.isLayoutRtl).thenReturn(false)
+        whenever(view.width).thenReturn(0)
+        whenever(view.paddingLeft).thenReturn(paddingLeft)
+        whenever(view.paddingRight).thenReturn(paddingRight)
+        runPostedRunnablesAtOnce()
+        mockInsetsProvider(0 to 0, false)
+        val insetsCaptor = ArgumentCaptor.forClass(View.OnApplyWindowInsetsListener::class.java)
+        verify(view).setOnApplyWindowInsetsListener(capture(insetsCaptor))
+        val layoutCaptor = ArgumentCaptor.forClass(View.OnLayoutChangeListener::class.java)
+        verify(view).addOnLayoutChangeListener(capture(layoutCaptor))
+
+        // The window's first insets reach the header before its first layout, at width 0.
+        insetsCaptor.value.onApplyWindowInsets(
+            view,
+            createCutoutWindowInsets(Rect(0, 0, cutoutWidth, 1)),
+        )
+        verify(combinedShadeHeadersConstraintManager)
+            .centerCutoutConstraints(false, (0 - paddingLeft - paddingRight - cutoutWidth) / 2)
+
+        view.executeLayoutChange(0, 0, width, 50, layoutCaptor.value)
+
+        verify(combinedShadeHeadersConstraintManager)
+            .centerCutoutConstraints(false, (width - paddingLeft - paddingRight - cutoutWidth) / 2)
+    }
+
+    @Test
+    fun topCutout_paddingChangedAfterInsets_reappliedWithNewPadding() {
+        val width = 100
+        val paddingRight = 20
+        val cutoutWidth = 30
+
+        whenever(view.isLayoutRtl).thenReturn(false)
+        whenever(view.width).thenReturn(width)
+        whenever(view.paddingLeft).thenReturn(10)
+        whenever(view.paddingRight).thenReturn(paddingRight)
+        runPostedRunnablesAtOnce()
+        mockInsetsProvider(0 to 0, false)
+        val insetsCaptor = ArgumentCaptor.forClass(View.OnApplyWindowInsetsListener::class.java)
+        verify(view).setOnApplyWindowInsetsListener(capture(insetsCaptor))
+        val layoutCaptor = ArgumentCaptor.forClass(View.OnLayoutChangeListener::class.java)
+        verify(view).addOnLayoutChangeListener(capture(layoutCaptor))
+        insetsCaptor.value.onApplyWindowInsets(
+            view,
+            createCutoutWindowInsets(Rect(0, 0, cutoutWidth, 1)),
+        )
+
+        whenever(view.paddingLeft).thenReturn(16)
+        view.executeLayoutChange(0, 0, width, 50, layoutCaptor.value)
+
+        verify(combinedShadeHeadersConstraintManager)
+            .centerCutoutConstraints(false, (width - 16 - paddingRight - cutoutWidth) / 2)
+    }
+
+    @Test
+    fun topCutout_layoutWithSameWidthAndPadding_insetsNotReapplied() {
+        val width = 100
+
+        whenever(view.isLayoutRtl).thenReturn(false)
+        whenever(view.width).thenReturn(width)
+        whenever(view.paddingLeft).thenReturn(10)
+        whenever(view.paddingRight).thenReturn(20)
+        runPostedRunnablesAtOnce()
+        mockInsetsProvider(0 to 0, false)
+        val insetsCaptor = ArgumentCaptor.forClass(View.OnApplyWindowInsetsListener::class.java)
+        verify(view).setOnApplyWindowInsetsListener(capture(insetsCaptor))
+        val layoutCaptor = ArgumentCaptor.forClass(View.OnLayoutChangeListener::class.java)
+        verify(view).addOnLayoutChangeListener(capture(layoutCaptor))
+        insetsCaptor.value.onApplyWindowInsets(view, createCutoutWindowInsets(Rect(0, 0, 30, 1)))
+
+        view.executeLayoutChange(0, 0, width, 50, layoutCaptor.value)
+        view.executeLayoutChange(0, 0, width, 60, layoutCaptor.value)
+
+        verify(combinedShadeHeadersConstraintManager, times(1))
+            .centerCutoutConstraints(Mockito.anyBoolean(), anyInt())
+    }
+
+    @Test
+    fun headerLayoutBeforeAnyInsets_insetsNotApplied() {
+        runPostedRunnablesAtOnce()
+        val layoutCaptor = ArgumentCaptor.forClass(View.OnLayoutChangeListener::class.java)
+        verify(view).addOnLayoutChangeListener(capture(layoutCaptor))
+
+        view.executeLayoutChange(0, 0, 100, 50, layoutCaptor.value)
+
+        verify(combinedShadeHeadersConstraintManager, Mockito.never())
+            .edgesGuidelinesConstraints(anyInt(), anyInt(), anyInt(), anyInt())
+    }
+
+    @Test
+    fun headerLayoutListenerRemovedWhenDetached() {
+        val layoutCaptor = ArgumentCaptor.forClass(View.OnLayoutChangeListener::class.java)
+        verify(view).addOnLayoutChangeListener(capture(layoutCaptor))
+
+        shadeHeaderController.simulateViewDetached()
+
+        verify(view).removeOnLayoutChangeListener(layoutCaptor.value)
+    }
+
+    @Test
     fun sameInsetsTwice_listenerCallsOnApplyWindowInsetsOnlyOnce() {
         val windowInsets = createWindowInsets()
 
@@ -972,6 +1077,20 @@ class ShadeHeaderControllerTest : SysuiTestCase() {
             right,
             bottom,
         )
+    }
+
+    private fun runPostedRunnablesAtOnce() {
+        whenever(view.post(any())).thenAnswer {
+            (it.arguments[0] as Runnable).run()
+            true
+        }
+    }
+
+    /** Real insets: the controller keeps a copy of them, and a copy of a mock has no cutout. */
+    private fun createCutoutWindowInsets(topCutout: Rect): WindowInsets {
+        val cutout =
+            DisplayCutout(Insets.of(0, topCutout.bottom, 0, 0), null, topCutout, null, null)
+        return WindowInsets.Builder().setDisplayCutout(cutout).build()
     }
 
     private fun createWindowInsets(topCutout: Rect? = Rect()): WindowInsets {
