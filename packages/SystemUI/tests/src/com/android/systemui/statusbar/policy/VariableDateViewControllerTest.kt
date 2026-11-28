@@ -213,6 +213,39 @@ class VariableDateViewControllerTest : SysuiTestCase() {
         assertThat(lastText).isEqualTo(longText)
     }
 
+    @Test
+    fun testZeroWidthOnKeyguard_ignoreAtMostMeasureRequests() {
+        // The legacy shade on the keyguard: isAnyExpanded stays true, nothing is being expanded.
+        `when`(shadeInteractor.isAnyExpanded).thenReturn(MutableStateFlow(true))
+        `when`(shadeInteractor.anyExpansion).thenReturn(MutableStateFlow(0f))
+        qsExpansion.value = 0f
+
+        onMeasureListenerCaptor.value.onMeasureAction(0, View.MeasureSpec.EXACTLY)
+        testableLooper.processAllMessages()
+        assertThat(lastText).isEmpty()
+
+        // An AT_MOST pass must not switch the pattern back, or the next EXACTLY pass switches it
+        // again and every frame requests a new layout.
+        onMeasureListenerCaptor.value.onMeasureAction(10000, View.MeasureSpec.AT_MOST)
+        testableLooper.processAllMessages()
+        assertThat(lastText).isEmpty()
+    }
+
+    @Test
+    fun testZeroWidthWhileExpandingShade_acceptAtMostMeasureRequests() {
+        `when`(shadeInteractor.isAnyExpanded).thenReturn(MutableStateFlow(true))
+        `when`(shadeInteractor.anyExpansion).thenReturn(MutableStateFlow(0.5f))
+        qsExpansion.value = 0f
+
+        onMeasureListenerCaptor.value.onMeasureAction(0, View.MeasureSpec.EXACTLY)
+        testableLooper.processAllMessages()
+        assertThat(lastText).isEmpty()
+
+        onMeasureListenerCaptor.value.onMeasureAction(10000, View.MeasureSpec.AT_MOST)
+        testableLooper.processAllMessages()
+        assertThat(lastText).isEqualTo(longText)
+    }
+
     private fun getTextLength(text: CharSequence): Float {
         return text.length * CHAR_WIDTH
     }
